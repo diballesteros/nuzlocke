@@ -1,0 +1,48 @@
+.app {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+
+  .appBar {
+    z-index: 1201;
+    transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
+      margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+
+    .menuIcon {
+      margin-right: 36px;
+    }
+  }
+  .appBarShift {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    transition: width 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
+      margin 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .drawer {
+    width: 240px;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .arrowContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .open {
+    width: 240px;
+    transition: width 225ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .close {
+    width: 50px;
+    transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
+  }
+
+  .main {
+    margin-top: 64px;
+    flex: 1;
+  }
+}
