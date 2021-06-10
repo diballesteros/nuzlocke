@@ -1,10 +1,15 @@
 .layout {
-  height: 100%;
-  width: 100%;
   display: grid;
   place-items: center;
+  height: calc(100% - 40px);
+  width: 100%;
+  padding: 20px 0;
 
   .container {
+    height: 100%;
+    width: 80%;
+    max-width: 1200px;
     border: 1px solid black;
+    border-radius: 3px;
   }
 }
