@@ -1,7 +1,12 @@
 import React, { useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
+import Button from '@material-ui/core/Button';
 import { GAMES } from 'constants/constant';
+import Close from '@material-ui/icons/Close';
+import Export from '@material-ui/icons/GetApp';
+import Import from '@material-ui/icons/Publish';
+
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
@@ -10,9 +15,10 @@ const Header: React.FC = () => {
   return (
     <div className={styles.header}>
       <Autocomplete
-        style={{ width: 300 }}
-        options={GAMES}
         autoHighlight
+        className={styles.gameSelect}
+        classes={{ inputRoot: styles.gameSelect }}
+        options={GAMES}
         getOptionLabel={(option) => option.name}
         renderOption={(option) => <>{option.name}</>}
         renderInput={(params) => (
@@ -27,7 +33,17 @@ const Header: React.FC = () => {
           />
         )}
       />
-      <div>Buttons</div>
+      <div className={styles.buttons}>
+        <Button color="default" variant="contained" endIcon={<Export />}>
+          Export
+        </Button>
+        <Button color="default" variant="contained" endIcon={<Import />}>
+          Import
+        </Button>
+        <Button color="default" variant="contained" endIcon={<Close />}>
+          Clear
+        </Button>
+      </div>
     </div>
   );
 };

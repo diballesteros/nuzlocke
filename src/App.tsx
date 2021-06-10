@@ -4,8 +4,8 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Tracker from 'components/Tracker/Tracker';
-import { ReactComponent as Menu } from 'assets/svg/menu.svg';
-import { ReactComponent as ArrowLeft } from 'assets/svg/arrow-left.svg';
+import Menu from '@material-ui/icons/Menu';
+import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
@@ -44,7 +44,7 @@ const App: React.FC = () => {
       >
         <div className={styles.arrowContainer}>
           <IconButton onClick={handleClose}>
-            <ArrowLeft />
+            <ArrowBackIos />
           </IconButton>
         </div>
       </Drawer>
