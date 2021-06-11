@@ -34,7 +34,7 @@ const Header: React.FC = () => {
       />
       <div className={styles.buttons}>
         <Button color="default" variant="contained" endIcon={<Add />}>
-          Add Route
+          Add Encounter
         </Button>
         <Button color="default" variant="contained" endIcon={<Export />}>
           Export

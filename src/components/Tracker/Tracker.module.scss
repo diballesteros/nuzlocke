@@ -6,6 +6,9 @@
   padding: 20px 0;
 
   .container {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
     height: 100%;
     width: 80%;
     max-width: 1200px;

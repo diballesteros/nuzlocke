@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header, Options, Selection } from 'components';
+import { Badges, Header, Selection } from 'components';
 import styles from './Tracker.module.scss';
 
 const Tracker: React.FC = () => {
@@ -7,7 +7,7 @@ const Tracker: React.FC = () => {
     <div className={styles.layout}>
       <div className={styles.container}>
         <Header />
-        <Options />
+        <Badges />
         <div className={styles.list}>
           <Selection />
           <Selection />

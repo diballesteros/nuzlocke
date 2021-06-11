@@ -1,0 +1,27 @@
+.badges {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  position: relative;
+
+  .badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    gap: 5px;
+    filter: grayscale(1.1);
+    background-color: #ffaca8;
+    padding: 10px;
+    border-right: 1px solid #ffffff;
+    border-radius: 2px;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .levelCap {
+      align-self: flex-end;
+    }
+  }
+}
