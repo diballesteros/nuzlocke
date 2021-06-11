@@ -1,6 +1,6 @@
-import bulbasaur from 'assets/img/bulbasaur.png';
-import ivysaur from 'assets/img/ivysaur.png';
-import venusaur from 'assets/img/venusaur.png';
+import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
+import ivysaur from 'assets/img/pokemon/ivysaur.png';
+import venusaur from 'assets/img/pokemon/venusaur.png';
 
 export const GAMES = [
   {

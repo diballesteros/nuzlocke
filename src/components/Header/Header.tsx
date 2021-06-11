@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Button from '@material-ui/core/Button';
@@ -6,12 +6,11 @@ import { GAMES } from 'constants/constant';
 import Close from '@material-ui/icons/Close';
 import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
+import Add from '@material-ui/icons/Add';
 
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
-  const [value, setValue] = useState('');
-
   return (
     <div className={styles.header}>
       <Autocomplete
@@ -34,6 +33,9 @@ const Header: React.FC = () => {
         )}
       />
       <div className={styles.buttons}>
+        <Button color="default" variant="contained" endIcon={<Add />}>
+          Add Route
+        </Button>
         <Button color="default" variant="contained" endIcon={<Export />}>
           Export
         </Button>
