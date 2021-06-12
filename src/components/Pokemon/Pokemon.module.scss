@@ -1,6 +1,6 @@
 .pokemonSelect {
   height: 30px;
-  width: 300px;
+  width: 215px;
 
   :global(.MuiInputLabel-outlined) {
     transform: translate(14px, 10px) scale(1);
@@ -12,5 +12,10 @@
 
   input {
     padding: 0 !important;
+  }
+
+  .option {
+    display: flex !important;
+    align-items: center;
   }
 }

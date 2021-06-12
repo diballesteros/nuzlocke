@@ -9,10 +9,15 @@ const Selection: React.FC = () => {
     <Autocomplete
       autoHighlight
       className={styles.pokemonSelect}
-      classes={{ inputRoot: styles.gameSelect }}
+      classes={{ inputRoot: styles.pokemonSelect }}
       options={POKEMON}
       getOptionLabel={(option) => option.name}
-      renderOption={(option) => <>{option.name}</>}
+      renderOption={(poke) => (
+        <div className={styles.option}>
+          <img src={poke.src} alt={poke.name} />
+          {poke.name}
+        </div>
+      )}
       renderInput={(params) => (
         <TextField
           {...params}

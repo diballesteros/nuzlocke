@@ -59,17 +59,17 @@ export const GAMES = [
 
 export const POKEMON = [
   {
-    name: 'bulbasaur',
+    name: 'Bulbasaur',
     src: bulbasaur,
   },
 
   {
-    name: 'ivysaur',
+    name: 'Ivysaur',
     src: ivysaur,
   },
 
   {
-    name: 'venusaur',
+    name: 'Venusaur',
     src: venusaur,
   },
 ];

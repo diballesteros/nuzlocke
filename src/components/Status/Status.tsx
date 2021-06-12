@@ -9,7 +9,7 @@ const Status: React.FC = () => {
     <Autocomplete
       autoHighlight
       className={styles.statusSelect}
-      classes={{ inputRoot: styles.gameSelect }}
+      classes={{ inputRoot: styles.statusSelect }}
       options={STATUSES}
       getOptionLabel={(option) => option.name}
       renderOption={(option) => <>{option.name}</>}
