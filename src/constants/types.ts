@@ -13,3 +13,8 @@ export type TPokemon = {
   name: string;
   src: string;
 };
+
+export type TStatus = {
+  id: number;
+  name: string;
+};

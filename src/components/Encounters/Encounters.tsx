@@ -1,5 +1,5 @@
 import React from 'react';
-import { Selection } from 'components';
+import { Selection, Status } from 'components';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = () => {
@@ -13,6 +13,8 @@ const Encounters: React.FC = () => {
       <div className={styles.row}>
         <div>Route 1</div>
         <Selection />
+        <Status />
+        <span>X</span>
       </div>
     </div>
   );
