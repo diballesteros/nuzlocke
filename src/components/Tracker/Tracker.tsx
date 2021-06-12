@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badges, Header, Selection } from 'components';
+import { Badges, Encounters, Header } from 'components';
 import styles from './Tracker.module.scss';
 
 const Tracker: React.FC = () => {
@@ -9,9 +9,7 @@ const Tracker: React.FC = () => {
         <Header />
         <Badges />
         <div className={styles.list}>
-          <Selection />
-          <Selection />
-          <Selection />
+          <Encounters />
         </div>
       </div>
     </div>

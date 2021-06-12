@@ -1,0 +1,9 @@
+.table {
+  display: flex;
+  flex-flow: column nowrap;
+
+  .row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr) auto;
+  }
+}

@@ -9,8 +9,9 @@
     display: flex;
     flex-flow: column nowrap;
     gap: 5px;
-    height: 100%;
-    width: 80%;
+    height: calc(100% - 20px);
+    width: calc(100% - 20px);
+    padding: 10px;
     max-width: 1200px;
     border: 1px solid black;
     border-radius: 3px;
