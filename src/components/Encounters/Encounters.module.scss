@@ -2,9 +2,19 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
+  border-radius: 3px;
+  border: 1px solid black;
 
   .row {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(3, 1fr) auto;
+    grid-template-rows: 100%;
+    padding: 10px;
+
+    &.tableHeader {
+      background-color: #d46a6a;
+      color: #ffffff;
+    }
   }
 }

@@ -1,6 +1,7 @@
 import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
 import ivysaur from 'assets/img/pokemon/ivysaur.png';
 import venusaur from 'assets/img/pokemon/venusaur.png';
+import { TPokemon } from './types';
 
 export const GAMES = [
   {
@@ -57,18 +58,21 @@ export const GAMES = [
   },
 ];
 
-export const POKEMON = [
+export const POKEMON: TPokemon[] = [
   {
+    id: 1,
     name: 'Bulbasaur',
     src: bulbasaur,
   },
 
   {
+    id: 2,
     name: 'Ivysaur',
     src: ivysaur,
   },
 
   {
+    id: 3,
     name: 'Venusaur',
     src: venusaur,
   },
