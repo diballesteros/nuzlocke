@@ -11,7 +11,7 @@ const Badges: React.FC = () => {
 
   return (
     <div className={styles.badges}>
-      {!!state.selectedGame &&
+      {!!state.selectedGame ? (
         BADGES[state.selectedGame?.id]?.map((badge, index) => {
           return (
             <button
@@ -27,7 +27,10 @@ const Badges: React.FC = () => {
               <span className={styles.levelCap}>{badge.levelCap}</span>
             </button>
           );
-        })}
+        })
+      ) : (
+        <div className={styles.suggestion}>Select a Game</div>
+      )}
     </div>
   );
 };
