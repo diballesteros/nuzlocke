@@ -12,6 +12,10 @@
     grid-template-rows: 100%;
     padding: 10px;
 
+    &:nth-child(odd) {
+      background-color: #ffe8e8;
+    }
+
     &.tableHeader {
       background-color: #d46a6a;
       color: #ffffff;

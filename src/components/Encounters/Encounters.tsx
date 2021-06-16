@@ -1,7 +1,7 @@
 import React from 'react';
 import { IconButton } from '@material-ui/core';
 import Delete from '@material-ui/icons/Delete';
-import { Selection, Status } from 'components';
+import { Pokemon, Status } from 'components';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = () => {
@@ -15,7 +15,39 @@ const Encounters: React.FC = () => {
       </div>
       <div className={styles.row}>
         <div>Route 1</div>
-        <Selection />
+        <Pokemon />
+        <Status />
+        <IconButton aria-label="delete">
+          <Delete />
+        </IconButton>
+      </div>
+      <div className={styles.row}>
+        <div>Route 1</div>
+        <Pokemon />
+        <Status />
+        <IconButton aria-label="delete">
+          <Delete />
+        </IconButton>
+      </div>
+      <div className={styles.row}>
+        <div>Route 1</div>
+        <Pokemon />
+        <Status />
+        <IconButton aria-label="delete">
+          <Delete />
+        </IconButton>
+      </div>
+      <div className={styles.row}>
+        <div>Route 1</div>
+        <Pokemon />
+        <Status />
+        <IconButton aria-label="delete">
+          <Delete />
+        </IconButton>
+      </div>
+      <div className={styles.row}>
+        <div>Route 1</div>
+        <Pokemon />
         <Status />
         <IconButton aria-label="delete">
           <Delete />

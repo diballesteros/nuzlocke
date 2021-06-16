@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import Button from '@material-ui/core/Button';
@@ -7,10 +7,11 @@ import Close from '@material-ui/icons/Close';
 import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
 import Add from '@material-ui/icons/Add';
-
+import AppContext from 'context/AppContext';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
+  const { state, dispatch } = useContext(AppContext);
   return (
     <div className={styles.header}>
       <Autocomplete

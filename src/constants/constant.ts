@@ -1,9 +1,14 @@
 import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
 import ivysaur from 'assets/img/pokemon/ivysaur.png';
 import venusaur from 'assets/img/pokemon/venusaur.png';
-import { TPokemon } from './types';
+import { AppState, TGame, TPokemon } from './types';
 
-export const GAMES = [
+export const INITIAL_STATE: AppState = {
+  selectedGame: null,
+  games: {},
+};
+
+export const GAMES: TGame[] = [
   {
     id: 1,
     name: 'Red, Blue and Yellow',

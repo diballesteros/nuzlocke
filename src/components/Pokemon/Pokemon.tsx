@@ -6,9 +6,11 @@ import { TPokemon } from 'constants/types';
 import styles from './Pokemon.module.scss';
 
 const Selection: React.FC = () => {
-  const [value, setValue] = useState<TPokemon | null>(null);
-  const onChange = (e: unknown, selectedPokemon: TPokemon | null) => {
-    setValue(selectedPokemon);
+  const [value, setValue] = useState<TPokemon>(null);
+  const onChange = (e: unknown, selectedPokemon: TPokemon | string) => {
+    if (typeof selectedPokemon !== 'string') {
+      setValue(selectedPokemon);
+    }
   };
 
   return (
