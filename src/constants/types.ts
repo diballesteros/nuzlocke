@@ -9,15 +9,22 @@ export type TrackData = {
   badge: number;
 };
 
-export type AppActions = {
-  type: 'SELECT_GAME';
-  payload: {
-    game: string;
-  };
-};
+export type AppActions =
+  | {
+      type: 'SELECT_GAME';
+      payload: {
+        game: TGame;
+      };
+    }
+  | {
+      type: 'SELECT_BADGE';
+      payload: {
+        badgeIndex: number;
+      };
+    };
 
 export type TGame = {
-  id: number;
+  id: string;
   name: string;
 };
 

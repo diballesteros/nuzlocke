@@ -6,13 +6,16 @@ import IconButton from '@material-ui/core/IconButton';
 import Tracker from 'components/Tracker/Tracker';
 import Menu from '@material-ui/icons/Menu';
 import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
+import produce from 'immer';
 import appReducer from 'App.reducer';
 import AppContext from 'context/AppContext';
 import { INITIAL_STATE } from 'constants/constant';
 import styles from './App.module.scss';
 
+const curriedAppReducer = produce(appReducer);
+
 const App: React.FC = () => {
-  const [state, dispatch] = useReducer(appReducer, INITIAL_STATE);
+  const [state, dispatch] = useReducer(curriedAppReducer, INITIAL_STATE);
   const [open, setOpen] = useState(false);
 
   const handleOpen = () => {
