@@ -7,6 +7,7 @@ export type Games = { [key: string]: TrackData };
 
 export type TrackData = {
   badge: number;
+  encounters: TEncounter[];
 };
 
 export type AppActions =
@@ -38,6 +39,14 @@ export type TBadge = {
   name: string;
   src: string;
 };
+
+export type TEncounter = {
+  encounter: TPokemon | string;
+  id: number;
+  location: string;
+  status: TStatus;
+};
+
 export type TPokemon = {
   id: number;
   name: string;
@@ -46,5 +55,9 @@ export type TPokemon = {
 
 export type TStatus = {
   id: number;
+  name: string;
+};
+
+export type TLocation = {
   name: string;
 };

@@ -5,8 +5,8 @@ import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
   const { state, dispatch } = useContext(AppContext);
-  const handleClick = (i: number) => {
-    dispatch({ type: 'SELECT_BADGE', payload: { badgeIndex: i } });
+  const handleClick = (badgeIndex: number) => {
+    dispatch({ type: 'SELECT_BADGE', payload: { badgeIndex } });
   };
 
   return (

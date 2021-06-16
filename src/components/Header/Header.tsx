@@ -10,7 +10,6 @@ import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
 import Add from '@material-ui/icons/Add';
 import AppContext from 'context/AppContext';
-import { TGame } from 'constants/types';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {

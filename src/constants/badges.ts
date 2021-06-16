@@ -7,6 +7,7 @@ import soul from 'assets/img/badges/soul.png';
 import marsh from 'assets/img/badges/marsh.png';
 import volcano from 'assets/img/badges/volcano.png';
 import earth from 'assets/img/badges/earth.png';
+import champion from 'assets/img/badges/champion.png';
 
 const BADGES: TBadgeDictionary = {
   '1': [
@@ -17,46 +18,52 @@ const BADGES: TBadgeDictionary = {
       src: boulder,
     },
     {
-      id: 1,
+      id: 2,
       levelCap: 21,
       name: 'Cascade Badge',
       src: cascade,
     },
     {
-      id: 1,
+      id: 3,
       levelCap: 24,
       name: 'Thunder Badge',
       src: thunder,
     },
     {
-      id: 1,
+      id: 4,
       levelCap: 29,
       name: 'Rainbow Badge',
       src: rainbow,
     },
     {
-      id: 1,
+      id: 5,
       levelCap: 43,
       name: 'Soul Badge',
       src: soul,
     },
     {
-      id: 1,
+      id: 6,
       levelCap: 43,
       name: 'Marsh Badge',
       src: marsh,
     },
     {
-      id: 1,
+      id: 7,
       levelCap: 47,
       name: 'Volcano Badge',
       src: volcano,
     },
     {
-      id: 1,
+      id: 8,
       levelCap: 50,
       name: 'Earth Badge',
       src: earth,
+    },
+    {
+      id: 8,
+      levelCap: 63,
+      name: 'Elite 4',
+      src: champion,
     },
   ],
 };
