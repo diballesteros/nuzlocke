@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { IconButton } from '@material-ui/core';
 import Delete from '@material-ui/icons/Delete';
+import AppContext from 'context/AppContext';
 import { Pokemon, Status } from 'components';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = () => {
+  const { state } = useContext(AppContext);
+
   return (
     <div className={styles.table}>
       <div className={`${styles.row} ${styles.tableHeader}`}>
@@ -13,46 +16,18 @@ const Encounters: React.FC = () => {
         <div>STATUS</div>
         <div style={{ width: 48 }} />
       </div>
-      <div className={styles.row}>
-        <div>Route 1</div>
-        <Pokemon />
-        <Status />
-        <IconButton aria-label="delete">
-          <Delete />
-        </IconButton>
-      </div>
-      <div className={styles.row}>
-        <div>Route 1</div>
-        <Pokemon />
-        <Status />
-        <IconButton aria-label="delete">
-          <Delete />
-        </IconButton>
-      </div>
-      <div className={styles.row}>
-        <div>Route 1</div>
-        <Pokemon />
-        <Status />
-        <IconButton aria-label="delete">
-          <Delete />
-        </IconButton>
-      </div>
-      <div className={styles.row}>
-        <div>Route 1</div>
-        <Pokemon />
-        <Status />
-        <IconButton aria-label="delete">
-          <Delete />
-        </IconButton>
-      </div>
-      <div className={styles.row}>
-        <div>Route 1</div>
-        <Pokemon />
-        <Status />
-        <IconButton aria-label="delete">
-          <Delete />
-        </IconButton>
-      </div>
+      {state.games[state.selectedGame?.id]?.encounters?.map((encounter, index) => {
+        return (
+          <div className={styles.row} key={`encounter-row-${encounter.id}-${index + 1}`}>
+            <div>{encounter.location}</div>
+            <Pokemon />
+            <Status encounterId={encounter.id} status={encounter.status} />
+            <IconButton aria-label="delete">
+              <Delete />
+            </IconButton>
+          </div>
+        );
+      })}
     </div>
   );
 };

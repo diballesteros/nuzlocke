@@ -22,6 +22,13 @@ export type AppActions =
       payload: {
         badgeIndex: number;
       };
+    }
+  | {
+      type: 'CHANGE_STATUS';
+      payload: {
+        encounterId: number;
+        status: TStatus;
+      };
     };
 
 export type TGame = {

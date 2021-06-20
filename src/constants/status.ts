@@ -6,19 +6,19 @@ const STATUSES: TStatus[] = [
     name: 'Captured',
   },
   {
-    id: 1,
+    id: 2,
     name: 'Dead',
   },
   {
-    id: 1,
+    id: 3,
     name: 'Gifted',
   },
   {
-    id: 1,
+    id: 4,
     name: 'Traded',
   },
   {
-    id: 1,
+    id: 5,
     name: 'Failed',
   },
 ];

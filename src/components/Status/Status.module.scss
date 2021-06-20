@@ -1,14 +1,5 @@
 .statusSelect {
-  height: 30px;
-  width: 180px;
-
-  :global(.MuiInputLabel-outlined) {
-    transform: translate(14px, 10px) scale(1);
-  }
-
-  :global(.MuiInputLabel-outlined.MuiInputLabel-shrink) {
-    transform: translate(14px, -6px) scale(0.75);
-  }
+  max-width: 180px;
 
   input {
     padding: 0 !important;

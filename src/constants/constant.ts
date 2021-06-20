@@ -1,25 +1,26 @@
 import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
 import ivysaur from 'assets/img/pokemon/ivysaur.png';
 import venusaur from 'assets/img/pokemon/venusaur.png';
+import { SINNOH } from 'constants/locations';
 import { AppState, TGame, TPokemon } from './types';
 
 export const INITIAL_STATE: AppState = {
   selectedGame: null,
   games: {
-    '1': { badge: null },
-    '2': { badge: null },
-    '3': { badge: null },
-    '4': { badge: null },
-    '5': { badge: null },
-    '6': { badge: null },
-    '7': { badge: null },
-    '8': { badge: null },
-    '9': { badge: null },
-    '10': { badge: null },
-    '11': { badge: null },
-    '12': { badge: null },
-    '13': { badge: null },
-    '14': { badge: null },
+    '1': { badge: null, encounters: [] },
+    '2': { badge: null, encounters: [] },
+    '3': { badge: null, encounters: [] },
+    '4': { badge: null, encounters: [] },
+    '5': { badge: null, encounters: SINNOH },
+    '6': { badge: null, encounters: [] },
+    '7': { badge: null, encounters: [] },
+    '8': { badge: null, encounters: [] },
+    '9': { badge: null, encounters: [] },
+    '10': { badge: null, encounters: [] },
+    '11': { badge: null, encounters: [] },
+    '12': { badge: null, encounters: [] },
+    '13': { badge: null, encounters: [] },
+    '14': { badge: null, encounters: [] },
   },
 };
 

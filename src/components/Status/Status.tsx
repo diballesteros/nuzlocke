@@ -1,30 +1,43 @@
-import React from 'react';
-import { Autocomplete } from '@material-ui/lab';
-import { TextField } from '@material-ui/core';
+import React, { useContext } from 'react';
+import MenuItem from '@material-ui/core/MenuItem';
+import Select from '@material-ui/core/Select';
 import STATUSES from 'constants/status';
+import { TStatus } from 'constants/types';
+import AppContext from 'context/AppContext';
 import styles from './Status.module.scss';
 
-const Status: React.FC = () => {
+interface StatusProps {
+  encounterId: number;
+  status: TStatus;
+}
+
+const Status: React.FC<StatusProps> = ({ encounterId, status }) => {
+  const { dispatch } = useContext(AppContext);
+  const handleChange = (
+    event: React.ChangeEvent<{
+      name?: string;
+      value: unknown;
+    }>
+  ) => {
+    const foundStatus = STATUSES.find((stat) => stat.id === event.target.value);
+    dispatch({ type: 'CHANGE_STATUS', payload: { encounterId, status: foundStatus } });
+  };
+
   return (
-    <Autocomplete
-      autoHighlight
+    <Select
       className={styles.statusSelect}
-      classes={{ inputRoot: styles.statusSelect }}
-      options={STATUSES}
-      getOptionLabel={(option) => option.name}
-      renderOption={(option) => <>{option.name}</>}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a status"
-          variant="outlined"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: 'new-password', // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
+      id={`status-select-${encounterId}`}
+      onChange={handleChange}
+      value={status?.id ?? ''}
+    >
+      {STATUSES.map((stat) => {
+        return (
+          <MenuItem key={stat.name} value={stat.id}>
+            {stat.name}
+          </MenuItem>
+        );
+      })}
+    </Select>
   );
 };
 
