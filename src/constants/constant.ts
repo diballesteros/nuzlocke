@@ -1,7 +1,7 @@
 import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
 import ivysaur from 'assets/img/pokemon/ivysaur.png';
 import venusaur from 'assets/img/pokemon/venusaur.png';
-import { SINNOH } from 'constants/locations';
+import SINNOH from 'constants/locations/sinnoh';
 import { AppState, TGame, TPokemon } from './types';
 
 export const INITIAL_STATE: AppState = {

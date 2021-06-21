@@ -1,8 +1,6 @@
 import { TEncounter } from 'constants/types';
 
-export const JOHTO: TEncounter[] = null;
-
-export const SINNOH: TEncounter[] = [
+const SINNOH: TEncounter[] = [
   {
     id: 0,
     pokemon: null,
@@ -46,3 +44,5 @@ export const SINNOH: TEncounter[] = [
     status: null,
   },
 ];
+
+export default SINNOH;

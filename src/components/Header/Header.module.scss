@@ -16,6 +16,11 @@
     display: flex;
     gap: 8px;
 
+    .add {
+      background-color: green;
+      color: #ffffff;
+    }
+
     .clear {
       background-color: red;
       color: #ffffff;

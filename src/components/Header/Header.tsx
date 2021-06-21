@@ -44,23 +44,23 @@ const Header: React.FC = () => {
         </Select>
       </FormControl>
       <div className={styles.buttons}>
-        <Button color="default" variant="contained" endIcon={<Add />}>
+        <Button className={styles.add} color="default" variant="contained" endIcon={<Add />}>
           Add Encounter
-        </Button>
-        <Button className={styles.export} color="default" variant="contained" endIcon={<Export />}>
-          Export
-        </Button>
-        <Button className={styles.import} color="default" variant="contained" endIcon={<Import />}>
-          Import
         </Button>
         <Button
           className={styles.clear}
           color="default"
+          endIcon={<Close />}
           onClick={handleReset}
           variant="contained"
-          endIcon={<Close />}
         >
           Reset All
+        </Button>
+        <Button color="default" variant="contained" endIcon={<Export />}>
+          Export
+        </Button>
+        <Button color="default" variant="contained" endIcon={<Import />}>
+          Import
         </Button>
       </div>
     </div>
