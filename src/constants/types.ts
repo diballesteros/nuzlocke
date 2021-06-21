@@ -12,6 +12,9 @@ export type TrackData = {
 
 export type AppActions =
   | {
+      type: 'RESET_ALL';
+    }
+  | {
       type: 'SELECT_GAME';
       payload: {
         game: TGame;

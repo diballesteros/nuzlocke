@@ -7,7 +7,7 @@ const STATUSES: TStatus[] = [
   },
   {
     id: 2,
-    name: 'Dead',
+    name: 'Fainted',
   },
   {
     id: 3,

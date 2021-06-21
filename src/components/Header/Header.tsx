@@ -25,6 +25,10 @@ const Header: React.FC = () => {
     dispatch({ type: 'SELECT_GAME', payload: { game: foundGame } });
   };
 
+  const handleReset = () => {
+    dispatch({ type: 'RESET_ALL' });
+  };
+
   return (
     <div className={styles.header}>
       <FormControl className={styles.gameSelect}>
@@ -43,14 +47,20 @@ const Header: React.FC = () => {
         <Button color="default" variant="contained" endIcon={<Add />}>
           Add Encounter
         </Button>
-        <Button color="default" variant="contained" endIcon={<Export />}>
+        <Button className={styles.export} color="default" variant="contained" endIcon={<Export />}>
           Export
         </Button>
-        <Button color="default" variant="contained" endIcon={<Import />}>
+        <Button className={styles.import} color="default" variant="contained" endIcon={<Import />}>
           Import
         </Button>
-        <Button color="default" variant="contained" endIcon={<Close />}>
-          Clear
+        <Button
+          className={styles.clear}
+          color="default"
+          onClick={handleReset}
+          variant="contained"
+          endIcon={<Close />}
+        >
+          Reset All
         </Button>
       </div>
     </div>

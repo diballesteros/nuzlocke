@@ -15,5 +15,10 @@
   .buttons {
     display: flex;
     gap: 8px;
+
+    .clear {
+      background-color: red;
+      color: #ffffff;
+    }
   }
 }
