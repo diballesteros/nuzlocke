@@ -4,44 +4,44 @@ export const JOHTO: TEncounter[] = null;
 
 export const SINNOH: TEncounter[] = [
   {
-    encounter: null,
     id: 0,
+    pokemon: null,
     location: 'Starter',
     status: null,
   },
   {
-    encounter: null,
     id: 1,
+    pokemon: null,
     location: 'Twinleaf Town',
     status: null,
   },
   {
-    encounter: null,
     id: 2,
+    pokemon: null,
     location: 'Route 21',
     status: null,
   },
   {
-    encounter: null,
     id: 3,
+    pokemon: null,
     location: 'Lake Verity',
     status: null,
   },
   {
-    encounter: null,
     id: 4,
+    pokemon: null,
     location: 'Route 202',
     status: null,
   },
   {
-    encounter: null,
     id: 5,
+    pokemon: null,
     location: 'Route 203',
     status: null,
   },
   {
-    encounter: null,
     id: 6,
+    pokemon: null,
     location: 'Oreburgh Gate',
     status: null,
   },

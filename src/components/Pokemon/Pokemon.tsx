@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { Autocomplete } from '@material-ui/lab';
 import { TextField } from '@material-ui/core';
+import AppContext from 'context/AppContext';
 import { POKEMON } from 'constants/constant';
 import { TPokemon } from 'constants/types';
 import styles from './Pokemon.module.scss';
 
-const Selection: React.FC = () => {
-  const [value, setValue] = useState<TPokemon>(null);
+interface PokemonProps {
+  encounterId: number;
+  pokemon: TPokemon;
+}
+
+const Pokemon: React.FC<PokemonProps> = ({ encounterId, pokemon }) => {
+  const { dispatch } = useContext(AppContext);
   const onChange = (e: unknown, selectedPokemon: TPokemon | string) => {
     if (typeof selectedPokemon !== 'string') {
-      setValue(selectedPokemon);
+      dispatch({ type: 'CHANGE_POKEMON', payload: { encounterId, pokemon: selectedPokemon } });
     }
   };
 
@@ -27,7 +33,6 @@ const Selection: React.FC = () => {
           {poke.name}
         </div>
       )}
-      value={value}
       renderInput={(params) => (
         <div className={styles.label}>
           <TextField
@@ -39,11 +44,12 @@ const Selection: React.FC = () => {
               autoComplete: 'new-password', // disable autocomplete and autofill
             }}
           />
-          {value && <img src={value?.src} alt={value?.name} />}
+          {pokemon && <img src={pokemon?.src} alt={pokemon?.name} />}
         </div>
       )}
+      value={pokemon}
     />
   );
 };
 
-export default Selection;
+export default Pokemon;

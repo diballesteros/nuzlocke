@@ -16,6 +16,10 @@ const appReducer = (state: AppState, action: AppActions): AppState => {
       state.games[state.selectedGame?.id].encounters[action.payload.encounterId].status =
         action.payload.status;
       break;
+    case 'CHANGE_POKEMON':
+      state.games[state.selectedGame?.id].encounters[action.payload.encounterId].pokemon =
+        action.payload.pokemon;
+      break;
     default:
       return { ...state };
   }

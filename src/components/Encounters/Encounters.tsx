@@ -20,7 +20,7 @@ const Encounters: React.FC = () => {
         return (
           <div className={styles.row} key={`encounter-row-${encounter.id}-${index + 1}`}>
             <div>{encounter.location}</div>
-            <Pokemon />
+            <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
             <Status encounterId={encounter.id} status={encounter.status} />
             <IconButton aria-label="delete">
               <Delete />

@@ -24,6 +24,13 @@ export type AppActions =
       };
     }
   | {
+      type: 'CHANGE_POKEMON';
+      payload: {
+        encounterId: number;
+        pokemon: TPokemon;
+      };
+    }
+  | {
       type: 'CHANGE_STATUS';
       payload: {
         encounterId: number;
@@ -48,9 +55,9 @@ export type TBadge = {
 };
 
 export type TEncounter = {
-  encounter: TPokemon | string;
   id: number;
   location: string;
+  pokemon: TPokemon;
   status: TStatus;
 };
 
