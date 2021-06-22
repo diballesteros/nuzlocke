@@ -8,9 +8,7 @@ const Tracker: React.FC = () => {
       <div className={styles.container}>
         <Header />
         <Badges />
-        <div className={styles.list}>
-          <Encounters />
-        </div>
+        <Encounters />
       </div>
     </div>
   );

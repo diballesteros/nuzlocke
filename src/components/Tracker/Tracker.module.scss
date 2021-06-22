@@ -1,6 +1,7 @@
 .layout {
   display: grid;
   place-items: center;
+  grid-template-columns: minmax(0, 1fr);
   height: calc(100% - 40px);
   width: 100%;
   padding: 20px 0;
@@ -10,6 +11,7 @@
     flex-flow: column nowrap;
     gap: 5px;
     height: calc(100% - 20px);
+    min-height: 0;
     width: calc(100% - 20px);
     padding: 10px;
     max-width: 1200px;

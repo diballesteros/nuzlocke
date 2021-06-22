@@ -11,7 +11,7 @@ interface PokemonProps {
   pokemon: TPokemon;
 }
 
-const Pokemon: React.FC<PokemonProps> = ({ encounterId, pokemon }) => {
+const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) => {
   const { dispatch } = useContext(AppContext);
   const onChange = (e: unknown, selectedPokemon: TPokemon | string) => {
     if (typeof selectedPokemon !== 'string') {
@@ -50,6 +50,6 @@ const Pokemon: React.FC<PokemonProps> = ({ encounterId, pokemon }) => {
       value={pokemon}
     />
   );
-};
+});
 
 export default Pokemon;

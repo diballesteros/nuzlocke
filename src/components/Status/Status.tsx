@@ -11,7 +11,7 @@ interface StatusProps {
   status: TStatus;
 }
 
-const Status: React.FC<StatusProps> = ({ encounterId, status }) => {
+const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
   const { dispatch } = useContext(AppContext);
   const handleChange = (
     event: React.ChangeEvent<{
@@ -39,6 +39,6 @@ const Status: React.FC<StatusProps> = ({ encounterId, status }) => {
       })}
     </Select>
   );
-};
+});
 
 export default Status;
