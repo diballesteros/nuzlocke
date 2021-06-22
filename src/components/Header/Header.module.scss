@@ -15,15 +15,24 @@
   .buttons {
     display: flex;
     gap: 8px;
+  }
 
-    .add {
-      background-color: green;
-      color: #ffffff;
+  @media (max-width: 650px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+
+    .gameSelect {
+      width: 100%;
     }
 
-    .clear {
-      background-color: red;
-      color: #ffffff;
+    .buttons {
+      width: 100%;
+    }
+
+    .buttons button {
+      width: 100%;
+      flex: 1;
     }
   }
 }

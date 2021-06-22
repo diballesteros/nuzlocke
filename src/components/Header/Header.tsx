@@ -5,10 +5,8 @@ import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
 import { GAMES } from 'constants/constant';
-import Close from '@material-ui/icons/Close';
 import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
-import Add from '@material-ui/icons/Add';
 import AppContext from 'context/AppContext';
 import styles from './Header.module.scss';
 
@@ -23,10 +21,6 @@ const Header: React.FC = () => {
   ) => {
     const foundGame = GAMES.find((game) => game.id === event.target.value);
     dispatch({ type: 'SELECT_GAME', payload: { game: foundGame } });
-  };
-
-  const handleReset = () => {
-    dispatch({ type: 'RESET_ALL' });
   };
 
   return (
@@ -44,18 +38,6 @@ const Header: React.FC = () => {
         </Select>
       </FormControl>
       <div className={styles.buttons}>
-        <Button className={styles.add} color="default" variant="contained" endIcon={<Add />}>
-          Add Encounter
-        </Button>
-        <Button
-          className={styles.clear}
-          color="default"
-          endIcon={<Close />}
-          onClick={handleReset}
-          variant="contained"
-        >
-          Reset All
-        </Button>
         <Button color="default" variant="contained" endIcon={<Export />}>
           Export
         </Button>

@@ -1,0 +1,18 @@
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .buttons {
+    display: flex;
+    gap: 8px;
+    .add {
+      background-color: green;
+      color: #ffffff;
+    }
+
+    .clear {
+      background-color: red;
+      color: #ffffff;
+    }
+  }
+}

@@ -3,8 +3,8 @@
   place-items: center;
   grid-template-columns: minmax(0, 1fr);
   height: calc(100% - 40px);
-  width: 100%;
-  padding: 20px 0;
+  width: calc(100% - 40px);
+  padding: 20px;
 
   .container {
     display: flex;
