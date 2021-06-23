@@ -8,11 +8,19 @@ import useDimensions from 'hooks/useDimensions';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = () => {
-  const { games, selectedGame } = useStore((state) => state);
+  const { games, selectedGame, text } = useStore((state) => state);
   const [containerRef, containerSize] = useDimensions(true);
+  const filteredGames = games[selectedGame?.id].encounters.filter((enc) => {
+    const upperCase = text?.toUpperCase();
+    return (
+      enc.location.toUpperCase()?.includes(upperCase) ||
+      enc.status?.name.toUpperCase()?.includes(upperCase) ||
+      enc.pokemon?.name?.toUpperCase()?.includes(upperCase)
+    );
+  });
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
-    const encounter = games[selectedGame?.id].encounters[index];
+    const encounter = filteredGames[index];
     return (
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
         <div className={styles.row}>
@@ -37,9 +45,8 @@ const Encounters: React.FC = () => {
       </div>
       <div className={styles.list} ref={containerRef}>
         <FixedSizeList
-          className={styles.task__card}
           height={!!containerSize?.height ? containerSize.height : 100}
-          itemCount={games[selectedGame?.id]?.encounters?.length}
+          itemCount={filteredGames?.length}
           itemSize={68}
           width="100%"
         >

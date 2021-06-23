@@ -1,4 +1,5 @@
 import React from 'react';
+import { TextField } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Close from '@material-ui/icons/Close';
 import Add from '@material-ui/icons/Add';
@@ -6,14 +7,24 @@ import useStore from 'store';
 import styles from './Options.module.scss';
 
 const Options: React.FC = () => {
-  const reset = useStore((state) => state.resetAll);
+  const { resetAll, search, text } = useStore((state) => state);
+
   const handleReset = () => {
-    reset();
+    resetAll();
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    search(e.target.value);
   };
 
   return (
     <div className={styles.options}>
-      <div>Indicators</div>
+      <TextField
+        className={styles.search}
+        label="Search by pokémon, location or status"
+        onChange={handleChange}
+        value={text}
+      />
       <div className={styles.buttons}>
         <Button className={styles.add} color="default" variant="contained" endIcon={<Add />}>
           Add Encounter

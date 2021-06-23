@@ -1,6 +1,7 @@
 import create, { State, StateCreator } from 'zustand';
-import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
+import { persist } from 'zustand/middleware';
 import produce from 'immer';
+import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
 import { INITIAL_STATE } from 'constants/constant';
 
 const immer =
@@ -17,39 +18,49 @@ const immer =
     );
 
 const useStore = create<AppState>(
-  immer((set) => ({
-    selectedGame: null,
-    games: INITIAL_STATE.games,
-    reset: () =>
-      set((state) => {
-        state.games[state.selectedGame?.id] = INITIAL_STATE.games[state.selectedGame?.id];
-      }),
-    changePokemon: (encounterId: number, pokemon: TPokemon) =>
-      set((state) => {
-        state.games[state.selectedGame?.id].encounters[encounterId].pokemon = pokemon;
-      }),
-    changeStatus: (encounterId: number, status: TStatus) =>
-      set((state) => {
-        state.games[state.selectedGame?.id].encounters[encounterId].status = status;
-      }),
-    resetAll: () =>
-      set((state) => {
-        state.games[state.selectedGame?.id].encounters =
-          INITIAL_STATE.games[state.selectedGame?.id]?.encounters;
-      }),
-    selectGame: (game: TGame) =>
-      set((state) => {
-        state.selectedGame = game;
-      }),
-    selectBadge: (badgeIndex: number) =>
-      set((state) => {
-        if (state.games[state.selectedGame?.id]?.badge === badgeIndex) {
-          state.games[state.selectedGame?.id].badge -= 1;
-        } else {
-          state.games[state.selectedGame?.id].badge = badgeIndex;
-        }
-      }),
-  }))
+  persist(
+    immer((set) => ({
+      selectedGame: null,
+      games: INITIAL_STATE.games,
+      text: '',
+      reset: () =>
+        set((state) => {
+          state.games[state.selectedGame?.id] = INITIAL_STATE.games[state.selectedGame?.id];
+        }),
+      changePokemon: (encounterId: number, pokemon: TPokemon) =>
+        set((state) => {
+          state.games[state.selectedGame?.id].encounters[encounterId].pokemon = pokemon;
+        }),
+      changeStatus: (encounterId: number, status: TStatus) =>
+        set((state) => {
+          state.games[state.selectedGame?.id].encounters[encounterId].status = status;
+        }),
+      resetAll: () =>
+        set((state) => {
+          state.games[state.selectedGame?.id].encounters =
+            INITIAL_STATE.games[state.selectedGame?.id]?.encounters;
+        }),
+      selectGame: (game: TGame) =>
+        set((state) => {
+          state.selectedGame = game;
+        }),
+      selectBadge: (badgeIndex: number) =>
+        set((state) => {
+          if (state.games[state.selectedGame?.id]?.badge === badgeIndex) {
+            state.games[state.selectedGame?.id].badge -= 1;
+          } else {
+            state.games[state.selectedGame?.id].badge = badgeIndex;
+          }
+        }),
+      search: (text: string) =>
+        set((state) => {
+          state.text = text;
+        }),
+    })),
+    {
+      name: 'pokemon-tracker',
+    }
+  )
 );
 
 export default useStore;

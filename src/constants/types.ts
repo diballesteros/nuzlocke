@@ -1,12 +1,14 @@
 export interface TrackerState {
-  selectedGame: TGame;
   games: Games;
+  selectedGame: TGame;
+  text: string;
 }
 
 export interface AppState extends TrackerState {
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   resetAll: () => void;
+  search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
 }

@@ -37,7 +37,7 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) =>
         <div className={styles.label}>
           <TextField
             {...params}
-            label="Choose a pokemon"
+            label="Choose a pokémon"
             variant="outlined"
             inputProps={{
               ...params.inputProps,

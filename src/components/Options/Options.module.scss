@@ -2,6 +2,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .search {
+    width: 100%;
+    max-width: 50%;
+  }
+
   .buttons {
     display: flex;
     gap: 8px;
@@ -13,6 +19,29 @@
     .clear {
       background-color: red;
       color: #ffffff;
+    }
+  }
+
+  @media (max-width: 800px) {
+    flex-wrap: wrap;
+    gap: 10px;
+
+    .search {
+      max-width: 100%;
+    }
+
+    .buttons {
+      width: 100%;
+    }
+    .buttons button {
+      width: 100%;
+      flex: 1;
+    }
+  }
+
+  @media (max-width: 500px) {
+    .search > label {
+      font-size: 12px;
     }
   }
 }

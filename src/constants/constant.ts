@@ -3,7 +3,7 @@ import ivysaur from 'assets/img/pokemon/ivysaur.png';
 import venusaur from 'assets/img/pokemon/venusaur.png';
 import SINNOH from 'constants/locations/sinnoh';
 import FR_LG from 'constants/locations/FR_LG';
-import { TGame, TPokemon, TrackerState } from './types';
+import { TGame, TPokemon, TrackerState } from 'constants/types';
 
 export const INITIAL_STATE: TrackerState = {
   selectedGame: null,
@@ -23,6 +23,7 @@ export const INITIAL_STATE: TrackerState = {
     '13': { badge: null, encounters: [] },
     '14': { badge: null, encounters: [] },
   },
+  text: null,
 };
 
 export const GAMES: TGame[] = [
