@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
+import useStore from 'store';
 import STATUSES from 'constants/status';
 import { TStatus } from 'constants/types';
-import AppContext from 'context/AppContext';
 import styles from './Status.module.scss';
 
 interface StatusProps {
@@ -12,7 +12,7 @@ interface StatusProps {
 }
 
 const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
-  const { dispatch } = useContext(AppContext);
+  const changeStatus = useStore((state) => state.changeStatus);
   const handleChange = (
     event: React.ChangeEvent<{
       name?: string;
@@ -20,7 +20,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
     }>
   ) => {
     const foundStatus = STATUSES.find((stat) => stat.id === event.target.value);
-    dispatch({ type: 'CHANGE_STATUS', payload: { encounterId, status: foundStatus } });
+    changeStatus(encounterId, foundStatus);
   };
 
   return (

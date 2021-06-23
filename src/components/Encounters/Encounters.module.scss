@@ -6,17 +6,16 @@
   border-radius: 3px;
   border: 1px solid black;
 
+  .coloredRow {
+    background-color: #ffe8e8;
+  }
+
   .row {
     display: grid;
     align-items: center;
     grid-template-columns: repeat(3, 1fr) auto;
     grid-template-rows: 100%;
     padding: 10px;
-
-    &:nth-child(odd) {
-      background-color: #ffe8e8;
-    }
-
     &.tableHeader {
       background-color: #d46a6a;
       color: #ffffff;
@@ -27,6 +26,7 @@
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
-    overflow: auto;
+    height: 100%;
+    overflow: hidden;
   }
 }

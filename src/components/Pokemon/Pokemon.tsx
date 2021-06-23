@@ -1,7 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import { Autocomplete } from '@material-ui/lab';
 import { TextField } from '@material-ui/core';
-import AppContext from 'context/AppContext';
+import useStore from 'store';
 import { POKEMON } from 'constants/constant';
 import { TPokemon } from 'constants/types';
 import styles from './Pokemon.module.scss';
@@ -12,10 +12,10 @@ interface PokemonProps {
 }
 
 const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) => {
-  const { dispatch } = useContext(AppContext);
+  const changePokemon = useStore((state) => state.changePokemon);
   const onChange = (e: unknown, selectedPokemon: TPokemon | string) => {
     if (typeof selectedPokemon !== 'string') {
-      dispatch({ type: 'CHANGE_POKEMON', payload: { encounterId, pokemon: selectedPokemon } });
+      changePokemon(encounterId, selectedPokemon);
     }
   };
 

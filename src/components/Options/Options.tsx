@@ -1,14 +1,14 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Close from '@material-ui/icons/Close';
 import Add from '@material-ui/icons/Add';
-import AppContext from 'context/AppContext';
+import useStore from 'store';
 import styles from './Options.module.scss';
 
 const Options: React.FC = () => {
-  const { dispatch } = useContext(AppContext);
+  const reset = useStore((state) => state.resetAll);
   const handleReset = () => {
-    dispatch({ type: 'RESET_ALL' });
+    reset();
   };
 
   return (

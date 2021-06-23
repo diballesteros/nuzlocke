@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -7,11 +7,11 @@ import Button from '@material-ui/core/Button';
 import { GAMES } from 'constants/constant';
 import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
-import AppContext from 'context/AppContext';
+import useStore from 'store';
 import styles from './Header.module.scss';
 
 const Header: React.FC = () => {
-  const { state, dispatch } = useContext(AppContext);
+  const appState = useStore((state) => state);
 
   const handleChange = (
     event: React.ChangeEvent<{
@@ -20,14 +20,14 @@ const Header: React.FC = () => {
     }>
   ) => {
     const foundGame = GAMES.find((game) => game.id === event.target.value);
-    dispatch({ type: 'SELECT_GAME', payload: { game: foundGame } });
+    appState.selectGame(foundGame);
   };
 
   return (
     <div className={styles.header}>
       <FormControl className={styles.gameSelect}>
         <InputLabel id="game-select">Choose a game</InputLabel>
-        <Select id="game-select" onChange={handleChange} value={state.selectedGame?.id ?? ''}>
+        <Select id="game-select" onChange={handleChange} value={appState.selectedGame?.id ?? ''}>
           {GAMES.map((game) => {
             return (
               <MenuItem key={game.name} value={game.id}>

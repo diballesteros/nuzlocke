@@ -1,7 +1,15 @@
-export type AppState = {
+export interface TrackerState {
   selectedGame: TGame;
   games: Games;
-};
+}
+
+export interface AppState extends TrackerState {
+  changePokemon: (encounterId: number, pokemon: TPokemon) => void;
+  changeStatus: (encounterId: number, status: TStatus) => void;
+  resetAll: () => void;
+  selectGame: (game: TGame) => void;
+  selectBadge: (badgeIndex: number) => void;
+}
 
 export type Games = { [key: string]: TrackData };
 
@@ -9,37 +17,6 @@ export type TrackData = {
   badge: number;
   encounters: TEncounter[];
 };
-
-export type AppActions =
-  | {
-      type: 'RESET_ALL';
-    }
-  | {
-      type: 'SELECT_GAME';
-      payload: {
-        game: TGame;
-      };
-    }
-  | {
-      type: 'SELECT_BADGE';
-      payload: {
-        badgeIndex: number;
-      };
-    }
-  | {
-      type: 'CHANGE_POKEMON';
-      payload: {
-        encounterId: number;
-        pokemon: TPokemon;
-      };
-    }
-  | {
-      type: 'CHANGE_STATUS';
-      payload: {
-        encounterId: number;
-        status: TStatus;
-      };
-    };
 
 export type TGame = {
   id: string;
