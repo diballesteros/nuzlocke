@@ -21,7 +21,7 @@ const Options: React.FC = () => {
     <div className={styles.options}>
       <TextField
         className={styles.search}
-        label="Search by pokémon, location or status"
+        label="Filter by pokémon, location or status"
         onChange={handleChange}
         value={text}
       />

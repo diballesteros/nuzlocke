@@ -21,6 +21,10 @@ const STATUSES: TStatus[] = [
     id: 5,
     name: 'Failed',
   },
+  {
+    id: 6,
+    name: 'Shiny',
+  },
 ];
 
 export default STATUSES;

@@ -10,7 +10,7 @@ import styles from './Encounters.module.scss';
 const Encounters: React.FC = () => {
   const { games, selectedGame, text } = useStore((state) => state);
   const [containerRef, containerSize] = useDimensions(true);
-  const filteredGames = games[selectedGame?.id].encounters.filter((enc) => {
+  const filteredGames = games[selectedGame?.id]?.encounters?.filter((enc) => {
     const upperCase = text?.toUpperCase();
     return (
       enc.location.toUpperCase()?.includes(upperCase) ||
