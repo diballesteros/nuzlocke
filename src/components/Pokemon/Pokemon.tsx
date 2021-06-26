@@ -2,7 +2,7 @@ import React from 'react';
 import { Autocomplete } from '@material-ui/lab';
 import { TextField } from '@material-ui/core';
 import useStore from 'store';
-import { POKEMON } from 'constants/constant';
+import POKEMON from 'constants/pokemon';
 import { TPokemon } from 'constants/types';
 import styles from './Pokemon.module.scss';
 

@@ -1,6 +1,3 @@
-import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
-import ivysaur from 'assets/img/pokemon/ivysaur.png';
-import venusaur from 'assets/img/pokemon/venusaur.png';
 import D_P_PLAT from 'constants/locations/D_P_PLAT';
 import FR_LG from 'constants/locations/FR_LG';
 import R_B_Y from 'constants/locations/R_B_Y';
@@ -13,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { TGame, TPokemon, TrackerState } from 'constants/types';
+import { TGame, TrackerState } from 'constants/types';
 
 export const INITIAL_STATE: TrackerState = {
   selectedGame: null,
@@ -88,25 +85,5 @@ export const GAMES: TGame[] = [
   {
     id: '14',
     name: 'Sword and Shield',
-  },
-];
-
-export const POKEMON: TPokemon[] = [
-  {
-    id: 1,
-    name: 'Bulbasaur',
-    src: bulbasaur,
-  },
-
-  {
-    id: 2,
-    name: 'Ivysaur',
-    src: ivysaur,
-  },
-
-  {
-    id: 3,
-    name: 'Venusaur',
-    src: venusaur,
   },
 ];
