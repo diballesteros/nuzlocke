@@ -1,19 +1,901 @@
 import { TPokemon } from 'constants/types';
+import abomasnow from 'assets/img/pokemon/abomasnow.png';
+import abra from 'assets/img/pokemon/abra.png';
+import absol from 'assets/img/pokemon/absol.png';
+import accelgor from 'assets/img/pokemon/accelgor.png';
+import aegislash from 'assets/img/pokemon/aegislas.png';
+import aerodactyl from 'assets/img/pokemon/aerodactyl.png';
+import aggron from 'assets/img/pokemon/aggron.png';
+import aipom from 'assets/img/pokemon/aipom.png';
+import alakazam from 'assets/img/pokemon/alakazam.png';
+import alcremie from 'assets/img/pokemon/alcremi.png';
+import alomomola from 'assets/img/pokemon/alomomola.png';
+import altaria from 'assets/img/pokemon/altaria.png';
+import amaura from 'assets/img/pokemon/amaura.png';
+import ambipom from 'assets/img/pokemon/ambipom.png';
+import amoonguss from 'assets/img/pokemon/amoonguss.png';
+import ampharos from 'assets/img/pokemon/ampharos.png';
+import anorith from 'assets/img/pokemon/anorith.png';
+import appletun from 'assets/img/pokemon/appletun.png';
+import applin from 'assets/img/pokemon/applin.png';
+import araquanid from 'assets/img/pokemon/araquanid.png';
+import arbok from 'assets/img/pokemon/arbok.png';
+import arcanine from 'assets/img/pokemon/arcanine.png';
+import arceus from 'assets/img/pokemon/arceus.png';
+import archen from 'assets/img/pokemon/archen.png';
+import archeops from 'assets/img/pokemon/archeops.png';
+import arctovish from 'assets/img/pokemon/arctovish.png';
+import arctozolt from 'assets/img/pokemon/arctozolt.png';
+import ariados from 'assets/img/pokemon/ariados.png';
+import armaldo from 'assets/img/pokemon/armaldo.png';
+import aromatisse from 'assets/img/pokemon/aromatisse.png';
+import aron from 'assets/img/pokemon/aron.png';
+import arrokuda from 'assets/img/pokemon/arrokuda.png';
+import articuno from 'assets/img/pokemon/articuno.png';
+import audino from 'assets/img/pokemon/audino.png';
+import aurorus from 'assets/img/pokemon/aurorus.png';
+import avalugg from 'assets/img/pokemon/avalugg.png';
+import axew from 'assets/img/pokemon/axew.png';
+import azelf from 'assets/img/pokemon/azelf.png';
+import azumarill from 'assets/img/pokemon/azumarill.png';
+import azurill from 'assets/img/pokemon/azurill.png';
+import bagon from 'assets/img/pokemon/bagon.png';
+import baltoy from 'assets/img/pokemon/baltoy.png';
+import banette from 'assets/img/pokemon/banette.png';
+import barbaracle from 'assets/img/pokemon/barbaracle.png';
+import barboach from 'assets/img/pokemon/barboach.png';
+import barraskewda from 'assets/img/pokemon/barraskewda.png';
+import basculin from 'assets/img/pokemon/basculin.png';
+import bastiodon from 'assets/img/pokemon/bastiodon.png';
+import bayleef from 'assets/img/pokemon/bayleef.png';
+import beartic from 'assets/img/pokemon/beartic.png';
+import beautifly from 'assets/img/pokemon/beautifly.png';
+import beedrill from 'assets/img/pokemon/beedrill.png';
+import beheeyem from 'assets/img/pokemon/beheeyem.png';
+import beldum from 'assets/img/pokemon/beldum.png';
+import bellossom from 'assets/img/pokemon/bellossom.png';
+import bellsprout from 'assets/img/pokemon/bellsprout.png';
+import bergmite from 'assets/img/pokemon/bergmite.png';
+import bewear from 'assets/img/pokemon/bewear.png';
+import bibarel from 'assets/img/pokemon/bibarel.png';
+import bidoof from 'assets/img/pokemon/bidoof.png';
+import binacle from 'assets/img/pokemon/binacle.png';
+import bisharp from 'assets/img/pokemon/bisharp.png';
+import blacephalon from 'assets/img/pokemon/blacephalon.png';
+import blastoise from 'assets/img/pokemon/blastoise.png';
+import blaziken from 'assets/img/pokemon/blaziken.png';
+import blipbug from 'assets/img/pokemon/blipbug.png';
+import blissey from 'assets/img/pokemon/blissey.png';
+import blitzle from 'assets/img/pokemon/blitzle.png';
+import boldore from 'assets/img/pokemon/boldore.png';
+import boltund from 'assets/img/pokemon/boltund.png';
+import bonsly from 'assets/img/pokemon/bonsly.png';
+import bouffalant from 'assets/img/pokemon/bouffalant.png';
+import bounsweet from 'assets/img/pokemon/bounsweet.png';
+import braixen from 'assets/img/pokemon/braixen.png';
+import braviary from 'assets/img/pokemon/braviary.png';
+import breloom from 'assets/img/pokemon/breloom.png';
+import brionne from 'assets/img/pokemon/brionne.png';
+import bronzong from 'assets/img/pokemon/bronzong.png';
+import bronzor from 'assets/img/pokemon/bronzor.png';
+import bruxish from 'assets/img/pokemon/bruxish.png';
+import budew from 'assets/img/pokemon/budew.png';
+import buizel from 'assets/img/pokemon/buizel.png';
 import bulbasaur from 'assets/img/pokemon/bulbasaur.png';
-import ivysaur from 'assets/img/pokemon/ivysaur.png';
-import venusaur from 'assets/img/pokemon/venusaur.png';
+import buneary from 'assets/img/pokemon/buneary.png';
+import bunnelby from 'assets/img/pokemon/bunnelby.png';
+import burmy from 'assets/img/pokemon/burmy.png';
+import butterfree from 'assets/img/pokemon/butterfree.png';
+import buzzwole from 'assets/img/pokemon/buzzwole.png';
+import cacnea from 'assets/img/pokemon/cacnea.png';
+import cacturne from 'assets/img/pokemon/cacturne.png';
+import calyrex from 'assets/img/pokemon/calyrex.png';
+import camerupt from 'assets/img/pokemon/camerupt.png';
+import carbink from 'assets/img/pokemon/carbink.png';
+import carkol from 'assets/img/pokemon/carkol.png';
+import carnivine from 'assets/img/pokemon/carnivine.png';
+import carracosta from 'assets/img/pokemon/carracosta.png';
+import carvanha from 'assets/img/pokemon/carvanha.png';
+import cascoon from 'assets/img/pokemon/cascoon.png';
+import castform from 'assets/img/pokemon/castform.png';
+import caterpie from 'assets/img/pokemon/caterpie.png';
+import celebi from 'assets/img/pokemon/celeby.png';
+import celesteela from 'assets/img/pokemon/celesteela.png';
+import centiskorch from 'assets/img/pokemon/centiskorch.png';
+import chandelure from 'assets/img/pokemon/chandelure.png';
+import chansey from 'assets/img/pokemon/chansey.png';
+import charizard from 'assets/img/pokemon/charizard.png';
+import charjabug from 'assets/img/pokemon/charjabug.png';
 import charmander from 'assets/img/pokemon/charmander.png';
 import charmeleon from 'assets/img/pokemon/charmeleon.png';
-import charizard from 'assets/img/pokemon/charizard.png';
-import squirtle from 'assets/img/pokemon/squirtle.png';
-import wartortle from 'assets/img/pokemon/wartortle.png';
-import blastoise from 'assets/img/pokemon/blastoise.png';
-import caterpie from 'assets/img/pokemon/caterpie.png';
-import metapod from 'assets/img/pokemon/metapod.png';
-import butterfree from 'assets/img/pokemon/butterfree.png';
-import weedle from 'assets/img/pokemon/weedle.png';
+import chatot from 'assets/img/pokemon/chatot.png';
+import cherrim from 'assets/img/pokemon/cherrim.png';
+import cherubi from 'assets/img/pokemon/cherubi.png';
+import chesnaught from 'assets/img/pokemon/chesnaught.png';
+import chespin from 'assets/img/pokemon/chespin.png';
+import chewtle from 'assets/img/pokemon/chewtle.png';
+import chikorita from 'assets/img/pokemon/chikorita.png';
+import chimchar from 'assets/img/pokemon/chimchar.png';
+import chimecho from 'assets/img/pokemon/chimecho.png';
+import chinchou from 'assets/img/pokemon/chinchou.png';
+import chingling from 'assets/img/pokemon/chingling.png';
+import cinccino from 'assets/img/pokemon/cinccino.png';
+import cinderace from 'assets/img/pokemon/cinderace.png';
+import clamperl from 'assets/img/pokemon/clamperl.png';
+import clauncher from 'assets/img/pokemon/clauncher.png';
+import clawitzer from 'assets/img/pokemon/clawitzer.png';
+import claydol from 'assets/img/pokemon/claydol.png';
+import clefable from 'assets/img/pokemon/clefable.png';
+import clefairy from 'assets/img/pokemon/clefairy.png';
+import cleffa from 'assets/img/pokemon/cleffa.png';
+import clobbopus from 'assets/img/pokemon/clobbopus.png';
+import cloyster from 'assets/img/pokemon/cloyster.png';
+import coalossal from 'assets/img/pokemon/coalossal.png';
+import cobalion from 'assets/img/pokemon/cobalion.png';
+import cofagrigus from 'assets/img/pokemon/cofagrigus.png';
+import combee from 'assets/img/pokemon/combe.png';
+import combusken from 'assets/img/pokemon/combusken.png';
+import comfey from 'assets/img/pokemon/comfe.png';
+import conkeldurr from 'assets/img/pokemon/conkeldurr.png';
+import copperajah from 'assets/img/pokemon/copperajah.png';
+import corphish from 'assets/img/pokemon/corphish.png';
+import corsola from 'assets/img/pokemon/corsola.png';
+import corviknight from 'assets/img/pokemon/corviknight.png';
+import corvisquire from 'assets/img/pokemon/corvisquire.png';
+import cosmoem from 'assets/img/pokemon/cosmoem.png';
+import cosmog from 'assets/img/pokemon/cosmo.png';
+import cottonee from 'assets/img/pokemon/cottonee.png';
+import crabominable from 'assets/img/pokemon/crabominable.png';
+import crabrawler from 'assets/img/pokemon/crabrawler.png';
+import cradily from 'assets/img/pokemon/cradily.png';
+import cramorant from 'assets/img/pokemon/cramorant.png';
+import cranidos from 'assets/img/pokemon/cranidos.png';
+import crawdaunt from 'assets/img/pokemon/crawdaunt.png';
+import cresselia from 'assets/img/pokemon/cresselia.png';
+import croagunk from 'assets/img/pokemon/croagunk.png';
+import crobat from 'assets/img/pokemon/croba.png';
+import croconaw from 'assets/img/pokemon/croconaw.png';
+import crustle from 'assets/img/pokemon/crustle.png';
+import cryogonal from 'assets/img/pokemon/cryogonal.png';
+import cubchoo from 'assets/img/pokemon/cubchoo.png';
+import cubone from 'assets/img/pokemon/cubone.png';
+import cufant from 'assets/img/pokemon/cufan.png';
+import cursola from 'assets/img/pokemon/cursola.png';
+import cutiefly from 'assets/img/pokemon/cutiefly.png';
+import cyndaquil from 'assets/img/pokemon/cyndaquil.png';
+import darkrai from 'assets/img/pokemon/darkrai.png';
+import darmanitan from 'assets/img/pokemon/darmanitan.png';
+import dartrix from 'assets/img/pokemon/dartrix.png';
+import darumaka from 'assets/img/pokemon/darumaka.png';
+import decidueye from 'assets/img/pokemon/decidueye.png';
+import dedenne from 'assets/img/pokemon/dedenne.png';
+import deerling from 'assets/img/pokemon/deerling.png';
+import deino from 'assets/img/pokemon/deino.png';
+import delcatty from 'assets/img/pokemon/delcatty.png';
+import delibird from 'assets/img/pokemon/delibir.png';
+import delphox from 'assets/img/pokemon/delphox.png';
+import deoxys from 'assets/img/pokemon/deoxys.png';
+import dewgong from 'assets/img/pokemon/dewgong.png';
+import dewott from 'assets/img/pokemon/dewot.png';
+import dewpider from 'assets/img/pokemon/dewpider.png';
+import dhelmise from 'assets/img/pokemon/dhelmise.png';
+import dialga from 'assets/img/pokemon/dialga.png';
+import diancie from 'assets/img/pokemon/diancie.png';
+import diggersby from 'assets/img/pokemon/diggersby.png';
+import diglett from 'assets/img/pokemon/diglett.png';
+import ditto from 'assets/img/pokemon/ditt.png';
+import dodrio from 'assets/img/pokemon/dodrio.png';
+import doduo from 'assets/img/pokemon/doduo.png';
+import donphan from 'assets/img/pokemon/donphan.png';
+import dottler from 'assets/img/pokemon/dottle.png';
+import doublade from 'assets/img/pokemon/doublade.png';
+import dracovish from 'assets/img/pokemon/dracovish.png';
+import dracozolt from 'assets/img/pokemon/dracozolt.png';
+import dragalge from 'assets/img/pokemon/dragalge.png';
+import dragapult from 'assets/img/pokemon/dragapult.png';
+import dragonair from 'assets/img/pokemon/dragonair.png';
+import dragonite from 'assets/img/pokemon/dragonite.png';
+import drakloak from 'assets/img/pokemon/drakloak.png';
+import drampa from 'assets/img/pokemon/dramp.png';
+import drapion from 'assets/img/pokemon/drapion.png';
+import dratini from 'assets/img/pokemon/dratini.png';
+import drednaw from 'assets/img/pokemon/drednaw.png';
+import dreepy from 'assets/img/pokemon/dreepy.png';
+import drifblim from 'assets/img/pokemon/drifblim.png';
+import drifloon from 'assets/img/pokemon/drifloon.png';
+import drilbur from 'assets/img/pokemon/drilbur.png';
+import drizzile from 'assets/img/pokemon/drizzile.png';
+import drowzee from 'assets/img/pokemon/drowzee.png';
+import druddigon from 'assets/img/pokemon/druddigon.png';
+import dubwool from 'assets/img/pokemon/dubwool.png';
+import ducklett from 'assets/img/pokemon/ducklett.png';
+import dugtrio from 'assets/img/pokemon/dugtrio.png';
+import dunsparce from 'assets/img/pokemon/dunsparce.png';
+import duosion from 'assets/img/pokemon/duosion.png';
+import duraludon from 'assets/img/pokemon/duraludon.png';
+import durant from 'assets/img/pokemon/durant.png';
+import dusclops from 'assets/img/pokemon/dusclops.png';
+import dusknoir from 'assets/img/pokemon/dusknoir.png';
+import duskull from 'assets/img/pokemon/duskull.png';
+import dustox from 'assets/img/pokemon/dusto.png';
+import dwebble from 'assets/img/pokemon/dwebble.png';
+import eelektrik from 'assets/img/pokemon/eelektrik.png';
+import eelektross from 'assets/img/pokemon/eelektross.png';
+import eevee from 'assets/img/pokemon/eevee.png';
+import eiscue from 'assets/img/pokemon/eiscue.png';
+import ekans from 'assets/img/pokemon/ekans.png';
+import eldegoss from 'assets/img/pokemon/eldegoss.png';
+import electabuzz from 'assets/img/pokemon/electabuz.png';
+import electivire from 'assets/img/pokemon/electivire.png';
+import electrike from 'assets/img/pokemon/electrike.png';
+import electrode from 'assets/img/pokemon/electrode.png';
+import elekid from 'assets/img/pokemon/elekid.png';
+import elgyem from 'assets/img/pokemon/elgyem.png';
+import emboar from 'assets/img/pokemon/emboar.png';
+import emolga from 'assets/img/pokemon/emolga.png';
+import empoleon from 'assets/img/pokemon/empoleon.png';
+import entei from 'assets/img/pokemon/entei.png';
+import escavalier from 'assets/img/pokemon/escavalier.png';
+import espeon from 'assets/img/pokemon/espeon.png';
+import espurr from 'assets/img/pokemon/espurr.png';
+import eternatus from 'assets/img/pokemon/eternatus.png';
+import excadrill from 'assets/img/pokemon/excadrill.png';
+import exeggcute from 'assets/img/pokemon/exeggcute.png';
+import exeggutor from 'assets/img/pokemon/exeggutor.png';
+import exploud from 'assets/img/pokemon/exploud.png';
+import falinks from 'assets/img/pokemon/falinks.png';
+import farfetchd from 'assets/img/pokemon/farfetchd.png';
+import fearow from 'assets/img/pokemon/fearow.png';
+import feebas from 'assets/img/pokemon/feebas.png';
+import fennekin from 'assets/img/pokemon/fennekin.png';
+import feraligatr from 'assets/img/pokemon/feraligatr.png';
+import ferroseed from 'assets/img/pokemon/ferroseed.png';
+import ferrothorn from 'assets/img/pokemon/ferrothorn.png';
+import finneon from 'assets/img/pokemon/finneon.png';
+import flaaffy from 'assets/img/pokemon/flaaffy.png';
+import flabebe from 'assets/img/pokemon/flabebe.png';
+import flapple from 'assets/img/pokemon/flapple.png';
+import flareon from 'assets/img/pokemon/flareon.png';
+import fletchinder from 'assets/img/pokemon/fletchinder.png';
+import fletchling from 'assets/img/pokemon/fletchling.png';
+import floatzel from 'assets/img/pokemon/floatzel.png';
+import floette from 'assets/img/pokemon/floette.png';
+import florges from 'assets/img/pokemon/florges.png';
+import flygon from 'assets/img/pokemon/flygo.png';
+import fomantis from 'assets/img/pokemon/fomantis.png';
+import foongus from 'assets/img/pokemon/foongus.png';
+import forretress from 'assets/img/pokemon/forretress.png';
+import fraxure from 'assets/img/pokemon/fraxure.png';
+import frillish from 'assets/img/pokemon/frillish.png';
+import froakie from 'assets/img/pokemon/froakie.png';
+import frogadier from 'assets/img/pokemon/frogadier.png';
+import froslass from 'assets/img/pokemon/froslass.png';
+import frosmoth from 'assets/img/pokemon/frosmoth.png';
+import furfrou from 'assets/img/pokemon/furfrou.png';
+import furret from 'assets/img/pokemon/furret.png';
+import gabite from 'assets/img/pokemon/gabite.png';
+import gallade from 'assets/img/pokemon/gallade.png';
+import galvantula from 'assets/img/pokemon/galvantula.png';
+import garbodor from 'assets/img/pokemon/garbodor.png';
+import garchomp from 'assets/img/pokemon/garchomp.png';
+import gardevoir from 'assets/img/pokemon/gardevoir.png';
+import gastly from 'assets/img/pokemon/gastly.png';
+import gastrodon from 'assets/img/pokemon/gastrodon.png';
+import genesect from 'assets/img/pokemon/genesect.png';
+import gengar from 'assets/img/pokemon/gengar.png';
+import geodude from 'assets/img/pokemon/geodude.png';
+import gible from 'assets/img/pokemon/gible.png';
+import gigalith from 'assets/img/pokemon/gigalith.png';
+import girafarig from 'assets/img/pokemon/girafarig.png';
+import giratina from 'assets/img/pokemon/giratina.png';
+import glaceon from 'assets/img/pokemon/glaceon.png';
+import glalie from 'assets/img/pokemon/glalie.png';
+import glameow from 'assets/img/pokemon/glameow.png';
+import glastrier from 'assets/img/pokemon/glastrier.png';
+import gligar from 'assets/img/pokemon/gligar.png';
+import gliscor from 'assets/img/pokemon/gliscor.png';
+import gloom from 'assets/img/pokemon/gloom.png';
+import gogoat from 'assets/img/pokemon/gogoat.png';
+import golbat from 'assets/img/pokemon/golbat.png';
+import goldeen from 'assets/img/pokemon/goldeen.png';
+import golduck from 'assets/img/pokemon/golduck.png';
+import golem from 'assets/img/pokemon/golem.png';
+import golett from 'assets/img/pokemon/golett.png';
+import golisopod from 'assets/img/pokemon/golisopod.png';
+import golurk from 'assets/img/pokemon/golurk.png';
+import goodra from 'assets/img/pokemon/goodra.png';
+import goomy from 'assets/img/pokemon/goomy.png';
+import gorebyss from 'assets/img/pokemon/gorebyss.png';
+import gossifleur from 'assets/img/pokemon/gossifleu.png';
+import gothita from 'assets/img/pokemon/gothita.png';
+import gothitelle from 'assets/img/pokemon/gothitelle.png';
+import gothorita from 'assets/img/pokemon/gothorita.png';
+import gourgeist from 'assets/img/pokemon/gourgeist.png';
+import granbull from 'assets/img/pokemon/granbull.png';
+import grapploct from 'assets/img/pokemon/grapploct.png';
+import graveler from 'assets/img/pokemon/graveler.png';
+import greedent from 'assets/img/pokemon/greedent.png';
+import greninja from 'assets/img/pokemon/greninja.png';
+import grimer from 'assets/img/pokemon/grimer.png';
+import grimmsnarl from 'assets/img/pokemon/grimmsnarl.png';
+import grookey from 'assets/img/pokemon/grookey.png';
+import grotle from 'assets/img/pokemon/grotle.png';
+import groudon from 'assets/img/pokemon/groudon.png';
+import grovyle from 'assets/img/pokemon/grovyle.png';
+import growlithe from 'assets/img/pokemon/growlithe.png';
+import grubbin from 'assets/img/pokemon/grubbin.png';
+import grumpig from 'assets/img/pokemon/grumpig.png';
+import gulpin from 'assets/img/pokemon/gulpin.png';
+import gumshoos from 'assets/img/pokemon/gumshoos.png';
+import gurdurr from 'assets/img/pokemon/gurdurr.png';
+import guzzlord from 'assets/img/pokemon/guzzlord.png';
+import gyarados from 'assets/img/pokemon/gyarados.png';
+import hakamoo from 'assets/img/pokemon/hakamo-o.png';
+import happiny from 'assets/img/pokemon/happin.png';
+import hariyama from 'assets/img/pokemon/hariyama.png';
+import hatenna from 'assets/img/pokemon/hatenna.png';
+import hatterene from 'assets/img/pokemon/hatterene.png';
+import hattrem from 'assets/img/pokemon/hattrem.png';
+import haunter from 'assets/img/pokemon/haunter.png';
+import hawlucha from 'assets/img/pokemon/hawlucha.png';
+import haxorus from 'assets/img/pokemon/haxorus.png';
+import heatmor from 'assets/img/pokemon/heatmor.png';
+import heatran from 'assets/img/pokemon/heatran.png';
+import heliolisk from 'assets/img/pokemon/heliolisk.png';
+import helioptile from 'assets/img/pokemon/helioptile.png';
+import heracross from 'assets/img/pokemon/heracross.png';
+import herdier from 'assets/img/pokemon/herdier.png';
+import hippopotas from 'assets/img/pokemon/hippopotas.png';
+import hippowdon from 'assets/img/pokemon/hippowdon.png';
+import hitmonchan from 'assets/img/pokemon/hitmonchan.png';
+import hitmonlee from 'assets/img/pokemon/hitmonlee.png';
+import hitmontop from 'assets/img/pokemon/hitmontop.png';
+import hooh from 'assets/img/pokemon/ho-oh.png';
+import honchkrow from 'assets/img/pokemon/honchkrow.png';
+import honedge from 'assets/img/pokemon/honedge.png';
+import hoopa from 'assets/img/pokemon/hoopa.png';
+import hoothoot from 'assets/img/pokemon/hoothoot.png';
+import hoppip from 'assets/img/pokemon/hoppip.png';
+import horsea from 'assets/img/pokemon/horsea.png';
+import houndoom from 'assets/img/pokemon/houndoom.png';
+import houndour from 'assets/img/pokemon/houndour.png';
+import huntail from 'assets/img/pokemon/huntail.png';
+import hydreigon from 'assets/img/pokemon/hydreigon.png';
+import hypno from 'assets/img/pokemon/hypno.png';
+import igglybuff from 'assets/img/pokemon/igglybuff.png';
+import illumise from 'assets/img/pokemon/illumise.png';
+import impidimp from 'assets/img/pokemon/impidimp.png';
+import incineroar from 'assets/img/pokemon/incineroar.png';
+import indeedee from 'assets/img/pokemon/indeedee.png';
+import infernape from 'assets/img/pokemon/infernape.png';
+import inkay from 'assets/img/pokemon/inkay.png';
+import inteleon from 'assets/img/pokemon/inteleon.png';
+import ivysaur from 'assets/img/pokemon/ivysaur.png';
+import jangmoo from 'assets/img/pokemon/jangmo-o.png';
+import jellicent from 'assets/img/pokemon/jellicent.png';
+import jigglypuff from 'assets/img/pokemon/jigglypuff.png';
+import jirachi from 'assets/img/pokemon/jirachi.png';
+import jolteon from 'assets/img/pokemon/jolteon.png';
+import joltik from 'assets/img/pokemon/joltik.png';
+import jumpluff from 'assets/img/pokemon/jumpluff.png';
+import jynx from 'assets/img/pokemon/jynx.png';
+import kabuto from 'assets/img/pokemon/kabuto.png';
+import kabutops from 'assets/img/pokemon/kabutops.png';
+import kadabra from 'assets/img/pokemon/kadabra.png';
 import kakuna from 'assets/img/pokemon/kakuna.png';
-import beedrill from 'assets/img/pokemon/beedrill.png';
+import kangaskhan from 'assets/img/pokemon/kangaskhan.png';
+import karrablast from 'assets/img/pokemon/karrablast.png';
+import kartana from 'assets/img/pokemon/kartana.png';
+import kecleon from 'assets/img/pokemon/kecleon.png';
+import keldeo from 'assets/img/pokemon/keldeo.png';
+import kingdra from 'assets/img/pokemon/kingdra.png';
+import kingler from 'assets/img/pokemon/kingler.png';
+import kirlia from 'assets/img/pokemon/kirlia.png';
+import klang from 'assets/img/pokemon/klang.png';
+import klefki from 'assets/img/pokemon/klefki.png';
+import klink from 'assets/img/pokemon/klink.png';
+import klinklang from 'assets/img/pokemon/klinklang.png';
+import koffing from 'assets/img/pokemon/koffing.png';
+import komala from 'assets/img/pokemon/komala.png';
+import kommoo from 'assets/img/pokemon/kommo-o.png';
+import krabby from 'assets/img/pokemon/krabby.png';
+import kricketot from 'assets/img/pokemon/kricketot.png';
+import kricketune from 'assets/img/pokemon/kricketune.png';
+import krokorok from 'assets/img/pokemon/krokorok.png';
+import krookodile from 'assets/img/pokemon/krookodile.png';
+import kubfu from 'assets/img/pokemon/kubfu.png';
+import kyogre from 'assets/img/pokemon/kyogre.png';
+import kyurem from 'assets/img/pokemon/kyurem.png';
+import lairon from 'assets/img/pokemon/lairon.png';
+import lampent from 'assets/img/pokemon/lampent.png';
+import landorus from 'assets/img/pokemon/landorus.png';
+import lanturn from 'assets/img/pokemon/lanturn.png';
+import lapras from 'assets/img/pokemon/lapra.png';
+import larvesta from 'assets/img/pokemon/larvesta.png';
+import larvitar from 'assets/img/pokemon/larvitar.png';
+import latias from 'assets/img/pokemon/latias.png';
+import latios from 'assets/img/pokemon/latio.png';
+import leafeon from 'assets/img/pokemon/leafeon.png';
+import leavanny from 'assets/img/pokemon/leavanny.png';
+import ledian from 'assets/img/pokemon/ledian.png';
+import ledyba from 'assets/img/pokemon/ledyba.png';
+import lickilicky from 'assets/img/pokemon/lickilicky.png';
+import lickitung from 'assets/img/pokemon/lickitung.png';
+import liepard from 'assets/img/pokemon/liepard.png';
+import lileep from 'assets/img/pokemon/lileep.png';
+import lilligant from 'assets/img/pokemon/lilligant.png';
+import lillipup from 'assets/img/pokemon/lillipup.png';
+import linoone from 'assets/img/pokemon/linoone.png';
+import litleo from 'assets/img/pokemon/litleo.png';
+import litten from 'assets/img/pokemon/litten.png';
+import litwick from 'assets/img/pokemon/litwick.png';
+import lombre from 'assets/img/pokemon/lombre.png';
+import lopunny from 'assets/img/pokemon/lopunny.png';
+import lotad from 'assets/img/pokemon/lotad.png';
+import loudred from 'assets/img/pokemon/loudred.png';
+import lucario from 'assets/img/pokemon/lucario.png';
+import ludicolo from 'assets/img/pokemon/ludicolo.png';
+import lugia from 'assets/img/pokemon/lugia.png';
+import lumineon from 'assets/img/pokemon/lumineon.png';
+import lunala from 'assets/img/pokemon/lunala.png';
+import lunatone from 'assets/img/pokemon/lunatone.png';
+import lurantis from 'assets/img/pokemon/lurantis.png';
+import luvdisc from 'assets/img/pokemon/luvdisc.png';
+import luxio from 'assets/img/pokemon/luxio.png';
+import luxray from 'assets/img/pokemon/luxray.png';
+import lycanroc from 'assets/img/pokemon/lycanroc.png';
+import machamp from 'assets/img/pokemon/machamp.png';
+import machoke from 'assets/img/pokemon/machoke.png';
+import machop from 'assets/img/pokemon/machop.png';
+import magby from 'assets/img/pokemon/magby.png';
+import magcargo from 'assets/img/pokemon/magcargo.png';
+import magearna from 'assets/img/pokemon/magearna.png';
+import magikarp from 'assets/img/pokemon/magikarp.png';
+import magmar from 'assets/img/pokemon/magmar.png';
+import magmortar from 'assets/img/pokemon/magmortar.png';
+import magnemite from 'assets/img/pokemon/magnemite.png';
+import magneton from 'assets/img/pokemon/magneton.png';
+import magnezone from 'assets/img/pokemon/magnezone.png';
+import makuhita from 'assets/img/pokemon/makuhita.png';
+import malamar from 'assets/img/pokemon/malamar.png';
+import mamoswine from 'assets/img/pokemon/mamoswine.png';
+import manaphy from 'assets/img/pokemon/manaphy.png';
+import mandibuzz from 'assets/img/pokemon/mandibuzz.png';
+import manectric from 'assets/img/pokemon/manectric.png';
+import mankey from 'assets/img/pokemon/mankey.png';
+import mantine from 'assets/img/pokemon/mantine.png';
+import mantyke from 'assets/img/pokemon/mantyke.png';
+import maractus from 'assets/img/pokemon/maractus.png';
+import mareanie from 'assets/img/pokemon/mareanie.png';
+import mareep from 'assets/img/pokemon/mareep.png';
+import marill from 'assets/img/pokemon/marill.png';
+import marowak from 'assets/img/pokemon/marowak.png';
+import marshadow from 'assets/img/pokemon/marshadow.png';
+import marshtomp from 'assets/img/pokemon/marshtomp.png';
+import masquerain from 'assets/img/pokemon/masquerain.png';
+import mawile from 'assets/img/pokemon/mawile.png';
+import medicham from 'assets/img/pokemon/medicham.png';
+import meditite from 'assets/img/pokemon/meditite.png';
+import meganium from 'assets/img/pokemon/meganium.png';
+import melmetal from 'assets/img/pokemon/melmetal.png';
+import meloetta from 'assets/img/pokemon/meloetta.png';
+import meltan from 'assets/img/pokemon/meltan.png';
+import meowstic from 'assets/img/pokemon/meowstic.png';
+import meowth from 'assets/img/pokemon/meowth.png';
+import mesprit from 'assets/img/pokemon/mesprit.png';
+import metagross from 'assets/img/pokemon/metagross.png';
+import metang from 'assets/img/pokemon/metang.png';
+import metapod from 'assets/img/pokemon/metapod.png';
+import mew from 'assets/img/pokemon/mew.png';
+import mewtwo from 'assets/img/pokemon/mewtwo.png';
+import mienfoo from 'assets/img/pokemon/mienfoo.png';
+import mienshao from 'assets/img/pokemon/mienshao.png';
+import mightyena from 'assets/img/pokemon/mightyena.png';
+import milcery from 'assets/img/pokemon/milcery.png';
+import milotic from 'assets/img/pokemon/milotic.png';
+import miltank from 'assets/img/pokemon/miltank.png';
+import mimejr from 'assets/img/pokemon/mime-jr.png';
+import mimikyu from 'assets/img/pokemon/mimiky.png';
+import minccino from 'assets/img/pokemon/minccino.png';
+import minior from 'assets/img/pokemon/minior.png';
+import minun from 'assets/img/pokemon/minun.png';
+import misdreavus from 'assets/img/pokemon/misdreavus.png';
+import mismagius from 'assets/img/pokemon/mismagius.png';
+import moltres from 'assets/img/pokemon/moltres.png';
+import monferno from 'assets/img/pokemon/monferno.png';
+import morelull from 'assets/img/pokemon/morelull.png';
+import morgrem from 'assets/img/pokemon/morgrem.png';
+import morpeko from 'assets/img/pokemon/morpeko.png';
+import mothim from 'assets/img/pokemon/mothim.png';
+import mrmime from 'assets/img/pokemon/mr-mime.png';
+import mrrime from 'assets/img/pokemon/mr-rim.png';
+import mudbray from 'assets/img/pokemon/mudbray.png';
+import mudkip from 'assets/img/pokemon/mudkip.png';
+import mudsdale from 'assets/img/pokemon/mudsdale.png';
+import muk from 'assets/img/pokemon/muk.png';
+import munchlax from 'assets/img/pokemon/munchlax.png';
+import munna from 'assets/img/pokemon/munna.png';
+import murkrow from 'assets/img/pokemon/murkrow.png';
+import musharna from 'assets/img/pokemon/musharna.png';
+import naganadel from 'assets/img/pokemon/naganadel.png';
+import natu from 'assets/img/pokemon/natu.png';
+import necrozma from 'assets/img/pokemon/necrozma.png';
+import nickit from 'assets/img/pokemon/nickit.png';
+import nidoking from 'assets/img/pokemon/nidoking.png';
+import nidoqueen from 'assets/img/pokemon/nidoqueen.png';
+import nidoranf from 'assets/img/pokemon/nidoran-f.png';
+import nidoranm from 'assets/img/pokemon/nidoran-m.png';
+import nidorina from 'assets/img/pokemon/nidorina.png';
+import nidorino from 'assets/img/pokemon/nidorino.png';
+import nihilego from 'assets/img/pokemon/nihilego.png';
+import nincada from 'assets/img/pokemon/nincada.png';
+import ninetales from 'assets/img/pokemon/ninetales.png';
+import ninjask from 'assets/img/pokemon/ninjask.png';
+import noctowl from 'assets/img/pokemon/noctowl.png';
+import noibat from 'assets/img/pokemon/noibat.png';
+import noivern from 'assets/img/pokemon/noivern.png';
+import nosepass from 'assets/img/pokemon/nosepass.png';
+import numel from 'assets/img/pokemon/numel.png';
+import nuzleaf from 'assets/img/pokemon/nuzleaf.png';
+import obstagoon from 'assets/img/pokemon/obstagoon.png';
+import octillery from 'assets/img/pokemon/octillery.png';
+import oddish from 'assets/img/pokemon/oddish.png';
+import omanyte from 'assets/img/pokemon/omanyte.png';
+import omastar from 'assets/img/pokemon/omastar.png';
+import onix from 'assets/img/pokemon/onix.png';
+import oranguru from 'assets/img/pokemon/oranguru.png';
+import orbeetle from 'assets/img/pokemon/orbeetle.png';
+import oricorio from 'assets/img/pokemon/oricorio.png';
+import oshawott from 'assets/img/pokemon/oshawott.png';
+import pachirisu from 'assets/img/pokemon/pachirisu.png';
+import palkia from 'assets/img/pokemon/palkia.png';
+import palossand from 'assets/img/pokemon/palossand.png';
+import palpitoad from 'assets/img/pokemon/palpitoad.png';
+import pancham from 'assets/img/pokemon/pancham.png';
+import pangoro from 'assets/img/pokemon/pangoro.png';
+import panpour from 'assets/img/pokemon/panpour.png';
+import pansage from 'assets/img/pokemon/pansage.png';
+import pansear from 'assets/img/pokemon/pansear.png';
+import paras from 'assets/img/pokemon/paras.png';
+import parasect from 'assets/img/pokemon/parasect.png';
+import passimian from 'assets/img/pokemon/passimian.png';
+import patrat from 'assets/img/pokemon/patrat.png';
+import pawniard from 'assets/img/pokemon/pawniard.png';
+import pelipper from 'assets/img/pokemon/pelipper.png';
+import perrserker from 'assets/img/pokemon/perrserker.png';
+import persian from 'assets/img/pokemon/persian.png';
+import petilil from 'assets/img/pokemon/petilil.png';
+import phanpy from 'assets/img/pokemon/phanpy.png';
+import phantump from 'assets/img/pokemon/phantump.png';
+import pheromosa from 'assets/img/pokemon/pheromosa.png';
+import phione from 'assets/img/pokemon/phione.png';
+import pichu from 'assets/img/pokemon/pichu.png';
+import pidgeot from 'assets/img/pokemon/pidgeot.png';
+import pidgeotto from 'assets/img/pokemon/pidgeotto.png';
+import pidgey from 'assets/img/pokemon/pidgey.png';
+import pidove from 'assets/img/pokemon/pidove.png';
+import pignite from 'assets/img/pokemon/pignite.png';
+import pikachu from 'assets/img/pokemon/pikachu.png';
+import pikipek from 'assets/img/pokemon/pikipek.png';
+import piloswine from 'assets/img/pokemon/piloswine.png';
+import pincurchin from 'assets/img/pokemon/pincurchin.png';
+import pineco from 'assets/img/pokemon/pineco.png';
+import pinsir from 'assets/img/pokemon/pinsir.png';
+import piplup from 'assets/img/pokemon/piplup.png';
+import plusle from 'assets/img/pokemon/plusle.png';
+import poipole from 'assets/img/pokemon/poipole.png';
+import politoed from 'assets/img/pokemon/politoed.png';
+import poliwag from 'assets/img/pokemon/poliwag.png';
+import poliwhirl from 'assets/img/pokemon/poliwhirl.png';
+import poliwrath from 'assets/img/pokemon/poliwrath.png';
+import polteageist from 'assets/img/pokemon/polteageist.png';
+import ponyta from 'assets/img/pokemon/ponyta.png';
+import poochyena from 'assets/img/pokemon/poochyena.png';
+import popplio from 'assets/img/pokemon/popplio.png';
+import porygonz from 'assets/img/pokemon/porygon-z.png';
+import porygon from 'assets/img/pokemon/porygon.png';
+import porygon2 from 'assets/img/pokemon/porygon2.png';
+import primarina from 'assets/img/pokemon/primarina.png';
+import primeape from 'assets/img/pokemon/primeape.png';
+import prinplup from 'assets/img/pokemon/prinplup.png';
+import probopass from 'assets/img/pokemon/probopass.png';
+import psyduck from 'assets/img/pokemon/psyduck.png';
+import pumpkaboo from 'assets/img/pokemon/pumpkaboo.png';
+import pupitar from 'assets/img/pokemon/pupitar.png';
+import purrloin from 'assets/img/pokemon/purrloin.png';
+import purugly from 'assets/img/pokemon/purugly.png';
+import pyroar from 'assets/img/pokemon/pyroar.png';
+import pyukumuku from 'assets/img/pokemon/pyukumuku.png';
+import quagsire from 'assets/img/pokemon/quagsire.png';
+import quilava from 'assets/img/pokemon/quilava.png';
+import quilladin from 'assets/img/pokemon/quilladin.png';
+import qwilfish from 'assets/img/pokemon/qwilfish.png';
+import raboot from 'assets/img/pokemon/raboot.png';
+import raichu from 'assets/img/pokemon/raichu.png';
+import raikou from 'assets/img/pokemon/raikou.png';
+import ralts from 'assets/img/pokemon/ralts.png';
+import rampardos from 'assets/img/pokemon/rampardos.png';
+import rapidash from 'assets/img/pokemon/rapidash.png';
+import raticate from 'assets/img/pokemon/raticate.png';
+import rattata from 'assets/img/pokemon/rattata.png';
+import rayquaza from 'assets/img/pokemon/rayquaza.png';
+import regice from 'assets/img/pokemon/regice.png';
+import regidrago from 'assets/img/pokemon/regidrago.png';
+import regieleki from 'assets/img/pokemon/regieleki.png';
+import regigigas from 'assets/img/pokemon/regigigas.png';
+import regirock from 'assets/img/pokemon/regirock.png';
+import registeel from 'assets/img/pokemon/registeel.png';
+import relicanth from 'assets/img/pokemon/relicanth.png';
+import remoraid from 'assets/img/pokemon/remoraid.png';
+import reshiram from 'assets/img/pokemon/reshiram.png';
+import reuniclus from 'assets/img/pokemon/reuniclus.png';
+import rhydon from 'assets/img/pokemon/rhydon.png';
+import rhyhorn from 'assets/img/pokemon/rhyhorn.png';
+import rhyperior from 'assets/img/pokemon/rhyperior.png';
+import ribombee from 'assets/img/pokemon/ribombee.png';
+import rillaboom from 'assets/img/pokemon/rillaboom.png';
+import riolu from 'assets/img/pokemon/riolu.png';
+import rockruff from 'assets/img/pokemon/rockruff.png';
+import roggenrola from 'assets/img/pokemon/roggenrol.png';
+import rolycoly from 'assets/img/pokemon/rolycoly.png';
+import rookidee from 'assets/img/pokemon/rookidee.png';
+import roselia from 'assets/img/pokemon/roselia.png';
+import roserade from 'assets/img/pokemon/roserade.png';
+import rotom from 'assets/img/pokemon/rotom.png';
+import rowlet from 'assets/img/pokemon/rowlet.png';
+import rufflet from 'assets/img/pokemon/rufflet.png';
+import runerigus from 'assets/img/pokemon/runerigus.png';
+import sableye from 'assets/img/pokemon/sableye.png';
+import salamence from 'assets/img/pokemon/salamence.png';
+import salandit from 'assets/img/pokemon/salandit.png';
+import salazzle from 'assets/img/pokemon/salazzle.png';
+import samurott from 'assets/img/pokemon/samurott.png';
+import sandaconda from 'assets/img/pokemon/sandaconda.png';
+import sandile from 'assets/img/pokemon/sandile.png';
+import sandshrew from 'assets/img/pokemon/sandshrew.png';
+import sandslash from 'assets/img/pokemon/sandslash.png';
+import sandygast from 'assets/img/pokemon/sandygast.png';
+import sawk from 'assets/img/pokemon/sawk.png';
+import sawsbuck from 'assets/img/pokemon/sawsbuck.png';
+import scatterbug from 'assets/img/pokemon/scatterbu.png';
+import sceptile from 'assets/img/pokemon/sceptile.png';
+import scizor from 'assets/img/pokemon/scizor.png';
+import scolipede from 'assets/img/pokemon/scolipede.png';
+import scorbunny from 'assets/img/pokemon/scorbunny.png';
+import scrafty from 'assets/img/pokemon/scrafty.png';
+import scraggy from 'assets/img/pokemon/scraggy.png';
+import scyther from 'assets/img/pokemon/scyther.png';
+import seadra from 'assets/img/pokemon/seadra.png';
+import seaking from 'assets/img/pokemon/seaking.png';
+import sealeo from 'assets/img/pokemon/sealeo.png';
+import seedot from 'assets/img/pokemon/seedot.png';
+import seel from 'assets/img/pokemon/seel.png';
+import seismitoad from 'assets/img/pokemon/seismitoad.png';
+import sentret from 'assets/img/pokemon/sentret.png';
+import serperior from 'assets/img/pokemon/serperior.png';
+import servine from 'assets/img/pokemon/servine.png';
+import seviper from 'assets/img/pokemon/seviper.png';
+import sewaddle from 'assets/img/pokemon/sewaddle.png';
+import sharpedo from 'assets/img/pokemon/sharpedo.png';
+import shaymin from 'assets/img/pokemon/shaymin.png';
+import shedinja from 'assets/img/pokemon/shedinja.png';
+import shelgon from 'assets/img/pokemon/shelgon.png';
+import shellder from 'assets/img/pokemon/shellder.png';
+import shellos from 'assets/img/pokemon/shellos.png';
+import shelmet from 'assets/img/pokemon/shelmet.png';
+import shieldon from 'assets/img/pokemon/shieldon.png';
+import shiftry from 'assets/img/pokemon/shiftry.png';
+import shiinotic from 'assets/img/pokemon/shiinotic.png';
+import shinx from 'assets/img/pokemon/shinx.png';
+import shroomish from 'assets/img/pokemon/shroomish.png';
+import shuckle from 'assets/img/pokemon/shuckle.png';
+import shuppet from 'assets/img/pokemon/shuppet.png';
+import sigilyph from 'assets/img/pokemon/sigilyph.png';
+import silcoon from 'assets/img/pokemon/silcoon.png';
+import silicobra from 'assets/img/pokemon/silicobra.png';
+import silvally from 'assets/img/pokemon/silvally.png';
+import simipour from 'assets/img/pokemon/simipour.png';
+import simisage from 'assets/img/pokemon/simisage.png';
+import simisear from 'assets/img/pokemon/simisear.png';
+import sinistea from 'assets/img/pokemon/sinistea.png';
+import sirfetchd from 'assets/img/pokemon/sirfetchd.png';
+import sizzlipede from 'assets/img/pokemon/sizzlipede.png';
+import skarmory from 'assets/img/pokemon/skarmory.png';
+import skiddo from 'assets/img/pokemon/skiddo.png';
+import skiploom from 'assets/img/pokemon/skiploom.png';
+import skitty from 'assets/img/pokemon/skitty.png';
+import skorupi from 'assets/img/pokemon/skorupi.png';
+import skrelp from 'assets/img/pokemon/skrelp.png';
+import skuntank from 'assets/img/pokemon/skuntank.png';
+import skwovet from 'assets/img/pokemon/skwovet.png';
+import slaking from 'assets/img/pokemon/slaking.png';
+import slakoth from 'assets/img/pokemon/slakoth.png';
+import sliggoo from 'assets/img/pokemon/sliggoo.png';
+import slowbro from 'assets/img/pokemon/slowbro.png';
+import slowking from 'assets/img/pokemon/slowking.png';
+import slowpoke from 'assets/img/pokemon/slowpoke.png';
+import slugma from 'assets/img/pokemon/Slugma.png';
+import slurpuff from 'assets/img/pokemon/slurpuff.png';
+import smeargle from 'assets/img/pokemon/smeargle.png';
+import smoochum from 'assets/img/pokemon/smoochum.png';
+import sneasel from 'assets/img/pokemon/sneasel.png';
+import snivy from 'assets/img/pokemon/snivy.png';
+import snom from 'assets/img/pokemon/snom.png';
+import snorlax from 'assets/img/pokemon/snorlax.png';
+import snorunt from 'assets/img/pokemon/snorunt.png';
+import snover from 'assets/img/pokemon/snover.png';
+import snubbull from 'assets/img/pokemon/snubbull.png';
+import sobble from 'assets/img/pokemon/sobble.png';
+import solgaleo from 'assets/img/pokemon/solgaleo.png';
+import solosis from 'assets/img/pokemon/solosis.png';
+import solrock from 'assets/img/pokemon/solrock.png';
+import spearow from 'assets/img/pokemon/spearow.png';
+import spectrier from 'assets/img/pokemon/spectrier.png';
+import spewpa from 'assets/img/pokemon/spewpa.png';
+import spheal from 'assets/img/pokemon/spheal.png';
+import spinarak from 'assets/img/pokemon/spinarak.png';
+import spinda from 'assets/img/pokemon/spinda.png';
+import spiritomb from 'assets/img/pokemon/spiritomb.png';
+import spoink from 'assets/img/pokemon/spoink.png';
+import spritzee from 'assets/img/pokemon/spritzee.png';
+import squirtle from 'assets/img/pokemon/squirtle.png';
+import stakataka from 'assets/img/pokemon/stakataka.png';
+import stantler from 'assets/img/pokemon/stantler.png';
+import staraptor from 'assets/img/pokemon/staraptor.png';
+import staravia from 'assets/img/pokemon/staravia.png';
+import starly from 'assets/img/pokemon/starly.png';
+import starmie from 'assets/img/pokemon/starmie.png';
+import staryu from 'assets/img/pokemon/staryu.png';
+import steelix from 'assets/img/pokemon/steelix.png';
+import steenee from 'assets/img/pokemon/steenee.png';
+import stonjourner from 'assets/img/pokemon/stonjourner.png';
+import stoutland from 'assets/img/pokemon/stoutland.png';
+import stufful from 'assets/img/pokemon/stufful.png';
+import stunfisk from 'assets/img/pokemon/stunfisk.png';
+import stunky from 'assets/img/pokemon/stunky.png';
+import sudowoodo from 'assets/img/pokemon/sudowoodo.png';
+import suicune from 'assets/img/pokemon/suicune.png';
+import sunflora from 'assets/img/pokemon/sunflora.png';
+import sunkern from 'assets/img/pokemon/sunkern.png';
+import surskit from 'assets/img/pokemon/surskit.png';
+import swablu from 'assets/img/pokemon/swablu.png';
+import swadloon from 'assets/img/pokemon/swadloon.png';
+import swalot from 'assets/img/pokemon/swalot.png';
+import swampert from 'assets/img/pokemon/swampert.png';
+import swanna from 'assets/img/pokemon/swanna.png';
+import swellow from 'assets/img/pokemon/swellow.png';
+import swinub from 'assets/img/pokemon/swinub.png';
+import swirlix from 'assets/img/pokemon/swirlix.png';
+import swoobat from 'assets/img/pokemon/swoobat.png';
+import sylveon from 'assets/img/pokemon/sylveon.png';
+import taillow from 'assets/img/pokemon/taillow.png';
+import talonflame from 'assets/img/pokemon/talonflame.png';
+import tangela from 'assets/img/pokemon/tangela.png';
+import tangrowth from 'assets/img/pokemon/tangrowth.png';
+import tapubulu from 'assets/img/pokemon/tapu-bulu.png';
+import tapufini from 'assets/img/pokemon/tapu-fini.png';
+import tapukoko from 'assets/img/pokemon/tapu-kok.png';
+import tapulele from 'assets/img/pokemon/tapu-lel.png';
+import tauros from 'assets/img/pokemon/tauros.png';
+import teddiursa from 'assets/img/pokemon/teddiurs.png';
+import tentacool from 'assets/img/pokemon/tentacool.png';
+import tentacruel from 'assets/img/pokemon/tentacruel.png';
+import tepig from 'assets/img/pokemon/tepi.png';
+import terrakion from 'assets/img/pokemon/terrakion.png';
+import thievul from 'assets/img/pokemon/thievul.png';
+import throh from 'assets/img/pokemon/throh.png';
+import thundurus from 'assets/img/pokemon/thundurus.png';
+import thwackey from 'assets/img/pokemon/thwackey.png';
+import timburr from 'assets/img/pokemon/timburr.png';
+import tirtouga from 'assets/img/pokemon/tirtouga.png';
+import togedemaru from 'assets/img/pokemon/togedemaru.png';
+import togekiss from 'assets/img/pokemon/togekiss.png';
+import togepi from 'assets/img/pokemon/togepi.png';
+import togetic from 'assets/img/pokemon/togetic.png';
+import torchic from 'assets/img/pokemon/torchic.png';
+import torkoal from 'assets/img/pokemon/torkoal.png';
+import tornadus from 'assets/img/pokemon/tornadus.png';
+import torracat from 'assets/img/pokemon/torracat.png';
+import torterra from 'assets/img/pokemon/torterra.png';
+import totodile from 'assets/img/pokemon/totodile.png';
+import toucannon from 'assets/img/pokemon/toucannon.png';
+import toxapex from 'assets/img/pokemon/toxapex.png';
+import toxel from 'assets/img/pokemon/toxel.png';
+import toxicroak from 'assets/img/pokemon/toxicroak.png';
+import toxtricity from 'assets/img/pokemon/toxtricit.png';
+import tranquill from 'assets/img/pokemon/tranquill.png';
+import trapinch from 'assets/img/pokemon/trapinch.png';
+import treecko from 'assets/img/pokemon/treecko.png';
+import trevenant from 'assets/img/pokemon/trevenant.png';
+import tropius from 'assets/img/pokemon/tropius.png';
+import trubbish from 'assets/img/pokemon/trubbish.png';
+import trumbeak from 'assets/img/pokemon/trumbeak.png';
+import tsareena from 'assets/img/pokemon/tsareena.png';
+import turtonator from 'assets/img/pokemon/turtonator.png';
+import turtwig from 'assets/img/pokemon/turtwig.png';
+import tympole from 'assets/img/pokemon/tympole.png';
+import tynamo from 'assets/img/pokemon/tynam.png';
+import typenull from 'assets/img/pokemon/type-null.png';
+import typhlosion from 'assets/img/pokemon/typhlosion.png';
+import tyranitar from 'assets/img/pokemon/tyranita.png';
+import tyrantrum from 'assets/img/pokemon/tyrantrum.png';
+import tyrogue from 'assets/img/pokemon/tyrogue.png';
+import tyrunt from 'assets/img/pokemon/tyrun.png';
+import umbreon from 'assets/img/pokemon/umbreon.png';
+import unfezant from 'assets/img/pokemon/unfezant.png';
+import unown from 'assets/img/pokemon/unow.png';
+import ursaring from 'assets/img/pokemon/ursaring.png';
+import urshifu from 'assets/img/pokemon/urshif.png';
+import uxie from 'assets/img/pokemon/uxi.png';
+import vanillish from 'assets/img/pokemon/vanillish.png';
+import vanillite from 'assets/img/pokemon/vanillit.png';
+import vanilluxe from 'assets/img/pokemon/vanilluxe.png';
+import vaporeon from 'assets/img/pokemon/vaporeon.png';
+import venipede from 'assets/img/pokemon/venipede.png';
+import venomoth from 'assets/img/pokemon/venomoth.png';
+import venonat from 'assets/img/pokemon/venonat.png';
+import venusaur from 'assets/img/pokemon/venusaur.png';
+import vespiquen from 'assets/img/pokemon/vespiquen.png';
+import vibrava from 'assets/img/pokemon/vibrava.png';
+import victini from 'assets/img/pokemon/victini.png';
+import victreebel from 'assets/img/pokemon/victreebel.png';
+import vigoroth from 'assets/img/pokemon/vigoroth.png';
+import vikavolt from 'assets/img/pokemon/vikavolt.png';
+import vileplume from 'assets/img/pokemon/vileplume.png';
+import virizion from 'assets/img/pokemon/virizion.png';
+import vivillon from 'assets/img/pokemon/vivillon.png';
+import volbeat from 'assets/img/pokemon/volbeat.png';
+import volcanion from 'assets/img/pokemon/volcanion.png';
+import volcarona from 'assets/img/pokemon/volcarona.png';
+import voltorb from 'assets/img/pokemon/voltorb.png';
+import vullaby from 'assets/img/pokemon/vullaby.png';
+import vulpix from 'assets/img/pokemon/vulpix.png';
+import wailmer from 'assets/img/pokemon/wailmer.png';
+import wailord from 'assets/img/pokemon/wailord.png';
+import walrein from 'assets/img/pokemon/walrein.png';
+import wartortle from 'assets/img/pokemon/wartortle.png';
+import watchog from 'assets/img/pokemon/watchog.png';
+import weavile from 'assets/img/pokemon/weavile.png';
+import weedle from 'assets/img/pokemon/weedle.png';
+import weepinbell from 'assets/img/pokemon/weepinbell.png';
+import weezing from 'assets/img/pokemon/weezing.png';
+import whimsicott from 'assets/img/pokemon/whimsicott.png';
+import whiscash from 'assets/img/pokemon/whiscash.png';
+import whismur from 'assets/img/pokemon/whismur.png';
+import wigglytuff from 'assets/img/pokemon/wigglytuff.png';
+import wimpod from 'assets/img/pokemon/wimpod.png';
+import wingull from 'assets/img/pokemon/wingull.png';
+import wishiwashi from 'assets/img/pokemon/wishiwashi.png';
+import wobbuffet from 'assets/img/pokemon/wobbuffet.png';
+import woobat from 'assets/img/pokemon/woobat.png';
+import wooloo from 'assets/img/pokemon/wooloo.png';
+import wooper from 'assets/img/pokemon/wooper.png';
+import wormadam from 'assets/img/pokemon/wormadam.png';
+import wurmple from 'assets/img/pokemon/wurmple.png';
+import wynaut from 'assets/img/pokemon/wynaut.png';
+import xatu from 'assets/img/pokemon/xau.png';
+import xerneas from 'assets/img/pokemon/xerneas.png';
+import xurkitree from 'assets/img/pokemon/xurkitree.png';
+import yamask from 'assets/img/pokemon/yamask.png';
+import yamper from 'assets/img/pokemon/yamper.png';
+import yanma from 'assets/img/pokemon/yanma.png';
+import yanmega from 'assets/img/pokemon/yanmega.png';
+import yungoos from 'assets/img/pokemon/yungoos.png';
+import yveltal from 'assets/img/pokemon/yveltal.png';
+import zacian from 'assets/img/pokemon/zacian.png';
+import zamazenta from 'assets/img/pokemon/zamazenta.png';
+import zangoose from 'assets/img/pokemon/zangoose.png';
+import zapdos from 'assets/img/pokemon/zapdos.png';
+import zarude from 'assets/img/pokemon/zarude.png';
+import zebstrika from 'assets/img/pokemon/zebstrika.png';
+import zekrom from 'assets/img/pokemon/zekrom.png';
+import zeraora from 'assets/img/pokemon/zeraora.png';
+import zigzagoon from 'assets/img/pokemon/zigzagoon.png';
+import zoroark from 'assets/img/pokemon/zoroark.png';
+import zorua from 'assets/img/pokemon/zorua.png';
+import zubat from 'assets/img/pokemon/zubat.png';
+import zweilous from 'assets/img/pokemon/zweilous.png';
+import zygarde from 'assets/img/pokemon/zygarde.png';
 
 const POKEMON: TPokemon[] = [
   {
@@ -94,467 +976,467 @@ const POKEMON: TPokemon[] = [
   {
     id: 16,
     name: 'Pidgey',
-    src: kakuna,
+    src: pidgey,
   },
   {
     id: 17,
     name: 'Pidgeotto',
-    src: kakuna,
+    src: pidgeotto,
   },
   {
     id: 18,
     name: 'Pidgeot',
-    src: kakuna,
+    src: pidgeot,
   },
   {
     id: 19,
     name: 'Rattata',
-    src: kakuna,
+    src: rattata,
   },
   {
     id: 20,
     name: 'Raticate',
-    src: kakuna,
+    src: raticate,
   },
   {
     id: 21,
     name: 'Spearow',
-    src: kakuna,
+    src: spearow,
   },
   {
     id: 22,
     name: 'Fearow',
-    src: kakuna,
+    src: fearow,
   },
   {
     id: 23,
     name: 'Ekans',
-    src: kakuna,
+    src: ekans,
   },
   {
     id: 24,
     name: 'Arbok',
-    src: kakuna,
+    src: arbok,
   },
   {
     id: 25,
     name: 'Pikachu',
-    src: kakuna,
+    src: pikachu,
   },
   {
     id: 26,
     name: 'Raichu',
-    src: kakuna,
+    src: raichu,
   },
   {
     id: 26,
     name: 'Sandshrew',
-    src: kakuna,
+    src: sandshrew,
   },
   {
     id: 28,
     name: 'Sandslash',
-    src: kakuna,
+    src: sandslash,
   },
   {
     id: 29,
     name: 'Nidoran (Female)',
-    src: kakuna,
+    src: nidoranf,
   },
   {
     id: 30,
     name: 'Nidorina',
-    src: kakuna,
+    src: nidorina,
   },
   {
     id: 31,
     name: 'Nidoqueen',
-    src: kakuna,
+    src: nidoqueen,
   },
   {
     id: 32,
     name: 'Nidoran (Male)',
-    src: kakuna,
+    src: nidoranm,
   },
   {
     id: 33,
     name: 'Nidorino',
-    src: kakuna,
+    src: nidorino,
   },
   {
     id: 34,
     name: 'Nidoking',
-    src: kakuna,
+    src: nidoking,
   },
   {
     id: 35,
     name: 'Clefairy',
-    src: kakuna,
+    src: clefairy,
   },
   {
     id: 36,
     name: 'Clefable',
-    src: kakuna,
+    src: clefable,
   },
   {
     id: 37,
     name: 'Vulpix',
-    src: kakuna,
+    src: vulpix,
   },
   {
     id: 38,
     name: 'Ninetales',
-    src: kakuna,
+    src: ninetales,
   },
   {
     id: 39,
     name: 'Jigglypuff',
-    src: kakuna,
+    src: jigglypuff,
   },
   {
     id: 40,
     name: 'Wigglytuff',
-    src: kakuna,
+    src: wigglytuff,
   },
   {
     id: 41,
     name: 'Zubat',
-    src: kakuna,
+    src: zubat,
   },
   {
     id: 42,
     name: 'Golbat',
-    src: kakuna,
+    src: golbat,
   },
   {
     id: 43,
     name: 'Oddish',
-    src: kakuna,
+    src: oddish,
   },
   {
     id: 44,
     name: 'Gloom',
-    src: kakuna,
+    src: gloom,
   },
   {
     id: 45,
     name: 'Vileplume',
-    src: kakuna,
+    src: vileplume,
   },
   {
     id: 46,
     name: 'Paras',
-    src: kakuna,
+    src: paras,
   },
   {
     id: 47,
     name: 'Parasect',
-    src: kakuna,
+    src: parasect,
   },
   {
     id: 48,
     name: 'Venonat',
-    src: kakuna,
+    src: venonat,
   },
   {
     id: 49,
     name: 'Venomoth',
-    src: kakuna,
+    src: venomoth,
   },
   {
     id: 50,
     name: 'Diglett',
-    src: kakuna,
+    src: diglett,
   },
   {
     id: 51,
     name: 'Dugtrio',
-    src: kakuna,
+    src: dugtrio,
   },
   {
     id: 52,
     name: 'Meowth',
-    src: kakuna,
+    src: meowth,
   },
   {
     id: 53,
     name: 'Persian',
-    src: kakuna,
+    src: persian,
   },
   {
     id: 54,
     name: 'Psyduck',
-    src: kakuna,
+    src: psyduck,
   },
   {
     id: 55,
     name: 'Golduck',
-    src: kakuna,
+    src: golduck,
   },
   {
     id: 56,
     name: 'Mankey',
-    src: kakuna,
+    src: mankey,
   },
   {
     id: 57,
     name: 'Primeape',
-    src: kakuna,
+    src: primeape,
   },
   {
     id: 58,
     name: 'Growlithe',
-    src: kakuna,
+    src: growlithe,
   },
   {
     id: 59,
     name: 'Arcanine',
-    src: kakuna,
+    src: arcanine,
   },
   {
     id: 60,
     name: 'Poliwag',
-    src: kakuna,
+    src: poliwag,
   },
   {
     id: 61,
     name: 'Poliwhirl',
-    src: kakuna,
+    src: poliwhirl,
   },
   {
     id: 62,
     name: 'Poliwrath',
-    src: kakuna,
+    src: poliwrath,
   },
   {
     id: 63,
     name: 'Abra',
-    src: kakuna,
+    src: abra,
   },
   {
     id: 64,
     name: 'Kadabra',
-    src: kakuna,
+    src: kadabra,
   },
   {
     id: 65,
     name: 'Alakazam',
-    src: kakuna,
+    src: alakazam,
   },
   {
     id: 66,
     name: 'Machop',
-    src: kakuna,
+    src: machop,
   },
   {
     id: 67,
     name: 'Machoke',
-    src: kakuna,
+    src: machoke,
   },
   {
     id: 68,
     name: 'Machamp',
-    src: kakuna,
+    src: machamp,
   },
   {
     id: 69,
     name: 'Bellsprout',
-    src: kakuna,
+    src: bellsprout,
   },
   {
     id: 70,
     name: 'Weepinbell',
-    src: kakuna,
+    src: weepinbell,
   },
   {
     id: 71,
     name: 'Victreebel',
-    src: kakuna,
+    src: victreebel,
   },
   {
     id: 72,
     name: 'Tentacool',
-    src: kakuna,
+    src: tentacool,
   },
   {
     id: 73,
     name: 'Tentacruel',
-    src: kakuna,
+    src: tentacruel,
   },
   {
     id: 74,
     name: 'Geodude',
-    src: kakuna,
+    src: geodude,
   },
   {
     id: 75,
     name: 'Graveler',
-    src: kakuna,
+    src: graveler,
   },
   {
     id: 76,
     name: 'Golem',
-    src: kakuna,
+    src: golem,
   },
   {
     id: 77,
     name: 'Ponyta',
-    src: kakuna,
+    src: ponyta,
   },
   {
     id: 78,
     name: 'Rapidash',
-    src: kakuna,
+    src: rapidash,
   },
   {
     id: 79,
     name: 'Slowpoke',
-    src: kakuna,
+    src: slowpoke,
   },
   {
     id: 80,
     name: 'Slowbro',
-    src: kakuna,
+    src: slowbro,
   },
   {
     id: 81,
     name: 'Magnemite',
-    src: kakuna,
+    src: magnemite,
   },
   {
     id: 82,
     name: 'Magneton',
-    src: kakuna,
+    src: magneton,
   },
   {
     id: 83,
     name: "Farfetch'd",
-    src: kakuna,
+    src: farfetchd,
   },
   {
     id: 84,
     name: 'Doduo',
-    src: kakuna,
+    src: doduo,
   },
   {
     id: 85,
     name: 'Dodrio',
-    src: kakuna,
+    src: dodrio,
   },
   {
     id: 86,
     name: 'Seel',
-    src: kakuna,
+    src: seel,
   },
   {
     id: 87,
     name: 'Dewgong',
-    src: kakuna,
+    src: dewgong,
   },
   {
     id: 88,
     name: 'Grimer',
-    src: kakuna,
+    src: grimer,
   },
   {
     id: 89,
     name: 'Muk',
-    src: kakuna,
+    src: muk,
   },
   {
     id: 90,
     name: 'Shellder',
-    src: kakuna,
+    src: shellder,
   },
   {
     id: 91,
     name: 'Cloyster',
-    src: kakuna,
+    src: cloyster,
   },
   {
     id: 92,
     name: 'Gastly',
-    src: kakuna,
+    src: gastly,
   },
   {
     id: 93,
     name: 'Haunter',
-    src: kakuna,
+    src: haunter,
   },
   {
     id: 94,
     name: 'Gengar',
-    src: kakuna,
+    src: gengar,
   },
   {
     id: 95,
     name: 'Onix',
-    src: kakuna,
+    src: onix,
   },
   {
     id: 96,
     name: 'Drowzee',
-    src: kakuna,
+    src: drowzee,
   },
   {
     id: 97,
     name: 'Hypno',
-    src: kakuna,
+    src: hypno,
   },
   {
     id: 98,
     name: 'Krabby',
-    src: kakuna,
+    src: krabby,
   },
   {
     id: 99,
     name: 'Kingler',
-    src: kakuna,
+    src: kingler,
   },
   {
     id: 100,
     name: 'Voltorb',
-    src: kakuna,
+    src: voltorb,
   },
   {
     id: 101,
     name: 'Electrode',
-    src: kakuna,
+    src: electrode,
   },
   {
     id: 102,
     name: 'Exeggcute',
-    src: kakuna,
+    src: exeggcute,
   },
   {
     id: 103,
     name: 'Exeggutor',
-    src: kakuna,
+    src: exeggutor,
   },
   {
     id: 104,
     name: 'Cubone',
-    src: kakuna,
+    src: cubone,
   },
   {
     id: 105,
     name: 'Marowak',
-    src: kakuna,
+    src: marowak,
   },
   {
     id: 106,
     name: 'Hitmonlee',
-    src: kakuna,
+    src: hitmonlee,
   },
   {
     id: 107,
     name: 'Hitmonchan',
-    src: kakuna,
+    src: hitmonchan,
   },
   {
     id: 108,
     name: 'Lickitung',
-    src: kakuna,
+    src: lickitung,
   },
   {
     id: 109,
