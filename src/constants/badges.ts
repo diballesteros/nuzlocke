@@ -66,6 +66,62 @@ const BADGES: TBadgeDictionary = {
       src: champion,
     },
   ],
+  '2': [
+    {
+      id: 1,
+      levelCap: 14,
+      name: 'Zephyr Badge',
+      src: boulder,
+    },
+    {
+      id: 2,
+      levelCap: 21,
+      name: 'Hive Badge',
+      src: cascade,
+    },
+    {
+      id: 3,
+      levelCap: 24,
+      name: 'Plain Badge',
+      src: thunder,
+    },
+    {
+      id: 4,
+      levelCap: 29,
+      name: 'Fog Badge',
+      src: rainbow,
+    },
+    {
+      id: 5,
+      levelCap: 43,
+      name: 'Storm Badge',
+      src: soul,
+    },
+    {
+      id: 6,
+      levelCap: 43,
+      name: 'Mineral Badge',
+      src: marsh,
+    },
+    {
+      id: 7,
+      levelCap: 47,
+      name: 'Glacier Badge',
+      src: volcano,
+    },
+    {
+      id: 8,
+      levelCap: 50,
+      name: 'Rising Badge',
+      src: earth,
+    },
+    {
+      id: 8,
+      levelCap: 63,
+      name: 'Elite 4',
+      src: champion,
+    },
+  ],
 };
 
 export default BADGES;
