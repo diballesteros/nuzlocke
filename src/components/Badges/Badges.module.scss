@@ -40,6 +40,12 @@
       border-right: none;
     }
 
+    > img {
+      max-height: 50px;
+      max-width: 50px;
+      object-fit: cover;
+    }
+
     .levelCap {
       align-self: flex-end;
     }
