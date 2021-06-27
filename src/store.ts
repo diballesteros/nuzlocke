@@ -56,6 +56,21 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      addEncounter: (newLocation: string) =>
+        set((state) => {
+          state.games[state.selectedGame?.id].encounters.push({
+            id: state.games[state.selectedGame?.id].encounters.length + 1,
+            location: newLocation,
+            pokemon: null,
+            status: null,
+          });
+        }),
+      clearEncounter: (encounterId: number) => {
+        set((state) => {
+          state.games[state.selectedGame?.id].encounters[encounterId].status = null;
+          state.games[state.selectedGame?.id].encounters[encounterId].pokemon = null;
+        });
+      },
     })),
     {
       name: 'pokemon-tracker',

@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import { IconButton } from '@material-ui/core';
-import Delete from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+import ClearAll from '@material-ui/icons/ClearAll';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
 import useDimensions from 'hooks/useDimensions';
@@ -11,6 +11,7 @@ const Encounters: React.FC = React.memo(() => {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const clearEncounter = useStore(useCallback((state) => state.clearEncounter, []));
   const [containerRef, containerSize] = useDimensions(true);
   const filteredGames = games[selectedGame?.id]?.encounters?.filter((enc) => {
     const upperCase = text?.toUpperCase();
@@ -21,6 +22,10 @@ const Encounters: React.FC = React.memo(() => {
     );
   });
 
+  const handleClear = (encounterId: number) => {
+    clearEncounter(encounterId);
+  };
+
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredGames[index];
     return (
@@ -29,8 +34,8 @@ const Encounters: React.FC = React.memo(() => {
           <div>{encounter.location}</div>
           <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
           <Status encounterId={encounter.id} status={encounter.status} />
-          <IconButton aria-label="delete">
-            <Delete />
+          <IconButton aria-label="delete" onClick={() => handleClear(encounter.id)}>
+            <ClearAll />
           </IconButton>
         </div>
       </div>

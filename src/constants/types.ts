@@ -5,8 +5,10 @@ export interface TrackerState {
 }
 
 export interface AppState extends TrackerState {
+  addEncounter: (newLocation: string) => void;
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
+  clearEncounter: (encounterId: number) => void;
   resetAll: () => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
