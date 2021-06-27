@@ -10,7 +10,7 @@ import Import from '@material-ui/icons/Publish';
 import useStore from 'store';
 import styles from './Header.module.scss';
 
-const Header: React.FC = () => {
+const Header: React.FC = React.memo(() => {
   const appState = useStore((state) => state);
 
   const handleChange = (
@@ -47,6 +47,6 @@ const Header: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Header;

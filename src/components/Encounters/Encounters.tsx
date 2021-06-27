@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import { IconButton } from '@material-ui/core';
 import Delete from '@material-ui/icons/Delete';
@@ -7,8 +7,10 @@ import { Pokemon, Status } from 'components';
 import useDimensions from 'hooks/useDimensions';
 import styles from './Encounters.module.scss';
 
-const Encounters: React.FC = () => {
-  const { games, selectedGame, text } = useStore((state) => state);
+const Encounters: React.FC = React.memo(() => {
+  const games = useStore(useCallback((state) => state.games, []));
+  const text = useStore(useCallback((state) => state.text, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const [containerRef, containerSize] = useDimensions(true);
   const filteredGames = games[selectedGame?.id]?.encounters?.filter((enc) => {
     const upperCase = text?.toUpperCase();
@@ -55,6 +57,6 @@ const Encounters: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Encounters;

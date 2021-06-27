@@ -6,7 +6,7 @@ import Add from '@material-ui/icons/Add';
 import useStore from 'store';
 import styles from './Options.module.scss';
 
-const Options: React.FC = () => {
+const Options: React.FC = React.memo(() => {
   const { resetAll, search, text } = useStore((state) => state);
 
   const handleReset = () => {
@@ -41,6 +41,6 @@ const Options: React.FC = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Options;
