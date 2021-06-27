@@ -77,7 +77,9 @@ const Options: React.FC = React.memo(() => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleAdd}>Save</Button>
+          <Button disabled={location?.length === 0} onClick={handleAdd}>
+            Save
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
