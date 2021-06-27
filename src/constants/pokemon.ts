@@ -3,12 +3,12 @@ import abomasnow from 'assets/img/pokemon/abomasnow.png';
 import abra from 'assets/img/pokemon/abra.png';
 import absol from 'assets/img/pokemon/absol.png';
 import accelgor from 'assets/img/pokemon/accelgor.png';
-import aegislash from 'assets/img/pokemon/aegislas.png';
+import aegislash from 'assets/img/pokemon/aegislash.png';
 import aerodactyl from 'assets/img/pokemon/aerodactyl.png';
 import aggron from 'assets/img/pokemon/aggron.png';
 import aipom from 'assets/img/pokemon/aipom.png';
 import alakazam from 'assets/img/pokemon/alakazam.png';
-import alcremie from 'assets/img/pokemon/alcremi.png';
+import alcremie from 'assets/img/pokemon/alcremie.png';
 import alomomola from 'assets/img/pokemon/alomomola.png';
 import altaria from 'assets/img/pokemon/altaria.png';
 import amaura from 'assets/img/pokemon/amaura.png';
@@ -32,6 +32,7 @@ import aromatisse from 'assets/img/pokemon/aromatisse.png';
 import aron from 'assets/img/pokemon/aron.png';
 import arrokuda from 'assets/img/pokemon/arrokuda.png';
 import articuno from 'assets/img/pokemon/articuno.png';
+import articunog from 'assets/img/pokemon/articunoG.png';
 import audino from 'assets/img/pokemon/audino.png';
 import aurorus from 'assets/img/pokemon/aurorus.png';
 import avalugg from 'assets/img/pokemon/avalugg.png';
@@ -140,10 +141,11 @@ import conkeldurr from 'assets/img/pokemon/conkeldurr.png';
 import copperajah from 'assets/img/pokemon/copperajah.png';
 import corphish from 'assets/img/pokemon/corphish.png';
 import corsola from 'assets/img/pokemon/corsola.png';
+import corsolag from 'assets/img/pokemon/corsolaG.png';
 import corviknight from 'assets/img/pokemon/corviknight.png';
 import corvisquire from 'assets/img/pokemon/corvisquire.png';
 import cosmoem from 'assets/img/pokemon/cosmoem.png';
-import cosmog from 'assets/img/pokemon/cosmo.png';
+import cosmog from 'assets/img/pokemon/cosmog.png';
 import cottonee from 'assets/img/pokemon/cottonee.png';
 import crabominable from 'assets/img/pokemon/crabominable.png';
 import crabrawler from 'assets/img/pokemon/crabrawler.png';
@@ -159,14 +161,16 @@ import crustle from 'assets/img/pokemon/crustle.png';
 import cryogonal from 'assets/img/pokemon/cryogonal.png';
 import cubchoo from 'assets/img/pokemon/cubchoo.png';
 import cubone from 'assets/img/pokemon/cubone.png';
-import cufant from 'assets/img/pokemon/cufan.png';
+import cufant from 'assets/img/pokemon/cufant.png';
 import cursola from 'assets/img/pokemon/cursola.png';
 import cutiefly from 'assets/img/pokemon/cutiefly.png';
 import cyndaquil from 'assets/img/pokemon/cyndaquil.png';
 import darkrai from 'assets/img/pokemon/darkrai.png';
 import darmanitan from 'assets/img/pokemon/darmanitan.png';
+import darmanitang from 'assets/img/pokemon/darmanitanG.png';
 import dartrix from 'assets/img/pokemon/dartrix.png';
 import darumaka from 'assets/img/pokemon/darumaka.png';
+import darumakag from 'assets/img/pokemon/darumakaG.png';
 import decidueye from 'assets/img/pokemon/decidueye.png';
 import dedenne from 'assets/img/pokemon/dedenne.png';
 import deerling from 'assets/img/pokemon/deerling.png';
@@ -176,18 +180,19 @@ import delibird from 'assets/img/pokemon/delibird.png';
 import delphox from 'assets/img/pokemon/delphox.png';
 import deoxys from 'assets/img/pokemon/deoxys.png';
 import dewgong from 'assets/img/pokemon/dewgong.png';
-import dewott from 'assets/img/pokemon/dewot.png';
+import dewott from 'assets/img/pokemon/dewott.png';
 import dewpider from 'assets/img/pokemon/dewpider.png';
 import dhelmise from 'assets/img/pokemon/dhelmise.png';
 import dialga from 'assets/img/pokemon/dialga.png';
 import diancie from 'assets/img/pokemon/diancie.png';
 import diggersby from 'assets/img/pokemon/diggersby.png';
 import diglett from 'assets/img/pokemon/diglett.png';
+import digletta from 'assets/img/pokemon/diglettA.png';
 import ditto from 'assets/img/pokemon/ditto.png';
 import dodrio from 'assets/img/pokemon/dodrio.png';
 import doduo from 'assets/img/pokemon/doduo.png';
 import donphan from 'assets/img/pokemon/donphan.png';
-import dottler from 'assets/img/pokemon/dottle.png';
+import dottler from 'assets/img/pokemon/dottler.png';
 import doublade from 'assets/img/pokemon/doublade.png';
 import dracovish from 'assets/img/pokemon/dracovish.png';
 import dracozolt from 'assets/img/pokemon/dracozolt.png';
@@ -196,7 +201,7 @@ import dragapult from 'assets/img/pokemon/dragapult.png';
 import dragonair from 'assets/img/pokemon/dragonair.png';
 import dragonite from 'assets/img/pokemon/dragonite.png';
 import drakloak from 'assets/img/pokemon/drakloak.png';
-import drampa from 'assets/img/pokemon/dramp.png';
+import drampa from 'assets/img/pokemon/drampa.png';
 import drapion from 'assets/img/pokemon/drapion.png';
 import dratini from 'assets/img/pokemon/dratini.png';
 import drednaw from 'assets/img/pokemon/drednaw.png';
@@ -210,6 +215,7 @@ import druddigon from 'assets/img/pokemon/druddigon.png';
 import dubwool from 'assets/img/pokemon/dubwool.png';
 import ducklett from 'assets/img/pokemon/ducklett.png';
 import dugtrio from 'assets/img/pokemon/dugtrio.png';
+import dugtrioa from 'assets/img/pokemon/dugtrioA.png';
 import dunsparce from 'assets/img/pokemon/dunsparce.png';
 import duosion from 'assets/img/pokemon/duosion.png';
 import duraludon from 'assets/img/pokemon/duraludon.png';
@@ -242,9 +248,11 @@ import eternatus from 'assets/img/pokemon/eternatus.png';
 import excadrill from 'assets/img/pokemon/excadrill.png';
 import exeggcute from 'assets/img/pokemon/exeggcute.png';
 import exeggutor from 'assets/img/pokemon/exeggutor.png';
+import exeggutora from 'assets/img/pokemon/exeggutorA.png';
 import exploud from 'assets/img/pokemon/exploud.png';
 import falinks from 'assets/img/pokemon/falinks.png';
 import farfetchd from 'assets/img/pokemon/farfetchd.png';
+import farfetchdg from 'assets/img/pokemon/farfetchdG.png';
 import fearow from 'assets/img/pokemon/fearow.png';
 import feebas from 'assets/img/pokemon/feebas.png';
 import fennekin from 'assets/img/pokemon/fennekin.png';
@@ -284,6 +292,7 @@ import gastrodon from 'assets/img/pokemon/gastrodon.png';
 import genesect from 'assets/img/pokemon/genesect.png';
 import gengar from 'assets/img/pokemon/gengar.png';
 import geodude from 'assets/img/pokemon/geodude.png';
+import geodudea from 'assets/img/pokemon/geodudeA.png';
 import gible from 'assets/img/pokemon/gible.png';
 import gigalith from 'assets/img/pokemon/gigalith.png';
 import girafarig from 'assets/img/pokemon/girafarig.png';
@@ -300,13 +309,14 @@ import golbat from 'assets/img/pokemon/golbat.png';
 import goldeen from 'assets/img/pokemon/goldeen.png';
 import golduck from 'assets/img/pokemon/golduck.png';
 import golem from 'assets/img/pokemon/golem.png';
+import golema from 'assets/img/pokemon/golemA.png';
 import golett from 'assets/img/pokemon/golett.png';
 import golisopod from 'assets/img/pokemon/golisopod.png';
 import golurk from 'assets/img/pokemon/golurk.png';
 import goodra from 'assets/img/pokemon/goodra.png';
 import goomy from 'assets/img/pokemon/goomy.png';
 import gorebyss from 'assets/img/pokemon/gorebyss.png';
-import gossifleur from 'assets/img/pokemon/gossifleu.png';
+import gossifleur from 'assets/img/pokemon/gossifleur.png';
 import gothita from 'assets/img/pokemon/gothita.png';
 import gothitelle from 'assets/img/pokemon/gothitelle.png';
 import gothorita from 'assets/img/pokemon/gothorita.png';
@@ -314,9 +324,11 @@ import gourgeist from 'assets/img/pokemon/gourgeist.png';
 import granbull from 'assets/img/pokemon/granbull.png';
 import grapploct from 'assets/img/pokemon/grapploct.png';
 import graveler from 'assets/img/pokemon/graveler.png';
+import gravelera from 'assets/img/pokemon/gravelerA.png';
 import greedent from 'assets/img/pokemon/greedent.png';
 import greninja from 'assets/img/pokemon/greninja.png';
 import grimer from 'assets/img/pokemon/grimer.png';
+import grimera from 'assets/img/pokemon/grimerA.png';
 import grimmsnarl from 'assets/img/pokemon/grimmsnarl.png';
 import grookey from 'assets/img/pokemon/grookey.png';
 import grotle from 'assets/img/pokemon/grotle.png';
@@ -426,6 +438,7 @@ import lileep from 'assets/img/pokemon/lileep.png';
 import lilligant from 'assets/img/pokemon/lilligant.png';
 import lillipup from 'assets/img/pokemon/lillipup.png';
 import linoone from 'assets/img/pokemon/linoone.png';
+import linooneg from 'assets/img/pokemon/linooneG.png';
 import litleo from 'assets/img/pokemon/litleo.png';
 import litten from 'assets/img/pokemon/litten.png';
 import litwick from 'assets/img/pokemon/litwick.png';
@@ -470,6 +483,7 @@ import mareanie from 'assets/img/pokemon/mareanie.png';
 import mareep from 'assets/img/pokemon/mareep.png';
 import marill from 'assets/img/pokemon/marill.png';
 import marowak from 'assets/img/pokemon/marowak.png';
+import marowaka from 'assets/img/pokemon/marowakA.png';
 import marshadow from 'assets/img/pokemon/marshadow.png';
 import marshtomp from 'assets/img/pokemon/marshtomp.png';
 import masquerain from 'assets/img/pokemon/masquerain.png';
@@ -482,6 +496,8 @@ import meloetta from 'assets/img/pokemon/meloetta.png';
 import meltan from 'assets/img/pokemon/meltan.png';
 import meowstic from 'assets/img/pokemon/meowstic.png';
 import meowth from 'assets/img/pokemon/meowth.png';
+import meowtha from 'assets/img/pokemon/meowthA.png';
+import meowthg from 'assets/img/pokemon/meowthG.png';
 import mesprit from 'assets/img/pokemon/mesprit.png';
 import metagross from 'assets/img/pokemon/metagross.png';
 import metang from 'assets/img/pokemon/metang.png';
@@ -502,17 +518,20 @@ import minun from 'assets/img/pokemon/minun.png';
 import misdreavus from 'assets/img/pokemon/misdreavus.png';
 import mismagius from 'assets/img/pokemon/mismagius.png';
 import moltres from 'assets/img/pokemon/moltres.png';
+import moltresg from 'assets/img/pokemon/moltresG.png';
 import monferno from 'assets/img/pokemon/monferno.png';
 import morelull from 'assets/img/pokemon/morelull.png';
 import morgrem from 'assets/img/pokemon/morgrem.png';
 import morpeko from 'assets/img/pokemon/morpeko.png';
 import mothim from 'assets/img/pokemon/mothim.png';
 import mrmime from 'assets/img/pokemon/mr-mime.png';
+import mrmimeg from 'assets/img/pokemon/mrmimeG.png';
 import mrrime from 'assets/img/pokemon/mr-rime.png';
 import mudbray from 'assets/img/pokemon/mudbray.png';
 import mudkip from 'assets/img/pokemon/mudkip.png';
 import mudsdale from 'assets/img/pokemon/mudsdale.png';
 import muk from 'assets/img/pokemon/muk.png';
+import muka from 'assets/img/pokemon/mukA.png';
 import munchlax from 'assets/img/pokemon/munchlax.png';
 import munna from 'assets/img/pokemon/munna.png';
 import murkrow from 'assets/img/pokemon/murkrow.png';
@@ -530,6 +549,7 @@ import nidorino from 'assets/img/pokemon/nidorino.png';
 import nihilego from 'assets/img/pokemon/nihilego.png';
 import nincada from 'assets/img/pokemon/nincada.png';
 import ninetales from 'assets/img/pokemon/ninetales.png';
+import ninetalesa from 'assets/img/pokemon/ninetalesA.png';
 import ninjask from 'assets/img/pokemon/ninjask.png';
 import noctowl from 'assets/img/pokemon/noctowl.png';
 import noibat from 'assets/img/pokemon/noibat.png';
@@ -564,6 +584,7 @@ import pawniard from 'assets/img/pokemon/pawniard.png';
 import pelipper from 'assets/img/pokemon/pelipper.png';
 import perrserker from 'assets/img/pokemon/perrserker.png';
 import persian from 'assets/img/pokemon/persian.png';
+import persiana from 'assets/img/pokemon/persianA.png';
 import petilil from 'assets/img/pokemon/petilil.png';
 import phanpy from 'assets/img/pokemon/phanpy.png';
 import phantump from 'assets/img/pokemon/phantump.png';
@@ -590,6 +611,7 @@ import poliwhirl from 'assets/img/pokemon/poliwhirl.png';
 import poliwrath from 'assets/img/pokemon/poliwrath.png';
 import polteageist from 'assets/img/pokemon/polteageist.png';
 import ponyta from 'assets/img/pokemon/ponyta.png';
+import ponytag from 'assets/img/pokemon/ponytaG.png';
 import poochyena from 'assets/img/pokemon/poochyena.png';
 import popplio from 'assets/img/pokemon/popplio.png';
 import porygonz from 'assets/img/pokemon/porygon-z.png';
@@ -612,12 +634,16 @@ import quilladin from 'assets/img/pokemon/quilladin.png';
 import qwilfish from 'assets/img/pokemon/qwilfish.png';
 import raboot from 'assets/img/pokemon/raboot.png';
 import raichu from 'assets/img/pokemon/raichu.png';
+import raichua from 'assets/img/pokemon/raichuA.png';
 import raikou from 'assets/img/pokemon/raikou.png';
 import ralts from 'assets/img/pokemon/ralts.png';
 import rampardos from 'assets/img/pokemon/rampardos.png';
 import rapidash from 'assets/img/pokemon/rapidash.png';
+import rapidashg from 'assets/img/pokemon/rapidashG.png';
 import raticate from 'assets/img/pokemon/raticate.png';
+import raticatea from 'assets/img/pokemon/raticateA.png';
 import rattata from 'assets/img/pokemon/rattata.png';
+import rattataa from 'assets/img/pokemon/rattataA.png';
 import rayquaza from 'assets/img/pokemon/rayquaza.png';
 import regice from 'assets/img/pokemon/regice.png';
 import regidrago from 'assets/img/pokemon/regidrago.png';
@@ -653,7 +679,9 @@ import samurott from 'assets/img/pokemon/samurott.png';
 import sandaconda from 'assets/img/pokemon/sandaconda.png';
 import sandile from 'assets/img/pokemon/sandile.png';
 import sandshrew from 'assets/img/pokemon/sandshrew.png';
+import sandshrewa from 'assets/img/pokemon/sandshrewA.png';
 import sandslash from 'assets/img/pokemon/sandslash.png';
+import sandslasha from 'assets/img/pokemon/sandslashA.png';
 import sandygast from 'assets/img/pokemon/sandygast.png';
 import sawk from 'assets/img/pokemon/sawk.png';
 import sawsbuck from 'assets/img/pokemon/sawsbuck.png';
@@ -712,8 +740,11 @@ import slaking from 'assets/img/pokemon/slaking.png';
 import slakoth from 'assets/img/pokemon/slakoth.png';
 import sliggoo from 'assets/img/pokemon/sliggoo.png';
 import slowbro from 'assets/img/pokemon/slowbro.png';
+import slowbrog from 'assets/img/pokemon/slowbroG.png';
 import slowking from 'assets/img/pokemon/slowking.png';
+import slowkingg from 'assets/img/pokemon/slowkingG.png';
 import slowpoke from 'assets/img/pokemon/slowpoke.png';
+import slowpokeg from 'assets/img/pokemon/slowpokeG.png';
 import slugma from 'assets/img/pokemon/slugma.png';
 import slurpuff from 'assets/img/pokemon/slurpuff.png';
 import smeargle from 'assets/img/pokemon/smeargle.png';
@@ -752,6 +783,7 @@ import stonjourner from 'assets/img/pokemon/stonjourner.png';
 import stoutland from 'assets/img/pokemon/stoutland.png';
 import stufful from 'assets/img/pokemon/stufful.png';
 import stunfisk from 'assets/img/pokemon/stunfisk.png';
+import stunfiskg from 'assets/img/pokemon/stunfiskG.png';
 import stunky from 'assets/img/pokemon/stunky.png';
 import sudowoodo from 'assets/img/pokemon/sudowoodo.png';
 import suicune from 'assets/img/pokemon/suicune.png';
@@ -774,8 +806,8 @@ import tangela from 'assets/img/pokemon/tangela.png';
 import tangrowth from 'assets/img/pokemon/tangrowth.png';
 import tapubulu from 'assets/img/pokemon/tapu-bulu.png';
 import tapufini from 'assets/img/pokemon/tapu-fini.png';
-import tapukoko from 'assets/img/pokemon/tapu-kok.png';
-import tapulele from 'assets/img/pokemon/tapu-lel.png';
+import tapukoko from 'assets/img/pokemon/tapu-koko.png';
+import tapulele from 'assets/img/pokemon/tapu-lele.png';
 import tauros from 'assets/img/pokemon/tauros.png';
 import teddiursa from 'assets/img/pokemon/teddiursa.png';
 import tentacool from 'assets/img/pokemon/tentacool.png';
@@ -802,7 +834,7 @@ import toucannon from 'assets/img/pokemon/toucannon.png';
 import toxapex from 'assets/img/pokemon/toxapex.png';
 import toxel from 'assets/img/pokemon/toxel.png';
 import toxicroak from 'assets/img/pokemon/toxicroak.png';
-import toxtricity from 'assets/img/pokemon/toxtricit.png';
+import toxtricity from 'assets/img/pokemon/toxtricity.png';
 import tranquill from 'assets/img/pokemon/tranquill.png';
 import trapinch from 'assets/img/pokemon/trapinch.png';
 import treecko from 'assets/img/pokemon/treecko.png';
@@ -850,6 +882,7 @@ import volcarona from 'assets/img/pokemon/volcarona.png';
 import voltorb from 'assets/img/pokemon/voltorb.png';
 import vullaby from 'assets/img/pokemon/vullaby.png';
 import vulpix from 'assets/img/pokemon/vulpix.png';
+import vulpixa from 'assets/img/pokemon/vulpixA.png';
 import wailmer from 'assets/img/pokemon/wailmer.png';
 import wailord from 'assets/img/pokemon/wailord.png';
 import walrein from 'assets/img/pokemon/walrein.png';
@@ -859,7 +892,9 @@ import weavile from 'assets/img/pokemon/weavile.png';
 import weedle from 'assets/img/pokemon/weedle.png';
 import weepinbell from 'assets/img/pokemon/weepinbell.png';
 import weezing from 'assets/img/pokemon/weezing.png';
+import weezingg from 'assets/img/pokemon/weezingG.png';
 import whimsicott from 'assets/img/pokemon/whimsicott.png';
+import whirlipede from 'assets/img/pokemon/whirlipede.png';
 import whiscash from 'assets/img/pokemon/whiscash.png';
 import whismur from 'assets/img/pokemon/whismur.png';
 import wigglytuff from 'assets/img/pokemon/wigglytuff.png';
@@ -886,11 +921,13 @@ import zacian from 'assets/img/pokemon/zacian.png';
 import zamazenta from 'assets/img/pokemon/zamazenta.png';
 import zangoose from 'assets/img/pokemon/zangoose.png';
 import zapdos from 'assets/img/pokemon/zapdos.png';
+import zapdosg from 'assets/img/pokemon/zapdosG.png';
 import zarude from 'assets/img/pokemon/zarude.png';
 import zebstrika from 'assets/img/pokemon/zebstrika.png';
 import zekrom from 'assets/img/pokemon/zekrom.png';
 import zeraora from 'assets/img/pokemon/zeraora.png';
 import zigzagoon from 'assets/img/pokemon/zigzagoon.png';
+import zigzagoong from 'assets/img/pokemon/zigzagoonG.png';
 import zoroark from 'assets/img/pokemon/zoroark.png';
 import zorua from 'assets/img/pokemon/zorua.png';
 import zubat from 'assets/img/pokemon/zubat.png';
@@ -994,9 +1031,19 @@ const POKEMON: TPokemon[] = [
     src: rattata,
   },
   {
+    id: 19,
+    name: 'Rattata (Alolan)',
+    src: rattataa,
+  },
+  {
     id: 20,
     name: 'Raticate',
     src: raticate,
+  },
+  {
+    id: 20,
+    name: 'Raticate (Alolan)',
+    src: raticatea,
   },
   {
     id: 21,
@@ -1030,13 +1077,28 @@ const POKEMON: TPokemon[] = [
   },
   {
     id: 26,
+    name: 'Raichu (Alolan)',
+    src: raichua,
+  },
+  {
+    id: 26,
     name: 'Sandshrew',
     src: sandshrew,
+  },
+  {
+    id: 26,
+    name: 'Sandshrew (Alolan)',
+    src: sandshrewa,
   },
   {
     id: 28,
     name: 'Sandslash',
     src: sandslash,
+  },
+  {
+    id: 28,
+    name: 'Sandslash (Alolan)',
+    src: sandslasha,
   },
   {
     id: 29,
@@ -1084,9 +1146,19 @@ const POKEMON: TPokemon[] = [
     src: vulpix,
   },
   {
+    id: 37,
+    name: 'Vulpix (Alolan)',
+    src: vulpixa,
+  },
+  {
     id: 38,
     name: 'Ninetales',
     src: ninetales,
+  },
+  {
+    id: 38,
+    name: 'Ninetales (Alolan)',
+    src: ninetalesa,
   },
   {
     id: 39,
@@ -1149,9 +1221,19 @@ const POKEMON: TPokemon[] = [
     src: diglett,
   },
   {
+    id: 50,
+    name: 'Diglett (Alolan)',
+    src: digletta,
+  },
+  {
     id: 51,
     name: 'Dugtrio',
     src: dugtrio,
+  },
+  {
+    id: 51,
+    name: 'Dugtrio (Alolan)',
+    src: dugtrioa,
   },
   {
     id: 52,
@@ -1159,9 +1241,24 @@ const POKEMON: TPokemon[] = [
     src: meowth,
   },
   {
+    id: 52,
+    name: 'Meowth (Alolan)',
+    src: meowtha,
+  },
+  {
+    id: 52,
+    name: 'Meowth (Galarian)',
+    src: meowthg,
+  },
+  {
     id: 53,
     name: 'Persian',
     src: persian,
+  },
+  {
+    id: 53,
+    name: 'Persian (Alolan)',
+    src: persiana,
   },
   {
     id: 54,
@@ -1269,9 +1366,19 @@ const POKEMON: TPokemon[] = [
     src: geodude,
   },
   {
+    id: 74,
+    name: 'Geodude (Alolan)',
+    src: geodudea,
+  },
+  {
     id: 75,
     name: 'Graveler',
     src: graveler,
+  },
+  {
+    id: 75,
+    name: 'Graveler (Alolan)',
+    src: gravelera,
   },
   {
     id: 76,
@@ -1279,9 +1386,19 @@ const POKEMON: TPokemon[] = [
     src: golem,
   },
   {
+    id: 76,
+    name: 'Golem (Alolan)',
+    src: golema,
+  },
+  {
     id: 77,
     name: 'Ponyta',
     src: ponyta,
+  },
+  {
+    id: 77,
+    name: 'Ponyta (Galarian)',
+    src: ponytag,
   },
   {
     id: 78,
@@ -1289,14 +1406,29 @@ const POKEMON: TPokemon[] = [
     src: rapidash,
   },
   {
+    id: 78,
+    name: 'Rapidash (Galarian)',
+    src: rapidashg,
+  },
+  {
     id: 79,
     name: 'Slowpoke',
     src: slowpoke,
   },
   {
+    id: 79,
+    name: 'Slowpoke (Galarian)',
+    src: slowpokeg,
+  },
+  {
     id: 80,
     name: 'Slowbro',
     src: slowbro,
+  },
+  {
+    id: 80,
+    name: 'Slowbro (Galarian)',
+    src: slowbrog,
   },
   {
     id: 81,
@@ -1312,6 +1444,11 @@ const POKEMON: TPokemon[] = [
     id: 83,
     name: "Farfetch'd",
     src: farfetchd,
+  },
+  {
+    id: 83,
+    name: "Farfetch'd (Galarian)",
+    src: farfetchdg,
   },
   {
     id: 84,
@@ -1339,9 +1476,19 @@ const POKEMON: TPokemon[] = [
     src: grimer,
   },
   {
+    id: 88,
+    name: 'Grimer (Alolan)',
+    src: grimera,
+  },
+  {
     id: 89,
     name: 'Muk',
     src: muk,
+  },
+  {
+    id: 89,
+    name: 'Muk (Alolan)',
+    src: muka,
   },
   {
     id: 90,
@@ -1414,6 +1561,11 @@ const POKEMON: TPokemon[] = [
     src: exeggutor,
   },
   {
+    id: 103,
+    name: 'Exeggutor (Alolan)',
+    src: exeggutora,
+  },
+  {
     id: 104,
     name: 'Cubone',
     src: cubone,
@@ -1422,6 +1574,11 @@ const POKEMON: TPokemon[] = [
     id: 105,
     name: 'Marowak',
     src: marowak,
+  },
+  {
+    id: 105,
+    name: 'Marowak (Alolan)',
+    src: marowaka,
   },
   {
     id: 106,
@@ -1447,6 +1604,11 @@ const POKEMON: TPokemon[] = [
     id: 110,
     name: 'Weezing',
     src: weezing,
+  },
+  {
+    id: 110,
+    name: 'Weezing (Galarian)',
+    src: weezingg,
   },
   {
     id: 111,
@@ -1507,6 +1669,11 @@ const POKEMON: TPokemon[] = [
     id: 122,
     name: 'Mr. Mime',
     src: mrmime,
+  },
+  {
+    id: 122,
+    name: 'Mr. Mime (Galarian)',
+    src: mrmimeg,
   },
   {
     id: 123,
@@ -1619,14 +1786,29 @@ const POKEMON: TPokemon[] = [
     src: articuno,
   },
   {
+    id: 144,
+    name: 'Articuno (Galarian)',
+    src: articunog,
+  },
+  {
     id: 145,
     name: 'Zapdos',
     src: zapdos,
   },
   {
+    id: 145,
+    name: 'Zapdos (Galarian)',
+    src: zapdosg,
+  },
+  {
     id: 146,
     name: 'Moltres',
     src: moltres,
+  },
+  {
+    id: 146,
+    name: 'Moltres (Galarian)',
+    src: moltresg,
   },
   {
     id: 147,
@@ -1894,6 +2076,11 @@ const POKEMON: TPokemon[] = [
     src: slowking,
   },
   {
+    id: 199,
+    name: 'Slowking (Galarian)',
+    src: slowkingg,
+  },
+  {
     id: 200,
     name: 'Misdreavus',
     src: misdreavus,
@@ -2007,6 +2194,11 @@ const POKEMON: TPokemon[] = [
     id: 222,
     name: 'Corsola',
     src: corsola,
+  },
+  {
+    id: 222,
+    name: 'Corsola (Galarian)',
+    src: corsolag,
   },
   {
     id: 223,
@@ -2214,9 +2406,19 @@ const POKEMON: TPokemon[] = [
     src: zigzagoon,
   },
   {
+    id: 263,
+    name: 'Zigzagoon (Galarian)',
+    src: zigzagoong,
+  },
+  {
     id: 264,
     name: 'Linoone',
     src: linoone,
+  },
+  {
+    id: 264,
+    name: 'Linoone (Galarian)',
+    src: linooneg,
   },
   {
     id: 265,
@@ -3365,2028 +3567,2043 @@ const POKEMON: TPokemon[] = [
   },
   {
     id: 494,
-    name: '',
-    src: null,
+    name: 'Victini',
+    src: victini,
   },
   {
     id: 495,
-    name: '',
-    src: null,
+    name: 'Snivy',
+    src: snivy,
   },
   {
     id: 496,
-    name: '',
-    src: null,
+    name: 'Servine',
+    src: servine,
   },
   {
     id: 497,
-    name: '',
-    src: null,
+    name: 'Serperior',
+    src: serperior,
   },
   {
     id: 498,
-    name: '',
-    src: null,
+    name: 'Tepig',
+    src: tepig,
   },
   {
     id: 499,
-    name: '',
-    src: null,
+    name: 'Pignite',
+    src: pignite,
   },
   {
     id: 500,
-    name: '',
-    src: null,
+    name: 'Emboar',
+    src: emboar,
   },
   {
     id: 501,
-    name: '',
-    src: null,
+    name: 'Oshawott',
+    src: oshawott,
   },
   {
     id: 502,
-    name: '',
-    src: null,
+    name: 'Dewott',
+    src: dewott,
   },
   {
     id: 503,
-    name: '',
-    src: null,
+    name: 'Samurott',
+    src: samurott,
   },
   {
     id: 504,
-    name: '',
-    src: null,
+    name: 'Patrat',
+    src: patrat,
   },
   {
     id: 505,
-    name: '',
-    src: null,
+    name: 'Watchog',
+    src: watchog,
   },
   {
     id: 506,
-    name: '',
-    src: null,
+    name: 'Lillipup',
+    src: lillipup,
   },
   {
     id: 507,
-    name: '',
-    src: null,
+    name: 'Herdier',
+    src: herdier,
   },
   {
     id: 508,
-    name: '',
-    src: null,
+    name: 'Stoutland',
+    src: stoutland,
   },
   {
     id: 509,
-    name: '',
-    src: null,
+    name: 'Purrloin',
+    src: purrloin,
   },
   {
     id: 510,
-    name: '',
-    src: null,
+    name: 'Liepard',
+    src: liepard,
   },
   {
     id: 511,
-    name: '',
-    src: null,
+    name: 'Pansage',
+    src: pansage,
   },
   {
     id: 512,
-    name: '',
-    src: null,
+    name: 'Simisage',
+    src: simisage,
   },
   {
     id: 513,
-    name: '',
-    src: null,
+    name: 'Pansear',
+    src: pansear,
   },
   {
     id: 514,
-    name: '',
-    src: null,
+    name: 'Simisear',
+    src: simisear,
   },
   {
     id: 515,
-    name: '',
-    src: null,
+    name: 'Panpour',
+    src: panpour,
   },
   {
     id: 516,
-    name: '',
-    src: null,
+    name: 'Simipour',
+    src: simipour,
   },
   {
     id: 517,
-    name: '',
-    src: null,
+    name: 'Munna',
+    src: munna,
   },
   {
     id: 518,
-    name: '',
-    src: null,
+    name: 'Musharna',
+    src: musharna,
   },
   {
     id: 519,
-    name: '',
-    src: null,
+    name: 'Pidove',
+    src: pidove,
   },
   {
     id: 520,
-    name: '',
-    src: null,
+    name: 'Tranquill',
+    src: tranquill,
   },
   {
     id: 521,
-    name: '',
-    src: null,
+    name: 'Unfezant',
+    src: unfezant,
   },
   {
     id: 522,
-    name: '',
-    src: null,
+    name: 'Blitzle',
+    src: blitzle,
   },
   {
     id: 523,
-    name: '',
-    src: null,
+    name: 'Zebstrika',
+    src: zebstrika,
   },
   {
     id: 524,
-    name: '',
-    src: null,
+    name: 'Roggenrola',
+    src: roggenrola,
   },
   {
     id: 525,
-    name: '',
-    src: null,
+    name: 'Boldore',
+    src: boldore,
   },
   {
     id: 526,
-    name: '',
-    src: null,
+    name: 'Gigalith',
+    src: gigalith,
   },
   {
     id: 527,
-    name: '',
-    src: null,
+    name: 'Woobat',
+    src: woobat,
   },
   {
     id: 528,
-    name: '',
-    src: null,
+    name: 'Swoobat',
+    src: swoobat,
   },
   {
     id: 529,
-    name: '',
-    src: null,
+    name: 'Drilbur',
+    src: drilbur,
   },
   {
     id: 530,
-    name: '',
-    src: null,
+    name: 'Excadrill',
+    src: excadrill,
   },
   {
     id: 531,
-    name: '',
-    src: null,
+    name: 'Audino',
+    src: audino,
   },
   {
     id: 532,
-    name: '',
-    src: null,
+    name: 'Timburr',
+    src: timburr,
   },
   {
     id: 533,
-    name: '',
-    src: null,
+    name: 'Gurdurr',
+    src: gurdurr,
   },
   {
     id: 534,
-    name: '',
-    src: null,
+    name: 'Conkeldurr',
+    src: conkeldurr,
   },
   {
     id: 535,
-    name: '',
-    src: null,
+    name: 'Tympole',
+    src: tympole,
   },
   {
     id: 536,
-    name: '',
-    src: null,
+    name: 'Palpitoad',
+    src: palpitoad,
   },
   {
     id: 537,
-    name: '',
-    src: null,
+    name: 'Seismitoad',
+    src: seismitoad,
   },
   {
     id: 538,
-    name: '',
-    src: null,
+    name: 'Throh',
+    src: throh,
   },
   {
     id: 539,
-    name: '',
-    src: null,
+    name: 'Sawk',
+    src: sawk,
   },
   {
     id: 540,
-    name: '',
-    src: null,
+    name: 'Sewaddle',
+    src: sewaddle,
   },
   {
     id: 541,
-    name: '',
-    src: null,
+    name: 'Swadloon',
+    src: swadloon,
   },
   {
     id: 542,
-    name: '',
-    src: null,
+    name: 'Leavanny',
+    src: leavanny,
   },
   {
     id: 543,
-    name: '',
-    src: null,
+    name: 'Venipede',
+    src: venipede,
   },
   {
     id: 544,
-    name: '',
-    src: null,
+    name: 'Whirlipede',
+    src: whirlipede,
   },
   {
     id: 545,
-    name: '',
-    src: null,
+    name: 'Scolipede',
+    src: scolipede,
   },
   {
     id: 546,
-    name: '',
-    src: null,
+    name: 'Cottonee',
+    src: cottonee,
   },
   {
     id: 547,
-    name: '',
-    src: null,
+    name: 'Whimsicott',
+    src: whimsicott,
   },
   {
     id: 548,
-    name: '',
-    src: null,
+    name: 'Petilil',
+    src: petilil,
   },
   {
     id: 549,
-    name: '',
-    src: null,
+    name: 'Lilligant',
+    src: lilligant,
   },
   {
     id: 550,
-    name: '',
-    src: null,
+    name: 'Basculin',
+    src: basculin,
   },
   {
     id: 551,
-    name: '',
-    src: null,
+    name: 'Sandile',
+    src: sandile,
   },
   {
     id: 552,
-    name: '',
-    src: null,
+    name: 'Krokorok',
+    src: krokorok,
   },
   {
     id: 553,
-    name: '',
-    src: null,
+    name: 'Krookodile',
+    src: krookodile,
   },
   {
     id: 554,
-    name: '',
-    src: null,
+    name: 'Darumaka',
+    src: darumaka,
+  },
+  {
+    id: 554,
+    name: 'Darumaka (Galarian)',
+    src: darumakag,
   },
   {
     id: 555,
-    name: '',
-    src: null,
+    name: 'Darmanitan',
+    src: darmanitan,
+  },
+  {
+    id: 555,
+    name: 'Darmanitan (Galarian)',
+    src: darmanitang,
   },
   {
     id: 556,
-    name: '',
-    src: null,
+    name: 'Maractus',
+    src: maractus,
   },
   {
     id: 557,
-    name: '',
-    src: null,
+    name: 'Dwebble',
+    src: dwebble,
   },
   {
     id: 558,
-    name: '',
-    src: null,
+    name: 'Crustle',
+    src: crustle,
   },
   {
     id: 559,
-    name: '',
-    src: null,
+    name: 'Scraggy',
+    src: scraggy,
   },
   {
     id: 560,
-    name: '',
-    src: null,
+    name: 'Scrafty',
+    src: scrafty,
   },
   {
     id: 561,
-    name: '',
-    src: null,
+    name: 'Sigilyph',
+    src: sigilyph,
   },
   {
     id: 562,
-    name: '',
-    src: null,
+    name: 'Yamask',
+    src: yamask,
   },
   {
     id: 563,
-    name: '',
-    src: null,
+    name: 'Cofagrigus',
+    src: cofagrigus,
   },
   {
     id: 564,
-    name: '',
-    src: null,
+    name: 'Tirtouga',
+    src: tirtouga,
   },
   {
     id: 565,
-    name: '',
-    src: null,
+    name: 'Carracosta',
+    src: carracosta,
   },
   {
     id: 566,
-    name: '',
-    src: null,
+    name: 'Archen',
+    src: archen,
   },
   {
     id: 567,
-    name: '',
-    src: null,
+    name: 'Archeops',
+    src: archeops,
   },
   {
     id: 568,
-    name: '',
-    src: null,
+    name: 'Trubbish',
+    src: trubbish,
   },
   {
     id: 569,
-    name: '',
-    src: null,
+    name: 'Garbodor',
+    src: garbodor,
   },
   {
     id: 570,
-    name: '',
-    src: null,
+    name: 'Zorua',
+    src: zorua,
   },
   {
     id: 571,
-    name: '',
-    src: null,
+    name: 'Zoroark',
+    src: zoroark,
   },
   {
     id: 572,
-    name: '',
-    src: null,
+    name: 'Minccino',
+    src: minccino,
   },
   {
     id: 573,
-    name: '',
-    src: null,
+    name: 'Cinccino',
+    src: cinccino,
   },
   {
     id: 574,
-    name: '',
-    src: null,
+    name: 'Gothita',
+    src: gothita,
   },
   {
     id: 575,
-    name: '',
-    src: null,
+    name: 'Gothorita',
+    src: gothorita,
   },
   {
     id: 576,
-    name: '',
-    src: null,
+    name: 'Gothitelle',
+    src: gothitelle,
   },
   {
     id: 577,
-    name: '',
-    src: null,
+    name: 'Solosis',
+    src: solosis,
   },
   {
     id: 578,
-    name: '',
-    src: null,
+    name: 'Duosion',
+    src: duosion,
   },
   {
     id: 579,
-    name: '',
-    src: null,
+    name: 'Reuniclus',
+    src: reuniclus,
   },
   {
     id: 580,
-    name: '',
-    src: null,
+    name: 'Ducklett',
+    src: ducklett,
   },
   {
     id: 581,
-    name: '',
-    src: null,
+    name: 'Swanna',
+    src: swanna,
   },
   {
     id: 582,
-    name: '',
-    src: null,
+    name: 'Vanillite',
+    src: vanillite,
   },
   {
     id: 583,
-    name: '',
-    src: null,
+    name: 'Vanillish',
+    src: vanillish,
   },
   {
     id: 584,
-    name: '',
-    src: null,
+    name: 'Vanilluxe',
+    src: vanilluxe,
   },
   {
     id: 585,
-    name: '',
-    src: null,
+    name: 'Deerling',
+    src: deerling,
   },
   {
     id: 586,
-    name: '',
-    src: null,
+    name: 'Sawsbuck',
+    src: sawsbuck,
   },
   {
     id: 587,
-    name: '',
-    src: null,
+    name: 'Emolga',
+    src: emolga,
   },
   {
     id: 588,
-    name: '',
-    src: null,
+    name: 'Karrablast',
+    src: karrablast,
   },
   {
     id: 589,
-    name: '',
-    src: null,
+    name: 'Escavalier',
+    src: escavalier,
   },
   {
     id: 590,
-    name: '',
-    src: null,
+    name: 'Foongus',
+    src: foongus,
   },
   {
     id: 591,
-    name: '',
-    src: null,
+    name: 'Amoonguss',
+    src: amoonguss,
   },
   {
     id: 592,
-    name: '',
-    src: null,
+    name: 'Frillish',
+    src: frillish,
   },
   {
     id: 593,
-    name: '',
-    src: null,
+    name: 'Jellicent',
+    src: jellicent,
   },
   {
     id: 594,
-    name: '',
-    src: null,
+    name: 'Alomomola',
+    src: alomomola,
   },
   {
     id: 595,
-    name: '',
-    src: null,
+    name: 'Joltik',
+    src: joltik,
   },
   {
     id: 596,
-    name: '',
-    src: null,
+    name: 'Galvantula',
+    src: galvantula,
   },
   {
     id: 597,
-    name: '',
-    src: null,
+    name: 'Ferroseed',
+    src: ferroseed,
   },
   {
     id: 598,
-    name: '',
-    src: null,
+    name: 'Ferrothorn',
+    src: ferrothorn,
   },
   {
     id: 599,
-    name: '',
-    src: null,
+    name: 'Klink',
+    src: klink,
   },
   {
     id: 600,
-    name: '',
-    src: null,
+    name: 'Klang',
+    src: klang,
   },
   {
     id: 601,
-    name: '',
-    src: null,
+    name: 'Klinklang',
+    src: klinklang,
   },
   {
     id: 602,
-    name: '',
-    src: null,
+    name: 'Tynamo',
+    src: tynamo,
   },
   {
     id: 603,
-    name: '',
-    src: null,
+    name: 'Eelektrik',
+    src: eelektrik,
   },
   {
     id: 604,
-    name: '',
-    src: null,
+    name: 'Eelektross',
+    src: eelektross,
   },
   {
     id: 605,
-    name: '',
-    src: null,
+    name: 'Elgyem',
+    src: elgyem,
   },
   {
     id: 606,
-    name: '',
-    src: null,
+    name: 'Beheeyem',
+    src: beheeyem,
   },
   {
     id: 607,
-    name: '',
-    src: null,
+    name: 'Litwick',
+    src: litwick,
   },
   {
     id: 608,
-    name: '',
-    src: null,
+    name: 'Lampent',
+    src: lampent,
   },
   {
     id: 609,
-    name: '',
-    src: null,
+    name: 'Chandelure',
+    src: chandelure,
   },
   {
     id: 610,
-    name: '',
-    src: null,
+    name: 'Axew',
+    src: axew,
   },
   {
     id: 611,
-    name: '',
-    src: null,
+    name: 'Fraxure',
+    src: fraxure,
   },
   {
     id: 612,
-    name: '',
-    src: null,
+    name: 'Haxorus',
+    src: haxorus,
   },
   {
     id: 613,
-    name: '',
-    src: null,
+    name: 'Cubchoo',
+    src: cubchoo,
   },
   {
     id: 614,
-    name: '',
-    src: null,
+    name: 'Beartic',
+    src: beartic,
   },
   {
     id: 615,
-    name: '',
-    src: null,
+    name: 'Cryogonal',
+    src: cryogonal,
   },
   {
     id: 616,
-    name: '',
-    src: null,
+    name: 'Shelmet',
+    src: shelmet,
   },
   {
     id: 617,
-    name: '',
-    src: null,
+    name: 'Accelgor',
+    src: accelgor,
   },
   {
     id: 618,
-    name: '',
-    src: null,
+    name: 'Stunfisk',
+    src: stunfisk,
+  },
+  {
+    id: 618,
+    name: 'Stunfisk (Galarian)',
+    src: stunfiskg,
   },
   {
     id: 619,
-    name: '',
-    src: null,
+    name: 'Mienfoo',
+    src: mienfoo,
   },
   {
     id: 620,
-    name: '',
-    src: null,
+    name: 'Mienshao',
+    src: mienshao,
   },
   {
     id: 621,
-    name: '',
-    src: null,
+    name: 'Druddigon',
+    src: druddigon,
   },
   {
     id: 622,
-    name: '',
-    src: null,
+    name: 'Golett',
+    src: golett,
   },
   {
     id: 623,
-    name: '',
-    src: null,
+    name: 'Golurk',
+    src: golurk,
   },
   {
     id: 624,
-    name: '',
-    src: null,
+    name: 'Pawniard',
+    src: pawniard,
   },
   {
     id: 625,
-    name: '',
-    src: null,
+    name: 'Bisharp',
+    src: bisharp,
   },
   {
     id: 626,
-    name: '',
-    src: null,
+    name: 'Bouffalant',
+    src: bouffalant,
   },
   {
     id: 627,
-    name: '',
-    src: null,
+    name: 'Rufflet',
+    src: rufflet,
   },
   {
     id: 628,
-    name: '',
-    src: null,
+    name: 'Braviary',
+    src: braviary,
   },
   {
     id: 629,
-    name: '',
-    src: null,
+    name: 'Vullaby',
+    src: vullaby,
   },
   {
     id: 630,
-    name: '',
-    src: null,
+    name: 'Mandibuzz',
+    src: mandibuzz,
   },
   {
     id: 631,
-    name: '',
-    src: null,
+    name: 'Heatmor',
+    src: heatmor,
   },
   {
     id: 632,
-    name: '',
-    src: null,
+    name: 'Durant',
+    src: durant,
   },
   {
     id: 633,
-    name: '',
-    src: null,
+    name: 'Deino',
+    src: deino,
   },
   {
     id: 634,
-    name: '',
-    src: null,
+    name: 'Zweilous',
+    src: zweilous,
   },
   {
     id: 635,
-    name: '',
-    src: null,
+    name: 'Hydreigon',
+    src: hydreigon,
   },
   {
     id: 636,
-    name: '',
-    src: null,
+    name: 'Larvesta',
+    src: larvesta,
   },
   {
     id: 637,
-    name: '',
-    src: null,
+    name: 'Volcarona',
+    src: volcarona,
   },
   {
     id: 638,
-    name: '',
-    src: null,
+    name: 'Cobalion',
+    src: cobalion,
   },
   {
     id: 639,
-    name: '',
-    src: null,
+    name: 'Terrakion',
+    src: terrakion,
   },
   {
     id: 640,
-    name: '',
-    src: null,
+    name: 'Virizion',
+    src: virizion,
   },
   {
     id: 641,
-    name: '',
-    src: null,
+    name: 'Tornadus',
+    src: tornadus,
   },
   {
     id: 642,
-    name: '',
-    src: null,
+    name: 'Thundurus',
+    src: thundurus,
   },
   {
     id: 643,
-    name: '',
-    src: null,
+    name: 'Reshiram',
+    src: reshiram,
   },
   {
     id: 644,
-    name: '',
-    src: null,
+    name: 'Zekrom',
+    src: zekrom,
   },
   {
     id: 645,
-    name: '',
-    src: null,
+    name: 'Landorus',
+    src: landorus,
   },
   {
     id: 646,
-    name: '',
-    src: null,
+    name: 'Kyurem',
+    src: kyurem,
   },
   {
     id: 647,
-    name: '',
-    src: null,
+    name: 'Keldeo',
+    src: keldeo,
   },
   {
     id: 648,
-    name: '',
-    src: null,
+    name: 'Meloetta',
+    src: meloetta,
   },
   {
     id: 649,
-    name: '',
-    src: null,
+    name: 'Genesect',
+    src: genesect,
   },
   {
     id: 650,
-    name: '',
-    src: null,
+    name: 'Chespin',
+    src: chespin,
   },
   {
     id: 651,
-    name: '',
-    src: null,
+    name: 'Quilladin',
+    src: quilladin,
   },
   {
     id: 652,
-    name: '',
-    src: null,
+    name: 'Chesnaught',
+    src: chesnaught,
   },
   {
     id: 653,
-    name: '',
-    src: null,
+    name: 'Fennekin',
+    src: fennekin,
   },
   {
     id: 654,
-    name: '',
-    src: null,
+    name: 'Braixen',
+    src: braixen,
   },
   {
     id: 655,
-    name: '',
-    src: null,
+    name: 'Delphox',
+    src: delphox,
   },
   {
     id: 656,
-    name: '',
-    src: null,
+    name: 'Froakie',
+    src: froakie,
   },
   {
     id: 657,
-    name: '',
-    src: null,
+    name: 'Frogadier',
+    src: frogadier,
   },
   {
     id: 658,
-    name: '',
-    src: null,
+    name: 'Greninja',
+    src: greninja,
   },
   {
     id: 659,
-    name: '',
-    src: null,
+    name: 'Bunnelby',
+    src: bunnelby,
   },
   {
     id: 660,
-    name: '',
-    src: null,
+    name: 'Diggersby',
+    src: diggersby,
   },
   {
     id: 661,
-    name: '',
-    src: null,
+    name: 'Fletchling',
+    src: fletchling,
   },
   {
     id: 662,
-    name: '',
-    src: null,
+    name: 'Fletchinder',
+    src: fletchinder,
   },
   {
     id: 663,
-    name: '',
-    src: null,
+    name: 'Talonflame',
+    src: talonflame,
   },
   {
     id: 664,
-    name: '',
-    src: null,
+    name: 'Scatterbug',
+    src: scatterbug,
   },
   {
     id: 665,
-    name: '',
-    src: null,
+    name: 'Spewpa',
+    src: spewpa,
   },
   {
     id: 666,
-    name: '',
-    src: null,
+    name: 'Vivillon',
+    src: vivillon,
   },
   {
     id: 667,
-    name: '',
-    src: null,
+    name: 'Litleo',
+    src: litleo,
   },
   {
     id: 668,
-    name: '',
-    src: null,
+    name: 'Pyroar',
+    src: pyroar,
   },
   {
     id: 669,
-    name: '',
-    src: null,
+    name: 'Flabébé',
+    src: flabebe,
   },
   {
     id: 670,
-    name: '',
-    src: null,
+    name: 'Floette',
+    src: floette,
   },
   {
     id: 671,
-    name: '',
-    src: null,
+    name: 'Florges',
+    src: florges,
   },
   {
     id: 672,
-    name: '',
-    src: null,
+    name: 'Skiddo',
+    src: skiddo,
   },
   {
     id: 673,
-    name: '',
-    src: null,
+    name: 'Gogoat',
+    src: gogoat,
   },
   {
     id: 674,
-    name: '',
-    src: null,
+    name: 'Pancham',
+    src: pancham,
   },
   {
     id: 675,
-    name: '',
-    src: null,
+    name: 'Pangoro',
+    src: pangoro,
   },
   {
     id: 676,
-    name: '',
-    src: null,
+    name: 'Furfrou',
+    src: furfrou,
   },
   {
     id: 677,
-    name: '',
-    src: null,
+    name: 'Espurr',
+    src: espurr,
   },
   {
     id: 678,
-    name: '',
-    src: null,
+    name: 'Meowstic',
+    src: meowstic,
   },
   {
     id: 679,
-    name: '',
-    src: null,
+    name: 'Honedge',
+    src: honedge,
   },
   {
     id: 680,
-    name: '',
-    src: null,
+    name: 'Doublade',
+    src: doublade,
   },
   {
     id: 681,
-    name: '',
-    src: null,
+    name: 'Aegislash',
+    src: aegislash,
   },
   {
     id: 682,
-    name: '',
-    src: null,
+    name: 'Spritzee',
+    src: spritzee,
   },
   {
     id: 683,
-    name: '',
-    src: null,
+    name: 'Aromatisse',
+    src: aromatisse,
   },
   {
     id: 684,
-    name: '',
-    src: null,
+    name: 'Swirlix',
+    src: swirlix,
   },
   {
     id: 685,
-    name: '',
-    src: null,
+    name: 'Slurpuff',
+    src: slurpuff,
   },
   {
     id: 686,
-    name: '',
-    src: null,
+    name: 'Inkay',
+    src: inkay,
   },
   {
     id: 687,
-    name: '',
-    src: null,
+    name: 'Malamar',
+    src: malamar,
   },
   {
     id: 688,
-    name: '',
-    src: null,
+    name: 'Binacle',
+    src: binacle,
   },
   {
     id: 689,
-    name: '',
-    src: null,
+    name: 'Barbaracle',
+    src: barbaracle,
   },
   {
     id: 690,
-    name: '',
-    src: null,
+    name: 'Skrelp',
+    src: skrelp,
   },
   {
     id: 691,
-    name: '',
-    src: null,
+    name: 'Dragalge',
+    src: dragalge,
   },
   {
     id: 692,
-    name: '',
-    src: null,
+    name: 'Clauncher',
+    src: clauncher,
   },
   {
     id: 693,
-    name: '',
-    src: null,
+    name: 'Clawitzer',
+    src: clawitzer,
   },
   {
     id: 694,
-    name: '',
-    src: null,
+    name: 'Helioptile',
+    src: helioptile,
   },
   {
     id: 695,
-    name: '',
-    src: null,
+    name: 'Heliolisk',
+    src: heliolisk,
   },
   {
     id: 696,
-    name: '',
-    src: null,
+    name: 'Tyrunt',
+    src: tyrunt,
   },
   {
     id: 697,
-    name: '',
-    src: null,
+    name: 'Tyrantrum',
+    src: tyrantrum,
   },
   {
     id: 698,
-    name: '',
-    src: null,
+    name: 'Amaura',
+    src: amaura,
   },
   {
     id: 699,
-    name: '',
-    src: null,
+    name: 'Aurorus',
+    src: aurorus,
   },
   {
     id: 700,
-    name: '',
-    src: null,
+    name: 'Sylveon',
+    src: sylveon,
   },
   {
     id: 701,
-    name: '',
-    src: null,
+    name: 'Hawlucha',
+    src: hawlucha,
   },
   {
     id: 702,
-    name: '',
-    src: null,
+    name: 'Dedenne',
+    src: dedenne,
   },
   {
     id: 703,
-    name: '',
-    src: null,
+    name: 'Carbink',
+    src: carbink,
   },
   {
     id: 704,
-    name: '',
-    src: null,
+    name: 'Goomy',
+    src: goomy,
   },
   {
     id: 705,
-    name: '',
-    src: null,
+    name: 'Sliggoo',
+    src: sliggoo,
   },
   {
     id: 706,
-    name: '',
-    src: null,
+    name: 'Goodra',
+    src: goodra,
   },
   {
     id: 707,
-    name: '',
-    src: null,
+    name: 'Klefki',
+    src: klefki,
   },
   {
     id: 708,
-    name: '',
-    src: null,
+    name: 'Phantump',
+    src: phantump,
   },
   {
     id: 709,
-    name: '',
-    src: null,
+    name: 'Trevenant',
+    src: trevenant,
   },
   {
     id: 710,
-    name: '',
-    src: null,
+    name: 'Pumpkaboo',
+    src: pumpkaboo,
   },
   {
     id: 711,
-    name: '',
-    src: null,
+    name: 'Gourgeist',
+    src: gourgeist,
   },
   {
     id: 712,
-    name: '',
-    src: null,
+    name: 'Bergmite',
+    src: bergmite,
   },
   {
     id: 713,
-    name: '',
-    src: null,
+    name: 'Avalugg',
+    src: avalugg,
   },
   {
     id: 714,
-    name: '',
-    src: null,
+    name: 'Noibat',
+    src: noibat,
   },
   {
     id: 715,
-    name: '',
-    src: null,
+    name: 'Noivern',
+    src: noivern,
   },
   {
     id: 716,
-    name: '',
-    src: null,
+    name: 'Xerneas',
+    src: xerneas,
   },
   {
     id: 717,
-    name: '',
-    src: null,
+    name: 'Yveltal',
+    src: yveltal,
   },
   {
     id: 718,
-    name: '',
-    src: null,
+    name: 'Zygarde',
+    src: zygarde,
   },
   {
     id: 719,
-    name: '',
-    src: null,
+    name: 'Diancie',
+    src: diancie,
   },
   {
     id: 720,
-    name: '',
-    src: null,
+    name: 'Hoopa',
+    src: hoopa,
   },
   {
     id: 721,
-    name: '',
-    src: null,
+    name: 'Volcanion',
+    src: volcanion,
   },
   {
     id: 722,
-    name: '',
-    src: null,
+    name: 'Rowlet',
+    src: rowlet,
   },
   {
     id: 723,
-    name: '',
-    src: null,
+    name: 'Dartrix',
+    src: dartrix,
   },
   {
     id: 724,
-    name: '',
-    src: null,
+    name: 'Decidueye',
+    src: decidueye,
   },
   {
     id: 725,
-    name: '',
-    src: null,
+    name: 'Litten',
+    src: litten,
   },
   {
     id: 726,
-    name: '',
-    src: null,
+    name: 'Torracat',
+    src: torracat,
   },
   {
     id: 727,
-    name: '',
-    src: null,
+    name: 'Incineroar',
+    src: incineroar,
   },
   {
     id: 728,
-    name: '',
-    src: null,
+    name: 'Popplio',
+    src: popplio,
   },
   {
     id: 729,
-    name: '',
-    src: null,
+    name: 'Brionne',
+    src: brionne,
   },
   {
     id: 730,
-    name: '',
-    src: null,
+    name: 'Primarina',
+    src: primarina,
   },
   {
     id: 731,
-    name: '',
-    src: null,
+    name: 'Pikipek',
+    src: pikipek,
   },
   {
     id: 732,
-    name: '',
-    src: null,
+    name: 'Trumbeak',
+    src: trumbeak,
   },
   {
     id: 733,
-    name: '',
-    src: null,
+    name: 'Toucannon',
+    src: toucannon,
   },
   {
     id: 734,
-    name: '',
-    src: null,
+    name: 'Yungoos',
+    src: yungoos,
   },
   {
     id: 735,
-    name: '',
-    src: null,
+    name: 'Gumshoos',
+    src: gumshoos,
   },
   {
     id: 736,
-    name: '',
-    src: null,
+    name: 'Grubbin',
+    src: grubbin,
   },
   {
     id: 737,
-    name: '',
-    src: null,
+    name: 'Charjabug',
+    src: charjabug,
   },
   {
     id: 738,
-    name: '',
-    src: null,
+    name: 'Vikavolt',
+    src: vikavolt,
   },
   {
     id: 739,
-    name: '',
-    src: null,
+    name: 'Crabrawler',
+    src: crabrawler,
   },
   {
     id: 740,
-    name: '',
-    src: null,
+    name: 'Crabominable',
+    src: crabominable,
   },
   {
     id: 741,
-    name: '',
-    src: null,
+    name: 'Oricorio',
+    src: oricorio,
   },
   {
     id: 742,
-    name: '',
-    src: null,
+    name: 'Cutiefly',
+    src: cutiefly,
   },
   {
     id: 743,
-    name: '',
-    src: null,
+    name: 'Ribombee',
+    src: ribombee,
   },
   {
     id: 744,
-    name: '',
-    src: null,
+    name: 'Rockruff',
+    src: rockruff,
   },
   {
     id: 745,
-    name: '',
-    src: null,
+    name: 'Lycanroc',
+    src: lycanroc,
   },
   {
     id: 746,
-    name: '',
-    src: null,
+    name: 'Wishiwashi',
+    src: wishiwashi,
   },
   {
     id: 747,
-    name: '',
-    src: null,
+    name: 'Mareanie',
+    src: mareanie,
   },
   {
     id: 748,
-    name: '',
-    src: null,
+    name: 'Toxapex',
+    src: toxapex,
   },
   {
     id: 749,
-    name: '',
-    src: null,
+    name: 'Mudbray',
+    src: mudbray,
   },
   {
     id: 750,
-    name: '',
-    src: null,
+    name: 'Mudsdale',
+    src: mudsdale,
   },
   {
     id: 751,
-    name: '',
-    src: null,
+    name: 'Dewpider',
+    src: dewpider,
   },
   {
     id: 752,
-    name: '',
-    src: null,
+    name: 'Araquanid',
+    src: araquanid,
   },
   {
     id: 753,
-    name: '',
-    src: null,
+    name: 'Fomantis',
+    src: fomantis,
   },
   {
     id: 754,
-    name: '',
-    src: null,
+    name: 'Lurantis',
+    src: lurantis,
   },
   {
     id: 755,
-    name: '',
-    src: null,
+    name: 'Morelull',
+    src: morelull,
   },
   {
     id: 756,
-    name: '',
-    src: null,
+    name: 'Shiinotic',
+    src: shiinotic,
   },
   {
     id: 757,
-    name: '',
-    src: null,
+    name: 'Salandit',
+    src: salandit,
   },
   {
     id: 758,
-    name: '',
-    src: null,
+    name: 'Salazzle',
+    src: salazzle,
   },
   {
     id: 759,
-    name: '',
-    src: null,
+    name: 'Stufful',
+    src: stufful,
   },
   {
     id: 760,
-    name: '',
-    src: null,
+    name: 'Bewear',
+    src: bewear,
   },
   {
     id: 761,
-    name: '',
-    src: null,
+    name: 'Bounsweet',
+    src: bounsweet,
   },
   {
     id: 762,
-    name: '',
-    src: null,
+    name: 'Steenee',
+    src: steenee,
   },
   {
     id: 763,
-    name: '',
-    src: null,
+    name: 'Tsareena',
+    src: tsareena,
   },
   {
     id: 764,
-    name: '',
-    src: null,
+    name: 'Comfey',
+    src: comfey,
   },
   {
     id: 765,
-    name: '',
-    src: null,
+    name: 'Oranguru',
+    src: oranguru,
   },
   {
     id: 766,
-    name: '',
-    src: null,
+    name: 'Passimian',
+    src: passimian,
   },
   {
     id: 767,
-    name: '',
-    src: null,
+    name: 'Wimpod',
+    src: wimpod,
   },
   {
     id: 768,
-    name: '',
-    src: null,
+    name: 'Golisopod',
+    src: golisopod,
   },
   {
     id: 769,
-    name: '',
-    src: null,
+    name: 'Sandygast',
+    src: sandygast,
   },
   {
     id: 770,
-    name: '',
-    src: null,
+    name: 'Palossand',
+    src: palossand,
   },
   {
     id: 771,
-    name: '',
-    src: null,
+    name: 'Pyukumuku',
+    src: pyukumuku,
   },
   {
     id: 772,
-    name: '',
-    src: null,
+    name: 'Type: Null',
+    src: typenull,
   },
   {
     id: 773,
-    name: '',
-    src: null,
+    name: 'Silvally',
+    src: silvally,
   },
   {
     id: 774,
-    name: '',
-    src: null,
+    name: 'Minior',
+    src: minior,
   },
   {
     id: 775,
-    name: '',
-    src: null,
+    name: 'Komala',
+    src: komala,
   },
   {
     id: 776,
-    name: '',
-    src: null,
+    name: 'Turtonator',
+    src: turtonator,
   },
   {
     id: 777,
-    name: '',
-    src: null,
+    name: 'Togedemaru',
+    src: togedemaru,
   },
   {
     id: 778,
-    name: '',
-    src: null,
+    name: 'Mimikyu',
+    src: mimikyu,
   },
   {
     id: 779,
-    name: '',
-    src: null,
+    name: 'Bruxish',
+    src: bruxish,
   },
   {
     id: 780,
-    name: '',
-    src: null,
+    name: 'Drampa',
+    src: drampa,
   },
   {
     id: 781,
-    name: '',
-    src: null,
+    name: 'Dhelmise',
+    src: dhelmise,
   },
   {
     id: 782,
-    name: '',
-    src: null,
+    name: 'Jangmo-o',
+    src: jangmoo,
   },
   {
     id: 783,
-    name: '',
-    src: null,
+    name: 'Hakamo-o',
+    src: hakamoo,
   },
   {
     id: 784,
-    name: '',
-    src: null,
+    name: 'Kommo-o',
+    src: kommoo,
   },
   {
     id: 785,
-    name: '',
-    src: null,
+    name: 'Tapu Koko',
+    src: tapukoko,
   },
   {
     id: 786,
-    name: '',
-    src: null,
+    name: 'Tapu Lele',
+    src: tapulele,
   },
   {
     id: 787,
-    name: '',
-    src: null,
+    name: 'Tapu Bulu',
+    src: tapubulu,
   },
   {
     id: 788,
-    name: '',
-    src: null,
+    name: 'Tapu Fini',
+    src: tapufini,
   },
   {
     id: 789,
-    name: '',
-    src: null,
+    name: 'Cosmog',
+    src: cosmog,
   },
   {
     id: 790,
-    name: '',
-    src: null,
+    name: 'Cosmoem',
+    src: cosmoem,
   },
   {
     id: 791,
-    name: '',
-    src: null,
+    name: 'Solgaleo',
+    src: solgaleo,
   },
   {
     id: 792,
-    name: '',
-    src: null,
+    name: 'Lunala',
+    src: lunala,
   },
   {
     id: 793,
-    name: '',
-    src: null,
+    name: 'Nihilego',
+    src: nihilego,
   },
   {
     id: 794,
-    name: '',
-    src: null,
+    name: 'Buzzwole',
+    src: buzzwole,
   },
   {
     id: 795,
-    name: '',
-    src: null,
+    name: 'Pheromosa',
+    src: pheromosa,
   },
   {
     id: 796,
-    name: '',
-    src: null,
+    name: 'Xurkitree',
+    src: xurkitree,
   },
   {
     id: 797,
-    name: '',
-    src: null,
+    name: 'Celesteela',
+    src: celesteela,
   },
   {
     id: 798,
-    name: '',
-    src: null,
+    name: 'Kartana',
+    src: kartana,
   },
   {
     id: 799,
-    name: '',
-    src: null,
+    name: 'Guzzlord',
+    src: guzzlord,
   },
   {
     id: 800,
-    name: '',
-    src: null,
+    name: 'Necrozma',
+    src: necrozma,
   },
   {
     id: 801,
-    name: '',
-    src: null,
+    name: 'Magearna',
+    src: magearna,
   },
   {
     id: 802,
-    name: '',
-    src: null,
+    name: 'Marshadow',
+    src: marshadow,
   },
   {
     id: 803,
-    name: '',
-    src: null,
+    name: 'Poipole',
+    src: poipole,
   },
   {
     id: 804,
-    name: '',
-    src: null,
+    name: 'Naganadel',
+    src: naganadel,
   },
   {
     id: 805,
-    name: '',
-    src: null,
+    name: 'Stakataka',
+    src: stakataka,
   },
   {
     id: 806,
-    name: '',
-    src: null,
+    name: 'Blacephalon',
+    src: blacephalon,
   },
   {
     id: 807,
-    name: '',
-    src: null,
+    name: 'Zeraora',
+    src: zeraora,
   },
   {
     id: 808,
-    name: '',
-    src: null,
+    name: 'Meltan',
+    src: meltan,
   },
   {
     id: 809,
-    name: '',
-    src: null,
+    name: 'Melmetal',
+    src: melmetal,
   },
   {
     id: 810,
-    name: '',
-    src: null,
+    name: 'Grookey',
+    src: grookey,
   },
   {
     id: 811,
-    name: '',
-    src: null,
+    name: 'Thwackey',
+    src: thwackey,
   },
   {
     id: 812,
-    name: '',
-    src: null,
+    name: 'Rillaboom',
+    src: rillaboom,
   },
   {
     id: 813,
-    name: '',
-    src: null,
+    name: 'Scorbunny',
+    src: scorbunny,
   },
   {
     id: 814,
-    name: '',
-    src: null,
+    name: 'Raboot',
+    src: raboot,
   },
   {
     id: 815,
-    name: '',
-    src: null,
+    name: 'Cinderace',
+    src: cinderace,
   },
   {
     id: 816,
-    name: '',
-    src: null,
+    name: 'Sobble',
+    src: sobble,
   },
   {
     id: 817,
-    name: '',
-    src: null,
+    name: 'Drizzile',
+    src: drizzile,
   },
   {
     id: 818,
-    name: '',
-    src: null,
+    name: 'Inteleon',
+    src: inteleon,
   },
   {
     id: 819,
-    name: '',
-    src: null,
+    name: 'Skwovet',
+    src: skwovet,
   },
   {
     id: 820,
-    name: '',
-    src: null,
+    name: 'Greedent',
+    src: greedent,
   },
   {
     id: 821,
-    name: '',
-    src: null,
+    name: 'Rookidee',
+    src: rookidee,
   },
   {
     id: 822,
-    name: '',
-    src: null,
+    name: 'Corvisquire',
+    src: corvisquire,
   },
   {
     id: 823,
-    name: '',
-    src: null,
+    name: 'Corviknight',
+    src: corviknight,
   },
   {
     id: 824,
-    name: '',
-    src: null,
+    name: 'Blipbug',
+    src: blipbug,
   },
   {
     id: 825,
-    name: '',
-    src: null,
+    name: 'Dottler',
+    src: dottler,
   },
   {
     id: 826,
-    name: '',
-    src: null,
+    name: 'Orbeetle',
+    src: orbeetle,
   },
   {
     id: 827,
-    name: '',
-    src: null,
+    name: 'Nickit',
+    src: nickit,
   },
   {
     id: 828,
-    name: '',
-    src: null,
+    name: 'Thievul',
+    src: thievul,
   },
   {
     id: 829,
-    name: '',
-    src: null,
+    name: 'Gossifleur',
+    src: gossifleur,
   },
   {
     id: 830,
-    name: '',
-    src: null,
+    name: 'Eldegoss',
+    src: eldegoss,
   },
   {
     id: 831,
-    name: '',
-    src: null,
+    name: 'Wooloo',
+    src: wooloo,
   },
   {
     id: 832,
-    name: '',
-    src: null,
+    name: 'Dubwool',
+    src: dubwool,
   },
   {
     id: 833,
-    name: '',
-    src: null,
+    name: 'Chewtle',
+    src: chewtle,
   },
   {
     id: 834,
-    name: '',
-    src: null,
+    name: 'Drednaw',
+    src: drednaw,
   },
   {
     id: 835,
-    name: '',
-    src: null,
+    name: 'Yamper',
+    src: yamper,
   },
   {
     id: 836,
-    name: '',
-    src: null,
+    name: 'Boltund',
+    src: boltund,
   },
   {
     id: 837,
-    name: '',
-    src: null,
+    name: 'Rolycoly',
+    src: rolycoly,
   },
   {
     id: 838,
-    name: '',
-    src: null,
+    name: 'Carkol',
+    src: carkol,
   },
   {
     id: 839,
-    name: '',
-    src: null,
+    name: 'Coalossal',
+    src: coalossal,
   },
   {
     id: 840,
-    name: '',
-    src: null,
+    name: '	Applin',
+    src: applin,
   },
   {
     id: 841,
-    name: '',
-    src: null,
+    name: 'Flapple',
+    src: flapple,
   },
   {
     id: 842,
-    name: '',
-    src: null,
+    name: 'Appletun',
+    src: appletun,
   },
   {
     id: 843,
-    name: '',
-    src: null,
+    name: 'Silicobra',
+    src: silicobra,
   },
   {
     id: 844,
-    name: '',
-    src: null,
+    name: 'Sandaconda',
+    src: sandaconda,
   },
   {
     id: 845,
-    name: '',
-    src: null,
+    name: 'Cramorant',
+    src: cramorant,
   },
   {
     id: 846,
-    name: '',
-    src: null,
+    name: 'Arrokuda',
+    src: arrokuda,
   },
   {
     id: 847,
-    name: '',
-    src: null,
+    name: 'Barraskewda',
+    src: barraskewda,
   },
   {
     id: 848,
-    name: '',
-    src: null,
+    name: 'Toxel',
+    src: toxel,
   },
   {
     id: 849,
-    name: '',
-    src: null,
+    name: 'Toxtricity',
+    src: toxtricity,
   },
   {
     id: 850,
-    name: '',
-    src: null,
+    name: 'Sizzlipede',
+    src: sizzlipede,
   },
   {
     id: 851,
-    name: '',
-    src: null,
+    name: 'Centiskorch',
+    src: centiskorch,
   },
   {
     id: 852,
-    name: '',
-    src: null,
+    name: 'Clobbopus',
+    src: clobbopus,
   },
   {
     id: 853,
-    name: '',
-    src: null,
+    name: 'Grapploct',
+    src: grapploct,
   },
   {
     id: 854,
-    name: '',
-    src: null,
+    name: 'Sinistea',
+    src: sinistea,
   },
   {
     id: 855,
-    name: '',
-    src: null,
+    name: 'Polteageist',
+    src: polteageist,
   },
   {
     id: 856,
-    name: '',
-    src: null,
+    name: 'Hatenna',
+    src: hatenna,
   },
   {
     id: 857,
-    name: '',
-    src: null,
+    name: 'Hattrem',
+    src: hattrem,
   },
   {
     id: 858,
-    name: '',
-    src: null,
+    name: 'Hatterene',
+    src: hatterene,
   },
   {
     id: 859,
-    name: '',
-    src: null,
+    name: 'Impidimp',
+    src: impidimp,
   },
   {
     id: 860,
-    name: '',
-    src: null,
+    name: 'Morgrem',
+    src: morgrem,
   },
   {
     id: 861,
-    name: '',
-    src: null,
+    name: 'Grimmsnarl',
+    src: grimmsnarl,
   },
   {
     id: 862,
-    name: '',
-    src: null,
+    name: 'Obstagoon',
+    src: obstagoon,
   },
   {
     id: 863,
-    name: '',
-    src: null,
+    name: 'Perrserker',
+    src: perrserker,
   },
   {
     id: 864,
-    name: '',
-    src: null,
+    name: 'Cursola',
+    src: cursola,
   },
   {
     id: 865,
-    name: '',
-    src: null,
+    name: "Sirfetch'd",
+    src: sirfetchd,
   },
   {
     id: 866,
-    name: '',
-    src: null,
+    name: 'Mr. Rime',
+    src: mrrime,
   },
   {
     id: 867,
-    name: '',
-    src: null,
+    name: 'Runerigus',
+    src: runerigus,
   },
   {
     id: 868,
-    name: '',
-    src: null,
+    name: 'Milcery',
+    src: milcery,
   },
   {
     id: 869,
-    name: '',
-    src: null,
+    name: 'Alcremie',
+    src: alcremie,
   },
   {
     id: 870,
-    name: '',
-    src: null,
+    name: 'Falinks',
+    src: falinks,
   },
   {
     id: 871,
-    name: '',
-    src: null,
+    name: 'Pincurchin',
+    src: pincurchin,
   },
   {
     id: 872,
-    name: '',
-    src: null,
+    name: 'Snom',
+    src: snom,
   },
   {
     id: 873,
-    name: '',
-    src: null,
+    name: 'Frosmoth',
+    src: frosmoth,
   },
   {
     id: 874,
-    name: '',
-    src: null,
+    name: 'Stonjourner',
+    src: stonjourner,
   },
   {
     id: 875,
-    name: '',
-    src: null,
+    name: 'Eiscue',
+    src: eiscue,
   },
   {
     id: 876,
-    name: '',
-    src: null,
+    name: 'Indeedee',
+    src: indeedee,
   },
   {
     id: 877,
-    name: '',
-    src: null,
+    name: 'Morpeko',
+    src: morpeko,
   },
   {
     id: 878,
-    name: '',
-    src: null,
+    name: 'Cufant',
+    src: cufant,
   },
   {
     id: 879,
-    name: '',
-    src: null,
+    name: 'Copperajah',
+    src: copperajah,
   },
   {
     id: 880,
-    name: '',
-    src: null,
+    name: 'Dracozolt',
+    src: dracozolt,
   },
   {
     id: 881,
-    name: '',
-    src: null,
+    name: 'Arctozolt',
+    src: arctozolt,
   },
   {
     id: 882,
-    name: '',
-    src: null,
+    name: 'Dracovish',
+    src: dracovish,
   },
   {
     id: 883,
-    name: '',
-    src: null,
+    name: 'Arctovish',
+    src: arctovish,
   },
   {
     id: 884,
-    name: '',
-    src: null,
+    name: 'Duraludon',
+    src: duraludon,
   },
   {
     id: 885,
-    name: '',
-    src: null,
+    name: 'Dreepy',
+    src: dreepy,
   },
   {
     id: 886,
-    name: '',
-    src: null,
+    name: 'Drakloak',
+    src: drakloak,
   },
   {
     id: 887,
-    name: '',
-    src: null,
+    name: 'Dragapult',
+    src: dragapult,
   },
   {
     id: 888,
-    name: '',
-    src: null,
+    name: 'Zacian',
+    src: zacian,
   },
   {
     id: 889,
-    name: '',
-    src: null,
+    name: 'Zamazenta',
+    src: zamazenta,
   },
   {
     id: 890,
-    name: '',
-    src: null,
+    name: 'Eternatus',
+    src: eternatus,
   },
   {
     id: 891,
-    name: '',
-    src: null,
+    name: 'Kubfu',
+    src: kubfu,
   },
   {
     id: 892,
-    name: '',
-    src: null,
+    name: 'Urshifu',
+    src: urshifu,
   },
   {
     id: 893,
-    name: '',
-    src: null,
+    name: 'Zarude',
+    src: zarude,
   },
   {
     id: 894,
-    name: '',
-    src: null,
+    name: 'Regieleki',
+    src: regieleki,
   },
   {
     id: 895,
-    name: '',
-    src: null,
+    name: 'Regidrago',
+    src: regidrago,
   },
   {
     id: 896,
-    name: '',
-    src: null,
+    name: 'Glastrier',
+    src: glastrier,
   },
   {
     id: 897,
-    name: '',
-    src: null,
+    name: 'Spectrier',
+    src: spectrier,
   },
   {
     id: 898,
-    name: '',
-    src: null,
+    name: 'Calyrex',
+    src: calyrex,
   },
 ];
 

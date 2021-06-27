@@ -25,6 +25,7 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) =>
       className={styles.pokemonSelect}
       classes={{ inputRoot: styles.pokemonSelect }}
       getOptionLabel={(option) => option.name}
+      getOptionSelected={(option, value) => option.id === value.id}
       onChange={onChange}
       options={POKEMON}
       renderOption={(poke) => (
