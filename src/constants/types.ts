@@ -2,6 +2,7 @@ export interface TrackerState {
   games: Games;
   selectedGame: TGame;
   text: string;
+  darkMode: boolean;
 }
 
 export interface AppState extends TrackerState {
@@ -13,6 +14,7 @@ export interface AppState extends TrackerState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  toggleMode: () => void;
 }
 
 export type Games = { [key: string]: TrackData };

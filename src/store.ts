@@ -20,6 +20,7 @@ const immer =
 const useStore = create<AppState>(
   persist(
     immer((set) => ({
+      darkMode: false,
       selectedGame: null,
       games: INITIAL_STATE.games,
       text: '',
@@ -69,6 +70,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.games[state.selectedGame?.id].encounters[encounterId].status = null;
           state.games[state.selectedGame?.id].encounters[encounterId].pokemon = null;
+        });
+      },
+      toggleMode: () => {
+        set((state) => {
+          state.darkMode = !state.darkMode;
         });
       },
     })),

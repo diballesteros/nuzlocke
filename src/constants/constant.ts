@@ -13,6 +13,7 @@ import US_UM from 'constants/locations/US_UM';
 import { TGame, TrackerState } from 'constants/types';
 
 export const INITIAL_STATE: TrackerState = {
+  darkMode: false,
   selectedGame: null,
   games: {
     '1': { badge: null, encounters: R_B_Y },

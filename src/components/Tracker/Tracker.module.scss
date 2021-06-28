@@ -5,6 +5,7 @@
   height: calc(100% - 40px);
   width: calc(100% - 40px);
   padding: 20px;
+  background-color: var(--bgprimary);
 
   .container {
     display: flex;
@@ -15,6 +16,7 @@
     width: calc(100% - 20px);
     padding: 10px;
     max-width: 1200px;
+    background-color: var(--bgsecondary);
     border: 1px solid black;
     border-radius: 3px;
   }
