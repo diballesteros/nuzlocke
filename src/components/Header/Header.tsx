@@ -4,9 +4,11 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import Button from '@material-ui/core/Button';
+import IconButton from '@material-ui/core/IconButton';
 import { GAMES } from 'constants/constant';
 import Export from '@material-ui/icons/GetApp';
 import Import from '@material-ui/icons/Publish';
+import Add from '@material-ui/icons/Add';
 import useStore from 'store';
 import styles from './Header.module.scss';
 
@@ -25,18 +27,23 @@ const Header: React.FC = React.memo(() => {
 
   return (
     <div className={styles.header}>
-      <FormControl className={styles.gameSelect}>
-        <InputLabel id="game-select">Choose a game</InputLabel>
-        <Select id="game-select" onChange={handleChange} value={appState.selectedGame?.id ?? ''}>
-          {GAMES.map((game) => {
-            return (
-              <MenuItem key={game.name} value={game.id}>
-                {game.name}
-              </MenuItem>
-            );
-          })}
-        </Select>
-      </FormControl>
+      <div className={styles.left}>
+        <FormControl className={styles.gameSelect}>
+          <InputLabel id="game-select">Choose a game</InputLabel>
+          <Select id="game-select" onChange={handleChange} value={appState.selectedGame?.id ?? ''}>
+            {GAMES.map((game) => {
+              return (
+                <MenuItem key={game.name} value={game.id}>
+                  {game.name}
+                </MenuItem>
+              );
+            })}
+          </Select>
+        </FormControl>
+        <IconButton aria-label="add game" color="inherit" className={styles.addIcon} edge="start">
+          <Add />
+        </IconButton>
+      </div>
       <div className={styles.buttons}>
         <Button color="default" variant="contained" endIcon={<Export />}>
           Export

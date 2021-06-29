@@ -4,23 +4,35 @@
   align-items: center;
   padding: 10px;
 
-  .gameSelect {
-    width: 300px;
+  .left {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 15px;
+    .gameSelect {
+      width: 300px;
 
-    :global(.MuiInput-underline:before),
-    :global(.MuiInput-underline:after) {
-      border-bottom-color: var(--contrast);
+      :global(.MuiInput-underline:before),
+      :global(.MuiInput-underline:after) {
+        border-bottom-color: var(--contrast);
+      }
+
+      :global(.MuiInput-root),
+      :global(.MuiFormLabel-root),
+      :global(.MuiInput-underline:before),
+      :global(.MuiSelect-icon) {
+        color: var(--contrast);
+      }
+
+      input {
+        padding: 0 !important;
+      }
     }
 
-    :global(.MuiInput-root),
-    :global(.MuiFormLabel-root),
-    :global(.MuiInput-underline:before),
-    :global(.MuiSelect-icon) {
+    .addIcon {
       color: var(--contrast);
-    }
-
-    input {
-      padding: 0 !important;
+      align-self: flex-end;
+      padding: 5px;
     }
   }
 
