@@ -28,7 +28,9 @@ const App: React.FC = () => {
     if (mode) {
       document.documentElement.style.setProperty('--app', '#333333');
       document.documentElement.style.setProperty('--primary', '#666666');
-      document.documentElement.style.setProperty('--secondary', '#FFE8E8');
+      document.documentElement.style.setProperty('--secondary', '#333333');
+      document.documentElement.style.setProperty('--badge', '#C395FE');
+      document.documentElement.style.setProperty('--badgeflash', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#212121');
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
       document.documentElement.style.setProperty('--contrast', '#FFFFFF');
@@ -37,6 +39,8 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--primary', '#D46A6A');
       document.documentElement.style.setProperty('--secondary', '#FFE8E8');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
+      document.documentElement.style.setProperty('--badge', '#D46A6A');
+      document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
       document.documentElement.style.setProperty('--bgsecondary', '#F5F5F5');
       document.documentElement.style.setProperty('--contrast', '#333333');
     }

@@ -1,5 +1,17 @@
 .statusSelect {
   max-width: 180px;
+  color: var(--contrast) !important;
+
+  &:before,
+  &:after {
+    border-bottom-color: var(--contrast) !important;
+  }
+
+  :global(.MuiFormLabel-root),
+  :global(.MuiInput-underline:before),
+  :global(.MuiSelect-icon) {
+    color: var(--contrast);
+  }
 
   input {
     padding: 0 !important;

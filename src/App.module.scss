@@ -28,6 +28,10 @@
     width: 240px;
     flex-shrink: 0;
     white-space: nowrap;
+
+    :global(.MuiPaper-root) {
+      background-color: var(--bgsecondary);
+    }
   }
 
   .arrowContainer {

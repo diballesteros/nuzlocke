@@ -14,6 +14,19 @@
     padding: 0 !important;
   }
 
+  :global(.MuiInputBase-root),
+  :global(.MuiIconButton-root),
+  :global(.MuiFormLabel-root),
+  :global(.MuiFormLabel-root.Mui-focused) {
+    color: var(--contrast);
+  }
+
+  :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline),
+  :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline),
+  :global(.MuiOutlinedInput-notchedOutline) {
+    border-color: var(--contrast);
+  }
+
   .option {
     display: flex !important;
     align-items: center;

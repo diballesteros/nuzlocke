@@ -49,7 +49,7 @@ const Options: React.FC = React.memo(() => {
     <div className={styles.options}>
       <TextField
         className={styles.search}
-        label="Press enter to search..."
+        label="Filter by pokémon, location or status"
         onChange={handleChange}
         value={searchText}
         type="search"

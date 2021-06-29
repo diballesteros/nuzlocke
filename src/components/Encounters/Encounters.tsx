@@ -44,7 +44,11 @@ const Encounters: React.FC = React.memo(() => {
           <div>{encounter.location}</div>
           <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
           <Status encounterId={encounter.id} status={encounter.status} />
-          <IconButton aria-label="delete" onClick={() => handleClear(encounter.id)}>
+          <IconButton
+            aria-label="delete"
+            onClick={() => handleClear(encounter.id)}
+            className={styles.delete}
+          >
             <ClearAll />
           </IconButton>
         </div>

@@ -7,24 +7,15 @@
   .gameSelect {
     width: 300px;
 
-    :global(.MuiInput-root) {
-      color: var(--contrast);
-      border-bottom-color: var(--contrast);
-    }
-
-    :global(.MuiInput-underline:before) {
-      border-bottom-color: var(--contrast);
-    }
-
+    :global(.MuiInput-underline:before),
     :global(.MuiInput-underline:after) {
       border-bottom-color: var(--contrast);
     }
 
+    :global(.MuiInput-root),
+    :global(.MuiFormLabel-root),
+    :global(.MuiInput-underline:before),
     :global(.MuiSelect-icon) {
-      color: var(--contrast);
-    }
-
-    :global(.MuiFormLabel-root) {
       color: var(--contrast);
     }
 

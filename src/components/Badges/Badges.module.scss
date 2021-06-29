@@ -11,19 +11,19 @@
     flex: 1;
     gap: 5px;
     filter: grayscale(1.1);
-    background-color: #d46a6a;
+    background-color: var(--badge);
     padding: 10px;
     border: none;
     border-right: 1px solid #ffffff;
     border-radius: 3px;
     box-shadow: 0 0 4px #999;
     font: inherit;
-    color: white;
+    color: var(--bgprimary);
     transition: background 0.8s;
     cursor: pointer;
 
     &:active {
-      background-color: #ffaaaa;
+      background-color: var(--badgeflash);
       background-size: 100%;
       transition: background 0s;
     }
