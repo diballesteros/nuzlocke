@@ -16,6 +16,10 @@
       border-bottom-color: var(--contrast);
     }
 
+    :global(.MuiInput-underline:after) {
+      border-bottom-color: var(--contrast);
+    }
+
     :global(.MuiSelect-icon) {
       color: var(--contrast);
     }

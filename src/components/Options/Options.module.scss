@@ -6,6 +6,23 @@
   .search {
     width: 100%;
     max-width: 50%;
+    color: var(--contrast);
+
+    :global(.MuiInputLabel-formControl) {
+      color: var(--contrast);
+    }
+
+    :global(.MuiInputBase-root) {
+      color: var(--contrast);
+    }
+
+    :global(.MuiInput-underline:before) {
+      border-bottom-color: var(--contrast);
+    }
+
+    :global(.MuiInput-underline:after) {
+      border-bottom-color: var(--contrast);
+    }
   }
 
   .buttons {

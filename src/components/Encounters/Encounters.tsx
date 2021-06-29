@@ -1,4 +1,5 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
+import shallow from 'zustand/shallow';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import IconButton from '@material-ui/core/IconButton';
 import ClearAll from '@material-ui/icons/ClearAll';
@@ -10,17 +11,26 @@ import styles from './Encounters.module.scss';
 const Encounters: React.FC = React.memo(() => {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
-  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const clearEncounter = useStore(useCallback((state) => state.clearEncounter, []));
+  const selectedGame = useStore(
+    useCallback((state) => state.selectedGame, []),
+    shallow
+  );
+  const clearEncounter = useStore(
+    useCallback((state) => state.clearEncounter, []),
+    shallow
+  );
   const [containerRef, containerSize] = useDimensions(true);
-  const filteredGames = games[selectedGame?.id]?.encounters?.filter((enc) => {
-    const upperCase = text?.toUpperCase();
-    return (
-      enc.location.toUpperCase()?.includes(upperCase) ||
-      enc.status?.name.toUpperCase()?.includes(upperCase) ||
-      enc.pokemon?.name?.toUpperCase()?.includes(upperCase)
-    );
-  });
+
+  const filteredGames = useMemo(() => {
+    return games[selectedGame?.id]?.encounters?.filter((enc) => {
+      const upperCase = text?.toUpperCase();
+      return (
+        enc.location.toUpperCase()?.includes(upperCase) ||
+        enc.status?.name.toUpperCase()?.includes(upperCase) ||
+        enc.pokemon?.name?.toUpperCase()?.includes(upperCase)
+      );
+    });
+  }, [games, selectedGame, text]);
 
   const handleClear = (encounterId: number) => {
     clearEncounter(encounterId);

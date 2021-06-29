@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -9,19 +9,29 @@ import Button from '@material-ui/core/Button';
 import Close from '@material-ui/icons/Close';
 import Add from '@material-ui/icons/Add';
 import useStore from 'store';
+import useDebounce from 'hooks/useDebounce';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {
+  const text = useStore(useCallback((state) => state.text, []));
+  const search = useStore(useCallback((state) => state.search, []));
+  const resetAll = useStore(useCallback((state) => state.resetAll, []));
+  const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
+  const [searchText, setSearchText] = useState(text);
+  const debouncedValue = useDebounce<string>(searchText, 250);
   const [open, setOpen] = useState(false);
   const [location, setLocation] = useState('');
-  const { addEncounter, resetAll, search, text } = useStore((state) => state);
+
+  useEffect(() => {
+    search(debouncedValue);
+  }, [debouncedValue, search]);
 
   const handleReset = () => {
     resetAll();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    search(e.target.value);
+    setSearchText(e.target.value);
   };
 
   const handleAdd = () => {
@@ -39,9 +49,10 @@ const Options: React.FC = React.memo(() => {
     <div className={styles.options}>
       <TextField
         className={styles.search}
-        label="Filter by pokémon, location or status"
+        label="Press enter to search..."
         onChange={handleChange}
-        value={text}
+        value={searchText}
+        type="search"
       />
       <div className={styles.buttons}>
         <Button

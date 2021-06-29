@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import useStore from 'store';
 import BADGES from 'constants/badges';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
-  const { games, selectBadge, selectedGame } = useStore((state) => state);
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const games = useStore(useCallback((state) => state.games, []));
+  const selectBadge = useStore(useCallback((state) => state.selectBadge, []));
   const handleClick = (badgeIndex: number) => {
     selectBadge(badgeIndex);
   };

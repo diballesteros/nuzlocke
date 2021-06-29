@@ -37,7 +37,7 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--primary', '#D46A6A');
       document.documentElement.style.setProperty('--secondary', '#FFE8E8');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
-      document.documentElement.style.setProperty('--bgsecondary', '#FFFFFF');
+      document.documentElement.style.setProperty('--bgsecondary', '#F5F5F5');
       document.documentElement.style.setProperty('--contrast', '#333333');
     }
   }, [mode]);
