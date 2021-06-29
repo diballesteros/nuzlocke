@@ -46,6 +46,18 @@
       object-fit: cover;
     }
 
+    @media (max-width: 870px) {
+      font-size: 12px;
+      > img {
+        max-height: 25px;
+        max-width: 25px;
+      }
+    }
+
+    @media (max-width: 670px) {
+      font-size: 8px;
+    }
+
     .levelCap {
       align-self: flex-end;
     }

@@ -1,28 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import Drawer from '@material-ui/core/Drawer';
+import React, { useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Tracker from 'components/Tracker/Tracker';
-import Menu from '@material-ui/icons/Menu';
 import Brightness4 from '@material-ui/icons/Brightness4';
 import Brightness7 from '@material-ui/icons/Brightness7';
-import ArrowBackIos from '@material-ui/icons/ArrowBackIos';
 import useStore from 'store';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
   const mode = useStore((state) => state.darkMode);
   const toggleMode = useStore((state) => state.toggleMode);
-
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
 
   useEffect(() => {
     if (mode) {
@@ -48,19 +36,8 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.app}>
-      <AppBar className={`${styles.appBar} ${open ? styles.appBarShift : ''}`}>
+      <AppBar className={styles.appBar}>
         <Toolbar>
-          {!open && (
-            <IconButton
-              aria-label="open drawer"
-              color="inherit"
-              className={styles.menuIcon}
-              onClick={handleOpen}
-              edge="start"
-            >
-              <Menu />
-            </IconButton>
-          )}
           <h1>Nuzlocke Tracker</h1>
           <IconButton
             aria-label="Dark mode"
@@ -72,20 +49,13 @@ const App: React.FC = () => {
           </IconButton>
         </Toolbar>
       </AppBar>
-      <Drawer
-        variant="permanent"
-        className={`${styles.drawer} ${open ? styles.open : styles.close}`}
-        classes={{ paper: open ? styles.open : styles.close }}
-      >
-        <div className={styles.arrowContainer}>
-          <IconButton onClick={handleClose}>
-            <ArrowBackIos />
-          </IconButton>
-        </div>
-      </Drawer>
       <main className={styles.main}>
         <Tracker />
       </main>
+      <footer className={styles.footer}>
+        Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
+        Pokémon character names are trademarks of Nintendo.
+      </footer>
     </div>
   );
 };

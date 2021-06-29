@@ -47,6 +47,7 @@ const Header: React.FC = React.memo(() => {
         const partialState: Partial<AppState> = JSON.parse(event.target.result as string);
         if (!!partialState?.games && !!partialState?.selectedGame) {
           appState.importState(partialState);
+          setError(false);
         } else {
           throw Error('Invalid');
         }
