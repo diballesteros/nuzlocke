@@ -38,7 +38,19 @@
 
   .buttons {
     display: flex;
+    align-items: center;
     gap: 8px;
+
+    > span {
+      color: red;
+    }
+
+    .input {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      opacity: 0;
+    }
   }
 
   @media (max-width: 650px) {

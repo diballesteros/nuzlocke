@@ -24,9 +24,10 @@ const useStore = create<AppState>(
       selectedGame: null,
       games: INITIAL_STATE.games,
       text: '',
-      reset: () =>
+      importState: (newAppState: Partial<AppState>) =>
         set((state) => {
-          state.games[state.selectedGame?.id] = INITIAL_STATE.games[state.selectedGame?.id];
+          state.games = newAppState.games;
+          state.selectedGame = newAppState.selectedGame;
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
