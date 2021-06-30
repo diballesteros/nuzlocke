@@ -13,26 +13,24 @@ const Badges: React.FC = () => {
 
   return (
     <div className={styles.badges}>
-      {!!selectedGame && !!BADGES[selectedGame?.id] ? (
-        BADGES[selectedGame?.id]?.map((badge, index) => {
-          return (
-            <button
-              className={`${styles.badge} ${
-                index <= games[selectedGame?.id]?.badge ? styles.active : ''
-              }`}
-              key={`${badge.name}-${badge.id}`}
-              onClick={() => handleClick(index)}
-              title={badge.name}
-              type="button"
-            >
-              <img src={badge.src} alt={badge.name} />
-              <span className={styles.levelCap}>{badge.levelCap}</span>
-            </button>
-          );
-        })
-      ) : (
-        <div className={styles.suggestion}>Select a Game</div>
-      )}
+      {!!selectedGame
+        ? BADGES[selectedGame?.id]?.map((badge, index) => {
+            return (
+              <button
+                className={`${styles.badge} ${
+                  index <= games[selectedGame?.id]?.badge ? styles.active : ''
+                }`}
+                key={`${badge.name}-${badge.id}`}
+                onClick={() => handleClick(index)}
+                title={badge.name}
+                type="button"
+              >
+                <img src={badge.src} alt={badge.name} />
+                <span className={styles.levelCap}>{badge.levelCap}</span>
+              </button>
+            );
+          })
+        : !!BADGES[selectedGame?.id] && <div className={styles.suggestion}>Select a Game</div>}
     </div>
   );
 };

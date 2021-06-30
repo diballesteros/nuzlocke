@@ -1,5 +1,6 @@
 export interface TrackerState {
   games: Games;
+  gamesList: TGame[];
   selectedGame: TGame;
   text: string;
   darkMode: boolean;
@@ -7,6 +8,7 @@ export interface TrackerState {
 
 export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
+  addGame: (newGame: string) => void;
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   clearEncounter: (encounterId: number) => void;

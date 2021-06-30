@@ -12,28 +12,6 @@ import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
 import { TGame, TrackerState } from 'constants/types';
 
-export const INITIAL_STATE: TrackerState = {
-  darkMode: false,
-  selectedGame: null,
-  games: {
-    '1': { badge: null, encounters: R_B_Y },
-    '2': { badge: null, encounters: G_S_C },
-    '3': { badge: null, encounters: R_S_E },
-    '4': { badge: null, encounters: FR_LG },
-    '5': { badge: null, encounters: D_P_PLAT },
-    '6': { badge: null, encounters: [...G_S_C] },
-    '7': { badge: null, encounters: B_W },
-    '8': { badge: null, encounters: B_W_2 },
-    '9': { badge: null, encounters: X_Y },
-    '10': { badge: null, encounters: OR_AS },
-    '11': { badge: null, encounters: S_M },
-    '12': { badge: null, encounters: US_UM },
-    '13': { badge: null, encounters: SW_SH },
-    '14': { badge: null, encounters: [] },
-  },
-  text: null,
-};
-
 export const GAMES: TGame[] = [
   {
     id: '1',
@@ -88,3 +66,25 @@ export const GAMES: TGame[] = [
     name: 'Sword and Shield',
   },
 ];
+
+export const INITIAL_STATE: TrackerState = {
+  darkMode: false,
+  selectedGame: null,
+  games: {
+    '1': { badge: null, encounters: R_B_Y },
+    '2': { badge: null, encounters: G_S_C },
+    '3': { badge: null, encounters: R_S_E },
+    '4': { badge: null, encounters: FR_LG },
+    '5': { badge: null, encounters: D_P_PLAT },
+    '6': { badge: null, encounters: [...G_S_C] },
+    '7': { badge: null, encounters: B_W },
+    '8': { badge: null, encounters: B_W_2 },
+    '9': { badge: null, encounters: X_Y },
+    '10': { badge: null, encounters: OR_AS },
+    '11': { badge: null, encounters: S_M },
+    '12': { badge: null, encounters: US_UM },
+    '13': { badge: null, encounters: SW_SH },
+  },
+  gamesList: GAMES,
+  text: null,
+};

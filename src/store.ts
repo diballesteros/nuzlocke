@@ -2,7 +2,7 @@ import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
 import produce from 'immer';
 import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
-import { INITIAL_STATE } from 'constants/constant';
+import { GAMES, INITIAL_STATE } from 'constants/constant';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>
@@ -22,12 +22,14 @@ const useStore = create<AppState>(
     immer((set) => ({
       darkMode: false,
       selectedGame: null,
+      gamesList: GAMES,
       games: INITIAL_STATE.games,
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
           state.games = newAppState.games;
           state.selectedGame = newAppState.selectedGame;
+          state.gamesList = newAppState.gamesList;
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
@@ -61,7 +63,7 @@ const useStore = create<AppState>(
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.id].encounters.push({
-            id: state.games[state.selectedGame?.id].encounters.length + 1,
+            id: state.games[state.selectedGame?.id].encounters.length,
             location: newLocation,
             pokemon: null,
             status: null,
@@ -73,6 +75,12 @@ const useStore = create<AppState>(
           state.games[state.selectedGame?.id].encounters[encounterId].pokemon = null;
         });
       },
+      addGame: (newGame: string) =>
+        set((state) => {
+          const newIndex = Object.keys(state.games).length + 1;
+          state.games[newIndex.toString()] = { badge: null, encounters: [] };
+          state.gamesList.push({ id: newIndex.toString(), name: newGame });
+        }),
       toggleMode: () => {
         set((state) => {
           state.darkMode = !state.darkMode;
