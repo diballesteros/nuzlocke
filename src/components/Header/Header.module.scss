@@ -12,6 +12,7 @@
     gap: 15px;
     .gameSelect {
       width: 100%;
+      max-width: 300px;
       :global(.MuiInput-underline:before),
       :global(.MuiInput-underline:after) {
         border-bottom-color: var(--contrast);
