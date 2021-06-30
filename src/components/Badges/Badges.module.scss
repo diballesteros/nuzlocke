@@ -42,16 +42,16 @@
     }
 
     > img {
-      max-height: 50px;
-      max-width: 50px;
-      object-fit: cover;
+      height: 45px;
+      width: 45px;
+      object-fit: contain;
     }
 
     @media (max-width: 870px) {
       font-size: 12px;
       > img {
-        max-height: 35px;
-        max-width: 35px;
+        height: 35px;
+        width: 35px;
       }
     }
 

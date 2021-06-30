@@ -84,7 +84,7 @@ const Header: React.FC = React.memo(() => {
     <div className={styles.header}>
       <div className={styles.left}>
         <FormControl className={styles.gameSelect}>
-          <InputLabel id="game-select">Choose a game</InputLabel>
+          <InputLabel htmlFor="game-select">Choose a game</InputLabel>
           <Select id="game-select" onChange={handleChange} value={appState.selectedGame?.id ?? ''}>
             {appState.gamesList.map((game) => {
               return (
@@ -111,8 +111,10 @@ const Header: React.FC = React.memo(() => {
           Export
         </Button>
         <Button color="default" variant="contained" endIcon={<Import />}>
-          Import
-          <input className={styles.input} onChange={handleImport} type="file" />
+          <label htmlFor="file-input">
+            Import
+            <input className={styles.input} id="file-input" onChange={handleImport} type="file" />
+          </label>
         </Button>
       </div>
       <Dialog open={open} onClose={handleClose}>
