@@ -57,8 +57,14 @@
   }
 
   @media (max-width: 500px) {
+    gap: 2.5px;
     .search > label {
       font-size: 12px;
+    }
+
+    .clear,
+    .add {
+      font-size: 10px;
     }
   }
 }

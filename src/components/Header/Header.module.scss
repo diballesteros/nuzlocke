@@ -6,12 +6,12 @@
 
   .left {
     display: flex;
+    flex: 1;
     flex-flow: row nowrap;
     align-items: center;
     gap: 15px;
     .gameSelect {
-      width: 300px;
-
+      width: 100%;
       :global(.MuiInput-underline:before),
       :global(.MuiInput-underline:after) {
         border-bottom-color: var(--contrast);
@@ -69,6 +69,13 @@
     .buttons button {
       width: 100%;
       flex: 1;
+    }
+  }
+
+  @media (max-width: 500px) {
+    padding: 0;
+    .buttons {
+      display: none;
     }
   }
 }

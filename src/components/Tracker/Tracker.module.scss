@@ -7,6 +7,12 @@
   padding: 20px;
   background-color: var(--bgprimary);
 
+  @media (max-width: 500px) {
+    padding: 0;
+    height: 100%;
+    width: 100%;
+  }
+
   .container {
     display: flex;
     flex-flow: column nowrap;
@@ -18,5 +24,9 @@
     max-width: 1200px;
     background-color: var(--bgsecondary);
     border-radius: 3px;
+
+    @media (max-width: 500px) {
+      gap: 2px;
+    }
   }
 }

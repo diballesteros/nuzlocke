@@ -6,8 +6,6 @@
   .appBar {
     background-color: var(--app);
     z-index: 1201;
-    transition: width 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms,
-      margin 195ms cubic-bezier(0.4, 0, 0.6, 1) 0ms;
 
     .menuIcon {
       margin-right: 36px;
@@ -23,7 +21,10 @@
     flex-flow: column nowrap;
     margin-top: 64px;
     margin-bottom: 15px;
-    flex: 1;
+
+    @media (max-width: 500px) {
+      margin-top: 58px;
+    }
   }
 
   .footer {
@@ -44,6 +45,10 @@
 
     @media (max-width: 550px) {
       font-size: 7px;
+    }
+
+    @media (max-width: 500px) {
+      font-size: 5px;
     }
   }
 }

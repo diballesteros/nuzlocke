@@ -16,4 +16,10 @@
   input {
     padding: 0 !important;
   }
+
+  @media (max-width: 550px) {
+    :global(.MuiSelect-root) {
+      font-size: 11px;
+    }
+  }
 }

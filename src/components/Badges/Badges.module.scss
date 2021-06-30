@@ -1,8 +1,9 @@
 .badges {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   width: 100%;
   position: relative;
+  overflow-y: auto;
 
   .badge {
     display: flex;
@@ -49,13 +50,9 @@
     @media (max-width: 870px) {
       font-size: 12px;
       > img {
-        max-height: 25px;
-        max-width: 25px;
+        max-height: 35px;
+        max-width: 35px;
       }
-    }
-
-    @media (max-width: 670px) {
-      font-size: 8px;
     }
 
     .levelCap {

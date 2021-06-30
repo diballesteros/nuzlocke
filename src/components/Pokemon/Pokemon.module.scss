@@ -42,4 +42,11 @@
       object-fit: cover;
     }
   }
+
+  @media (max-width: 550px) {
+    :global(.MuiInputBase-input),
+    :global(.MuiFormLabel-root) {
+      font-size: 12px;
+    }
+  }
 }
