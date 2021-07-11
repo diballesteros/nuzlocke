@@ -7,37 +7,16 @@
     width: 100%;
     max-width: 50%;
     color: var(--contrast);
-
-    :global(.MuiInputLabel-formControl) {
-      color: var(--contrast);
-    }
-
-    :global(.MuiInputBase-root) {
-      color: var(--contrast);
-    }
-
-    :global(.MuiInput-underline:before) {
-      border-bottom-color: var(--contrast);
-    }
-
-    :global(.MuiInput-underline:after) {
-      border-bottom-color: var(--contrast);
-    }
   }
 
   .buttons {
     display: flex;
     gap: 8px;
-    .add {
-      background-color: green;
-      color: #ffffff;
-      font-weight: bold;
-    }
+    font-weight: bold;
 
-    .clear {
-      background-color: #cf6679;
-      color: black;
-      font-weight: bold;
+    > button > i {
+      margin-left: 5px !important;
+      margin-right: 0 !important;
     }
   }
 
@@ -63,10 +42,8 @@
     .search > label {
       font-size: 12px;
     }
-
-    .clear,
-    .add {
-      font-size: 10px;
+    button {
+      font-size: 10px !important;
     }
   }
 }

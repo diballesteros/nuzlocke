@@ -28,8 +28,9 @@ export type TrackData = {
 };
 
 export type TGame = {
-  id: string;
-  name: string;
+  value: string;
+  text: string;
+  key: string;
 };
 
 export type TBadgeDictionary = {
@@ -51,14 +52,16 @@ export type TEncounter = {
 };
 
 export type TPokemon = {
-  id: number;
-  name: string;
-  src: string;
+  key?: string;
+  image: string;
+  text: string;
+  value: number;
 };
 
 export type TStatus = {
-  id: number;
-  name: string;
+  key: string;
+  text: string;
+  value: number;
 };
 
 export type TLocation = {

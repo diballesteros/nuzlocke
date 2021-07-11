@@ -1,9 +1,8 @@
 import React from 'react';
-import { Autocomplete } from '@material-ui/lab';
-import { TextField } from '@material-ui/core';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TPokemon } from 'constants/types';
+import { Dropdown, DropdownProps } from 'semantic-ui-react';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {
@@ -13,42 +12,24 @@ interface PokemonProps {
 
 const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) => {
   const changePokemon = useStore((state) => state.changePokemon);
-  const onChange = (e: unknown, selectedPokemon: TPokemon | string) => {
-    if (typeof selectedPokemon !== 'string') {
-      changePokemon(encounterId, selectedPokemon);
-    }
+  const onChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
+    const foundPokemon = POKEMON.find((poke) => poke.value === data.value);
+    changePokemon(encounterId, foundPokemon);
   };
 
   return (
-    <Autocomplete
-      autoHighlight
+    <Dropdown
+      basic
       className={styles.pokemonSelect}
-      classes={{ inputRoot: styles.pokemonSelect }}
-      getOptionLabel={(option) => option.name}
-      getOptionSelected={(option, value) => option.id === value.id}
+      fluid
+      inline
+      lazyLoad
       onChange={onChange}
       options={POKEMON}
-      renderOption={(poke) => (
-        <div className={styles.option}>
-          <img src={poke.src} alt={poke.name} />
-          {poke.name}
-        </div>
-      )}
-      renderInput={(params) => (
-        <div className={styles.label}>
-          <TextField
-            {...params}
-            label="Pokémon..."
-            variant="outlined"
-            inputProps={{
-              ...params.inputProps,
-              autoComplete: 'new-password', // disable autocomplete and autofill
-            }}
-          />
-          {pokemon && <img src={pokemon?.src} alt={pokemon?.name} />}
-        </div>
-      )}
-      value={pokemon}
+      placeholder="Pokémon..."
+      search
+      selection
+      value={pokemon?.value ?? null}
     />
   );
 });

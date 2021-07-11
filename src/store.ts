@@ -33,16 +33,16 @@ const useStore = create<AppState>(
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
-          state.games[state.selectedGame?.id].encounters[encounterId].pokemon = pokemon;
+          state.games[state.selectedGame?.value].encounters[encounterId].pokemon = pokemon;
         }),
       changeStatus: (encounterId: number, status: TStatus) =>
         set((state) => {
-          state.games[state.selectedGame?.id].encounters[encounterId].status = status;
+          state.games[state.selectedGame?.value].encounters[encounterId].status = status;
         }),
       resetAll: () =>
         set((state) => {
-          state.games[state.selectedGame?.id].encounters =
-            INITIAL_STATE.games[state.selectedGame?.id]?.encounters;
+          state.games[state.selectedGame?.value].encounters =
+            INITIAL_STATE.games[state.selectedGame?.value]?.encounters;
         }),
       selectGame: (game: TGame) =>
         set((state) => {
@@ -50,10 +50,10 @@ const useStore = create<AppState>(
         }),
       selectBadge: (badgeIndex: number) =>
         set((state) => {
-          if (state.games[state.selectedGame?.id]?.badge === badgeIndex) {
-            state.games[state.selectedGame?.id].badge -= 1;
+          if (state.games[state.selectedGame?.value]?.badge === badgeIndex) {
+            state.games[state.selectedGame?.value].badge -= 1;
           } else {
-            state.games[state.selectedGame?.id].badge = badgeIndex;
+            state.games[state.selectedGame?.value].badge = badgeIndex;
           }
         }),
       search: (text: string) =>
@@ -62,8 +62,8 @@ const useStore = create<AppState>(
         }),
       addEncounter: (newLocation: string) =>
         set((state) => {
-          state.games[state.selectedGame?.id].encounters.push({
-            id: state.games[state.selectedGame?.id].encounters.length,
+          state.games[state.selectedGame?.value].encounters.push({
+            id: state.games[state.selectedGame?.value].encounters.length,
             location: newLocation,
             pokemon: null,
             status: null,
@@ -71,15 +71,15 @@ const useStore = create<AppState>(
         }),
       clearEncounter: (encounterId: number) => {
         set((state) => {
-          state.games[state.selectedGame?.id].encounters[encounterId].status = null;
-          state.games[state.selectedGame?.id].encounters[encounterId].pokemon = null;
+          state.games[state.selectedGame?.value].encounters[encounterId].status = null;
+          state.games[state.selectedGame?.value].encounters[encounterId].pokemon = null;
         });
       },
       addGame: (newGame: string) =>
         set((state) => {
           const newIndex = Object.keys(state.games).length + 1;
           state.games[newIndex.toString()] = { badge: null, encounters: [] };
-          state.gamesList.push({ id: newIndex.toString(), name: newGame });
+          state.gamesList.push({ value: newIndex.toString(), text: newGame, key: 'newGame' });
         }),
       toggleMode: () => {
         set((state) => {

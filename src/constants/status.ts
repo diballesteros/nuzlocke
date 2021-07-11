@@ -2,28 +2,34 @@ import { TStatus } from 'constants/types';
 
 const STATUSES: TStatus[] = [
   {
-    id: 1,
-    name: 'Captured',
+    key: 'captured',
+    value: 1,
+    text: 'Captured',
   },
   {
-    id: 2,
-    name: 'Fainted',
+    key: 'Fainted',
+    value: 2,
+    text: 'Fainted',
   },
   {
-    id: 3,
-    name: 'Gifted',
+    key: 'Gifted',
+    value: 3,
+    text: 'Gifted',
   },
   {
-    id: 4,
-    name: 'Traded',
+    key: 'Traded',
+    value: 4,
+    text: 'Traded',
   },
   {
-    id: 5,
-    name: 'Failed',
+    key: 'Failed',
+    value: 5,
+    text: 'Failed',
   },
   {
-    id: 6,
-    name: 'Shiny',
+    key: 'Shiny',
+    value: 6,
+    text: 'Shiny',
   },
 ];
 

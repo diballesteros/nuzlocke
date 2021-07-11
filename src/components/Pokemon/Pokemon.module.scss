@@ -1,52 +1,12 @@
 .pokemonSelect {
-  height: 30px;
-  width: 100%;
+  background: transparent !important;
 
-  :global(.MuiInputLabel-outlined) {
-    transform: translate(14px, 10px) scale(1);
-  }
-
-  :global(.MuiInputLabel-outlined.MuiInputLabel-shrink) {
-    transform: translate(14px, -6px) scale(0.75);
-  }
-
-  input {
-    padding: 0 !important;
-  }
-
-  :global(.MuiInputBase-root),
-  :global(.MuiIconButton-root),
-  :global(.MuiFormLabel-root),
-  :global(.MuiFormLabel-root.Mui-focused) {
+  > i {
     color: var(--contrast);
-  }
-
-  :global(.MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline),
-  :global(.MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline),
-  :global(.MuiOutlinedInput-notchedOutline) {
-    border-color: var(--contrast);
-  }
-
-  .option {
-    display: flex !important;
-    align-items: center;
-  }
-
-  .label {
-    display: flex;
-    flex-flow: row nowrap;
-    width: 100%;
-    height: 100%;
-
-    > img {
-      object-fit: cover;
-    }
+    top: 0 !important;
   }
 
   @media (max-width: 550px) {
-    :global(.MuiInputBase-input),
-    :global(.MuiFormLabel-root) {
-      font-size: 12px;
-    }
+    font-size: 12px;
   }
 }

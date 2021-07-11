@@ -1,6 +1,5 @@
 import React from 'react';
-import MenuItem from '@material-ui/core/MenuItem';
-import Select from '@material-ui/core/Select';
+import { Dropdown, DropdownProps } from 'semantic-ui-react';
 import useStore from 'store';
 import STATUSES from 'constants/status';
 import { TStatus } from 'constants/types';
@@ -13,31 +12,24 @@ interface StatusProps {
 
 const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
   const changeStatus = useStore((state) => state.changeStatus);
-  const handleChange = (
-    event: React.ChangeEvent<{
-      name?: string;
-      value: unknown;
-    }>
-  ) => {
-    const foundStatus = STATUSES.find((stat) => stat.id === event.target.value);
+  const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
+    const foundStatus = STATUSES.find((stat) => stat.value === data.value);
     changeStatus(encounterId, foundStatus);
   };
 
   return (
-    <Select
+    <Dropdown
       className={styles.statusSelect}
+      fluid
       id={`status-select-${encounterId}`}
+      inline
+      lazyLoad
       onChange={handleChange}
-      value={status?.id ?? ''}
-    >
-      {STATUSES.map((stat) => {
-        return (
-          <MenuItem key={stat.name} value={stat.id}>
-            {stat.name}
-          </MenuItem>
-        );
-      })}
-    </Select>
+      placeholder="Status..."
+      selection
+      options={STATUSES}
+      value={status?.value ?? ''}
+    />
   );
 });
 

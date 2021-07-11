@@ -14,11 +14,11 @@ const Badges: React.FC = () => {
   return (
     <div className={styles.badges}>
       {!!selectedGame
-        ? BADGES[selectedGame?.id]?.map((badge, index) => {
+        ? BADGES[selectedGame?.value]?.map((badge, index) => {
             return (
               <button
                 className={`${styles.badge} ${
-                  index <= games[selectedGame?.id]?.badge ? styles.active : ''
+                  index <= games[selectedGame?.value]?.badge ? styles.active : ''
                 }`}
                 key={`${badge.name}-${badge.id}`}
                 onClick={() => handleClick(index)}
@@ -30,7 +30,7 @@ const Badges: React.FC = () => {
               </button>
             );
           })
-        : !!BADGES[selectedGame?.id] && <div className={styles.suggestion}>Select a Game</div>}
+        : !!BADGES[selectedGame?.value] && <div className={styles.suggestion}>Select a Game</div>}
     </div>
   );
 };
