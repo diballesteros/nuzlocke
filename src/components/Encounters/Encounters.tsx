@@ -4,7 +4,6 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import { Button, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
-import useWindowSize from 'hooks/useWindowSize';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = React.memo(() => {
