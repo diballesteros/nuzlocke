@@ -27,7 +27,7 @@ const Encounters: React.FC = React.memo(() => {
       return (
         enc.location.toUpperCase()?.includes(upperCase) ||
         enc.status?.text.toUpperCase()?.includes(upperCase) ||
-        enc.pokemon?.name?.toUpperCase()?.includes(upperCase)
+        enc.pokemon?.text?.toUpperCase()?.includes(upperCase)
       );
     });
   }, [games, selectedGame, text]);

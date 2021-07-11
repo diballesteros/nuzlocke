@@ -52,9 +52,10 @@ export type TEncounter = {
 };
 
 export type TPokemon = {
-  id: number;
-  name: string;
-  src: string;
+  key?: string;
+  image: string;
+  text: string;
+  value: number;
 };
 
 export type TStatus = {

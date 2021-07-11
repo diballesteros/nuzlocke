@@ -22,6 +22,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
       className={styles.statusSelect}
       id={`status-select-${encounterId}`}
       inline
+      lazyLoad
       onChange={handleChange}
       placeholder="Status..."
       selection

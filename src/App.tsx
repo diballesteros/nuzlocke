@@ -104,6 +104,7 @@ const App: React.FC = () => {
         <Dropdown
           className={styles.gameSelect}
           inline
+          lazyLoad
           onChange={handleChange}
           placeholder="Choose a game"
           selection
