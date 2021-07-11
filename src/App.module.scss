@@ -1,6 +1,7 @@
 .app {
-  height: 100vh;
+  height: fit-content;
   background-color: var(--bgprimary);
+  overflow: auto;
   .input {
     height: 100%;
     width: 100%;

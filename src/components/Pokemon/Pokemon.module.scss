@@ -1,12 +1,16 @@
 .pokemonSelect {
   background: transparent !important;
 
+  > div {
+    color: var(--contrast) !important;
+  }
+
   > i {
     color: var(--contrast);
     top: 0 !important;
   }
 
   @media (max-width: 550px) {
-    font-size: 12px;
+    font-size: 11px;
   }
 }

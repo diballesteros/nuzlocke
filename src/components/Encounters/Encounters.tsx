@@ -4,7 +4,6 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import { Button, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
-import useDimensions from 'hooks/useDimensions';
 import useWindowSize from 'hooks/useWindowSize';
 import styles from './Encounters.module.scss';
 
@@ -20,7 +19,6 @@ const Encounters: React.FC = React.memo(() => {
     useCallback((state) => state.clearEncounter, []),
     shallow
   );
-  const [containerRef, containerSize] = useDimensions(true);
   const [, width] = useWindowSize();
 
   const rowHeight = width >= 600 ? 68 : 160;
@@ -64,9 +62,9 @@ const Encounters: React.FC = React.memo(() => {
         <div>STATUS</div>
         {width >= 600 && <div style={{ width: 48 }} />}
       </div>
-      <div className={styles.list} ref={containerRef}>
+      <div className={styles.list}>
         <FixedSizeList
-          height={!!containerSize?.height ? containerSize.height : 100}
+          height={1000}
           itemCount={filteredGames?.length}
           itemSize={rowHeight}
           width="100%"
