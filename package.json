@@ -1,6 +1,6 @@
 {
   "name": "nuzlocke",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
   "dependencies": {
     "immer": "^9.0.3",

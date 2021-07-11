@@ -19,9 +19,6 @@ const Encounters: React.FC = React.memo(() => {
     useCallback((state) => state.clearEncounter, []),
     shallow
   );
-  const [, width] = useWindowSize();
-
-  const rowHeight = width >= 600 ? 68 : 160;
 
   const filteredGames = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -60,15 +57,9 @@ const Encounters: React.FC = React.memo(() => {
         <div>LOCATION</div>
         <div>ENCOUNTER</div>
         <div>STATUS</div>
-        {width >= 600 && <div style={{ width: 48 }} />}
       </div>
       <div className={styles.list}>
-        <FixedSizeList
-          height={1000}
-          itemCount={filteredGames?.length}
-          itemSize={rowHeight}
-          width="100%"
-        >
+        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={156} width="100%">
           {renderRow}
         </FixedSizeList>
       </div>
