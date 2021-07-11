@@ -1,8 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import shallow from 'zustand/shallow';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import IconButton from '@material-ui/core/IconButton';
-import ClearAll from '@material-ui/icons/ClearAll';
+import { Button, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
 import useDimensions from 'hooks/useDimensions';
@@ -11,6 +10,7 @@ import styles from './Encounters.module.scss';
 const Encounters: React.FC = React.memo(() => {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -22,11 +22,11 @@ const Encounters: React.FC = React.memo(() => {
   const [containerRef, containerSize] = useDimensions(true);
 
   const filteredGames = useMemo(() => {
-    return games[selectedGame?.id]?.encounters?.filter((enc) => {
+    return games[selectedGame?.value]?.encounters?.filter((enc) => {
       const upperCase = text?.toUpperCase();
       return (
         enc.location.toUpperCase()?.includes(upperCase) ||
-        enc.status?.name.toUpperCase()?.includes(upperCase) ||
+        enc.status?.text.toUpperCase()?.includes(upperCase) ||
         enc.pokemon?.name?.toUpperCase()?.includes(upperCase)
       );
     });
@@ -44,13 +44,9 @@ const Encounters: React.FC = React.memo(() => {
           <div>{encounter.location}</div>
           <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
           <Status encounterId={encounter.id} status={encounter.status} />
-          <IconButton
-            aria-label="delete"
-            onClick={() => handleClear(encounter.id)}
-            className={styles.delete}
-          >
-            <ClearAll />
-          </IconButton>
+          <Button basic compact icon inverted={darkMode} onClick={() => handleClear(encounter.id)}>
+            <Icon name="trash" />
+          </Button>
         </div>
       </div>
     );

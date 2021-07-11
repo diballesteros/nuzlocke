@@ -18,13 +18,10 @@
     column-gap: 15px;
     padding: 10px;
     color: var(--contrast);
+
     &.tableHeader {
       background-color: var(--primary);
       color: #ffffff;
-    }
-
-    .delete {
-      color: var(--contrast);
     }
 
     @media (max-width: 550px) {
