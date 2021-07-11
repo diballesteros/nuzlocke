@@ -6,7 +6,11 @@
   .search {
     width: 100%;
     max-width: 50%;
-    color: var(--contrast);
+    > i,
+    > input {
+      background-color: transparent !important;
+      color: var(--contrast) !important;
+    }
   }
 
   .buttons {
@@ -39,9 +43,6 @@
 
   @media (max-width: 500px) {
     gap: 2.5px;
-    .search > label {
-      font-size: 12px;
-    }
     button {
       font-size: 10px !important;
     }

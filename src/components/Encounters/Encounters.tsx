@@ -58,7 +58,7 @@ const Encounters: React.FC = React.memo(() => {
         <div>STATUS</div>
       </div>
       <div className={styles.list}>
-        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={156} width="100%">
+        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={160} width="100%">
           {renderRow}
         </FixedSizeList>
       </div>
