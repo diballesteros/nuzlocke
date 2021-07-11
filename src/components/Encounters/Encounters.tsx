@@ -5,6 +5,7 @@ import { Button, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
 import useDimensions from 'hooks/useDimensions';
+import useWindowSize from 'hooks/useWindowSize';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = React.memo(() => {
@@ -20,6 +21,9 @@ const Encounters: React.FC = React.memo(() => {
     shallow
   );
   const [containerRef, containerSize] = useDimensions(true);
+  const [, width] = useWindowSize();
+
+  const rowHeight = width >= 600 ? 68 : 160;
 
   const filteredGames = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -58,13 +62,13 @@ const Encounters: React.FC = React.memo(() => {
         <div>LOCATION</div>
         <div>ENCOUNTER</div>
         <div>STATUS</div>
-        <div style={{ width: 48 }} />
+        {width >= 600 && <div style={{ width: 48 }} />}
       </div>
       <div className={styles.list} ref={containerRef}>
         <FixedSizeList
           height={!!containerSize?.height ? containerSize.height : 100}
           itemCount={filteredGames?.length}
-          itemSize={68}
+          itemSize={rowHeight}
           width="100%"
         >
           {renderRow}

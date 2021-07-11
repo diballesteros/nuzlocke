@@ -19,6 +19,11 @@
     padding: 10px;
     color: var(--contrast);
 
+    @media (max-width: 600px) {
+      grid-template-columns: 100%;
+      grid-template-rows: repeat(4, 1fr);
+    }
+
     &.tableHeader {
       background-color: var(--primary);
       color: #ffffff;

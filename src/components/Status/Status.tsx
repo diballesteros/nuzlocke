@@ -20,6 +20,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
   return (
     <Dropdown
       className={styles.statusSelect}
+      fluid
       id={`status-select-${encounterId}`}
       inline
       lazyLoad
