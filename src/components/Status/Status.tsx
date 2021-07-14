@@ -18,18 +18,22 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
   };
 
   return (
-    <Dropdown
-      className={styles.statusSelect}
-      fluid
-      id={`status-select-${encounterId}`}
-      inline
-      lazyLoad
-      onChange={handleChange}
-      placeholder="Status..."
-      selection
-      options={STATUSES}
-      value={status?.value ?? ''}
-    />
+    <label className={styles.label}>
+      Status:{' '}
+      <Dropdown
+        aria-label="status-selector"
+        className={styles.statusSelect}
+        fluid
+        id={`status-select-${encounterId}`}
+        inline
+        lazyLoad
+        onChange={handleChange}
+        placeholder="Select..."
+        selection
+        options={STATUSES}
+        value={status?.value ?? ''}
+      />
+    </label>
   );
 });
 

@@ -18,19 +18,24 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounterId, pokemon }) =>
   };
 
   return (
-    <Dropdown
-      basic
-      className={styles.pokemonSelect}
-      fluid
-      inline
-      lazyLoad
-      onChange={onChange}
-      options={POKEMON}
-      placeholder="Pokémon..."
-      search
-      selection
-      value={pokemon?.value ?? null}
-    />
+    <label className={styles.label}>
+      Pokémon:{' '}
+      <Dropdown
+        aria-label="Pokémon selector"
+        basic
+        className={styles.pokemonSelect}
+        fluid
+        inline
+        labeled
+        lazyLoad
+        onChange={onChange}
+        options={POKEMON}
+        placeholder="Select..."
+        search
+        selection
+        value={pokemon?.value ?? null}
+      />
+    </label>
   );
 });
 

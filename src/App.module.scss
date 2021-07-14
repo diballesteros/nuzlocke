@@ -20,9 +20,14 @@
       top: 0 !important;
     }
   }
+  .button {
+    background-color: transparent;
+    color: var(--contrast) !important;
 
-  :global(.button) {
-    box-shadow: none !important;
+    &:hover {
+      background-color: transparent;
+      color: var(--contrast) !important;
+    }
   }
 
   .container {
