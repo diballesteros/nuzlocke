@@ -1,5 +1,6 @@
 .pokemonSelect {
   background: transparent !important;
+  border-color: var(--contrast) !important;
 
   > div {
     color: var(--contrast) !important;
@@ -13,4 +14,11 @@
   @media (max-width: 550px) {
     font-size: 11px;
   }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
 }

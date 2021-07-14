@@ -18,24 +18,23 @@ import styles from './App.module.scss';
 const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
+  const [openTwo, setOpenTwo] = useState(false);
   const [gameName, setGameName] = useState('');
 
   useEffect(() => {
     if (appState.darkMode) {
-      document.documentElement.style.setProperty('--primary', '#666666');
-      document.documentElement.style.setProperty('--secondary', '#333333');
+      document.documentElement.style.setProperty('--card', '#424242');
       document.documentElement.style.setProperty('--badge', '#C395FE');
       document.documentElement.style.setProperty('--badgeflash', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#212121');
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
       document.documentElement.style.setProperty('--contrast', '#FFFFFF');
     } else {
-      document.documentElement.style.setProperty('--primary', '#D46A6A');
-      document.documentElement.style.setProperty('--secondary', '#FFE8E8');
+      document.documentElement.style.setProperty('--card', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
       document.documentElement.style.setProperty('--badge', '#D46A6A');
       document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
-      document.documentElement.style.setProperty('--bgsecondary', '#F5F5F5');
+      document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
       document.documentElement.style.setProperty('--contrast', '#333333');
     }
   }, [appState.darkMode]);
@@ -89,26 +88,67 @@ const App: React.FC = () => {
     setGameName('');
   };
 
+  const handleGithub = () => {
+    window.open('https://github.com/diballesteros/nuzlocke/', '_blank');
+  };
+
   return (
     <main className={styles.app}>
       <Menu attached="top" inverted={appState.darkMode}>
-        <Dropdown item icon="wrench" simple>
+        <Dropdown aria-label="options" item icon="wrench" simple>
           <Dropdown.Menu>
             <Dropdown.Item onClick={handleExport}>Export</Dropdown.Item>
-            <Dropdown.Item>
-              <input className={styles.input} id="file-input" onChange={handleImport} type="file" />
+            <Dropdown.Item id="import">
+              <input
+                aria-labelledby="import"
+                className={styles.input}
+                id="file-input"
+                onChange={handleImport}
+                type="file"
+              />
               Import
             </Dropdown.Item>
+            <Modal
+              closeOnDimmerClick
+              open={openTwo}
+              trigger={<Dropdown.Item onClick={() => setOpenTwo(true)}>About</Dropdown.Item>}
+            >
+              <Modal.Header>About</Modal.Header>
+              <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+                Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
+                ® and Pokémon character names are trademarks of Nintendo.
+                <Button
+                  aria-label="github"
+                  basic
+                  circular
+                  icon
+                  onClick={handleGithub}
+                  style={{
+                    width: 50,
+                    height: 50,
+                    fontSize: '32px',
+                    padding: 0,
+                    alignSelf: 'center',
+                  }}
+                >
+                  <Icon name="github" />
+                </Button>
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={() => setOpenTwo(false)}>Close</Button>
+              </Modal.Actions>
+            </Modal>
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown
+          aria-label="games"
           className={styles.gameSelect}
           inline
           lazyLoad
           onChange={handleChange}
+          options={appState.gamesList}
           placeholder="Choose a game"
           selection
-          options={appState.gamesList}
           value={appState.selectedGame?.value ?? ''}
         />
         <Menu.Menu>
@@ -116,7 +156,13 @@ const App: React.FC = () => {
             closeOnDimmerClick
             open={open}
             trigger={
-              <Button basic icon inverted={appState.darkMode} onClick={() => setOpen(true)}>
+              <Button
+                aria-label="addgame"
+                className={styles.button}
+                icon
+                onClick={() => setOpen(true)}
+                style={{ boxShadow: 'none' }}
+              >
                 <Icon name="plus" />
               </Button>
             }
@@ -135,7 +181,12 @@ const App: React.FC = () => {
           </Modal>
         </Menu.Menu>
         <Menu.Menu position="right">
-          <Button basic icon inverted={appState.darkMode} onClick={() => appState.toggleMode()}>
+          <Button
+            aria-label="darkmode"
+            className={styles.button}
+            icon
+            onClick={() => appState.toggleMode()}
+          >
             <Icon name={appState.darkMode ? 'sun outline' : 'sun'} />
           </Button>
         </Menu.Menu>

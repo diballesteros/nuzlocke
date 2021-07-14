@@ -39,10 +39,18 @@ const Encounters: React.FC = React.memo(() => {
     return (
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
         <div className={styles.row}>
-          <div>{encounter.location}</div>
+          <span className={styles.location}>{encounter.location}</span>
           <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
           <Status encounterId={encounter.id} status={encounter.status} />
-          <Button basic compact icon inverted={darkMode} onClick={() => handleClear(encounter.id)}>
+          <Button
+            aria-label="delete encounter"
+            basic
+            className={styles.delete}
+            compact
+            icon
+            inverted={darkMode}
+            onClick={() => handleClear(encounter.id)}
+          >
             <Icon name="trash" />
           </Button>
         </div>
@@ -52,13 +60,8 @@ const Encounters: React.FC = React.memo(() => {
 
   return (
     <div className={styles.table}>
-      <div className={`${styles.row} ${styles.tableHeader}`}>
-        <div>LOCATION</div>
-        <div>ENCOUNTER</div>
-        <div>STATUS</div>
-      </div>
       <div className={styles.list}>
-        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={160} width="100%">
+        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={143} width="100%">
           {renderRow}
         </FixedSizeList>
       </div>

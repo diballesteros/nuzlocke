@@ -41,6 +41,7 @@ const Options: React.FC = React.memo(() => {
   return (
     <div className={styles.options}>
       <Input
+        aria-label="search"
         className={styles.search}
         fluid
         icon

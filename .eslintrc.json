@@ -65,6 +65,15 @@
         "exports": "only-multiline",
         "enums": "only-multiline"
       }
+    ],
+    "jsx-a11y/label-has-associated-control": [
+      0,
+      {
+        "labelComponents": ["label"],
+        "labelAttributes": ["label"],
+        "controlComponents": ["Dropdown"],
+        "depth": 3
+      }
     ]
   }
 }
