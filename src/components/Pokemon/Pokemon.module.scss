@@ -21,4 +21,14 @@
   align-items: center;
   gap: 5px;
   font-weight: bold;
+
+  .innerLabel {
+    display: flex;
+    flex-flow: column nowrap;
+    width: fit-content;
+
+    > span {
+      color: red;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Button,
+  Checkbox,
   Container,
   Dropdown,
   DropdownProps,
@@ -19,6 +20,7 @@ const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);
+  const [settings, setSettings] = useState(false);
   const [gameName, setGameName] = useState('');
 
   useEffect(() => {
@@ -101,6 +103,25 @@ const App: React.FC = () => {
       <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
         <Dropdown aria-label="options" item icon="wrench" simple>
           <Dropdown.Menu>
+            <Modal
+              closeOnDimmerClick
+              open={settings}
+              trigger={
+                <Dropdown.Item icon="options" onClick={() => setSettings(true)} text="Settings" />
+              }
+            >
+              <Modal.Header>Settings</Modal.Header>
+              <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+                <Checkbox
+                  label="Duplicate clause (Show alert on duplicate pokémon)"
+                  onChange={() => appState.changeDupe()}
+                  checked={appState.duplicates}
+                />
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={() => setSettings(false)}>Close</Button>
+              </Modal.Actions>
+            </Modal>
             <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
             <Dropdown.Item id="import">
               <Icon name="upload" />

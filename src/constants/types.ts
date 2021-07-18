@@ -1,14 +1,16 @@
 export interface TrackerState {
+  darkMode: boolean;
+  duplicates: boolean;
   games: Games;
   gamesList: TGame[];
   selectedGame: TGame;
   text: string;
-  darkMode: boolean;
 }
 
 export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
+  changeDupe: () => void;
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   clearEncounter: (encounterId: number) => void;

@@ -20,6 +20,7 @@ const immer =
 const useStore = create<AppState>(
   persist(
     immer((set) => ({
+      duplicates: false,
       darkMode: false,
       selectedGame: null,
       gamesList: GAMES,
@@ -30,6 +31,10 @@ const useStore = create<AppState>(
           state.games = newAppState.games;
           state.selectedGame = newAppState.selectedGame;
           state.gamesList = newAppState.gamesList;
+        }),
+      changeDupe: () =>
+        set((state) => {
+          state.duplicates = !state.duplicates;
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {

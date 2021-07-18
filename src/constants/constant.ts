@@ -81,6 +81,7 @@ export const GAMES: TGame[] = [
 ];
 
 export const INITIAL_STATE: TrackerState = {
+  duplicates: false,
   darkMode: false,
   selectedGame: null,
   games: {
