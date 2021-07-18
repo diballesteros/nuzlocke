@@ -74,7 +74,7 @@ export const GAMES: TGame[] = [
     key: '12',
   },
   {
-    value: '14',
+    value: '13',
     text: 'Sword and Shield',
     key: '13',
   },
