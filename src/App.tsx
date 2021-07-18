@@ -98,7 +98,7 @@ const App: React.FC = () => {
 
   return (
     <main className={styles.app}>
-      <Menu attached="top" inverted={appState.darkMode}>
+      <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
         <Dropdown aria-label="options" item icon="wrench" simple>
           <Dropdown.Menu>
             <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
