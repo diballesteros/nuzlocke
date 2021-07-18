@@ -15,6 +15,10 @@
     background-color: transparent !important;
     color: var(--contrast) !important;
 
+    > div {
+      color: var(--contrast) !important;
+    }
+
     > i {
       color: var(--contrast);
       top: 0 !important;
