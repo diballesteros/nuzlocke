@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Icon, Input, Modal } from 'semantic-ui-react';
+import { Button, Confirm, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
 import styles from './Options.module.scss';
@@ -13,6 +13,7 @@ const Options: React.FC = React.memo(() => {
   const [searchText, setSearchText] = useState(text);
   const debouncedValue = useDebounce<string>(searchText, 250);
   const [open, setOpen] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [location, setLocation] = useState('');
 
   useEffect(() => {
@@ -21,6 +22,7 @@ const Options: React.FC = React.memo(() => {
 
   const handleReset = () => {
     resetAll();
+    setConfirm(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,10 +80,16 @@ const Options: React.FC = React.memo(() => {
             </Button>
           </Modal.Actions>
         </Modal>
-        <Button color="red" inverted={darkMode} onClick={handleReset}>
+        <Button color="red" inverted={darkMode} onClick={() => setConfirm(true)}>
           RESET ALL
           <i className="icon close" />
         </Button>
+        <Confirm
+          content="This will reset all encounters for the selected game and delete custom encounters. Are you sure?"
+          open={confirm}
+          onCancel={() => setConfirm(false)}
+          onConfirm={handleReset}
+        />
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import shallow from 'zustand/shallow';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import { Button, Icon } from 'semantic-ui-react';
+import { Button, Confirm, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Pokemon, Status } from 'components';
 import styles from './Encounters.module.scss';
@@ -18,6 +18,11 @@ const Encounters: React.FC = React.memo(() => {
     useCallback((state) => state.clearEncounter, []),
     shallow
   );
+  const deleteEncounter = useStore(
+    useCallback((state) => state.deleteEncounter, []),
+    shallow
+  );
+  const [confirm, setConfirm] = useState(false);
 
   const filteredGames = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -34,6 +39,11 @@ const Encounters: React.FC = React.memo(() => {
     clearEncounter(encounterId);
   };
 
+  const handleDelete = (encounterId: number) => {
+    deleteEncounter(encounterId);
+    setConfirm(false);
+  };
+
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredGames[index];
     return (
@@ -43,16 +53,33 @@ const Encounters: React.FC = React.memo(() => {
           <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
           <Status encounterId={encounter.id} status={encounter.status} />
           <Button
+            aria-label="reset encounter"
+            basic
+            className={styles.reset}
+            compact
+            icon
+            inverted={darkMode}
+            onClick={() => handleClear(encounter.id)}
+          >
+            <Icon name="repeat" />
+          </Button>
+          <Button
             aria-label="delete encounter"
             basic
             className={styles.delete}
             compact
             icon
             inverted={darkMode}
-            onClick={() => handleClear(encounter.id)}
+            onClick={() => setConfirm(true)}
           >
             <Icon name="trash" />
           </Button>
+          <Confirm
+            content="This will delete the encounter. Are you sure?"
+            open={confirm}
+            onCancel={() => setConfirm(false)}
+            onConfirm={() => handleDelete(encounter.id)}
+          />
         </div>
       </div>
     );

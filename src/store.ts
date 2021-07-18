@@ -75,6 +75,13 @@ const useStore = create<AppState>(
           state.games[state.selectedGame?.value].encounters[encounterId].pokemon = null;
         });
       },
+      deleteEncounter: (encounterId: number) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1) state.games[state.selectedGame?.value].encounters.splice(index, 1);
+        }),
       addGame: (newGame: string) =>
         set((state) => {
           const newIndex = Object.keys(state.games).length + 1;

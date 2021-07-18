@@ -92,13 +92,18 @@ const App: React.FC = () => {
     window.open('https://github.com/diballesteros/nuzlocke/', '_blank');
   };
 
+  const handleRules = () => {
+    window.open('https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge', '_blank');
+  };
+
   return (
     <main className={styles.app}>
       <Menu attached="top" inverted={appState.darkMode}>
         <Dropdown aria-label="options" item icon="wrench" simple>
           <Dropdown.Menu>
-            <Dropdown.Item onClick={handleExport}>Export</Dropdown.Item>
+            <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
             <Dropdown.Item id="import">
+              <Icon name="upload" />
               <input
                 aria-labelledby="import"
                 className={styles.input}
@@ -108,15 +113,20 @@ const App: React.FC = () => {
               />
               Import
             </Dropdown.Item>
+            <Dropdown.Item icon="linkify" onClick={handleRules} text="Rules" />
             <Modal
               closeOnDimmerClick
               open={openTwo}
-              trigger={<Dropdown.Item onClick={() => setOpenTwo(true)}>About</Dropdown.Item>}
+              trigger={
+                <Dropdown.Item icon="question" onClick={() => setOpenTwo(true)} text="About" />
+              }
             >
               <Modal.Header>About</Modal.Header>
               <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-                Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
-                ® and Pokémon character names are trademarks of Nintendo.
+                <b>This web app uses local cache to maintain your pokémon!</b>
+                <br />
+                <span>Credits:</span>Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures
+                Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
                 <Button
                   aria-label="github"
                   basic
