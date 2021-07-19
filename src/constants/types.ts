@@ -1,19 +1,23 @@
 export interface TrackerState {
+  darkMode: boolean;
+  duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  newVersion: boolean;
   selectedGame: TGame;
   text: string;
-  darkMode: boolean;
 }
 
 export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
+  changeDupe: () => void;
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   clearEncounter: (encounterId: number) => void;
   deleteEncounter: (encounterId: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
+  removeNew: () => void;
   resetAll: () => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
@@ -40,7 +44,7 @@ export type TBadgeDictionary = {
 
 export type TBadge = {
   id: number;
-  levelCap: number;
+  levelCap: number | string;
   name: string;
   src: string;
 };

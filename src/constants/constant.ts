@@ -81,6 +81,7 @@ export const GAMES: TGame[] = [
 ];
 
 export const INITIAL_STATE: TrackerState = {
+  duplicates: false,
   darkMode: false,
   selectedGame: null,
   games: {
@@ -99,5 +100,6 @@ export const INITIAL_STATE: TrackerState = {
     '13': { badge: null, encounters: SW_SH },
   },
   gamesList: GAMES,
+  newVersion: true,
   text: null,
 };

@@ -10,6 +10,7 @@ const Encounters: React.FC = React.memo(() => {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -23,6 +24,15 @@ const Encounters: React.FC = React.memo(() => {
     shallow
   );
   const [confirm, setConfirm] = useState(false);
+
+  const alreadyEncountered = useCallback(
+    (pokemonId, encounterId) => {
+      return games[selectedGame?.value].encounters?.some((enc) => {
+        return enc?.pokemon?.value === pokemonId && enc.id !== encounterId;
+      });
+    },
+    [games, selectedGame]
+  );
 
   const filteredGames = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -50,7 +60,15 @@ const Encounters: React.FC = React.memo(() => {
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
         <div className={styles.row}>
           <span className={styles.location}>{encounter.location}</span>
-          <Pokemon encounterId={encounter.id} pokemon={encounter.pokemon} />
+          <Pokemon
+            alreadyEncountered={
+              !!encounter?.pokemon?.value && duplicates
+                ? alreadyEncountered(encounter?.pokemon?.value, encounter?.id)
+                : false
+            }
+            encounterId={encounter.id}
+            pokemon={encounter.pokemon}
+          />
           <Status encounterId={encounter.id} status={encounter.status} />
           <Button
             aria-label="reset encounter"

@@ -42,4 +42,10 @@
     display: flex;
     flex-flow: column nowrap;
   }
+
+  .newVersion {
+    :global(.text) {
+      background-color: #ffffcc;
+    }
+  }
 }

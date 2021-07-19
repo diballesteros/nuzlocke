@@ -45,6 +45,7 @@ import psychic from 'assets/img/badges/psychic.png';
 import quake from 'assets/img/badges/quake.png';
 import rain from 'assets/img/badges/rain.png';
 import rainbow from 'assets/img/badges/rainbow.png';
+import red_gsc from 'assets/img/badges/red_gsc.png';
 import relic from 'assets/img/badges/relic.png';
 import rising from 'assets/img/badges/rising.png';
 import rock from 'assets/img/badges/rock.png';
@@ -185,6 +186,18 @@ const BADGES: TBadgeDictionary = {
       levelCap: 50,
       name: 'Elite 4',
       src: champion,
+    },
+    {
+      id: 10,
+      levelCap: 58,
+      name: 'Kanto Badges',
+      src: earth,
+    },
+    {
+      id: 11,
+      levelCap: 81,
+      name: 'Red',
+      src: red_gsc,
     },
   ],
   '3': [
@@ -410,6 +423,60 @@ const BADGES: TBadgeDictionary = {
       name: 'Elite 4',
       src: champion,
     },
+    {
+      id: 10,
+      levelCap: 53,
+      name: 'Thunder Badge',
+      src: thunder,
+    },
+    {
+      id: 11,
+      levelCap: 55,
+      name: 'Marsh Badge',
+      src: marsh,
+    },
+    {
+      id: 12,
+      levelCap: 55,
+      name: 'Cascade Badge',
+      src: cascade,
+    },
+    {
+      id: 13,
+      levelCap: 56,
+      name: 'Rainbow Badge',
+      src: rainbow,
+    },
+    {
+      id: 14,
+      levelCap: 56,
+      name: 'Soul Badge',
+      src: soul,
+    },
+    {
+      id: 15,
+      levelCap: 56,
+      name: 'Boulder Badge',
+      src: boulder,
+    },
+    {
+      id: 16,
+      levelCap: 59,
+      name: 'Volcano Badge',
+      src: volcano,
+    },
+    {
+      id: 17,
+      levelCap: 60,
+      name: 'Earth Badge',
+      src: earth,
+    },
+    {
+      id: 18,
+      levelCap: 88,
+      name: 'Red',
+      src: red_gsc,
+    },
   ],
   '7': [
     {
@@ -470,56 +537,56 @@ const BADGES: TBadgeDictionary = {
   '8': [
     {
       id: 1,
-      levelCap: 12,
-      name: 'Basic Badge',
+      levelCap: '12/13/14',
+      name: 'Basic Badge Easy/Normal/Challenge',
       src: basic,
     },
     {
       id: 2,
-      levelCap: 18,
-      name: 'Toxic Badge',
+      levelCap: '17/18/19',
+      name: 'Toxic Badge Easy/Normal/Challenge',
       src: toxic,
     },
     {
       id: 3,
-      levelCap: 24,
-      name: 'Insect Badge',
+      levelCap: '22/24/26',
+      name: 'Insect Badge Easy/Normal/Challenge',
       src: insect,
     },
     {
       id: 4,
-      levelCap: 30,
-      name: 'Bolt Badge',
+      levelCap: '28/30/32',
+      name: 'Bolt Badge Easy/Normal/Challenge',
       src: bolt,
     },
     {
       id: 5,
-      levelCap: 33,
-      name: 'Quake Badge',
+      levelCap: '30/33/36',
+      name: 'Quake Badge Easy/Normal/Challenge',
       src: quake,
     },
     {
       id: 6,
-      levelCap: 39,
-      name: 'Jet Badge',
+      levelCap: '36/39/42',
+      name: 'Jet Badge Easy/Normal/Challenge',
       src: jet,
     },
     {
       id: 7,
-      levelCap: 48,
-      name: 'Legend Badge',
+      levelCap: '44/48/52',
+      name: 'Legend Badge Easy/Normal/Challenge',
       src: legend,
     },
     {
       id: 8,
-      levelCap: 51,
-      name: 'Wave Badge',
+      levelCap: '47/51/55',
+      name: 'Wave Badge Easy/Normal/Challenge',
       src: wave,
     },
     {
       id: 9,
-      levelCap: 59,
-      name: 'Elite 4',
+      levelCap: '55/59/63',
+      name: 'Elite 4 Easy/Normal/Challenge',
       src: champion,
     },
   ],
