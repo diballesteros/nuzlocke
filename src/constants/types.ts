@@ -42,7 +42,7 @@ export type TBadgeDictionary = {
 
 export type TBadge = {
   id: number;
-  levelCap: number;
+  levelCap: number | string;
   name: string;
   src: string;
 };
