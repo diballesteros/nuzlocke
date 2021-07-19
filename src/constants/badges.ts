@@ -45,6 +45,7 @@ import psychic from 'assets/img/badges/psychic.png';
 import quake from 'assets/img/badges/quake.png';
 import rain from 'assets/img/badges/rain.png';
 import rainbow from 'assets/img/badges/rainbow.png';
+import red_gsc from 'assets/img/badges/red_gsc.png';
 import relic from 'assets/img/badges/relic.png';
 import rising from 'assets/img/badges/rising.png';
 import rock from 'assets/img/badges/rock.png';
@@ -185,6 +186,18 @@ const BADGES: TBadgeDictionary = {
       levelCap: 50,
       name: 'Elite 4',
       src: champion,
+    },
+    {
+      id: 10,
+      levelCap: 58,
+      name: 'Kanto Badges',
+      src: earth,
+    },
+    {
+      id: 11,
+      levelCap: 81,
+      name: 'Red',
+      src: red_gsc,
     },
   ],
   '3': [
@@ -409,6 +422,60 @@ const BADGES: TBadgeDictionary = {
       levelCap: 50,
       name: 'Elite 4',
       src: champion,
+    },
+    {
+      id: 10,
+      levelCap: 53,
+      name: 'Thunder Badge',
+      src: thunder,
+    },
+    {
+      id: 11,
+      levelCap: 55,
+      name: 'Marsh Badge',
+      src: marsh,
+    },
+    {
+      id: 12,
+      levelCap: 55,
+      name: 'Cascade Badge',
+      src: cascade,
+    },
+    {
+      id: 13,
+      levelCap: 56,
+      name: 'Rainbow Badge',
+      src: rainbow,
+    },
+    {
+      id: 14,
+      levelCap: 56,
+      name: 'Soul Badge',
+      src: soul,
+    },
+    {
+      id: 15,
+      levelCap: 56,
+      name: 'Boulder Badge',
+      src: boulder,
+    },
+    {
+      id: 16,
+      levelCap: 59,
+      name: 'Volcano Badge',
+      src: volcano,
+    },
+    {
+      id: 17,
+      levelCap: 60,
+      name: 'Earth Badge',
+      src: earth,
+    },
+    {
+      id: 18,
+      levelCap: 88,
+      name: 'Red',
+      src: red_gsc,
     },
   ],
   '7': [
