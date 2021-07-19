@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   Button,
   Checkbox,
@@ -21,7 +21,9 @@ const App: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);
   const [settings, setSettings] = useState(false);
+  const [share, setShare] = useState(false);
   const [gameName, setGameName] = useState('');
+  const shareRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (appState.darkMode) {
@@ -98,6 +100,11 @@ const App: React.FC = () => {
     window.open('https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge', '_blank');
   };
 
+  const handleCopy = () => {
+    shareRef.current.select();
+    document.execCommand('copy');
+  };
+
   return (
     <main className={styles.app}>
       <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
@@ -135,6 +142,38 @@ const App: React.FC = () => {
               Import
             </Dropdown.Item>
             <Dropdown.Item icon="linkify" onClick={handleRules} text="Rules" />
+            <Modal
+              closeOnDimmerClick
+              open={share}
+              trigger={<Dropdown.Item icon="share" onClick={() => setShare(true)} text="Share" />}
+            >
+              <Modal.Header>Share</Modal.Header>
+              <Modal.Content
+                style={{
+                  display: 'flex',
+                  flexFlow: 'column nowrap',
+                  gap: '5px',
+                  maxHeight: '80vh',
+                  overflow: 'auto',
+                }}
+              >
+                <textarea
+                  ref={shareRef}
+                  value={appState.games[appState?.selectedGame?.value].encounters.reduce(
+                    (str, enc) => {
+                      return `${str}
+                  ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+                    },
+                    `Nuzlocke Encounter List
+                    `
+                  )}
+                />
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={handleCopy}>Copy</Button>
+                <Button onClick={() => setShare(false)}>Close</Button>
+              </Modal.Actions>
+            </Modal>
             <Modal
               closeOnDimmerClick
               open={openTwo}
