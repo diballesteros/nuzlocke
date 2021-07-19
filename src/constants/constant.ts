@@ -100,5 +100,6 @@ export const INITIAL_STATE: TrackerState = {
     '13': { badge: null, encounters: SW_SH },
   },
   gamesList: GAMES,
+  newVersion: true,
   text: null,
 };

@@ -19,7 +19,7 @@ import styles from './App.module.scss';
 const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
-  const [openTwo, setOpenTwo] = useState(false);
+  const [about, setAbout] = useState(false);
   const [settings, setSettings] = useState(false);
   const [share, setShare] = useState(false);
   const [gameName, setGameName] = useState('');
@@ -105,6 +105,11 @@ const App: React.FC = () => {
     document.execCommand('copy');
   };
 
+  const handleAbout = () => {
+    appState.removeNew();
+    setAbout(true);
+  };
+
   return (
     <main className={styles.app}>
       <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
@@ -159,7 +164,7 @@ const App: React.FC = () => {
               >
                 <textarea
                   ref={shareRef}
-                  value={appState.games[appState?.selectedGame?.value].encounters.reduce(
+                  defaultValue={appState?.games[appState?.selectedGame?.value]?.encounters?.reduce(
                     (str, enc) => {
                       return `${str}
                   ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
@@ -176,14 +181,31 @@ const App: React.FC = () => {
             </Modal>
             <Modal
               closeOnDimmerClick
-              open={openTwo}
+              open={about}
               trigger={
-                <Dropdown.Item icon="question" onClick={() => setOpenTwo(true)} text="About" />
+                <Dropdown.Item
+                  className={`${appState.newVersion ? styles.newVersion : ''}`}
+                  icon="question"
+                  onClick={handleAbout}
+                  text={`About ${appState.newVersion ? '(NEW)' : ''}`}
+                />
               }
             >
               <Modal.Header>About</Modal.Header>
               <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-                <b>This web app uses local cache to maintain your pokémon!</b>
+                <b>Changelog (Version 2.2.0)</b>
+                <ul>
+                  <li>BW2 Easy/Normal/Challenge mode level caps - separated by slashes</li>
+                  <li>HGSS and GSC Level caps up till Red</li>
+                  <li>New share option for copy and pasting</li>
+                  <li>New settings option to enable duplicate clause - alerts on dupes!</li>
+                  <li>
+                    SWSH encounters/level caps bug fix - if it still does not appear please delete
+                    site cache from your browser (IMPORTANT this will delete your other encounters
+                    saved on the site)
+                  </li>
+                </ul>
+                <b>This app uses local cache to maintain your pokémon.</b>
                 <br />
                 <span>Credits:</span>Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures
                 Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
@@ -205,7 +227,7 @@ const App: React.FC = () => {
                 </Button>
               </Modal.Content>
               <Modal.Actions>
-                <Button onClick={() => setOpenTwo(false)}>Close</Button>
+                <Button onClick={() => setAbout(false)}>Close</Button>
               </Modal.Actions>
             </Modal>
           </Dropdown.Menu>

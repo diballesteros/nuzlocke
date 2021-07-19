@@ -25,6 +25,7 @@ const useStore = create<AppState>(
       selectedGame: null,
       gamesList: GAMES,
       games: INITIAL_STATE.games,
+      newVersion: true,
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -43,6 +44,10 @@ const useStore = create<AppState>(
       changeStatus: (encounterId: number, status: TStatus) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters[encounterId].status = status;
+        }),
+      removeNew: () =>
+        set((state) => {
+          state.newVersion = false;
         }),
       resetAll: () =>
         set((state) => {

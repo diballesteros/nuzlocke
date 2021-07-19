@@ -3,6 +3,7 @@ export interface TrackerState {
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  newVersion: boolean;
   selectedGame: TGame;
   text: string;
 }
@@ -16,6 +17,7 @@ export interface AppState extends TrackerState {
   clearEncounter: (encounterId: number) => void;
   deleteEncounter: (encounterId: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
+  removeNew: () => void;
   resetAll: () => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
