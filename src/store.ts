@@ -94,10 +94,10 @@ const useStore = create<AppState>(
         }),
       addGame: (newGame: string) =>
         set((state) => {
-          const newIndex = Object.keys(state.games).length + 1;
-          state.games[newIndex.toString()] = { badge: null, encounters: [] };
+          const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
+          state.games[newKey.toString()] = { badge: null, encounters: [] };
           state.gamesList.push({
-            value: newIndex.toString(),
+            value: newKey.toString(),
             text: newGame,
             key: `custom-game-${newGame}-${new Date()}`,
           });
