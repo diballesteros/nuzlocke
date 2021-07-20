@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   Button,
   Checkbox,
+  Confirm,
   Container,
   Dropdown,
   DropdownProps,
@@ -11,7 +12,6 @@ import {
   Modal,
 } from 'semantic-ui-react';
 import { AppState } from 'constants/types';
-import { GAMES } from 'constants/constant';
 import Tracker from 'components/Tracker/Tracker';
 import useStore from 'store';
 import styles from './App.module.scss';
@@ -22,6 +22,7 @@ const App: React.FC = () => {
   const [about, setAbout] = useState(false);
   const [settings, setSettings] = useState(false);
   const [share, setShare] = useState(false);
+  const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
   const shareRef = useRef<HTMLTextAreaElement>(null);
 
@@ -77,7 +78,7 @@ const App: React.FC = () => {
   };
 
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
-    const foundGame = GAMES.find((game) => game.value === data.value);
+    const foundGame = appState.gamesList.find((game) => game.value === data.value);
     appState.selectGame(foundGame);
   };
 
@@ -108,6 +109,11 @@ const App: React.FC = () => {
   const handleAbout = () => {
     appState.removeNew();
     setAbout(true);
+  };
+
+  const handleDelete = () => {
+    appState.deleteGame();
+    setConfirm(false);
   };
 
   return (
@@ -271,6 +277,23 @@ const App: React.FC = () => {
               </Button>
             </Modal.Actions>
           </Modal>
+          {appState.selectedGame?.value && Number(appState.selectedGame.value) > 13 ? (
+            <Button
+              aria-label="deletegame"
+              className={styles.button}
+              icon
+              onClick={() => setConfirm(true)}
+              style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+            >
+              <Icon name="trash" />
+            </Button>
+          ) : null}
+          <Confirm
+            content="This will delete the custom game. Are you sure?"
+            open={confirm}
+            onCancel={() => setConfirm(false)}
+            onConfirm={handleDelete}
+          />
         </Menu.Menu>
         <Menu.Menu position="right">
           <Button

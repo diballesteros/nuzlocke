@@ -15,6 +15,7 @@ export interface AppState extends TrackerState {
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   clearEncounter: (encounterId: number) => void;
+  deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;

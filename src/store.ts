@@ -96,7 +96,20 @@ const useStore = create<AppState>(
         set((state) => {
           const newIndex = Object.keys(state.games).length + 1;
           state.games[newIndex.toString()] = { badge: null, encounters: [] };
-          state.gamesList.push({ value: newIndex.toString(), text: newGame, key: 'newGame' });
+          state.gamesList.push({
+            value: newIndex.toString(),
+            text: newGame,
+            key: `custom-game-${newGame}-${new Date()}`,
+          });
+        }),
+      deleteGame: () =>
+        set((state) => {
+          delete state.games[state?.selectedGame.value];
+          const gameIndex = state.gamesList.findIndex(
+            (game) => game.value === state?.selectedGame.value
+          );
+          state.gamesList.splice(gameIndex, 1);
+          state.selectedGame = null;
         }),
       toggleMode: () => {
         set((state) => {
