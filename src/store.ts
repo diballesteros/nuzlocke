@@ -39,11 +39,19 @@ const useStore = create<AppState>(
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
-          state.games[state.selectedGame?.value].encounters[encounterId].pokemon = pokemon;
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].pokemon = pokemon;
         }),
       changeStatus: (encounterId: number, status: TStatus) =>
         set((state) => {
-          state.games[state.selectedGame?.value].encounters[encounterId].status = status;
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].status = status;
         }),
       removeNew: () =>
         set((state) => {
@@ -81,8 +89,11 @@ const useStore = create<AppState>(
         }),
       clearEncounter: (encounterId: number) => {
         set((state) => {
-          state.games[state.selectedGame?.value].encounters[encounterId].status = null;
-          state.games[state.selectedGame?.value].encounters[encounterId].pokemon = null;
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].status = null;
+          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].pokemon = null;
         });
       },
       deleteEncounter: (encounterId: number) =>
