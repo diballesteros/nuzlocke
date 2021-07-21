@@ -23,6 +23,7 @@ const Encounters: React.FC = React.memo(() => {
     useCallback((state) => state.deleteEncounter, []),
     shallow
   );
+  const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
   const [confirm, setConfirm] = useState(false);
 
   const alreadyEncountered = useCallback(
@@ -49,9 +50,15 @@ const Encounters: React.FC = React.memo(() => {
     clearEncounter(encounterId);
   };
 
-  const handleDelete = (encounterId: number) => {
-    deleteEncounter(encounterId);
+  const handleConfirm = (encounterId: number) => {
+    setEncounterToDelete(encounterId);
+    setConfirm(true);
+  };
+
+  const handleDelete = () => {
+    deleteEncounter(encounterToDelete);
     setConfirm(false);
+    setEncounterToDelete(null);
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
@@ -78,6 +85,7 @@ const Encounters: React.FC = React.memo(() => {
             icon
             inverted={darkMode}
             onClick={() => handleClear(encounter.id)}
+            type="button"
           >
             <Icon name="repeat" />
           </Button>
@@ -88,16 +96,11 @@ const Encounters: React.FC = React.memo(() => {
             compact
             icon
             inverted={darkMode}
-            onClick={() => setConfirm(true)}
+            onClick={() => handleConfirm(encounter.id)}
+            type="button"
           >
             <Icon name="trash" />
           </Button>
-          <Confirm
-            content="This will delete the encounter. Are you sure?"
-            open={confirm}
-            onCancel={() => setConfirm(false)}
-            onConfirm={() => handleDelete(encounter.id)}
-          />
         </div>
       </div>
     );
@@ -110,6 +113,12 @@ const Encounters: React.FC = React.memo(() => {
           {renderRow}
         </FixedSizeList>
       </div>
+      <Confirm
+        content="This will delete the encounter. Are you sure?"
+        open={confirm}
+        onCancel={() => setConfirm(false)}
+        onConfirm={handleDelete}
+      />
     </div>
   );
 });
