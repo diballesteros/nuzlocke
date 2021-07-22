@@ -217,9 +217,11 @@ const App: React.FC = () => {
                   <b>(Version 2.3.0)</b>
                   <ul>
                     <li>Report a bug or suggestion option!</li>
-                    <li>Edit level caps for base games</li>
-                    <li>Nickname option for encounters</li>
-                    <li>Yellow level cap changes</li>
+                    <li>
+                      Edit level caps for base games - from the pencil next to the game select
+                    </li>
+                    <li>Nickname option for encounters - can be found in Settings</li>
+                    <li>Yellow level cap adjustments</li>
                     <li>Several bug fixes related to eliminating encounter locations</li>
                   </ul>
                   <b>(Version 2.2.0)</b>
