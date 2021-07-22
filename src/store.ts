@@ -28,6 +28,7 @@ const useStore = create<AppState>(
       gamesList: GAMES,
       games: INITIAL_STATE.games,
       newVersion: '1',
+      nicknames: false,
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -38,6 +39,14 @@ const useStore = create<AppState>(
       changeDupe: () =>
         set((state) => {
           state.duplicates = !state.duplicates;
+        }),
+      changeNickname: (encounterId: number, nickname: string) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].nickname = nickname;
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
@@ -104,6 +113,8 @@ const useStore = create<AppState>(
           });
           if (index !== -1) state.games[state.selectedGame?.value].encounters[index].status = null;
           if (index !== -1) state.games[state.selectedGame?.value].encounters[index].pokemon = null;
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].nickname = null;
         });
       },
       deleteEncounter: (encounterId: number) =>
@@ -135,6 +146,11 @@ const useStore = create<AppState>(
       toggleMode: () => {
         set((state) => {
           state.darkMode = !state.darkMode;
+        });
+      },
+      toggleNickname: () => {
+        set((state) => {
+          state.nicknames = !state.nicknames;
         });
       },
     })),

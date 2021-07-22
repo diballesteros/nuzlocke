@@ -135,6 +135,11 @@ const App: React.FC = () => {
                   onChange={() => appState.changeDupe()}
                   checked={appState.duplicates}
                 />
+                <Checkbox
+                  label="Show nicknames"
+                  onChange={() => appState.toggleNickname()}
+                  checked={appState.nicknames}
+                />
               </Modal.Content>
               <Modal.Actions>
                 <Button onClick={() => setSettings(false)}>Close</Button>

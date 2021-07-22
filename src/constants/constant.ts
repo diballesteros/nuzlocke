@@ -103,5 +103,6 @@ export const INITIAL_STATE: TrackerState = {
   },
   gamesList: GAMES,
   newVersion: '1',
+  nicknames: false,
   text: null,
 };
