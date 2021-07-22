@@ -11,6 +11,7 @@ import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
 import { TGame, TrackerState } from 'constants/types';
+import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
   {
@@ -81,6 +82,7 @@ export const GAMES: TGame[] = [
 ];
 
 export const INITIAL_STATE: TrackerState = {
+  badges: BADGES,
   duplicates: false,
   darkMode: false,
   selectedGame: null,
@@ -100,6 +102,6 @@ export const INITIAL_STATE: TrackerState = {
     '13': { badge: null, encounters: SW_SH },
   },
   gamesList: GAMES,
-  newVersion: true,
+  newVersion: '1',
   text: null,
 };

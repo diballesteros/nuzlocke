@@ -1,0 +1,9 @@
+.button {
+  background-color: transparent;
+  color: var(--contrast) !important;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--contrast) !important;
+  }
+}

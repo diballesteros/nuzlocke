@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 import produce from 'immer';
 import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
 import { GAMES, INITIAL_STATE } from 'constants/constant';
+import BADGES from 'constants/badges';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>
@@ -20,12 +21,13 @@ const immer =
 const useStore = create<AppState>(
   persist(
     immer((set) => ({
+      badges: BADGES,
       duplicates: false,
       darkMode: false,
       selectedGame: null,
       gamesList: GAMES,
       games: INITIAL_STATE.games,
-      newVersion: true,
+      newVersion: '1',
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -53,14 +55,22 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].status = status;
         }),
+      editBadge: (newBadge: string, i: number) =>
+        set((state) => {
+          state.badges[state.selectedGame?.value][i].levelCap = newBadge;
+        }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = false;
+          state.newVersion = '2.3.0';
         }),
       resetAll: () =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters =
             INITIAL_STATE.games[state.selectedGame?.value]?.encounters;
+        }),
+      resetBadges: () =>
+        set((state) => {
+          state.badges[state.selectedGame?.value] = BADGES[state.selectedGame?.value];
         }),
       selectGame: (game: TGame) =>
         set((state) => {

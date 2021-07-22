@@ -1,9 +1,10 @@
 export interface TrackerState {
+  badges: TBadgeDictionary;
   darkMode: boolean;
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
-  newVersion: boolean;
+  newVersion: string;
   selectedGame: TGame;
   text: string;
 }
@@ -17,9 +18,11 @@ export interface AppState extends TrackerState {
   clearEncounter: (encounterId: number) => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
+  editBadge: (newBadge: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   resetAll: () => void;
+  resetBadges: () => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
