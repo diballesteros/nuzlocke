@@ -12,8 +12,7 @@ import {
   Modal,
 } from 'semantic-ui-react';
 import { AppState } from 'constants/types';
-import Tracker from 'components/Tracker/Tracker';
-import BadgeEditor from 'components/BadgeEditor/BadgeEditor';
+import { BadgeEditor, Contact, Tracker } from 'components';
 import useStore from 'store';
 import styles from './App.module.scss';
 
@@ -186,6 +185,7 @@ const App: React.FC = () => {
                 <Button onClick={() => setShare(false)}>Close</Button>
               </Modal.Actions>
             </Modal>
+            <Contact />
             <Modal
               closeOnDimmerClick
               open={about}
