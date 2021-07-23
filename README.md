@@ -3,3 +3,28 @@
 Webapp to track and record encounters in any Pokémon game. Including custom games!
 
 All Pokémon included up to generation 9.
+
+Features:
+
+- Data inputs for pokemon nickname, location, status and name
+- Level caps for all base games - customizable!
+- Search through all encounters
+- Dupes clause alerts
+- Add custom encounter locations
+- Add and edit custom games
+- Export, import and share Nuzlocke data with others!
+
+Built with ReactJS and Zustand
+
+To install the dependencies:
+
+```bash
+yarn
+```
+To run the project locally:
+
+```bash
+yarn start
+```
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys)
