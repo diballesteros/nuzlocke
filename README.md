@@ -2,7 +2,7 @@
 
 Webapp to track and record encounters in any Pokémon game. Including custom games!
 
-All Pokémon included up to generation 9.
+All Pokémon included up to generation 8.
 
 Features:
 
