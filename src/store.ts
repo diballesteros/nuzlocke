@@ -32,6 +32,9 @@ const useStore = create<AppState>(
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
+          if (newAppState.badges) {
+            state.badges = newAppState.badges;
+          }
           state.games = newAppState.games;
           state.selectedGame = newAppState.selectedGame;
           state.gamesList = newAppState.gamesList;
