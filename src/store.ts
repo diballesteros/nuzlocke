@@ -3,6 +3,7 @@ import { persist } from 'zustand/middleware';
 import produce from 'immer';
 import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
 import { GAMES, INITIAL_STATE } from 'constants/constant';
+import BADGES from 'constants/badges';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>
@@ -20,12 +21,14 @@ const immer =
 const useStore = create<AppState>(
   persist(
     immer((set) => ({
+      badges: BADGES,
       duplicates: false,
       darkMode: false,
       selectedGame: null,
       gamesList: GAMES,
       games: INITIAL_STATE.games,
-      newVersion: true,
+      newVersion: '1',
+      nicknames: false,
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -36,6 +39,14 @@ const useStore = create<AppState>(
       changeDupe: () =>
         set((state) => {
           state.duplicates = !state.duplicates;
+        }),
+      changeNickname: (encounterId: number, nickname: string) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].nickname = nickname;
         }),
       changePokemon: (encounterId: number, pokemon: TPokemon) =>
         set((state) => {
@@ -53,14 +64,22 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].status = status;
         }),
+      editBadge: (newBadge: string, i: number) =>
+        set((state) => {
+          state.badges[state.selectedGame?.value][i].levelCap = newBadge;
+        }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = false;
+          state.newVersion = '2.3.0';
         }),
       resetAll: () =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters =
             INITIAL_STATE.games[state.selectedGame?.value]?.encounters;
+        }),
+      resetBadges: () =>
+        set((state) => {
+          state.badges[state.selectedGame?.value] = BADGES[state.selectedGame?.value];
         }),
       selectGame: (game: TGame) =>
         set((state) => {
@@ -94,6 +113,8 @@ const useStore = create<AppState>(
           });
           if (index !== -1) state.games[state.selectedGame?.value].encounters[index].status = null;
           if (index !== -1) state.games[state.selectedGame?.value].encounters[index].pokemon = null;
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].nickname = null;
         });
       },
       deleteEncounter: (encounterId: number) =>
@@ -125,6 +146,11 @@ const useStore = create<AppState>(
       toggleMode: () => {
         set((state) => {
           state.darkMode = !state.darkMode;
+        });
+      },
+      toggleNickname: () => {
+        set((state) => {
+          state.nicknames = !state.nicknames;
         });
       },
     })),

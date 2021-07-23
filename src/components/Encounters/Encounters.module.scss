@@ -8,9 +8,9 @@
     display: grid;
     align-items: center;
     grid-template-columns: 100%;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
     row-gap: 5px;
-    height: 130px;
+    height: fit-content;
     margin: 1px 6px 10px 2.5px;
     padding: 10px;
     color: var(--contrast);

@@ -3,7 +3,7 @@ import shallow from 'zustand/shallow';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import { Button, Confirm, Icon } from 'semantic-ui-react';
 import useStore from 'store';
-import { Pokemon, Status } from 'components';
+import { Nickname, Pokemon, Status } from 'components';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = React.memo(() => {
@@ -11,6 +11,7 @@ const Encounters: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
+  const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -67,6 +68,7 @@ const Encounters: React.FC = React.memo(() => {
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
         <div className={styles.row}>
           <span className={styles.location}>{encounter.location}</span>
+          {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon
             alreadyEncountered={
               !!encounter?.pokemon?.value && duplicates
@@ -109,7 +111,12 @@ const Encounters: React.FC = React.memo(() => {
   return (
     <div className={styles.table}>
       <div className={styles.list}>
-        <FixedSizeList height={1000} itemCount={filteredGames?.length} itemSize={143} width="100%">
+        <FixedSizeList
+          height={1000}
+          itemCount={filteredGames?.length}
+          itemSize={nicknames ? 182 : 144}
+          width="100%"
+        >
           {renderRow}
         </FixedSizeList>
       </div>

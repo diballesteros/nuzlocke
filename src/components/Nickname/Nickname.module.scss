@@ -1,0 +1,16 @@
+.nicknameInput {
+  width: 100%;
+
+  > input {
+    background-color: transparent !important;
+    border-color: var(--contrast) !important;
+    color: var(--contrast) !important;
+  }
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+  font-weight: bold;
+}
