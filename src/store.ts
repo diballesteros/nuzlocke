@@ -73,7 +73,7 @@ const useStore = create<AppState>(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '2.3.0';
+          state.newVersion = '2.4.0';
         }),
       resetAll: () =>
         set((state) => {
