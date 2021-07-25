@@ -41,6 +41,31 @@ const Contact: React.FC = () => {
             </select>
           </label>
           <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+            OS:
+            <select name="os">
+              <option value="windows">Windows</option>
+              <option value="mac">MAC</option>
+              <option value="linux">Linux</option>
+              <option value="ios">iOS</option>
+              <option value="android">Android</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+            Browser:
+            <select name="browser">
+              <option value="googlechrome">Google Chrome</option>
+              <option value="firefox">Firefox</option>
+              <option value="edge">Edge</option>
+              <option value="safari">Safari</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+            Selected Game:
+            <input name="selectedgame" />
+          </label>
+          <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
             Description:
             <textarea name="description" />
           </label>
