@@ -40,6 +40,13 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 2.4.0)</b>
+          <ul>
+            <li>More options to better report a bug or suggest a feature</li>
+            <li>Disabled inputs and placeholder if no game is selected</li>
+            <li>Sword and Shield edit level caps</li>
+            <li>Custom game Reset all fix</li>
+          </ul>
           <b>(Version 2.3.0)</b>
           <ul>
             <li>Report a bug or suggestion option!</li>

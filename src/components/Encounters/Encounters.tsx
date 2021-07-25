@@ -67,7 +67,7 @@ const Encounters: React.FC = React.memo(() => {
     const encounter = filteredGames[index];
     return (
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
-        <div className={styles.row}>
+        <div className={styles.row} data-testid={`encounter-${encounter.id}`}>
           <span className={styles.location}>{encounter.location}</span>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon
@@ -112,7 +112,7 @@ const Encounters: React.FC = React.memo(() => {
   return (
     <div className={styles.table}>
       {selectedGame ? (
-        <div className={styles.list}>
+        <div className={styles.list} data-testid="encounters-list">
           <FixedSizeList
             height={1000}
             itemCount={filteredGames?.length}

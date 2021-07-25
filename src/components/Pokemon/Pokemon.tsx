@@ -28,6 +28,7 @@ const Pokemon: React.FC<PokemonProps> = React.memo(
           aria-label="Pokémon selector"
           basic
           className={styles.pokemonSelect}
+          data-testid={`pokemon-${encounterId}`}
           fluid
           inline
           icon={alreadyEncountered ? 'exclamation triangle' : undefined}

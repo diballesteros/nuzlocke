@@ -26,6 +26,7 @@ const BadgeEditor: React.FC = () => {
         <Button
           aria-label="editgame"
           className={styles.button}
+          data-testid="edit-badges"
           icon
           onClick={() => setOpen(true)}
           style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
@@ -47,10 +48,10 @@ const BadgeEditor: React.FC = () => {
         {badges[selectedGame?.value].map((val, i) => {
           return (
             <Input
-              value={val.levelCap}
               key={`badge-${i + 1}`}
               label={val.name}
               onChange={(e, data) => handleChange(data.value, i)}
+              value={val.levelCap}
             />
           );
         })}

@@ -29,7 +29,8 @@
       transition: background 0s;
     }
 
-    &.active &:hover {
+    &.active,
+    &:hover {
       filter: unset;
     }
 

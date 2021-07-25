@@ -29,7 +29,6 @@ const Share: React.FC = () => {
         }}
       >
         <textarea
-          ref={shareRef}
           defaultValue={appState?.games[appState?.selectedGame?.value]?.encounters?.reduce(
             (str, enc) => {
               return `${str}
@@ -38,6 +37,8 @@ const Share: React.FC = () => {
             `Nuzlocke Encounter List
         `
           )}
+          ref={shareRef}
+          rows={5}
         />
       </Modal.Content>
       <Modal.Actions>

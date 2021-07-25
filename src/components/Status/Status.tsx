@@ -23,6 +23,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
       <Dropdown
         aria-label="status-selector"
         className={styles.statusSelect}
+        data-testid={`status-${encounterId}`}
         fluid
         id={`status-select-${encounterId}`}
         inline

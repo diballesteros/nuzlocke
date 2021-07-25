@@ -34,6 +34,7 @@
     "project": "./tsconfig.json"
   },
   "plugins": ["react", "@typescript-eslint"],
+  "ignorePatterns": ["cypress/*"],
   "rules": {
     "react/jsx-filename-extension": [
       1,

@@ -103,7 +103,7 @@ const App: React.FC = () => {
   return (
     <main className={styles.app}>
       <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-        <Dropdown aria-label="options" item icon="wrench" simple>
+        <Dropdown aria-label="options" data-testid="options" item icon="wrench" simple>
           <Dropdown.Menu>
             <Modal
               closeOnDimmerClick
@@ -115,14 +115,16 @@ const App: React.FC = () => {
               <Modal.Header>Settings</Modal.Header>
               <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
                 <Checkbox
+                  checked={appState.duplicates}
+                  data-testid="settings-dupes"
                   label="Duplicate clause (Show alert on duplicate pokémon)"
                   onChange={() => appState.changeDupe()}
-                  checked={appState.duplicates}
                 />
                 <Checkbox
+                  checked={appState.nicknames}
+                  data-testid="settings-nickname"
                   label="Show nicknames"
                   onChange={() => appState.toggleNickname()}
-                  checked={appState.nicknames}
                 />
               </Modal.Content>
               <Modal.Actions>
@@ -150,6 +152,7 @@ const App: React.FC = () => {
         <Dropdown
           aria-label="games"
           className={styles.gameSelect}
+          data-testid="game-select"
           inline
           lazyLoad
           onChange={handleChange}
@@ -166,6 +169,7 @@ const App: React.FC = () => {
               <Button
                 aria-label="addgame"
                 className={styles.button}
+                data-testid="add-game"
                 icon
                 onClick={() => setOpen(true)}
                 style={{ boxShadow: 'none' }}
@@ -177,7 +181,11 @@ const App: React.FC = () => {
             <Modal.Header>Add Game</Modal.Header>
             <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
               Please enter the game name
-              <Input onChange={(e, data) => setGameName(data.value)} value={gameName} />
+              <Input
+                data-testid="add-game-input"
+                onChange={(e, data) => setGameName(data.value)}
+                value={gameName}
+              />
             </Modal.Content>
             <Modal.Actions>
               <Button onClick={handleClose}>Cancel</Button>
@@ -197,7 +205,7 @@ const App: React.FC = () => {
               <Icon name="trash" />
             </Button>
           ) : null}
-          {appState.selectedGame?.value && Number(appState.selectedGame.value) < 13 ? (
+          {appState.selectedGame?.value && Number(appState.selectedGame.value) <= 13 ? (
             <BadgeEditor />
           ) : null}
           <Confirm

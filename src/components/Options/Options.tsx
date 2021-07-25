@@ -66,6 +66,7 @@ const Options: React.FC = React.memo(() => {
           trigger={
             <Button
               color="green"
+              data-testid="add-encounter"
               disabled={!selectedGame}
               inverted={darkMode}
               onClick={() => setOpen(true)}
@@ -78,7 +79,11 @@ const Options: React.FC = React.memo(() => {
           <Modal.Header>Add Encounter</Modal.Header>
           <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
             Please enter the location name
-            <Input onChange={(e, data) => setLocation(data.value)} value={location} />
+            <Input
+              data-testid="add-encounter-input"
+              onChange={(e, data) => setLocation(data.value)}
+              value={location}
+            />
           </Modal.Content>
           <Modal.Actions>
             <Button onClick={handleClose}>Cancel</Button>
@@ -89,6 +94,7 @@ const Options: React.FC = React.memo(() => {
         </Modal>
         <Button
           color="red"
+          data-testid="reset-all"
           disabled={!selectedGame}
           inverted={darkMode}
           onClick={() => setConfirm(true)}
