@@ -6,3 +6,7 @@ jobs:
     steps:
       - name: Cypress.io
         uses: cypress-io/github-action@v2.9.7
+        with:
+          build: yarn run build
+          start: yarn start
+          install-command: yarn
