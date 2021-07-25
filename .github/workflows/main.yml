@@ -1,0 +1,55 @@
+name: Cypress.io
+  # You may pin to the exact commit or the version.
+  # uses: cypress-io/github-action@f06537910911844bce953022f6d643a0f69fd73b
+  uses: cypress-io/github-action@v2.9.7
+  with:
+    # Sends test results to Cypress Dashboard
+    record: # optional
+    # Set configuration values. Separate multiple values with a comma. The values set here override any values set in your configuration file.
+    config: # optional
+    # Path to a JSON file where configuration values are set.
+    config-file: # optional, default is cypress.json
+    # Sets Cypress environment variables
+    env: # optional
+    # Name of the browser to use
+    browser: # optional
+    # Command that overrides cypress run
+    command: # optional
+    # Command for starting local server in the background
+    start: # optional
+    # A different start command on Windows
+    start-windows: # optional
+    # Command to run in build step before starting tests
+    build: # optional
+    # Whether or not to run install
+    install: # optional
+    # Custom install command to use
+    install-command: # optional
+    # Whether or not to run tests
+    runTests: # optional
+    # Local server URL to wait for
+    wait-on: # optional
+    # Amount of time to wait for wait-on url to be available
+    wait-on-timeout: # optional
+    # Whether or not to load balance tests using multiple containers
+    parallel: # optional
+    # Group setting for tests
+    group: # optional
+    # Tag setting for tests
+    tag: # optional
+    # Working directory containing Cypress folder
+    working-directory: # optional
+    # Whether or not to use headless mode
+    headless: # optional
+    # Provide a specific specs to run
+    spec: # optional
+    # Path of project to run
+    project: # optional
+    # You can prefix the default test command using the command-prefix option.
+    command-prefix: # optional
+    # ID associates multiple CI machines to one test run
+    ci-build-id: # optional
+    # Custom cache key
+    cache-key: # optional
+    # Whether or not to silence any Cypress specific output from stdout
+    quiet: # optional
