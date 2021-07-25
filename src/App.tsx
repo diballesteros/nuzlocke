@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Button,
   Checkbox,
@@ -11,20 +11,17 @@ import {
   Menu,
   Modal,
 } from 'semantic-ui-react';
-import { AppState } from 'constants/types';
-import { BadgeEditor, Contact, Tracker } from 'components';
 import useStore from 'store';
+import { AppState } from 'constants/types';
+import { About, BadgeEditor, Contact, Share, Tracker } from 'components';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
-  const [about, setAbout] = useState(false);
   const [settings, setSettings] = useState(false);
-  const [share, setShare] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
-  const shareRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
     if (appState.darkMode) {
@@ -94,22 +91,8 @@ const App: React.FC = () => {
     setGameName('');
   };
 
-  const handleGithub = () => {
-    window.open('https://github.com/diballesteros/nuzlocke/', '_blank');
-  };
-
   const handleRules = () => {
     window.open('https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge', '_blank');
-  };
-
-  const handleCopy = () => {
-    shareRef.current.select();
-    document.execCommand('copy');
-  };
-
-  const handleAbout = () => {
-    appState.removeNew();
-    setAbout(true);
   };
 
   const handleDelete = () => {
@@ -159,103 +142,9 @@ const App: React.FC = () => {
               Import
             </Dropdown.Item>
             <Dropdown.Item icon="linkify" onClick={handleRules} text="Rules" />
-            <Modal
-              closeOnDimmerClick
-              open={share}
-              trigger={<Dropdown.Item icon="share" onClick={() => setShare(true)} text="Share" />}
-            >
-              <Modal.Header>Share</Modal.Header>
-              <Modal.Content
-                style={{
-                  display: 'flex',
-                  flexFlow: 'column nowrap',
-                  gap: '5px',
-                  maxHeight: '80vh',
-                  overflow: 'auto',
-                }}
-              >
-                <textarea
-                  ref={shareRef}
-                  defaultValue={appState?.games[appState?.selectedGame?.value]?.encounters?.reduce(
-                    (str, enc) => {
-                      return `${str}
-                  ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
-                    },
-                    `Nuzlocke Encounter List
-                    `
-                  )}
-                />
-              </Modal.Content>
-              <Modal.Actions>
-                <Button onClick={handleCopy}>Copy</Button>
-                <Button onClick={() => setShare(false)}>Close</Button>
-              </Modal.Actions>
-            </Modal>
+            {!!appState.selectedGame && <Share />}
             <Contact />
-            <Modal
-              closeOnDimmerClick
-              open={about}
-              trigger={
-                <Dropdown.Item
-                  className={`${appState.newVersion !== '2.3.0' ? styles.newVersion : ''}`}
-                  icon="question"
-                  onClick={handleAbout}
-                  text={`About ${appState.newVersion !== '2.3.0' ? '(NEW)' : ''}`}
-                />
-              }
-            >
-              <Modal.Header>About</Modal.Header>
-              <Modal.Content
-                style={{
-                  display: 'flex',
-                  flexFlow: 'column nowrap',
-                  gap: '5px',
-                  maxHeight: '70vh',
-                }}
-              >
-                <b>Changelog </b>
-                <div style={{ overflow: 'auto' }}>
-                  <b>(Version 2.3.0)</b>
-                  <ul>
-                    <li>Report a bug or suggestion option!</li>
-                    <li>
-                      Edit level caps for base games - from the pencil next to the game select
-                    </li>
-                    <li>Nickname option for encounters - can be found in Settings</li>
-                    <li>Yellow level cap adjustments</li>
-                    <li>Several bug fixes related to eliminating encounter locations</li>
-                  </ul>
-                  <b>(Version 2.2.0)</b>
-                  <ul>
-                    <li>BW2 Easy/Normal/Challenge mode level caps - separated by slashes</li>
-                    <li>HGSS and GSC Level caps up till Red</li>
-                    <li>New share option for copy and pasting</li>
-                    <li>New settings option to enable duplicate clause - alerts on dupes!</li>
-                    <li>
-                      SWSH encounters/level caps bug fix - if it still does not appear please delete
-                      site cache from your browser (IMPORTANT this will delete your other encounters
-                      saved on the site)
-                    </li>
-                  </ul>
-                </div>
-                <b>This app uses local cache to maintain your pokémon.</b>
-                Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
-                ® and Pokémon character names are trademarks of Nintendo.
-                <Button
-                  aria-label="github"
-                  basic
-                  circular
-                  className={styles.github}
-                  icon
-                  onClick={handleGithub}
-                >
-                  <Icon name="github" />
-                </Button>
-              </Modal.Content>
-              <Modal.Actions>
-                <Button onClick={() => setAbout(false)}>Close</Button>
-              </Modal.Actions>
-            </Modal>
+            <About />
           </Dropdown.Menu>
         </Dropdown>
         <Dropdown

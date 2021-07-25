@@ -1,0 +1,15 @@
+.newVersion {
+  :global(.text) {
+    background-color: #ffffcc;
+  }
+}
+
+.github {
+  width: 48px;
+  height: 48px;
+  min-height: 48px !important;
+  min-width: 48px !important;
+  font-size: 32px !important;
+  padding: 0 !important;
+  align-self: center;
+}
