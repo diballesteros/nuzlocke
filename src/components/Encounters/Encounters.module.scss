@@ -52,4 +52,30 @@
     height: 100%;
     overflow: hidden;
   }
+
+  .noGame {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    flex: 1;
+    gap: 15px;
+    height: 1000px;
+    min-height: 1000px;
+    max-height: 1000px;
+
+    > svg {
+      width: 50%;
+      max-width: 360px;
+      margin-top: 20px;
+      path {
+        fill: var(--contrast);
+      }
+    }
+
+    > span {
+      font-size: 24px;
+      font-weight: bold;
+      color: var(--contrast);
+    }
+  }
 }

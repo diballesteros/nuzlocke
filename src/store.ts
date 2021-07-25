@@ -77,8 +77,11 @@ const useStore = create<AppState>(
         }),
       resetAll: () =>
         set((state) => {
-          state.games[state.selectedGame?.value].encounters =
-            INITIAL_STATE.games[state.selectedGame?.value]?.encounters;
+          state.games[state.selectedGame?.value].encounters = !!INITIAL_STATE.games[
+            state.selectedGame?.value
+          ]?.encounters
+            ? INITIAL_STATE.games[state.selectedGame.value].encounters
+            : [];
         }),
       resetBadges: () =>
         set((state) => {

@@ -26,6 +26,7 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
       <Input
         aria-label="nickname"
         className={styles.nicknameInput}
+        data-testid={`nickname-${encounterId}`}
         fluid
         id={`nickname-${encounterId}`}
         onBlur={handleBlur}

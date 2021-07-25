@@ -4,6 +4,7 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import { Button, Confirm, Icon } from 'semantic-ui-react';
 import useStore from 'store';
 import { Nickname, Pokemon, Status } from 'components';
+import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 
 const Encounters: React.FC = React.memo(() => {
@@ -66,7 +67,7 @@ const Encounters: React.FC = React.memo(() => {
     const encounter = filteredGames[index];
     return (
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
-        <div className={styles.row}>
+        <div className={styles.row} data-testid={`encounter-${encounter.id}`}>
           <span className={styles.location}>{encounter.location}</span>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon
@@ -110,16 +111,23 @@ const Encounters: React.FC = React.memo(() => {
 
   return (
     <div className={styles.table}>
-      <div className={styles.list}>
-        <FixedSizeList
-          height={1000}
-          itemCount={filteredGames?.length}
-          itemSize={nicknames ? 182 : 144}
-          width="100%"
-        >
-          {renderRow}
-        </FixedSizeList>
-      </div>
+      {selectedGame ? (
+        <div className={styles.list} data-testid="encounters-list">
+          <FixedSizeList
+            height={1000}
+            itemCount={filteredGames?.length}
+            itemSize={nicknames ? 182 : 144}
+            width="100%"
+          >
+            {renderRow}
+          </FixedSizeList>
+        </div>
+      ) : (
+        <div className={styles.noGame}>
+          <PokeballSVG />
+          <span>Choose a game</span>
+        </div>
+      )}
       <Confirm
         content="This will delete the encounter. Are you sure?"
         open={confirm}

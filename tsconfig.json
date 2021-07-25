@@ -18,5 +18,6 @@
     "jsx": "react",
     "baseUrl": "./src"
   },
+  "exclude": ["cypress", "*.spec.ts"],
   "include": ["src"]
 }

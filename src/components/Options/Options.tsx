@@ -9,6 +9,7 @@ const Options: React.FC = React.memo(() => {
   const search = useStore(useCallback((state) => state.search, []));
   const resetAll = useStore(useCallback((state) => state.resetAll, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [searchText, setSearchText] = useState(text);
   const debouncedValue = useDebounce<string>(searchText, 250);
@@ -45,6 +46,7 @@ const Options: React.FC = React.memo(() => {
       <Input
         aria-label="search"
         className={styles.search}
+        disabled={!selectedGame}
         fluid
         icon
         id="search-filter"
@@ -62,7 +64,13 @@ const Options: React.FC = React.memo(() => {
           closeOnDimmerClick
           open={open}
           trigger={
-            <Button color="green" inverted={darkMode} onClick={() => setOpen(true)}>
+            <Button
+              color="green"
+              data-testid="add-encounter"
+              disabled={!selectedGame}
+              inverted={darkMode}
+              onClick={() => setOpen(true)}
+            >
               ADD ENCOUNTER
               <i className="icon plus" />
             </Button>
@@ -71,7 +79,11 @@ const Options: React.FC = React.memo(() => {
           <Modal.Header>Add Encounter</Modal.Header>
           <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
             Please enter the location name
-            <Input onChange={(e, data) => setLocation(data.value)} value={location} />
+            <Input
+              data-testid="add-encounter-input"
+              onChange={(e, data) => setLocation(data.value)}
+              value={location}
+            />
           </Modal.Content>
           <Modal.Actions>
             <Button onClick={handleClose}>Cancel</Button>
@@ -80,7 +92,13 @@ const Options: React.FC = React.memo(() => {
             </Button>
           </Modal.Actions>
         </Modal>
-        <Button color="red" inverted={darkMode} onClick={() => setConfirm(true)}>
+        <Button
+          color="red"
+          data-testid="reset-all"
+          disabled={!selectedGame}
+          inverted={darkMode}
+          onClick={() => setConfirm(true)}
+        >
           RESET ALL
           <i className="icon close" />
         </Button>

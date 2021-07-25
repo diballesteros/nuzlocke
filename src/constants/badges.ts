@@ -122,7 +122,7 @@ const BADGES: TBadgeDictionary = {
     {
       id: 8,
       levelCap: '50/55',
-      name: 'Earth Badge',
+      name: 'Earth Badge RB/Y',
       src: earth,
     },
     {

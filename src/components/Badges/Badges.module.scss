@@ -29,10 +29,7 @@
       transition: background 0s;
     }
 
-    &.active {
-      filter: unset;
-    }
-
+    &.active,
     &:hover {
       filter: unset;
     }
@@ -58,16 +55,5 @@
     .levelCap {
       align-self: flex-end;
     }
-  }
-
-  .suggestion {
-    display: grid;
-    place-items: center;
-    width: calc(100% - 30px);
-    padding: 15px;
-    font-size: 24px;
-    border: 1px dashed grey;
-    background-color: #f2f2f2;
-    opacity: 0.9;
   }
 }
