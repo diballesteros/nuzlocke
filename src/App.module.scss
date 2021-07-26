@@ -38,8 +38,26 @@
     height: calc(100% - 42px);
   }
 
-  .modalContent {
-    display: flex;
-    flex-flow: column nowrap;
+  .tabs {
+    padding: 20px 0px;
+
+    :global(.ui.tabular.menu) {
+      border: none;
+      color: var(--contrast);
+    }
+
+    :global(.ui.tabular.menu .active) {
+      background-color: var(--bgsecondary);
+      border: none;
+    }
+
+    :global(.ui.tabular.menu .item) {
+      color: var(--contrast);
+    }
+
+    :global(.ui.bottom) {
+      background-color: var(--bgsecondary);
+      border: none;
+    }
   }
 }

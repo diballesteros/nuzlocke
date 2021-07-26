@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {
   Button,
-  Checkbox,
   Confirm,
   Container,
   Dropdown,
@@ -10,18 +9,37 @@ import {
   Input,
   Menu,
   Modal,
+  Tab,
 } from 'semantic-ui-react';
 import useStore from 'store';
 import { AppState } from 'constants/types';
-import { About, BadgeEditor, Contact, Share, Tracker } from 'components';
+import { About, BadgeEditor, Contact, Rules, Settings, Share, Tracker } from 'components';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
-  const [settings, setSettings] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
+
+  const panes = [
+    {
+      menuItem: 'Tracker',
+      render: () => (
+        <Tab.Pane>
+          <Tracker />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: 'Rules',
+      render: () => (
+        <Tab.Pane>
+          <Rules />
+        </Tab.Pane>
+      ),
+    },
+  ];
 
   useEffect(() => {
     if (appState.darkMode) {
@@ -91,10 +109,6 @@ const App: React.FC = () => {
     setGameName('');
   };
 
-  const handleRules = () => {
-    window.open('https://bulbapedia.bulbagarden.net/wiki/Nuzlocke_Challenge', '_blank');
-  };
-
   const handleDelete = () => {
     appState.deleteGame();
     setConfirm(false);
@@ -105,32 +119,7 @@ const App: React.FC = () => {
       <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
         <Dropdown aria-label="options" data-testid="options" item icon="wrench" simple>
           <Dropdown.Menu>
-            <Modal
-              closeOnDimmerClick
-              open={settings}
-              trigger={
-                <Dropdown.Item icon="options" onClick={() => setSettings(true)} text="Settings" />
-              }
-            >
-              <Modal.Header>Settings</Modal.Header>
-              <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-                <Checkbox
-                  checked={appState.duplicates}
-                  data-testid="settings-dupes"
-                  label="Duplicate clause (Show alert on duplicate pokémon)"
-                  onChange={() => appState.changeDupe()}
-                />
-                <Checkbox
-                  checked={appState.nicknames}
-                  data-testid="settings-nickname"
-                  label="Show nicknames"
-                  onChange={() => appState.toggleNickname()}
-                />
-              </Modal.Content>
-              <Modal.Actions>
-                <Button onClick={() => setSettings(false)}>Close</Button>
-              </Modal.Actions>
-            </Modal>
+            <Settings />
             <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
             <Dropdown.Item id="import">
               <Icon name="upload" />
@@ -143,7 +132,6 @@ const App: React.FC = () => {
               />
               Import
             </Dropdown.Item>
-            <Dropdown.Item icon="linkify" onClick={handleRules} text="Rules" />
             {!!appState.selectedGame && <Share />}
             <Contact />
             <About />
@@ -227,7 +215,7 @@ const App: React.FC = () => {
         </Menu.Menu>
       </Menu>
       <Container className={styles.container}>
-        <Tracker />
+        <Tab className={styles.tabs} panes={panes} />
       </Container>
     </main>
   );

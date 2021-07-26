@@ -22,10 +22,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.4.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '2.5.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.4.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '2.5.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -40,6 +40,13 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 2.5.0)</b>
+          <ul>
+            <li>
+              Rules Tab - Create, edit and share custom rulesets for your nuzlocke. Or use some
+              popular defaults.
+            </li>
+          </ul>
           <b>(Version 2.4.0)</b>
           <ul>
             <li>More options to better report a bug or suggest a feature</li>
