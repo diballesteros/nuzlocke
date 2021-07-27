@@ -1,7 +1,7 @@
 import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
 import produce from 'immer';
-import { AppState, TGame, TPokemon, TStatus } from 'constants/types';
+import { AppState, TGame, TPokemon, TRule, TStatus } from 'constants/types';
 import { GAMES, INITIAL_STATE } from 'constants/constant';
 import BADGES from 'constants/badges';
 
@@ -29,6 +29,7 @@ const useStore = create<AppState>(
       games: INITIAL_STATE.games,
       newVersion: '1',
       nicknames: false,
+      rules: INITIAL_STATE.rules,
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -38,6 +39,10 @@ const useStore = create<AppState>(
           state.games = newAppState.games;
           state.selectedGame = newAppState.selectedGame;
           state.gamesList = newAppState.gamesList;
+        }),
+      addRule: (newRule: string) =>
+        set((state) => {
+          state.rules.push({ content: newRule });
         }),
       changeDupe: () =>
         set((state) => {
@@ -74,6 +79,11 @@ const useStore = create<AppState>(
       removeNew: () =>
         set((state) => {
           state.newVersion = '2.5.0';
+        }),
+      reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
+        set((state) => {
+          state.rules.splice(sourceId, 1);
+          state.rules.splice(destinationId, 0, rule);
         }),
       resetAll: () =>
         set((state) => {

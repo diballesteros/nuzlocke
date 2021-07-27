@@ -104,5 +104,17 @@ export const INITIAL_STATE: TrackerState = {
   gamesList: GAMES,
   newVersion: '1',
   nicknames: false,
+  rules: [
+    {
+      content:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas dignissim ultrices ligula in eleifend. Mauris aliquam, lacus quis feugiat cursus, massa lectus laoreet elit, a volutpat erat tortor quis ante. Suspendisse vitae neque eros. Proin non nibh enim. Pellentesque aliquam ut ligula et molestie. Nullam imperdiet mollis condimentum. Sed vitae tempor quam. Morbi pretium enim sed felis facilisis elementum. Pellentesque facilisis rutrum placerat. Integer imperdiet massa ut turpis tincidunt, et rutrum tortor fermentum. Nulla facilisi.',
+    },
+    {
+      content: 'This is a rule two',
+    },
+    {
+      content: 'This is a rule three',
+    },
+  ],
   text: null,
 };

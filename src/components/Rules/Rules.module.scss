@@ -33,7 +33,9 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
-  height: 1000px;
+  height: calc(100vh - 240px);
+  overflow: auto;
+
   .rule {
     display: flex;
     flex-flow: row nowrap;
@@ -45,11 +47,12 @@
     border-radius: 3px;
 
     .dnd {
-      display: inline-flex;
-      flex-flow: row nowrap;
-      > i {
-        width: 5px;
-        margin: 0;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 2.5px;
+
+      > button {
+        padding: 7.5px;
       }
     }
 
