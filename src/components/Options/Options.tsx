@@ -65,9 +65,9 @@ const Options: React.FC = React.memo(() => {
         <Share
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
-            (str, enc) => {
+            (str, enc, i) => {
               return `${str}
-      ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+      ${i + 1}. ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
             },
             `Nuzlocke Encounter List
         `

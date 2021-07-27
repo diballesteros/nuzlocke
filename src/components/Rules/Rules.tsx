@@ -71,7 +71,7 @@ const Rules: React.FC = () => {
               ? rules[selectedRuleset]?.reduce(
                   (str, rule, i) => {
                     return `${str}
-      ${i + 1}. - ${rule.content || 'N/A'}`;
+      ${i + 1}. ${rule.content || 'N/A'}`;
                   },
                   `Ruleset
         `
