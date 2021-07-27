@@ -17,7 +17,7 @@ const Share: React.FC = () => {
       closeOnDimmerClick
       open={show}
       trigger={
-        <Button color="blue" onClick={() => setShow(true)}>
+        <Button color="blue" data-testid="share-encounters" onClick={() => setShow(true)}>
           SHARE
           <Icon name="share" />
         </Button>
