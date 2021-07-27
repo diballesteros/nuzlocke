@@ -2,7 +2,11 @@ import React, { useRef, useState } from 'react';
 import { Button, Icon, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 
-const Share: React.FC = () => {
+interface ShareProps {
+  text: string;
+}
+
+const Share: React.FC<ShareProps> = ({ text }) => {
   const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
@@ -17,7 +21,12 @@ const Share: React.FC = () => {
       closeOnDimmerClick
       open={show}
       trigger={
-        <Button color="blue" data-testid="share-encounters" onClick={() => setShow(true)}>
+        <Button
+          color="blue"
+          data-testid="share-encounters"
+          inverted={appState.darkMode}
+          onClick={() => setShow(true)}
+        >
           SHARE
           <Icon name="share" />
         </Button>
@@ -33,18 +42,7 @@ const Share: React.FC = () => {
           overflow: 'auto',
         }}
       >
-        <textarea
-          defaultValue={appState?.games[appState?.selectedGame?.value]?.encounters?.reduce(
-            (str, enc) => {
-              return `${str}
-      ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
-            },
-            `Nuzlocke Encounter List
-        `
-          )}
-          ref={shareRef}
-          rows={5}
-        />
+        <textarea defaultValue={text} ref={shareRef} rows={5} />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleCopy}>Copy</Button>

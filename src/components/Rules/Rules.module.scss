@@ -3,10 +3,10 @@
   flex-flow: row wrap;
   align-items: center;
   justify-content: flex-end;
-  gap: 5px;
+  gap: 4px;
   margin-bottom: 10px;
 
-  > .buttonLarge {
+  > button {
     white-space: nowrap;
     max-width: 130px;
     max-height: 36px;
@@ -21,6 +21,10 @@
     }
   }
 
+  .button {
+    flex: unset;
+  }
+
   .ruleSelect {
     flex: 1;
     > i {
@@ -33,7 +37,7 @@
   display: flex;
   flex-flow: column nowrap;
   gap: 10px;
-  height: calc(100vh - 240px);
+  height: calc(100vh - 180px);
   overflow: auto;
 
   .rule {

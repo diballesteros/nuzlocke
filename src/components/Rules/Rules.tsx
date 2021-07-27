@@ -1,13 +1,18 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Dropdown, Icon, Input, Modal } from 'semantic-ui-react';
+import { Button, Dropdown, DropdownProps, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import { TRule } from 'constants/types';
+import { Share } from 'components';
 import styles from './Rules.module.scss';
 
 const Rules: React.FC = () => {
   const rules = useStore(useCallback((state) => state.rules, []));
   const reorderRule = useStore(useCallback((state) => state.reorderRule, []));
   const addRule = useStore(useCallback((state) => state.addRule, []));
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
+  const rulesets = useStore(useCallback((state) => state.rulesets, []));
+  const changeRuleset = useStore(useCallback((state) => state.changeRuleset, []));
   const [ruleText, setRuleText] = useState('');
   const [open, setOpen] = useState(false);
 
@@ -30,13 +35,27 @@ const Rules: React.FC = () => {
     setRuleText('');
   };
 
+  const handleRuleset = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
+    changeRuleset(data.value as string);
+  };
+
   return (
     <>
       <div className={styles.options}>
-        <Button className={styles.buttonLarge} color="blue" data-testid="share-rules" type="button">
-          SHARE
-          <Icon name="share" />
-        </Button>
+        <Share
+          text={
+            selectedRuleset
+              ? rules[selectedRuleset]?.reduce(
+                  (str, rule, i) => {
+                    return `${str}
+      ${i + 1}. - ${rule.content || 'N/A'}`;
+                  },
+                  `Ruleset
+        `
+                )
+              : ''
+          }
+        />
         <Modal
           open={open}
           trigger={
@@ -44,6 +63,7 @@ const Rules: React.FC = () => {
               className={styles.buttonLarge}
               color="green"
               data-testid="add-rule"
+              inverted={darkMode}
               onClick={() => setOpen(true)}
               type="button"
             >
@@ -74,35 +94,62 @@ const Rules: React.FC = () => {
           data-testid="rule-select"
           inline
           lazyLoad
-          onChange={null}
-          options={[]}
+          onChange={handleRuleset}
+          options={rulesets}
           placeholder="Choose a ruleset"
           selection
+          value={selectedRuleset}
         />
         <Button
-          aria-label="addrule"
+          aria-label="addruleset"
           className={styles.button}
-          data-testid="add-rule"
+          data-testid="add-ruleset"
           icon
+          inverted={darkMode}
           onClick={null}
           style={{ boxShadow: 'none' }}
           type="button"
         >
           <Icon name="plus" />
         </Button>
+        {selectedRuleset !== '1' && selectedRuleset !== '2' && (
+          <Button
+            aria-label="deleteruleset"
+            className={styles.button}
+            color="red"
+            data-testid="delete-ruleset"
+            icon
+            inverted={darkMode}
+            onClick={null}
+            style={{ boxShadow: 'none' }}
+            type="button"
+          >
+            <Icon name="trash" />
+          </Button>
+        )}
       </div>
       <div className={styles.rules}>
-        {rules.map((rule, i) => {
+        {rules[selectedRuleset].map((rule, i) => {
           return (
-            <div className={styles.rule}>
+            <div className={styles.rule} key={`rule-${i + 1}`}>
               <div className={styles.dnd}>
                 {i !== 0 && (
-                  <Button icon onClick={() => handleReorder(rule, i, true)} type="button">
+                  <Button
+                    icon
+                    inverted={darkMode}
+                    onClick={() => handleReorder(rule, i, true)}
+                    type="button"
+                  >
                     <Icon name="arrow up" />
                   </Button>
                 )}
-                {i < rules.length - 1 && (
-                  <Button icon onClick={() => handleReorder(rule, i, false)} type="button">
+                {i < rules[selectedRuleset]?.length - 1 && (
+                  <Button
+                    icon
+                    inverted={darkMode}
+                    onClick={() => handleReorder(rule, i, false)}
+                    type="button"
+                  >
                     <Icon name="arrow down" />
                   </Button>
                 )}

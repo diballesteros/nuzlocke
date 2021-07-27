@@ -30,6 +30,8 @@ const useStore = create<AppState>(
       newVersion: '1',
       nicknames: false,
       rules: INITIAL_STATE.rules,
+      rulesets: INITIAL_STATE.rulesets,
+      selectedRuleset: '1',
       text: '',
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
@@ -42,7 +44,7 @@ const useStore = create<AppState>(
         }),
       addRule: (newRule: string) =>
         set((state) => {
-          state.rules.push({ content: newRule });
+          state.rules[state.selectedRuleset]?.push({ content: newRule });
         }),
       changeDupe: () =>
         set((state) => {
@@ -64,6 +66,10 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].pokemon = pokemon;
         }),
+      changeRuleset: (rulesetId: string) =>
+        set((state) => {
+          state.selectedRuleset = rulesetId;
+        }),
       changeStatus: (encounterId: number, status: TStatus) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -82,8 +88,8 @@ const useStore = create<AppState>(
         }),
       reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
         set((state) => {
-          state.rules.splice(sourceId, 1);
-          state.rules.splice(destinationId, 0, rule);
+          state.rules[state.selectedRuleset]?.splice(sourceId, 1);
+          state.rules[state.selectedRuleset]?.splice(destinationId, 0, rule);
         }),
       resetAll: () =>
         set((state) => {
