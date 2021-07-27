@@ -1,3 +1,61 @@
+.options {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+  margin-bottom: 10px;
+
+  > .buttonLarge {
+    white-space: nowrap;
+    max-width: 130px;
+    max-height: 36px;
+    flex: 1;
+
+    @media (max-width: 630px) {
+      max-width: unset;
+    }
+    > i {
+      margin-left: 5px !important;
+      margin-right: 0 !important;
+    }
+  }
+
+  .ruleSelect {
+    flex: 1;
+    > i {
+      top: 0 !important;
+    }
+  }
+}
+
 .rules {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
   height: 1000px;
+  .rule {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    padding: 10px;
+    color: var(--contrast);
+    background-color: var(--card);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    border-radius: 3px;
+
+    .dnd {
+      display: inline-flex;
+      flex-flow: row nowrap;
+      > i {
+        width: 5px;
+        margin: 0;
+      }
+    }
+
+    .number {
+      font-weight: bold;
+      font-size: 24px;
+    }
+  }
 }

@@ -43,9 +43,10 @@ const About: React.FC = () => {
           <b>(Version 2.5.0)</b>
           <ul>
             <li>
-              Rules Tab - Create, edit and share custom rulesets for your nuzlocke. Or use some
+              Rules Tab - Create, edit and share custom rulesets for your nuzlocke or use some
               popular defaults.
             </li>
+            <li>Share option is now a button inside the tracker</li>
           </ul>
           <b>(Version 2.4.0)</b>
           <ul>

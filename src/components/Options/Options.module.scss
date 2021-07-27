@@ -10,7 +10,7 @@
 
   .buttons {
     display: flex;
-    gap: 8px;
+    gap: 2px;
     font-weight: bold;
 
     > button > i {
@@ -19,7 +19,7 @@
     }
   }
 
-  @media (max-width: 800px) {
+  @media (max-width: 992px) {
     flex-wrap: wrap;
     gap: 10px;
 
@@ -29,16 +29,16 @@
 
     .buttons {
       width: 100%;
-    }
-    .buttons button {
-      width: 100%;
-      flex: 1;
+      button {
+        width: 100%;
+        flex: 1;
+      }
     }
   }
 
   @media (max-width: 500px) {
     gap: 2.5px;
-    button {
+    .buttons button {
       font-size: 10px !important;
     }
   }

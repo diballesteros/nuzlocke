@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Button, Dropdown, Modal } from 'semantic-ui-react';
+import { Button, Icon, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 
 const Share: React.FC = () => {
@@ -16,7 +16,12 @@ const Share: React.FC = () => {
     <Modal
       closeOnDimmerClick
       open={show}
-      trigger={<Dropdown.Item icon="share" onClick={() => setShow(true)} text="Share" />}
+      trigger={
+        <Button color="blue" onClick={() => setShow(true)}>
+          SHARE
+          <Icon name="share" />
+        </Button>
+      }
     >
       <Modal.Header>Share</Modal.Header>
       <Modal.Content

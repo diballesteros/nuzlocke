@@ -13,7 +13,7 @@ import {
 } from 'semantic-ui-react';
 import useStore from 'store';
 import { AppState } from 'constants/types';
-import { About, BadgeEditor, Contact, Rules, Settings, Share, Tracker } from 'components';
+import { About, BadgeEditor, Contact, Rules, Settings, Tracker } from 'components';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
@@ -132,7 +132,6 @@ const App: React.FC = () => {
               />
               Import
             </Dropdown.Item>
-            {!!appState.selectedGame && <Share />}
             <Contact />
             <About />
           </Dropdown.Menu>

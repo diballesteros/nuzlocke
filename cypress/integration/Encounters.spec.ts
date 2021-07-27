@@ -65,8 +65,7 @@ describe('Encounters', () => {
   });
 
   it('Share', () => {
-    cy.get('[data-testid=options]').click();
-    cy.contains('Share').click();
+    cy.get('[data-testid=share-encounters]').click();
     cy.get('.header').contains('Share').should('exist');
   });
 });

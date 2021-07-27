@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Confirm, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
+import { Share } from 'components';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {
@@ -60,6 +61,7 @@ const Options: React.FC = React.memo(() => {
         <Icon name="search" />
       </Input>
       <div className={styles.buttons}>
+        <Share />
         <Modal
           closeOnDimmerClick
           open={open}
@@ -99,7 +101,7 @@ const Options: React.FC = React.memo(() => {
           inverted={darkMode}
           onClick={() => setConfirm(true)}
         >
-          RESET ALL
+          RESET
           <i className="icon close" />
         </Button>
         <Confirm
