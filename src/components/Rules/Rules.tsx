@@ -100,7 +100,7 @@ const Rules: React.FC = () => {
           <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
             Please enter the rule description
             <Input
-              data-testid="add-encounter-input"
+              data-testid="add-rule-input"
               onChange={(e, data) => setRuleText(data.value)}
               value={ruleText}
             />
@@ -179,13 +179,14 @@ const Rules: React.FC = () => {
           open={confirm}
         />
       </div>
-      <div className={styles.rules}>
+      <div className={styles.rules} data-testid="ruleslist">
         {rules[selectedRuleset].map((rule, i) => {
           return (
             <div className={styles.rule} key={`rule-${i + 1}`}>
               <div className={styles.dnd}>
                 {i !== 0 && (
                   <Button
+                    data-testid={`arrow-up-${i}`}
                     icon
                     inverted={darkMode}
                     onClick={() => handleReorder(rule, i, true)}
@@ -196,6 +197,7 @@ const Rules: React.FC = () => {
                 )}
                 {i < rules[selectedRuleset]?.length - 1 && (
                   <Button
+                    data-testid={`arrow-down-${i}`}
                     icon
                     inverted={darkMode}
                     onClick={() => handleReorder(rule, i, false)}
