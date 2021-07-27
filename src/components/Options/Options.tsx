@@ -63,6 +63,7 @@ const Options: React.FC = React.memo(() => {
       </Input>
       <div className={styles.buttons}>
         <Share
+          disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
             (str, enc) => {
               return `${str}

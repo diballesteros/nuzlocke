@@ -44,11 +44,12 @@
     display: flex;
     flex-flow: row nowrap;
     gap: 10px;
-    padding: 10px;
+    padding: 10px 36px 10px 10px;
     color: var(--contrast);
     background-color: var(--card);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     border-radius: 3px;
+    position: relative;
 
     .dnd {
       display: flex;
@@ -63,6 +64,13 @@
     .number {
       font-weight: bold;
       font-size: 24px;
+    }
+
+    .delete {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 12px;
     }
   }
 }

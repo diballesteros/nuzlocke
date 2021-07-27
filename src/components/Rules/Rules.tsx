@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Button, Dropdown, DropdownProps, Icon, Input, Modal } from 'semantic-ui-react';
+import { Button, Confirm, Dropdown, DropdownProps, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import { TRule } from 'constants/types';
 import { Share } from 'components';
@@ -13,8 +13,14 @@ const Rules: React.FC = () => {
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const rulesets = useStore(useCallback((state) => state.rulesets, []));
   const changeRuleset = useStore(useCallback((state) => state.changeRuleset, []));
+  const addRuleset = useStore(useCallback((state) => state.addRuleset, []));
+  const deleteRuleset = useStore(useCallback((state) => state.deleteRuleset, []));
+  const deleteRule = useStore(useCallback((state) => state.deleteRule, []));
   const [ruleText, setRuleText] = useState('');
+  const [rulesetName, setRulesetName] = useState('');
   const [open, setOpen] = useState(false);
+  const [addModal, setAddModal] = useState(false);
+  const [confirm, setConfirm] = useState(false);
 
   const handleReorder = (rule: TRule, i: number, up: boolean) => {
     if (up) {
@@ -39,10 +45,27 @@ const Rules: React.FC = () => {
     changeRuleset(data.value as string);
   };
 
+  const handleAddRuleset = () => {
+    addRuleset(rulesetName);
+    setAddModal(false);
+    setRulesetName('');
+  };
+
+  const handleCloseRulesetModal = () => {
+    setAddModal(false);
+    setRulesetName('');
+  };
+
+  const handleDeleteRuleset = () => {
+    deleteRuleset();
+    setConfirm(false);
+  };
+
   return (
     <>
       <div className={styles.options}>
         <Share
+          disabled={!selectedRuleset}
           text={
             selectedRuleset
               ? rules[selectedRuleset]?.reduce(
@@ -63,6 +86,7 @@ const Rules: React.FC = () => {
               className={styles.buttonLarge}
               color="green"
               data-testid="add-rule"
+              disabled={!selectedRuleset}
               inverted={darkMode}
               onClick={() => setOpen(true)}
               type="button"
@@ -100,19 +124,40 @@ const Rules: React.FC = () => {
           selection
           value={selectedRuleset}
         />
-        <Button
-          aria-label="addruleset"
-          className={styles.button}
-          data-testid="add-ruleset"
-          icon
-          inverted={darkMode}
-          onClick={null}
-          style={{ boxShadow: 'none' }}
-          type="button"
+        <Modal
+          open={addModal}
+          trigger={
+            <Button
+              aria-label="addruleset"
+              className={styles.button}
+              data-testid="add-ruleset"
+              icon
+              inverted={darkMode}
+              onClick={() => setAddModal(true)}
+              style={{ boxShadow: 'none' }}
+              type="button"
+            >
+              <Icon name="plus" />
+            </Button>
+          }
         >
-          <Icon name="plus" />
-        </Button>
-        {selectedRuleset !== '1' && selectedRuleset !== '2' && (
+          <Modal.Header>Add Ruleset</Modal.Header>
+          <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+            Please enter the ruleset name
+            <Input
+              data-testid="add-ruleset-input"
+              onChange={(e, data) => setRulesetName(data.value)}
+              value={rulesetName}
+            />
+          </Modal.Content>
+          <Modal.Actions>
+            <Button onClick={handleCloseRulesetModal}>Cancel</Button>
+            <Button disabled={rulesetName?.length === 0} onClick={handleAddRuleset}>
+              Save
+            </Button>
+          </Modal.Actions>
+        </Modal>
+        {!!selectedRuleset && selectedRuleset !== '1' && selectedRuleset !== '2' && (
           <Button
             aria-label="deleteruleset"
             className={styles.button}
@@ -120,13 +165,19 @@ const Rules: React.FC = () => {
             data-testid="delete-ruleset"
             icon
             inverted={darkMode}
-            onClick={null}
+            onClick={() => setConfirm(true)}
             style={{ boxShadow: 'none' }}
             type="button"
           >
             <Icon name="trash" />
           </Button>
         )}
+        <Confirm
+          content="This will delete the custom ruleset. Are you sure?"
+          onCancel={() => setConfirm(false)}
+          onConfirm={handleDeleteRuleset}
+          open={confirm}
+        />
       </div>
       <div className={styles.rules}>
         {rules[selectedRuleset].map((rule, i) => {
@@ -156,6 +207,18 @@ const Rules: React.FC = () => {
               </div>
               <span className={styles.number}>{`${i + 1}.`}</span>
               <p>{rule.content}</p>
+              <Button
+                aria-label="delete rule"
+                basic
+                className={styles.delete}
+                compact
+                icon
+                inverted={darkMode}
+                onClick={() => deleteRule(i)}
+                type="button"
+              >
+                <Icon name="trash" />
+              </Button>
             </div>
           );
         })}

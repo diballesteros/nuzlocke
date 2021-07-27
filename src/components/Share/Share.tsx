@@ -3,10 +3,11 @@ import { Button, Icon, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 
 interface ShareProps {
+  disabled: boolean;
   text: string;
 }
 
-const Share: React.FC<ShareProps> = ({ text }) => {
+const Share: React.FC<ShareProps> = ({ disabled, text }) => {
   const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
@@ -23,6 +24,7 @@ const Share: React.FC<ShareProps> = ({ text }) => {
       trigger={
         <Button
           color="blue"
+          disabled={disabled}
           data-testid="share-encounters"
           inverted={appState.darkMode}
           onClick={() => setShow(true)}

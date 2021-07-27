@@ -125,9 +125,8 @@ const RULESETS = [
 
 export const INITIAL_STATE: TrackerState = {
   badges: BADGES,
-  duplicates: false,
   darkMode: false,
-  selectedGame: null,
+  duplicates: false,
   games: {
     '1': { badge: null, encounters: R_B_Y },
     '2': { badge: null, encounters: G_S_C },
@@ -148,6 +147,7 @@ export const INITIAL_STATE: TrackerState = {
   nicknames: false,
   rules: { '1': DEFAULT_RULESET, '2': HARDCORE_RULESET },
   rulesets: RULESETS,
+  selectedGame: null,
   selectedRuleset: '1',
   text: null,
 };

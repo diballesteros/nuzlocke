@@ -26,6 +26,8 @@ export interface AppState extends TrackerState {
   clearEncounter: (encounterId: number) => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
+  deleteRule: (ruleIndex: number) => void;
+  deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;

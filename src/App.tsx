@@ -63,9 +63,11 @@ const App: React.FC = () => {
     const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
       JSON.stringify({
         badges: appState.badges,
-        selectedGame: appState.selectedGame,
         games: appState.games,
         gamesList: appState.gamesList,
+        rules: appState.rules,
+        rulesets: appState.rulesets,
+        selectedGame: appState.selectedGame,
       })
     )}`;
     const downloadAnchorNode = document.createElement('a');
