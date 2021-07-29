@@ -1,0 +1,23 @@
+.pokestats {
+  display: flex;
+  flex-flow: column nowrap;
+  height: calc(100vh - 120px);
+  overflow: auto;
+
+  .filters {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .fainted {
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+  }
+
+  .team {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+  }
+}

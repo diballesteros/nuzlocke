@@ -31,6 +31,11 @@ const STATUSES: TStatus[] = [
     value: 6,
     text: 'Shiny',
   },
+  {
+    key: 'Team',
+    value: 7,
+    text: 'Team',
+  },
 ];
 
 export default STATUSES;

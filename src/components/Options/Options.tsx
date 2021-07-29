@@ -84,7 +84,7 @@ const Options: React.FC = React.memo(() => {
               inverted={darkMode}
               onClick={() => setOpen(true)}
             >
-              ADD ENCOUNTER
+              ADD
               <i className="icon plus" />
             </Button>
           }

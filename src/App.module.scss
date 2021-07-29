@@ -41,6 +41,10 @@
   .tabs {
     padding: 20px 0px;
 
+    @media (max-width: 600px) {
+      padding: 8px 0px;
+    }
+
     :global(.ui.tabular.menu) {
       border: none;
       color: var(--contrast);

@@ -13,3 +13,11 @@
   padding: 0 !important;
   align-self: center;
 }
+
+.credits {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+  height: 20%;
+  overflow: auto;
+}

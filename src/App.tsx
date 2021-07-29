@@ -13,7 +13,7 @@ import {
 } from 'semantic-ui-react';
 import useStore from 'store';
 import { AppState } from 'constants/types';
-import { About, BadgeEditor, Contact, Rules, Settings, Tracker } from 'components';
+import { About, BadgeEditor, Contact, Pokestats, Rules, Settings, Tracker } from 'components';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
@@ -36,6 +36,14 @@ const App: React.FC = () => {
       render: () => (
         <Tab.Pane>
           <Rules />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: 'PokéStats',
+      render: () => (
+        <Tab.Pane>
+          <Pokestats />
         </Tab.Pane>
       ),
     },

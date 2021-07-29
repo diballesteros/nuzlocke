@@ -76,8 +76,51 @@ const About: React.FC = () => {
             </li>
           </ul>
         </div>
-        Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
-        Pokémon character names are trademarks of Nintendo.
+        <div className={styles.credits}>
+          <b>Credits:</b>
+          Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
+          Pokémon character names are trademarks of Nintendo.
+          <div>
+            Icons made by{' '}
+            <a href="http://www.dariusdan.com" title="Darius Dan">
+              Darius Dan
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Icons made by{' '}
+            <a href="http://www.roundicons.com" title="Roundicons Freebies">
+              Roundicons Freebies
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Icons made by{' '}
+            <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">
+              Nikita Golubev
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Icons made by{' '}
+            <a href="https://www.freepik.com" title="Freepik">
+              Freepik
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+        </div>
         <Button
           aria-label="github"
           basic
