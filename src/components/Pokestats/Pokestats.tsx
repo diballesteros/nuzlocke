@@ -66,11 +66,15 @@ const Pokestats: React.FC = () => {
                 pinned
                 position="top center"
                 trigger={
-                  <img alt={enc.pokemon.text} className={styles.pokemon} src={enc.pokemon.image} />
+                  <img
+                    alt={enc?.pokemon?.text}
+                    className={styles.pokemon}
+                    src={enc?.pokemon?.image}
+                  />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc.pokemon.text}</span>
+                  <span>{enc?.pokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
@@ -99,11 +103,15 @@ const Pokestats: React.FC = () => {
                 pinned
                 position="top center"
                 trigger={
-                  <img alt={enc.pokemon.text} className={styles.pokemon} src={enc.pokemon.image} />
+                  <img
+                    alt={enc?.pokemon?.text}
+                    className={styles.pokemon}
+                    src={enc?.pokemon?.image}
+                  />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc.pokemon.text}</span>
+                  <span>{enc?.pokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
@@ -132,11 +140,15 @@ const Pokestats: React.FC = () => {
                 pinned
                 position="top center"
                 trigger={
-                  <img alt={enc.pokemon.text} className={styles.pokemon} src={enc.pokemon.image} />
+                  <img
+                    alt={enc?.pokemon?.text}
+                    className={styles.pokemon}
+                    src={enc?.pokemon?.image}
+                  />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc.pokemon.text}</span>
+                  <span>{enc?.pokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
@@ -165,11 +177,15 @@ const Pokestats: React.FC = () => {
                 pinned
                 position="top center"
                 trigger={
-                  <img alt={enc.pokemon.text} className={styles.pokemon} src={enc.pokemon.image} />
+                  <img
+                    alt={enc?.pokemon?.text}
+                    className={styles.pokemon}
+                    src={enc?.pokemon?.image}
+                  />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc.pokemon.text}</span>
+                  <span>{enc?.pokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
