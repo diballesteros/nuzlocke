@@ -4,7 +4,7 @@ Webapp to track and record encounters in any Pokémon game. Including custom gam
 
 All Pokémon included up to generation 8.
 
-Features:
+🚀 Features:
 
 - Data inputs for pokemon nickname, location, status and name
 - Level caps for all base games - customizable!
@@ -16,9 +16,9 @@ Features:
 - Share, add and edit custom rulesets
 - View stats of your nuzlocke run in the PokéStats Tabs!
 
-Built with ReactJS and Zustand
+Built with ReactJ, Create-React-App, Zustand and Semantic UI.
 
-To install the dependencies:
+💻 To install the dependencies:
 
 ```bash
 yarn
