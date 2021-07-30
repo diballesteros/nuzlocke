@@ -6,23 +6,32 @@ export interface TrackerState {
   gamesList: TGame[];
   newVersion: string;
   nicknames: boolean;
+  rules: TRulesetDictionary;
+  rulesets: TRuleset[];
   selectedGame: TGame;
+  selectedRuleset: string;
   text: string;
 }
 
 export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
+  addRule: (newRule: string) => void;
+  addRuleset: (newRuleset: string) => void;
   changeDupe: () => void;
   changePokemon: (encounterId: number, pokemon: TPokemon) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
+  changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   clearEncounter: (encounterId: number) => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
+  deleteRule: (ruleIndex: number) => void;
+  deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
+  reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
   resetAll: () => void;
   resetBadges: () => void;
   search: (text: string) => void;
@@ -79,4 +88,16 @@ export type TStatus = {
 
 export type TLocation = {
   name: string;
+};
+
+export type TRulesetDictionary = { [key: string]: TRule[] };
+
+export type TRuleset = {
+  key: string;
+  text: string;
+  value: string;
+};
+
+export type TRule = {
+  content: string;
 };

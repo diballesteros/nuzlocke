@@ -1,0 +1,81 @@
+.pokestats {
+  display: flex;
+  flex-flow: column nowrap;
+  height: calc(100vh - 120px);
+  overflow: auto;
+
+  .filters {
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  .fainted {
+    width: 26px;
+    height: 26px;
+    margin-right: 5px;
+  }
+
+  .team {
+    width: 22px;
+    height: 22px;
+    margin-right: 5px;
+  }
+
+  .tabs {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100%;
+    width: calc(100% - 5px);
+
+    :global(.ui.secondary.menu) {
+      display: flex;
+      flex-flow: row wrap;
+    }
+    :global(.ui.secondary.menu .active) {
+      background-color: var(--card);
+    }
+
+    :global(.ui.secondary.menu .item) {
+      color: var(--contrast);
+    }
+
+    :global(.ui.segment) {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+
+  .box {
+    object-fit: cover;
+
+    &.grass {
+      background: url('../../assets/img/boxes/Grass.JPG') repeat;
+    }
+
+    &.crag {
+      background: url('../../assets/img/boxes/Crag.JPG') repeat;
+    }
+
+    &.sky {
+      background: url('../../assets/img/boxes/Sky.JPG') repeat;
+    }
+
+    &.city {
+      background: url('../../assets/img/boxes/City.JPG') repeat;
+    }
+
+    .pokemon {
+      height: 72px;
+      width: 72px;
+      margin: 5px;
+      object-fit: contain;
+      cursor: pointer;
+
+      &:hover {
+        border: 1px solid black;
+        border-radius: 3px;
+        object-fit: cover;
+      }
+    }
+  }
+}

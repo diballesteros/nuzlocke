@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Button, Confirm, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
+import { Share } from 'components';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {
@@ -11,6 +12,7 @@ const Options: React.FC = React.memo(() => {
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const games = useStore(useCallback((state) => state.games, []));
   const [searchText, setSearchText] = useState(text);
   const debouncedValue = useDebounce<string>(searchText, 250);
   const [open, setOpen] = useState(false);
@@ -60,6 +62,17 @@ const Options: React.FC = React.memo(() => {
         <Icon name="search" />
       </Input>
       <div className={styles.buttons}>
+        <Share
+          disabled={!selectedGame}
+          text={games[selectedGame?.value]?.encounters?.reduce(
+            (str, enc, i) => {
+              return `${str}
+      ${i + 1}. ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+            },
+            `Nuzlocke Encounter List
+        `
+          )}
+        />
         <Modal
           closeOnDimmerClick
           open={open}
@@ -71,7 +84,7 @@ const Options: React.FC = React.memo(() => {
               inverted={darkMode}
               onClick={() => setOpen(true)}
             >
-              ADD ENCOUNTER
+              ADD
               <i className="icon plus" />
             </Button>
           }
@@ -99,7 +112,7 @@ const Options: React.FC = React.memo(() => {
           inverted={darkMode}
           onClick={() => setConfirm(true)}
         >
-          RESET ALL
+          RESET
           <i className="icon close" />
         </Button>
         <Confirm

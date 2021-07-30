@@ -10,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { TGame, TrackerState } from 'constants/types';
+import { TGame, TrackerState, TRule } from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -81,11 +81,52 @@ export const GAMES: TGame[] = [
   },
 ];
 
+const DEFAULT_RULESET: TRule[] = [
+  {
+    content:
+      'Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently',
+  },
+  {
+    content:
+      'The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.',
+  },
+  {
+    content:
+      'The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds',
+  },
+];
+
+const HARDCORE_RULESET: TRule[] = [
+  ...DEFAULT_RULESET,
+  {
+    content: 'Set mode must be enabled',
+  },
+  {
+    content:
+      "A pokemon's level may not exceed the highest level pokemon of the current gym leader/champion",
+  },
+  {
+    content: 'No items are allowed in battles',
+  },
+];
+
+const RULESETS = [
+  {
+    key: '1',
+    value: '1',
+    text: 'Nuzlocke',
+  },
+  {
+    key: '2',
+    value: '2',
+    text: 'Hardcore Nuzlocke',
+  },
+];
+
 export const INITIAL_STATE: TrackerState = {
   badges: BADGES,
-  duplicates: false,
   darkMode: false,
-  selectedGame: null,
+  duplicates: false,
   games: {
     '1': { badge: null, encounters: R_B_Y },
     '2': { badge: null, encounters: G_S_C },
@@ -104,5 +145,9 @@ export const INITIAL_STATE: TrackerState = {
   gamesList: GAMES,
   newVersion: '1',
   nicknames: false,
+  rules: { '1': DEFAULT_RULESET, '2': HARDCORE_RULESET },
+  rulesets: RULESETS,
+  selectedGame: null,
+  selectedRuleset: '1',
   text: null,
 };
