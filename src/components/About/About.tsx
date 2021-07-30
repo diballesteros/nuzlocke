@@ -55,7 +55,7 @@ const About: React.FC = () => {
               PokéStats Tab - At a glance view of all captured, fainted, in-team, and failed to
               captured pokémon. Click on the pokémon to see more details!
             </li>
-            <li>Duplicate pokémon no longer show up on failed encounters</li>
+            <li>Duplicate pokémon alert no longer shows up on failed encounters</li>
           </ul>
           <b>(Version 2.4.0)</b>
           <ul>

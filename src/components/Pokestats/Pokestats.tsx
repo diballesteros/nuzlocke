@@ -52,7 +52,7 @@ const Pokestats: React.FC = () => {
         <Menu.Item key="Caught">
           <CaughtSVG className={styles.team} />
           Caught
-          <Label>{caughtPokemon?.length}</Label>
+          <Label>{caughtPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
       render: () => (
@@ -85,7 +85,7 @@ const Pokestats: React.FC = () => {
         <Menu.Item key="Team">
           <TeamSVG className={styles.team} />
           Team
-          <Label>{teamPokemon?.length}</Label>
+          <Label>{teamPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
       render: () => (
@@ -118,7 +118,7 @@ const Pokestats: React.FC = () => {
         <Menu.Item key="failed">
           <FailedSVG className={styles.fainted} />
           Failed
-          <Label>{failedPokemon?.length}</Label>
+          <Label>{failedPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
       render: () => (
@@ -151,7 +151,7 @@ const Pokestats: React.FC = () => {
         <Menu.Item key="fainted">
           <FaintedSVG className={styles.fainted} />
           Fainted
-          <Label>{faintedPokemon?.length}</Label>
+          <Label>{faintedPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
       render: () => (
