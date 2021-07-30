@@ -13,6 +13,8 @@ Features:
 - Add custom encounter locations
 - Add and edit custom games
 - Export, import and share Nuzlocke data with others!
+- Share, add and edit custom rulesets
+- View stats of your nuzlocke run in the PokéStats Tabs!
 
 Built with ReactJS and Zustand
 
