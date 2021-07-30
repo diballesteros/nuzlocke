@@ -29,9 +29,14 @@ const Encounters: React.FC = React.memo(() => {
   const [confirm, setConfirm] = useState(false);
 
   const alreadyEncountered = useCallback(
-    (pokemonId, encounterId) => {
+    (pokemonId, encounterId, statusId) => {
       return games[selectedGame?.value].encounters?.some((enc) => {
-        return enc?.pokemon?.value === pokemonId && enc.id !== encounterId;
+        return (
+          enc?.pokemon?.value === pokemonId &&
+          enc.id !== encounterId &&
+          enc?.status?.value !== 5 &&
+          statusId !== 5
+        );
       });
     },
     [games, selectedGame]
@@ -73,7 +78,11 @@ const Encounters: React.FC = React.memo(() => {
           <Pokemon
             alreadyEncountered={
               !!encounter?.pokemon?.value && duplicates
-                ? alreadyEncountered(encounter?.pokemon?.value, encounter?.id)
+                ? alreadyEncountered(
+                    encounter?.pokemon?.value,
+                    encounter?.id,
+                    encounter?.status?.value
+                  )
                 : false
             }
             encounterId={encounter.id}

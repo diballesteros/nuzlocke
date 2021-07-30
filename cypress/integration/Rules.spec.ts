@@ -4,7 +4,7 @@ describe('Rules', () => {
     cy.contains('Rules').click();
   });
 
-  it.only('Rule CRUD', () => {
+  it('Rule CRUD', () => {
     cy.get('[data-testid=add-rule]').click();
     cy.get('[data-testid=add-rule-input] > input')
       .type('This is a test rule')

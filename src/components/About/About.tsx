@@ -42,11 +42,20 @@ const About: React.FC = () => {
         <div style={{ overflow: 'auto' }}>
           <b>(Version 2.5.0)</b>
           <ul>
+            <li>Share option is now a button inside the tracker</li>
+            <li>
+              New <b>Team</b> option in <b>Status</b> of pokémon. This links to the new Pokéstats
+              Tab!
+            </li>
             <li>
               Rules Tab - Create, edit and share custom rulesets for your nuzlocke or use some
-              popular defaults.
+              popular defaults
             </li>
-            <li>Share option is now a button inside the tracker</li>
+            <li>
+              PokéStats Tab - At a glance view of all captured, fainted, in-team, and failed to
+              captured pokémon. Click on the pokémon to see more details!
+            </li>
+            <li>Duplicate pokémon no longer show up on failed encounters</li>
           </ul>
           <b>(Version 2.4.0)</b>
           <ul>

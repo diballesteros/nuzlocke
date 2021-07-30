@@ -29,9 +29,9 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
         inline
         lazyLoad
         onChange={handleChange}
+        options={STATUSES}
         placeholder="Select..."
         selection
-        options={STATUSES}
         value={status?.value ?? ''}
       />
     </label>
