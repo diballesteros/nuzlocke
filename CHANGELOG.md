@@ -1,3 +1,19 @@
+## Version 2.5.1
+
+🐛 Bug Fix
+- Fix to form field connection to Netlify
+
+💅 Enhancement
+- Meta tag updates
+- Footer and header included in page
+- Changed location of **Github** link to footer
+
+📝Documentation
+- Changelog
+- Contribution guide
+- Code of Conduct
+- Change of license
+
 ## Version 2.5.0
 
 🚀 New features
