@@ -126,106 +126,122 @@ const App: React.FC = () => {
 
   return (
     <main className={styles.app}>
-      <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-        <Dropdown aria-label="options" data-testid="options" item icon="wrench" simple>
-          <Dropdown.Menu>
-            <Settings />
-            <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
-            <Dropdown.Item id="import">
-              <Icon name="upload" />
-              <input
-                aria-labelledby="import"
-                className={styles.input}
-                id="file-input"
-                onChange={handleImport}
-                type="file"
-              />
-              Import
-            </Dropdown.Item>
-            <Contact />
-            <About />
-          </Dropdown.Menu>
-        </Dropdown>
-        <Dropdown
-          aria-label="games"
-          className={styles.gameSelect}
-          data-testid="game-select"
-          inline
-          lazyLoad
-          onChange={handleChange}
-          options={appState.gamesList}
-          placeholder="Choose a game"
-          selection
-          value={appState.selectedGame?.value ?? ''}
-        />
-        <Menu.Menu>
-          <Modal
-            closeOnDimmerClick
-            open={open}
-            trigger={
+      <header>
+        <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
+          <Dropdown aria-label="options" data-testid="options" item icon="wrench" simple>
+            <Dropdown.Menu>
+              <Settings />
+              <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
+              <Dropdown.Item id="import">
+                <Icon name="upload" />
+                <input
+                  aria-labelledby="import"
+                  className={styles.input}
+                  id="file-input"
+                  onChange={handleImport}
+                  type="file"
+                />
+                Import
+              </Dropdown.Item>
+              <Contact />
+              <About />
+            </Dropdown.Menu>
+          </Dropdown>
+          <Dropdown
+            aria-label="games"
+            className={styles.gameSelect}
+            data-testid="game-select"
+            inline
+            lazyLoad
+            onChange={handleChange}
+            options={appState.gamesList}
+            placeholder="Choose a game"
+            selection
+            value={appState.selectedGame?.value ?? ''}
+          />
+          <Menu.Menu position="left">
+            <Modal
+              closeOnDimmerClick
+              open={open}
+              trigger={
+                <Button
+                  aria-label="addgame"
+                  className={styles.button}
+                  data-testid="add-game"
+                  icon
+                  onClick={() => setOpen(true)}
+                  style={{ boxShadow: 'none' }}
+                >
+                  <Icon name="plus" />
+                </Button>
+              }
+            >
+              <Modal.Header>Add Game</Modal.Header>
+              <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+                Please enter the game name
+                <Input
+                  data-testid="add-game-input"
+                  onChange={(e, data) => setGameName(data.value)}
+                  value={gameName}
+                />
+              </Modal.Content>
+              <Modal.Actions>
+                <Button onClick={handleClose}>Cancel</Button>
+                <Button disabled={gameName?.length === 0} onClick={handleAdd}>
+                  Save
+                </Button>
+              </Modal.Actions>
+            </Modal>
+            {appState.selectedGame?.value && Number(appState.selectedGame.value) > 13 ? (
               <Button
-                aria-label="addgame"
+                aria-label="deletegame"
                 className={styles.button}
-                data-testid="add-game"
                 icon
-                onClick={() => setOpen(true)}
-                style={{ boxShadow: 'none' }}
+                onClick={() => setConfirm(true)}
+                style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
               >
-                <Icon name="plus" />
+                <Icon name="trash" />
               </Button>
-            }
-          >
-            <Modal.Header>Add Game</Modal.Header>
-            <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-              Please enter the game name
-              <Input
-                data-testid="add-game-input"
-                onChange={(e, data) => setGameName(data.value)}
-                value={gameName}
-              />
-            </Modal.Content>
-            <Modal.Actions>
-              <Button onClick={handleClose}>Cancel</Button>
-              <Button disabled={gameName?.length === 0} onClick={handleAdd}>
-                Save
-              </Button>
-            </Modal.Actions>
-          </Modal>
-          {appState.selectedGame?.value && Number(appState.selectedGame.value) > 13 ? (
+            ) : null}
+            {appState.selectedGame?.value && Number(appState.selectedGame.value) <= 13 ? (
+              <BadgeEditor />
+            ) : null}
+            <Confirm
+              content="This will delete the custom game. Are you sure?"
+              open={confirm}
+              onCancel={() => setConfirm(false)}
+              onConfirm={handleDelete}
+            />
+          </Menu.Menu>
+          <Menu.Menu position="left">
+            <h1 className={styles.header}>Nuzlocke Tracker</h1>
+          </Menu.Menu>
+          <Menu.Menu position="right">
             <Button
-              aria-label="deletegame"
+              aria-label="darkmode"
               className={styles.button}
               icon
-              onClick={() => setConfirm(true)}
-              style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+              onClick={() => appState.toggleMode()}
             >
-              <Icon name="trash" />
+              <Icon name={appState.darkMode ? 'sun outline' : 'sun'} />
             </Button>
-          ) : null}
-          {appState.selectedGame?.value && Number(appState.selectedGame.value) <= 13 ? (
-            <BadgeEditor />
-          ) : null}
-          <Confirm
-            content="This will delete the custom game. Are you sure?"
-            open={confirm}
-            onCancel={() => setConfirm(false)}
-            onConfirm={handleDelete}
-          />
-        </Menu.Menu>
-        <Menu.Menu position="right">
-          <Button
-            aria-label="darkmode"
-            className={styles.button}
-            icon
-            onClick={() => appState.toggleMode()}
-          >
-            <Icon name={appState.darkMode ? 'sun outline' : 'sun'} />
-          </Button>
-        </Menu.Menu>
-      </Menu>
+          </Menu.Menu>
+        </Menu>
+      </header>
       <Container className={styles.container}>
         <Tab className={styles.tabs} panes={panes} />
       </Container>
+      <footer className={styles.footer}>
+        <h2 className={styles.name}>Nuzlocke Tracker</h2>
+        <a
+          className={styles.github}
+          href="https://github.com/diballesteros/nuzlocke/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="github" />
+        </a>
+      </footer>
     </main>
   );
 };

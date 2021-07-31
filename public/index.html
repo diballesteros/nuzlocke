@@ -9,6 +9,7 @@
   <meta name="google-site-verification" content="XwrRDsMPrckFQLRLr08o1Cr_fFHzsgun82Bq9Fadmek" />
   <meta name="description"
     content="The best online app to track and record nuzlocke encounters and pokemon. Including level caps, custom games, all routes, and pokémon up to generation 8." />
+  <meta name="keywords" content="pokemon, pokémon, nuzlocke, nuzlocke tracker" />
   <title>Nuzlocke Tracker</title>
 </head>
 
@@ -19,12 +20,28 @@
   <form name="contact" netlify netlify-honeypot="bot-field" aria-hidden="true" hidden>
     <select name="type">
       <option value="bug">Bug</option>
-      <option value="bug">Suggestion</option>
+      <option value="suggestion">Suggestion</option>
     </select>
     <select name="device">
-      <option value="Desktop">Desktop</option>
-      <option value="Mobile">Mobile</option>
+      <option value="desktop">Desktop</option>
+      <option value="mobile">Mobile</option>
     </select>
+    <select name="os">
+      <option value="windows">Windows</option>
+      <option value="mac">MAC</option>
+      <option value="linux">Linux</option>
+      <option value="ios">iOS</option>
+      <option value="android">Android</option>
+      <option value="other">Other</option>
+    </select>
+    <select name="browser">
+      <option value="googlechrome">Google Chrome</option>
+      <option value="firefox">Firefox</option>
+      <option value="edge">Edge</option>
+      <option value="safari">Safari</option>
+      <option value="other">Other</option>
+    </select>
+    <input name="selectedgame" type="text" />
     <textarea name="description"></textarea>
   </form>
 </body>

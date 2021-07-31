@@ -9,6 +9,17 @@
     opacity: 0;
   }
 
+  .header {
+    color: var(--contrast);
+    margin-left: 25px;
+    @media (max-width: 850px) {
+      margin-left: 15px;
+    }
+    @media (max-width: 750px) {
+      display: none;
+    }
+  }
+
   .gameSelect {
     width: 100%;
     max-width: 300px;
@@ -62,6 +73,41 @@
     :global(.ui.bottom) {
       background-color: var(--bgsecondary);
       border: none;
+    }
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+    height: 60px;
+    background-color: #1b1c1d;
+    color: #ffffff;
+
+    .name {
+      margin: 0;
+    }
+
+    .github {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      min-width: 48px;
+      height: 48px;
+      min-height: 26px;
+      font-size: 26px;
+      padding-top: 5px;
+      padding-left: 5px;
+      border: 2px solid #ffffff;
+      border-radius: 50%;
+      color: #ffffff;
+      &:hover {
+        background-color: #ffffff;
+        color: black;
+      }
     }
   }
 }

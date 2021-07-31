@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Modal, Dropdown, Button, Icon } from 'semantic-ui-react';
+import { Modal, Dropdown, Button } from 'semantic-ui-react';
 import useStore from 'store';
 import styles from './About.module.scss';
 
@@ -10,10 +10,6 @@ const About: React.FC = () => {
   const handleAbout = () => {
     appState.removeNew();
     setShow(true);
-  };
-
-  const handleGithub = () => {
-    window.open('https://github.com/diballesteros/nuzlocke/', '_blank');
   };
 
   return (
@@ -130,16 +126,6 @@ const About: React.FC = () => {
             </a>
           </div>
         </div>
-        <Button
-          aria-label="github"
-          basic
-          circular
-          className={styles.github}
-          icon
-          onClick={handleGithub}
-        >
-          <Icon name="github" />
-        </Button>
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setShow(false)}>Close</Button>
