@@ -221,7 +221,7 @@ const App: React.FC = () => {
           <Menu.Menu position="right">
             <Button
               aria-label="darkmode"
-              className={styles.button}
+              className={`${styles.button} ${styles.darkmode}`}
               icon
               onClick={() => appState.toggleMode()}
             >

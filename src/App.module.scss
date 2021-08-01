@@ -51,6 +51,12 @@
       background-color: transparent;
       color: var(--contrast) !important;
     }
+
+    &.darkmode {
+      @media (max-width: 5500px) {
+        padding: 2px;
+      }
+    }
   }
 
   .container {
