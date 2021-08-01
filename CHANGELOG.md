@@ -5,6 +5,7 @@
 - Show only missing encounters by enabling the option in **Settings**
 - Edit already created rules
 - PWA implementation
+- Initial analytics implementation
 
 🐛 Bug Fix
 

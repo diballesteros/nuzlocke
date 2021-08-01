@@ -43,7 +43,7 @@ const About: React.FC = () => {
               Show only missing encounters by enabling the option in <b>Settings</b>
             </li>
             <li>Edit already created rules</li>
-            <li>Web app now works offline</li>
+            <li>Now works offline!</li>
           </ul>
           <b>(Version 2.5.0)</b>
           <ul>
