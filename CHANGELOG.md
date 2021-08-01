@@ -1,3 +1,15 @@
+## Version 2.6.1
+
+🐛 Bug Fix
+
+- Accessibility fixes for github link
+- Accessiblity fixes for pokemon images
+
+💅 Enhancement
+
+- Masked icon for PWA
+- Improved icons for PWA
+
 ## Version 2.6.0
 
 🚀 New features
