@@ -242,6 +242,7 @@ const App: React.FC = () => {
           rel="noopener noreferrer"
         >
           <Icon name="github" />
+          <span>Source</span>
         </a>
       </footer>
     </main>

@@ -11,6 +11,15 @@
     top: 0 !important;
   }
 
+  :global(search) {
+    color: var(--contrast);
+  }
+
+  :global(.ui.image) {
+    width: 37.5px !important;
+    height: 28px;
+  }
+
   @media (max-width: 550px) {
     font-size: 11px;
   }
