@@ -1,7 +1,7 @@
 {
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
