@@ -142,6 +142,10 @@ const useStore = create<AppState>(
         set((state) => {
           state.badges[state.selectedGame?.value][i].levelCap = newBadge;
         }),
+      editRule: (newRule: string, i: number) =>
+        set((state) => {
+          state.rules[state.selectedRuleset][i].content = newRule;
+        }),
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
           state.games = newAppState.games;
@@ -153,7 +157,7 @@ const useStore = create<AppState>(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '2.5.0';
+          state.newVersion = '2.6.0';
         }),
       reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
         set((state) => {

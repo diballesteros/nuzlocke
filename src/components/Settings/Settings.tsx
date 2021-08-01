@@ -9,6 +9,7 @@ const Settings: React.FC = () => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setShow(false)}
       open={show}
       trigger={<Dropdown.Item icon="options" onClick={() => setShow(true)} text="Settings" />}
     >

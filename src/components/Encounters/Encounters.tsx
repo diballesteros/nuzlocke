@@ -138,6 +138,7 @@ const Encounters: React.FC = React.memo(() => {
         </div>
       )}
       <Confirm
+        closeOnDimmerClick
         content="This will delete the encounter. Are you sure?"
         open={confirm}
         onCancel={() => setConfirm(false)}

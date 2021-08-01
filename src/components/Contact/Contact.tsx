@@ -7,6 +7,7 @@ const Contact: React.FC = () => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setOpen(false)}
       open={open}
       trigger={<Dropdown.Item icon="bug" onClick={() => setOpen(true)} text="Report" />}
     >

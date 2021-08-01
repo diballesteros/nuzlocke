@@ -21,6 +21,7 @@ const BadgeEditor: React.FC = () => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setOpen(false)}
       open={open}
       trigger={
         <Button

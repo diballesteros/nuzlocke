@@ -162,6 +162,7 @@ const App: React.FC = () => {
           <Menu.Menu position="left">
             <Modal
               closeOnDimmerClick
+              onClose={handleClose}
               open={open}
               trigger={
                 <Button
@@ -207,14 +208,15 @@ const App: React.FC = () => {
               <BadgeEditor />
             ) : null}
             <Confirm
+              closeOnDimmerClick
               content="This will delete the custom game. Are you sure?"
               open={confirm}
               onCancel={() => setConfirm(false)}
               onConfirm={handleDelete}
             />
           </Menu.Menu>
-          <Menu.Menu position="left">
-            <h1 className={styles.header}>Nuzlocke Tracker</h1>
+          <Menu.Menu className={styles.header}>
+            <h1>Nuzlocke Tracker</h1>
           </Menu.Menu>
           <Menu.Menu position="right">
             <Button

@@ -44,17 +44,17 @@
     display: flex;
     flex-flow: row nowrap;
     gap: 10px;
-    padding: 10px 36px 10px 10px;
+    padding: 10px;
     color: var(--contrast);
     background-color: var(--card);
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     border-radius: 3px;
     position: relative;
 
-    .dnd {
+    .reorder {
       display: flex;
       flex-flow: column nowrap;
-      gap: 2.5px;
+      gap: 8px;
 
       > button {
         padding: 7.5px;
@@ -66,11 +66,11 @@
       font-size: 24px;
     }
 
-    .delete {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      font-size: 12px;
+    .buttons {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 8px;
+      margin-left: auto;
     }
   }
 }

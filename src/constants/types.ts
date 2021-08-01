@@ -29,6 +29,7 @@ export interface AppState extends TrackerState {
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
+  editRule: (newRule: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
