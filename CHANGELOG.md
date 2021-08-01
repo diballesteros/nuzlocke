@@ -4,6 +4,7 @@
 
 - Show only missing encounters by enabling the option in **Settings**
 - Edit already created rules
+- PWA implementation
 
 🐛 Bug Fix
 
@@ -13,6 +14,7 @@
 💅 Enhancement
 
 - Close windows by clicking on the overlay
+- Icons for status options
 
 🏠 Internal
 

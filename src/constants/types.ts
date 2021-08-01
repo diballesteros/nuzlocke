@@ -84,6 +84,7 @@ export type TPokemon = {
 };
 
 export type TStatus = {
+  icon: string;
   key: string;
   text: string;
   value: number;
