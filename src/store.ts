@@ -26,6 +26,7 @@ const useStore = create<AppState>(
       duplicates: false,
       games: INITIAL_STATE.games,
       gamesList: GAMES,
+      missing: false,
       newVersion: '1',
       nicknames: false,
       rules: INITIAL_STATE.rules,
@@ -192,6 +193,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      toggleMissing: () => {
+        set((state) => {
+          state.missing = !state.missing;
+        });
+      },
       toggleMode: () => {
         set((state) => {
           state.darkMode = !state.darkMode;

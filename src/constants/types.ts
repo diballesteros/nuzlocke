@@ -4,6 +4,7 @@ export interface TrackerState {
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  missing: boolean;
   newVersion: string;
   nicknames: boolean;
   rules: TRulesetDictionary;
@@ -38,6 +39,7 @@ export interface AppState extends TrackerState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
 }

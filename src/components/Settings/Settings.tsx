@@ -27,6 +27,12 @@ const Settings: React.FC = () => {
           label="Show nicknames"
           onChange={() => appState.toggleNickname()}
         />
+        <Checkbox
+          checked={appState.missing}
+          data-testid="settings-missing"
+          label="Show only missing encounters"
+          onChange={() => appState.toggleMissing()}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setShow(false)}>Close</Button>
