@@ -20,6 +20,7 @@ const Share: React.FC<ShareProps> = ({ disabled, text }) => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setShow(false)}
       open={show}
       trigger={
         <Button

@@ -4,6 +4,7 @@ export interface TrackerState {
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  missing: boolean;
   newVersion: string;
   nicknames: boolean;
   rules: TRulesetDictionary;
@@ -29,6 +30,7 @@ export interface AppState extends TrackerState {
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
+  editRule: (newRule: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
@@ -37,6 +39,7 @@ export interface AppState extends TrackerState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
 }
@@ -81,6 +84,7 @@ export type TPokemon = {
 };
 
 export type TStatus = {
+  icon: string;
   key: string;
   text: string;
   value: number;

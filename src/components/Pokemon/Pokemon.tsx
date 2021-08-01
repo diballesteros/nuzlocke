@@ -30,8 +30,8 @@ const Pokemon: React.FC<PokemonProps> = React.memo(
           className={styles.pokemonSelect}
           data-testid={`pokemon-${encounterId}`}
           fluid
-          inline
           icon={alreadyEncountered ? 'exclamation triangle' : undefined}
+          inline
           labeled
           lazyLoad
           onChange={onChange}

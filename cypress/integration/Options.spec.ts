@@ -11,10 +11,13 @@ describe('Options', () => {
     cy.get('.header').contains('Settings').should('exist');
     cy.get('[data-testid=settings-dupes] > label').click();
     cy.get('[data-testid=settings-nickname] > label').click();
+    cy.get('[data-testid=settings-missing] > label').click();
     cy.contains('Close').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
-    cy.get('[data-testid=nickname-0] > input').type('Nickname').should('have.value', 'Nickname');
+    cy.get('[data-testid=nickname-0] > input')
+      .type('Bulba Nickname')
+      .should('have.value', 'Bulba Nickname');
     cy.get('#search-filter').click();
     cy.get('[data-testid=pokemon-0] > .search').type('Bulb');
     cy.contains('Bulbasaur').click();
@@ -22,6 +25,11 @@ describe('Options', () => {
     cy.get('[data-testid=pokemon-1] > .search').type('Bulb');
     cy.contains('Bulbasaur').click();
     cy.contains('(Dupe)').should('exist');
+    cy.scrollTo('top');
+    cy.contains('Starter').should('exist');
+    cy.get('[data-testid=status-0]').click();
+    cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
+    cy.contains('Starter').should('not.exist');
   });
 
   it('About', () => {

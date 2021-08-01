@@ -75,6 +75,7 @@ const Options: React.FC = React.memo(() => {
         />
         <Modal
           closeOnDimmerClick
+          onClose={handleClose}
           open={open}
           trigger={
             <Button
@@ -116,6 +117,7 @@ const Options: React.FC = React.memo(() => {
           <i className="icon close" />
         </Button>
         <Confirm
+          closeOnDimmerClick
           content="This will reset all encounters for the selected game and delete custom encounters. Are you sure?"
           open={confirm}
           onCancel={() => setConfirm(false)}

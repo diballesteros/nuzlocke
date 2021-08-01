@@ -11,12 +11,20 @@
 
   .header {
     color: var(--contrast);
-    margin-left: 25px;
-    @media (max-width: 850px) {
-      margin-left: 15px;
+    margin-left: auto !important;
+    margin-right: auto !important;
+
+    @media (max-width: 1200px) {
+      margin-left: 25px !important;
+      margin-right: unset !important;
     }
-    @media (max-width: 750px) {
-      display: none;
+    @media (max-width: 850px) {
+      margin-left: 15px !important;
+    }
+    > h1 {
+      @media (max-width: 750px) {
+        display: none;
+      }
     }
   }
 

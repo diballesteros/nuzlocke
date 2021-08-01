@@ -11,6 +11,7 @@ const Encounters: React.FC = React.memo(() => {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const missing = useStore(useCallback((state) => state.missing, []));
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
@@ -42,16 +43,17 @@ const Encounters: React.FC = React.memo(() => {
     [games, selectedGame]
   );
 
-  const filteredGames = useMemo(() => {
+  const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
       const upperCase = text?.toUpperCase();
       return (
-        enc.location.toUpperCase()?.includes(upperCase) ||
-        enc.status?.text.toUpperCase()?.includes(upperCase) ||
-        enc.pokemon?.text?.toUpperCase()?.includes(upperCase)
+        (enc.location.toUpperCase()?.includes(upperCase) ||
+          enc.status?.text.toUpperCase()?.includes(upperCase) ||
+          enc.pokemon?.text?.toUpperCase()?.includes(upperCase)) &&
+        (!missing || (missing && (!enc.pokemon || !enc.status)))
       );
     });
-  }, [games, selectedGame, text]);
+  }, [games, missing, selectedGame, text]);
 
   const handleClear = (encounterId: number) => {
     clearEncounter(encounterId);
@@ -69,7 +71,7 @@ const Encounters: React.FC = React.memo(() => {
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
-    const encounter = filteredGames[index];
+    const encounter = filteredEncounters[index];
     return (
       <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
         <div className={styles.row} data-testid={`encounter-${encounter.id}`}>
@@ -124,7 +126,7 @@ const Encounters: React.FC = React.memo(() => {
         <div className={styles.list} data-testid="encounters-list">
           <FixedSizeList
             height={1000}
-            itemCount={filteredGames?.length}
+            itemCount={filteredEncounters?.length}
             itemSize={nicknames ? 182 : 144}
             width="100%"
           >
@@ -138,6 +140,7 @@ const Encounters: React.FC = React.memo(() => {
         </div>
       )}
       <Confirm
+        closeOnDimmerClick
         content="This will delete the encounter. Are you sure?"
         open={confirm}
         onCancel={() => setConfirm(false)}

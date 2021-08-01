@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Button, Confirm, Dropdown, DropdownProps, Icon, Input, Modal } from 'semantic-ui-react';
 import useStore from 'store';
 import { TRule } from 'constants/types';
-import { Share } from 'components';
+import { RuleEditor, Share } from 'components';
 import styles from './Rules.module.scss';
 
 const Rules: React.FC = () => {
@@ -80,6 +80,8 @@ const Rules: React.FC = () => {
           }
         />
         <Modal
+          closeOnDimmerClick
+          onClose={handleClose}
           open={open}
           trigger={
             <Button
@@ -125,6 +127,8 @@ const Rules: React.FC = () => {
           value={selectedRuleset}
         />
         <Modal
+          closeOnDimmerClick
+          onClose={handleCloseRulesetModal}
           open={addModal}
           trigger={
             <Button
@@ -173,6 +177,7 @@ const Rules: React.FC = () => {
           </Button>
         )}
         <Confirm
+          closeOnDimmerClick
           content="This will delete the custom ruleset. Are you sure?"
           onCancel={() => setConfirm(false)}
           onConfirm={handleDeleteRuleset}
@@ -183,7 +188,7 @@ const Rules: React.FC = () => {
         {rules[selectedRuleset].map((rule, i) => {
           return (
             <div className={styles.rule} key={`rule-${i + 1}`}>
-              <div className={styles.dnd}>
+              <div className={styles.reorder}>
                 {i !== 0 && (
                   <Button
                     data-testid={`arrow-up-${i}`}
@@ -209,18 +214,21 @@ const Rules: React.FC = () => {
               </div>
               <span className={styles.number}>{`${i + 1}.`}</span>
               <p>{rule.content}</p>
-              <Button
-                aria-label="delete rule"
-                basic
-                className={styles.delete}
-                compact
-                icon
-                inverted={darkMode}
-                onClick={() => deleteRule(i)}
-                type="button"
-              >
-                <Icon name="trash" />
-              </Button>
+              <div className={styles.buttons}>
+                <Button
+                  aria-label="delete rule"
+                  basic
+                  compact
+                  data-testid={`delete-rule-${i}`}
+                  icon
+                  inverted={darkMode}
+                  onClick={() => deleteRule(i)}
+                  type="button"
+                >
+                  <Icon name="trash" />
+                </Button>
+                <RuleEditor content={rule.content} index={i} />
+              </div>
             </div>
           );
         })}

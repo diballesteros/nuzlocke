@@ -9,6 +9,7 @@ const Settings: React.FC = () => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setShow(false)}
       open={show}
       trigger={<Dropdown.Item icon="options" onClick={() => setShow(true)} text="Settings" />}
     >
@@ -25,6 +26,12 @@ const Settings: React.FC = () => {
           data-testid="settings-nickname"
           label="Show nicknames"
           onChange={() => appState.toggleNickname()}
+        />
+        <Checkbox
+          checked={appState.missing}
+          data-testid="settings-missing"
+          label="Show only missing encounters"
+          onChange={() => appState.toggleMissing()}
         />
       </Modal.Content>
       <Modal.Actions>

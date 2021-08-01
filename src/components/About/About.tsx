@@ -15,13 +15,14 @@ const About: React.FC = () => {
   return (
     <Modal
       closeOnDimmerClick
+      onClose={() => setShow(false)}
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.5.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '2.6.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.5.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '2.6.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -36,6 +37,14 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 2.6.0)</b>
+          <ul>
+            <li>
+              Show only missing encounters by enabling the option in <b>Settings</b>
+            </li>
+            <li>Edit already created rules</li>
+            <li>Now works offline!</li>
+          </ul>
           <b>(Version 2.5.0)</b>
           <ul>
             <li>Share option is now a button inside the tracker</li>

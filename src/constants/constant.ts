@@ -143,6 +143,7 @@ export const INITIAL_STATE: TrackerState = {
     '13': { badge: null, encounters: SW_SH },
   },
   gamesList: GAMES,
+  missing: false,
   newVersion: '1',
   nicknames: false,
   rules: { '1': DEFAULT_RULESET, '2': HARDCORE_RULESET },
