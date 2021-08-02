@@ -235,7 +235,7 @@ const App: React.FC = () => {
         <Tab className={styles.tabs} panes={panes} />
       </Container>
       <footer className={styles.footer}>
-        <h2 className={styles.name}>Nuzlocke Tracker</h2>
+        <b className={styles.name}>Nuzlocke Tracker</b>
         <a
           className={styles.github}
           href="https://github.com/diballesteros/nuzlocke/"
