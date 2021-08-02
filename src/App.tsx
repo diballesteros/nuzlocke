@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactGA from 'react-ga';
 import {
   Button,
   Confirm,
@@ -50,10 +49,6 @@ const App: React.FC = () => {
       ),
     },
   ];
-
-  useEffect(() => {
-    ReactGA.initialize('G-JVSCZNML5H');
-  }, []);
 
   useEffect(() => {
     if (appState.darkMode) {
