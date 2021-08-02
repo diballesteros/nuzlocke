@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import ReactGA from 'react-ga';
 import {
   Button,
   Confirm,
@@ -14,6 +15,7 @@ import {
 import useStore from 'store';
 import { AppState } from 'constants/types';
 import { About, BadgeEditor, Contact, Pokestats, Rules, Settings, Tracker } from 'components';
+
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
@@ -48,6 +50,10 @@ const App: React.FC = () => {
       ),
     },
   ];
+
+  useEffect(() => {
+    ReactGA.initialize('G-JVSCZNML5H');
+  }, []);
 
   useEffect(() => {
     if (appState.darkMode) {

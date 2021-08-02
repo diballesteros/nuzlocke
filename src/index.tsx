@@ -9,8 +9,6 @@ import reportWebVitals from 'reportWebVitals';
 import { ReportHandler } from 'web-vitals';
 import App from './App';
 
-ReactGA.initialize('G-JVSCZNML5H');
-
 ReactDOM.render(
   <>
     <App />
