@@ -1,5 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import { Modal, Button, Icon, Input } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from './BadgeEditor.module.scss';
 

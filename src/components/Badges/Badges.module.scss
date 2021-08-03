@@ -19,7 +19,8 @@
     border-radius: 3px;
     box-shadow: 0 0 4px #999;
     font: inherit;
-    color: var(--bgprimary);
+    font-weight: bolder;
+    color: #0a0a0a;
     transition: background 0.8s;
     cursor: pointer;
 
@@ -46,6 +47,7 @@
 
     @media (max-width: 870px) {
       font-size: 12px;
+
       > img {
         height: 35px;
         width: 35px;

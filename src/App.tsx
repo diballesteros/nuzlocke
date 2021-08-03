@@ -1,20 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import {
-  Button,
-  Confirm,
-  Container,
-  Dropdown,
-  DropdownProps,
-  Icon,
-  Input,
-  Menu,
-  Modal,
-  Tab,
-} from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import useStore from 'store';
 import { AppState } from 'constants/types';
 import { About, BadgeEditor, Contact, Pokestats, Rules, Settings, Tracker } from 'components';
-
 import styles from './App.module.scss';
 
 const App: React.FC = () => {

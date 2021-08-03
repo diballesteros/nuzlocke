@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { Modal, Dropdown, Button } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from './About.module.scss';
 

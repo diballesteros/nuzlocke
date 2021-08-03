@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'semantic-ui-react';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import useStore from 'store';
 import styles from './Nickname.module.scss';
 

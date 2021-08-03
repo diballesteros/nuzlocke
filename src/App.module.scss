@@ -1,6 +1,7 @@
 .app {
   height: fit-content;
   background-color: var(--bgprimary);
+  transition: all 500ms;
   overflow: auto;
   .input {
     height: 100%;
@@ -67,7 +68,7 @@
     padding: 20px 0px;
 
     @media (max-width: 600px) {
-      padding: 8px 0px;
+      padding: 2px 0px;
     }
 
     :global(.ui.tabular.menu) {
@@ -77,6 +78,7 @@
 
     :global(.ui.tabular.menu .active) {
       background-color: var(--bgsecondary);
+      transition: all 500ms;
       border: none;
     }
 
@@ -86,6 +88,7 @@
 
     :global(.ui.bottom) {
       background-color: var(--bgsecondary);
+      transition: all 500ms;
       border: none;
     }
   }

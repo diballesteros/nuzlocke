@@ -33,6 +33,7 @@
     }
     :global(.ui.secondary.menu .active) {
       background-color: var(--card);
+      transition: all 500ms;
     }
 
     :global(.ui.secondary.menu .item) {

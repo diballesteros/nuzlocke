@@ -1,5 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Button, Confirm, Icon, Input, Modal } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
 import { Share } from 'components';

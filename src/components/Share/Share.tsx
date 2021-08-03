@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Button, Icon, Modal } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 
 interface ShareProps {

@@ -1,6 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
 import shallow from 'zustand/shallow';
-import { Label, Menu, Popup, Tab } from 'semantic-ui-react';
+import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
+import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import useStore from 'store';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';

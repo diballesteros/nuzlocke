@@ -1,7 +1,9 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import shallow from 'zustand/shallow';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import { Button, Confirm, Icon } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import { Nickname, Pokemon, Status } from 'components';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';

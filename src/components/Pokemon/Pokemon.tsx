@@ -1,8 +1,8 @@
 import React from 'react';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TPokemon } from 'constants/types';
-import { Dropdown, DropdownProps } from 'semantic-ui-react';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {

@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Button, Checkbox, Dropdown, Modal } from 'semantic-ui-react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 
 const Settings: React.FC = () => {
