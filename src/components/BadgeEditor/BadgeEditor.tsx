@@ -1,10 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
+import { LEVEL_CAPS } from 'constants/badges';
 import styles from './BadgeEditor.module.scss';
+
+const MULTIPLE_CAPS = ['1', '3', '5', '8'];
 
 const BadgeEditor: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -17,8 +21,8 @@ const BadgeEditor: React.FC = () => {
     editBadge(newBadge, index);
   };
 
-  const handleReset = () => {
-    resetBadges();
+  const handleMultiReset = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
+    resetBadges(data.value as string);
   };
 
   return (
@@ -61,7 +65,17 @@ const BadgeEditor: React.FC = () => {
         })}
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleReset}>Reset</Button>
+        {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
+          <Dropdown
+            button
+            text="Set default"
+            onChange={handleMultiReset}
+            options={LEVEL_CAPS[selectedGame?.value]}
+            value={null}
+          />
+        ) : (
+          <Button onClick={() => resetBadges()}>Set default</Button>
+        )}
         <Button onClick={() => setOpen(false)}>Close</Button>
       </Modal.Actions>
     </Modal>

@@ -35,7 +35,7 @@ export interface AppState extends TrackerState {
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
   resetAll: () => void;
-  resetBadges: () => void;
+  resetBadges: (gameKey?: string) => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
@@ -55,6 +55,18 @@ export type TGame = {
   value: string;
   text: string;
   key: string;
+};
+
+export type TLevelCaps = { [key: string]: LevelCap[] };
+
+export type LevelCap = {
+  value: string;
+  text: string;
+  key: string;
+};
+
+export type TLevelCapDictionary = {
+  [key: string]: string[];
 };
 
 export type TBadgeDictionary = {

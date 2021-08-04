@@ -1,3 +1,19 @@
+## Version 2.7.0
+
+🚀 New features
+
+- Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the pencil next to the game selector
+
+🐛 Bug Fix
+
+- Split level caps for Yellow, Emerald and Platinum
+
+🏠 Internal
+
+- Bumped @typescript-eslint/eslint-plugin to 4.29.0
+- Bumped @typescript-eslint/parser to 4.29.0
+- Bumped @types/node to 16.4.12
+
 ## Version 2.6.1
 
 🐛 Bug Fix

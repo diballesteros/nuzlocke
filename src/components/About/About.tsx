@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.6.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '2.7.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.6.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '2.7.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,13 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 2.7.0)</b>
+          <ul>
+            <li>
+              Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the
+              pencil next to the game selector
+            </li>
+          </ul>
           <b>(Version 2.6.0)</b>
           <ul>
             <li>
