@@ -13,11 +13,13 @@ import { AppState } from 'constants/types';
 import { About, BadgeEditor, Contact, Pokestats, Rules, Settings, Tracker } from 'components';
 import styles from './App.module.scss';
 
+const API_URL = 'https://pokeapi.co/api/v2/location-area/evergrande-city-area';
 const App: React.FC = () => {
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
+  const [response, setResponse] = React.useState(null);
 
   const panes = [
     {
@@ -119,6 +121,101 @@ const App: React.FC = () => {
   const handleDelete = () => {
     appState.deleteGame();
     setConfirm(false);
+  };
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(`filter: ${text},`);
+  };
+
+  const fetchData = async () => {
+    const cap = (word: string): string => {
+      return word[0].toUpperCase() + word.substring(1);
+    };
+    const res = await fetch(API_URL, {});
+    const json = await res.json();
+    const test: { [key: string]: string[] } = {
+      'rby': [],
+      'gsc': [],
+      'rse': [],
+      'frlg': [],
+      'dpp': [],
+      'bw': [],
+      'bw2': [],
+      'xy': [],
+      'oras': [],
+    };
+    json.pokemon_encounters.forEach(
+      (enc: { version_details: { version: { name: any } }[]; pokemon: { name: string } }) => {
+        enc.version_details.forEach((ver: { version: { name: any } }) => {
+          const capitalized = cap(enc.pokemon.name);
+          switch (ver.version.name) {
+            case 'red':
+            case 'blue':
+            case 'yellow':
+              if (!test.rby.includes(capitalized)) {
+                test.rby.push(cap(capitalized));
+              }
+              break;
+            case 'gold':
+            case 'silver':
+            case 'crystal':
+            case 'heartgold':
+            case 'soulsilver':
+              if (!test.gsc.includes(capitalized)) {
+                test.gsc.push(cap(capitalized));
+              }
+              break;
+            case 'ruby':
+            case 'sapphire':
+            case 'emerald':
+              if (!test.rse.includes(capitalized)) {
+                test.rse.push(cap(capitalized));
+              }
+              break;
+            case 'firered':
+            case 'leafgreen':
+              if (!test.frlg.includes(capitalized)) {
+                test.frlg.push(cap(capitalized));
+              }
+              break;
+            case 'diamond':
+            case 'pearl':
+            case 'platinum':
+              if (!test.frlg.includes(capitalized)) {
+                test.frlg.push(cap(capitalized));
+              }
+              break;
+            case 'black':
+            case 'white':
+              if (!test.bw.includes(capitalized)) {
+                test.bw.push(cap(capitalized));
+              }
+              break;
+            case 'black-2':
+            case 'white-2':
+              if (!test.bw2.includes(capitalized)) {
+                test.bw2.push(cap(capitalized));
+              }
+              break;
+            case 'omega-ruby':
+            case 'alpha-sapphire':
+              if (!test.oras.includes(capitalized)) {
+                test.oras.push(cap(capitalized));
+              }
+              break;
+            case 'x':
+            case 'y':
+              if (!test.xy.includes(capitalized)) {
+                test.xy.push(cap(capitalized));
+              }
+              break;
+            default:
+              break;
+          }
+        });
+      }
+    );
+    setResponse(test);
   };
 
   return (
@@ -228,7 +325,27 @@ const App: React.FC = () => {
         </Menu>
       </header>
       <Container className={styles.container}>
-        <Tab className={styles.tabs} panes={panes} />
+        {/* <Tab className={styles.tabs} panes={panes} /> */}
+        <h1>{API_URL}</h1>
+        <button onClick={fetchData} type="button" style={{ width: 500, height: 500 }}>
+          Fetch
+        </button>
+        <code>
+          {response
+            ? Object.entries(response).map((entry) => {
+                if ((entry[1] as unknown as string[]).length > 0) {
+                  return (
+                    <div style={{ display: 'flex', gap: '10px' }} key={entry[0]}>
+                      <b>{entry[0]}</b>
+                      <button onClick={() => handleCopy(JSON.stringify(entry[1]))} type="button">
+                        copy
+                      </button>
+                    </div>
+                  );
+                }
+              })
+            : null}
+        </code>
       </Container>
       <footer className={styles.footer}>
         <b className={styles.name}>Nuzlocke Tracker</b>

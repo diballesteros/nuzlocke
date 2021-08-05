@@ -81,6 +81,7 @@ export type TBadge = {
 };
 
 export type TEncounter = {
+  filter?: string[];
   id: number;
   location: string;
   nickname?: string;
