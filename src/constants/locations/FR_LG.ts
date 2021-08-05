@@ -77,7 +77,7 @@ const FR_LG: TEncounter[] = [
     status: null,
   },
   {
-    filter: ['Pidgey', 'Spearow', 'Nidoran-f', 'Nidoran-m', 'Jigglypuff', 'Mankey'],
+    filter: ['Pidgey', 'Spearow', 'Nidoran♀', 'Nidoran♂', 'Jigglypuff', 'Mankey'],
     id: 8,
     pokemon: null,
     location: 'Route 3',
@@ -354,9 +354,9 @@ const FR_LG: TEncounter[] = [
   },
   {
     filter: [
-      'Nidoran-f',
+      'Nidoran♀',
       'Nidorina',
-      'Nidoran-m',
+      'Nidoran♂',
       'Nidorino',
       'Parasect',
       'Venonat',

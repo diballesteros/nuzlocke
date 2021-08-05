@@ -250,8 +250,8 @@ const HG_SS: TEncounter[] = [
   {
     filter: [
       'Pidgey',
-      'Nidoran-f',
-      'Nidoran-m',
+      'Nidoran♀',
+      'Nidoran♂',
       'Psyduck',
       'Golduck',
       'Poliwag',
@@ -277,8 +277,8 @@ const HG_SS: TEncounter[] = [
   {
     filter: [
       'Pidgey',
-      'Nidoran-f',
-      'Nidoran-m',
+      'Nidoran♀',
+      'Nidoran♂',
       'Vulpix',
       'Growlithe',
       'Hoothoot',
