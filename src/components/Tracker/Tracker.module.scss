@@ -4,6 +4,7 @@
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
   height: 100%;
+  position: relative;
 
   .container {
     display: flex;
@@ -16,9 +17,5 @@
     background-color: var(--bgsecondary);
     transition: all 500ms;
     border-radius: 3px;
-
-    @media (max-width: 500px) {
-      gap: 2px;
-    }
   }
 }

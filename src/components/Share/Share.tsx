@@ -3,13 +3,15 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
+import styles from 'assets/styles/Button.module.scss';
 
 interface ShareProps {
   disabled: boolean;
+  icon?: boolean;
   text: string;
 }
 
-const Share: React.FC<ShareProps> = ({ disabled, text }) => {
+const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
   const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
@@ -25,16 +27,28 @@ const Share: React.FC<ShareProps> = ({ disabled, text }) => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Button
-          color="blue"
-          disabled={disabled}
-          data-testid="share-encounters"
-          inverted={appState.darkMode}
-          onClick={() => setShow(true)}
-        >
-          SHARE
-          <Icon name="share" />
-        </Button>
+        icon ? (
+          <Button
+            icon="share"
+            circular
+            className={styles.iconButton}
+            color="blue"
+            data-testid="share-encounters"
+            disabled={disabled}
+            onClick={() => setShow(true)}
+          />
+        ) : (
+          <Button
+            color="blue"
+            disabled={disabled}
+            data-testid="share-encounters"
+            inverted={appState.darkMode}
+            onClick={() => setShow(true)}
+          >
+            SHARE
+            <Icon name="share" />
+          </Button>
+        )
       }
     >
       <Modal.Header>Share</Modal.Header>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Badges, Encounters, Options } from 'components';
+import { Badges, Encounters, FAB, Options } from 'components';
 import styles from './Tracker.module.scss';
 
 const Tracker: React.FC = () => {
@@ -10,6 +10,7 @@ const Tracker: React.FC = () => {
         <Options />
         <Encounters />
       </div>
+      <FAB />
     </div>
   );
 };

@@ -13,6 +13,10 @@
     gap: 2px;
     font-weight: bold;
 
+    @media (max-width: 550px) {
+      display: none;
+    }
+
     > button > i {
       margin-left: 5px !important;
       margin-right: 0 !important;
@@ -33,13 +37,6 @@
         width: 100%;
         flex: 1;
       }
-    }
-  }
-
-  @media (max-width: 500px) {
-    gap: 2.5px;
-    .buttons button {
-      font-size: 10px !important;
     }
   }
 }

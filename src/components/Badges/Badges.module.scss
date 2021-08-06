@@ -45,15 +45,6 @@
       object-fit: contain;
     }
 
-    @media (max-width: 870px) {
-      font-size: 12px;
-
-      > img {
-        height: 35px;
-        width: 35px;
-      }
-    }
-
     .levelCap {
       align-self: flex-end;
     }

@@ -1,50 +1,26 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
-import { Share } from 'components';
+import { AddEncounter, ResetEncounters, Share } from 'components';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const search = useStore(useCallback((state) => state.search, []));
-  const resetAll = useStore(useCallback((state) => state.resetAll, []));
-  const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const games = useStore(useCallback((state) => state.games, []));
   const [searchText, setSearchText] = useState(text);
   const debouncedValue = useDebounce<string>(searchText, 250);
-  const [open, setOpen] = useState(false);
-  const [confirm, setConfirm] = useState(false);
-  const [location, setLocation] = useState('');
 
   useEffect(() => {
     search(debouncedValue);
   }, [debouncedValue, search]);
 
-  const handleReset = () => {
-    resetAll();
-    setConfirm(false);
-  };
-
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
-  };
-
-  const handleAdd = () => {
-    addEncounter(location);
-    setOpen(false);
-    setLocation('');
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setLocation('');
   };
 
   return (
@@ -77,56 +53,8 @@ const Options: React.FC = React.memo(() => {
         `
           )}
         />
-        <Modal
-          closeOnDimmerClick
-          onClose={handleClose}
-          open={open}
-          trigger={
-            <Button
-              color="green"
-              data-testid="add-encounter"
-              disabled={!selectedGame}
-              inverted={darkMode}
-              onClick={() => setOpen(true)}
-            >
-              ADD
-              <i className="icon plus" />
-            </Button>
-          }
-        >
-          <Modal.Header>Add Encounter</Modal.Header>
-          <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-            Please enter the location name
-            <Input
-              data-testid="add-encounter-input"
-              onChange={(e, data) => setLocation(data.value)}
-              value={location}
-            />
-          </Modal.Content>
-          <Modal.Actions>
-            <Button onClick={handleClose}>Cancel</Button>
-            <Button disabled={location?.length === 0} onClick={handleAdd}>
-              Save
-            </Button>
-          </Modal.Actions>
-        </Modal>
-        <Button
-          color="red"
-          data-testid="reset-all"
-          disabled={!selectedGame}
-          inverted={darkMode}
-          onClick={() => setConfirm(true)}
-        >
-          RESET
-          <i className="icon close" />
-        </Button>
-        <Confirm
-          closeOnDimmerClick
-          content="This will reset all encounters for the selected game and delete custom encounters. Are you sure?"
-          open={confirm}
-          onCancel={() => setConfirm(false)}
-          onConfirm={handleReset}
-        />
+        <AddEncounter />
+        <ResetEncounters />
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ describe('Options', () => {
     cy.get('[data-testid=settings-dupes] > label').click();
     cy.get('[data-testid=settings-nickname] > label').click();
     cy.get('[data-testid=settings-missing] > label').click();
+    cy.get('[data-testid=settings-showall] > label').click();
     cy.contains('Close').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();

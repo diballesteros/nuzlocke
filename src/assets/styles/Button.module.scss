@@ -1,0 +1,13 @@
+.iconButton {
+  width: 56px;
+  height: 56px;
+  > i {
+    padding-top: 5px;
+    font-size: 2em;
+  }
+
+  &:hover {
+    background-color: var(--badge);
+    color: #ffffff;
+  }
+}
