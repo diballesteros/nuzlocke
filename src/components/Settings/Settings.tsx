@@ -36,6 +36,12 @@ const Settings: React.FC = () => {
           label="Show only missing encounters"
           onChange={() => appState.toggleMissing()}
         />
+        <Checkbox
+          checked={appState.showAll}
+          data-testid="settings-showall"
+          label="Show all pokémon in every encounter"
+          onChange={() => appState.toggleShowAll()}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setShow(false)}>Close</Button>

@@ -150,5 +150,6 @@ export const INITIAL_STATE: TrackerState = {
   rulesets: RULESETS,
   selectedGame: null,
   selectedRuleset: '1',
+  showAll: false,
   text: null,
 };

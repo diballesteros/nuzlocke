@@ -11,6 +11,7 @@ export interface TrackerState {
   rulesets: TRuleset[];
   selectedGame: TGame;
   selectedRuleset: string;
+  showAll: boolean;
   text: string;
 }
 
@@ -42,6 +43,7 @@ export interface AppState extends TrackerState {
   toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
+  toggleShowAll: () => void;
 }
 
 export type Games = { [key: string]: TrackData };

@@ -33,6 +33,7 @@ const useStore = create<AppState>(
       rulesets: INITIAL_STATE.rulesets,
       selectedGame: null,
       selectedRuleset: '1',
+      showAll: false,
       text: '',
       addEncounter: (newLocation: string) =>
         set((state) => {
@@ -212,6 +213,11 @@ const useStore = create<AppState>(
       toggleNickname: () => {
         set((state) => {
           state.nicknames = !state.nicknames;
+        });
+      },
+      toggleShowAll: () => {
+        set((state) => {
+          state.showAll = !state.showAll;
         });
       },
     })),

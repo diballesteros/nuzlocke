@@ -42,8 +42,14 @@ const About: React.FC = () => {
           <b>(Version 2.7.0)</b>
           <ul>
             <li>
+              Encounters now show accurate droptables, this can be turned off from <b>Settings</b>{' '}
+              by showing all pokémon. <b>**IMPORTANT**</b> In order to enable this in existing apps
+              use the <b>Reset Button</b> Note this will delete existing encounter data.
+            </li>
+            <li>
               Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the
-              <b> pencil</b> next to the game selector
+              <b> pencil</b> next to the game selector. In the emerging window, select an option
+              from <b>Set Default</b>
             </li>
           </ul>
           <b>(Version 2.6.0)</b>
