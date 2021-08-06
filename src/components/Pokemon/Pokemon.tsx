@@ -2,7 +2,7 @@ import React from 'react';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
-import { TEncounter, TPokemon } from 'constants/types';
+import { TEncounter } from 'constants/types';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {
@@ -31,7 +31,11 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ alreadyEncountered, encoun
         labeled
         lazyLoad
         onChange={onChange}
-        options={POKEMON.filter((poke) => encounter?.filter?.includes(poke.text))}
+        options={
+          encounter?.filter
+            ? POKEMON.filter((poke) => encounter?.filter?.includes(poke.text))
+            : POKEMON
+        }
         placeholder="Select..."
         search
         selection

@@ -43,7 +43,7 @@ const About: React.FC = () => {
           <ul>
             <li>
               Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the
-              pencil next to the game selector
+              <b> pencil</b> next to the game selector
             </li>
           </ul>
           <b>(Version 2.6.0)</b>
@@ -101,8 +101,6 @@ const About: React.FC = () => {
         </div>
         <div className={styles.credits}>
           <b>Credits:</b>
-          Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
-          Pokémon character names are trademarks of Nintendo.
           <div>
             Icons made by{' '}
             <a href="http://www.dariusdan.com" title="Darius Dan">
