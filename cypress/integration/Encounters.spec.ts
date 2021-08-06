@@ -16,11 +16,11 @@ describe('Encounters', () => {
   });
 
   it('Edit base encounter', () => {
-    cy.get('[data-testid=pokemon-0] > .search').type('Bulb');
-    cy.contains('Bulbasaur').click();
+    cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
+    cy.contains('Scorbunny').click();
     cy.get('#search-filter').click();
     cy.scrollTo('top');
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Bulbasaur');
+    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Scorbunny');
     cy.scrollTo('top');
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
@@ -31,8 +31,8 @@ describe('Encounters', () => {
   });
 
   it('Reset all encounters', () => {
-    cy.get('[data-testid=pokemon-0] > .search').type('Bulb');
-    cy.contains('Bulbasaur').click();
+    cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
+    cy.contains('Scorbunny').click();
     cy.get('#search-filter').click();
     cy.get('[data-testid=reset-all]').click();
     cy.contains('OK').click();

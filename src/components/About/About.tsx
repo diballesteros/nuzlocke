@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.6.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '2.7.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.6.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '2.7.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,24 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 2.7.0)</b>
+          <ul>
+            <li>
+              Encounters now show accurate droptables, this can be turned off from <b>Settings</b>{' '}
+              by showing all pokémon. <b>**IMPORTANT**</b> If you have visited this page before use
+              the <b>Reset Button</b> to enable this feature. Note this will <b>delete</b> existing
+              encounter data
+            </li>
+            <li>
+              Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the
+              <b> pencil</b> next to the game selector. In the emerging window, select an option
+              from <b>Set Default</b>
+            </li>
+            <li>
+              On smaller screens the options of add encounter, reset encounters and share can be
+              found on the button on the lower right part of the screen
+            </li>
+          </ul>
           <b>(Version 2.6.0)</b>
           <ul>
             <li>
@@ -94,8 +112,6 @@ const About: React.FC = () => {
         </div>
         <div className={styles.credits}>
           <b>Credits:</b>
-          Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
-          Pokémon character names are trademarks of Nintendo.
           <div>
             Icons made by{' '}
             <a href="http://www.dariusdan.com" title="Darius Dan">

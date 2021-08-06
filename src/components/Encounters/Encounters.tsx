@@ -89,8 +89,7 @@ const Encounters: React.FC = React.memo(() => {
                   )
                 : false
             }
-            encounterId={encounter.id}
-            pokemon={encounter.pokemon}
+            encounter={encounter}
           />
           <Status encounterId={encounter.id} status={encounter.status} />
           <Button

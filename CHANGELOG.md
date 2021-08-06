@@ -1,3 +1,28 @@
+## Version 2.7.0
+
+🚀 New features
+
+- Encounters now show accurate droptables, this can be turned off from **Settings** by showing all pokémon. **IMPORTANT** If you've visited this page before use the **Reset Button** to enable this feature Note this will delete existing encounter data
+- Set Pokemon Yellow, Emerald, Platinum, Black/White 2 different level caps from the **pencil** next to the game selector. In the emerging window, select an option from **Set Default**
+
+🐛 Bug Fix
+
+- Split level caps for Yellow, Emerald and Platinum
+- Various spelling fixes with location names
+
+💅 Enhancement
+
+- On smaller screens replaced the Share, Add Encounter and Reset encounters options with a floating action button containing the same options
+- Removed most post game locations from Fire Red/Leaf Green
+
+🏠 Internal
+
+- Bumped @typescript-eslint/eslint-plugin to 4.29.0
+- Bumped @typescript-eslint/parser to 4.29.0
+- Bumped @types/node to 16.4.13
+- Bumped @types/react to 17.0.16
+- Bumped cypress to 8.2.0
+
 ## Version 2.6.1
 
 🐛 Bug Fix

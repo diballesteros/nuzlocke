@@ -1,4 +1,4 @@
-import { TBadgeDictionary } from 'constants/types';
+import { TBadgeDictionary, TLevelCapDictionary, TLevelCaps } from 'constants/types';
 import akala from 'assets/img/badges/akala.png';
 import balance from 'assets/img/badges/balance.png';
 import basic from 'assets/img/badges/basic.png';
@@ -79,8 +79,8 @@ const BADGES: TBadgeDictionary = {
   '1': [
     {
       id: 1,
-      levelCap: '14/12',
-      name: 'Boulder Badge RB/Y',
+      levelCap: '14',
+      name: 'Boulder Badge',
       src: boulder,
     },
     {
@@ -91,38 +91,38 @@ const BADGES: TBadgeDictionary = {
     },
     {
       id: 3,
-      levelCap: '24/28',
-      name: 'Thunder Badge RB/Y',
+      levelCap: '24',
+      name: 'Thunder Badge',
       src: thunder,
     },
     {
       id: 4,
-      levelCap: '29/32',
-      name: 'Rainbow Badge RB/Y',
+      levelCap: '29',
+      name: 'Rainbow Badge',
       src: rainbow,
     },
     {
       id: 5,
-      levelCap: '43/50',
-      name: 'Soul Badge RB/Y',
+      levelCap: '43',
+      name: 'Soul Badge',
       src: soul,
     },
     {
       id: 6,
-      levelCap: '43/50',
-      name: 'Marsh Badge RB/Y',
+      levelCap: '43',
+      name: 'Marsh Badge',
       src: marsh,
     },
     {
       id: 7,
-      levelCap: '47/54',
-      name: 'Volcano Badge RB/Y',
+      levelCap: '47',
+      name: 'Volcano Badge',
       src: volcano,
     },
     {
       id: 8,
-      levelCap: '50/55',
-      name: 'Earth Badge RB/Y',
+      levelCap: '50',
+      name: 'Earth Badge',
       src: earth,
     },
     {
@@ -537,56 +537,56 @@ const BADGES: TBadgeDictionary = {
   '8': [
     {
       id: 1,
-      levelCap: '12/13/14',
-      name: 'Basic Badge Easy/Normal/Challenge',
+      levelCap: '13',
+      name: 'Basic Badge',
       src: basic,
     },
     {
       id: 2,
-      levelCap: '17/18/19',
-      name: 'Toxic Badge Easy/Normal/Challenge',
+      levelCap: '18',
+      name: 'Toxic Badge',
       src: toxic,
     },
     {
       id: 3,
-      levelCap: '22/24/26',
-      name: 'Insect Badge Easy/Normal/Challenge',
+      levelCap: '24',
+      name: 'Insect Badge',
       src: insect,
     },
     {
       id: 4,
-      levelCap: '28/30/32',
-      name: 'Bolt Badge Easy/Normal/Challenge',
+      levelCap: '30',
+      name: 'Bolt Badge',
       src: bolt,
     },
     {
       id: 5,
-      levelCap: '30/33/36',
-      name: 'Quake Badge Easy/Normal/Challenge',
+      levelCap: '33',
+      name: 'Quake Badge',
       src: quake,
     },
     {
       id: 6,
-      levelCap: '36/39/42',
-      name: 'Jet Badge Easy/Normal/Challenge',
+      levelCap: '39',
+      name: 'Jet Badge',
       src: jet,
     },
     {
       id: 7,
-      levelCap: '44/48/52',
-      name: 'Legend Badge Easy/Normal/Challenge',
+      levelCap: '48',
+      name: 'Legend Badge',
       src: legend,
     },
     {
       id: 8,
-      levelCap: '47/51/55',
-      name: 'Wave Badge Easy/Normal/Challenge',
+      levelCap: '51',
+      name: 'Wave Badge',
       src: wave,
     },
     {
       id: 9,
-      levelCap: '55/59/63',
-      name: 'Elite 4 Easy/Normal/Challenge',
+      levelCap: '59',
+      name: 'Elite 4',
       src: champion,
     },
   ],
@@ -904,6 +904,74 @@ const BADGES: TBadgeDictionary = {
       levelCap: 65,
       name: 'Champion Cup',
       src: champion,
+    },
+  ],
+};
+
+export const GAME_CAP_DICTIONARY: TLevelCapDictionary = {
+  'REDANDBLUE': ['14', '21', '24', '29', '43', '43', '47', '50', '65'],
+  'YELLOW': ['12', '21', '28', '32', '50', '50', '54', '55', '65'],
+  'RUBYANDSAPPHIRE': ['15', '18', '23', '28', '31', '33', '42', '43', '58'],
+  'EMERALD': ['15', '19', '24', '29', '31', '33', '42', '46', '58'],
+  'PLATINUM': ['14', '22', '26', '32', '37', '41', '44', '50', '62'],
+  'DIAMONDANDPEARL': ['14', '22', '32', '32', '36', '41', '42', '49', '66'],
+  'BW2NORMALMODE': ['13', '18', '24', '30', '33', '39', '48', '51', '59'],
+  'BW2EASYMODE': ['12', '17', '22', '28', '30', '36', '44', '47', '55'],
+  'BW2CHALLENGEMODE': ['14', '19', '26', '32', '36', '42', '52', '55', '63'],
+};
+
+export const LEVEL_CAPS: TLevelCaps = {
+  '1': [
+    {
+      key: 'Red and Blue',
+      text: 'Red and Blue',
+      value: 'REDANDBLUE',
+    },
+    {
+      key: 'Yellow',
+      text: 'Yellow',
+      value: 'YELLOW',
+    },
+  ],
+  '3': [
+    {
+      key: 'Ruby and Sapphire',
+      text: 'Ruby and Sapphire',
+      value: 'RUBYANDSAPPHIRE',
+    },
+    {
+      key: 'Emerald',
+      text: 'Emerald',
+      value: 'EMERALD',
+    },
+  ],
+  '5': [
+    {
+      key: 'Platinum',
+      text: 'Platinum',
+      value: 'PLATINUM',
+    },
+    {
+      key: 'Diamond and Pearl',
+      text: 'Diamond and Pearl',
+      value: 'DIAMONDANDPEARL',
+    },
+  ],
+  '8': [
+    {
+      key: 'Normal mode',
+      text: 'Normal mode',
+      value: 'BW2NORMALMODE',
+    },
+    {
+      key: 'Easy mode',
+      text: 'Easy mode',
+      value: 'BW2EASYMODE',
+    },
+    {
+      key: 'Challenge mode',
+      text: 'Challenge mode',
+      value: 'BW2CHALLENGEMODE',
     },
   ],
 };

@@ -11,6 +11,7 @@ export interface TrackerState {
   rulesets: TRuleset[];
   selectedGame: TGame;
   selectedRuleset: string;
+  showAll: boolean;
   text: string;
 }
 
@@ -35,13 +36,14 @@ export interface AppState extends TrackerState {
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
   resetAll: () => void;
-  resetBadges: () => void;
+  resetBadges: (gameKey?: string) => void;
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
   toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
+  toggleShowAll: () => void;
 }
 
 export type Games = { [key: string]: TrackData };
@@ -57,6 +59,18 @@ export type TGame = {
   key: string;
 };
 
+export type TLevelCaps = { [key: string]: LevelCap[] };
+
+export type LevelCap = {
+  value: string;
+  text: string;
+  key: string;
+};
+
+export type TLevelCapDictionary = {
+  [key: string]: string[];
+};
+
 export type TBadgeDictionary = {
   [key: string]: TBadge[];
 };
@@ -69,6 +83,7 @@ export type TBadge = {
 };
 
 export type TEncounter = {
+  filter?: string[];
   id: number;
   location: string;
   nickname?: string;

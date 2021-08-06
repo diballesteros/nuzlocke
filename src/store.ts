@@ -3,7 +3,7 @@ import { persist } from 'zustand/middleware';
 import produce from 'immer';
 import { AppState, TGame, TPokemon, TRule, TStatus } from 'constants/types';
 import { GAMES, INITIAL_STATE } from 'constants/constant';
-import BADGES from 'constants/badges';
+import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>
@@ -33,6 +33,7 @@ const useStore = create<AppState>(
       rulesets: INITIAL_STATE.rulesets,
       selectedGame: null,
       selectedRuleset: '1',
+      showAll: false,
       text: '',
       addEncounter: (newLocation: string) =>
         set((state) => {
@@ -158,7 +159,7 @@ const useStore = create<AppState>(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '2.6.0';
+          state.newVersion = '2.7.0';
         }),
       reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
         set((state) => {
@@ -173,9 +174,15 @@ const useStore = create<AppState>(
             ? INITIAL_STATE.games[state.selectedGame.value].encounters
             : [];
         }),
-      resetBadges: () =>
+      resetBadges: (gameKey: string) =>
         set((state) => {
-          state.badges[state.selectedGame?.value] = BADGES[state.selectedGame?.value];
+          if (gameKey) {
+            state.badges[state.selectedGame?.value].forEach((badge, i) => {
+              state.badges[state.selectedGame?.value][i].levelCap = GAME_CAP_DICTIONARY[gameKey][i];
+            });
+          } else {
+            state.badges[state.selectedGame?.value] = BADGES[state.selectedGame?.value];
+          }
         }),
       selectGame: (game: TGame) =>
         set((state) => {
@@ -206,6 +213,11 @@ const useStore = create<AppState>(
       toggleNickname: () => {
         set((state) => {
           state.nicknames = !state.nicknames;
+        });
+      },
+      toggleShowAll: () => {
+        set((state) => {
+          state.showAll = !state.showAll;
         });
       },
     })),

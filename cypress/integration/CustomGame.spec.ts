@@ -52,6 +52,6 @@ describe('Custom game', () => {
     cy.contains('Emerald Kaizo').click();
     cy.get('[aria-label="deletegame"]').click();
     cy.contains('OK').click();
-    cy.get('[data-testid=game-select]').should('have.text', 'Choose a game');
+    cy.contains('Emerald Kaizo').should('not.exist');
   });
 });

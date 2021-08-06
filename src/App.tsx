@@ -149,7 +149,6 @@ const App: React.FC = () => {
             className={styles.gameSelect}
             data-testid="game-select"
             inline
-            lazyLoad
             onChange={handleChange}
             options={appState.gamesList}
             placeholder="Choose a game"
@@ -232,6 +231,10 @@ const App: React.FC = () => {
       </Container>
       <footer className={styles.footer}>
         <b className={styles.name}>Nuzlocke Tracker</b>
+        <span className={styles.pokemon}>
+          Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
+          Pokémon character names are trademarks of Nintendo.
+        </span>
         <a
           className={styles.github}
           href="https://github.com/diballesteros/nuzlocke/"

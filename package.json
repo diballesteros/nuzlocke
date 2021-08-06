@@ -1,7 +1,7 @@
 {
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
-  "version": "2.6.3",
+  "version": "2.7.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
@@ -45,13 +45,14 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^16.4.10",
-    "@types/react": "^17.0.15",
+    "@types/lodash": "^4.14.172",
+    "@types/node": "^16.4.13",
+    "@types/react": "^17.0.16",
     "@types/react-dom": "^17.0.9",
     "@types/react-window": "^1.8.5",
-    "@typescript-eslint/eslint-plugin": "^4.28.5",
-    "@typescript-eslint/parser": "^4.28.5",
-    "cypress": "^8.1.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.0",
+    "@typescript-eslint/parser": "^4.29.0",
+    "cypress": "^8.2.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
