@@ -38,7 +38,6 @@ const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
           />
         ) : (
           <Button
-            icon="close"
             color="red"
             data-testid="reset-all"
             disabled={!selectedGame}
