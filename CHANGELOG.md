@@ -1,3 +1,14 @@
+## Version 2.7.1
+
+🐛 Bug Fix
+
+- Positioning fix for FAB
+- Prop fix for Reset encounters button
+
+📝 Documentation
+
+- README updates
+
 ## Version 2.7.0
 
 🚀 New features
