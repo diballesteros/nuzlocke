@@ -1,12 +1,13 @@
 # Nuzlocke Tracker
 
-Webapp to track and record encounters in any Pokémon game. Including custom games!
+Web app to track and record encounters in any Pokémon game. Including custom games!
 
 All Pokémon included up to generation 8.
 
 🚀 Features:
 
 - Input for pokemon nickname, location and status
+- Accurate droptables for every location
 - Level caps for all base games - customizable!
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
@@ -14,8 +15,11 @@ All Pokémon included up to generation 8.
 - Share, add and edit custom rules and rulesets
 - View stats of your nuzlocke run in the PokéStats Tabs!
 - Dupes clause alerts
+- Works offline
 
-Built with ReactJ, Create-React-App, Zustand and Semantic UI.
+![til](https://media.giphy.com/media/v6pLAc0eWGESG8HemA/giphy.gif)
+
+Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 💻 To install the dependencies:
 
