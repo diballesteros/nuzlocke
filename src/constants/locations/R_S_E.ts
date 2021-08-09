@@ -9,6 +9,7 @@ const R_S_E: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Treecko', 'Mudkip', 'Torchic'],
     id: 1,
     pokemon: null,
     location: 'Littleroot Town',

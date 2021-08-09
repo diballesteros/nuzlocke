@@ -9,6 +9,7 @@ const OR_AS: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Treecko', 'Mudkip', 'Torchic'],
     id: 1,
     pokemon: null,
     location: 'Littleroot Town',

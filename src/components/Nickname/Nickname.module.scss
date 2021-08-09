@@ -13,4 +13,7 @@
   align-items: center;
   gap: 1px;
   font-weight: bold;
+  .innerLabel {
+    min-width: 72px;
+  }
 }

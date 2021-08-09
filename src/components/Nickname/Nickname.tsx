@@ -22,7 +22,7 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
 
   return (
     <label className={styles.label}>
-      Nickname:{' '}
+      <span className={styles.innerLabel}>Nickname:</span>
       <Input
         aria-label="nickname"
         className={styles.nicknameInput}
