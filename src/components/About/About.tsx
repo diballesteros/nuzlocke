@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.7.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '3.0.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.7.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '3.0.0' ? '(NEW)' : ''}`}
         />
       }
     >
