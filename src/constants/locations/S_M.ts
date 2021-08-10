@@ -94,12 +94,6 @@ const S_M: TEncounter[] = [
     status: null,
   },
   {
-    id: 7,
-    pokemon: null,
-    location: 'Berry Fields',
-    status: null,
-  },
-  {
     filter: ['Zubat', 'Diglett (Alolan)', 'Rattata (Alolan)', 'Yungoos', 'Pheromosa'],
     id: 8,
     pokemon: null,

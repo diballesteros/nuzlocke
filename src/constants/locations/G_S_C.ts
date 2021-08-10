@@ -298,6 +298,7 @@ const G_S_C: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Eevee'],
     id: 17,
     pokemon: null,
     location: 'Goldenrod City',
@@ -601,15 +602,10 @@ const G_S_C: TEncounter[] = [
     status: null,
   },
   {
-    id: 34,
-    pokemon: null,
-    location: 'Mahogany Town',
-    status: null,
-  },
-  {
+    filter: ['Geodude', 'Voltorb', 'Electrode', 'Koffing'],
     id: 35,
     pokemon: null,
-    location: 'Rocket Hideout',
+    location: 'Rocket HQ',
     status: null,
   },
   {
@@ -777,12 +773,6 @@ const G_S_C: TEncounter[] = [
     status: null,
   },
   {
-    id: 46,
-    pokemon: null,
-    location: 'Indigo Plateau',
-    status: null,
-  },
-  {
     filter: ['Tentacool', 'Tentacruel', 'Shellder', 'Magikarp', 'Snorlax', 'Chinchou', 'Lanturn'],
     id: 47,
     pokemon: null,
@@ -811,12 +801,6 @@ const G_S_C: TEncounter[] = [
     id: 48,
     pokemon: null,
     location: 'Route 6',
-    status: null,
-  },
-  {
-    id: 49,
-    pokemon: null,
-    location: 'Saffron City',
     status: null,
   },
   {

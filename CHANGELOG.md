@@ -1,3 +1,32 @@
+## Version 3.0.0
+
+🚀 New features
+
+- Nickname generator - Generate a random word or reorder the letters of the pokémon's name
+- Gym leader details - New button that shows details of every gym leader
+- Summary - Generate an at-a-glance overview of the entire run
+
+🐛 Bug Fix
+
+- Various spelling fixes with location names
+
+💅 Enhancement
+
+- Red, blue and yellow: Removed Pewter city and Lavendar town
+- Gold, silver and crystal: Removed Mahogany town, Indigo Plateau and Saffron City. Reworked Rocket HQ and Goldenrod city.
+- Fire Red and Leaf Green: Removed Pewter City and Lavendar town. Reworked SS Anne.
+- Ruby, sapphire and emerald: Removed Evergrande city. Reworked Altering Cave, Fortree city, Safari zone and Magma Hideout.
+- Diamond, pearl and platinum: Removed Sandgem town, Jubilife City, Floaroma town and Solaeceon Town. Reworked Oreburgh city, Floaroma meadow.
+- Heart gold and Soul Silver: Removed Mahogany town and Indigo Plateau. Reworked Goldenrod City and Rocket HQ.
+- Black and white: Removed Nimbasa City, Mistralton City and Opelucid City, Reworked Floccessy Town, Castelia City, Nacrene City.
+- Black and White 2: Removed Mistralton City. Reworked Aspertia City and Flocessy Town.
+- X and Y: Reworked Santalune City, Camphrier Town, Geosenge Town, Sea spirit's den and Snowbelle City
+- Omega Ruby and Alpha Sapphire: Removed Altering Cave, Evergrande City. Reworked Safari Zone, Mirage Island, Team Magma/Aqua Hideout, Fortree City.
+- Sun and Moon: Removed berry fields
+- Ultra Sun and Ultra Moon: Removed Berry fields
+- New visual design for PokéStats Team tab
+- Alert when more than 6 pokémon are assigned to **Team**
+
 ## Version 2.7.1
 
 🐛 Bug Fix

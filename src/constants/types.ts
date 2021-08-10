@@ -91,12 +91,12 @@ export type TEncounter = {
   status: TStatus;
 };
 
-export type TPokemon = {
+export interface TPokemon {
   key?: string;
   image: string;
   text: string;
   value: number;
-};
+}
 
 export type TStatus = {
   icon: string;
@@ -120,3 +120,61 @@ export type TRuleset = {
 export type TRule = {
   content: string;
 };
+
+type TDetailClassification = 'GYM' | 'POKEMON';
+
+type TDetailGame =
+  | 'Red and Blue'
+  | 'Yellow'
+  | 'Gold, Silver and Crystal'
+  | 'Diamond and Pearl'
+  | 'Platinum';
+
+export type TDetail = {
+  content: PokemonDetail[];
+  name: string;
+  game: TDetailGame;
+  type: TDetailClassification;
+};
+
+export type Type =
+  | 'NORMAL'
+  | 'FIRE'
+  | 'WATER'
+  | 'GRASS'
+  | 'ELECTRIC'
+  | 'ICE'
+  | 'POISON'
+  | 'FIGHTING'
+  | 'GROUND'
+  | 'FLYING'
+  | 'PSYCHIC'
+  | 'BUG'
+  | 'ROCK'
+  | 'GHOST'
+  | 'DARK'
+  | 'DRAGON'
+  | 'STEEL'
+  | 'FAIRY';
+
+type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
+
+type Move = {
+  id: number;
+  name: string;
+  type: Type;
+};
+
+export interface PokemonDetail {
+  ability?: string;
+  dualType?: Type;
+  evolve?: unknown;
+  gender?: Gender;
+  id: number;
+  item?: string;
+  level: number;
+  moves: Move[];
+  nature?: string;
+  notes?: string;
+  type: Type;
+}

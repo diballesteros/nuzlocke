@@ -33,12 +33,6 @@ const B_W: TEncounter[] = [
     status: null,
   },
   {
-    id: 3,
-    pokemon: null,
-    location: 'Accumula Town',
-    status: null,
-  },
-  {
     filter: ['Patrat', 'Lillipup', 'Purrloin', 'Audino'],
     id: 4,
     pokemon: null,
@@ -106,6 +100,19 @@ const B_W: TEncounter[] = [
     status: null,
   },
   {
+    filter: [
+      'Omanyte',
+      'Kabuto',
+      'Aerodactyl',
+      'Lileep',
+      'Anorith',
+      'Cranidos',
+      'Shieldon',
+      'Tirtouga',
+      'Archen',
+      'Cottonee',
+      'Petilil',
+    ],
     id: 9,
     pokemon: null,
     location: 'Nacrene City',
@@ -141,6 +148,7 @@ const B_W: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Zorua'],
     id: 11,
     pokemon: null,
     location: 'Castelia City',
@@ -188,12 +196,6 @@ const B_W: TEncounter[] = [
     id: 14,
     pokemon: null,
     location: 'Relic Castle',
-    status: null,
-  },
-  {
-    id: 15,
-    pokemon: null,
-    location: 'Nimbasa City',
     status: null,
   },
   {
@@ -276,12 +278,6 @@ const B_W: TEncounter[] = [
     id: 22,
     pokemon: null,
     location: 'Chargestone Cave',
-    status: null,
-  },
-  {
-    id: 23,
-    pokemon: null,
-    location: 'Mistralton City',
     status: null,
   },
   {
@@ -419,12 +415,6 @@ const B_W: TEncounter[] = [
     id: 33,
     pokemon: null,
     location: 'Route 9',
-    status: null,
-  },
-  {
-    id: 34,
-    pokemon: null,
-    location: 'Opelucid City',
     status: null,
   },
   {

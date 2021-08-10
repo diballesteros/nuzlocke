@@ -39,6 +39,14 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>
+            <ul>
+              <li>
+                Reworked encounter filters for all games. Deleted locations that had no droptables
+                available. To see updated tables reset all encounters for selected game.
+              </li>
+            </ul>
+          </b>
           <b>(Version 2.7.0)</b>
           <ul>
             <li>

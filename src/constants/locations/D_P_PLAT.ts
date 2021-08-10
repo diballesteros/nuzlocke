@@ -59,22 +59,10 @@ const SINNOH: TEncounter[] = [
     status: null,
   },
   {
-    id: 4,
-    pokemon: null,
-    location: 'Sandgem Town',
-    status: null,
-  },
-  {
     filter: ['Growlithe', 'Sentret', 'Zigzagoon', 'Starly', 'Bidoof', 'Kricketot', 'Shinx'],
     id: 5,
     pokemon: null,
     location: 'Route 202',
-    status: null,
-  },
-  {
-    id: 6,
-    pokemon: null,
-    location: 'Jubilife City',
     status: null,
   },
   {
@@ -111,6 +99,16 @@ const SINNOH: TEncounter[] = [
     status: null,
   },
   {
+    filter: [
+      'Abra',
+      'Omanyte',
+      'Kabuto',
+      'Aerodactyl',
+      'Lileep',
+      'Anorith',
+      'Cranidos',
+      'Shieldon',
+    ],
     id: 9,
     pokemon: null,
     location: 'Oreburgh City',
@@ -169,12 +167,7 @@ const SINNOH: TEncounter[] = [
     status: null,
   },
   {
-    id: 13,
-    pokemon: null,
-    location: 'Floaroma Town',
-    status: null,
-  },
-  {
+    filter: ['Wurmple', 'Combee', 'Aipom', 'Burmy', 'Cherubi', 'Heracross', 'Munchlax'],
     id: 14,
     pokemon: null,
     location: 'Floaroma Meadow',
@@ -431,12 +424,6 @@ const SINNOH: TEncounter[] = [
     id: 27,
     pokemon: null,
     location: 'Route 209',
-    status: null,
-  },
-  {
-    id: 28,
-    pokemon: null,
-    location: 'Solaceon Town',
     status: null,
   },
   {
@@ -969,6 +956,7 @@ const SINNOH: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Haunter'],
     id: 54,
     pokemon: null,
     location: 'Snowpoint City',
