@@ -42,6 +42,10 @@ const About: React.FC = () => {
           <b>
             <ul>
               <li>
+                Gym leader details - New button that shows details of every gym leader. Located on
+                every badge.
+              </li>
+              <li>
                 Reworked encounter filters for all games. Deleted locations that had no droptables
                 available. To see updated tables reset all encounters for selected game.
               </li>

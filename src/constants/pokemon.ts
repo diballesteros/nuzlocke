@@ -1071,12 +1071,14 @@ const POKEMON: TPokemon[] = [
     value: 25,
     text: 'Pikachu',
     image: pikachu,
+    type: 'ELECTRIC',
   },
   {
     key: 'raichu',
     value: 26,
     text: 'Raichu',
     image: raichu,
+    type: 'ELECTRIC',
   },
   {
     value: -26,
@@ -1150,6 +1152,7 @@ const POKEMON: TPokemon[] = [
     value: 37,
     text: 'Vulpix',
     image: vulpix,
+    type: 'FIRE',
   },
   {
     value: -37,
@@ -1161,6 +1164,7 @@ const POKEMON: TPokemon[] = [
     value: 38,
     text: 'Ninetales',
     image: ninetales,
+    type: 'FIRE',
   },
   {
     value: -38,
@@ -1191,16 +1195,22 @@ const POKEMON: TPokemon[] = [
     value: 43,
     text: 'Oddish',
     image: oddish,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 44,
     text: 'Gloom',
     image: gloom,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 45,
     text: 'Vileplume',
     image: vileplume,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 46,
@@ -1216,11 +1226,15 @@ const POKEMON: TPokemon[] = [
     value: 48,
     text: 'Venonat',
     image: venonat,
+    type: 'BUG',
+    dualType: 'POISON',
   },
   {
     value: 49,
     text: 'Venomoth',
     image: venomoth,
+    type: 'BUG',
+    dualType: 'POISON',
   },
   {
     key: 'diglett',
@@ -1296,11 +1310,13 @@ const POKEMON: TPokemon[] = [
     value: 58,
     text: 'Growlithe',
     image: growlithe,
+    type: 'FIRE',
   },
   {
     value: 59,
     text: 'Arcanine',
     image: arcanine,
+    type: 'FIRE',
   },
   {
     value: 60,
@@ -1321,16 +1337,19 @@ const POKEMON: TPokemon[] = [
     value: 63,
     text: 'Abra',
     image: abra,
+    type: 'PSYCHIC',
   },
   {
     value: 64,
     text: 'Kadabra',
     image: kadabra,
+    type: 'PSYCHIC',
   },
   {
     value: 65,
     text: 'Alakazam',
     image: alakazam,
+    type: 'PSYCHIC',
   },
   {
     value: 66,
@@ -1351,16 +1370,22 @@ const POKEMON: TPokemon[] = [
     value: 69,
     text: 'Bellsprout',
     image: bellsprout,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 70,
     text: 'Weepinbell',
     image: weepinbell,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 71,
     text: 'Victreebel',
     image: victreebel,
+    type: 'GRASS',
+    dualType: 'POISON',
   },
   {
     value: 72,
@@ -1377,6 +1402,8 @@ const POKEMON: TPokemon[] = [
     value: 74,
     text: 'Geodude',
     image: geodude,
+    type: 'ROCK',
+    dualType: 'GROUND',
   },
   {
     value: -74,
@@ -1410,6 +1437,7 @@ const POKEMON: TPokemon[] = [
     value: 77,
     text: 'Ponyta',
     image: ponyta,
+    type: 'FIRE',
   },
   {
     value: -77,
@@ -1421,6 +1449,7 @@ const POKEMON: TPokemon[] = [
     value: 78,
     text: 'Rapidash',
     image: rapidash,
+    type: 'FIRE',
   },
   {
     value: -78,
@@ -1495,6 +1524,7 @@ const POKEMON: TPokemon[] = [
     value: 88,
     text: 'Grimer',
     image: grimer,
+    type: 'POISON',
   },
   {
     value: -88,
@@ -1506,6 +1536,7 @@ const POKEMON: TPokemon[] = [
     value: 89,
     text: 'Muk',
     image: muk,
+    type: 'POISON',
   },
   {
     value: -89,
@@ -1541,6 +1572,8 @@ const POKEMON: TPokemon[] = [
     value: 95,
     text: 'Onix',
     image: onix,
+    type: 'ROCK',
+    dualType: 'GROUND',
   },
   {
     value: 96,
@@ -1566,6 +1599,7 @@ const POKEMON: TPokemon[] = [
     value: 100,
     text: 'Voltorb',
     image: voltorb,
+    type: 'ELECTRIC',
   },
   {
     value: 101,
@@ -1623,12 +1657,14 @@ const POKEMON: TPokemon[] = [
     value: 109,
     text: 'Koffing',
     image: koffing,
+    type: 'POISON',
   },
   {
     key: 'weezing',
     value: 110,
     text: 'Weezing',
     image: weezing,
+    type: 'POISON',
   },
   {
     value: -110,
@@ -1654,6 +1690,7 @@ const POKEMON: TPokemon[] = [
     value: 114,
     text: 'Tangela',
     image: tangela,
+    type: 'GRASS',
   },
   {
     value: 115,
@@ -1684,17 +1721,22 @@ const POKEMON: TPokemon[] = [
     value: 120,
     text: 'Staryu',
     image: staryu,
+    type: 'WATER',
   },
   {
     value: 121,
     text: 'Starmie',
     image: starmie,
+    type: 'WATER',
+    dualType: 'PSYCHIC',
   },
   {
     key: 'mrmime',
     value: 122,
     text: 'Mr. Mime',
     image: mrmime,
+    type: 'PSYCHIC',
+    dualType: 'FAIRY',
   },
   {
     value: -122,

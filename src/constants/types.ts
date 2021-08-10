@@ -92,9 +92,12 @@ export type TEncounter = {
 };
 
 export interface TPokemon {
+  dualType?: Type;
+  evolve?: unknown;
   key?: string;
   image: string;
   text: string;
+  type?: Type;
   value: number;
 }
 
@@ -157,24 +160,31 @@ export type Type =
   | 'STEEL'
   | 'FAIRY';
 
+export type TypeColor = {
+  [key in Type]: string;
+};
+
 type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
 
-type Move = {
-  id: number;
+export type Move = {
+  accuracy: string;
+  category: 'Physical' | 'Special' | 'Status' | '???';
+  contest: string;
+  gen: string;
   name: string;
+  id: number;
+  power: string;
+  pp: string;
   type: Type;
 };
 
 export interface PokemonDetail {
   ability?: string;
-  dualType?: Type;
-  evolve?: unknown;
   gender?: Gender;
   id: number;
   item?: string;
   level: number;
-  moves: Move[];
+  moves: number[];
   nature?: string;
   notes?: string;
-  type: Type;
 }

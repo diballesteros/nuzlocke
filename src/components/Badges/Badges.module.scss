@@ -9,8 +9,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
     flex: 1;
     gap: 5px;
+    height: 80px;
     filter: grayscale(1.1);
     background-color: var(--badge);
     padding: 10px;
@@ -47,6 +49,118 @@
 
     .levelCap {
       align-self: flex-end;
+    }
+
+    .question {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      right: 3.5px;
+      top: 3.5px;
+      background-color: transparent;
+      border: 1px solid #333;
+      font-size: 12px;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      padding: 0;
+      margin: 0;
+
+      > i {
+        height: unset;
+        margin: 0;
+      }
+    }
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.gymPokemon {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  overflow: auto;
+
+  .pokemon {
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 6px;
+    gap: 5px;
+    padding: 5px;
+
+    .pokemonHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 25px;
+
+      .pokemonName {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 5px;
+
+        > img {
+          height: 60px;
+          width: 60px;
+          object-fit: cover;
+        }
+
+        > span {
+          font-size: 16px;
+        }
+      }
+
+      .pokemonType {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 8px;
+
+        > span {
+          font-size: 12px;
+        }
+
+        .types {
+          display: flex;
+          gap: 5px;
+
+          > span {
+            padding: 2.5px 4px;
+            border-radius: 3px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    .moves {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 3px;
+      row-gap: 3px;
+      .move {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        border: 2px solid #333333;
+        border-radius: 8px;
+
+        > span {
+          padding: 2px 0;
+        }
+
+        .moveType {
+          color: #ffffff;
+          text-align: center;
+          width: 100%;
+          border-bottom-left-radius: 8px;
+          border-bottom-right-radius: 8px;
+        }
+      }
     }
   }
 }
