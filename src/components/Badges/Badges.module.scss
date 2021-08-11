@@ -115,11 +115,17 @@
         }
       }
 
-      .pokemonType {
+      .pokemonDetails {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+      }
+
+      .pokemonLabel {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        gap: 8px;
+        gap: 3px;
 
         > span {
           font-size: 12px;
@@ -135,17 +141,24 @@
             color: #ffffff;
           }
         }
+
+        .value {
+          font-size: 14px;
+        }
       }
     }
+
     .moves {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      justify-content: center;
       column-gap: 3px;
       row-gap: 3px;
       .move {
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+        flex: 1;
         border: 2px solid #333333;
         border-radius: 8px;
 
@@ -162,5 +175,11 @@
         }
       }
     }
+  }
+}
+
+.tabs {
+  :global(.ui.menu) {
+    overflow: auto;
   }
 }

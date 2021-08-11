@@ -64,18 +64,32 @@ const Badges: React.FC = () => {
                             {poke?.text} Lv.{pokemon?.level}
                           </span>
                         </div>
-                        <div className={styles.pokemonType}>
-                          <span>Type:</span>
-                          <div className={styles.types}>
-                            <span style={{ backgroundColor: TYPE_COLOR[poke?.type] }}>
-                              {poke?.type}
-                            </span>
-                            {!!poke?.dualType && (
-                              <span style={{ backgroundColor: TYPE_COLOR[poke?.dualType] }}>
-                                {poke?.dualType}
+                        <div className={styles.pokemonDetails}>
+                          <div className={styles.pokemonLabel}>
+                            <span>Type:</span>
+                            <div className={styles.types}>
+                              <span style={{ backgroundColor: TYPE_COLOR[poke?.type] }}>
+                                {poke?.type}
                               </span>
-                            )}
+                              {!!poke?.dualType && (
+                                <span style={{ backgroundColor: TYPE_COLOR[poke?.dualType] }}>
+                                  {poke?.dualType}
+                                </span>
+                              )}
+                            </div>
                           </div>
+                          {!!pokemon?.ability && (
+                            <div className={styles.pokemonLabel}>
+                              <span>Ability:</span>
+                              <span className={styles.value}>{pokemon?.ability}</span>
+                            </div>
+                          )}
+                          {!!pokemon?.item && (
+                            <div className={styles.pokemonLabel}>
+                              <span>Item:</span>
+                              <span className={styles.value}>{pokemon?.item}</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                       <div className={styles.moves}>
@@ -142,9 +156,11 @@ const Badges: React.FC = () => {
           }}
         >
           <Tab
-            panes={panes}
             activeIndex={tab}
+            className={styles.tabs}
+            menu={{ attached: false, tabular: false }}
             onTabChange={(e, data) => handleTabChange(data.activeIndex)}
+            panes={panes}
           />
         </Modal.Content>
         <Modal.Actions>

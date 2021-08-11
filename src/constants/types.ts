@@ -126,17 +126,10 @@ export type TRule = {
 
 type TDetailClassification = 'GYM' | 'POKEMON';
 
-type TDetailGame =
-  | 'Red and Blue'
-  | 'Yellow'
-  | 'Gold, Silver and Crystal'
-  | 'Diamond and Pearl'
-  | 'Platinum';
-
 export type TDetail = {
   content: PokemonDetail[];
   name: string;
-  game: TDetailGame;
+  game: string;
   type: TDetailClassification;
 };
 
