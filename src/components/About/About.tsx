@@ -125,6 +125,12 @@ const About: React.FC = () => {
         <div className={styles.credits}>
           <b>Credits:</b>
           <div>
+            Images provided by
+            <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
+              Bulbapedia
+            </a>
+          </div>
+          <div>
             Icons made by{' '}
             <a href="http://www.dariusdan.com" title="Darius Dan">
               Darius Dan
