@@ -125,7 +125,7 @@ const About: React.FC = () => {
         <div className={styles.credits}>
           <b>Credits:</b>
           <div>
-            Images provided by
+            Images provided by{' '}
             <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
               Bulbapedia
             </a>
