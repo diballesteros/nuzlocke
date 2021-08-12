@@ -7,7 +7,8 @@ import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import DETAILS from 'constants/details';
 import POKEMON from 'constants/pokemon';
 import MOVES from 'constants/moves';
-import TYPE_COLOR from 'constants/colors';
+import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
+import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
@@ -98,12 +99,22 @@ const Badges: React.FC = () => {
                           return (
                             <div className={styles.move} key={`${pokemon.id}-${move}-${i + 1}`}>
                               <span>{moveDetail.name}</span>
-                              <span
-                                className={styles.moveType}
-                                style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}
-                              >
-                                {moveDetail.type}
-                              </span>
+                              <div className={styles.moveCategorization}>
+                                <span
+                                  className={styles.moveType}
+                                  style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}
+                                >
+                                  {moveDetail.type}
+                                </span>
+                                {PHYS_SPEC_SPLIT.includes(selectedGame?.value) && (
+                                  <span
+                                    className={styles.moveCategory}
+                                    style={{ backgroundColor: CATEGORY_COLOR[moveDetail.category] }}
+                                  >
+                                    {moveDetail.category}
+                                  </span>
+                                )}
+                              </div>
                             </div>
                           );
                         })}

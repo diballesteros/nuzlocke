@@ -159,19 +159,35 @@
         flex-flow: column nowrap;
         align-items: center;
         flex: 1;
-        border: 2px solid #333333;
+        border: 2px solid hsl(0, 0%, 20%);
         border-radius: 8px;
 
         > span {
-          padding: 2px 0;
+          padding: 3px 0;
+          font-weight: bold;
         }
 
-        .moveType {
-          color: #ffffff;
-          text-align: center;
+        .moveCategorization {
+          display: flex;
+          flex-flow: row wrap;
+          flex: 1;
           width: 100%;
-          border-bottom-left-radius: 8px;
-          border-bottom-right-radius: 8px;
+
+          .moveCategory,
+          .moveType {
+            display: block;
+            color: #ffffff;
+            flex: 1;
+            text-align: center;
+            padding: 2px 0;
+            border-bottom-left-radius: 3px;
+            border-bottom-right-radius: 3px;
+            text-transform: uppercase;
+
+            @media (max-width: 550px) {
+              font-size: 12px;
+            }
+          }
         }
       }
     }

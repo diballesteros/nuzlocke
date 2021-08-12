@@ -1,6 +1,6 @@
-import { TypeColor } from './types';
+import { CategoryColor, TypeColor } from './types';
 
-const TYPE_COLOR: TypeColor = {
+export const TYPE_COLOR: TypeColor = {
   'NORMAL': '#C6C6A7',
   'FIRE': '#F5AC78',
   'WATER': '#9DB7F5',
@@ -21,4 +21,9 @@ const TYPE_COLOR: TypeColor = {
   'FAIRY': '#F4BDC9',
 };
 
-export default TYPE_COLOR;
+export const CATEGORY_COLOR: CategoryColor = {
+  'Physical': '#CE2918',
+  'Special': '#5A637B',
+  'Status': '#969296',
+  '???': '#333333',
+};

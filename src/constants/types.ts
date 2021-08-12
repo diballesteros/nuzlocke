@@ -153,15 +153,21 @@ export type Type =
   | 'STEEL'
   | 'FAIRY';
 
+type Category = 'Physical' | 'Special' | 'Status' | '???';
+
 export type TypeColor = {
   [key in Type]: string;
+};
+
+export type CategoryColor = {
+  [key in Category]: string;
 };
 
 type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
 
 export type Move = {
   accuracy: string;
-  category: 'Physical' | 'Special' | 'Status' | '???';
+  category: Category;
   contest: string;
   gen: string;
   name: string;
