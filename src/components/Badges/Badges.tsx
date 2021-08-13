@@ -30,7 +30,9 @@ const Badges: React.FC = () => {
     setDetail(index);
   };
   const selectedDetail =
-    !!selectedGame && typeof detail === 'number' ? DETAILS[selectedGame?.value][detail] : null;
+    !!selectedGame && typeof detail === 'number' && DETAILS[selectedGame?.value]
+      ? DETAILS[selectedGame?.value][detail]
+      : null;
 
   const handleTabChange = (newIndex: ReactText) => {
     setTab(Number(newIndex));
@@ -72,9 +74,9 @@ const Badges: React.FC = () => {
                               <span style={{ backgroundColor: TYPE_COLOR[poke?.type] }}>
                                 {poke?.type}
                               </span>
-                              {!!poke?.dualType && (
-                                <span style={{ backgroundColor: TYPE_COLOR[poke?.dualType] }}>
-                                  {poke?.dualType}
+                              {!!poke?.dualtype && (
+                                <span style={{ backgroundColor: TYPE_COLOR[poke?.dualtype] }}>
+                                  {poke?.dualtype}
                                 </span>
                               )}
                             </div>
