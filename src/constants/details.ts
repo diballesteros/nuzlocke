@@ -2760,7 +2760,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             moves: [447, 345, 40, 78],
           },
         ],
-        game: 'Diamond and Pearl',
+        game: 'Platinum',
         name: 'Gardenia',
         type: 'GYM',
       },
