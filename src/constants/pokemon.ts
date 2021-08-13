@@ -2236,6 +2236,7 @@ const POKEMON: TPokemon[] = [
     value: 180,
     text: 'Flaaffy',
     image: flaaffy,
+    type: 'ELECTRIC',
   },
   {
     value: 181,
@@ -4752,6 +4753,7 @@ const POKEMON: TPokemon[] = [
     value: 588,
     text: 'Karrablast',
     image: karrablast,
+    type: 'BUG',
   },
   {
     value: 589,
@@ -4790,6 +4792,8 @@ const POKEMON: TPokemon[] = [
     value: 595,
     text: 'Joltik',
     image: joltik,
+    type: 'BUG',
+    dualtype: 'ELECTRIC',
   },
   {
     value: 596,
@@ -4917,6 +4921,7 @@ const POKEMON: TPokemon[] = [
     value: 616,
     text: 'Shelmet',
     image: shelmet,
+    type: 'BUG',
   },
   {
     value: 617,
