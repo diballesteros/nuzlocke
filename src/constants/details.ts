@@ -5879,7 +5879,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             moves: [127, 66],
           },
           {
-            ability: 'Iron Fight',
+            ability: 'Iron Fist',
             id: 740,
             item: 'Fightinium Z',
             level: 55,
@@ -6135,6 +6135,1079 @@ const DETAILS: { [key: string]: TDetail[][] } = {
         game: 'Champion - Starter: Popplio',
         name: 'Kukui',
         type: 'GYM',
+      },
+    ],
+  ],
+  '12': [
+    [
+      {
+        content: [
+          {
+            ability: 'Adaptability',
+            id: 735,
+            item: 'Pecha Berry',
+            level: 12,
+            moves: [162, 44, 43, 184],
+          },
+          {
+            ability: 'Stakeout',
+            id: 734,
+            level: 10,
+            moves: [43, 33, 228, 316],
+          },
+        ],
+        game: 'Ultra Sun',
+        name: "Ilima's Trial (+1 Defense)",
+        type: 'TRIAL',
+      },
+      {
+        content: [
+          {
+            ability: 'Gluttony',
+            id: -20,
+            item: 'Pecha Berry',
+            level: 12,
+            moves: [162, 44, 154, 184],
+          },
+          {
+            ability: 'Hustle',
+            id: -19,
+            level: 10,
+            moves: [33, 39, 98, 228],
+          },
+        ],
+        game: 'Ultra Moon',
+        name: "Ilima's Trial (+1 Defense)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Guts',
+            id: 66,
+            level: 15,
+            moves: [2, 279, 116],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 296,
+            level: 15,
+            moves: [252, 28, 292],
+          },
+          {
+            ability: 'Iron Fist',
+            id: 739,
+            item: 'Fightinium Z',
+            level: 16,
+            moves: [612, 228, 43],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: 'Island Kahuna Hala',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Water Bubble',
+            id: 752,
+            item: 'Wacan Berry',
+            level: 20,
+            moves: [141, 145, 44, 62],
+          },
+          {
+            ability: 'Intimidate',
+            id: 284,
+            level: 18,
+            moves: [184, 78, 366, 450],
+          },
+          {
+            ability: 'Water Bubble',
+            id: 751,
+            level: 18,
+            moves: [564, 240, 450, 145],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Lana's Trial (+1 Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Cursed Body',
+            id: -105,
+            item: 'Thick Club',
+            level: 22,
+            moves: [506, 172, 280, 197],
+          },
+          {
+            ability: 'Corrosion',
+            id: 758,
+            level: 20,
+            moves: [139, 474, 481, 259],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Kiwae's Trial (+2 Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Leaf Guard',
+            id: 754,
+            item: 'Power Herb',
+            level: 24,
+            moves: [490, 404, 669, 235],
+          },
+          {
+            ability: 'Flower Veil',
+            id: 764,
+            level: 22,
+            moves: [241, 666, 579, 345],
+          },
+          {
+            ability: 'Color Change',
+            id: 352,
+            level: 22,
+            moves: [241, 246, 146, 103],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Mallow's Trial (+2 Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Battle Armor',
+            id: 347,
+            level: 27,
+            moves: [450, 479, 232],
+          },
+          {
+            ability: 'Suction Cups',
+            id: 345,
+            level: 27,
+            moves: [202, 246, 362],
+          },
+          {
+            ability: 'Vital Spirit',
+            id: 745,
+            item: 'Rockium Z',
+            level: 28,
+            moves: [44, 317],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: 'Island Kahuna Olivia',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Lightning Rod',
+            id: 777,
+            item: 'Sitrus Berry',
+            level: 33,
+            moves: [716, 596, 442, 340],
+          },
+          {
+            ability: 'Sturdy',
+            id: 227,
+            level: 32,
+            moves: [446, 211, 366, 259],
+          },
+          {
+            ability: 'Pickup',
+            id: 702,
+            level: 31,
+            moves: [162, 598, 204, 435],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Sophocles' Trial (+2 Defense)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Disguise',
+            id: 778,
+            item: 'Lum Berry',
+            level: 35,
+            moves: [421, 583, 141, 163],
+          },
+          {
+            ability: 'Insomnia',
+            id: 354,
+            level: 32,
+            moves: [103, 261, 185, 174],
+          },
+          {
+            ability: 'Cursed Body',
+            id: 593,
+            level: 33,
+            moves: [352, 173, 180, 101],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Acerola's Trial (+1 Atk, Def, Sp. Atk, Sp. Def, Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 302,
+            level: 43,
+            moves: [408, 247, 252],
+          },
+          {
+            ability: 'Intimidate',
+            id: 552,
+            level: 43,
+            moves: [242, 372, 207, 89],
+          },
+          {
+            ability: 'Fur Coat',
+            id: -53,
+            item: 'Darkinium Z',
+            level: 44,
+            moves: [408, 252, 399],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: 'Island Kahuna Nanu',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Soundproof',
+            id: 784,
+            item: 'Roseli Berry',
+            level: 49,
+            moves: [409, 337, 9, 398],
+          },
+          {
+            ability: 'Infiltrator',
+            id: 715,
+            level: 48,
+            moves: [586, 103, 406, 403],
+          },
+          {
+            ability: 'Technician',
+            id: 212,
+            level: 46,
+            moves: [113, 228, 418, 404],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Kommo-o's Trial (+1 Atk, Def, Sp. Atk, Sp. Def, Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Shield Dust',
+            id: 743,
+            item: 'Occa Berry',
+            level: 55,
+            moves: [405, 577, 483, 605],
+          },
+          {
+            ability: 'Serene Grace',
+            id: 242,
+            level: 53,
+            moves: [505, 113, 270, 605],
+          },
+          {
+            ability: 'Drizzle',
+            id: 279,
+            level: 52,
+            moves: [254, 503, 255, 402],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: "Mina's Trial (+2 Atk, Def, Sp. Atk, Sp. Def, Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'No Guard',
+            id: 623,
+            level: 53,
+            moves: [359, 89, 325, 446],
+          },
+          {
+            ability: 'Sticky Hold',
+            id: 423,
+            level: 53,
+            moves: [330, 426, 105],
+          },
+          {
+            ability: 'Levitate',
+            id: 330,
+            level: 53,
+            moves: [414, 225],
+          },
+          {
+            ability: 'Stamina',
+            id: 750,
+            item: 'Groundium Z',
+            level: 54,
+            moves: [484, 89, 24, 371],
+          },
+        ],
+        game: 'UltraSun and UltraMoon',
+        name: 'Island Kahuna Hapu',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Prankster',
+            id: 707,
+            level: 56,
+            moves: [191, 86, 430, 115],
+          },
+          {
+            ability: 'Defiant',
+            id: 625,
+            level: 56,
+            moves: [400, 442, 404, 319],
+          },
+          {
+            ability: 'Sturdy',
+            id: 462,
+            level: 56,
+            moves: [430, 85, 161, 103],
+          },
+          {
+            ability: 'Clear Body',
+            id: 376,
+            level: 56,
+            moves: [359, 309, 418, 428],
+          },
+          {
+            ability: 'Tangling Hair',
+            id: -51,
+            item: 'Steelium Z',
+            level: 57,
+            moves: [89, 442, 389, 90],
+          },
+        ],
+        game: 'Molayne',
+        name: 'Molayne',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Battle Armor',
+            id: 348,
+            level: 56,
+            moves: [306, 404, 350],
+          },
+          {
+            ability: 'Suction Cups',
+            id: 346,
+            level: 56,
+            moves: [317, 412, 446],
+          },
+          {
+            ability: 'Sand Stream',
+            id: 526,
+            level: 56,
+            moves: [444, 523, 442],
+          },
+          {
+            ability: 'Sturdy',
+            id: 476,
+            level: 56,
+            moves: [414, 408, 86, 201],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 745,
+            item: 'Rockium Z',
+            level: 57,
+            moves: [242, 444, 68, 431],
+          },
+        ],
+        game: 'Olivia',
+        name: 'Olivia',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 354,
+            level: 56,
+            moves: [421, 185, 611, 103],
+          },
+          {
+            ability: 'Aftermath',
+            id: 426,
+            level: 56,
+            moves: [466, 116, 133, 226],
+          },
+          {
+            ability: 'Steelworker',
+            id: 781,
+            level: 56,
+            moves: [21, 247, 412, 250],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: 478,
+            level: 56,
+            moves: [59, 247, 109, 420],
+          },
+          {
+            ability: 'Water Compaction',
+            id: 770,
+            item: 'Ghostium Z',
+            level: 57,
+            moves: [247, 414, 202, 334],
+          },
+        ],
+        game: 'Acerola',
+        name: 'Acerola',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Sheer Force',
+            id: 628,
+            level: 56,
+            moves: [306, 413, 403, 184],
+          },
+          {
+            ability: 'Mold Breaker',
+            id: 701,
+            level: 56,
+            moves: [560, 675, 530, 398],
+          },
+          {
+            ability: 'Dancer',
+            id: 741,
+            level: 56,
+            moves: [686, 298, 403, 297],
+          },
+          {
+            ability: 'Big Pecks',
+            id: 630,
+            level: 56,
+            moves: [198, 413, 386, 260],
+          },
+          {
+            ability: 'Skill Link',
+            id: 733,
+            item: 'Flyinium Z',
+            level: 57,
+            moves: [331, 350, 690, 103],
+          },
+        ],
+        game: 'Kahili',
+        name: 'Kahili',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Surge Surfer',
+            id: -26,
+            level: 59,
+            moves: [85, 98, 94, 411],
+          },
+          {
+            ability: 'Flash Fire',
+            id: 136,
+            level: 58,
+            moves: [394, 98, 204, 608],
+          },
+          {
+            ability: 'Intimidate',
+            id: 128,
+            level: 58,
+            moves: [428, 442, 89, 38],
+          },
+          {
+            ability: 'Infiltrator',
+            id: 715,
+            level: 58,
+            moves: [406, 403, 399, 162],
+          },
+          {
+            ability: 'Iron Fist',
+            id: 740,
+            level: 59,
+            moves: [612, 665, 444, 146],
+          },
+          {
+            ability: 'Torrent',
+            id: 730,
+            item: 'Waterium Z',
+            level: 60,
+            moves: [664, 585, 304],
+          },
+        ],
+        game: 'Champion - Starter: Rowlet',
+        name: 'Hau',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Surge Surfer',
+            id: -26,
+            level: 59,
+            moves: [85, 98, 94, 411],
+          },
+          {
+            ability: 'Water Absorb',
+            id: 134,
+            level: 58,
+            moves: [56, 98, 204, 608],
+          },
+          {
+            ability: 'Intimidate',
+            id: 128,
+            level: 58,
+            moves: [428, 442, 89, 38],
+          },
+          {
+            ability: 'Infiltrator',
+            id: 715,
+            level: 58,
+            moves: [406, 403, 399, 162],
+          },
+          {
+            ability: 'Iron Fist',
+            id: 740,
+            level: 59,
+            moves: [612, 665, 444, 146],
+          },
+          {
+            ability: 'Overgrow',
+            id: 724,
+            item: 'Grassium Z',
+            level: 60,
+            moves: [662, 348, 479],
+          },
+        ],
+        game: 'Champion - Starter: Litten',
+        name: 'Hau',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Surge Surfer',
+            id: -26,
+            level: 59,
+            moves: [85, 98, 94, 411],
+          },
+          {
+            ability: 'Leaf Guard',
+            id: 470,
+            level: 58,
+            moves: [348, 98, 204, 608],
+          },
+          {
+            ability: 'Intimidate',
+            id: 128,
+            level: 58,
+            moves: [428, 442, 89, 38],
+          },
+          {
+            ability: 'Infiltrator',
+            id: 715,
+            level: 58,
+            moves: [406, 403, 399, 162],
+          },
+          {
+            ability: 'Iron Fist',
+            id: 740,
+            level: 59,
+            moves: [612, 665, 444, 146],
+          },
+          {
+            ability: 'Blaze',
+            id: 727,
+            item: 'Firium Z',
+            level: 60,
+            moves: [663, 394, 89],
+          },
+        ],
+        game: 'Champion - Starter: Popplio',
+        name: 'Hau',
+        type: 'GYM',
+      },
+    ],
+  ],
+  '13': [
+    [
+      {
+        content: [
+          {
+            ability: 'Regenerator',
+            id: 829,
+            level: 19,
+            moves: [345, 496, 229],
+          },
+          {
+            ability: 'Regenerator',
+            id: 830,
+            level: 20,
+            moves: [345, 670, 496],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Milo',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Swift Swim',
+            id: 118,
+            level: 22,
+            moves: [352, 250, 30, 97],
+          },
+          {
+            ability: 'Swift Swim',
+            id: 846,
+            level: 23,
+            moves: [453, 44, 250, 31],
+          },
+          {
+            ability: 'Swift Swim',
+            id: 834,
+            level: 24,
+            moves: [534, 55, 44, 29],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Nessa',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Flash Fire',
+            id: 38,
+            level: 25,
+            moves: [261, 83, 98, 52],
+          },
+          {
+            ability: 'Intimidate',
+            id: 59,
+            level: 25,
+            moves: [261, 172, 44, 97],
+          },
+          {
+            ability: 'Flash Fire',
+            id: 851,
+            level: 27,
+            moves: [172, 489, 450, 108],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Kabu',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Technician',
+            id: 237,
+            level: 34,
+            moves: [167, 98, 68, 279],
+          },
+          {
+            ability: 'Mold Breaker',
+            id: 675,
+            level: 34,
+            moves: [418, 509, 400, 526],
+          },
+          {
+            ability: 'Steadfast',
+            id: 865,
+            level: 35,
+            moves: [197, 14, 693, 279],
+          },
+          {
+            ability: 'Guts',
+            id: 68,
+            level: 36,
+            moves: [184, 279, 282, 70],
+          },
+        ],
+        game: 'Sword',
+        name: 'Bea',
+        type: 'DYNAMAX',
+      },
+      {
+        content: [
+          {
+            ability: 'Wandering Spirit',
+            id: 562,
+            level: 34,
+            moves: [693, 506, 50],
+          },
+          {
+            ability: 'Disguise',
+            id: 778,
+            level: 34,
+            moves: [425, 608, 468, 163],
+          },
+          {
+            ability: 'Weak Armor',
+            id: 864,
+            level: 35,
+            moves: [246, 174, 506],
+          },
+          {
+            ability: 'Cursed Body',
+            id: 94,
+            level: 36,
+            moves: [474, 506, 95, 371],
+          },
+        ],
+        game: 'Shield',
+        name: 'Alister',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Levitate',
+            id: -110,
+            level: 36,
+            moves: [124, 584, 33],
+          },
+          {
+            ability: 'Intimidate',
+            id: 303,
+            level: 36,
+            moves: [577, 242, 334, 310],
+          },
+          {
+            ability: 'Hustle',
+            id: 468,
+            level: 37,
+            moves: [403, 577, 246],
+          },
+          {
+            ability: 'Sweet Veil',
+            id: 869,
+            level: 38,
+            moves: [577, 151, 186],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Opal',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Tough Claws',
+            id: 689,
+            level: 40,
+            moves: [504, 317, 534],
+          },
+          {
+            ability: 'Contrary',
+            id: 213,
+            level: 40,
+            moves: [471, 444, 522, 317],
+          },
+          {
+            ability: 'Power Spot',
+            id: 874,
+            level: 41,
+            moves: [446, 317, 34, 472],
+          },
+          {
+            ability: 'Steam Engine',
+            id: 839,
+            level: 42,
+            moves: [749, 446, 535, 317],
+          },
+        ],
+        game: 'Sword',
+        name: 'Gordie',
+        type: 'DYNAMAX',
+      },
+      {
+        content: [
+          {
+            ability: 'Shield Dust',
+            id: 873,
+            level: 40,
+            moves: [196, 297, 405, 258],
+          },
+          {
+            ability: 'Zen Mode',
+            id: -555,
+            level: 40,
+            moves: [556, 29, 269, 424],
+          },
+          {
+            ability: 'Ice Face',
+            id: 875,
+            level: 41,
+            moves: [133, 573, 258, 196],
+          },
+          {
+            ability: 'Shell Armor',
+            id: 131,
+            level: 42,
+            moves: [196, 58, 57, 47],
+          },
+        ],
+        game: 'Shield',
+        name: 'Melony',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Intimidate',
+            id: 560,
+            level: 44,
+            moves: [252, 28, 280, 371],
+          },
+          {
+            ability: 'Contrary',
+            id: 687,
+            level: 45,
+            moves: [400, 492, 427, 371],
+          },
+          {
+            ability: 'Aftermath',
+            id: 435,
+            level: 45,
+            moves: [389, 103, 92, 555],
+          },
+          {
+            ability: 'Reckless',
+            id: 862,
+            level: 46,
+            moves: [792, 675, 68, 421],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Piers',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Sand Stream',
+            id: 526,
+            level: 46,
+            moves: [446, 328, 350, 776],
+          },
+          {
+            ability: 'Levitate',
+            id: 330,
+            level: 47,
+            moves: [9, 784, 242, 211],
+          },
+          {
+            ability: 'Sand Spit',
+            id: 844,
+            level: 46,
+            moves: [182, 137, 424, 414],
+          },
+          {
+            ability: 'Heavy Metal',
+            id: 884,
+            level: 48,
+            moves: [784, 776, 444, 442],
+          },
+        ],
+        game: 'Sword and Shield',
+        name: 'Raihan',
+        type: 'DYNAMAX',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Stance Change',
+            id: 681,
+            level: 62,
+            moves: [588, 247, 533, 430],
+          },
+          {
+            ability: 'Clear Body',
+            id: 887,
+            level: 62,
+            moves: [247, 53, 85, 225],
+          },
+          {
+            ability: 'Mold Breaker',
+            id: 612,
+            level: 63,
+            moves: [398, 231, 200, 89],
+          },
+          {
+            ability: 'Water Absorb',
+            id: 537,
+            level: 64,
+            moves: [92, 409, 710, 89],
+          },
+          {
+            ability: 'Blaze',
+            id: 815,
+            level: 64,
+            moves: [780, 364, 512, 98],
+          },
+          {
+            ability: 'Blaze',
+            id: 6,
+            level: 65,
+            moves: [126, 403, 76, 246],
+          },
+        ],
+        game: 'Sword and Shield - Starter: Grookey',
+        name: 'Leon',
+        type: 'DYNAMAX',
+      },
+      {
+        content: [
+          {
+            ability: 'Stance Change',
+            id: 681,
+            level: 62,
+            moves: [588, 247, 533, 430],
+          },
+          {
+            ability: 'Clear Body',
+            id: 887,
+            level: 62,
+            moves: [247, 53, 85, 225],
+          },
+          {
+            ability: 'Mold Breaker',
+            id: 612,
+            level: 63,
+            moves: [398, 231, 200, 89],
+          },
+          {
+            ability: 'Tangled Feet',
+            id: 866,
+            level: 64,
+            moves: [298, 94, 573, 85],
+          },
+          {
+            ability: 'Torrent',
+            id: 818,
+            level: 64,
+            moves: [745, 399, 341, 715],
+          },
+          {
+            ability: 'Blaze',
+            id: 6,
+            level: 65,
+            moves: [126, 403, 76, 246],
+          },
+        ],
+        game: 'Sword and Shield - Starter: Scorbunny',
+        name: 'Leon',
+        type: 'DYNAMAX',
+      },
+      {
+        content: [
+          {
+            ability: 'Stance Change',
+            id: 681,
+            level: 62,
+            moves: [588, 247, 533, 430],
+          },
+          {
+            ability: 'Clear Body',
+            id: 887,
+            level: 62,
+            moves: [247, 53, 85, 225],
+          },
+          {
+            ability: 'Mold Breaker',
+            id: 612,
+            level: 63,
+            moves: [398, 231, 200, 89],
+          },
+          {
+            ability: 'Solid Rock',
+            id: 464,
+            level: 64,
+            moves: [89, 444, 224, 535],
+          },
+          {
+            ability: 'Overgrow',
+            id: 812,
+            level: 64,
+            moves: [778, 282, 667, 283],
+          },
+          {
+            ability: 'Blaze',
+            id: 6,
+            level: 65,
+            moves: [126, 403, 76, 246],
+          },
+        ],
+        game: 'Sword and Shield - Starter: Sobble',
+        name: 'Leon',
+        type: 'DYNAMAX',
       },
     ],
   ],

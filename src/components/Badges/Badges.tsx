@@ -65,6 +65,10 @@ const Badges: React.FC = () => {
                           {selectedDetail[tab]?.type === 'TRIAL' && ind === 0 && (
                             <span className={styles.totem}>TOTEM</span>
                           )}
+                          {selectedDetail[tab]?.type === 'DYNAMAX' &&
+                            ind === selectedDetail[tab]?.content?.length - 1 && (
+                              <span className={styles.totem}>DYNAMAX</span>
+                            )}
                           <img src={poke?.image} alt={poke?.text} />
                           <span>
                             {poke?.text} Lv.{pokemon?.level}

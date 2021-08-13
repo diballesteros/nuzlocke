@@ -1121,6 +1121,8 @@ const POKEMON: TPokemon[] = [
     value: -26,
     text: 'Raichu (Alolan)',
     image: raichua,
+    type: 'ELECTRIC',
+    dualtype: 'PSYCHIC',
   },
   {
     key: 'sandshrew',
@@ -1758,6 +1760,8 @@ const POKEMON: TPokemon[] = [
     value: -105,
     text: 'Marowak (Alolan)',
     image: marowaka,
+    type: 'FIRE',
+    dualtype: 'GHOST',
   },
   {
     value: 106,
@@ -1794,6 +1798,8 @@ const POKEMON: TPokemon[] = [
     value: -110,
     text: 'Weezing (Galarian)',
     image: weezingg,
+    type: 'POISON',
+    dualtype: 'FAIRY',
   },
   {
     value: 111,
@@ -2431,8 +2437,8 @@ const POKEMON: TPokemon[] = [
     value: 212,
     text: 'Scizor',
     image: scizor,
-    type: 'STEEL',
-    dualtype: 'BUG',
+    type: 'BUG',
+    dualtype: 'STEEL',
   },
   {
     value: 213,
@@ -2504,6 +2510,7 @@ const POKEMON: TPokemon[] = [
     value: -222,
     text: 'Corsola (Galarian)',
     image: corsolag,
+    type: 'GHOST',
   },
   {
     value: 223,
@@ -2625,6 +2632,7 @@ const POKEMON: TPokemon[] = [
     value: 242,
     text: 'Blissey',
     image: blissey,
+    type: 'NORMAL',
   },
   {
     value: 243,
@@ -4538,6 +4546,7 @@ const POKEMON: TPokemon[] = [
     value: -555,
     text: 'Darmanitan (Galarian)',
     image: darmanitang,
+    type: 'ICE',
   },
   {
     value: 556,
@@ -4582,6 +4591,7 @@ const POKEMON: TPokemon[] = [
     text: 'Yamask',
     image: yamask,
     type: 'GHOST',
+    dualtype: 'GROUND',
   },
   {
     value: 563,
@@ -5248,6 +5258,8 @@ const POKEMON: TPokemon[] = [
     value: 675,
     text: 'Pangoro',
     image: pangoro,
+    type: 'FIGHTING',
+    dualtype: 'DARK',
   },
   {
     value: 676,
@@ -5315,6 +5327,8 @@ const POKEMON: TPokemon[] = [
     value: 687,
     text: 'Malamar',
     image: malamar,
+    type: 'DARK',
+    dualtype: 'PSYCHIC',
   },
   {
     value: 688,
@@ -5411,6 +5425,8 @@ const POKEMON: TPokemon[] = [
     value: 702,
     text: 'Dedenne',
     image: dedenne,
+    type: 'ELECTRIC',
+    dualtype: 'FAIRY',
   },
   {
     value: 703,
@@ -5656,6 +5672,8 @@ const POKEMON: TPokemon[] = [
     value: 743,
     text: 'Ribombee',
     image: ribombee,
+    type: 'BUG',
+    dualtype: 'FAIRY',
   },
   {
     value: 744,
@@ -5700,11 +5718,15 @@ const POKEMON: TPokemon[] = [
     value: 751,
     text: 'Dewpider',
     image: dewpider,
+    type: 'WATER',
+    dualtype: 'BUG',
   },
   {
     value: 752,
     text: 'Araquanid',
     image: araquanid,
+    type: 'WATER',
+    dualtype: 'BUG',
   },
   {
     value: 753,
@@ -5772,6 +5794,7 @@ const POKEMON: TPokemon[] = [
     value: 764,
     text: 'Comfey',
     image: comfey,
+    type: 'FAIRY',
   },
   {
     value: 765,
@@ -5841,6 +5864,8 @@ const POKEMON: TPokemon[] = [
     value: 777,
     text: 'Togedemaru',
     image: togedemaru,
+    type: 'ELECTRIC',
+    dualtype: 'STEEL',
   },
   {
     value: 778,
@@ -5880,6 +5905,8 @@ const POKEMON: TPokemon[] = [
     value: 784,
     text: 'Kommo-o',
     image: kommoo,
+    type: 'DRAGON',
+    dualtype: 'FIGHTING',
   },
   {
     value: 785,
@@ -6020,6 +6047,7 @@ const POKEMON: TPokemon[] = [
     value: 812,
     text: 'Rillaboom',
     image: rillaboom,
+    type: 'GRASS',
   },
   {
     value: 813,
@@ -6035,6 +6063,7 @@ const POKEMON: TPokemon[] = [
     value: 815,
     text: 'Cinderace',
     image: cinderace,
+    type: 'FIRE',
   },
   {
     value: 816,
@@ -6050,6 +6079,7 @@ const POKEMON: TPokemon[] = [
     value: 818,
     text: 'Inteleon',
     image: inteleon,
+    type: 'WATER',
   },
   {
     value: 819,
@@ -6105,11 +6135,13 @@ const POKEMON: TPokemon[] = [
     value: 829,
     text: 'Gossifleur',
     image: gossifleur,
+    type: 'GRASS',
   },
   {
     value: 830,
     text: 'Eldegoss',
     image: eldegoss,
+    type: 'GRASS',
   },
   {
     value: 831,
@@ -6130,6 +6162,8 @@ const POKEMON: TPokemon[] = [
     value: 834,
     text: 'Drednaw',
     image: drednaw,
+    type: 'WATER',
+    dualtype: 'ROCK',
   },
   {
     value: 835,
@@ -6155,6 +6189,8 @@ const POKEMON: TPokemon[] = [
     value: 839,
     text: 'Coalossal',
     image: coalossal,
+    type: 'ROCK',
+    dualtype: 'FIRE',
   },
   {
     value: 840,
@@ -6180,6 +6216,7 @@ const POKEMON: TPokemon[] = [
     value: 844,
     text: 'Sandaconda',
     image: sandaconda,
+    type: 'GROUND',
   },
   {
     value: 845,
@@ -6190,6 +6227,7 @@ const POKEMON: TPokemon[] = [
     value: 846,
     text: 'Arrokuda',
     image: arrokuda,
+    type: 'WATER',
   },
   {
     value: 847,
@@ -6210,11 +6248,15 @@ const POKEMON: TPokemon[] = [
     value: 850,
     text: 'Sizzlipede',
     image: sizzlipede,
+    type: 'FIRE',
+    dualtype: 'BUG',
   },
   {
     value: 851,
     text: 'Centiskorch',
     image: centiskorch,
+    type: 'FIRE',
+    dualtype: 'BUG',
   },
   {
     value: 852,
@@ -6270,6 +6312,8 @@ const POKEMON: TPokemon[] = [
     value: 862,
     text: 'Obstagoon',
     image: obstagoon,
+    type: 'DARK',
+    dualtype: 'NORMAL',
   },
   {
     value: 863,
@@ -6280,16 +6324,20 @@ const POKEMON: TPokemon[] = [
     value: 864,
     text: 'Cursola',
     image: cursola,
+    type: 'GHOST',
   },
   {
     value: 865,
     text: "Sirfetch'd",
     image: sirfetchd,
+    type: 'FIGHTING',
   },
   {
     value: 866,
     text: 'Mr. Rime',
     image: mrrime,
+    type: 'ICE',
+    dualtype: 'PSYCHIC',
   },
   {
     value: 867,
@@ -6300,11 +6348,13 @@ const POKEMON: TPokemon[] = [
     value: 868,
     text: 'Milcery',
     image: milcery,
+    type: 'FAIRY',
   },
   {
     value: 869,
     text: 'Alcremie',
     image: alcremie,
+    type: 'FAIRY',
   },
   {
     value: 870,
@@ -6325,16 +6375,20 @@ const POKEMON: TPokemon[] = [
     value: 873,
     text: 'Frosmoth',
     image: frosmoth,
+    type: 'ICE',
+    dualtype: 'BUG',
   },
   {
     value: 874,
     text: 'Stonjourner',
     image: stonjourner,
+    type: 'ROCK',
   },
   {
     value: 875,
     text: 'Eiscue',
     image: eiscue,
+    type: 'ICE',
   },
   {
     value: 876,
@@ -6380,6 +6434,8 @@ const POKEMON: TPokemon[] = [
     value: 884,
     text: 'Duraludon',
     image: duraludon,
+    type: 'STEEL',
+    dualtype: 'DRAGON',
   },
   {
     value: 885,
@@ -6395,6 +6451,8 @@ const POKEMON: TPokemon[] = [
     value: 887,
     text: 'Dragapult',
     image: dragapult,
+    type: 'DRAGON',
+    dualtype: 'GHOST',
   },
   {
     value: 888,
