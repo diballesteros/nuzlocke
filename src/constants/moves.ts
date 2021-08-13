@@ -113,7 +113,7 @@ const MOVES: Move[] = [
   },
   {
     id: 11,
-    name: 'Vise Grip',
+    name: 'Vice Grip',
     type: 'NORMAL',
     category: 'Physical',
     contest: 'Tough',

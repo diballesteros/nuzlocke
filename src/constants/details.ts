@@ -4766,6 +4766,1378 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       },
     ],
   ],
+  '8': [],
+  '9': [
+    [
+      {
+        content: [
+          {
+            ability: 'Swift Swim',
+            id: 283,
+            level: 10,
+            moves: [98, 145, 346],
+          },
+          {
+            ability: 'Shield Dust',
+            id: 666,
+            level: 12,
+            moves: [106, 611, 33],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Viola',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Refrigerate',
+            id: 698,
+            level: 25,
+            moves: [62, 317, 86, 36],
+          },
+          {
+            ability: 'Strong Jaw',
+            id: 696,
+            level: 25,
+            moves: [317, 44, 23],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Grant',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Inner Focus',
+            id: 619,
+            level: 29,
+            moves: [612, 252, 3],
+          },
+          {
+            ability: 'Guts',
+            id: 67,
+            level: 28,
+            moves: [612, 317, 43],
+          },
+          {
+            ability: 'Unburden',
+            id: 701,
+            level: 32,
+            moves: [560, 468, 612],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Korrina',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Chlorophyll',
+            id: 189,
+            level: 30,
+            moves: [447, 512, 73],
+          },
+          {
+            ability: 'Chlorophyll',
+            id: 70,
+            level: 31,
+            moves: [447, 51, 77, 380],
+          },
+          {
+            ability: 'Sap Sipper',
+            id: 673,
+            level: 34,
+            moves: [447, 523, 36],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Ramos',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Static',
+            id: 587,
+            level: 35,
+            moves: [521, 98, 332],
+          },
+          {
+            ability: 'Sturdy',
+            id: 82,
+            level: 35,
+            moves: [85, 604, 429],
+          },
+          {
+            ability: 'Dry Skin',
+            id: 695,
+            level: 37,
+            moves: [85, 98, 447],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Clemont',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Hyper Cutter',
+            id: 303,
+            level: 38,
+            moves: [185, 242, 334],
+          },
+          {
+            ability: 'Soundproof',
+            id: 122,
+            level: 39,
+            moves: [113, 115, 94, 605],
+          },
+          {
+            ability: 'Cute Charm',
+            id: 700,
+            level: 42,
+            moves: [605, 98, 129, 204],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Valerie',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Magic Guard',
+            id: 561,
+            level: 44,
+            moves: [94, 403, 113, 115],
+          },
+          {
+            ability: 'Oblivious',
+            id: 199,
+            level: 45,
+            moves: [94, 347, 408, 281],
+          },
+          {
+            ability: 'Infiltrator',
+            id: 678,
+            level: 48,
+            moves: [94, 347, 252, 247],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Olympia',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Snow Warning',
+            id: 460,
+            level: 56,
+            moves: [58, 420, 412],
+          },
+          {
+            ability: 'Levitate',
+            id: 615,
+            level: 55,
+            moves: [58, 109, 430, 258],
+          },
+          {
+            ability: 'Ice Body',
+            id: 713,
+            level: 59,
+            moves: [419, 242, 174, 360],
+          },
+        ],
+        game: 'X and Y',
+        name: 'Wulfric',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Rivalry',
+            id: 668,
+            level: 63,
+            moves: [304, 53, 528, 568],
+          },
+          {
+            ability: 'White Smoke',
+            id: 324,
+            level: 63,
+            moves: [174, 89, 444, 172],
+          },
+          {
+            ability: 'Flame Body',
+            id: 609,
+            level: 63,
+            moves: [53, 247, 109, 590],
+          },
+          {
+            ability: 'Flame Body',
+            id: 663,
+            level: 65,
+            moves: [413, 98, 394, 175],
+          },
+        ],
+        game: 'Malva',
+        name: 'Malva',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Mega Launcher',
+            id: 693,
+            level: 63,
+            moves: [352, 399, 406, 396],
+          },
+          {
+            ability: 'Intimidate',
+            id: 130,
+            level: 63,
+            moves: [127, 423, 89, 349],
+          },
+          {
+            ability: 'Illuminate',
+            id: 121,
+            level: 63,
+            moves: [605, 94, 57, 113],
+          },
+          {
+            ability: 'Tough Claws',
+            id: 689,
+            level: 65,
+            moves: [238, 444, 534, 404],
+          },
+        ],
+        game: 'Siebold',
+        name: 'Siebold',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Prankster',
+            id: 707,
+            level: 63,
+            moves: [605, 430, 259, 191],
+          },
+          {
+            ability: 'Sturdy',
+            id: 476,
+            level: 63,
+            moves: [414, 408, 435, 430],
+          },
+          {
+            ability: 'Technician',
+            id: 212,
+            level: 63,
+            moves: [418, 404, 442, 400],
+          },
+          {
+            ability: 'Stance Change',
+            id: 681,
+            level: 65,
+            moves: [588, 533, 421, 442],
+          },
+        ],
+        game: 'Wikstrom',
+        name: 'Wikstrom',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Poison Point',
+            id: 691,
+            level: 63,
+            moves: [406, 57, 188, 85],
+          },
+          {
+            ability: 'Rough Skin',
+            id: 621,
+            level: 63,
+            moves: [525, 279, 514, 498],
+          },
+          {
+            ability: 'Natural Cure',
+            id: 334,
+            level: 63,
+            moves: [585, 406, 538, 47],
+          },
+          {
+            ability: 'Frisk',
+            id: 715,
+            level: 65,
+            moves: [403, 406, 53, 162],
+          },
+        ],
+        game: 'Drasna',
+        name: 'Drasna',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Limber',
+            id: 701,
+            level: 64,
+            moves: [14, 560, 404, 398],
+          },
+          {
+            ability: 'Strong Jaw',
+            id: 697,
+            level: 65,
+            moves: [457, 89, 337, 242],
+          },
+          {
+            ability: 'Refrigerate',
+            id: 699,
+            level: 65,
+            moves: [87, 59, 113, 115],
+          },
+          {
+            ability: 'Pickup',
+            id: 711,
+            level: 65,
+            moves: [567, 566, 402, 425],
+          },
+          {
+            ability: 'Sap Sipper',
+            id: 706,
+            level: 66,
+            moves: [406, 330, 126, 411],
+          },
+          {
+            ability: 'Trace',
+            id: 282,
+            item: 'Gardevoirite',
+            level: 68,
+            moves: [585, 94, 247, 85],
+          },
+        ],
+        game: 'Champion',
+        name: 'Diantha',
+        type: 'GYM',
+      },
+    ],
+  ],
+  '10': [
+    [
+      {
+        content: [
+          {
+            ability: 'Rock Head',
+            id: 74,
+            level: 12,
+            moves: [33, 111, 317],
+          },
+          {
+            ability: 'Sturdy',
+            id: 299,
+            level: 14,
+            moves: [33, 106, 317],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Roxanne',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Guts',
+            id: 66,
+            level: 14,
+            moves: [339, 43, 2, 69],
+          },
+          {
+            ability: 'Guts',
+            id: 296,
+            level: 16,
+            moves: [339, 282, 292, 28],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Brawly',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Sturdy',
+            id: 81,
+            level: 19,
+            moves: [521, 33, 86],
+          },
+          {
+            ability: 'Soundproof',
+            id: 100,
+            level: 19,
+            moves: [205, 268, 521],
+          },
+          {
+            ability: 'Magnet Pull',
+            id: 82,
+            level: 21,
+            moves: [48, 443, 521],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Wattson',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Flame Body',
+            id: 218,
+            level: 26,
+            moves: [315, 88, 113, 241],
+          },
+          {
+            ability: 'Simple',
+            id: 322,
+            level: 26,
+            moves: [414, 436, 133, 241],
+          },
+          {
+            ability: 'White Smoke',
+            id: 324,
+            level: 28,
+            moves: [315, 34, 174, 241],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Flannery',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Truant',
+            id: 289,
+            level: 28,
+            moves: [514, 281, 185, 227],
+          },
+          {
+            ability: 'Vital Spirit',
+            id: 288,
+            level: 28,
+            moves: [227, 185, 514, 154],
+          },
+          {
+            ability: 'Truant',
+            id: 289,
+            level: 30,
+            moves: [514, 185, 207, 498],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Norman',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Guts',
+            id: 277,
+            level: 33,
+            moves: [98, 332, 104, 283],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 279,
+            level: 33,
+            moves: [352, 355, 182, 332],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 227,
+            level: 33,
+            moves: [28, 314, 211, 332],
+          },
+          {
+            ability: 'Natural Cure',
+            id: 334,
+            level: 35,
+            moves: [89, 225, 538, 355],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Winona',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Levitate',
+            id: 337,
+            level: 45,
+            moves: [113, 94, 95, 347],
+          },
+          {
+            ability: 'Levitate',
+            id: 338,
+            level: 45,
+            moves: [241, 157, 94, 76],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Tate & Liza',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Swift Swim',
+            id: 370,
+            level: 44,
+            moves: [577, 213, 186, 352],
+          },
+          {
+            ability: 'Oblivious',
+            id: 340,
+            level: 44,
+            moves: [89, 428, 127, 300],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 364,
+            level: 44,
+            moves: [227, 127, 62, 34],
+          },
+          {
+            ability: 'Swift Swim',
+            id: 119,
+            level: 44,
+            moves: [127, 240, 392, 32],
+          },
+          {
+            ability: 'Marvel Scale',
+            id: 350,
+            level: 46,
+            moves: [56, 105, 58, 574],
+          },
+        ],
+        game: 'OmegaRuby and AlphaSapphire',
+        name: 'Wallace',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Intimidate',
+            id: 262,
+            level: 50,
+            moves: [207, 36, 389, 242],
+          },
+          {
+            ability: 'Chlorophyll',
+            id: 275,
+            level: 50,
+            moves: [252, 185, 326, 348],
+          },
+          {
+            ability: 'Sand Veil',
+            id: 332,
+            level: 50,
+            moves: [73, 371, 302, 596],
+          },
+          {
+            ability: 'Rough Skin',
+            id: 319,
+            level: 50,
+            moves: [242, 305, 453, 163],
+          },
+          {
+            ability: 'Super Luck',
+            id: 359,
+            level: 52,
+            moves: [332, 400, 427, 163],
+          },
+        ],
+        game: 'Sidney',
+        name: 'Sidney',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Pressure',
+            id: 356,
+            level: 51,
+            moves: [325, 109, 174, 248],
+          },
+          {
+            ability: 'Insomnia',
+            id: 354,
+            level: 51,
+            moves: [247, 180, 261, 185],
+          },
+          {
+            ability: 'Prankster',
+            id: 302,
+            level: 51,
+            moves: [421, 492, 408, 252],
+          },
+          {
+            ability: 'Insomnia',
+            id: 354,
+            level: 51,
+            moves: [247, 288, 92, 94],
+          },
+          {
+            ability: 'Pressure',
+            id: 477,
+            level: 51,
+            moves: [506, 7, 8, 9],
+          },
+        ],
+        game: 'Phoebe',
+        name: 'Phoebe',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Inner Focus',
+            id: 362,
+            level: 52,
+            moves: [113, 420, 258, 242],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: 478,
+            level: 52,
+            moves: [109, 59, 258, 466],
+          },
+          {
+            ability: 'Inner Focus',
+            id: 362,
+            level: 52,
+            moves: [182, 420, 258, 573],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: 478,
+            level: 52,
+            moves: [577, 59, 258, 247],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 365,
+            level: 54,
+            moves: [57, 34, 59, 329],
+          },
+        ],
+        game: 'Glacia',
+        name: 'Glacia',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Natural Cure',
+            id: 334,
+            level: 53,
+            moves: [332, 538, 406, 585],
+          },
+          {
+            ability: 'Levitate',
+            id: 330,
+            level: 53,
+            moves: [89, 337, 157, 48],
+          },
+          {
+            ability: 'Sniper',
+            id: 230,
+            level: 53,
+            moves: [406, 57, 281, 58],
+          },
+          {
+            ability: 'Levitate',
+            id: 330,
+            level: 53,
+            moves: [53, 586, 406, 103],
+          },
+          {
+            ability: 'Intimidate',
+            id: 373,
+            item: 'Sitrus Berry',
+            level: 55,
+            moves: [407, 428, 242, 422],
+          },
+        ],
+        game: 'Drake',
+        name: 'Drake',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Sturdy',
+            id: 227,
+            level: 57,
+            moves: [92, 332, 191, 211],
+          },
+          {
+            ability: 'Levitate',
+            id: 344,
+            level: 57,
+            moves: [115, 113, 326, 414],
+          },
+          {
+            ability: 'Sturdy',
+            id: 306,
+            level: 57,
+            moves: [444, 89, 231, 337],
+          },
+          {
+            ability: 'Suction Cups',
+            id: 346,
+            level: 57,
+            moves: [202, 246, 188, 109],
+          },
+          {
+            ability: 'Battle Armor',
+            id: 348,
+            level: 57,
+            moves: [404, 350, 232, 306],
+          },
+          {
+            ability: 'Clear Body',
+            id: 376,
+            item: 'Metagrossite',
+            level: 59,
+            moves: [418, 428, 309, 416],
+          },
+        ],
+        game: 'Champion',
+        name: 'Steven',
+        type: 'GYM',
+      },
+    ],
+  ],
+  '11': [
+    [
+      {
+        content: [
+          {
+            ability: 'Adaptability',
+            id: 735,
+            item: 'Pecha Berry',
+            level: 12,
+            moves: [162, 44, 43, 184],
+          },
+          {
+            ability: 'Stakeout',
+            id: 734,
+            level: 10,
+            moves: [43, 33, 228, 117],
+          },
+        ],
+        game: 'Sun',
+        name: "Ilima's Trial (+1 Defense)",
+        type: 'TRIAL',
+      },
+      {
+        content: [
+          {
+            ability: 'Gluttony',
+            id: -20,
+            item: 'Pecha Berry',
+            level: 12,
+            moves: [44, 39, 184, 33],
+          },
+          {
+            ability: 'Hustle',
+            id: -19,
+            level: 10,
+            moves: [33, 116, 98, 39],
+          },
+        ],
+        game: 'Moon',
+        name: "Ilima's Trial (+1 Defense)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Anger Point',
+            id: 56,
+            level: 14,
+            moves: [2, 116, 228],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 296,
+            level: 14,
+            moves: [252, 28, 292],
+          },
+          {
+            ability: 'Iron Fist',
+            id: 739,
+            item: 'Fightinium Z',
+            level: 15,
+            moves: [612, 228, 43],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: 'Island Kahuna Hala',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Schooling',
+            id: 746,
+            item: 'Sitrus Berry',
+            level: 20,
+            moves: [55, 45, 240, 487],
+          },
+          {
+            ability: 'Schooling',
+            id: 746,
+            level: 18,
+            moves: [270, 185, 362, 392],
+          },
+          {
+            ability: 'Healer',
+            id: 594,
+            level: 18,
+            moves: [270, 3, 505, 55],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: "Lana's Trial (+1 Defense)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Corrosion',
+            id: 758,
+            item: 'Petaya Berry',
+            level: 22,
+            moves: [259, 599, 92, 481],
+          },
+          {
+            ability: 'Corrosion',
+            id: 757,
+            level: 20,
+            moves: [139, 474, 269, 10],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: "Kiwae's Trial (+1 Sp. Def)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Leaf Guard',
+            id: 754,
+            item: 'Power Herb',
+            level: 24,
+            moves: [75, 404, 669, 235],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 732,
+            level: 22,
+            moves: [350, 365, 48, 103],
+          },
+          {
+            ability: 'Forecast',
+            id: 351,
+            level: 22,
+            moves: [241, 55, 29, 311],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: "Mallow's Trial (+2 Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Sturdy',
+            id: 299,
+            level: 25,
+            moves: [157, 209, 86],
+          },
+          {
+            ability: 'Sturdy',
+            id: 525,
+            level: 26,
+            moves: [350, 189, 29],
+          },
+          {
+            ability: 'Vital Spirit',
+            id: 745,
+            item: 'Rockium Z',
+            level: 26,
+            moves: [44, 88],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: 'Island Kahuna Olivia',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Levitate',
+            id: 738,
+            item: 'Occa Berry',
+            level: 29,
+            moves: [11, 268, 209, 450],
+          },
+          {
+            ability: 'Battery',
+            id: 737,
+            level: 28,
+            moves: [86, 81, 189, 11],
+          },
+          {
+            ability: 'Battery',
+            id: 737,
+            level: 28,
+            moves: [44, 86, 209],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: "Sophocles' Trial (+1 Atk, Def, Sp. Atk, Sp. Def, Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Disguise',
+            id: 778,
+            item: 'Lum Berry',
+            level: 33,
+            moves: [583, 421, 310, 102],
+          },
+          {
+            ability: 'Levitate',
+            id: 93,
+            level: 27,
+            moves: [95, 389, 101, 122],
+          },
+          {
+            ability: 'Cursed Body',
+            id: 94,
+            level: 27,
+            moves: [247, 95, 101, 325],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: "Acerola's Trial (+1 Atk, Def, Sp. Atk, Sp. Def, Speed)",
+        type: 'TRIAL',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 302,
+            level: 38,
+            moves: [408, 247, 252],
+          },
+          {
+            ability: 'Intimidate',
+            id: 552,
+            level: 38,
+            moves: [242, 372, 207, 89],
+          },
+          {
+            ability: 'Fur Coat',
+            id: -53,
+            item: 'Darkinium Z',
+            level: 39,
+            moves: [408, 252, 399],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: 'Island Kahuna Nanu',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Sand Veil',
+            id: -51,
+            level: 47,
+            moves: [442, 89, 389, 201],
+          },
+          {
+            ability: 'Sticky Hold',
+            id: 423,
+            level: 47,
+            moves: [330, 426, 105],
+          },
+          {
+            ability: 'Levitate',
+            id: 330,
+            level: 47,
+            moves: [414, 225],
+          },
+          {
+            ability: 'Stamina',
+            id: 750,
+            item: 'Groundium Z',
+            level: 48,
+            moves: [484, 89, 24, 68],
+          },
+        ],
+        game: 'Sun and Moon',
+        name: 'Island Kahuna Hapu',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Thick Fat',
+            id: 297,
+            level: 54,
+            moves: [252, 370, 282],
+          },
+          {
+            ability: 'Anger Point',
+            id: 57,
+            level: 54,
+            moves: [238, 200, 386, 228],
+          },
+          {
+            ability: 'Fluffy',
+            id: 760,
+            level: 54,
+            moves: [359, 693],
+          },
+          {
+            ability: 'Water Absorb',
+            id: 62,
+            level: 54,
+            moves: [127, 66],
+          },
+          {
+            ability: 'Iron Fight',
+            id: 740,
+            item: 'Fightinium Z',
+            level: 55,
+            moves: [665, 370],
+          },
+        ],
+        game: 'Hala',
+        name: 'Hala',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Swift Swim',
+            id: 369,
+            level: 54,
+            moves: [56, 246, 281],
+          },
+          {
+            ability: 'Clear Body',
+            id: 703,
+            level: 54,
+            moves: [408, 585, 115],
+          },
+          {
+            ability: 'Sturdy',
+            id: -76,
+            level: 54,
+            moves: [9, 350, 537],
+          },
+          {
+            ability: 'Sturdy',
+            id: 476,
+            level: 54,
+            moves: [414, 408, 86, 201],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 745,
+            item: 'Rockium Z',
+            level: 55,
+            moves: [242, 444, 68, 431],
+          },
+        ],
+        game: 'Olivia',
+        name: 'Olivia',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 302,
+            level: 54,
+            moves: [421, 428, 109, 252],
+          },
+          {
+            ability: 'Aftermath',
+            id: 426,
+            level: 54,
+            moves: [466, 116, 133, 226],
+          },
+          {
+            ability: 'Steelworker',
+            id: 781,
+            level: 54,
+            moves: [21, 247, 412, 250],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: 478,
+            level: 54,
+            moves: [59, 247, 109, 420],
+          },
+          {
+            ability: 'Water Compaction',
+            id: 770,
+            item: 'Ghostium Z',
+            level: 55,
+            moves: [247, 414, 202, 334],
+          },
+        ],
+        game: 'Acerola',
+        name: 'Acerola',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Sturdy',
+            id: 227,
+            level: 54,
+            moves: [163, 211, 364, 191],
+          },
+          {
+            ability: 'Inner Focus',
+            id: 169,
+            level: 54,
+            moves: [403, 129, 48, 305],
+          },
+          {
+            ability: 'Dancer',
+            id: 741,
+            level: 54,
+            moves: [686, 298, 403, 297],
+          },
+          {
+            ability: 'Big Pecks',
+            id: 630,
+            level: 54,
+            moves: [198, 413, 386, 260],
+          },
+          {
+            ability: 'Skill Link',
+            id: 733,
+            item: 'Flyinium Z',
+            level: 55,
+            moves: [331, 350, 690, 103],
+          },
+        ],
+        game: 'Kahili',
+        name: 'Kahili',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 745,
+            level: 57,
+            moves: [444, 709, 242, 446],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: -38,
+            level: 56,
+            moves: [605, 59, 420, 219],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 628,
+            level: 56,
+            moves: [306, 413, 366, 18],
+          },
+          {
+            ability: 'Sturdy',
+            id: 462,
+            level: 56,
+            moves: [85, 430, 86, 243],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 143,
+            level: 56,
+            moves: [34, 242, 484, 667],
+          },
+          {
+            ability: 'Blaze',
+            id: 727,
+            item: 'Firium Z',
+            level: 58,
+            moves: [394, 663, 200, 238],
+          },
+        ],
+        game: 'Champion - Starter: Rowlet',
+        name: 'Kukui',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 745,
+            level: 57,
+            moves: [444, 709, 242, 446],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: -38,
+            level: 56,
+            moves: [605, 59, 420, 219],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 628,
+            level: 56,
+            moves: [306, 413, 366, 18],
+          },
+          {
+            ability: 'Sturdy',
+            id: 462,
+            level: 56,
+            moves: [85, 430, 86, 243],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 143,
+            level: 56,
+            moves: [34, 242, 484, 667],
+          },
+          {
+            ability: 'Torrent',
+            id: 730,
+            item: 'Waterium Z',
+            level: 58,
+            moves: [664, 585, 453, 304],
+          },
+        ],
+        game: 'Champion - Starter: Litten',
+        name: 'Kukui',
+        type: 'GYM',
+      },
+      {
+        content: [
+          {
+            ability: 'Keen Eye',
+            id: 745,
+            level: 57,
+            moves: [444, 709, 242, 446],
+          },
+          {
+            ability: 'Snow Cloak',
+            id: -38,
+            level: 56,
+            moves: [605, 59, 420, 219],
+          },
+          {
+            ability: 'Keen Eye',
+            id: 628,
+            level: 56,
+            moves: [306, 413, 366, 18],
+          },
+          {
+            ability: 'Sturdy',
+            id: 462,
+            level: 56,
+            moves: [85, 430, 86, 243],
+          },
+          {
+            ability: 'Thick Fat',
+            id: 143,
+            level: 56,
+            moves: [34, 242, 484, 667],
+          },
+          {
+            ability: 'Overgrow',
+            id: 724,
+            item: 'Grassium Z',
+            level: 58,
+            moves: [348, 662, 413, 389],
+          },
+        ],
+        game: 'Champion - Starter: Popplio',
+        name: 'Kukui',
+        type: 'GYM',
+      },
+    ],
+  ],
 };
 
 export default DETAILS;

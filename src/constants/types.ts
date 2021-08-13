@@ -124,7 +124,7 @@ export type TRule = {
   content: string;
 };
 
-type TDetailClassification = 'GYM' | 'POKEMON';
+type TDetailClassification = 'GYM' | 'TRIAL';
 
 export type TDetail = {
   content: PokemonDetail[];
