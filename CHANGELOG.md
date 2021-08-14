@@ -4,7 +4,6 @@
 
 - Nickname generator - Generate a random word or reorder the letters of the pokémon's name
 - Gym leader details - New button that shows details of every gym leader
-- Summary - Generate an at-a-glance overview of the entire run
 
 🐛 Bug Fix
 
@@ -25,7 +24,16 @@
 - Sun and Moon: Removed berry fields
 - Ultra Sun and Ultra Moon: Removed Berry fields
 - New visual design for PokéStats Team tab
-- Alert when more than 6 pokémon are assigned to **Team**
+
+🏠 Internal
+
+- Bumped zustand to 3.5.8
+- Bumped @types/node to 16.6.1
+- Bumped @typescript-eslint/eslint-plugin to 4.29.1
+- Bumped @typescript-eslint/parser to 4.29.1
+- Bumped @types/node to 16.4.13
+- Bumped @types/react to 17.0.17
+- Bumped eslint-plugin-import to 2.23.4
 
 ## Version 2.7.1
 

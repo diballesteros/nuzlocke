@@ -156,6 +156,7 @@ const Badges: React.FC = () => {
               <span className={styles.levelCap}>{badge.levelCap}</span>
               <div
                 className={styles.question}
+                data-testid={`badge-detail-${index}`}
                 onClick={(e) => handleOpen(e, index)}
                 role="presentation"
               >

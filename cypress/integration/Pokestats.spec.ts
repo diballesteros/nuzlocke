@@ -43,7 +43,7 @@ describe('PokéStats', () => {
     cy.get('[data-testid=status-5] > .visible > :nth-child(5)').click();
 
     cy.contains('PokéStats').click();
-    cy.get('.secondary > :nth-child(1) > .ui').should('have.text', '4');
+    cy.get('.secondary > :nth-child(2) > .ui').click().should('have.text', '4');
     cy.get('.secondary > :nth-child(3) > .ui').should('have.text', '1');
     cy.get('.secondary > :nth-child(4) > .ui').should('have.text', '1');
     cy.get('[alt="Scorbunny"]').should('exist');
