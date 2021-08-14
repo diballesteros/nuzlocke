@@ -5,6 +5,14 @@
     background-color: transparent !important;
     border-color: var(--contrast) !important;
     color: var(--contrast) !important;
+    border-top-right-radius: unset !important;
+    border-bottom-right-radius: unset !important;
+  }
+
+  > button {
+    border-top-left-radius: unset !important;
+    border-bottom-left-radius: unset !important;
+    margin-right: 0 !important;
   }
 }
 

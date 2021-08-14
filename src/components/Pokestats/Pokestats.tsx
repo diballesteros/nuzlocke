@@ -130,7 +130,6 @@ const Pokestats: React.FC = () => {
         </Tab.Pane>
       ),
     },
-
     {
       menuItem: (
         <Menu.Item key="failed">
