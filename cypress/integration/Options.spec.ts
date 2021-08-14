@@ -31,6 +31,8 @@ describe('Options', () => {
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.contains('Starter').should('not.exist');
+    cy.get('[data-testid=nickname-1] > .ui').click();
+    cy.get('[data-testid=nickname-1] > input').should('have.length.above', 0);
   });
 
   it('About', () => {

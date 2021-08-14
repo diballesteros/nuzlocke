@@ -61,8 +61,70 @@
       background: url('../../assets/img/boxes/Sky.JPG') repeat;
     }
 
-    &.city {
-      background: url('../../assets/img/boxes/City.JPG') repeat;
+    &.team {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 15px;
+      position: relative;
+      width: 100%;
+      background-color: #899928;
+
+      .member {
+        display: flex;
+        align-items: center;
+        position: relative;
+        gap: 15px;
+        height: 88px;
+        background-color: #3790d9;
+        border-top-left-radius: 37px;
+        border-bottom-left-radius: 37px;
+        color: #ffffff;
+
+        .pokeball {
+          z-index: 1;
+          margin-left: -2px;
+          position: relative;
+          border-radius: 50%;
+          border: 5px solid #333;
+          background-image: linear-gradient(#b24000 5%, #b24000 49%, black 5%, white 49%, #b2b8c9);
+
+          > img {
+            z-index: 2;
+          }
+          .center {
+            position: absolute;
+            top: 48%;
+            height: 10px;
+            width: 100%;
+            background-color: #333;
+            z-index: 1;
+          }
+        }
+
+        .name {
+          font-weight: bold;
+          position: relative;
+          z-index: 1;
+        }
+
+        .lineOne {
+          position: absolute;
+          top: 70%;
+          background-color: #80c0d6;
+          height: 4px;
+          width: calc(100% - 5px);
+          margin-left: 5px;
+        }
+
+        .lineTwo {
+          position: absolute;
+          top: 80%;
+          background-color: #80c0d6;
+          height: 13px;
+          width: calc(100% - 20px);
+          margin-left: 20px;
+        }
+      }
     }
 
     .pokemon {
@@ -71,6 +133,7 @@
       margin: 5px;
       object-fit: contain;
       cursor: pointer;
+      position: relative;
 
       &:hover {
         border: 1px solid black;

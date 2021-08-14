@@ -9,7 +9,7 @@ const B_W_2: TEncounter[] = [
     status: null,
   },
   {
-    filter: ['Snivy', 'Tepig', 'Oshawott'],
+    filter: ['Snivy', 'Tepig', 'Oshawott', 'Basculin', 'Goldeen', 'Seaking'],
     id: 1,
     pokemon: null,
     location: 'Aspertia City',
@@ -23,6 +23,7 @@ const B_W_2: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Dratini', 'Gible'],
     id: 3,
     pokemon: null,
     location: 'Floccesy Town',
@@ -326,25 +327,6 @@ const B_W_2: TEncounter[] = [
     id: 22,
     pokemon: null,
     location: 'Chargestone Cave',
-    status: null,
-  },
-  {
-    filter: [
-      'Zangoose',
-      'Seviper',
-      'Watchog',
-      'Tranquill',
-      'Unfezant',
-      'Zebstrika',
-      'Audino',
-      'Deerling',
-      'Emolga',
-      'Foongus',
-      'Cubchoo',
-    ],
-    id: 23,
-    pokemon: null,
-    location: 'Mistralton City',
     status: null,
   },
   {

@@ -71,12 +71,6 @@ const R_B_Y: TEncounter[] = [
     status: null,
   },
   {
-    id: 7,
-    pokemon: null,
-    location: 'Pewter City',
-    status: null,
-  },
-  {
     filter: ['Pidgey', 'Rattata', 'Spearow', 'Sandshrew', 'Jigglypuff', 'Mankey'],
     id: 8,
     pokemon: null,
@@ -299,12 +293,6 @@ const R_B_Y: TEncounter[] = [
     status: null,
   },
   {
-    id: 23,
-    pokemon: null,
-    location: 'Lavendar Town',
-    status: null,
-  },
-  {
     filter: ['Gastly', 'Haunter', 'Cubone'],
     id: 24,
     pokemon: null,
@@ -388,12 +376,6 @@ const R_B_Y: TEncounter[] = [
     id: 29,
     pokemon: null,
     location: 'Saffron City',
-    status: null,
-  },
-  {
-    id: 30,
-    pokemon: null,
-    location: 'Rocket Hideout',
     status: null,
   },
   {

@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import useStore from 'store';
+import NICKNAMES from 'constants/nicknames';
 import styles from './Nickname.module.scss';
 
 interface NicknameProps {
@@ -9,7 +11,8 @@ interface NicknameProps {
 }
 
 const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
-  const changeStatus = useStore((state) => state.changeNickname);
+  const changeNickname = useStore((state) => state.changeNickname);
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [nick, setNick] = useState(nickname ?? '');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,12 +20,16 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
   };
 
   const handleBlur = () => {
-    changeStatus(encounterId, nick);
+    changeNickname(encounterId, nick);
+  };
+
+  const handleRandomize = () => {
+    changeNickname(encounterId, NICKNAMES[Math.floor(Math.random() * NICKNAMES.length)]);
   };
 
   return (
     <label className={styles.label}>
-      Nickname:{' '}
+      <span className={styles.innerLabel}>Nickname:</span>
       <Input
         aria-label="nickname"
         className={styles.nicknameInput}
@@ -31,9 +38,19 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
         id={`nickname-${encounterId}`}
         onBlur={handleBlur}
         onChange={handleChange}
-        placeholder="Enter a nickname..."
+        placeholder="Enter..."
         value={nick}
-      />
+      >
+        <input />
+        <Button
+          aria-label="randomize"
+          icon="random"
+          inverted={darkMode}
+          onClick={handleRandomize}
+          title="Randomize"
+          type="button"
+        />
+      </Input>
     </label>
   );
 };

@@ -9,6 +9,8 @@ describe('Badges', () => {
     cy.get('[title="Fire Badge"]')
       .click()
       .should('have.css', 'background-color', 'rgb(212, 106, 106)');
+    cy.get('[data-testid=badge-detail-0] > .question').click();
+    cy.contains('Milo').should('exist');
   });
 
   it('Edit badges', () => {

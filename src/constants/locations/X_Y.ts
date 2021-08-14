@@ -41,6 +41,7 @@ const X_Y: TEncounter[] = [
     status: null,
   },
   {
+    filter: ["Farfetch'd"],
     id: 4,
     pokemon: null,
     location: 'Santalune City',
@@ -181,6 +182,7 @@ const X_Y: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Gyarados', 'Eevee'],
     id: 13,
     pokemon: null,
     location: 'Camphrier Town',
@@ -313,6 +315,7 @@ const X_Y: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Gyarados', 'Eevee'],
     id: 23,
     pokemon: null,
     location: 'Geosenge Town',
@@ -393,12 +396,14 @@ const X_Y: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Gyarados', 'Eevee'],
     id: 28,
     pokemon: null,
     location: 'Courmarine City',
     status: null,
   },
   {
+    filter: ['Moltres', 'Zapdos', 'Articuno'],
     id: 29,
     pokemon: null,
     location: "Sea Spirit's Den",
@@ -541,6 +546,7 @@ const X_Y: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Bisharp'],
     id: 40,
     pokemon: null,
     location: 'Snowbelle City',

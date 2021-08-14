@@ -103,12 +103,6 @@ const US_UM: TEncounter[] = [
     status: null,
   },
   {
-    id: 7,
-    pokemon: null,
-    location: 'Berry Fields',
-    status: null,
-  },
-  {
     filter: ['Zubat', 'Diglett (Alolan)', 'Rattata (Alolan)', 'Yungoos', 'Noibat'],
     id: 8,
     pokemon: null,

@@ -19,6 +19,9 @@
 .label {
   display: flex;
   align-items: center;
-  gap: 25px;
   font-weight: bold;
+
+  .innerLabel {
+    min-width: 72px;
+  }
 }

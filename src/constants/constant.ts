@@ -153,3 +153,5 @@ export const INITIAL_STATE: TrackerState = {
   showAll: false,
   text: null,
 };
+
+export const PHYS_SPEC_SPLIT: string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];

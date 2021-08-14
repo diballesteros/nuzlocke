@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '2.7.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '3.0.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '2.7.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '3.0.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,19 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 3.0.0)</b>
+          <ul>
+            <li>
+              Gym leader details - New button that shows details of every gym leader. Located on the
+              ( ? ) every badge
+            </li>
+            <li>
+              Reworked encounter filters for all games. Deleted locations that had no droptables
+              available. To see updated tables reset all encounters for selected game.
+            </li>
+            <li>Button to generate a random nickname from curated list</li>
+            <li>New visual design for team section in PokéStats Tab</li>
+          </ul>
           <b>(Version 2.7.0)</b>
           <ul>
             <li>
@@ -113,7 +126,7 @@ const About: React.FC = () => {
         <div className={styles.credits}>
           <b>Credits:</b>
           <div>
-            Images provided by
+            Images provided by{' '}
             <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
               Bulbapedia
             </a>
@@ -156,6 +169,12 @@ const About: React.FC = () => {
             from{' '}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Nickname list provided by{' '}
+            <a href="https://www.findnicknames.com/pokemon-nicknames/" title="findnicknames">
+              Find Nicknames
             </a>
           </div>
         </div>

@@ -16,6 +16,8 @@ All Pokémon included up to generation 8.
 - View stats of your nuzlocke run in the PokéStats Tabs!
 - Dupes clause alerts
 - Works offline
+- Nickname generator
+- Details on all gym and Elite Four Pokémon for base games
 
 ![til](https://media.giphy.com/media/v6pLAc0eWGESG8HemA/giphy.gif)
 

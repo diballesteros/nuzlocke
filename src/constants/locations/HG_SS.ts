@@ -242,6 +242,7 @@ const HG_SS: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Eevee'],
     id: 17,
     pokemon: null,
     location: 'Goldenrod City',
@@ -435,12 +436,7 @@ const HG_SS: TEncounter[] = [
     status: null,
   },
   {
-    id: 34,
-    pokemon: null,
-    location: 'Mahogany Town',
-    status: null,
-  },
-  {
+    filter: ['Geodude', 'Voltorb', 'Electrode', 'Koffing'],
     id: 35,
     pokemon: null,
     location: 'Rocket Hideout',
@@ -577,12 +573,6 @@ const HG_SS: TEncounter[] = [
     id: 45,
     pokemon: null,
     location: 'Victory Road',
-    status: null,
-  },
-  {
-    id: 46,
-    pokemon: null,
-    location: 'Indigo Plateau',
     status: null,
   },
   {

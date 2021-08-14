@@ -52,6 +52,49 @@ const Pokestats: React.FC = () => {
   const panes = [
     {
       menuItem: (
+        <Menu.Item key="Team">
+          <TeamSVG className={styles.team} />
+          Team
+          <Label>{teamPokemon?.length || 0}</Label>
+        </Menu.Item>
+      ),
+      render: () => (
+        <Tab.Pane attached={false} className={`${styles.box} ${styles.team}`}>
+          {teamPokemon?.map((enc, i) => {
+            return (
+              <div className={styles.member} key={`team-${enc.id}-${i + 1}`}>
+                <Popup
+                  key={`team-${enc.id}-${i + 1}`}
+                  inverted={darkMode}
+                  on="click"
+                  pinned
+                  position="top center"
+                  trigger={
+                    <div className={styles.pokeball}>
+                      <img
+                        alt={enc?.pokemon?.text}
+                        className={styles.pokemon}
+                        src={enc?.pokemon?.image}
+                      />
+                      <div className={styles.center} />
+                    </div>
+                  }
+                >
+                  <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+                    <span>Met at: {enc.location}</span>
+                  </div>
+                </Popup>
+                <span className={styles.name}>{enc.nickname || enc?.pokemon?.text}</span>
+                <div className={styles.lineOne} />
+                <div className={styles.lineTwo} />
+              </div>
+            );
+          })}
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: (
         <Menu.Item key="Caught">
           <CaughtSVG className={styles.team} />
           Caught
@@ -64,43 +107,6 @@ const Pokestats: React.FC = () => {
             return (
               <Popup
                 key={`caught-${enc.id}-${i + 1}`}
-                inverted={darkMode}
-                on="click"
-                pinned
-                position="top center"
-                trigger={
-                  <img
-                    alt={enc?.pokemon?.text}
-                    className={styles.pokemon}
-                    src={enc?.pokemon?.image}
-                  />
-                }
-              >
-                <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc?.pokemon?.text}</span>
-                  <span>Met at: {enc.location}</span>
-                  {enc.nickname && <span>Nickname: {enc.nickname}</span>}
-                </div>
-              </Popup>
-            );
-          })}
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: (
-        <Menu.Item key="Team">
-          <TeamSVG className={styles.team} />
-          Team
-          <Label>{teamPokemon?.length || 0}</Label>
-        </Menu.Item>
-      ),
-      render: () => (
-        <Tab.Pane attached={false} className={`${styles.box} ${styles.city}`}>
-          {teamPokemon?.map((enc, i) => {
-            return (
-              <Popup
-                key={`team-${enc.id}-${i + 1}`}
                 inverted={darkMode}
                 on="click"
                 pinned

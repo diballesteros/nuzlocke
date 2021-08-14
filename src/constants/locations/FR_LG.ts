@@ -72,12 +72,6 @@ const FR_LG: TEncounter[] = [
     status: null,
   },
   {
-    id: 7,
-    pokemon: null,
-    location: 'Pewter City',
-    status: null,
-  },
-  {
     filter: ['Pidgey', 'Spearow', 'Nidoran♀', 'Nidoran♂', 'Jigglypuff', 'Mankey'],
     id: 8,
     pokemon: null,
@@ -192,6 +186,7 @@ const FR_LG: TEncounter[] = [
     status: null,
   },
   {
+    filter: ['Gyarados', 'Horsea', 'Krabby', 'Magikarp', 'Psyduck', 'Shellder', 'Tentacool'],
     id: 17,
     pokemon: null,
     location: 'S.S. Anne',
@@ -254,12 +249,6 @@ const FR_LG: TEncounter[] = [
     id: 22,
     pokemon: null,
     location: 'Rock Tunnel',
-    status: null,
-  },
-  {
-    id: 23,
-    pokemon: null,
-    location: 'Lavendar Town',
     status: null,
   },
   {
