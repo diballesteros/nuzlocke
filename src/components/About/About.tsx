@@ -39,20 +39,19 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
-          <b>
-            <ul>
-              <li>
-                Gym leader details - New button that shows details of every gym leader. Located on
-                the ( ? ) every badge
-              </li>
-              <li>
-                Reworked encounter filters for all games. Deleted locations that had no droptables
-                available. To see updated tables reset all encounters for selected game.
-              </li>
-              <li>Button to generate a random nickname from curated list</li>
-              <li>New visual design for team section in PokéStats Tab</li>
-            </ul>
-          </b>
+          <b>(Version 3.0.0)</b>
+          <ul>
+            <li>
+              Gym leader details - New button that shows details of every gym leader. Located on the
+              ( ? ) every badge
+            </li>
+            <li>
+              Reworked encounter filters for all games. Deleted locations that had no droptables
+              available. To see updated tables reset all encounters for selected game.
+            </li>
+            <li>Button to generate a random nickname from curated list</li>
+            <li>New visual design for team section in PokéStats Tab</li>
+          </ul>
           <b>(Version 2.7.0)</b>
           <ul>
             <li>
