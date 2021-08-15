@@ -93,7 +93,7 @@ export type TEncounter = {
 
 export interface TPokemon {
   dualtype?: Type;
-  evolve?: unknown;
+  evolve?: number[];
   key?: string;
   image: string;
   text: string;

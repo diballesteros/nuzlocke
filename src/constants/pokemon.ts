@@ -941,6 +941,7 @@ const POKEMON: TPokemon[] = [
     image: bulbasaur,
     type: 'GRASS',
     dualtype: 'POISON',
+    evolve: [1, 2, 3],
   },
   {
     value: 2,
@@ -948,6 +949,7 @@ const POKEMON: TPokemon[] = [
     image: ivysaur,
     type: 'GRASS',
     dualtype: 'POISON',
+    evolve: [1, 2, 3],
   },
   {
     value: 3,
@@ -955,18 +957,21 @@ const POKEMON: TPokemon[] = [
     image: venusaur,
     type: 'GRASS',
     dualtype: 'POISON',
+    evolve: [1, 2, 3],
   },
   {
     value: 4,
     text: 'Charmander',
     image: charmander,
     type: 'FIRE',
+    evolve: [4, 5, 6],
   },
   {
     value: 5,
     text: 'Charmeleon',
     image: charmeleon,
     type: 'FIRE',
+    evolve: [4, 5, 6],
   },
   {
     value: 6,
@@ -974,36 +979,42 @@ const POKEMON: TPokemon[] = [
     image: charizard,
     type: 'FIRE',
     dualtype: 'FLYING',
+    evolve: [4, 5, 6],
   },
   {
     value: 7,
     text: 'Squirtle',
     image: squirtle,
     type: 'WATER',
+    evolve: [8, 9, 10],
   },
   {
     value: 8,
     text: 'Wartortle',
     image: wartortle,
     type: 'WATER',
+    evolve: [8, 9, 10],
   },
   {
     value: 9,
     text: 'Blastoise',
     image: blastoise,
     type: 'WATER',
+    evolve: [8, 9, 10],
   },
   {
     value: 10,
     text: 'Caterpie',
     image: caterpie,
     type: 'BUG',
+    evolve: [10, 11, 12],
   },
   {
     value: 11,
     text: 'Metapod',
     image: metapod,
     type: 'BUG',
+    evolve: [10, 11, 12],
   },
   {
     value: 12,
@@ -1011,6 +1022,7 @@ const POKEMON: TPokemon[] = [
     image: butterfree,
     type: 'BUG',
     dualtype: 'FLYING',
+    evolve: [10, 11, 12],
   },
   {
     value: 13,
@@ -1018,6 +1030,7 @@ const POKEMON: TPokemon[] = [
     image: weedle,
     type: 'BUG',
     dualtype: 'POISON',
+    evolve: [13, 14, 15],
   },
   {
     value: 14,
@@ -1025,6 +1038,7 @@ const POKEMON: TPokemon[] = [
     image: kakuna,
     type: 'BUG',
     dualtype: 'POISON',
+    evolve: [13, 14, 15],
   },
   {
     value: 15,
@@ -1032,6 +1046,7 @@ const POKEMON: TPokemon[] = [
     image: beedrill,
     type: 'BUG',
     dualtype: 'POISON',
+    evolve: [13, 14, 15],
   },
   {
     value: 16,
@@ -1039,6 +1054,7 @@ const POKEMON: TPokemon[] = [
     image: pidgey,
     type: 'NORMAL',
     dualtype: 'FLYING',
+    evolve: [16, 17, 18],
   },
   {
     value: 17,
@@ -1046,6 +1062,7 @@ const POKEMON: TPokemon[] = [
     image: pidgeotto,
     type: 'NORMAL',
     dualtype: 'FLYING',
+    evolve: [16, 17, 18],
   },
   {
     value: 18,
@@ -1053,6 +1070,7 @@ const POKEMON: TPokemon[] = [
     image: pidgeot,
     type: 'NORMAL',
     dualtype: 'FLYING',
+    evolve: [16, 17, 18],
   },
   {
     key: 'rattata',
@@ -1060,6 +1078,7 @@ const POKEMON: TPokemon[] = [
     text: 'Rattata',
     image: rattata,
     type: 'NORMAL',
+    evolve: [19, 20],
   },
   {
     value: -19,
@@ -1067,6 +1086,7 @@ const POKEMON: TPokemon[] = [
     image: rattataa,
     type: 'DARK',
     dualtype: 'NORMAL',
+    evolve: [-19, -20],
   },
   {
     key: 'raticate',
@@ -1074,6 +1094,7 @@ const POKEMON: TPokemon[] = [
     text: 'Raticate',
     image: raticate,
     type: 'NORMAL',
+    evolve: [19, 20],
   },
   {
     value: -20,
@@ -1081,28 +1102,37 @@ const POKEMON: TPokemon[] = [
     image: raticatea,
     type: 'DARK',
     dualtype: 'NORMAL',
+    evolve: [-19, -20],
   },
   {
     value: 21,
     text: 'Spearow',
     image: spearow,
+    type: 'NORMAL',
+    dualType: 'FLYING',
+    evolve: [21, 22],
   },
   {
     value: 22,
     text: 'Fearow',
     image: fearow,
+    type: 'NORMAL',
+    dualType: 'FLYING',
+    evolve: [21, 22],
   },
   {
     value: 23,
     text: 'Ekans',
     image: ekans,
     type: 'POISON',
+    evolve: [23, 24],
   },
   {
     value: 24,
     text: 'Arbok',
     image: arbok,
     type: 'POISON',
+    evolve: [23, 24],
   },
   {
     value: 25,
