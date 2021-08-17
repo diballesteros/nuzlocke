@@ -80,13 +80,13 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].nickname = nickname;
         }),
-      changePokemon: (encounterId: number, pokemon: TPokemon) =>
+      changePokemon: (encounterId: number, pokemonId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
             return enc.id === encounterId;
           });
           if (index !== -1)
-            state.games[state.selectedGame?.value].encounters[index].pokemon = pokemon;
+            state.games[state.selectedGame?.value].encounters[index].pokemon = pokemonId;
         }),
       changeRuleset: (rulesetId: string) =>
         set((state) => {
@@ -221,7 +221,19 @@ const useStore = create<AppState>(
         });
       },
     })),
-    { name: 'pokemon-tracker' }
+    {
+      name: 'pokemon-tracker',
+      version: 1,
+      migrate: (persistedState: AppState) => {
+        const gameMigration = persistedState.games;
+        Object.keys(gameMigration).map((key) => {
+          gameMigration[key].encounters.forEach((enc) => {
+            enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+          });
+        });
+        return { ...persistedState, games: gameMigration };
+      },
+    }
   )
 );
 

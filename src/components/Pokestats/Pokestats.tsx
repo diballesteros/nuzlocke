@@ -5,6 +5,7 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import useStore from 'store';
+import POKEMON from 'constants/pokemon';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
@@ -61,6 +62,7 @@ const Pokestats: React.FC = () => {
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.team}`}>
           {teamPokemon?.map((enc, i) => {
+            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
             return (
               <div className={styles.member} key={`team-${enc.id}-${i + 1}`}>
                 <Popup
@@ -72,9 +74,9 @@ const Pokestats: React.FC = () => {
                   trigger={
                     <div className={styles.pokeball}>
                       <img
-                        alt={enc?.pokemon?.text}
+                        alt={foundPokemon?.text}
                         className={styles.pokemon}
-                        src={enc?.pokemon?.image}
+                        src={foundPokemon?.image}
                       />
                       <div className={styles.center} />
                     </div>
@@ -84,7 +86,7 @@ const Pokestats: React.FC = () => {
                     <span>Met at: {enc.location}</span>
                   </div>
                 </Popup>
-                <span className={styles.name}>{enc.nickname || enc?.pokemon?.text}</span>
+                <span className={styles.name}>{enc.nickname || foundPokemon?.text}</span>
                 <div className={styles.lineOne} />
                 <div className={styles.lineTwo} />
               </div>
@@ -104,6 +106,7 @@ const Pokestats: React.FC = () => {
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.grass}`}>
           {caughtPokemon?.map((enc, i) => {
+            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
             return (
               <Popup
                 key={`caught-${enc.id}-${i + 1}`}
@@ -113,14 +116,14 @@ const Pokestats: React.FC = () => {
                 position="top center"
                 trigger={
                   <img
-                    alt={enc?.pokemon?.text}
+                    alt={foundPokemon?.text}
                     className={styles.pokemon}
-                    src={enc?.pokemon?.image}
+                    src={foundPokemon?.image}
                   />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc?.pokemon?.text}</span>
+                  <span>{foundPokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
@@ -141,6 +144,7 @@ const Pokestats: React.FC = () => {
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.sky}`}>
           {failedPokemon?.map((enc, i) => {
+            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
             return (
               <Popup
                 key={`failed-${enc.id}-${i + 1}`}
@@ -150,14 +154,14 @@ const Pokestats: React.FC = () => {
                 position="top center"
                 trigger={
                   <img
-                    alt={enc?.pokemon?.text}
+                    alt={foundPokemon?.text}
                     className={styles.pokemon}
-                    src={enc?.pokemon?.image}
+                    src={foundPokemon?.image}
                   />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc?.pokemon?.text}</span>
+                  <span>{foundPokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>
@@ -178,6 +182,7 @@ const Pokestats: React.FC = () => {
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.crag}`}>
           {faintedPokemon?.map((enc, i) => {
+            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
             return (
               <Popup
                 key={`fainted-${enc.id}-${i + 1}`}
@@ -187,14 +192,14 @@ const Pokestats: React.FC = () => {
                 position="top center"
                 trigger={
                   <img
-                    alt={enc?.pokemon?.text}
+                    alt={foundPokemon?.text}
                     className={styles.pokemon}
-                    src={enc?.pokemon?.image}
+                    src={foundPokemon?.image}
                   />
                 }
               >
                 <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{enc?.pokemon?.text}</span>
+                  <span>{foundPokemon?.text}</span>
                   <span>Met at: {enc.location}</span>
                   {enc.nickname && <span>Nickname: {enc.nickname}</span>}
                 </div>

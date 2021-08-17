@@ -10,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { TGame, TrackerState, TRule } from 'constants/types';
+import { AppState, TGame, TRule } from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -123,7 +123,7 @@ const RULESETS = [
   },
 ];
 
-export const INITIAL_STATE: TrackerState = {
+export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
   darkMode: false,
   duplicates: false,

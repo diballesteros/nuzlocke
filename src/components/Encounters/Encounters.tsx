@@ -5,6 +5,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
+import POKEMON from 'constants/pokemon';
 import { Nickname, Pokemon, Status } from 'components';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
@@ -35,7 +36,7 @@ const Encounters: React.FC = React.memo(() => {
     (pokemonId, encounterId, statusId) => {
       return games[selectedGame?.value].encounters?.some((enc) => {
         return (
-          enc?.pokemon?.value === pokemonId &&
+          enc?.pokemon === pokemonId &&
           enc.id !== encounterId &&
           enc?.status?.value !== 5 &&
           statusId !== 5
@@ -48,10 +49,11 @@ const Encounters: React.FC = React.memo(() => {
   const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
       const upperCase = text?.toUpperCase();
+      const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
       return (
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
-          enc.pokemon?.text?.toUpperCase()?.includes(upperCase)) &&
+          foundPokemon?.text?.toUpperCase()?.includes(upperCase)) &&
         (!missing || (missing && (!enc.pokemon || !enc.status)))
       );
     });
@@ -81,12 +83,8 @@ const Encounters: React.FC = React.memo(() => {
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon
             alreadyEncountered={
-              !!encounter?.pokemon?.value && duplicates
-                ? alreadyEncountered(
-                    encounter?.pokemon?.value,
-                    encounter?.id,
-                    encounter?.status?.value
-                  )
+              !!encounter?.pokemon && duplicates
+                ? alreadyEncountered(encounter?.pokemon, encounter?.id, encounter?.status?.value)
                 : false
             }
             encounter={encounter}

@@ -7,6 +7,7 @@
 🐛 Bug Fix
 
 - Various spelling fixes in About and ReadMe
+- Fix to correctly show the selected pokémon if the location filter is enabled and it is not found in the filtered list
 
 💅 Enhancement
 

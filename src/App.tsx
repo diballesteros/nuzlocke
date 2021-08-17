@@ -37,7 +37,7 @@ const App: React.FC = () => {
       ),
     },
     {
-      menuItem: 'PokéStats',
+      menuItem: 'Stats',
       render: () => (
         <Tab.Pane>
           <Pokestats />

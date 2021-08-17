@@ -14,9 +14,9 @@ interface PokemonProps {
 const Pokemon: React.FC<PokemonProps> = React.memo(({ alreadyEncountered, encounter }) => {
   const changePokemon = useStore((state) => state.changePokemon);
   const showAll = useStore(useCallback((state) => state.showAll, []));
+  const foundPokemon = POKEMON.find((poke) => poke.value === encounter?.pokemon);
   const onChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
-    const foundPokemon = POKEMON.find((poke) => poke.value === data.value);
-    changePokemon(encounter.id, foundPokemon);
+    changePokemon(encounter.id, data.value as number);
   };
 
   return (
@@ -36,15 +36,20 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ alreadyEncountered, encoun
           onChange={onChange}
           options={
             encounter?.filter && !showAll
-              ? POKEMON.filter((poke) => encounter?.filter?.includes(poke.text))
+              ? POKEMON.filter(
+                  (poke) =>
+                    encounter?.filter?.includes(poke.text) || encounter.pokemon === poke.value
+                )
               : POKEMON
           }
           placeholder="Select..."
           search
           selection
-          value={encounter.pokemon?.value ?? null}
+          value={encounter.pokemon ?? null}
         />
-        <Evolve />
+        {!!foundPokemon?.evolve && (
+          <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
+        )}
       </div>
     </label>
   );

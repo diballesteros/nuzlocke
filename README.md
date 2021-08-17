@@ -13,11 +13,11 @@ All Pokémon included up to generation 8.
 - Search and filter through all encounters - including only missing encounters
 - Export, import and share Nuzlocke data with others!
 - Share, add and edit custom rules and rulesets
-- View stats of your nuzlocke run in the PokéStats Tabs!
+- View stats of your nuzlocke run
 - Dupes clause alerts
 - Works offline
-- Nickname generator
-- Details on all gym and Elite Four Pokémon for base games
+- Nickname randomizer
+- Details on all gym and Elite Four pokémon for base games
 
 ![til](https://media.giphy.com/media/v6pLAc0eWGESG8HemA/giphy.gif)
 

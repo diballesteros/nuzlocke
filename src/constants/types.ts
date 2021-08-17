@@ -1,4 +1,4 @@
-export interface TrackerState {
+export interface AppState {
   badges: TBadgeDictionary;
   darkMode: boolean;
   duplicates: boolean;
@@ -13,15 +13,12 @@ export interface TrackerState {
   selectedRuleset: string;
   showAll: boolean;
   text: string;
-}
-
-export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (newRule: string) => void;
   addRuleset: (newRuleset: string) => void;
   changeDupe: () => void;
-  changePokemon: (encounterId: number, pokemon: TPokemon) => void;
+  changePokemon: (encounterId: number, pokemonId: number) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
@@ -83,11 +80,12 @@ export type TBadge = {
 };
 
 export type TEncounter = {
+  details?: TDetail;
   filter?: string[];
   id: number;
   location: string;
   nickname?: string;
-  pokemon: TPokemon;
+  pokemon: number;
   status: TStatus;
 };
 
@@ -183,6 +181,7 @@ export interface PokemonDetail {
   id: number;
   item?: string;
   level: number;
+  metLevel?: number;
   moves: number[];
   nature?: string;
   notes?: string;
