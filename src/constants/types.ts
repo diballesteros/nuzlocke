@@ -97,7 +97,7 @@ export interface TPokemon {
   key?: string;
   image: string;
   text: string;
-  type?: Type;
+  type: Type;
   value: number;
 }
 

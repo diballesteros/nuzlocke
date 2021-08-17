@@ -1,3 +1,17 @@
+## Version 3.1.0
+
+🚀 New features
+
+- Evolve pokémon - button to the right of the pokémon name that lets you evolve or devolve
+
+🐛 Bug Fix
+
+- Various spelling fixes in About and ReadMe
+
+💅 Enhancement
+
+- Alert when over 6 pokémon with the **team** status
+
 ## Version 3.0.0
 
 🚀 New features
