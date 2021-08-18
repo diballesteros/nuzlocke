@@ -9,6 +9,7 @@ import POKEMON from 'constants/pokemon';
 import MOVES from 'constants/moves';
 import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
+import { Type } from 'components';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
@@ -75,19 +76,7 @@ const Badges: React.FC = () => {
                           </span>
                         </div>
                         <div className={styles.pokemonDetails}>
-                          <div className={styles.pokemonLabel}>
-                            <span>Type:</span>
-                            <div className={styles.types}>
-                              <span style={{ backgroundColor: TYPE_COLOR[poke?.type] }}>
-                                {poke?.type}
-                              </span>
-                              {!!poke?.dualtype && (
-                                <span style={{ backgroundColor: TYPE_COLOR[poke?.dualtype] }}>
-                                  {poke?.dualtype}
-                                </span>
-                              )}
-                            </div>
-                          </div>
+                          <Type pokemon={poke} />
                           {!!pokemon?.ability && (
                             <div className={styles.pokemonLabel}>
                               <span>Ability:</span>

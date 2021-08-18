@@ -42,6 +42,10 @@ const About: React.FC = () => {
           <b>(Version 3.1.0)</b>
           <ul>
             <li>
+              Using the pencil button on the encounter record your encounters with detailed
+              information, including: level, gender, ability, nature, item and more!
+            </li>
+            <li>
               Evolve pokémon - button to the right of the pokémon name that lets you evolve or
               devolve
             </li>

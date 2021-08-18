@@ -155,3 +155,9 @@ export const INITIAL_STATE: Partial<AppState> = {
 };
 
 export const PHYS_SPEC_SPLIT: string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+
+export const GENDERS = [
+  { key: '1', text: 'MALE', value: 'MALE' },
+  { key: '2', text: 'FEMALE', value: 'FEMALE' },
+  { key: '3', text: 'NEUTRAL', value: 'NEUTRAL' },
+];

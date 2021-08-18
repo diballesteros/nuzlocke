@@ -17,6 +17,20 @@ export interface AppState {
   addGame: (newGame: string) => void;
   addRule: (newRule: string) => void;
   addRuleset: (newRuleset: string) => void;
+  changeDetails: (
+    encounterId: number,
+    level: number,
+    metLevel: number,
+    gender: string,
+    ability: string,
+    nature: string,
+    item: string,
+    faint: string,
+    moveOne: number,
+    moveTwo: number,
+    moveThree: number,
+    moveFour: number
+  ) => void;
   changeDupe: () => void;
   changePokemon: (encounterId: number, pokemonId: number) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
@@ -80,7 +94,7 @@ export type TBadge = {
 };
 
 export type TEncounter = {
-  details?: TDetail;
+  details?: PokemonDetail;
   filter?: string[];
   id: number;
   location: string;
@@ -161,7 +175,16 @@ export type CategoryColor = {
   [key in Category]: string;
 };
 
-type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
+export type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
+
+export type TNature = {
+  decreased: string;
+  increased: string;
+  key: string;
+  nature: string;
+  value: string;
+  text: string;
+};
 
 export type Move = {
   accuracy: string;
@@ -177,12 +200,12 @@ export type Move = {
 
 export interface PokemonDetail {
   ability?: string;
-  gender?: Gender;
+  faint?: string;
+  gender?: string;
   id: number;
   item?: string;
   level: number;
   metLevel?: number;
   moves: number[];
   nature?: string;
-  notes?: string;
 }

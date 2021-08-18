@@ -68,6 +68,37 @@ const useStore = create<AppState>(
             key: `custom-ruleset-${rulesetName}-${new Date()}`,
           });
         }),
+      changeDetails: (
+        encounterId: number,
+        level: number,
+        metLevel: number,
+        gender: string,
+        ability: string,
+        nature: string,
+        item: string,
+        faint: string,
+        moveOne: number,
+        moveTwo: number,
+        moveThree: number,
+        moveFour: number
+      ) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].details = {
+              level,
+              metLevel,
+              gender,
+              ability,
+              id: state.games[state.selectedGame?.value].encounters[index].pokemon,
+              nature,
+              item,
+              faint,
+              moves: [moveOne, moveTwo, moveThree, moveFour],
+            };
+        }),
       changeDupe: () =>
         set((state) => {
           state.duplicates = !state.duplicates;

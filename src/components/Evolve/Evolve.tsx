@@ -19,6 +19,7 @@ const Evolve: React.FC<EvolveProps> = ({ encounter, evolveIds }) => {
   const [open, setOpen] = useState(false);
 
   const handleClose = () => {
+    setSelected(encounter?.pokemon);
     setOpen(false);
   };
 

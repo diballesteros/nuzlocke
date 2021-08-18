@@ -6,18 +6,18 @@ All Pokémon included up to generation 8.
 
 🚀 Features:
 
-- Input for pokemon nickname, location and status
+- Record your encounters with detailed information, including: pokemon, level, gender, ability, nature, item and more!
 - Accurate droptables for every location
 - Level caps for all base games - customizable!
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
-- Export, import and share Nuzlocke data with others!
+- Export, import and share Nuzlocke runs with others!
 - Share, add and edit custom rules and rulesets
-- View stats of your nuzlocke run
+- View overview and summary of your nuzlocke run
 - Dupes clause alerts
 - Works offline
 - Nickname randomizer
-- Details on all gym and Elite Four pokémon for base games
+- Details on all gym and Elite Four pokémon for all base games
 
 ![til](https://media.giphy.com/media/v6pLAc0eWGESG8HemA/giphy.gif)
 

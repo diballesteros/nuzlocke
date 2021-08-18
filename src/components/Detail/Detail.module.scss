@@ -1,0 +1,33 @@
+.content {
+  display: flex !important;
+  flex-flow: column nowrap;
+  gap: 10px;
+
+  .header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    .headerLeft {
+      display: flex;
+      flex-flow: column nowrap;
+    }
+  }
+
+  img {
+    height: 80px;
+    width: 100px;
+    align-self: center;
+  }
+
+  .name {
+    font-weight: bold;
+    align-self: center;
+  }
+
+  .dropdown {
+    > i {
+      top: 0 !important;
+    }
+  }
+}

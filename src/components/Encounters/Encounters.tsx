@@ -6,7 +6,8 @@ import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
-import { Nickname, Pokemon, Status } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
+import { Detail, Nickname, Pokemon, Status } from 'components';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 
@@ -76,10 +77,49 @@ const Encounters: React.FC = React.memo(() => {
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredEncounters[index];
+    const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
     return (
-      <div style={style} className={index % 2 === 0 ? styles.coloredRow : ''}>
-        <div className={styles.row} data-testid={`encounter-${encounter.id}`}>
-          <span className={styles.location}>{encounter.location}</span>
+      <div style={style}>
+        <div
+          className={`${styles.row} ${!!encounter?.pokemon ? styles.type : ''}`}
+          data-testid={`encounter-${encounter.id}`}
+          style={{
+            borderImage: !!encounter?.pokemon
+              ? `linear-gradient(to left, ${
+                  TYPE_COLOR[foundPokemon?.dualtype || foundPokemon?.type]
+                } , ${TYPE_COLOR[foundPokemon.type]}) 1`
+              : undefined,
+          }}
+        >
+          <div className={styles.header}>
+            <span className={styles.location}>{encounter.location}</span>
+            <div className={styles.buttons}>
+              {!!encounter.pokemon && <Detail encounter={encounter} />}
+              <Button
+                aria-label="reset encounter"
+                basic
+                compact
+                icon
+                inverted={darkMode}
+                onClick={() => handleClear(encounter.id)}
+                type="button"
+              >
+                <Icon name="repeat" />
+              </Button>
+              <Button
+                aria-label="delete encounter"
+                basic
+                className={styles.delete}
+                compact
+                icon
+                inverted={darkMode}
+                onClick={() => handleConfirm(encounter.id)}
+                type="button"
+              >
+                <Icon name="trash" />
+              </Button>
+            </div>
+          </div>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon
             alreadyEncountered={
@@ -90,30 +130,6 @@ const Encounters: React.FC = React.memo(() => {
             encounter={encounter}
           />
           <Status encounterId={encounter.id} status={encounter.status} />
-          <Button
-            aria-label="reset encounter"
-            basic
-            className={styles.reset}
-            compact
-            icon
-            inverted={darkMode}
-            onClick={() => handleClear(encounter.id)}
-            type="button"
-          >
-            <Icon name="repeat" />
-          </Button>
-          <Button
-            aria-label="delete encounter"
-            basic
-            className={styles.delete}
-            compact
-            icon
-            inverted={darkMode}
-            onClick={() => handleConfirm(encounter.id)}
-            type="button"
-          >
-            <Icon name="trash" />
-          </Button>
         </div>
       </div>
     );
@@ -126,7 +142,7 @@ const Encounters: React.FC = React.memo(() => {
           <FixedSizeList
             height={1000}
             itemCount={filteredEncounters?.length}
-            itemSize={nicknames ? 182 : 144}
+            itemSize={nicknames ? 188 : 150}
             width="100%"
           >
             {renderRow}
