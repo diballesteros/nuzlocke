@@ -10,6 +10,7 @@ import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
+import { PokeInfo } from 'components';
 import styles from './Pokestats.module.scss';
 
 const Pokestats: React.FC = () => {
@@ -82,11 +83,12 @@ const Pokestats: React.FC = () => {
                     </div>
                   }
                 >
-                  <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                    <span>Met at: {enc.location}</span>
-                  </div>
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
                 </Popup>
-                <span className={styles.name}>{enc.nickname || foundPokemon?.text}</span>
+                <div className={styles.memberText}>
+                  <span>{enc.nickname || foundPokemon?.text}</span>
+                  {!!enc?.details?.level && <span>Lv. {enc.details.level}</span>}
+                </div>
                 <div className={styles.lineOne} />
                 <div className={styles.lineTwo} />
               </div>
@@ -122,11 +124,7 @@ const Pokestats: React.FC = () => {
                   />
                 }
               >
-                <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{foundPokemon?.text}</span>
-                  <span>Met at: {enc.location}</span>
-                  {enc.nickname && <span>Nickname: {enc.nickname}</span>}
-                </div>
+                <PokeInfo encounter={enc} pokemon={foundPokemon} />
               </Popup>
             );
           })}
@@ -160,11 +158,7 @@ const Pokestats: React.FC = () => {
                   />
                 }
               >
-                <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{foundPokemon?.text}</span>
-                  <span>Met at: {enc.location}</span>
-                  {enc.nickname && <span>Nickname: {enc.nickname}</span>}
-                </div>
+                <PokeInfo encounter={enc} pokemon={foundPokemon} />
               </Popup>
             );
           })}
@@ -198,11 +192,7 @@ const Pokestats: React.FC = () => {
                   />
                 }
               >
-                <div style={{ display: 'flex', flexFlow: 'column nowrap' }}>
-                  <span>{foundPokemon?.text}</span>
-                  <span>Met at: {enc.location}</span>
-                  {enc.nickname && <span>Nickname: {enc.nickname}</span>}
-                </div>
+                <PokeInfo encounter={enc} pokemon={foundPokemon} />
               </Popup>
             );
           })}

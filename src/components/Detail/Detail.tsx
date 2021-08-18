@@ -230,7 +230,12 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
         {encounter?.status?.value === 2 && (
           <label>
             <div>Cause of Fainting:</div>
-            <textarea onChange={(e) => setFaint(e.target.value)} value={faint} />
+            <textarea
+              className={styles.textarea}
+              onChange={(e) => setFaint(e.target.value)}
+              rows={5}
+              value={faint}
+            />
           </label>
         )}
       </Modal.Content>
