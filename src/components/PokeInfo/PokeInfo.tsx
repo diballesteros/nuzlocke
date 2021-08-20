@@ -21,15 +21,15 @@ const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
   };
   return (
     <div className={styles.container}>
-      <span>
+      <b>
         {pokemon?.text} {!!encounter?.details?.gender && getGenderIcon()}
         {!!encounter?.details?.level && ` Lv. ${encounter.details.level}`}
-      </span>
+      </b>
+      {encounter.nickname && <span>{encounter.nickname}</span>}
       <span>Met at: {encounter.location}</span>
-      <span> {!!encounter?.details?.metLevel && ` Met Lv. ${encounter.details.metLevel}`}</span>
-      {encounter.nickname && <span>Nickname: {encounter.nickname}</span>}
-      {encounter?.details?.nature && <span>Nature: {encounter.details.nature}</span>}
-      {encounter?.details?.ability && <span>Ability: {encounter.details.ability}</span>}
+      <span>{!!encounter?.details?.metLevel && ` Met Lv. ${encounter.details.metLevel}`}</span>
+      {encounter?.details?.nature && <span>{encounter.details.nature} nature</span>}
+      {encounter?.details?.ability && <span>{encounter.details.ability}</span>}
       {encounter?.details?.item && <span>Item: {encounter.details.item}</span>}
       {encounter?.details?.faint && encounter.status.value === 2 && (
         <span>Cause of Fainting: {encounter.details.faint}</span>

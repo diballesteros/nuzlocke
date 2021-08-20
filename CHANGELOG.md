@@ -3,6 +3,8 @@
 🚀 New features
 
 - Evolve pokémon - button to the right of the pokémon name that lets you evolve or devolve
+- Record your encounters with detailed information, including: pokemon, level, gender, ability, nature, item and more
+- Summary Tab in **Overview** - Includes downloadable and customizable summary image
 
 🐛 Bug Fix
 
@@ -11,7 +13,20 @@
 
 💅 Enhancement
 
+- Twitter link
 - Alert when over 6 pokémon with the **team** status
+- Styling change for gym details button
+- Renamed PokeStats to Overview
+- Included encounter details in the pokemon popup in the overview tab
+
+🏠 Internal
+
+- Bumped zustand to 3.5.9
+- Bumped @types/node to 16.6.2
+- Bumped @typescript-eslint/eslint-plugin to 4.29.2
+- Bumped @typescript-eslint/parser to 4.29.2
+- Bumped @types/react to 17.0.18
+- Bumped cypress to 8.3.0
 
 ## Version 3.0.0
 
@@ -46,7 +61,6 @@
 - Bumped @types/node to 16.6.1
 - Bumped @typescript-eslint/eslint-plugin to 4.29.1
 - Bumped @typescript-eslint/parser to 4.29.1
-- Bumped @types/node to 16.4.13
 - Bumped @types/react to 17.0.17
 - Bumped eslint-plugin-import to 2.23.4
 

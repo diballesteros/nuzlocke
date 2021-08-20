@@ -99,7 +99,6 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           </div>
           <Type pokemon={foundPokemon} />
         </div>
-        {!!encounter.nickname && <span className={styles.name}>{encounter.nickname}</span>}
         <Input
           label="Level"
           onChange={(e) => setLevel(Number(e.target.value))}

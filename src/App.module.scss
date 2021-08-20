@@ -108,6 +108,8 @@
     align-items: center;
     justify-content: space-evenly;
     gap: 10px;
+    position: relative;
+    z-index: 2;
     padding: 10px 15px;
     width: 100%;
     height: fit-content;
@@ -122,6 +124,13 @@
       display: flex;
       font-size: 10px;
       text-align: center;
+    }
+
+    .socials {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      gap: 5px;
     }
 
     .github {

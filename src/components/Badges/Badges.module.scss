@@ -160,50 +160,6 @@
         }
       }
     }
-
-    .moves {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      justify-content: center;
-      column-gap: 3px;
-      row-gap: 3px;
-      .move {
-        display: flex;
-        flex-flow: column nowrap;
-        align-items: center;
-        flex: 1;
-        border: 2px solid hsl(0, 0%, 20%);
-        border-radius: 8px;
-
-        > span {
-          padding: 3px 0;
-          font-weight: bold;
-        }
-
-        .moveCategorization {
-          display: flex;
-          flex-flow: row wrap;
-          flex: 1;
-          width: 100%;
-
-          .moveCategory,
-          .moveType {
-            display: block;
-            color: #ffffff;
-            flex: 1;
-            text-align: center;
-            padding: 2px 0;
-            border-bottom-left-radius: 3px;
-            border-bottom-right-radius: 3px;
-            text-transform: uppercase;
-
-            @media (max-width: 550px) {
-              font-size: 12px;
-            }
-          }
-        }
-      }
-    }
   }
 }
 

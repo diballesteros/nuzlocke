@@ -1,0 +1,117 @@
+.container {
+  display: grid;
+  place-items: center;
+  overflow: auto;
+
+  .summary {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 1000px;
+    min-width: 1000px;
+    max-width: 1000px;
+    gap: 10px;
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background-color: var(--header) !important;
+      color: var(--contrast);
+      padding: 20px;
+      font-size: 24px;
+
+      .badges {
+        display: flex;
+        flex-flow: row wrap;
+
+        gap: 3px;
+        max-width: 300px;
+
+        .badge {
+          height: 28px;
+          width: 28px;
+          filter: brightness(0.2);
+
+          &.active {
+            filter: brightness(1);
+          }
+        }
+      }
+    }
+
+    .row {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 25px;
+    }
+
+    .card {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 20px;
+      box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+      background-color: var(--card);
+      color: var(--contrast);
+      border-radius: 2px;
+
+      &.small {
+        width: 240px;
+      }
+
+      &.medium {
+        width: 490px;
+      }
+
+      &.large {
+        width: 740px;
+      }
+
+      .title {
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+
+      .team {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: 10px;
+
+        .pokemon {
+          display: grid;
+          grid-template-columns: 80px minmax(auto, 135px) minmax(0, 1fr);
+          column-gap: 10px;
+          padding: 5px 0;
+          margin-bottom: 10px;
+          border-bottom: 1px solid var(--contrast);
+          > img {
+            height: 80px;
+            width: 80px;
+            object-fit: cover;
+            align-self: center;
+          }
+        }
+      }
+
+      .stat {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        padding: 5px;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid var(--contrast);
+        border-radius: 4px;
+        margin-bottom: 10px;
+        > svg {
+          width: 22px;
+          height: 22px;
+        }
+
+        :global(.ui.label) {
+          background-color: #999;
+          color: #fff;
+        }
+      }
+    }
+  }
+}

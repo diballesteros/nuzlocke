@@ -6,10 +6,8 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import DETAILS from 'constants/details';
 import POKEMON from 'constants/pokemon';
-import MOVES from 'constants/moves';
-import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
-import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import { Type } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
+import { Moves, Type } from 'components';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
@@ -91,32 +89,7 @@ const Badges: React.FC = () => {
                           )}
                         </div>
                       </div>
-                      <div className={styles.moves}>
-                        {pokemon?.moves?.map((move, i) => {
-                          const moveDetail = MOVES.find((item) => item.id === move);
-                          return (
-                            <div className={styles.move} key={`${pokemon.id}-${move}-${i + 1}`}>
-                              <span>{moveDetail.name}</span>
-                              <div className={styles.moveCategorization}>
-                                <span
-                                  className={styles.moveType}
-                                  style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}
-                                >
-                                  {moveDetail.type}
-                                </span>
-                                {PHYS_SPEC_SPLIT.includes(selectedGame?.value) && (
-                                  <span
-                                    className={styles.moveCategory}
-                                    style={{ backgroundColor: CATEGORY_COLOR[moveDetail.category] }}
-                                  >
-                                    {moveDetail.category}
-                                  </span>
-                                )}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
+                      <Moves moves={pokemon?.moves} />
                     </div>
                   );
                 })}

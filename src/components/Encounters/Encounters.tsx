@@ -142,7 +142,7 @@ const Encounters: React.FC = React.memo(() => {
           <FixedSizeList
             height={1000}
             itemCount={filteredEncounters?.length}
-            itemSize={nicknames ? 188 : 150}
+            itemSize={nicknames ? 190 : 152}
             width="100%"
           >
             {renderRow}

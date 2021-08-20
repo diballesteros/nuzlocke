@@ -136,10 +136,12 @@ const useStore = create<AppState>(
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
             return enc.id === encounterId;
           });
-          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].status = null;
-          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].pokemon = null;
-          if (index !== -1)
+          if (index !== -1) {
+            state.games[state.selectedGame?.value].encounters[index].status = null;
+            state.games[state.selectedGame?.value].encounters[index].pokemon = null;
             state.games[state.selectedGame?.value].encounters[index].nickname = null;
+            state.games[state.selectedGame?.value].encounters[index].details = null;
+          }
         });
       },
       deleteEncounter: (encounterId: number) =>

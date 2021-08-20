@@ -9,8 +9,9 @@ import POKEMON from 'constants/pokemon';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
+import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
-import { PokeInfo } from 'components';
+import { PokeInfo, Summary } from 'components';
 import styles from './Pokestats.module.scss';
 
 const Pokestats: React.FC = () => {
@@ -52,6 +53,19 @@ const Pokestats: React.FC = () => {
   }, [games, selectedGame]);
 
   const panes = [
+    {
+      menuItem: (
+        <Menu.Item key="overview">
+          <SummarySVG className={styles.team} />
+          Summary
+        </Menu.Item>
+      ),
+      render: () => (
+        <Tab.Pane>
+          <Summary />
+        </Tab.Pane>
+      ),
+    },
     {
       menuItem: (
         <Menu.Item key="Team">

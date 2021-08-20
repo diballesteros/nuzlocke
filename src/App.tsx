@@ -48,6 +48,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     if (appState.darkMode) {
+      document.documentElement.style.setProperty('--header', '#1b1c1d');
       document.documentElement.style.setProperty('--card', '#424242');
       document.documentElement.style.setProperty('--badge', '#C395FE');
       document.documentElement.style.setProperty('--badgeflash', '#ffffff');
@@ -55,6 +56,7 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
       document.documentElement.style.setProperty('--contrast', '#FFFFFF');
     } else {
+      document.documentElement.style.setProperty('--header', '#ffffff');
       document.documentElement.style.setProperty('--card', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
       document.documentElement.style.setProperty('--badge', '#D46A6A');
@@ -125,7 +127,7 @@ const App: React.FC = () => {
     <main className={styles.app}>
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-          <Dropdown aria-label="options" data-testid="options" item icon="wrench" simple>
+          <Dropdown aria-label="options" data-testid="options" item icon="bars" simple>
             <Dropdown.Menu>
               <Settings />
               <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
@@ -235,15 +237,25 @@ const App: React.FC = () => {
           Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
           Pokémon character names are trademarks of Nintendo.
         </span>
-        <a
-          className={styles.github}
-          href="https://github.com/diballesteros/nuzlocke/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Icon name="github" />
-          <span>Source</span>
-        </a>
+        <div className={styles.socials}>
+          <a
+            className={styles.github}
+            data-show-count="false"
+            href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
+          >
+            <Icon name="twitter square" />
+            <span>Follow</span>
+          </a>
+          <a
+            className={styles.github}
+            href="https://github.com/diballesteros/nuzlocke/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Icon name="github" />
+            <span>Source</span>
+          </a>
+        </div>
       </footer>
     </main>
   );
