@@ -81,6 +81,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           aria-label="edit encounter"
           basic
           compact
+          data-testid={`edit-encounter-${encounter.id}`}
           icon
           inverted={darkMode}
           onClick={() => setShow(true)}
@@ -100,12 +101,14 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           <Type pokemon={foundPokemon} />
         </div>
         <Input
+          data-testid="level"
           label="Level"
           onChange={(e) => setLevel(Number(e.target.value))}
           type="number"
           value={level}
         />
         <Input
+          data-testid="metlevel"
           label="Met Level"
           onChange={(e) => setMetLevel(Number(e.target.value))}
           type="number"
@@ -130,6 +133,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           />
         </label>
         <Input
+          data-testid="ability"
           label="Ability"
           onChange={(e) => setAbility(e.target.value)}
           type="text"
@@ -153,7 +157,13 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
             value={nature ?? ''}
           />
         </div>
-        <Input label="Item" onChange={(e) => setItem(e.target.value)} type="text" value={item} />
+        <Input
+          data-testid="item"
+          label="Item"
+          onChange={(e) => setItem(e.target.value)}
+          type="text"
+          value={item}
+        />
         <div>
           <div>Move 1:</div>
           <Dropdown
@@ -231,6 +241,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
             <div>Cause of Fainting:</div>
             <textarea
               className={styles.textarea}
+              data-testid="cause of fainting"
               onChange={(e) => setFaint(e.target.value)}
               rows={5}
               value={faint}

@@ -209,3 +209,7 @@ export interface PokemonDetail {
   moves: number[];
   nature?: string;
 }
+
+export type TypeObj = {
+  [key in Type]: number;
+};

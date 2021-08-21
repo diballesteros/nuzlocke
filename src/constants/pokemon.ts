@@ -1774,7 +1774,7 @@ const POKEMON: TPokemon[] = [
     image: grimera,
     type: 'POISON',
     dualtype: 'DARK',
-    evolve: [88, 89],
+    evolve: [-88, -89],
   },
   {
     key: 'muk',
@@ -1790,7 +1790,7 @@ const POKEMON: TPokemon[] = [
     image: muka,
     type: 'POISON',
     dualtype: 'DARK',
-    evolve: [88, 89],
+    evolve: [-88, -89],
   },
   {
     value: 90,

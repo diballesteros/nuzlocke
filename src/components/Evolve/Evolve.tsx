@@ -41,6 +41,7 @@ const Evolve: React.FC<EvolveProps> = ({ encounter, evolveIds }) => {
         <Button
           aria-label="evolve"
           className={styles.button}
+          data-testid={`evolve-${encounter.id}}`}
           icon="dna"
           inverted={darkMode}
           onClick={() => setOpen(true)}

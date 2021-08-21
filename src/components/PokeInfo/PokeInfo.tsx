@@ -26,8 +26,10 @@ const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
         {!!encounter?.details?.level && ` Lv. ${encounter.details.level}`}
       </b>
       {encounter.nickname && <span>{encounter.nickname}</span>}
-      <span>Met at: {encounter.location}</span>
-      <span>{!!encounter?.details?.metLevel && ` Met Lv. ${encounter.details.metLevel}`}</span>
+      <span>
+        Met at: {encounter.location}
+        {!!encounter?.details?.metLevel && `,  at lv. ${encounter.details.metLevel}`}
+      </span>
       {encounter?.details?.nature && <span>{encounter.details.nature} nature</span>}
       {encounter?.details?.ability && <span>{encounter.details.ability}</span>}
       {encounter?.details?.item && <span>Item: {encounter.details.item}</span>}

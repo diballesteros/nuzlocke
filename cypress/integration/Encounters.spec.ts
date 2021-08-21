@@ -15,7 +15,7 @@ describe('Encounters', () => {
       .should('have.length', 1);
   });
 
-  it('Edit base encounter', () => {
+  it.only('Edit base encounter', () => {
     cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
     cy.contains('Scorbunny').click();
     cy.get('#search-filter').click();
@@ -25,6 +25,10 @@ describe('Encounters', () => {
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
+    cy.get('[data-testid="evolve-0}"]').click();
+    cy.get(':nth-child(2) > .ui > label').click();
+    cy.contains('Save').click();
+    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Raboot');
     cy.get('[data-testid=encounter-0] .repeat').click();
     cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Select...');
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');

@@ -50,7 +50,7 @@ const About: React.FC = () => {
               devolve
             </li>
             <li>
-              Alert when over 6 pokémon with the <b>team</b> status
+              Summary Tab in <b>PokéStats</b> - Includes downloadable and customizable summary image
             </li>
           </ul>
           <b>(Version 3.0.0)</b>
@@ -179,6 +179,16 @@ const About: React.FC = () => {
             Icons made by{' '}
             <a href="https://www.freepik.com" title="Freepik">
               Freepik
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Icons made by{' '}
+            <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+              Vectors Market
             </a>{' '}
             from{' '}
             <a href="https://www.flaticon.com/" title="Flaticon">
