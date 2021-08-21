@@ -19,14 +19,15 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
 
   return (
     <label className={styles.label}>
-      <span className={styles.innerLabel}>Status:</span>
+      <div className={styles.innerLabel}>Status:</div>
       <Dropdown
         aria-label="status-selector"
+        basic
         className={styles.statusSelect}
         data-testid={`status-${encounterId}`}
         fluid
-        id={`status-select-${encounterId}`}
         inline
+        labeled
         lazyLoad
         onChange={handleChange}
         options={STATUSES}

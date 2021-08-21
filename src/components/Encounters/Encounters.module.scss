@@ -20,29 +20,32 @@
     position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
-    .location {
-      display: block;
-      white-space: nowrap;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      font-weight: bold;
-      max-width: calc(100% - 70px);
-      height: 20px;
-      min-height: 20px;
+    &.type {
+      border: 3px solid;
     }
 
-    .delete {
-      position: absolute;
-      top: 5px;
-      right: 5px;
-      font-size: 12px;
-    }
+    .header {
+      display: flex;
+      justify-content: space-between;
 
-    .reset {
-      position: absolute;
-      top: 5px;
-      right: 40px;
-      font-size: 12px;
+      .location {
+        display: block;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-weight: bold;
+        height: 20px;
+        min-height: 20px;
+      }
+
+      .buttons {
+        display: flex;
+        gap: 5px;
+        > button {
+          margin-right: 0 !important;
+          font-size: 12px;
+        }
+      }
     }
   }
 

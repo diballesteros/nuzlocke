@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '3.0.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '3.1.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '3.0.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '3.1.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,20 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 3.1.0)</b>
+          <ul>
+            <li>
+              Using the pencil button on the encounter record your encounters with detailed
+              information, including: level, gender, ability, nature, item and more!
+            </li>
+            <li>
+              Evolve pokémon - button to the right of the pokémon name that lets you evolve or
+              devolve
+            </li>
+            <li>
+              Summary Tab in <b>PokéStats</b> - Includes downloadable and customizable summary image
+            </li>
+          </ul>
           <b>(Version 3.0.0)</b>
           <ul>
             <li>
@@ -165,6 +179,16 @@ const About: React.FC = () => {
             Icons made by{' '}
             <a href="https://www.freepik.com" title="Freepik">
               Freepik
+            </a>{' '}
+            from{' '}
+            <a href="https://www.flaticon.com/" title="Flaticon">
+              www.flaticon.com
+            </a>
+          </div>
+          <div>
+            Icons made by{' '}
+            <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+              Vectors Market
             </a>{' '}
             from{' '}
             <a href="https://www.flaticon.com/" title="Flaticon">

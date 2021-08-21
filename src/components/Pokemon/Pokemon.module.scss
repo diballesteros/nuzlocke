@@ -17,7 +17,14 @@
 
   :global(.ui.image) {
     width: 37.5px !important;
-    height: 28px;
+    height: 30px;
+  }
+
+  :global(.divider.text) {
+    @media (max-width: 550px) {
+      max-width: 100px;
+      white-space: nowrap;
+    }
   }
 
   @media (max-width: 550px) {
@@ -38,5 +45,10 @@
     > span {
       color: red;
     }
+  }
+
+  .dropdownContainer {
+    display: flex;
+    width: 100%;
   }
 }

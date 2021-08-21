@@ -101,10 +101,13 @@
           }
         }
 
-        .name {
+        .memberText {
+          display: flex;
+          justify-content: space-evenly;
           font-weight: bold;
           position: relative;
           z-index: 1;
+          width: 100%;
         }
 
         .lineOne {

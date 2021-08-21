@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 3px;
+
+  > span {
+    font-size: 12px;
+  }
+
+  .types {
+    display: flex;
+    gap: 5px;
+
+    > span {
+      padding: 2.5px 4px;
+      border-radius: 3px;
+      color: #ffffff;
+    }
+  }
+
+  .value {
+    font-size: 14px;
+  }
+}

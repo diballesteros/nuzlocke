@@ -1,13 +1,15 @@
 {
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
-  "version": "3.0.0",
+  "description": "Nuzlocke tracker to record encounters with detailed information",
+  "version": "3.1.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
   },
   "private": true,
   "dependencies": {
+    "html-to-image": "^1.7.0",
     "immer": "^9.0.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -15,7 +17,7 @@
     "react-window": "^1.8.6",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
-    "zustand": "^3.5.8"
+    "zustand": "^3.5.9"
   },
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
@@ -46,20 +48,20 @@
   },
   "devDependencies": {
     "@types/lodash": "^4.14.172",
-    "@types/node": "^16.6.1",
-    "@types/react": "^17.0.17",
+    "@types/node": "^16.7.1",
+    "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
     "@types/react-window": "^1.8.5",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
-    "cypress": "^8.2.0",
+    "@typescript-eslint/eslint-plugin": "^4.29.2",
+    "@typescript-eslint/parser": "^4.29.2",
+    "cypress": "^8.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "node-sass": "4.14.1",

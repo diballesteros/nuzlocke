@@ -10,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { TGame, TrackerState, TRule } from 'constants/types';
+import { AppState, TGame, TRule, TypeObj } from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -123,7 +123,7 @@ const RULESETS = [
   },
 ];
 
-export const INITIAL_STATE: TrackerState = {
+export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
   darkMode: false,
   duplicates: false,
@@ -155,3 +155,48 @@ export const INITIAL_STATE: TrackerState = {
 };
 
 export const PHYS_SPEC_SPLIT: string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+
+export const GENDERS = [
+  { key: '1', text: 'MALE', value: 'MALE' },
+  { key: '2', text: 'FEMALE', value: 'FEMALE' },
+  { key: '3', text: 'NEUTRAL', value: 'NEUTRAL' },
+];
+
+export const TYPE_COUNT: TypeObj = {
+  'NORMAL': 0,
+  'FIRE': 0,
+  'WATER': 0,
+  'GRASS': 0,
+  'ELECTRIC': 0,
+  'ICE': 0,
+  'POISON': 0,
+  'FIGHTING': 0,
+  'GROUND': 0,
+  'FLYING': 0,
+  'PSYCHIC': 0,
+  'BUG': 0,
+  'ROCK': 0,
+  'GHOST': 0,
+  'DARK': 0,
+  'DRAGON': 0,
+  'STEEL': 0,
+  'FAIRY': 0,
+};
+
+export const SUM_STATUS = [
+  {
+    key: 'ongoing',
+    text: 'ONGOING',
+    value: 0,
+  },
+  {
+    key: 'complete',
+    text: 'COMPLETE',
+    value: 1,
+  },
+  {
+    key: 'FAILED',
+    text: 'FAILED',
+    value: 2,
+  },
+];

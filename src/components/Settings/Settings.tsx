@@ -14,7 +14,7 @@ const Settings: React.FC = () => {
       closeOnDimmerClick
       onClose={() => setShow(false)}
       open={show}
-      trigger={<Dropdown.Item icon="options" onClick={() => setShow(true)} text="Settings" />}
+      trigger={<Dropdown.Item icon="wrench" onClick={() => setShow(true)} text="Settings" />}
     >
       <Modal.Header>Settings</Modal.Header>
       <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>

@@ -3,6 +3,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
+import POKEMON from 'constants/pokemon';
 import { AddEncounter, ResetEncounters, Share } from 'components';
 import styles from './Options.module.scss';
 
@@ -46,8 +47,9 @@ const Options: React.FC = React.memo(() => {
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
             (str, enc, i) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
               return `${str}
-      ${i + 1}. ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+      ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
             },
             `Nuzlocke Encounter List
         `

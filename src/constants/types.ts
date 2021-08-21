@@ -1,4 +1,4 @@
-export interface TrackerState {
+export interface AppState {
   badges: TBadgeDictionary;
   darkMode: boolean;
   duplicates: boolean;
@@ -13,15 +13,26 @@ export interface TrackerState {
   selectedRuleset: string;
   showAll: boolean;
   text: string;
-}
-
-export interface AppState extends TrackerState {
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (newRule: string) => void;
   addRuleset: (newRuleset: string) => void;
+  changeDetails: (
+    encounterId: number,
+    level: number,
+    metLevel: number,
+    gender: string,
+    ability: string,
+    nature: string,
+    item: string,
+    faint: string,
+    moveOne: number,
+    moveTwo: number,
+    moveThree: number,
+    moveFour: number
+  ) => void;
   changeDupe: () => void;
-  changePokemon: (encounterId: number, pokemon: TPokemon) => void;
+  changePokemon: (encounterId: number, pokemonId: number) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
@@ -83,21 +94,22 @@ export type TBadge = {
 };
 
 export type TEncounter = {
+  details?: PokemonDetail;
   filter?: string[];
   id: number;
   location: string;
   nickname?: string;
-  pokemon: TPokemon;
+  pokemon: number;
   status: TStatus;
 };
 
 export interface TPokemon {
   dualtype?: Type;
-  evolve?: unknown;
+  evolve?: number[];
   key?: string;
   image: string;
   text: string;
-  type?: Type;
+  type: Type;
   value: number;
 }
 
@@ -163,7 +175,16 @@ export type CategoryColor = {
   [key in Category]: string;
 };
 
-type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
+export type Gender = 'MALE' | 'FEMALE' | 'NEUTRAL';
+
+export type TNature = {
+  decreased: string;
+  increased: string;
+  key: string;
+  nature: string;
+  value: string;
+  text: string;
+};
 
 export type Move = {
   accuracy: string;
@@ -179,11 +200,16 @@ export type Move = {
 
 export interface PokemonDetail {
   ability?: string;
-  gender?: Gender;
+  faint?: string;
+  gender?: string;
   id: number;
   item?: string;
   level: number;
+  metLevel?: number;
   moves: number[];
   nature?: string;
-  notes?: string;
 }
+
+export type TypeObj = {
+  [key in Type]: number;
+};

@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import useStore from 'store';
 import { AddEncounter, ResetEncounters, Share } from 'components';
+import POKEMON from 'constants/pokemon';
 import styles from './FAB.module.scss';
 
 const FAB: React.FC = () => {
@@ -22,8 +23,9 @@ const FAB: React.FC = () => {
               icon
               text={games[selectedGame?.value]?.encounters?.reduce(
                 (str, enc, i) => {
+                  const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
                   return `${str}
-      ${i + 1}. ${enc.location} - ${enc.pokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+      ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
                 },
                 `Nuzlocke Encounter List
         `

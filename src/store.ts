@@ -68,6 +68,37 @@ const useStore = create<AppState>(
             key: `custom-ruleset-${rulesetName}-${new Date()}`,
           });
         }),
+      changeDetails: (
+        encounterId: number,
+        level: number,
+        metLevel: number,
+        gender: string,
+        ability: string,
+        nature: string,
+        item: string,
+        faint: string,
+        moveOne: number,
+        moveTwo: number,
+        moveThree: number,
+        moveFour: number
+      ) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].details = {
+              level,
+              metLevel,
+              gender,
+              ability,
+              id: state.games[state.selectedGame?.value].encounters[index].pokemon,
+              nature,
+              item,
+              faint,
+              moves: [moveOne, moveTwo, moveThree, moveFour],
+            };
+        }),
       changeDupe: () =>
         set((state) => {
           state.duplicates = !state.duplicates;
@@ -80,13 +111,13 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].nickname = nickname;
         }),
-      changePokemon: (encounterId: number, pokemon: TPokemon) =>
+      changePokemon: (encounterId: number, pokemonId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
             return enc.id === encounterId;
           });
           if (index !== -1)
-            state.games[state.selectedGame?.value].encounters[index].pokemon = pokemon;
+            state.games[state.selectedGame?.value].encounters[index].pokemon = pokemonId;
         }),
       changeRuleset: (rulesetId: string) =>
         set((state) => {
@@ -105,10 +136,12 @@ const useStore = create<AppState>(
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
             return enc.id === encounterId;
           });
-          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].status = null;
-          if (index !== -1) state.games[state.selectedGame?.value].encounters[index].pokemon = null;
-          if (index !== -1)
+          if (index !== -1) {
+            state.games[state.selectedGame?.value].encounters[index].status = null;
+            state.games[state.selectedGame?.value].encounters[index].pokemon = null;
             state.games[state.selectedGame?.value].encounters[index].nickname = null;
+            state.games[state.selectedGame?.value].encounters[index].details = null;
+          }
         });
       },
       deleteEncounter: (encounterId: number) =>
@@ -159,7 +192,7 @@ const useStore = create<AppState>(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '3.0.0';
+          state.newVersion = '3.1.0';
         }),
       reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
         set((state) => {
@@ -221,7 +254,19 @@ const useStore = create<AppState>(
         });
       },
     })),
-    { name: 'pokemon-tracker' }
+    {
+      name: 'pokemon-tracker',
+      version: 1,
+      migrate: (persistedState: AppState) => {
+        const gameMigration = persistedState.games;
+        Object.keys(gameMigration).map((key) => {
+          gameMigration[key].encounters.forEach((enc) => {
+            enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+          });
+        });
+        return { ...persistedState, games: gameMigration };
+      },
+    }
   )
 );
 
