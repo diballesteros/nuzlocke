@@ -2,6 +2,22 @@
 
 [![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
 
+## Table of Contents
+
+- [About](#about)
+  - [Features](#🚀-features)
+  - [How it works](#✨-how-it-works)
+- [Getting started](#getting-started)
+- [Running the tests](#running-the-tests)
+- [Roadmap](#roadmap)
+- [Deployment](#deployment)
+- [Versioning](#versioning)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgements](#acknowledgements)
+- [Legal](#legal)
+- [Contact](#contact)
+
 ## About
 
 https://nuzlocke.netlify.app
@@ -12,10 +28,10 @@ All Pokémon included up to generation 8.
 
 Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
-### 🚀 Features:
+### 🚀 Features
 
 - Record your encounters with detailed information, including: pokemon, level, gender, ability, nature, item and more!
-- Accurate droptables for every location
+- Accurate encounter tables for every location
 - Level caps for all base games - customizable!
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
@@ -28,7 +44,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Details on all gym and Elite Four pokémon for all base games
 - Download a summary image
 
-### ✨ How it works:
+### ✨ How it works
 
 - Adding Encounter:
 
@@ -46,7 +62,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 ![Imgur Image](https://imgur.com/y5uiriQ.jpg)
 
-## Getting Started
+## Getting started
 
 ### 🔑 Prerequisites
 
@@ -78,13 +94,35 @@ This is an example of how to list things you need to use the software and how to
    yarn start
    ```
 
+## Running the tests
+
+This project uses [Cypress](https://www.cypress.io/) for testing. To run them:
+
+```sh
+yarn run cypress open
+```
+
+In the new window execute any of the \*.spec.ts files.
+
 ## Roadmap
 
 See the [open issues](https://github.com/diballesteros/nuzlocke/issues) for a list of proposed features (and known issues).
 
-## Contact
+## Deployment
 
-Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
+The project automatically deploys to [Netlify](https://www.netlify.com/) when changes are detected on the **master** branch.
+
+## Versioning
+
+We use [SemVer](https://semver.org/) for versioning. For the versions available, see the [tags](https://github.com/diballesteros/nuzlocke/releases) on this repository.
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://github.com/diballesteros/nuzlocke/blob/master/CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## License
+
+This project is licensed under the BSD-3-Clause License - see the [LICENSE](https://github.com/diballesteros/nuzlocke/blob/master/LICENSE) file for details
 
 ## Acknowledgements
 
@@ -99,3 +137,7 @@ Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diba
 ## Legal
 
 Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
+
+## Contact
+
+Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com

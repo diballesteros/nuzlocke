@@ -1,3 +1,14 @@
+## Version 3.2.0
+
+🐛 Bug Fix
+
+- Fixed Route 114 encounters for Ruby, Sapphire, Emerald, Omega Ruby and Alpha Sapphire
+
+📝 Documentation
+
+- README updates
+- SECURITY updates
+
 ## Version 3.1.0
 
 🚀 New features
