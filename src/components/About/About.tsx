@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '3.1.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '3.2.0' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '3.1.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '3.2.0' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,13 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 3.2.0)</b>
+          <ul>
+            <li>Rematch information for Elite 4 HGSS in badge details</li>
+            <li>
+              New alert for when there are more than 6 pokémon with <b>Team</b> status
+            </li>
+          </ul>
           <b>(Version 3.1.0)</b>
           <ul>
             <li>

@@ -136,12 +136,13 @@ export type TRule = {
   content: string;
 };
 
-type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX';
+type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH';
 
 export type TDetail = {
   content: PokemonDetail[];
   name: string;
   game: string;
+  rematch?: PokemonDetail[];
   type: TDetailClassification;
 };
 

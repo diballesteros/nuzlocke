@@ -1,0 +1,86 @@
+.title {
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.rematch {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.gymPokemon {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+  overflow: auto;
+
+  .pokemon {
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: 6px;
+    gap: 5px;
+    padding: 5px;
+
+    .pokemonHeader {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      gap: 25px;
+
+      .pokemonName {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 5px;
+
+        > img {
+          height: 60px;
+          width: 60px;
+          object-fit: cover;
+        }
+
+        > span {
+          font-size: 16px;
+        }
+
+        .totem {
+          font-weight: bold;
+          text-decoration: underline;
+        }
+      }
+
+      .pokemonDetails {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+      }
+
+      .pokemonLabel {
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 3px;
+
+        > span {
+          font-size: 12px;
+        }
+
+        .types {
+          display: flex;
+          gap: 5px;
+
+          > span {
+            padding: 2.5px 4px;
+            border-radius: 3px;
+            color: #ffffff;
+          }
+        }
+
+        .value {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

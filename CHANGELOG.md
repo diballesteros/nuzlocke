@@ -1,3 +1,30 @@
+## Version 3.2.0
+
+🚀 New features
+
+- Rematch information for Elite 4 for HGSS in badge details
+
+🐛 Bug Fix
+
+- Fixed Route 114 encounters for Ruby, Sapphire, Emerald, Omega Ruby and Alpha Sapphire
+- Summary image cards now adapt to full size of row incase something is hidden
+- Bruno HGSS detail fixes
+
+💅 Enhancement
+
+- Various adjusments for performance
+- New alert when team has over 6 pokémon
+- Usability improvements to scrolling on mobile
+
+📝 Documentation
+
+- README updates
+- SECURITY updates
+
+🏠 Internal
+
+- Included Docker files
+
 ## Version 3.1.0
 
 🚀 New features
