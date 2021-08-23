@@ -25,7 +25,7 @@ describe('Options', () => {
     cy.get('#search-filter').click();
     cy.get('[data-testid=pokemon-1] > .search').type('Bulb');
     cy.contains('Bulbasaur').click();
-    cy.contains('Dupe').should('exist');
+    cy.contains('DUPE').should('exist');
     cy.scrollTo('top');
     cy.contains('Starter').should('exist');
     cy.get('[data-testid=status-0]').click();

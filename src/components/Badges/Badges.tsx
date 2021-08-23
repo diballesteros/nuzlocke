@@ -5,9 +5,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import DETAILS from 'constants/details';
-import POKEMON from 'constants/pokemon';
-import { TYPE_COLOR } from 'constants/colors';
-import { Moves, Type } from 'components';
+import { BadgeDetail } from 'components';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
@@ -49,51 +47,7 @@ const Badges: React.FC = () => {
           menuItem: game.game,
           render: () => (
             <Tab.Pane>
-              <div className={styles.title}>{selectedDetail[tab]?.name}</div>
-              <div className={styles.gymPokemon}>
-                {selectedDetail[tab]?.content?.map((pokemon, ind) => {
-                  const poke = POKEMON.find((item) => item.value === pokemon.id);
-                  return (
-                    <div
-                      className={styles.pokemon}
-                      key={`pokemon-${pokemon.id}-${ind + 1}`}
-                      style={{ border: `2px solid ${TYPE_COLOR[poke?.type]}` }}
-                    >
-                      <div className={styles.pokemonHeader}>
-                        <div className={styles.pokemonName}>
-                          {selectedDetail[tab]?.type === 'TRIAL' && ind === 0 && (
-                            <span className={styles.totem}>TOTEM</span>
-                          )}
-                          {selectedDetail[tab]?.type === 'DYNAMAX' &&
-                            ind === selectedDetail[tab]?.content?.length - 1 && (
-                              <span className={styles.totem}>DYNAMAX</span>
-                            )}
-                          <img src={poke?.image} alt={poke?.text} />
-                          <span>
-                            {poke?.text} Lv.{pokemon?.level}
-                          </span>
-                        </div>
-                        <div className={styles.pokemonDetails}>
-                          <Type pokemon={poke} />
-                          {!!pokemon?.ability && (
-                            <div className={styles.pokemonLabel}>
-                              <span>Ability:</span>
-                              <span className={styles.value}>{pokemon?.ability}</span>
-                            </div>
-                          )}
-                          {!!pokemon?.item && (
-                            <div className={styles.pokemonLabel}>
-                              <span>Item:</span>
-                              <span className={styles.value}>{pokemon?.item}</span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                      <Moves moves={pokemon?.moves} />
-                    </div>
-                  );
-                })}
-              </div>
+              <BadgeDetail selectedDetail={selectedDetail[tab]} />
             </Tab.Pane>
           ),
         };

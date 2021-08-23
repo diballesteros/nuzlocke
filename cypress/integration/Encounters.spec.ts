@@ -15,7 +15,7 @@ describe('Encounters', () => {
       .should('have.length', 1);
   });
 
-  it.only('Edit base encounter', () => {
+  it('Edit base encounter', () => {
     cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
     cy.contains('Scorbunny').click();
     cy.get('#search-filter').click();

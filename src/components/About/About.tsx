@@ -41,6 +41,7 @@ const About: React.FC = () => {
         <div style={{ overflow: 'auto' }}>
           <b>(Version 3.2.0)</b>
           <ul>
+            <li>Rematch information for Elite 4 HGSS in badge details</li>
             <li>
               New alert for when there are more than 6 pokémon with <b>Team</b> status
             </li>
