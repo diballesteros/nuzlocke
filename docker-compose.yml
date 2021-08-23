@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  nuzlocke:
+    image: nuzlocke
+    build:
+      context: .
+      dockerfile: ./DockerFile
+    environment:
+      CHOKIDAR_USEPOLLING: 'true'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3000:3000
+    container_name: nuzlocke_container
+    command: yarn start
