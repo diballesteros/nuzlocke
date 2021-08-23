@@ -16,7 +16,7 @@ const Encounters: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const missing = useStore(useCallback((state) => state.missing, []));
-  const duplicates = useStore(useCallback((state) => state.duplicates, []));
+
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
@@ -32,20 +32,6 @@ const Encounters: React.FC = React.memo(() => {
   );
   const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
   const [confirm, setConfirm] = useState(false);
-
-  const alreadyEncountered = useCallback(
-    (pokemonId, encounterId, statusId) => {
-      return games[selectedGame?.value].encounters?.some((enc) => {
-        return (
-          enc?.pokemon === pokemonId &&
-          enc.id !== encounterId &&
-          enc?.status?.value !== 5 &&
-          statusId !== 5
-        );
-      });
-    },
-    [games, selectedGame]
-  );
 
   const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -121,14 +107,7 @@ const Encounters: React.FC = React.memo(() => {
             </div>
           </div>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
-          <Pokemon
-            alreadyEncountered={
-              !!encounter?.pokemon && duplicates
-                ? alreadyEncountered(encounter?.pokemon, encounter?.id, encounter?.status?.value)
-                : false
-            }
-            encounter={encounter}
-          />
+          <Pokemon encounter={encounter} />
           <Status encounterId={encounter.id} status={encounter.status} />
         </div>
       </div>
@@ -140,7 +119,7 @@ const Encounters: React.FC = React.memo(() => {
       {selectedGame ? (
         <div className={styles.list} data-testid="encounters-list">
           <FixedSizeList
-            height={1000}
+            height={750}
             itemCount={filteredEncounters?.length}
             itemSize={nicknames ? 190 : 152}
             width="100%"

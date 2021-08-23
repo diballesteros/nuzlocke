@@ -3,11 +3,22 @@
 🐛 Bug Fix
 
 - Fixed Route 114 encounters for Ruby, Sapphire, Emerald, Omega Ruby and Alpha Sapphire
+- Summary image cards now adapt to full size of row incase something is hidden
+
+💅 Enhancement
+
+- Various adjusments for performance
+- New alert when team has over 6 pokémon
+- Usability improvements to scrolling on mobile
 
 📝 Documentation
 
 - README updates
 - SECURITY updates
+
+🏠 Internal
+
+- Included Docker files
 
 ## Version 3.1.0
 
