@@ -62,11 +62,6 @@
 
   .container {
     height: calc(100% - 42px);
-
-    @media (max-width: 550px) {
-      margin-left: 0.5em !important;
-      margin-right: 0.5em !important;
-    }
   }
 
   .tabs {
@@ -97,8 +92,8 @@
       border: none;
 
       @media (max-width: 550px) {
-        padding-left: 0.5em;
-        padding-right: 0.5em;
+        padding-left: 0.7em;
+        padding-right: 0.7em;
       }
     }
   }
