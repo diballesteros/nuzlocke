@@ -1,0 +1,6 @@
+[{
+        "relation": ["delegate_permission/common.handle_all_urls"],
+        "target" : { "namespace": "android_app", "package_name": "app.netlify.nuzlocke.twa",
+                     "sha256_cert_fingerprints": ["46:71:C0:73:F8:B6:0D:BB:9A:89:1E:D6:10:DD:97:B0:6E:D4:F6:79:5C:32:B9:CB:02:A2:2B:17:74:4C:0E:17"] }
+      }
+]
