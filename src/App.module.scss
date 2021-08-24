@@ -3,6 +3,25 @@
   background-color: var(--bgprimary);
   transition: all 500ms;
   overflow: auto;
+
+  .dropdown {
+    > div:first-child {
+      display: grid;
+      place-items: center;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      order: 1;
+      background-color: red;
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 9px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+    }
+  }
+
   .input {
     height: 100%;
     width: 100%;

@@ -192,7 +192,7 @@ const useStore = create<AppState>(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '3.2.0';
+          state.newVersion = '3.2.1';
         }),
       reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
         set((state) => {

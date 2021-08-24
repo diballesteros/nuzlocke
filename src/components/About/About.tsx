@@ -21,10 +21,10 @@ const About: React.FC = () => {
       open={show}
       trigger={
         <Dropdown.Item
-          className={`${appState.newVersion !== '3.2.0' ? styles.newVersion : ''}`}
+          className={`${appState.newVersion !== '3.2.1' ? styles.newVersion : ''}`}
           icon="question"
           onClick={handleAbout}
-          text={`About ${appState.newVersion !== '3.2.0' ? '(NEW)' : ''}`}
+          text={`About ${appState.newVersion !== '3.2.1' ? '(NEW)' : ''}`}
         />
       }
     >
@@ -39,6 +39,13 @@ const About: React.FC = () => {
       >
         <b>Changelog</b>
         <div style={{ overflow: 'auto' }}>
+          <b>(Version 3.2.1)</b>
+          <ul>
+            <li>
+              New buttons in footer and about section to support project. Completely <b>optional</b>
+            </li>
+            <li>The app will soon be available in the Playstore and Microsoft Store</li>
+          </ul>
           <b>(Version 3.2.0)</b>
           <ul>
             <li>Rematch information for Elite 4 HGSS in badge details</li>
@@ -208,6 +215,18 @@ const About: React.FC = () => {
               Find Nicknames
             </a>
           </div>
+        </div>
+        <div className={styles.support}>
+          <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
+            <img
+              style={{ border: 0, height: 36 }}
+              src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
+              alt="Buy Me a Coffee at ko-fi.com"
+            />
+          </a>
+          <a className={styles.patron} href="https://www.patreon.com/bePatron?u=60585540">
+            Become a Patron!
+          </a>
         </div>
       </Modal.Content>
       <Modal.Actions>
