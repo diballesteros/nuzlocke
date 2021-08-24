@@ -127,7 +127,15 @@ const App: React.FC = () => {
     <main className={styles.app}>
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-          <Dropdown aria-label="options" data-testid="options" item icon="bars" simple>
+          <Dropdown
+            aria-label="options"
+            className={styles.dropdown}
+            data-testid="options"
+            icon="bars"
+            item
+            simple
+            text={appState.newVersion !== '3.2.1' ? '!' : undefined}
+          >
             <Dropdown.Menu>
               <Settings />
               <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
