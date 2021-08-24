@@ -119,7 +119,7 @@ const Encounters: React.FC = React.memo(() => {
       {selectedGame ? (
         <div className={styles.list} data-testid="encounters-list">
           <FixedSizeList
-            height={650}
+            height={655}
             itemCount={filteredEncounters?.length}
             itemSize={nicknames ? 190 : 152}
             width="100%"
