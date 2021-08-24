@@ -1,3 +1,18 @@
+## Version 3.2.1
+
+🚀 New features
+
+- New buttons in footer and about section to support project. Completely **optional**
+- The app will soon be available in the Playstore and Microsoft Store
+
+💅 Enhancement
+
+- Various adjustments for performance
+
+📝 Documentation
+
+- README updates
+
 ## Version 3.2.0
 
 🚀 New features
@@ -12,7 +27,7 @@
 
 💅 Enhancement
 
-- Various adjusments for performance
+- Various adjustments for performance
 - New alert when team has over 6 pokémon
 - Usability improvements to scrolling on mobile
 
