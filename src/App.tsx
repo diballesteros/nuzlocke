@@ -263,15 +263,6 @@ const App: React.FC = () => {
             <Icon name="github" />
             <span>Source</span>
           </a>
-          <a
-            className={styles.github}
-            href="https://www.patreon.com/diballesteros"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Icon name="patreon" />
-            <span>Support</span>
-          </a>
         </div>
       </footer>
     </main>
