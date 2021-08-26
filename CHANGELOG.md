@@ -1,3 +1,20 @@
+## Version 3.3.0
+
+🚀 New features
+
+- New smart rule option - add custom logic to rules and alerts if they're being broken on the encounter
+- Revamped look of about section, included links for PlayStore and Microsoft Store
+
+💅 Enhancement
+
+- Added default rulesets for Genlockes, Egglockes and Wonderlockes
+- Error handling improvements
+- New sections in summary page to show all fainted and boxed pokemon
+
+📝 Documentation
+
+- README updates
+
 ## Version 3.2.1
 
 🚀 New features

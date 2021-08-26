@@ -45,7 +45,7 @@ export interface AppState {
   editRule: (newRule: string, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
-  reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
+  reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;
   resetAll: () => void;
   resetBadges: (gameKey?: string) => void;
   search: (text: string) => void;
@@ -106,6 +106,7 @@ export type TEncounter = {
 export interface TPokemon {
   dualtype?: Type;
   evolve?: number[];
+  generation: number;
   key?: string;
   image: string;
   text: string;
@@ -124,7 +125,7 @@ export type TLocation = {
   name: string;
 };
 
-export type TRulesetDictionary = { [key: string]: TRule[] };
+export type TRulesetDictionary = { [key: string]: TRuleEntry[] };
 
 export type TRuleset = {
   key: string;
@@ -132,9 +133,13 @@ export type TRuleset = {
   value: string;
 };
 
-export type TRule = {
+export type TRuleEntry = {
   content: string;
+  default: boolean;
+  type: TRule;
 };
+
+export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
 type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH';
 
@@ -214,3 +219,12 @@ export interface PokemonDetail {
 export type TypeObj = {
   [key in Type]: number;
 };
+
+export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];
+
+export type TReleaseNote = {
+  description: string;
+  type: TReleaseGroup;
+};
+
+export type TReleaseGroup = 'UPDATE' | 'FEATURE' | 'FIX';

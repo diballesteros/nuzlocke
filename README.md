@@ -23,6 +23,7 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
+- [Other](#other)
 
 ## About
 
@@ -147,3 +148,7 @@ Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK 
 ## Contact
 
 Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
+
+## Other
+
+<a href='//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge'><img src='https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png' alt='English badge' style='width: 284px; height: 104px;'/></a>

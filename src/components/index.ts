@@ -1,5 +1,6 @@
 export { default as About } from './About/About';
 export { default as AddEncounter } from './AddEncounter/AddEncounter';
+export { default as AddRule } from './AddRule/AddRule';
 export { default as BadgeDetail } from './BadgeDetail/BadgeDetail';
 export { default as BadgeEditor } from './BadgeEditor/BadgeEditor';
 export { default as Badges } from './Badges/Badges';

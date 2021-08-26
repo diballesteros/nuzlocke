@@ -10,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { AppState, TGame, TRule, TypeObj } from 'constants/types';
+import { AppState, TGame, TRuleEntry, TRulesetDictionary, TypeObj } from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -81,47 +81,87 @@ export const GAMES: TGame[] = [
   },
 ];
 
-const DEFAULT_RULESET: TRule[] = [
+const DEFAULT_RULESET: TRuleEntry[] = [
   {
     content:
       'Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently',
+    default: true,
+    type: 'TEXT',
   },
   {
     content:
       'The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.',
+    default: true,
+    type: 'TEXT',
   },
   {
     content:
       'The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds',
+    default: true,
+    type: 'TEXT',
   },
 ];
 
-const HARDCORE_RULESET: TRule[] = [
+const HARDCORE_RULESET: TRuleEntry[] = [
   ...DEFAULT_RULESET,
   {
     content: 'Set mode must be enabled',
+    default: true,
+    type: 'TEXT',
   },
   {
     content:
       "A pokemon's level may not exceed the highest level pokemon of the current gym leader/champion",
+    default: true,
+    type: 'TEXT',
   },
   {
     content: 'No items are allowed in battles',
+    default: true,
+    type: 'TEXT',
   },
 ];
 
-const RULESETS = [
+const EGGLOCKE_RULESET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
   {
-    key: '1',
-    value: '1',
-    text: 'Nuzlocke',
-  },
-  {
-    key: '2',
-    value: '2',
-    text: 'Hardcore Nuzlocke',
+    content: 'Any Pokemon you capture must be traded with user-generated eggs',
+    default: true,
+    type: 'TEXT',
   },
 ];
+
+const WONDERLOCKE_RULESET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
+  {
+    content: 'Any Pokemon you capture must be traded with the Wonder Trade feature',
+    default: true,
+    type: 'TEXT',
+  },
+];
+
+const GENERATION_RULESET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
+  {
+    content: 'You must complete a run of all 7 generations in any order you choose',
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      'At the end of every game, you must take the offspring of the survivors of the Elite 4 into the next one. A brand new Nuzlocke will begin with the offspring of your pokémon from your old party',
+    default: true,
+    type: 'TEXT',
+  },
+];
+
+export const DEFAULT_RULES: TRulesetDictionary = {
+  'Nuzlocke': DEFAULT_RULESET,
+  'Hardcore': HARDCORE_RULESET,
+  'Egglocke': EGGLOCKE_RULESET,
+  'Wonderlocke': WONDERLOCKE_RULESET,
+  'Genlocke': GENERATION_RULESET,
+};
 
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
@@ -146,15 +186,24 @@ export const INITIAL_STATE: Partial<AppState> = {
   missing: false,
   newVersion: '1',
   nicknames: false,
-  rules: { '1': DEFAULT_RULESET, '2': HARDCORE_RULESET },
-  rulesets: RULESETS,
+  rules: DEFAULT_RULES,
+  rulesets: null, // No longer used
   selectedGame: null,
-  selectedRuleset: '1',
+  selectedRuleset: 'Nuzlocke',
   showAll: false,
   text: null,
 };
 
 export const PHYS_SPEC_SPLIT: string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+
+export const DEFAULT_RULESET_NAMES = [
+  'Nuzlocke',
+  'Hardcore',
+  'Egglocke',
+  'Wonderlocke',
+  'Genlocke',
+  'Hardcore Nuzlocke',
+];
 
 export const GENDERS = [
   { key: '1', text: 'MALE', value: 'MALE' },
@@ -200,3 +249,5 @@ export const SUM_STATUS = [
     value: 2,
   },
 ];
+
+export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
