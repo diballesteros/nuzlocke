@@ -2,12 +2,6 @@
 
 [![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
 
-## Support
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X05XBDC)
-
-<a href="https://www.patreon.com/bePatron?u=60585540" data-patreon-widget-type="become-patron-button">Become a Patron!</a>
-
 ## Table of Contents
 
 - [About](#about)
@@ -23,6 +17,7 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
+- [Support](#support)
 - [Other](#other)
 
 ## About
@@ -148,6 +143,12 @@ Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK 
 ## Contact
 
 Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
+
+## Support
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X05XBDC)
+
+<a href="https://www.patreon.com/bePatron?u=60585540" data-patreon-widget-type="become-patron-button">Become a Patron!</a>
 
 ## Other
 
