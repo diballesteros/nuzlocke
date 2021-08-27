@@ -73,7 +73,6 @@ const App: React.FC = () => {
         games: appState.games,
         gamesList: appState.gamesList,
         rules: appState.rules,
-        rulesets: appState.rulesets,
         selectedGame: appState.selectedGame,
       })
     )}`;
@@ -134,7 +133,7 @@ const App: React.FC = () => {
             icon="bars"
             item
             simple
-            text={appState.newVersion !== '3.2.1' ? '!' : undefined}
+            text={appState.newVersion !== process.env.REACT_APP_VERSION ? '!' : undefined}
           >
             <Dropdown.Menu>
               <Settings />

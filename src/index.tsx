@@ -21,11 +21,14 @@ import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
+import ErrorBoundary from 'error/ErrorBoundary';
 import App from './App';
 
 ReactDOM.render(
   <>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
     <UpdateSW />
   </>,
   document.getElementById('root')

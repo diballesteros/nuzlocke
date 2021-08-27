@@ -18,7 +18,7 @@ import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as ShinySVG } from 'assets/svg/shiny.svg';
-import { Moves, PokeInfo } from 'components';
+import { Moves, PokeInfo, RuleContent } from 'components';
 import styles from './Summary.module.scss';
 
 const CALC = 140 * Math.PI;
@@ -41,6 +41,8 @@ const Summary: React.FC = () => {
   const [showRules, setShowRules] = useState(true);
   const [description, setDescription] = useState('');
   const [showDesc, setShowDesc] = useState(true);
+  const [showBoxed, setShowBoxed] = useState(true);
+  const [fainted, setFainted] = useState(true);
   const summaryRef = useRef(null);
 
   const handleSettings = (newIndex: ReactText) => {
@@ -50,6 +52,17 @@ const Summary: React.FC = () => {
   const teamPokemon = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
       return enc?.status?.value === 7;
+    });
+  }, [games, selectedGame]);
+
+  const boxedPokemon = useMemo(() => {
+    return games[selectedGame?.value]?.encounters?.filter((enc) => {
+      return (
+        enc?.status?.value === 1 ||
+        enc?.status?.value === 3 ||
+        enc?.status?.value === 4 ||
+        enc?.status?.value === 6
+      );
     });
   }, [games, selectedGame]);
 
@@ -218,6 +231,16 @@ const Summary: React.FC = () => {
                   label="Show stats"
                   onChange={() => setStats((prevState) => !prevState)}
                 />
+                <Checkbox
+                  checked={showBoxed}
+                  label="Show boxed pokémon"
+                  onChange={() => setShowBoxed((prevState) => !prevState)}
+                />
+                <Checkbox
+                  checked={fainted}
+                  label="Show fainted pokémon"
+                  onChange={() => setFainted((prevState) => !prevState)}
+                />
               </Accordion.Content>
             </Menu.Item>
             <Menu.Item>
@@ -370,18 +393,53 @@ const Summary: React.FC = () => {
               </div>
             )}
           </div>
+          {boxedPokemon?.length > 0 && showBoxed && (
+            <div className={styles.row}>
+              <div className={`${styles.card} ${styles.medium}`}>
+                <span className={styles.title}>BOXED</span>
+                <div className={styles.box}>
+                  {boxedPokemon.map((box, i) => {
+                    const foundPokemon = POKEMON.find((poke) => poke.value === box.pokemon);
+                    return (
+                      <img
+                        alt={foundPokemon.text}
+                        className={styles.pokeImg}
+                        key={`boxed-${i + 1}`}
+                        src={foundPokemon.image}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
+          {faintedPokemon?.length > 0 && fainted && (
+            <div className={styles.row}>
+              <div className={`${styles.card} ${styles.medium}`}>
+                <span className={styles.title}>FAINTED</span>
+                <div className={styles.box}>
+                  {faintedPokemon.map((faint, i) => {
+                    const foundPokemon = POKEMON.find((poke) => poke.value === faint.pokemon);
+                    return (
+                      <img
+                        alt={foundPokemon.text}
+                        className={styles.pokeImg}
+                        key={`fainted-${i + 1}`}
+                        src={foundPokemon.image}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          )}
           <div className={styles.row}>
             {showRules && (
               <div className={`${styles.card} ${styles.medium}`}>
                 <span className={styles.title}>RULES</span>
                 <div className={styles.rules}>
                   {rules[selectedRuleset].map((rule, i) => {
-                    return (
-                      <div className={styles.rule} key={`rule-${i + 1}`}>
-                        <span className={styles.number}>{`${i + 1}.`}</span>
-                        <p>{rule.content}</p>
-                      </div>
-                    );
+                    return <RuleContent hideSmart key={`sumrule-${i + 1}`} i={i} rule={rule} />;
                   })}
                 </div>
               </div>

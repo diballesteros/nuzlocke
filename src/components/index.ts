@@ -1,5 +1,6 @@
 export { default as About } from './About/About';
 export { default as AddEncounter } from './AddEncounter/AddEncounter';
+export { default as AddRule } from './AddRule/AddRule';
 export { default as BadgeDetail } from './BadgeDetail/BadgeDetail';
 export { default as BadgeEditor } from './BadgeEditor/BadgeEditor';
 export { default as Badges } from './Badges/Badges';
@@ -15,6 +16,7 @@ export { default as PokeInfo } from './PokeInfo/PokeInfo';
 export { default as Pokemon } from './Pokemon/Pokemon';
 export { default as Pokestats } from './Pokestats/Pokestats';
 export { default as ResetEncounters } from './ResetEncounters/ResetEncounters';
+export { default as RuleContent } from './RuleContent/RuleContent';
 export { default as RuleEditor } from './RuleEditor/RuleEditor';
 export { default as Rules } from './Rules/Rules';
 export { default as Settings } from './Settings/Settings';

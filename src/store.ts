@@ -1,8 +1,16 @@
 import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
 import produce from 'immer';
-import { AppState, TGame, TPokemon, TRule, TStatus } from 'constants/types';
-import { GAMES, INITIAL_STATE } from 'constants/constant';
+import {
+  AppState,
+  TGame,
+  TPokemon,
+  TRuleContent,
+  TRuleEntry,
+  TRulesetDictionary,
+  TStatus,
+} from 'constants/types';
+import { DEFAULT_RULES, DEFAULT_RULESET_NAMES, GAMES, INITIAL_STATE } from 'constants/constant';
 import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
 
 const immer =
@@ -27,12 +35,12 @@ const useStore = create<AppState>(
       games: INITIAL_STATE.games,
       gamesList: GAMES,
       missing: false,
-      newVersion: '1',
+      newVersion: INITIAL_STATE.newVersion,
       nicknames: false,
       rules: INITIAL_STATE.rules,
-      rulesets: INITIAL_STATE.rulesets,
+      rulesets: null, // No longer used
       selectedGame: null,
-      selectedRuleset: '1',
+      selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: false,
       text: '',
       addEncounter: (newLocation: string) =>
@@ -54,19 +62,13 @@ const useStore = create<AppState>(
             key: `custom-game-${newGame}-${new Date()}`,
           });
         }),
-      addRule: (newRule: string) =>
+      addRule: (entry: TRuleEntry) =>
         set((state) => {
-          state.rules[state.selectedRuleset]?.push({ content: newRule });
+          state.rules[state.selectedRuleset]?.push(entry);
         }),
       addRuleset: (rulesetName: string) =>
         set((state) => {
-          const newKey = Number(state.rulesets[state.rulesets.length - 1].value) + 1;
-          state.rules[newKey.toString()] = [];
-          state.rulesets.push({
-            value: newKey.toString(),
-            text: rulesetName,
-            key: `custom-ruleset-${rulesetName}-${new Date()}`,
-          });
+          state.rules[rulesetName] = [];
         }),
       changeDetails: (
         encounterId: number,
@@ -167,17 +169,12 @@ const useStore = create<AppState>(
       deleteRuleset: () =>
         set((state) => {
           delete state.rules[state.selectedRuleset];
-          const rulesetIndex = state.rulesets.findIndex(
-            (game) => game.value === state?.selectedRuleset
-          );
-          state.rulesets.splice(rulesetIndex, 1);
-          state.selectedRuleset = '1';
         }),
       editBadge: (newBadge: string, i: number) =>
         set((state) => {
           state.badges[state.selectedGame?.value][i].levelCap = newBadge;
         }),
-      editRule: (newRule: string, i: number) =>
+      editRule: (newRule: TRuleContent, i: number) =>
         set((state) => {
           state.rules[state.selectedRuleset][i].content = newRule;
         }),
@@ -188,13 +185,12 @@ const useStore = create<AppState>(
           state.gamesList = newAppState.gamesList;
           if (newAppState.badges) state.badges = newAppState.badges;
           if (newAppState.rules) state.rules = newAppState.rules;
-          if (newAppState.rulesets) state.rulesets = newAppState.rulesets;
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = '3.2.1';
+          state.newVersion = process.env.REACT_APP_VERSION;
         }),
-      reorderRule: (destinationId: number, rule: TRule, sourceId: number) =>
+      reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) =>
         set((state) => {
           state.rules[state.selectedRuleset]?.splice(sourceId, 1);
           state.rules[state.selectedRuleset]?.splice(destinationId, 0, rule);
@@ -256,15 +252,34 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 1,
+      version: 2,
       migrate: (persistedState: AppState) => {
         const gameMigration = persistedState.games;
         Object.keys(gameMigration).map((key) => {
           gameMigration[key].encounters.forEach((enc) => {
-            enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+            if (!!(enc?.pokemon as unknown as TPokemon)?.value) {
+              enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+            }
           });
         });
-        return { ...persistedState, games: gameMigration };
+        const newRules: TRulesetDictionary = { ...DEFAULT_RULES };
+        persistedState.rulesets.forEach((ruleset) => {
+          if (DEFAULT_RULESET_NAMES.includes(ruleset.text)) {
+            newRules[`old-${ruleset.text}`] = persistedState.rules[ruleset.value]?.map((rule) => {
+              return { content: rule.content, default: false, type: 'TEXT' };
+            });
+          } else {
+            newRules[ruleset.text] = persistedState.rules[ruleset.value]?.map((rule) => {
+              return { content: rule.content, default: false, type: 'TEXT' };
+            });
+          }
+        });
+        return {
+          ...persistedState,
+          games: gameMigration,
+          rules: newRules,
+          selectedRuleset: 'Nuzlocke',
+        };
       },
     }
   )

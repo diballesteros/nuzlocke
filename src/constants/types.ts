@@ -15,7 +15,7 @@ export interface AppState {
   text: string;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
-  addRule: (newRule: string) => void;
+  addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
   changeDetails: (
     encounterId: number,
@@ -42,10 +42,10 @@ export interface AppState {
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
-  editRule: (newRule: string, i: number) => void;
+  editRule: (newRule: TRuleContent, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
-  reorderRule: (destinationId: number, rule: TRule, sourceId: number) => void;
+  reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;
   resetAll: () => void;
   resetBadges: (gameKey?: string) => void;
   search: (text: string) => void;
@@ -106,6 +106,7 @@ export type TEncounter = {
 export interface TPokemon {
   dualtype?: Type;
   evolve?: number[];
+  generation: number;
   key?: string;
   image: string;
   text: string;
@@ -124,7 +125,7 @@ export type TLocation = {
   name: string;
 };
 
-export type TRulesetDictionary = { [key: string]: TRule[] };
+export type TRulesetDictionary = { [key: string]: TRuleEntry[] };
 
 export type TRuleset = {
   key: string;
@@ -132,9 +133,15 @@ export type TRuleset = {
   value: string;
 };
 
-export type TRule = {
-  content: string;
+export type TRuleEntry = {
+  content: TRuleContent;
+  default: boolean;
+  type: TRule;
 };
+
+export type TRuleContent = string | string[] | number | number[];
+
+export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
 type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH';
 
@@ -214,3 +221,12 @@ export interface PokemonDetail {
 export type TypeObj = {
   [key in Type]: number;
 };
+
+export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];
+
+export type TReleaseNote = {
+  description: string;
+  type: TReleaseGroup;
+};
+
+export type TReleaseGroup = 'UPDATE' | 'FEATURE' | 'FIX';

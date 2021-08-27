@@ -4,6 +4,57 @@
   }
 }
 
+h3 {
+  font-size: 20px;
+  color: #161e2e;
+  margin: 0;
+}
+
+.changelog {
+  display: flex;
+  flex-flow: column nowrap;
+  overflow: auto;
+
+  > h4 {
+    font-size: 24px;
+    > span {
+      font-size: 13px;
+      color: #718096;
+    }
+  }
+
+  > ul > li {
+    margin-bottom: 5px;
+    color: #6b7280;
+    font-size: 15px;
+  }
+
+  .type {
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 999px;
+    padding: 3px 8px;
+    font-weight: bold;
+    letter-spacing: 0.75px;
+    margin-right: 10px;
+  }
+
+  .feature {
+    background-color: #c6f6d5;
+    color: #276749;
+  }
+
+  .update {
+    background-color: #bee3f8;
+    color: #2b6cb0;
+  }
+
+  .fix {
+    background-color: #fed7d7;
+    color: #9b2c2c;
+  }
+}
+
 .credits {
   display: flex;
   flex-flow: column nowrap;
@@ -34,7 +85,7 @@
     height: unset;
     -webkit-box-pack: center;
     justify-content: center;
-    padding: 0.46875rem 1rem;
+    padding: 0.3rem 0.8rem;
     position: relative;
     pointer-events: unset;
     text-align: center;
@@ -46,5 +97,19 @@
     width: fit-content;
     color: rgb(255, 255, 255) !important;
     font-size: 0.875rem !important;
+  }
+}
+
+.stores {
+  display: flex;
+  flex-flow: column nowrap;
+
+  > a {
+    height: 52px;
+  }
+
+  .microsoft {
+    width: 127px;
+    height: 52px;
   }
 }
