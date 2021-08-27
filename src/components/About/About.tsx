@@ -6,6 +6,7 @@ import useStore from 'store';
 import CHANGELOG from 'constants/changelog';
 import { TReleaseGroup } from 'constants/types';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
+import kofi from 'assets/img/kofi2.png';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -142,11 +143,7 @@ const About: React.FC = () => {
         </ul>
         <div className={styles.support}>
           <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
-            <img
-              style={{ border: 0, height: 36 }}
-              src="https://cdn.ko-fi.com/cdn/kofi2.png?v=3"
-              alt="Buy Me a Coffee at ko-fi.com"
-            />
+            <img style={{ border: 0, height: 36 }} src={kofi} alt="Buy Me a Coffee at ko-fi.com" />
           </a>
           <a
             className={styles.patron}
