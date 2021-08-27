@@ -1,20 +1,27 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { TRule, TRuleContent } from 'constants/types';
+import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import useStore from 'store';
 
 interface RuleEditorProps {
-  content: string;
+  content: TRuleContent;
   index: number;
+  type: TRule;
 }
 
-const RuleEditor: React.FC<RuleEditorProps> = ({ content, index }) => {
+const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));
   const [open, setOpen] = useState(false);
-  const [ruleText, setRuleText] = useState('');
+  const [ruleText, setRuleText] = useState(content);
+  const [level, setLevel] = useState(content);
+  const [types, setTypes] = useState(content);
+  const [gens, setGens] = useState<TRuleContent>(content);
 
   const handleEditModal = () => {
     setRuleText(content);
@@ -22,13 +29,80 @@ const RuleEditor: React.FC<RuleEditorProps> = ({ content, index }) => {
   };
 
   const handleEditRule = () => {
-    editRule(ruleText, index);
+    switch (type) {
+      case 'GENERATION':
+        editRule(gens, index);
+        break;
+      case 'LEVEL':
+        editRule(level, index);
+        break;
+      case 'TYPE':
+        editRule(types, index);
+        break;
+      default:
+        editRule(ruleText, index);
+        break;
+    }
     setOpen(false);
   };
 
   const handleEditClose = () => {
     setRuleText('');
     setOpen(false);
+  };
+
+  const getInput = () => {
+    switch (type) {
+      case 'TYPE':
+        return (
+          <Dropdown
+            data-testid="edit-rule-type"
+            fluid
+            multiple
+            onChange={(e, data) => setTypes([...(data.value as string[])])}
+            options={Object.keys(TYPE_COUNT).map((key) => {
+              return { key, text: key, value: key };
+            })}
+            placeholder="Please select a type..."
+            selection
+            value={types}
+          />
+        );
+      case 'LEVEL':
+        return (
+          <Input
+            data-testid="edit-rule-level-input"
+            fluid
+            onChange={(e, data) => setLevel(data.value)}
+            placeholder="Please enter maximum level"
+            type="number"
+            value={level}
+          />
+        );
+      case 'GENERATION':
+        return (
+          <Dropdown
+            data-testid="edit-rule-generation"
+            fluid
+            multiple
+            onChange={(e, data) => setGens([...(data.value as number[])])}
+            options={GENERATIONS.map((gen) => {
+              return { key: gen, text: gen, value: gen };
+            })}
+            placeholder="Please select a generation..."
+            selection
+            value={gens}
+          />
+        );
+      default:
+        return (
+          <Input
+            data-testid="edit-rule-input"
+            onChange={(e, data) => setRuleText(data.value)}
+            value={ruleText}
+          />
+        );
+    }
   };
 
   return (
@@ -53,16 +127,11 @@ const RuleEditor: React.FC<RuleEditorProps> = ({ content, index }) => {
     >
       <Modal.Header>Edit Rule</Modal.Header>
       <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-        Edit the rule description
-        <Input
-          data-testid="edit-rule-input"
-          onChange={(e, data) => setRuleText(data.value)}
-          value={ruleText}
-        />
+        {getInput()}
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleEditClose}>Cancel</Button>
-        <Button disabled={ruleText?.length === 0} onClick={handleEditRule}>
+        <Button disabled={false} onClick={handleEditRule}>
           Save
         </Button>
       </Modal.Actions>

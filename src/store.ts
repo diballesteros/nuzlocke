@@ -5,6 +5,7 @@ import {
   AppState,
   TGame,
   TPokemon,
+  TRuleContent,
   TRuleEntry,
   TRulesetDictionary,
   TStatus,
@@ -61,13 +62,9 @@ const useStore = create<AppState>(
             key: `custom-game-${newGame}-${new Date()}`,
           });
         }),
-      addRule: (newRule: string) =>
+      addRule: (entry: TRuleEntry) =>
         set((state) => {
-          state.rules[state.selectedRuleset]?.push({
-            content: newRule,
-            default: false,
-            type: 'TEXT',
-          });
+          state.rules[state.selectedRuleset]?.push(entry);
         }),
       addRuleset: (rulesetName: string) =>
         set((state) => {
@@ -177,7 +174,7 @@ const useStore = create<AppState>(
         set((state) => {
           state.badges[state.selectedGame?.value][i].levelCap = newBadge;
         }),
-      editRule: (newRule: string, i: number) =>
+      editRule: (newRule: TRuleContent, i: number) =>
         set((state) => {
           state.rules[state.selectedRuleset][i].content = newRule;
         }),

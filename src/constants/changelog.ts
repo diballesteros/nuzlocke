@@ -23,7 +23,7 @@ const CHANGELOG: TReleaseNotes = [
         type: 'UPDATE',
       },
       {
-        description: 'App is now availabe in the Microsoft Store and Playstore',
+        description: 'App is now availabe in the Microsoft Store',
         type: 'UPDATE',
       },
     ],

@@ -8,7 +8,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { TRuleEntry } from 'constants/types';
 import { DEFAULT_RULESET_NAMES } from 'constants/constant';
-import { AddRule, RuleEditor, Share } from 'components';
+import { AddRule, RuleContent, RuleEditor, Share } from 'components';
 import styles from './Rules.module.scss';
 
 const Rules: React.FC = () => {
@@ -177,8 +177,7 @@ const Rules: React.FC = () => {
                   </Button>
                 )}
               </div>
-              <span className={styles.number}>{`${i + 1}.`}</span>
-              <p>{rule.content}</p>
+              <RuleContent i={i} rule={rule} />
               <div className={styles.buttons}>
                 {!rule.default && (
                   <>
@@ -194,7 +193,7 @@ const Rules: React.FC = () => {
                     >
                       <Icon name="trash" />
                     </Button>
-                    <RuleEditor content={rule.content} index={i} />{' '}
+                    <RuleEditor content={rule.content} index={i} type={rule.type} />
                   </>
                 )}
               </div>

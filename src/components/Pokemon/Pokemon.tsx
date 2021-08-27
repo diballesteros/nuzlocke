@@ -20,48 +20,62 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
     useCallback((state) => state.selectedGame, []),
     shallow
   );
+  const rules = useStore(useCallback((state) => state.rules, []));
+  const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const foundPokemon = POKEMON.find((poke) => poke.value === encounter?.pokemon);
   const onChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
     changePokemon(encounter.id, data.value as number);
   };
 
-  const alreadyEncountered = useMemo(() => {
-    return (
-      duplicates &&
-      !!encounter?.pokemon &&
-      games[selectedGame?.value].encounters?.some((enc) => {
-        return (
-          enc?.pokemon === encounter?.pokemon &&
-          enc.id !== encounter?.id &&
-          enc?.status?.value !== 5 &&
-          encounter?.status?.value !== 5
-        );
-      })
-    );
-  }, [duplicates, encounter, games, selectedGame]);
-
-  const overSix = useMemo(() => {
-    return (
-      encounter?.status?.value === 7 &&
-      games[selectedGame?.value].encounters?.filter((enc) => {
-        return enc?.status?.value === 7;
-      })?.length > 6
-    );
-  }, [encounter, games, selectedGame]);
-
-  const alert = useMemo(() => {
-    if (alreadyEncountered) {
-      return 'DUPE';
+  const alertText = useMemo(() => {
+    let alert = '';
+    let teamCounter = 0;
+    const genRule = rules[selectedRuleset]?.find((rule) => rule.type === 'GENERATION');
+    const levelRule = rules[selectedRuleset]?.find((rule) => rule.type === 'LEVEL');
+    const typeRule = rules[selectedRuleset]?.find((rule) => rule.type === 'TYPE');
+    if (!foundPokemon) {
+      return '';
     }
-    if (overSix) {
+    games[selectedGame?.value].encounters?.forEach((enc) => {
+      if (
+        duplicates &&
+        !!encounter?.pokemon &&
+        enc?.pokemon === encounter.pokemon &&
+        enc.id !== encounter?.id &&
+        enc?.status?.value !== 5 &&
+        encounter?.status?.value !== 5
+      ) {
+        alert = 'DUPE';
+      }
+      if (encounter?.status?.value === 7 && enc?.status?.value === 7) {
+        teamCounter += 1;
+      }
+      if (
+        (genRule?.content as number[])?.length > 0 &&
+        !(genRule?.content as number[])?.includes(foundPokemon?.generation)
+      ) {
+        alert = 'FORBIDDEN GEN';
+      }
+      if (levelRule?.content < encounter?.details?.level) {
+        alert = 'OVERLEVELED';
+      }
+      if (
+        (typeRule?.content as string[])?.length > 0 &&
+        !(typeRule?.content as string[])?.includes(foundPokemon?.type) &&
+        !(typeRule?.content as string[])?.includes(foundPokemon?.dualtype)
+      ) {
+        alert = 'FORBIDDEN TYPE';
+      }
+    });
+    if (teamCounter > 6) {
       return 'TEAM OVER 6';
     }
-    return false;
-  }, [alreadyEncountered, overSix]);
+    return alert;
+  }, [duplicates, encounter, foundPokemon, games, rules, selectedGame, selectedRuleset]);
 
   return (
     <label className={styles.label}>
-      <div className={styles.innerLabel}>Pokémon: {!!alert && <span>{alert}</span>}</div>
+      <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
       <div className={styles.dropdownContainer}>
         <Dropdown
           aria-label="Pokémon selector"

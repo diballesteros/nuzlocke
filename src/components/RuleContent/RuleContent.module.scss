@@ -1,0 +1,26 @@
+.content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+
+  .smart {
+    font-size: 16px;
+    > b {
+      color: var(--badge);
+    }
+    > em {
+      font-size: 12px;
+    }
+  }
+
+  .description {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+
+    .number {
+      font-weight: bold;
+      font-size: 24px;
+    }
+  }
+}

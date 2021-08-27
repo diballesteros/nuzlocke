@@ -2,8 +2,8 @@
 
 🚀 New features
 
-- New smart rule option - add custom logic to rules and alerts if they're being broken on the encounter
-- Revamped look of about section, included links for PlayStore and Microsoft Store
+- New smart rule option - add custom logic to rules which then alerts if they're being broken in the tracker
+- Revamped look of about section, included link for Microsoft Store
 
 💅 Enhancement
 
@@ -14,6 +14,15 @@
 📝 Documentation
 
 - README updates
+
+🏠 Internal
+
+- Bumped zustand to 3.5.10
+- Bumped @types/node to 16.7.4
+- Bumped @typescript-eslint/eslint-plugin to 4.29.3
+- Bumped @typescript-eslint/parser to 4.29.3
+- Bumped cypress to 8.3.1
+- Bumped eslint-plugin-import to 2.24.2
 
 ## Version 3.2.1
 

@@ -11,7 +11,12 @@ describe('Rules', () => {
       .should('have.value', 'This is a test rule');
     cy.contains('Save').click();
     cy.contains('This is a test rule').should('exist');
-
+    cy.get('[data-testid=edit-rule-3]').click();
+    cy.get('[data-testid=edit-rule-input] > input')
+      .type(' this is now an edited rule')
+      .should('have.value', 'This is a test rule this is now an edited rule');
+    cy.contains('Save').click();
+    cy.contains('This is a test rule this is now an edited rule').should('exist');
     cy.get('[data-testid=delete-rule-3]').click();
     cy.contains('This is a test rule').should('not.exist');
     cy.get('[data-testid=arrow-down-0]').click();
@@ -24,20 +29,6 @@ describe('Rules', () => {
       'have.text',
       '1.Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently'
     );
-  });
-
-  it('Edit Rule', () => {
-    cy.get('[data-testid=edit-rule-0]').click();
-    cy.get('[data-testid=edit-rule-input] > input')
-      .type(' this is now an edited rule')
-      .should(
-        'have.value',
-        'Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently this is now an edited rule'
-      );
-    cy.contains('Save').click();
-    cy.contains(
-      'Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently this is now an edited rule'
-    ).should('exist');
   });
 
   it('Share rules', () => {

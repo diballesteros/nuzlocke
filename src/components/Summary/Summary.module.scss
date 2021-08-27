@@ -28,6 +28,10 @@
         width: 100%;
         resize: none;
       }
+
+      :global(.ui.checkbox) {
+        width: 100%;
+      }
     }
 
     .summary {
@@ -148,6 +152,18 @@
           }
         }
 
+        .box {
+          display: flex;
+          flex-flow: row wrap;
+          gap: 10px;
+
+          .pokeImg {
+            height: 48px;
+            width: 48px;
+            object-fit: cover;
+          }
+        }
+
         .encounters {
           display: flex;
           flex-flow: row nowrap;
@@ -214,18 +230,14 @@
         .rules {
           display: flex;
           flex-flow: column nowrap;
+          gap: 5px;
 
-          .rule {
-            display: flex;
-            flex-flow: row nowrap;
-            gap: 10px;
-            padding: 3px;
+          span {
+            font-size: 16px;
+          }
+
+          p {
             font-size: 12px;
-
-            .number {
-              font-weight: bold;
-              font-size: 16px;
-            }
           }
         }
       }

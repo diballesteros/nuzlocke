@@ -17,7 +17,6 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
-- [Support](#support)
 - [Other](#other)
 
 ## About
@@ -143,12 +142,6 @@ Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK 
 ## Contact
 
 Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
-
-## Support
-
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/X8X05XBDC)
-
-<a href="https://www.patreon.com/bePatron?u=60585540" data-patreon-widget-type="become-patron-button">Become a Patron!</a>
 
 ## Other
 

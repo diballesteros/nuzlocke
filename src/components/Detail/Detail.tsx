@@ -103,14 +103,14 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
         <Input
           data-testid="level"
           label="Level"
-          onChange={(e) => setLevel(Number(e.target.value))}
+          onChange={(e, data) => setLevel(Number(data.value))}
           type="number"
           value={level}
         />
         <Input
           data-testid="metlevel"
           label="Met Level"
-          onChange={(e) => setMetLevel(Number(e.target.value))}
+          onChange={(e, data) => setMetLevel(Number(data.value))}
           type="number"
           value={metLevel}
         />

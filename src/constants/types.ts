@@ -15,7 +15,7 @@ export interface AppState {
   text: string;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
-  addRule: (newRule: string) => void;
+  addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
   changeDetails: (
     encounterId: number,
@@ -42,7 +42,7 @@ export interface AppState {
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
   editBadge: (newBadge: string, i: number) => void;
-  editRule: (newRule: string, i: number) => void;
+  editRule: (newRule: TRuleContent, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;
@@ -134,10 +134,12 @@ export type TRuleset = {
 };
 
 export type TRuleEntry = {
-  content: string;
+  content: TRuleContent;
   default: boolean;
   type: TRule;
 };
+
+export type TRuleContent = string | string[] | number | number[];
 
 export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
