@@ -28,5 +28,8 @@
   "start_url": ".",
   "display": "standalone",
   "theme_color": "#000000",
-  "background_color": "#AE2A2F"
+  "background_color": "#AE2A2F",
+  "primary": "portrait-primary",
+  "categories": ["entertainment", "productivity"],
+  "iarc_rating_id": "0e709b1e-f322-4f7e-974d-0c965ce09b7b"
 }
