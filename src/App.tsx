@@ -215,10 +215,16 @@ const App: React.FC = () => {
       </header>
 
       <Sidebar.Pushable>
-        <Sidebar as={Menu} visible={visible} vertical>
-          <Menu.Item>
-            <Settings />
-          </Menu.Item>
+        <Sidebar
+          as={Menu}
+          visible={visible}
+          vertical
+          inverted={appState.darkMode}
+          animation="overlay"
+          onHide={() => setVisible(false)}
+          width="thin"
+        >
+          <Settings />
           <Menu.Item onClick={handleExport}>
             <Icon name="download" />
             Export
@@ -234,12 +240,8 @@ const App: React.FC = () => {
             />
             Import
           </Menu.Item>
-          <Menu.Item>
-            <Contact />
-          </Menu.Item>
-          <Menu.Item>
-            <About />
-          </Menu.Item>
+          <Contact />
+          <About />
         </Sidebar>
         <Sidebar.Pusher>
           <Container className={styles.container}>
