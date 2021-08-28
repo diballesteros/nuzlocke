@@ -128,7 +128,11 @@ const App: React.FC = () => {
     <main className={styles.app}>
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-          <button onClick={() => setVisible(!visible)} type="button">
+          <button
+            onClick={() => setVisible(!visible)}
+            type="button"
+            className={styles.sidebarButton}
+          >
             <Icon name="bars" />
           </button>
           <Dropdown
