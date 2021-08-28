@@ -141,6 +141,7 @@ const App: React.FC = () => {
             onClick={() => setVisible(!visible)}
             type="button"
             className={styles.sidebarButton}
+            data-testid="options"
           >
             <Icon name="bars" />
           </button>
