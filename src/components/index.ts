@@ -4,6 +4,7 @@ export { default as AddRule } from './AddRule/AddRule';
 export { default as BadgeDetail } from './BadgeDetail/BadgeDetail';
 export { default as BadgeEditor } from './BadgeEditor/BadgeEditor';
 export { default as Badges } from './Badges/Badges';
+export { default as Builder } from './Builder/Builder';
 export { default as Contact } from './Contact/Contact';
 export { default as Detail } from './Detail/Detail';
 export { default as Encounters } from './Encounters/Encounters';

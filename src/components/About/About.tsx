@@ -148,7 +148,7 @@ const About: React.FC = () => {
           <a
             className={styles.patron}
             href="https://www.patreon.com/bePatron?u=60585540"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Become a Patron!
@@ -157,7 +157,7 @@ const About: React.FC = () => {
         <div className={styles.stores}>
           <a
             href="//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
             <MicrosoftSVG className={styles.microsoft} />
