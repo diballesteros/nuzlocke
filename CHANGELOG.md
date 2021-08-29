@@ -1,3 +1,21 @@
+## Version 3.4.0
+
+🚀 New features
+
+- New Team Builder Tab
+- App is now available on Google Play
+
+💅 Enhancement
+
+- Changed top left menu into a sidebar - @RyoMasumura1201
+- Split about and changelog - @RyoMasumura1201
+
+📝 Documentation
+
+- README updates
+- Included pull request template
+- CONTRIBUTING updates
+
 ## Version 3.3.0
 
 🚀 New features
@@ -29,7 +47,7 @@
 🚀 New features
 
 - New buttons in footer and about section to support project. Completely **optional**
-- The app will soon be available in the Playstore and Microsoft Store
+- The app will soon be available on Google Play and Microsoft Store
 
 💅 Enhancement
 
