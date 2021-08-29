@@ -237,6 +237,7 @@ const App: React.FC = () => {
           animation="overlay"
           onHide={() => setVisible(false)}
           width="thin"
+          aria-label="options"
         >
           <Settings />
           <Menu.Item onClick={handleExport}>
