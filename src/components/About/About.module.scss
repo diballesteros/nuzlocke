@@ -102,10 +102,16 @@ h3 {
 
 .stores {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 10px;
 
-  > a {
-    height: 52px;
+  .playstore {
+    height: 85px;
+
+    > img {
+      height: 100%;
+    }
   }
 
   .microsoft {

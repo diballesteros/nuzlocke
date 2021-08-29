@@ -7,6 +7,7 @@ import CHANGELOG from 'constants/changelog';
 import { TReleaseGroup } from 'constants/types';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
+import google from 'assets/img/google-play-badge.png';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -156,11 +157,18 @@ const About: React.FC = () => {
         </div>
         <div className={styles.stores}>
           <a
+            className={styles.microsoft}
             href="//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <MicrosoftSVG className={styles.microsoft} />
+            <MicrosoftSVG />
+          </a>
+          <a
+            className={styles.playstore}
+            href="https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+          >
+            <img alt="Get it on Google Play" src={google} />
           </a>
         </div>
       </Modal.Content>
