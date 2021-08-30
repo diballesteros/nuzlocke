@@ -18,6 +18,7 @@ import 'semantic-ui-css/components/label.min.css';
 import 'semantic-ui-css/components/item.min.css';
 import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
+import 'semantic-ui-css/components/sidebar.min.css';
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';

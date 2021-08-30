@@ -1,0 +1,51 @@
+.newVersion {
+    :global(.text) {
+      background-color: #ffffcc;
+    }
+  }
+  
+  .changelog {
+    display: flex;
+    flex-flow: column nowrap;
+    overflow: auto;
+  
+    > h4 {
+      font-size: 24px;
+      > span {
+        font-size: 13px;
+        color: #718096;
+      }
+    }
+  
+    > ul > li {
+      margin-bottom: 5px;
+      color: #6b7280;
+      font-size: 15px;
+    }
+  
+    .type {
+      display: inline-block;
+      font-size: 10px;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-weight: bold;
+      letter-spacing: 0.75px;
+      margin-right: 10px;
+    }
+  
+    .feature {
+      background-color: #c6f6d5;
+      color: #276749;
+    }
+  
+    .update {
+      background-color: #bee3f8;
+      color: #2b6cb0;
+    }
+  
+    .fix {
+      background-color: #fed7d7;
+      color: #9b2c2c;
+    }
+  }
+  
