@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import 'semantic-ui-css/components/accordion.min.css';
 import 'semantic-ui-css/components/button.min.css';
 import 'semantic-ui-css/components/container.min.css';
 import 'semantic-ui-css/components/dropdown.min.css';

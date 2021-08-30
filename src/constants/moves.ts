@@ -1,6 +1,6 @@
-import { Move } from 'constants/types';
+import { TMove } from 'constants/types';
 
-const MOVES: Move[] = [
+const MOVES: TMove[] = [
   {
     id: 1,
     name: 'Pound',

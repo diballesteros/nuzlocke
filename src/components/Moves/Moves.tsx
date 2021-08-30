@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
-import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
 import MOVES from 'constants/moves';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import useStore from 'store';
+import { Move } from 'components';
 import styles from './Moves.module.scss';
 
 interface MovesProps {
@@ -18,25 +18,7 @@ const Moves: React.FC<MovesProps> = ({ moves = [] }) => {
         const moveDetail = MOVES.find((item) => item.id === move);
         return (
           !!moveDetail && (
-            <div className={styles.move} key={`move-${move}-${i + 1}`}>
-              <span>{moveDetail.name}</span>
-              <div className={`${styles.moveCategorization} ${isSplit ? styles.split : ''}`}>
-                <span
-                  className={styles.moveType}
-                  style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}
-                >
-                  {moveDetail.type}
-                </span>
-                {isSplit && (
-                  <span
-                    className={styles.moveCategory}
-                    style={{ backgroundColor: CATEGORY_COLOR[moveDetail.category] }}
-                  >
-                    {moveDetail.category}
-                  </span>
-                )}
-              </div>
-            </div>
+            <Move key={`move-${move}-${i + 1}`} moveDetail={moveDetail} showStatus={isSplit} />
           )
         );
       })}

@@ -15,6 +15,7 @@ import {
   BadgeEditor,
   Builder,
   Contact,
+  Effectiveness,
   Pokestats,
   Rules,
   Settings,
@@ -283,6 +284,7 @@ const App: React.FC = () => {
           </a>
         </div>
       </footer>
+      <Effectiveness />
     </main>
   );
 };

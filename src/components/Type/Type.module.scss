@@ -1,26 +1,16 @@
-.container {
+.type {
   display: flex;
-  flex-flow: column nowrap;
   align-items: center;
-  gap: 3px;
+  padding: 3px 4.5px;
+  color: #333;
+  cursor: pointer;
+  border: none;
+  border-radius: 3px;
+  font: inherit;
+  font-weight: bold;
 
-  > span {
-    font-size: 12px;
-  }
-
-  .types {
-    display: flex;
-    gap: 5px;
-
-    > span {
-      padding: 2.5px 4.5px;
-      border-radius: 3px;
-      color: #333;
-      font-weight: bold;
-    }
-  }
-
-  .value {
-    font-size: 14px;
+  > svg {
+    height: 100%;
+    width: 24px;
   }
 }

@@ -1,0 +1,55 @@
+.container {
+  max-height: 75vh;
+
+  padding: 0;
+  overflow: auto;
+
+  .table {
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    table {
+      border-collapse: collapse;
+      position: relative;
+      width: 100%;
+
+      thead tr {
+        height: 60px;
+
+        color: #333;
+        font-size: 16px;
+        text-align: center;
+        font-weight: bold;
+        th {
+          padding: 0 8px;
+          position: sticky;
+          top: -15px;
+          background-color: var(--badge);
+        }
+      }
+
+      tbody tr {
+        height: 48px;
+        text-align: center;
+
+        &:last-child {
+          border: none;
+        }
+      }
+
+      .nature {
+        font-size: 16px;
+        padding: 0 8px;
+      }
+
+      .increased {
+        color: #d7a7c0;
+      }
+
+      .decreased {
+        color: #9ccae2;
+      }
+    }
+  }
+}

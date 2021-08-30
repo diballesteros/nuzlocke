@@ -10,7 +10,7 @@ import { GENDERS } from 'constants/constant';
 import MOVES from 'constants/moves';
 import POKEMON from 'constants/pokemon';
 import NATURES from 'constants/natures';
-import { Type } from 'components';
+import { Natures, PokemonType } from 'components';
 import styles from './Detail.module.scss';
 
 interface DetailProps {
@@ -98,144 +98,148 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
             <img src={foundPokemon?.image} alt={foundPokemon?.text} />
             <span className={styles.name}>{foundPokemon.text}</span>
           </div>
-          <Type pokemon={foundPokemon} />
+          <PokemonType pokemon={foundPokemon} />
         </div>
-        <Input
-          data-testid="level"
-          label="Level"
-          onChange={(e, data) => setLevel(Number(data.value))}
-          type="number"
-          value={level}
-        />
-        <Input
-          data-testid="metlevel"
-          label="Met Level"
-          onChange={(e, data) => setMetLevel(Number(data.value))}
-          type="number"
-          value={metLevel}
-        />
-        <label>
-          <div>Gender:</div>
-          <Dropdown
-            aria-label="gender-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`gender-${encounter?.id}`}
-            fluid
-            inline
-            labeled
-            lazyLoad
-            onChange={(e, data) => setGender(data.value as unknown as Gender)}
-            options={GENDERS}
-            placeholder="Select..."
-            selection
-            value={gender ?? ''}
-          />
-        </label>
-        <Input
-          data-testid="ability"
-          label="Ability"
-          onChange={(e) => setAbility(e.target.value)}
-          type="text"
-          value={ability}
-        />
-        <div>
-          <div>Nature:</div>
-          <Dropdown
-            aria-label="nature-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`nature-${encounter?.id}`}
-            fluid
-            inline
-            lazyLoad
-            onChange={(e, data) => setNature(data.value as unknown as string)}
-            options={NATURES}
-            placeholder="Select..."
-            search
-            selection
-            value={nature ?? ''}
-          />
-        </div>
-        <Input
-          data-testid="item"
-          label="Item"
-          onChange={(e) => setItem(e.target.value)}
-          type="text"
-          value={item}
-        />
-        <div>
-          <div>Move 1:</div>
-          <Dropdown
-            aria-label="move-1-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`move-1-${encounter?.id}`}
-            fluid
-            inline
-            lazyLoad
-            onChange={(e, data) => setMoveOne(data.value as unknown as number)}
-            options={MOVES_ARR}
-            placeholder="Select..."
-            search
-            selection
-            value={moveOne}
-          />
-        </div>
-        <div>
-          <div>Move 2:</div>
-          <Dropdown
-            aria-label="move-2-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`move-2-${encounter?.id}`}
-            fluid
-            inline
-            lazyLoad
-            onChange={(e, data) => setMoveTwo(data.value as unknown as number)}
-            options={MOVES_ARR}
-            placeholder="Select..."
-            search
-            selection
-            value={moveTwo}
-          />
-        </div>
-        <div>
-          <div>Move 3:</div>
-          <Dropdown
-            aria-label="move-3-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`move-3-${encounter?.id}`}
-            fluid
-            inline
-            lazyLoad
-            onChange={(e, data) => setMoveThree(data.value as unknown as number)}
-            options={MOVES_ARR}
-            placeholder="Select..."
-            search
-            selection
-            value={moveThree}
-          />
-        </div>
-        <div>
-          <div>Move 4:</div>
-          <Dropdown
-            aria-label="move-4-selector"
-            basic
-            className={styles.dropdown}
-            data-testid={`move-4-${encounter?.id}`}
-            fluid
-            inline
-            lazyLoad
-            onChange={(e, data) => setMoveFour(data.value as unknown as number)}
-            options={MOVES_ARR}
-            placeholder="Select..."
-            search
-            selection
-            value={moveFour}
-          />
-        </div>
+        <details>
+          <summary>Details</summary>
+          <div className={styles.expandable}>
+            <Input
+              data-testid="level"
+              label="Level"
+              onChange={(e, data) => setLevel(Number(data.value))}
+              type="number"
+              value={level}
+            />
+            <Input
+              data-testid="metlevel"
+              label="Met Level"
+              onChange={(e, data) => setMetLevel(Number(data.value))}
+              type="number"
+              value={metLevel}
+            />
+            <Dropdown
+              aria-label="gender-selector"
+              basic
+              className={styles.dropdown}
+              data-testid={`gender-${encounter?.id}`}
+              inline
+              labeled
+              lazyLoad
+              onChange={(e, data) => setGender(data.value as unknown as Gender)}
+              options={GENDERS}
+              placeholder="Select a gender..."
+              selection
+              value={gender ?? ''}
+            />
+            <div>
+              <Dropdown
+                aria-label="nature-selector"
+                basic
+                className={styles.dropdown}
+                data-testid={`nature-${encounter?.id}`}
+                inline
+                lazyLoad
+                onChange={(e, data) => setNature(data.value as unknown as string)}
+                options={NATURES}
+                placeholder="Select a nature..."
+                search
+                selection
+                value={nature ?? ''}
+              />
+              <Natures />
+            </div>
+            <Input
+              data-testid="ability"
+              label="Ability"
+              onChange={(e) => setAbility(e.target.value)}
+              type="text"
+              value={ability}
+            />
+            <Input
+              data-testid="item"
+              label="Item"
+              onChange={(e) => setItem(e.target.value)}
+              type="text"
+              value={item}
+            />
+          </div>
+        </details>
+        <details className={styles.expandable}>
+          <summary>Moves</summary>
+          <div className={styles.expandable}>
+            <div>Move 1:</div>
+            <Dropdown
+              aria-label="move-1-selector"
+              basic
+              className={styles.dropdown}
+              data-testid={`move-1-${encounter?.id}`}
+              fluid
+              inline
+              lazyLoad
+              onChange={(e, data) => setMoveOne(data.value as unknown as number)}
+              options={MOVES_ARR}
+              placeholder="Select..."
+              search
+              selection
+              value={moveOne}
+            />
+          </div>
+          <div>
+            <div>Move 2:</div>
+            <Dropdown
+              aria-label="move-2-selector"
+              basic
+              className={styles.dropdown}
+              data-testid={`move-2-${encounter?.id}`}
+              fluid
+              inline
+              lazyLoad
+              onChange={(e, data) => setMoveTwo(data.value as unknown as number)}
+              options={MOVES_ARR}
+              placeholder="Select..."
+              search
+              selection
+              value={moveTwo}
+            />
+          </div>
+          <div>
+            <div>Move 3:</div>
+            <Dropdown
+              aria-label="move-3-selector"
+              basic
+              className={styles.dropdown}
+              data-testid={`move-3-${encounter?.id}`}
+              fluid
+              inline
+              lazyLoad
+              onChange={(e, data) => setMoveThree(data.value as unknown as number)}
+              options={MOVES_ARR}
+              placeholder="Select..."
+              search
+              selection
+              value={moveThree}
+            />
+          </div>
+          <div>
+            <div>Move 4:</div>
+            <Dropdown
+              aria-label="move-4-selector"
+              basic
+              className={styles.dropdown}
+              data-testid={`move-4-${encounter?.id}`}
+              fluid
+              inline
+              lazyLoad
+              onChange={(e, data) => setMoveFour(data.value as unknown as number)}
+              options={MOVES_ARR}
+              placeholder="Select..."
+              search
+              selection
+              value={moveFour}
+            />
+          </div>
+        </details>
+
         {encounter?.status?.value === 2 && (
           <label>
             <div>Cause of Fainting:</div>

@@ -9,6 +9,7 @@ import {
   TRuleEntry,
   TRulesetDictionary,
   TStatus,
+  Type,
 } from 'constants/types';
 import { DEFAULT_RULES, DEFAULT_RULESET_NAMES, GAMES, INITIAL_STATE } from 'constants/constant';
 import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
@@ -43,6 +44,7 @@ const useStore = create<AppState>(
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: false,
       text: '',
+      typeModal: null,
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters.push({
@@ -146,6 +148,11 @@ const useStore = create<AppState>(
           }
         });
       },
+      closeTypeModal: () => {
+        set((state) => {
+          state.typeModal = null;
+        });
+      },
       deleteEncounter: (encounterId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -229,6 +236,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      showTypeModal: (type: Type) => {
+        set((state) => {
+          state.typeModal = type;
+        });
+      },
       toggleMissing: () => {
         set((state) => {
           state.missing = !state.missing;
