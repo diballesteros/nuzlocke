@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import CHANGELOG from 'constants/changelog';
 import { TReleaseGroup } from 'constants/types';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import styles from './Changelog.module.scss';
 
 const Changelog: React.FC = () => {
@@ -33,14 +34,15 @@ const Changelog: React.FC = () => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Dropdown.Item
+        <Menu.Item
           className={`${
             appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
           }`}
-          icon="clipboard outline"
           onClick={handleAbout}
-          text={`Changelog ${appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}`}
-        />
+        >
+          Changelog {appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}
+          <Icon name="clipboard outline" />
+        </Menu.Item>
       }
     >
       <Modal.Header>Changelog</Modal.Header>

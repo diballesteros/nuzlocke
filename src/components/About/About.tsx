@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -22,14 +23,17 @@ const About: React.FC = () => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Dropdown.Item
+        <Menu.Item
           className={`${
             appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
           }`}
           icon="question"
           onClick={handleAbout}
           text={`About ${appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}`}
-        />
+        >
+          About
+          <Icon name="question" />
+        </Menu.Item>
       }
     >
       <Modal.Header>About</Modal.Header>
