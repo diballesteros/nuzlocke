@@ -81,7 +81,8 @@
   }
 
   .sidebarButton {
-    background-color: white;
+    background-color: var(--header);
+    color: var(--contrast);
     border-style: none;
     padding-left: 15px;
     padding-right: 15px;
