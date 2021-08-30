@@ -8,6 +8,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
+import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import { AppState } from 'constants/types';
 import {
@@ -15,6 +16,7 @@ import {
   BadgeEditor,
   Builder,
   Contact,
+  Changelog,
   Pokestats,
   Rules,
   Settings,
@@ -27,6 +29,7 @@ const App: React.FC = () => {
   const [open, setOpen] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
+  const [visible, setVisible] = useState(false);
 
   const panes = [
     {
@@ -143,33 +146,14 @@ const App: React.FC = () => {
     <main className={styles.app}>
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
-          <Dropdown
-            aria-label="options"
-            className={styles.dropdown}
+          <button
+            onClick={() => setVisible(!visible)}
+            type="button"
+            className={styles.sidebarButton}
             data-testid="options"
-            icon="bars"
-            item
-            simple
-            text={appState.newVersion !== process.env.REACT_APP_VERSION ? '!' : undefined}
           >
-            <Dropdown.Menu>
-              <Settings />
-              <Dropdown.Item icon="download" onClick={handleExport} text="Export" />
-              <Dropdown.Item id="import">
-                <Icon name="upload" />
-                <input
-                  aria-labelledby="import"
-                  className={styles.input}
-                  id="file-input"
-                  onChange={handleImport}
-                  type="file"
-                />
-                Import
-              </Dropdown.Item>
-              <Contact />
-              <About />
-            </Dropdown.Menu>
-          </Dropdown>
+            <Icon name="bars" />
+          </button>
           <Dropdown
             aria-label="games"
             className={styles.gameSelect}
@@ -252,9 +236,45 @@ const App: React.FC = () => {
           </Menu.Menu>
         </Menu>
       </header>
-      <Container className={styles.container}>
-        <Tab className={styles.tabs} panes={panes} />
-      </Container>
+
+      <Sidebar.Pushable>
+        <Sidebar
+          as={Menu}
+          visible={visible}
+          vertical
+          inverted={appState.darkMode}
+          animation="overlay"
+          onHide={() => setVisible(false)}
+          width="thin"
+          aria-label="options"
+        >
+          <Settings />
+          <Menu.Item onClick={handleExport}>
+            <Icon name="download" />
+            Export
+          </Menu.Item>
+          <Menu.Item id="import">
+            <Icon name="upload" />
+            <input
+              aria-labelledby="import"
+              className={styles.input}
+              id="file-input"
+              onChange={handleImport}
+              type="file"
+            />
+            Import
+          </Menu.Item>
+          <Contact />
+          <Changelog />
+          <About />
+        </Sidebar>
+        <Sidebar.Pusher>
+          <Container className={styles.container}>
+            <Tab className={styles.tabs} panes={panes} />
+          </Container>
+        </Sidebar.Pusher>
+      </Sidebar.Pushable>
+
       <footer className={styles.footer}>
         <b className={styles.name}>Nuzlocke Tracker</b>
         <span className={styles.pokemon}>

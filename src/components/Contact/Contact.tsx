@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 
 const Contact: React.FC = () => {
@@ -11,7 +12,12 @@ const Contact: React.FC = () => {
       closeOnDimmerClick
       onClose={() => setOpen(false)}
       open={open}
-      trigger={<Dropdown.Item icon="bug" onClick={() => setOpen(true)} text="Report" />}
+      trigger={
+        <Menu.Item onClick={() => setOpen(true)}>
+          Report
+          <Icon name="bug" />
+        </Menu.Item>
+      }
     >
       <Modal.Header>Report a bug or suggest a feature</Modal.Header>
       <Modal.Content

@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
-import CHANGELOG from 'constants/changelog';
-import { TReleaseGroup } from 'constants/types';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
@@ -18,31 +17,23 @@ const About: React.FC = () => {
     setShow(true);
   };
 
-  const getClass = (type: TReleaseGroup) => {
-    switch (type) {
-      case 'FEATURE':
-        return styles.feature;
-      case 'FIX':
-        return styles.fix;
-      default:
-        return styles.update;
-    }
-  };
-
   return (
     <Modal
       closeOnDimmerClick
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Dropdown.Item
+        <Menu.Item
           className={`${
             appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
           }`}
           icon="question"
           onClick={handleAbout}
           text={`About ${appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}`}
-        />
+        >
+          About
+          <Icon name="question" />
+        </Menu.Item>
       }
     >
       <Modal.Header>About</Modal.Header>
@@ -54,28 +45,6 @@ const About: React.FC = () => {
           maxHeight: '76vh',
         }}
       >
-        <h3>Changelog</h3>
-        <div className={styles.changelog}>
-          {CHANGELOG.map((release, i) => {
-            return (
-              <React.Fragment key={`release-${i + 1}`}>
-                <h4>
-                  {release.name} <span>{new Date(release.date).toDateString()}</span>
-                </h4>
-                <ul>
-                  {release.notes.map((note) => {
-                    return (
-                      <li key={note.description}>
-                        <span className={`${styles.type} ${getClass(note.type)}`}>{note.type}</span>
-                        {note.description}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </React.Fragment>
-            );
-          })}
-        </div>
         <ul className={styles.credits}>
           <h3>Credits:</h3>
           <li>

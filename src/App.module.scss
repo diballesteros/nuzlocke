@@ -28,6 +28,8 @@
     width: 100%;
     position: absolute;
     opacity: 0;
+    top: 0;
+    right: 0
   }
 
   .header {
@@ -78,6 +80,14 @@
         padding: 2px;
       }
     }
+  }
+
+  .sidebarButton {
+    background-color: var(--header);
+    color: var(--contrast);
+    border-style: none;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .container {
