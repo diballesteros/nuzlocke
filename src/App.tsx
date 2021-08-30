@@ -14,12 +14,13 @@ import { AppState } from 'constants/types';
 import {
   About,
   BadgeEditor,
+  Builder,
   Contact,
+  Changelog,
   Pokestats,
   Rules,
   Settings,
   Tracker,
-  Changelog,
 } from 'components';
 import styles from './App.module.scss';
 
@@ -48,10 +49,18 @@ const App: React.FC = () => {
       ),
     },
     {
-      menuItem: 'PokéStats',
+      menuItem: 'Stats',
       render: () => (
         <Tab.Pane>
           <Pokestats />
+        </Tab.Pane>
+      ),
+    },
+    {
+      menuItem: 'Builder',
+      render: () => (
+        <Tab.Pane>
+          <Builder />
         </Tab.Pane>
       ),
     },
@@ -277,6 +286,8 @@ const App: React.FC = () => {
             className={styles.github}
             data-show-count="false"
             href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
+            rel="noopener noreferrer"
+            target="_blank"
           >
             <Icon name="twitter square" />
             <span>Follow</span>
@@ -284,8 +295,8 @@ const App: React.FC = () => {
           <a
             className={styles.github}
             href="https://github.com/diballesteros/nuzlocke/"
-            target="_blank"
             rel="noopener noreferrer"
+            target="_blank"
           >
             <Icon name="github" />
             <span>Source</span>

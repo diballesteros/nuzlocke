@@ -1,0 +1,44 @@
+.builder {
+  height: calc(100vh - 150px);
+  position: relative;
+
+  .placeholder {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-size: 16px;
+    color: var(--contrast);
+
+    > svg {
+      width: 50%;
+      max-width: 275px;
+
+      path {
+        fill: var(--contrast);
+      }
+    }
+  }
+
+  .button {
+    position: absolute;
+    bottom: 10px;
+    right: 5px;
+    width: 56px;
+    height: 56px;
+    background-color: var(--badge);
+    color: #ffffff;
+    transition: all 500ms;
+    > i {
+      padding-top: 5px;
+      font-size: 2em;
+    }
+
+    &:hover {
+      background-color: var(--badge);
+      color: #ffffff;
+    }
+  }
+}

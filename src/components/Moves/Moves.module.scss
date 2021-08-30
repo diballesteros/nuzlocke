@@ -49,6 +49,11 @@
         }
       }
 
+      .moveType {
+        color: #333;
+        font-weight: bold;
+      }
+
       &.split {
         .moveType {
           border-bottom-right-radius: unset;
