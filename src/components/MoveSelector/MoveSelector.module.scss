@@ -1,0 +1,23 @@
+.selector {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  max-height: 30px;
+  padding: 3px 4.5px;
+  font-size: 14px;
+  border: 1px dashed #333;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content {
+  > div:first-child {
+    margin-bottom: 10px;
+  }
+
+  .row {
+    padding-right: 10px;
+  }
+}

@@ -15,6 +15,4 @@ const Builder: React.FC = () => {
   );
 };
 
-Builder.propTypes = {};
-
 export default Builder;

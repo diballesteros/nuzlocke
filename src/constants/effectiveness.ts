@@ -436,8 +436,8 @@ const EFFECTIVENESS: TGenerationEffects = {
     },
     'WATER': {
       'Super effective against': ['FIRE', 'GROUND', 'ROCK'],
-      'Weak against': ['ELECTRIC', 'GRASS'],
       'Not very effective against': ['DRAGON', 'GRASS', 'WATER'],
+      'Weak against': ['ELECTRIC', 'GRASS'],
       'Resists': ['FIRE', 'ICE', 'WATER', 'STEEL'],
       'Immune to': [],
       'Has no effect on': [],

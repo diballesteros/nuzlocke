@@ -12,6 +12,7 @@ export { default as Effectiveness } from './Effectiveness/Effectiveness';
 export { default as Encounters } from './Encounters/Encounters';
 export { default as Evolve } from './Evolve/Evolve';
 export { default as FAB } from './FAB/FAB';
+export { default as Filter } from './Filter/Filter';
 export { default as Move } from './Move/Move';
 export { default as Moves } from './Moves/Moves';
 export { default as MoveSelector } from './MoveSelector/MoveSelector';

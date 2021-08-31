@@ -60,6 +60,4 @@ const Effectiveness: React.FC = React.memo(() => {
   );
 });
 
-Effectiveness.propTypes = {};
-
 export default Effectiveness;

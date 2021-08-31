@@ -10,7 +10,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '50',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '15',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 4,
@@ -43,7 +43,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '18',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 6,
@@ -65,7 +65,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 7,
@@ -76,7 +76,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 8,
@@ -87,7 +87,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 9,
@@ -98,7 +98,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 10,
@@ -109,7 +109,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 11,
@@ -120,7 +120,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '55',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 12,
@@ -131,7 +131,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '30%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 13,
@@ -142,7 +142,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 14,
@@ -153,7 +153,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 15,
@@ -164,7 +164,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '50',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 16,
@@ -175,7 +175,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 17,
@@ -186,7 +186,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '60',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 18,
@@ -197,7 +197,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 19,
@@ -208,7 +208,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 20,
@@ -219,7 +219,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 21,
@@ -230,7 +230,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 22,
@@ -241,7 +241,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '45',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 23,
@@ -252,7 +252,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 24,
@@ -263,7 +263,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '30',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 25,
@@ -274,7 +274,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 26,
@@ -285,7 +285,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 27,
@@ -296,7 +296,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 28,
@@ -307,7 +307,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 29,
@@ -318,7 +318,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '70',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 30,
@@ -329,7 +329,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 31,
@@ -340,7 +340,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 32,
@@ -351,7 +351,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '30%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 33,
@@ -362,7 +362,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 34,
@@ -373,7 +373,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '85',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 35,
@@ -384,7 +384,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 36,
@@ -395,7 +395,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '90',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 37,
@@ -406,7 +406,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 38,
@@ -417,7 +417,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 39,
@@ -428,7 +428,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 40,
@@ -439,7 +439,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '15',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 41,
@@ -450,7 +450,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '25',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 42,
@@ -461,7 +461,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '25',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 43,
@@ -472,7 +472,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 44,
@@ -483,7 +483,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 45,
@@ -494,7 +494,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 46,
@@ -505,7 +505,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 47,
@@ -516,7 +516,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '55%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 48,
@@ -527,7 +527,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '55%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 49,
@@ -538,7 +538,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 50,
@@ -549,7 +549,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 51,
@@ -560,7 +560,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 52,
@@ -571,7 +571,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 53,
@@ -582,7 +582,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 54,
@@ -593,7 +593,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 55,
@@ -604,7 +604,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 56,
@@ -615,7 +615,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '80%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 57,
@@ -626,7 +626,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 58,
@@ -637,7 +637,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 59,
@@ -648,7 +648,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '70%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 60,
@@ -659,7 +659,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 61,
@@ -670,7 +670,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 62,
@@ -681,7 +681,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 63,
@@ -692,7 +692,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 64,
@@ -703,7 +703,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '35',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 65,
@@ -714,7 +714,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 66,
@@ -725,7 +725,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '80%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 67,
@@ -736,7 +736,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 68,
@@ -747,7 +747,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 69,
@@ -758,7 +758,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 70,
@@ -769,7 +769,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 71,
@@ -780,7 +780,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '20',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 72,
@@ -791,7 +791,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 73,
@@ -802,7 +802,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 74,
@@ -813,7 +813,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 75,
@@ -824,7 +824,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '55',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 76,
@@ -835,7 +835,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 77,
@@ -846,7 +846,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '—',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 78,
@@ -857,7 +857,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 79,
@@ -868,7 +868,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 80,
@@ -879,7 +879,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 81,
@@ -890,7 +890,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '95%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 82,
@@ -901,7 +901,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 83,
@@ -912,7 +912,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '35',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 84,
@@ -923,7 +923,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 85,
@@ -934,7 +934,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 86,
@@ -945,7 +945,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 87,
@@ -956,7 +956,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '110',
     accuracy: '70%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 88,
@@ -967,7 +967,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 89,
@@ -978,7 +978,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 90,
@@ -989,7 +989,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '30%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 91,
@@ -1000,7 +1000,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 92,
@@ -1011,7 +1011,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 93,
@@ -1022,7 +1022,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '50',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 94,
@@ -1033,7 +1033,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 95,
@@ -1044,7 +1044,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '60%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 96,
@@ -1055,7 +1055,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 97,
@@ -1066,7 +1066,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 98,
@@ -1077,7 +1077,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 99,
@@ -1088,7 +1088,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '20',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 100,
@@ -1099,7 +1099,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 101,
@@ -1110,7 +1110,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 102,
@@ -1121,7 +1121,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 103,
@@ -1132,7 +1132,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 104,
@@ -1143,7 +1143,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 105,
@@ -1154,7 +1154,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 106,
@@ -1165,7 +1165,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 107,
@@ -1176,7 +1176,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 108,
@@ -1187,7 +1187,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 109,
@@ -1198,7 +1198,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 110,
@@ -1209,7 +1209,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 111,
@@ -1220,7 +1220,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 112,
@@ -1231,7 +1231,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 113,
@@ -1242,7 +1242,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 114,
@@ -1253,7 +1253,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 115,
@@ -1264,7 +1264,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 116,
@@ -1275,7 +1275,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 117,
@@ -1286,7 +1286,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 118,
@@ -1297,7 +1297,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 119,
@@ -1308,7 +1308,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 120,
@@ -1319,7 +1319,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '200',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 121,
@@ -1330,7 +1330,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 122,
@@ -1341,7 +1341,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '30',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 123,
@@ -1352,7 +1352,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '30',
     accuracy: '70%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 124,
@@ -1363,7 +1363,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 125,
@@ -1374,7 +1374,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 126,
@@ -1385,7 +1385,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 127,
@@ -1396,7 +1396,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 128,
@@ -1407,7 +1407,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '35',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 129,
@@ -1418,7 +1418,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 130,
@@ -1429,7 +1429,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '130',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 131,
@@ -1440,7 +1440,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '20',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 132,
@@ -1451,7 +1451,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '10',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 133,
@@ -1462,7 +1462,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 134,
@@ -1473,7 +1473,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '80%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 135,
@@ -1484,7 +1484,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 136,
@@ -1495,7 +1495,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '130',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 137,
@@ -1506,7 +1506,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 138,
@@ -1517,7 +1517,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '100',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 139,
@@ -1528,7 +1528,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 140,
@@ -1539,7 +1539,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '85%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 141,
@@ -1550,7 +1550,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 142,
@@ -1561,7 +1561,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '75%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 143,
@@ -1572,7 +1572,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 144,
@@ -1583,7 +1583,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 145,
@@ -1594,7 +1594,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 146,
@@ -1605,7 +1605,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 147,
@@ -1616,7 +1616,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 148,
@@ -1627,7 +1627,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 149,
@@ -1638,7 +1638,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 150,
@@ -1649,7 +1649,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 151,
@@ -1660,7 +1660,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 152,
@@ -1671,7 +1671,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 153,
@@ -1682,7 +1682,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '250',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 154,
@@ -1693,7 +1693,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '18',
     accuracy: '80%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 155,
@@ -1704,7 +1704,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 156,
@@ -1715,7 +1715,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 157,
@@ -1726,7 +1726,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 158,
@@ -1737,7 +1737,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 159,
@@ -1748,7 +1748,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 160,
@@ -1759,7 +1759,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 161,
@@ -1770,7 +1770,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 162,
@@ -1781,7 +1781,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '90%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 163,
@@ -1792,7 +1792,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 164,
@@ -1803,7 +1803,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 165,
@@ -1814,7 +1814,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '50',
     accuracy: '—',
-    gen: 'I',
+    gen: 1,
   },
   {
     id: 166,
@@ -1825,7 +1825,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 167,
@@ -1836,7 +1836,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '10',
     accuracy: '90%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 168,
@@ -1847,7 +1847,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 169,
@@ -1858,7 +1858,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 170,
@@ -1869,7 +1869,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 171,
@@ -1880,7 +1880,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 172,
@@ -1891,7 +1891,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 173,
@@ -1902,7 +1902,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 174,
@@ -1913,7 +1913,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 175,
@@ -1924,7 +1924,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 176,
@@ -1935,7 +1935,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 177,
@@ -1946,7 +1946,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '95%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 178,
@@ -1957,7 +1957,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 179,
@@ -1968,7 +1968,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 180,
@@ -1979,7 +1979,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 181,
@@ -1990,7 +1990,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 182,
@@ -2001,7 +2001,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 183,
@@ -2012,7 +2012,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 184,
@@ -2023,7 +2023,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 185,
@@ -2034,7 +2034,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 186,
@@ -2045,7 +2045,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '75%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 187,
@@ -2056,7 +2056,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 188,
@@ -2067,7 +2067,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 189,
@@ -2078,7 +2078,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '20',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 190,
@@ -2089,7 +2089,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '85%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 191,
@@ -2100,7 +2100,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 192,
@@ -2111,7 +2111,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '50%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 193,
@@ -2122,7 +2122,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 194,
@@ -2133,7 +2133,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 195,
@@ -2144,7 +2144,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 196,
@@ -2155,7 +2155,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '55',
     accuracy: '95%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 197,
@@ -2166,7 +2166,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 198,
@@ -2177,7 +2177,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '25',
     accuracy: '90%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 199,
@@ -2188,7 +2188,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 200,
@@ -2199,7 +2199,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 201,
@@ -2210,7 +2210,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 202,
@@ -2221,7 +2221,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 203,
@@ -2232,7 +2232,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 204,
@@ -2243,7 +2243,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 205,
@@ -2254,7 +2254,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '30',
     accuracy: '90%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 206,
@@ -2265,7 +2265,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 207,
@@ -2276,7 +2276,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '85%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 208,
@@ -2287,7 +2287,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 209,
@@ -2298,7 +2298,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 210,
@@ -2309,7 +2309,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '95%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 211,
@@ -2320,7 +2320,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '70',
     accuracy: '90%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 212,
@@ -2331,7 +2331,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 213,
@@ -2342,7 +2342,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 214,
@@ -2353,7 +2353,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 215,
@@ -2364,7 +2364,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 216,
@@ -2375,7 +2375,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 217,
@@ -2386,7 +2386,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '90%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 218,
@@ -2397,7 +2397,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 219,
@@ -2408,7 +2408,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 220,
@@ -2419,7 +2419,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 221,
@@ -2430,7 +2430,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '95%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 222,
@@ -2441,7 +2441,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 223,
@@ -2452,7 +2452,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '50%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 224,
@@ -2463,7 +2463,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '85%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 225,
@@ -2474,7 +2474,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 226,
@@ -2485,7 +2485,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 227,
@@ -2496,7 +2496,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 228,
@@ -2507,7 +2507,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 229,
@@ -2518,7 +2518,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '50',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 230,
@@ -2529,7 +2529,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 231,
@@ -2540,7 +2540,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '100',
     accuracy: '75%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 232,
@@ -2551,7 +2551,7 @@ const MOVES: TMove[] = [
     pp: '35',
     power: '50',
     accuracy: '95%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 233,
@@ -2562,7 +2562,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 234,
@@ -2573,7 +2573,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 235,
@@ -2584,7 +2584,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 236,
@@ -2595,7 +2595,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 237,
@@ -2606,7 +2606,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 238,
@@ -2617,7 +2617,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '80%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 239,
@@ -2628,7 +2628,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 240,
@@ -2639,7 +2639,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 241,
@@ -2650,7 +2650,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 242,
@@ -2661,7 +2661,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 243,
@@ -2672,7 +2672,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 244,
@@ -2683,7 +2683,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 245,
@@ -2694,7 +2694,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '80',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 246,
@@ -2705,7 +2705,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '60',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 247,
@@ -2716,7 +2716,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 248,
@@ -2727,7 +2727,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 249,
@@ -2738,7 +2738,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '40',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 250,
@@ -2749,7 +2749,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '35',
     accuracy: '85%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 251,
@@ -2760,7 +2760,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'II',
+    gen: 2,
   },
   {
     id: 252,
@@ -2771,7 +2771,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '40',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 253,
@@ -2782,7 +2782,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 254,
@@ -2793,7 +2793,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 255,
@@ -2804,7 +2804,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 256,
@@ -2815,7 +2815,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 257,
@@ -2826,7 +2826,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '95',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 258,
@@ -2837,7 +2837,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 259,
@@ -2848,7 +2848,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 260,
@@ -2859,7 +2859,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 261,
@@ -2870,7 +2870,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '85%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 262,
@@ -2881,7 +2881,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 263,
@@ -2892,7 +2892,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 264,
@@ -2903,7 +2903,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '150',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 265,
@@ -2914,7 +2914,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 266,
@@ -2925,7 +2925,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 267,
@@ -2936,7 +2936,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 268,
@@ -2947,7 +2947,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 269,
@@ -2958,7 +2958,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 270,
@@ -2969,7 +2969,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 271,
@@ -2980,7 +2980,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 272,
@@ -2991,7 +2991,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 273,
@@ -3002,7 +3002,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 274,
@@ -3013,7 +3013,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 275,
@@ -3024,7 +3024,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 276,
@@ -3035,7 +3035,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 277,
@@ -3046,7 +3046,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 278,
@@ -3057,7 +3057,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 279,
@@ -3068,7 +3068,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 280,
@@ -3079,7 +3079,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 281,
@@ -3090,7 +3090,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 282,
@@ -3101,7 +3101,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 283,
@@ -3112,7 +3112,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 284,
@@ -3123,7 +3123,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 285,
@@ -3134,7 +3134,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 286,
@@ -3145,7 +3145,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 287,
@@ -3156,7 +3156,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 288,
@@ -3167,7 +3167,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 289,
@@ -3178,7 +3178,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 290,
@@ -3189,7 +3189,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 291,
@@ -3200,7 +3200,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 292,
@@ -3211,7 +3211,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 293,
@@ -3222,7 +3222,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 294,
@@ -3233,7 +3233,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 295,
@@ -3244,7 +3244,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '70',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 296,
@@ -3255,7 +3255,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '70',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 297,
@@ -3266,7 +3266,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 298,
@@ -3277,7 +3277,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 299,
@@ -3288,7 +3288,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 300,
@@ -3299,7 +3299,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 301,
@@ -3310,7 +3310,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '30',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 302,
@@ -3321,7 +3321,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 303,
@@ -3332,7 +3332,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 304,
@@ -3343,7 +3343,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 305,
@@ -3354,7 +3354,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 306,
@@ -3365,7 +3365,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '95%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 307,
@@ -3376,7 +3376,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 308,
@@ -3387,7 +3387,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 309,
@@ -3398,7 +3398,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 310,
@@ -3409,7 +3409,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '30',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 311,
@@ -3420,7 +3420,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 312,
@@ -3431,7 +3431,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 313,
@@ -3442,7 +3442,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 314,
@@ -3453,7 +3453,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '95%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 315,
@@ -3464,7 +3464,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 316,
@@ -3475,7 +3475,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 317,
@@ -3486,7 +3486,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '95%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 318,
@@ -3497,7 +3497,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '60',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 319,
@@ -3508,7 +3508,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '85%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 320,
@@ -3519,7 +3519,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '55%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 321,
@@ -3530,7 +3530,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 322,
@@ -3541,7 +3541,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 323,
@@ -3552,7 +3552,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 324,
@@ -3563,7 +3563,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 325,
@@ -3574,7 +3574,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 326,
@@ -3585,7 +3585,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 327,
@@ -3596,7 +3596,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '85',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 328,
@@ -3607,7 +3607,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '35',
     accuracy: '85%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 329,
@@ -3618,7 +3618,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '30%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 330,
@@ -3629,7 +3629,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '85%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 331,
@@ -3640,7 +3640,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '25',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 332,
@@ -3651,7 +3651,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 333,
@@ -3662,7 +3662,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '25',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 334,
@@ -3673,7 +3673,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 335,
@@ -3684,7 +3684,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 336,
@@ -3695,7 +3695,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 337,
@@ -3706,7 +3706,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 338,
@@ -3717,7 +3717,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 339,
@@ -3728,7 +3728,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 340,
@@ -3739,7 +3739,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '85',
     accuracy: '85%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 341,
@@ -3750,7 +3750,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '55',
     accuracy: '95%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 342,
@@ -3761,7 +3761,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '50',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 343,
@@ -3772,7 +3772,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 344,
@@ -3783,7 +3783,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 345,
@@ -3794,7 +3794,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 346,
@@ -3805,7 +3805,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 347,
@@ -3816,7 +3816,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 348,
@@ -3827,7 +3827,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 349,
@@ -3838,7 +3838,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 350,
@@ -3849,7 +3849,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '25',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 351,
@@ -3860,7 +3860,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 352,
@@ -3871,7 +3871,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 353,
@@ -3882,7 +3882,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '100%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 354,
@@ -3893,7 +3893,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '90%',
-    gen: 'III',
+    gen: 3,
   },
   {
     id: 355,
@@ -3904,7 +3904,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 356,
@@ -3915,7 +3915,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 357,
@@ -3926,7 +3926,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 358,
@@ -3937,7 +3937,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 359,
@@ -3948,7 +3948,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 360,
@@ -3959,7 +3959,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 361,
@@ -3970,7 +3970,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 362,
@@ -3981,7 +3981,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 363,
@@ -3992,7 +3992,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 364,
@@ -4003,7 +4003,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '30',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 365,
@@ -4014,7 +4014,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 366,
@@ -4025,7 +4025,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 367,
@@ -4036,7 +4036,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 368,
@@ -4047,7 +4047,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 369,
@@ -4058,7 +4058,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 370,
@@ -4069,7 +4069,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 371,
@@ -4080,7 +4080,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 372,
@@ -4091,7 +4091,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 373,
@@ -4102,7 +4102,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 374,
@@ -4113,7 +4113,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 375,
@@ -4124,7 +4124,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 376,
@@ -4135,7 +4135,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 377,
@@ -4146,7 +4146,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 378,
@@ -4157,7 +4157,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 379,
@@ -4168,7 +4168,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 380,
@@ -4179,7 +4179,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 381,
@@ -4190,7 +4190,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 382,
@@ -4201,7 +4201,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 383,
@@ -4212,7 +4212,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 384,
@@ -4223,7 +4223,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 385,
@@ -4234,7 +4234,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 386,
@@ -4245,7 +4245,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 387,
@@ -4256,7 +4256,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 388,
@@ -4267,7 +4267,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 389,
@@ -4278,7 +4278,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 390,
@@ -4289,7 +4289,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 391,
@@ -4300,7 +4300,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 392,
@@ -4311,7 +4311,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 393,
@@ -4322,7 +4322,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 394,
@@ -4333,7 +4333,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 395,
@@ -4344,7 +4344,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 396,
@@ -4355,7 +4355,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 397,
@@ -4366,7 +4366,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 398,
@@ -4377,7 +4377,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 399,
@@ -4388,7 +4388,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 400,
@@ -4399,7 +4399,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 401,
@@ -4410,7 +4410,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 402,
@@ -4421,7 +4421,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 403,
@@ -4432,7 +4432,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '95%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 404,
@@ -4443,7 +4443,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 405,
@@ -4454,7 +4454,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 406,
@@ -4465,7 +4465,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 407,
@@ -4476,7 +4476,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '75%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 408,
@@ -4487,7 +4487,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 409,
@@ -4498,7 +4498,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 410,
@@ -4509,7 +4509,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 411,
@@ -4520,7 +4520,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '70%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 412,
@@ -4531,7 +4531,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 413,
@@ -4542,7 +4542,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 414,
@@ -4553,7 +4553,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 415,
@@ -4564,7 +4564,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 416,
@@ -4575,7 +4575,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 417,
@@ -4586,7 +4586,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 418,
@@ -4597,7 +4597,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 419,
@@ -4608,7 +4608,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 420,
@@ -4619,7 +4619,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 421,
@@ -4630,7 +4630,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 422,
@@ -4641,7 +4641,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '65',
     accuracy: '95%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 423,
@@ -4652,7 +4652,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '65',
     accuracy: '95%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 424,
@@ -4663,7 +4663,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '65',
     accuracy: '95%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 425,
@@ -4674,7 +4674,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 426,
@@ -4685,7 +4685,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '85%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 427,
@@ -4696,7 +4696,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 428,
@@ -4707,7 +4707,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 429,
@@ -4718,7 +4718,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '85%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 430,
@@ -4729,7 +4729,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 431,
@@ -4740,7 +4740,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '90',
     accuracy: '85%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 432,
@@ -4751,7 +4751,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 433,
@@ -4762,7 +4762,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 434,
@@ -4773,7 +4773,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 435,
@@ -4784,7 +4784,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 436,
@@ -4795,7 +4795,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 437,
@@ -4806,7 +4806,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 438,
@@ -4817,7 +4817,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '85%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 439,
@@ -4828,7 +4828,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 440,
@@ -4839,7 +4839,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 441,
@@ -4850,7 +4850,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '80%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 442,
@@ -4861,7 +4861,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 443,
@@ -4872,7 +4872,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 444,
@@ -4883,7 +4883,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '80%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 445,
@@ -4894,7 +4894,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 446,
@@ -4905,7 +4905,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 447,
@@ -4916,7 +4916,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 448,
@@ -4927,7 +4927,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 449,
@@ -4938,7 +4938,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 450,
@@ -4949,7 +4949,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 451,
@@ -4960,7 +4960,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 452,
@@ -4971,7 +4971,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 453,
@@ -4982,7 +4982,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 454,
@@ -4993,7 +4993,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 455,
@@ -5004,7 +5004,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 456,
@@ -5015,7 +5015,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 457,
@@ -5026,7 +5026,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '80%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 458,
@@ -5037,7 +5037,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '35',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 459,
@@ -5048,7 +5048,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '90%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 460,
@@ -5059,7 +5059,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '95%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 461,
@@ -5070,7 +5070,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 462,
@@ -5081,7 +5081,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 463,
@@ -5092,7 +5092,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '75%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 464,
@@ -5103,7 +5103,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '50%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 465,
@@ -5114,7 +5114,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '85%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 466,
@@ -5125,7 +5125,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '60',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 467,
@@ -5136,7 +5136,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'IV',
+    gen: 4,
   },
   {
     id: 468,
@@ -5147,7 +5147,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 469,
@@ -5158,7 +5158,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 470,
@@ -5169,7 +5169,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 471,
@@ -5180,7 +5180,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 472,
@@ -5191,7 +5191,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 473,
@@ -5202,7 +5202,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 474,
@@ -5213,7 +5213,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 475,
@@ -5224,7 +5224,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 476,
@@ -5235,7 +5235,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 477,
@@ -5246,7 +5246,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 478,
@@ -5257,7 +5257,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 479,
@@ -5268,7 +5268,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 480,
@@ -5279,7 +5279,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 481,
@@ -5290,7 +5290,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '70',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 482,
@@ -5301,7 +5301,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '95',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 483,
@@ -5312,7 +5312,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 484,
@@ -5323,7 +5323,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 485,
@@ -5334,7 +5334,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 486,
@@ -5345,7 +5345,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 487,
@@ -5356,7 +5356,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 488,
@@ -5367,7 +5367,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '50',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 489,
@@ -5378,7 +5378,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 490,
@@ -5389,7 +5389,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 491,
@@ -5400,7 +5400,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 492,
@@ -5411,7 +5411,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '95',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 493,
@@ -5422,7 +5422,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 494,
@@ -5433,7 +5433,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 495,
@@ -5444,7 +5444,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 496,
@@ -5455,7 +5455,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 497,
@@ -5466,7 +5466,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '40',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 498,
@@ -5477,7 +5477,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 499,
@@ -5488,7 +5488,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 500,
@@ -5499,7 +5499,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '20',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 501,
@@ -5510,7 +5510,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 502,
@@ -5521,7 +5521,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 503,
@@ -5532,7 +5532,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 504,
@@ -5543,7 +5543,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 505,
@@ -5554,7 +5554,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 506,
@@ -5565,7 +5565,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 507,
@@ -5576,7 +5576,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 508,
@@ -5587,7 +5587,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 509,
@@ -5598,7 +5598,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 510,
@@ -5609,7 +5609,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 511,
@@ -5620,7 +5620,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 512,
@@ -5631,7 +5631,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '55',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 513,
@@ -5642,7 +5642,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 514,
@@ -5653,7 +5653,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '70',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 515,
@@ -5664,7 +5664,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 516,
@@ -5675,7 +5675,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 517,
@@ -5686,7 +5686,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '50%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 518,
@@ -5697,7 +5697,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 519,
@@ -5708,7 +5708,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 520,
@@ -5719,7 +5719,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 521,
@@ -5730,7 +5730,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 522,
@@ -5741,7 +5741,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '50',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 523,
@@ -5752,7 +5752,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 524,
@@ -5763,7 +5763,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 525,
@@ -5774,7 +5774,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '60',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 526,
@@ -5785,7 +5785,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 527,
@@ -5796,7 +5796,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '55',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 528,
@@ -5807,7 +5807,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 529,
@@ -5818,7 +5818,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 530,
@@ -5829,7 +5829,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '40',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 531,
@@ -5840,7 +5840,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '60',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 532,
@@ -5851,7 +5851,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 533,
@@ -5862,7 +5862,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 534,
@@ -5873,7 +5873,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 535,
@@ -5884,7 +5884,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 536,
@@ -5895,7 +5895,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 537,
@@ -5906,7 +5906,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 538,
@@ -5917,7 +5917,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 539,
@@ -5928,7 +5928,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 540,
@@ -5939,7 +5939,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 541,
@@ -5950,7 +5950,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '25',
     accuracy: '85%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 542,
@@ -5961,7 +5961,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '110',
     accuracy: '70%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 543,
@@ -5972,7 +5972,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '120',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 544,
@@ -5983,7 +5983,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '85%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 545,
@@ -5994,7 +5994,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 546,
@@ -6005,7 +6005,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 547,
@@ -6016,7 +6016,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 548,
@@ -6027,7 +6027,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 549,
@@ -6038,7 +6038,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '65',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 550,
@@ -6049,7 +6049,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '85%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 551,
@@ -6060,7 +6060,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '85%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 552,
@@ -6071,7 +6071,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 553,
@@ -6082,7 +6082,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 554,
@@ -6093,7 +6093,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 555,
@@ -6104,7 +6104,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '55',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 556,
@@ -6115,7 +6115,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '90%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 557,
@@ -6126,7 +6126,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '180',
     accuracy: '95%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 558,
@@ -6137,7 +6137,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 559,
@@ -6148,7 +6148,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'V',
+    gen: 5,
   },
   {
     id: 560,
@@ -6159,7 +6159,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '95%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 561,
@@ -6170,7 +6170,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 562,
@@ -6181,7 +6181,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '90%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 563,
@@ -6192,7 +6192,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 564,
@@ -6203,7 +6203,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 565,
@@ -6214,7 +6214,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '50',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 566,
@@ -6225,7 +6225,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 567,
@@ -6236,7 +6236,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 568,
@@ -6247,7 +6247,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 569,
@@ -6258,7 +6258,7 @@ const MOVES: TMove[] = [
     pp: '25',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 570,
@@ -6269,7 +6269,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '65',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 571,
@@ -6280,7 +6280,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 572,
@@ -6291,7 +6291,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 573,
@@ -6302,7 +6302,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 574,
@@ -6313,7 +6313,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '40',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 575,
@@ -6324,7 +6324,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 576,
@@ -6335,7 +6335,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 577,
@@ -6346,7 +6346,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 578,
@@ -6357,7 +6357,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 579,
@@ -6368,7 +6368,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 580,
@@ -6379,7 +6379,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 581,
@@ -6390,7 +6390,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 582,
@@ -6401,7 +6401,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 583,
@@ -6412,7 +6412,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '90%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 584,
@@ -6423,7 +6423,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '40',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 585,
@@ -6434,7 +6434,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '95',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 586,
@@ -6445,7 +6445,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '140',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 587,
@@ -6456,7 +6456,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 588,
@@ -6467,7 +6467,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 589,
@@ -6478,7 +6478,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 590,
@@ -6489,7 +6489,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 591,
@@ -6500,7 +6500,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '95%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 592,
@@ -6511,7 +6511,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '95%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 593,
@@ -6522,7 +6522,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '80',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 594,
@@ -6533,7 +6533,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '15',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 595,
@@ -6544,7 +6544,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 596,
@@ -6555,7 +6555,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 597,
@@ -6566,7 +6566,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 598,
@@ -6577,7 +6577,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 599,
@@ -6588,7 +6588,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 600,
@@ -6599,7 +6599,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 601,
@@ -6610,7 +6610,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 602,
@@ -6621,7 +6621,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 603,
@@ -6632,7 +6632,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 604,
@@ -6643,7 +6643,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 605,
@@ -6654,7 +6654,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 606,
@@ -6665,7 +6665,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 607,
@@ -6676,7 +6676,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 608,
@@ -6687,7 +6687,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 609,
@@ -6698,7 +6698,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '20',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 610,
@@ -6709,7 +6709,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '40',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 611,
@@ -6720,7 +6720,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '20',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 612,
@@ -6731,7 +6731,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 613,
@@ -6742,7 +6742,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 614,
@@ -6753,7 +6753,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 615,
@@ -6764,7 +6764,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 616,
@@ -6775,7 +6775,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 617,
@@ -6786,7 +6786,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '90%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 618,
@@ -6797,7 +6797,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '110',
     accuracy: '85%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 619,
@@ -6808,7 +6808,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '85%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 620,
@@ -6819,7 +6819,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 621,
@@ -6830,7 +6830,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '—',
-    gen: 'VI',
+    gen: 6,
   },
   {
     id: 622,
@@ -6841,7 +6841,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 623,
@@ -6852,7 +6852,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 624,
@@ -6863,7 +6863,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 625,
@@ -6874,7 +6874,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 626,
@@ -6885,7 +6885,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 627,
@@ -6896,7 +6896,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 628,
@@ -6907,7 +6907,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 629,
@@ -6918,7 +6918,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 630,
@@ -6929,7 +6929,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 631,
@@ -6940,7 +6940,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 632,
@@ -6951,7 +6951,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 633,
@@ -6962,7 +6962,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 634,
@@ -6973,7 +6973,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 635,
@@ -6984,7 +6984,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 636,
@@ -6995,7 +6995,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 637,
@@ -7006,7 +7006,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 638,
@@ -7017,7 +7017,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 639,
@@ -7028,7 +7028,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 640,
@@ -7039,7 +7039,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 641,
@@ -7050,7 +7050,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 642,
@@ -7061,7 +7061,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 643,
@@ -7072,7 +7072,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 644,
@@ -7083,7 +7083,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 645,
@@ -7094,7 +7094,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 646,
@@ -7105,7 +7105,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 647,
@@ -7116,7 +7116,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 648,
@@ -7127,7 +7127,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 649,
@@ -7138,7 +7138,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 650,
@@ -7149,7 +7149,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 651,
@@ -7160,7 +7160,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 652,
@@ -7171,7 +7171,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 653,
@@ -7182,7 +7182,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 654,
@@ -7193,7 +7193,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 655,
@@ -7204,7 +7204,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 656,
@@ -7215,7 +7215,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 657,
@@ -7226,7 +7226,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 658,
@@ -7237,7 +7237,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '210',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 659,
@@ -7248,7 +7248,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 660,
@@ -7259,7 +7259,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 661,
@@ -7270,7 +7270,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 662,
@@ -7281,7 +7281,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 663,
@@ -7292,7 +7292,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 664,
@@ -7303,7 +7303,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 665,
@@ -7314,7 +7314,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '90%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 666,
@@ -7325,7 +7325,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 667,
@@ -7336,7 +7336,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '95',
     accuracy: '95%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 668,
@@ -7347,7 +7347,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 669,
@@ -7358,7 +7358,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '125',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 670,
@@ -7369,7 +7369,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '40',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 671,
@@ -7380,7 +7380,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 672,
@@ -7391,7 +7391,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 673,
@@ -7402,7 +7402,7 @@ const MOVES: TMove[] = [
     pp: '30',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 674,
@@ -7413,7 +7413,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 675,
@@ -7424,7 +7424,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 676,
@@ -7435,7 +7435,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 677,
@@ -7446,7 +7446,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 678,
@@ -7457,7 +7457,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 679,
@@ -7468,7 +7468,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 680,
@@ -7479,7 +7479,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 681,
@@ -7490,7 +7490,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '20',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 682,
@@ -7501,7 +7501,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 683,
@@ -7512,7 +7512,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 684,
@@ -7523,7 +7523,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 685,
@@ -7534,7 +7534,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 686,
@@ -7545,7 +7545,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 687,
@@ -7556,7 +7556,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 688,
@@ -7567,7 +7567,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '70',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 689,
@@ -7578,7 +7578,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 690,
@@ -7589,7 +7589,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 691,
@@ -7600,7 +7600,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 692,
@@ -7611,7 +7611,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 693,
@@ -7622,7 +7622,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 694,
@@ -7633,7 +7633,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 695,
@@ -7644,7 +7644,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '180',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 696,
@@ -7655,7 +7655,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '180',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 697,
@@ -7666,7 +7666,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '195',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 698,
@@ -7677,7 +7677,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 699,
@@ -7688,7 +7688,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '195',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 700,
@@ -7699,7 +7699,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '175',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 701,
@@ -7710,7 +7710,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '210',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 702,
@@ -7721,7 +7721,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 703,
@@ -7732,7 +7732,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '185',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 704,
@@ -7743,7 +7743,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 705,
@@ -7754,7 +7754,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '90%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 706,
@@ -7765,7 +7765,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 707,
@@ -7776,7 +7776,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '75',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 708,
@@ -7787,7 +7787,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 709,
@@ -7798,7 +7798,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '40',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 710,
@@ -7809,7 +7809,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 711,
@@ -7820,7 +7820,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '160',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 712,
@@ -7831,7 +7831,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 713,
@@ -7842,7 +7842,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 714,
@@ -7853,7 +7853,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 715,
@@ -7864,7 +7864,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 716,
@@ -7875,7 +7875,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 717,
@@ -7886,7 +7886,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '90%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 718,
@@ -7897,7 +7897,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 719,
@@ -7908,7 +7908,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '195',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 720,
@@ -7919,7 +7919,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 721,
@@ -7930,7 +7930,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 722,
@@ -7941,7 +7941,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 723,
@@ -7952,7 +7952,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '200',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 724,
@@ -7963,7 +7963,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '200',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 725,
@@ -7974,7 +7974,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '200',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 726,
@@ -7985,7 +7985,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '190',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 727,
@@ -7996,7 +7996,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '190',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 728,
@@ -8007,7 +8007,7 @@ const MOVES: TMove[] = [
     pp: '1',
     power: '185',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 729,
@@ -8018,7 +8018,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '50',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 730,
@@ -8029,7 +8029,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 731,
@@ -8040,7 +8040,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '95%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 732,
@@ -8051,7 +8051,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 733,
@@ -8062,7 +8062,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 734,
@@ -8073,7 +8073,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 735,
@@ -8084,7 +8084,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 736,
@@ -8095,7 +8095,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 737,
@@ -8106,7 +8106,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 738,
@@ -8117,7 +8117,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 739,
@@ -8128,7 +8128,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 740,
@@ -8139,7 +8139,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '90',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 741,
@@ -8150,7 +8150,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '—',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 742,
@@ -8161,7 +8161,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '60',
     accuracy: '100%',
-    gen: 'VII',
+    gen: 7,
   },
   {
     id: 743,
@@ -8172,7 +8172,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 744,
@@ -8183,7 +8183,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 745,
@@ -8194,7 +8194,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 746,
@@ -8205,7 +8205,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 747,
@@ -8216,7 +8216,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 748,
@@ -8227,7 +8227,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 749,
@@ -8238,7 +8238,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 750,
@@ -8249,7 +8249,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 751,
@@ -8260,7 +8260,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 752,
@@ -8271,7 +8271,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 753,
@@ -8282,7 +8282,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 754,
@@ -8293,7 +8293,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 755,
@@ -8304,7 +8304,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '85',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 756,
@@ -8315,7 +8315,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 757,
@@ -8326,7 +8326,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 758,
@@ -8337,7 +8337,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 759,
@@ -8348,7 +8348,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 760,
@@ -8359,7 +8359,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 761,
@@ -8370,7 +8370,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 762,
@@ -8381,7 +8381,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 763,
@@ -8392,7 +8392,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 764,
@@ -8403,7 +8403,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 765,
@@ -8414,7 +8414,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 766,
@@ -8425,7 +8425,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 767,
@@ -8436,7 +8436,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 768,
@@ -8447,7 +8447,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 769,
@@ -8458,7 +8458,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 770,
@@ -8469,7 +8469,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 771,
@@ -8480,7 +8480,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 772,
@@ -8491,7 +8491,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 773,
@@ -8502,7 +8502,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 774,
@@ -8513,7 +8513,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 775,
@@ -8524,7 +8524,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 776,
@@ -8535,7 +8535,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 777,
@@ -8546,7 +8546,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 778,
@@ -8557,7 +8557,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 779,
@@ -8568,7 +8568,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '35',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 780,
@@ -8579,7 +8579,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 781,
@@ -8590,7 +8590,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 782,
@@ -8601,7 +8601,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 783,
@@ -8612,7 +8612,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '110',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 784,
@@ -8623,7 +8623,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '60',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 785,
@@ -8634,7 +8634,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '40',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 786,
@@ -8645,7 +8645,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 787,
@@ -8656,7 +8656,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 788,
@@ -8667,7 +8667,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 789,
@@ -8678,7 +8678,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '75',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 790,
@@ -8689,7 +8689,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '95%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 791,
@@ -8700,7 +8700,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 792,
@@ -8711,7 +8711,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 793,
@@ -8722,7 +8722,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 794,
@@ -8733,7 +8733,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 795,
@@ -8744,7 +8744,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '160',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 796,
@@ -8755,7 +8755,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '140',
     accuracy: '95%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 797,
@@ -8766,7 +8766,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 798,
@@ -8777,7 +8777,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 799,
@@ -8788,7 +8788,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '25',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 800,
@@ -8799,7 +8799,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '120',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 801,
@@ -8810,7 +8810,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 802,
@@ -8821,7 +8821,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '100',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 803,
@@ -8832,7 +8832,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 804,
@@ -8843,7 +8843,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '70',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 805,
@@ -8854,7 +8854,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '50',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 806,
@@ -8865,7 +8865,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 807,
@@ -8876,7 +8876,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '70',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 808,
@@ -8887,7 +8887,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '75',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 809,
@@ -8898,7 +8898,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '110',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 810,
@@ -8909,7 +8909,7 @@ const MOVES: TMove[] = [
     pp: '40',
     power: '—',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 811,
@@ -8920,7 +8920,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 812,
@@ -8931,7 +8931,7 @@ const MOVES: TMove[] = [
     pp: '20',
     power: '60',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 813,
@@ -8942,7 +8942,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '20',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 814,
@@ -8953,7 +8953,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '40',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 815,
@@ -8964,7 +8964,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '70',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 816,
@@ -8975,7 +8975,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '—',
     accuracy: '—',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 817,
@@ -8986,7 +8986,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 818,
@@ -8997,7 +8997,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '25',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 819,
@@ -9008,7 +9008,7 @@ const MOVES: TMove[] = [
     pp: '15',
     power: '80',
     accuracy: '90%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 820,
@@ -9019,7 +9019,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '150',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 821,
@@ -9030,7 +9030,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 822,
@@ -9041,7 +9041,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 823,
@@ -9052,7 +9052,7 @@ const MOVES: TMove[] = [
     pp: '10',
     power: '90',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 824,
@@ -9063,7 +9063,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '130',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 825,
@@ -9074,7 +9074,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '120',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
   {
     id: 826,
@@ -9085,7 +9085,7 @@ const MOVES: TMove[] = [
     pp: '5',
     power: '80',
     accuracy: '100%',
-    gen: 'VIII',
+    gen: 8,
   },
 ];
 

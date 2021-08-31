@@ -14,7 +14,13 @@ const Move: React.FC<MoveProps> = ({ moveDetail, showStatus }) => {
     <div className={styles.move} style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}>
       <Type hideName type={moveDetail.type} />
       <span>{moveDetail.name}</span>
-      {showStatus && <img alt="move status" src={CATEGORY_COLOR[moveDetail.category]} />}
+      {showStatus && (
+        <img
+          alt="move status"
+          src={CATEGORY_COLOR[moveDetail.category]}
+          title={moveDetail.category}
+        />
+      )}
     </div>
   );
 };

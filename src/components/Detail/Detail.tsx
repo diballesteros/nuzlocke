@@ -7,10 +7,9 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { Gender, TEncounter } from 'constants/types';
 import { GENDERS } from 'constants/constant';
-import MOVES from 'constants/moves';
 import POKEMON from 'constants/pokemon';
 import NATURES from 'constants/natures';
-import { Natures, PokemonType } from 'components';
+import { MoveSelector, Natures, PokemonType } from 'components';
 import styles from './Detail.module.scss';
 
 interface DetailProps {
@@ -33,10 +32,6 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
   const [moveTwo, setMoveTwo] = useState(encounter?.details?.moves[1]);
   const [moveThree, setMoveThree] = useState(encounter?.details?.moves[2]);
   const [moveFour, setMoveFour] = useState(encounter?.details?.moves[3]);
-
-  const MOVES_ARR = MOVES.map((val) => {
-    return { key: val.id, text: val.name, value: val.id };
-  });
 
   const handleClose = () => {
     setShow(false);
@@ -91,7 +86,6 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
         </Button>
       }
     >
-      <Modal.Header>Details</Modal.Header>
       <Modal.Content className={styles.content}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
@@ -166,80 +160,35 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
         </details>
         <details className={styles.expandable}>
           <summary>Moves</summary>
-          <div className={styles.expandable}>
-            <div>Move 1:</div>
-            <Dropdown
-              aria-label="move-1-selector"
-              basic
-              className={styles.dropdown}
-              data-testid={`move-1-${encounter?.id}`}
-              fluid
-              inline
-              lazyLoad
-              onChange={(e, data) => setMoveOne(data.value as unknown as number)}
-              options={MOVES_ARR}
-              placeholder="Select..."
-              search
-              selection
-              value={moveOne}
+          <div data-testid="move-1">
+            <span>Move 1:</span>
+            <MoveSelector
+              currentMoveId={moveOne}
+              handleMove={(moveId: number) => setMoveOne(moveId)}
             />
           </div>
-          <div>
-            <div>Move 2:</div>
-            <Dropdown
-              aria-label="move-2-selector"
-              basic
-              className={styles.dropdown}
-              data-testid={`move-2-${encounter?.id}`}
-              fluid
-              inline
-              lazyLoad
-              onChange={(e, data) => setMoveTwo(data.value as unknown as number)}
-              options={MOVES_ARR}
-              placeholder="Select..."
-              search
-              selection
-              value={moveTwo}
+          <div data-testid="move-2">
+            <span>Move 2:</span>
+            <MoveSelector
+              currentMoveId={moveTwo}
+              handleMove={(moveId: number) => setMoveTwo(moveId)}
             />
           </div>
-          <div>
-            <div>Move 3:</div>
-            <Dropdown
-              aria-label="move-3-selector"
-              basic
-              className={styles.dropdown}
-              data-testid={`move-3-${encounter?.id}`}
-              fluid
-              inline
-              lazyLoad
-              onChange={(e, data) => setMoveThree(data.value as unknown as number)}
-              options={MOVES_ARR}
-              placeholder="Select..."
-              search
-              selection
-              value={moveThree}
+          <div data-testid="move-3">
+            <span>Move 3:</span>
+            <MoveSelector
+              currentMoveId={moveThree}
+              handleMove={(moveId: number) => setMoveThree(moveId)}
             />
           </div>
-          <div>
-            <div>Move 4:</div>
-            <Dropdown
-              aria-label="move-4-selector"
-              basic
-              className={styles.dropdown}
-              data-testid={`move-4-${encounter?.id}`}
-              fluid
-              inline
-              lazyLoad
-              onChange={(e, data) => setMoveFour(data.value as unknown as number)}
-              options={MOVES_ARR}
-              placeholder="Select..."
-              search
-              selection
-              value={moveFour}
+          <div data-testid="move-4">
+            <span>Move 4:</span>
+            <MoveSelector
+              currentMoveId={moveFour}
+              handleMove={(moveId: number) => setMoveFour(moveId)}
             />
           </div>
         </details>
-
         {encounter?.status?.value === 2 && (
           <label>
             <div>Cause of Fainting:</div>

@@ -205,7 +205,7 @@ export type TMove = {
   accuracy: string;
   category: Category;
   contest: string;
-  gen: string;
+  gen: number;
   name: string;
   id: number;
   power: string;

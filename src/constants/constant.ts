@@ -10,7 +10,7 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { AppState, TGame, TRuleEntry, TRulesetDictionary, TypeObj } from 'constants/types';
+import { AppState, TGame, TRuleEntry, TRulesetDictionary, Type, TypeObj } from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -251,3 +251,24 @@ export const SUM_STATUS = [
 ];
 
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+export const TYPES: Type[] = [
+  'NORMAL',
+  'FIRE',
+  'WATER',
+  'GRASS',
+  'ELECTRIC',
+  'ICE',
+  'POISON',
+  'FIGHTING',
+  'GROUND',
+  'FLYING',
+  'PSYCHIC',
+  'BUG',
+  'ROCK',
+  'GHOST',
+  'DARK',
+  'DRAGON',
+  'STEEL',
+  'FAIRY',
+];

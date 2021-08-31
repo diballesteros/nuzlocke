@@ -51,7 +51,6 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
         )
       }
     >
-      <Modal.Header>Share</Modal.Header>
       <Modal.Content
         style={{
           display: 'flex',
