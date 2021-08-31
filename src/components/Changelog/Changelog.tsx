@@ -40,7 +40,8 @@ const Changelog: React.FC = () => {
           }`}
           onClick={handleAbout}
         >
-          Changelog {appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}
+          Changelog
+          {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}
           <Icon name="clipboard outline" />
         </Menu.Item>
       }

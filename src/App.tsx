@@ -154,6 +154,7 @@ const App: React.FC = () => {
             data-testid="options"
           >
             <Icon name="bars" />
+            {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}
           </button>
           <Dropdown
             aria-label="games"

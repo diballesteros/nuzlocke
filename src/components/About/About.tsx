@@ -3,20 +3,13 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
 import google from 'assets/img/google-play-badge.png';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
-  const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
-
-  const handleAbout = () => {
-    appState.removeNew();
-    setShow(true);
-  };
 
   return (
     <Modal
@@ -24,30 +17,22 @@ const About: React.FC = () => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Menu.Item
-          className={`${
-            appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
-          }`}
-          icon="question"
-          onClick={handleAbout}
-          text={`About ${appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}`}
-        >
+        <Menu.Item onClick={() => setShow(true)} text="About">
           About
           <Icon name="question" />
         </Menu.Item>
       }
     >
       <Modal.Header>About</Modal.Header>
-      <Modal.Content
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          gap: '3px',
-          maxHeight: '76vh',
-        }}
-      >
+      <Modal.Content className={styles.about}>
+        <p>
+          Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving
+          this app in our free time. If you like the app please rate it in the Microsoft Store or
+          Google Play. Also, check out ways to <b>optionally</b> support the app below.
+        </p>
+        <h3>Credits:</h3>
         <ul className={styles.credits}>
-          <h3>Credits:</h3>
+          <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
           <li>
             Images provided by{' '}
             <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">

@@ -3,8 +3,9 @@
   place-items: center;
   grid-template-columns: minmax(0, 1fr);
   grid-template-rows: minmax(0, 1fr);
-  height: 100%;
-  min-height: calc(100vh - 215px);
+  height: fit-content;
+  min-height: calc(100vh - 210px);
+  max-height: calc(100vh - 120px);
   position: relative;
 
   .container {

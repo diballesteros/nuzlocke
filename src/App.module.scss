@@ -4,32 +4,13 @@
   transition: all 500ms;
   overflow: auto;
 
-  .dropdown {
-    > div:first-child {
-      display: grid;
-      place-items: center;
-      order: 1;
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      width: 14px;
-      height: 14px;
-      padding-left: 1px;
-      background-color: red;
-      font-weight: bold;
-      color: #ffffff;
-      font-size: 9px;
-      border-radius: 50%;
-    }
-  }
-
   .input {
     height: 100%;
     width: 100%;
     position: absolute;
     opacity: 0;
     top: 0;
-    right: 0
+    right: 0;
   }
 
   .header {
@@ -88,6 +69,25 @@
     border-style: none;
     padding-left: 15px;
     padding-right: 15px;
+    position: relative;
+    cursor: pointer;
+
+    > span {
+      display: grid;
+      place-items: center;
+      order: 1;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      width: 14px;
+      height: 14px;
+      padding-left: 1px;
+      background-color: red;
+      font-weight: bold;
+      color: #ffffff;
+      font-size: 9px;
+      border-radius: 50%;
+    }
   }
 
   .container {

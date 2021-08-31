@@ -118,7 +118,7 @@ const Summary: React.FC = () => {
     switch (status) {
       case 0:
         return (
-          <b style={{ color: 'yellow' }}>
+          <b style={{ color: '#FBD200' }}>
             ONGOING <Icon name="refresh" />
           </b>
         );
