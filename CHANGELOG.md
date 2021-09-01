@@ -26,7 +26,6 @@
 - README updates
 - Included pull request template
 - CONTRIBUTING updates
-- Privacy Policy page
 
 ## Version 3.3.0
 

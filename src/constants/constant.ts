@@ -10,7 +10,16 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { AppState, TGame, TRuleEntry, TRulesetDictionary, Type, TypeObj } from 'constants/types';
+import {
+  AppState,
+  TGame,
+  TRule,
+  TRuleContent,
+  TRuleEntry,
+  TRulesetDictionary,
+  Type,
+  TypeObj,
+} from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -204,6 +213,21 @@ export const DEFAULT_RULESET_NAMES = [
   'Genlocke',
   'Hardcore Nuzlocke',
 ];
+
+export const getRuleContent = (content: TRuleContent, type: TRule): string => {
+  switch (type) {
+    case 'TYPE':
+      return `Allowed types: ${(content as string[])?.join(', ')}`;
+    case 'GENERATION':
+      return `Allowed generations: ${(content as string[])?.join(', ')}`;
+    case 'LEVEL':
+      return `Max level ${content}`;
+    case 'TEXT':
+      return content as string;
+    default:
+      return '';
+  }
+};
 
 export const GENDERS = [
   { key: '1', text: 'MALE', value: 'MALE' },
