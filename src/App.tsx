@@ -236,7 +236,7 @@ const App: React.FC = () => {
         </Menu>
       </header>
       <Container className={styles.container}>
-        <Tab className={styles.tabs} panes={panes} />
+        <Tab className={styles.tabs} panes={panes} data-testid="tab" />
       </Container>
       <footer className={styles.footer}>
         <b className={styles.name}>Nuzlocke Tracker</b>

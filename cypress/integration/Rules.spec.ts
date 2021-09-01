@@ -57,4 +57,19 @@ describe('Rules', () => {
     cy.get('[data-testid=rule-select]').click();
     cy.contains('Nuzlocke Custom').should('not.exist');
   });
+
+  it('Smart Rules of type', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Type').click();
+    cy.get('[data-testid=add-rule-type]').click();
+    cy.contains('GRASS').click();
+    cy.contains('Add Rule').click();
+    cy.contains('Save').click();
+    cy.contains('Allowed types: GRASS').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=tab]').contains('Tracker').click();
+    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.contains('FORBIDDEN TYPE').should('exist');
+  })
 });
