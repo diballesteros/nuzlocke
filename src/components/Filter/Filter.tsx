@@ -31,6 +31,7 @@ const Filter: React.FC<FilterProps> = ({ values }) => {
       </Input>
       <Button
         active={show}
+        data-testid="filter-button"
         icon="filter"
         onClick={() => setShow((prevState) => !prevState)}
         toggle
@@ -44,6 +45,7 @@ const Filter: React.FC<FilterProps> = ({ values }) => {
               return (
                 <Button
                   active={values.gens.includes(gen)}
+                  data-testid={`filter-gen-${gen}`}
                   onClick={() => values.setGens(gen)}
                   toggle
                 >
@@ -57,6 +59,7 @@ const Filter: React.FC<FilterProps> = ({ values }) => {
             {TYPES.map((type) => {
               return (
                 <Button
+                  data-testid={`filter-type-${type}`}
                   onClick={() => values.setTypes(type)}
                   style={{
                     backgroundColor: values.types.includes(type) ? TYPE_COLOR[type] : undefined,

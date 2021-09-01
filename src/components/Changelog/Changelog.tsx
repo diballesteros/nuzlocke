@@ -12,7 +12,7 @@ const Changelog: React.FC = () => {
   const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
 
-  const handleAbout = () => {
+  const handleNew = () => {
     appState.removeNew();
     setShow(true);
   };
@@ -38,7 +38,8 @@ const Changelog: React.FC = () => {
           className={`${
             appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
           }`}
-          onClick={handleAbout}
+          data-testid="changelog"
+          onClick={handleNew}
         >
           Changelog
           {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}

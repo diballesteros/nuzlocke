@@ -17,7 +17,7 @@ const About: React.FC = () => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Menu.Item onClick={() => setShow(true)} text="About">
+        <Menu.Item onClick={() => setShow(true)} data-testid="about">
           About
           <Icon name="question" />
         </Menu.Item>

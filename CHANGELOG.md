@@ -2,19 +2,31 @@
 
 🚀 New features
 
-- New Team Builder Tab
+- New Team Builder - access from Builder tab - create your ideal team!
+- Click on type to see a breakdown of the effectiveness
+- Click on question mark next to nature to see nature chart
 - App is now available on Google Play
+
+🐛 Bug Fix
+
+- Fixed share rules text formatting
+- Fixed bug when typing inside report option
 
 💅 Enhancement
 
 - Changed top left menu into a sidebar - @RyoMasumura1201
 - Split about and changelog - @RyoMasumura1201
+- Pokemon details now has expandible sections
+- Pokemon details move selector revamped
+- Revamped the look of pokemon types
+- New icons for app
 
 📝 Documentation
 
 - README updates
 - Included pull request template
 - CONTRIBUTING updates
+- Privacy Policy page
 
 ## Version 3.3.0
 

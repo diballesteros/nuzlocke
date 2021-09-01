@@ -11,7 +11,7 @@ interface MovesProps {
 
 const Moves: React.FC<MovesProps> = ({ moves = [] }) => {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const isSplit = PHYS_SPEC_SPLIT.includes(selectedGame?.value);
+  const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
   return (
     <div className={styles.moves}>
       {moves?.map((move, i) => {

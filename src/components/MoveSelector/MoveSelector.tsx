@@ -19,7 +19,7 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const isSplit = PHYS_SPEC_SPLIT.includes(selectedGame?.value);
+  const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
   const currentMove = MOVES.find((m) => m.id === currentMoveId);
   const filteredMoves = MOVES.filter(
     (m) =>
@@ -39,7 +39,7 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
       <div style={style}>
         <div
           className={styles.row}
-          data-testid={`move-${move.id}`}
+          data-testid={`move-${move.name}`}
           onClick={() => handleClick(move.id)}
           role="presentation"
         >

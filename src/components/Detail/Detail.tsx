@@ -95,7 +95,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           <PokemonType pokemon={foundPokemon} />
         </div>
         <details>
-          <summary>Details</summary>
+          <summary data-testid="detail-summary">Details</summary>
           <div className={styles.expandable}>
             <Input
               data-testid="level"
@@ -159,7 +159,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           </div>
         </details>
         <details className={styles.expandable}>
-          <summary>Moves</summary>
+          <summary data-testid="move-summary">Moves</summary>
           <div data-testid="move-1">
             <span>Move 1:</span>
             <MoveSelector
