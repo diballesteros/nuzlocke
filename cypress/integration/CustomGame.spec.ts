@@ -21,17 +21,14 @@ describe('Custom game', () => {
       .children()
       .children()
       .should('have.length', 1);
-    cy.get('[data-testid=pokemon-0] > .search').type('Bulb');
-    cy.contains('Bulbasaur').click();
-    cy.get('#search-filter').click();
-    cy.scrollTo('top');
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Bulbasaur');
-    cy.scrollTo('top');
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Bulbasaur]').click();
+    cy.contains('Bulbasaur').should('exist');
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
     cy.get('[data-testid=encounter-0] .repeat').click();
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Select...');
+    cy.get('[data-testid=encounter-empty-0]').should('exist');
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
     cy.get('[data-testid=encounter-0] .trash').click();
     cy.contains('OK').click();
