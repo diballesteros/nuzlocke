@@ -87,4 +87,22 @@ describe('Rules', () => {
     cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
     cy.contains('FORBIDDEN GEN').should('exist');
   })
+
+  it('Smart Rules of level', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Level').click();
+    cy.get('[data-testid=add-rule-level-input] > input')
+      .type('1');
+    cy.contains('Save').click();
+    cy.contains('Max level 1').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=tab]').contains('Tracker').click();
+    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid=level] > input')
+      .type('5');
+    cy.contains('Save').click();
+    cy.contains('OVERLEVELED').should('exist');
+  })
 });
