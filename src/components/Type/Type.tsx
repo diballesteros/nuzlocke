@@ -21,7 +21,7 @@ const Type: React.FC<TypeProps> = ({ hideName = false, type }) => {
       type="button"
     >
       {TYPE_ICON[type]}
-      {hideName ? null : type}
+      {!hideName && <div className={styles.text}>{type}</div>}
     </button>
   );
 };

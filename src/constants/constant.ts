@@ -200,6 +200,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedGame: null,
   selectedRuleset: 'Nuzlocke',
   showAll: false,
+  team: {},
   text: null,
 };
 

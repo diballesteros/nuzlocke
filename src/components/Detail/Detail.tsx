@@ -94,7 +94,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
           </div>
           <PokemonType pokemon={foundPokemon} />
         </div>
-        <details>
+        <details open>
           <summary data-testid="detail-summary">Details</summary>
           <div className={styles.expandable}>
             <Input
@@ -147,46 +147,48 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
               label="Ability"
               onChange={(e) => setAbility(e.target.value)}
               type="text"
-              value={ability}
+              value={ability ?? ''}
             />
             <Input
               data-testid="item"
               label="Item"
               onChange={(e) => setItem(e.target.value)}
               type="text"
-              value={item}
+              value={item ?? ''}
             />
           </div>
         </details>
         <details className={styles.expandable}>
           <summary data-testid="move-summary">Moves</summary>
-          <div data-testid="move-1">
-            <span>Move 1:</span>
-            <MoveSelector
-              currentMoveId={moveOne}
-              handleMove={(moveId: number) => setMoveOne(moveId)}
-            />
-          </div>
-          <div data-testid="move-2">
-            <span>Move 2:</span>
-            <MoveSelector
-              currentMoveId={moveTwo}
-              handleMove={(moveId: number) => setMoveTwo(moveId)}
-            />
-          </div>
-          <div data-testid="move-3">
-            <span>Move 3:</span>
-            <MoveSelector
-              currentMoveId={moveThree}
-              handleMove={(moveId: number) => setMoveThree(moveId)}
-            />
-          </div>
-          <div data-testid="move-4">
-            <span>Move 4:</span>
-            <MoveSelector
-              currentMoveId={moveFour}
-              handleMove={(moveId: number) => setMoveFour(moveId)}
-            />
+          <div className={styles.expandable}>
+            <div data-testid="move-1">
+              <span>Move 1:</span>
+              <MoveSelector
+                currentMoveId={moveOne}
+                handleMove={(moveId: number) => setMoveOne(moveId)}
+              />
+            </div>
+            <div data-testid="move-2">
+              <span>Move 2:</span>
+              <MoveSelector
+                currentMoveId={moveTwo}
+                handleMove={(moveId: number) => setMoveTwo(moveId)}
+              />
+            </div>
+            <div data-testid="move-3">
+              <span>Move 3:</span>
+              <MoveSelector
+                currentMoveId={moveThree}
+                handleMove={(moveId: number) => setMoveThree(moveId)}
+              />
+            </div>
+            <div data-testid="move-4">
+              <span>Move 4:</span>
+              <MoveSelector
+                currentMoveId={moveFour}
+                handleMove={(moveId: number) => setMoveFour(moveId)}
+              />
+            </div>
           </div>
         </details>
         {encounter?.status?.value === 2 && (

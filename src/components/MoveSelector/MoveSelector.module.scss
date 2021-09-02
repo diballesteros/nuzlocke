@@ -7,9 +7,21 @@
   max-height: 30px;
   padding: 3px 4.5px;
   font-size: 14px;
-  border: 1px dashed #333;
+  background-color: var(--card);
+  color: var(--contrast);
+  border: 1px dashed var(--contrast);
   border-radius: 4px;
   cursor: pointer;
+}
+
+.currentMove {
+  position: relative;
+  .trash {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    padding: 4px !important;
+  }
 }
 
 .content {

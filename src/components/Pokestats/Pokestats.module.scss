@@ -29,7 +29,8 @@
 
     :global(.ui.secondary.menu) {
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: row nowrap;
+      overflow: auto;
     }
     :global(.ui.secondary.menu .active) {
       background-color: var(--card);

@@ -34,11 +34,12 @@ const CHANGELOG: TReleaseNotes = [
         type: 'UPDATE',
       },
       {
-        description: 'Split about and changelog',
+        description: 'Split about and changelog sections',
         type: 'UPDATE',
       },
       {
-        description: 'Revamped Pokemon details - now with move selector and expandable sections',
+        description:
+          'Revamped Pokemon details - now with more dynamic move selector and expandable sections',
         type: 'UPDATE',
       },
       {

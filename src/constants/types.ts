@@ -12,12 +12,14 @@ export interface AppState {
   selectedGame: TGame;
   selectedRuleset: string;
   showAll: boolean;
+  team: TTeamDictionary;
   text: string;
   typeModal: Type;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
+  addTeamMember: (pokemonId: number) => void;
   changeDetails: (
     encounterId: number,
     level: number,
@@ -37,12 +39,14 @@ export interface AppState {
   changeNickname: (encounterId: number, nickname: string) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
+  changeTeamMember: (teamIndex: number, detail: PokemonDetail) => void;
   clearEncounter: (encounterId: number) => void;
   closeTypeModal: () => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
+  deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
@@ -87,6 +91,10 @@ export type TLevelCapDictionary = {
 
 export type TBadgeDictionary = {
   [key: string]: TBadge[];
+};
+
+export type TTeamDictionary = {
+  [key: string]: PokemonDetail[];
 };
 
 export type TBadge = {

@@ -1,11 +1,20 @@
 .builder {
+  display: flex;
   height: calc(100vh - 130px);
   position: relative;
+
+  .team {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    overflow: auto;
+  }
 
   .placeholder {
     display: flex;
     flex-flow: column nowrap;
     gap: 15px;
+    flex: 1;
     align-items: center;
     justify-content: center;
     height: 100%;
@@ -24,8 +33,8 @@
 
   .button {
     position: absolute;
-    bottom: 10px;
-    right: 5px;
+    bottom: -5px;
+    right: 0px;
     width: 56px;
     height: 56px;
     background-color: var(--badge);

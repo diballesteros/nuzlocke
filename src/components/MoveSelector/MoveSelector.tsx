@@ -33,6 +33,11 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
     setOpen(false);
   };
 
+  const handleClear = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    handleMove(null);
+  };
+
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const move = filteredMoves[index];
     return (
@@ -55,8 +60,16 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
       open={open}
       trigger={
         currentMoveId ? (
-          <div onClick={() => setOpen(true)} role="presentation">
+          <div onClick={() => setOpen(true)} role="presentation" className={styles.currentMove}>
             <Move moveDetail={currentMove} showStatus={isSplit} />
+            <Button
+              basic
+              className={styles.trash}
+              compact
+              icon="trash"
+              name="trash"
+              onClick={handleClear}
+            />
           </div>
         ) : (
           <div className={styles.selector} onClick={() => setOpen(true)} role="presentation">

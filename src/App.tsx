@@ -95,6 +95,7 @@ const App: React.FC = () => {
         gamesList: appState.gamesList,
         rules: appState.rules,
         selectedGame: appState.selectedGame,
+        team: appState.team,
       })
     )}`;
     const downloadAnchorNode = document.createElement('a');

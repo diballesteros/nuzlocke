@@ -27,6 +27,14 @@
 - Included pull request template
 - CONTRIBUTING updates
 
+🏠 Internal
+
+- Bumped immer to 9.0.6
+- Bumped @types/node to 16.7.10
+- Bumped @typescript-eslint/eslint-plugin to 4.30.0
+- Bumped @typescript-eslint/parser to 4.30.0
+- Bumped eslint-plugin-react to 7.25.1
+
 ## Version 3.3.0
 
 🚀 New features

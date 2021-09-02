@@ -11,7 +11,7 @@ interface MoveProps {
 
 const Move: React.FC<MoveProps> = ({ moveDetail, showStatus }) => {
   return (
-    <div className={styles.move} style={{ backgroundColor: TYPE_COLOR[moveDetail.type] }}>
+    <div className={styles.move} style={{ backgroundColor: `${TYPE_COLOR[moveDetail.type]}90` }}>
       <Type hideName type={moveDetail.type} />
       <span>{moveDetail.name}</span>
       {showStatus && (
