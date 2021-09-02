@@ -13,10 +13,15 @@ interface TypeProps {
 const Type: React.FC<TypeProps> = ({ hideName = false, type }) => {
   const showTypeModal = useStore(useCallback((state) => state.showTypeModal, []));
 
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.stopPropagation();
+    showTypeModal(type);
+  };
+
   return (
     <button
       className={styles.type}
-      onClick={() => showTypeModal(type)}
+      onClick={handleClick}
       style={{ backgroundColor: TYPE_COLOR[type] }}
       type="button"
     >
