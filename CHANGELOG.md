@@ -1,3 +1,17 @@
+## Version 3.4.1
+
+🚀 New features
+
+- Revamped pokémon selector
+
+🐛 Bug Fix
+
+- Fixed type selection in selector window
+
+📝 Documentation
+
+- README updates
+
 ## Version 3.4.0
 
 🚀 New features
