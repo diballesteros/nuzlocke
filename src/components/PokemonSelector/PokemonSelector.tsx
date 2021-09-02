@@ -10,14 +10,20 @@ import styles from './PokemonSelector.module.scss';
 
 interface PokemonSelectorProps {
   children: React.ReactNode;
+  filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
 }
 
-const PokemonSelector: React.FC<PokemonSelectorProps> = ({ children, handlePokemon }) => {
+const PokemonSelector: React.FC<PokemonSelectorProps> = ({
+  children,
+  filter = false,
+  handlePokemon,
+}) => {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const filteredPokemon = POKEMON.filter(
     (p) =>
+      (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
       p.text.toUpperCase().includes(values.search) &&
       (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
       (values.types.length > 0
