@@ -1,0 +1,35 @@
+.selector {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 30px;
+  max-height: 30px;
+  padding: 3px 4.5px;
+  font-size: 14px;
+  background-color: var(--card);
+  color: var(--contrast);
+  border: 1px dashed var(--contrast);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.currentMove {
+  position: relative;
+  .trash {
+    position: absolute;
+    right: 3px;
+    top: 5px;
+    padding: 4px !important;
+  }
+}
+
+.content {
+  > div:first-child {
+    margin-bottom: 10px;
+  }
+
+  .row {
+    padding-right: 10px;
+  }
+}

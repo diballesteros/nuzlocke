@@ -82,6 +82,4 @@ const BadgeEditor: React.FC = () => {
   );
 };
 
-BadgeEditor.propTypes = {};
-
 export default BadgeEditor;

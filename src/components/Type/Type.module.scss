@@ -1,25 +1,30 @@
-.container {
+.type {
   display: flex;
-  flex-flow: column nowrap;
   align-items: center;
-  gap: 3px;
+  height: 30px;
+  min-height: 30px;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  border-radius: 4px;
+  font: inherit;
+  font-weight: bold;
+  box-sizing: unset;
 
-  > span {
-    font-size: 12px;
+  > svg {
+    padding: 0 2.5px;
+    width: 24px;
   }
 
-  .types {
-    display: flex;
-    gap: 5px;
-
-    > span {
-      padding: 2.5px 4px;
-      border-radius: 3px;
-      color: #ffffff;
-    }
-  }
-
-  .value {
-    font-size: 14px;
+  .text {
+    display: grid;
+    place-items: center;
+    flex: 1;
+    background-color: #595645;
+    color: #ffffff;
+    height: 100%;
+    padding: 0px 3.5px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
   }
 }

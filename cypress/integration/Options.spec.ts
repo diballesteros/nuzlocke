@@ -35,12 +35,16 @@ describe('Options', () => {
     cy.get('[data-testid=nickname-1] > input').should('have.length.above', 0);
   });
 
-  it('About', () => {
-    cy.contains('About').should('have.text', 'About (NEW)').click();
+  it.only('About and Changelog', () => {
+    cy.contains('!').should('exist');
+    cy.get('[data-testid=about]').click();
     cy.get('.header').contains('About').should('exist');
     cy.contains('Close').click();
     cy.get('[data-testid=options]').click();
-    cy.contains('About').should('not.have.text', 'About (NEW)');
+    cy.get('[data-testid=changelog]').click();
+    cy.get('.header').contains('Changelog').should('exist');
+    cy.contains('Close').click();
+    cy.contains('!').should('not.exist');
   });
 
   it('Export', () => {
@@ -59,10 +63,10 @@ describe('Options', () => {
     cy.get('[data-testid=report-os]').select('Android').should('have.value', 'android');
     cy.get('[data-testid=report-browser]').select('Firefox').should('have.value', 'firefox');
     cy.get('[data-testid=report-selectedgame]')
-      .type('Emerald  Kaizo')
+      .type('Emerald Kaizo')
       .should('have.value', 'Emerald Kaizo');
     cy.get('[data-testid=report-description]')
-      .type('Please  implement  new  feature')
+      .type('Please implement new feature')
       .should('have.value', 'Please implement new feature');
   });
 });

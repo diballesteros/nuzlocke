@@ -1,7 +1,7 @@
 .pokestats {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100vh - 120px);
+  height: calc(100vh - 130px);
   overflow: auto;
 
   .filters {
@@ -29,7 +29,8 @@
 
     :global(.ui.secondary.menu) {
       display: flex;
-      flex-flow: row wrap;
+      flex-flow: row nowrap;
+      overflow: auto;
     }
     :global(.ui.secondary.menu .active) {
       background-color: var(--card);

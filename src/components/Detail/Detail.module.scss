@@ -14,6 +14,45 @@
     }
   }
 
+  summary {
+    padding: 1rem;
+    display: block;
+    padding-left: 2.2rem;
+    position: relative;
+    cursor: pointer;
+
+    &:before {
+      content: '';
+      border-width: 0.4rem;
+      border-style: solid;
+      border-color: transparent transparent transparent #333;
+      position: absolute;
+      top: 1.3rem;
+      left: 1rem;
+      transform: rotate(0);
+      transform-origin: 0.2rem 50%;
+      transition: 0.25s transform ease;
+    }
+
+    &::-webkit-details-marker {
+      display: none;
+    }
+  }
+
+  details[open] > summary:before {
+    transform: rotate(90deg);
+  }
+
+  details[open] summary ~ * {
+    animation: sweep 0.5s ease-in-out;
+  }
+
+  .expandable {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+  }
+
   img {
     height: 80px;
     width: 100px;
@@ -26,6 +65,7 @@
   }
 
   .dropdown {
+    min-height: unset !important;
     > i {
       top: 0 !important;
     }
@@ -34,5 +74,16 @@
   .textarea {
     width: 100%;
     resize: none;
+  }
+}
+
+@keyframes sweep {
+  0% {
+    opacity: 0;
+    margin-left: -10px;
+  }
+  100% {
+    opacity: 1;
+    margin-left: 0px;
   }
 }

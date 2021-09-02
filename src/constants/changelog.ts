@@ -2,6 +2,53 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.4.0',
+    date: 1630126800000,
+    notes: [
+      {
+        description: 'New Team Builder - access from Builder tab - create your ideal team!',
+        type: 'FEATURE',
+      },
+      {
+        description: "Click on a pokemon type (new look!) to see a breakdown of it's effectiveness",
+        type: 'FEATURE',
+      },
+      {
+        description: 'Click on question mark next to nature to see nature chart',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Fixed share rules text formatting',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed bug when typing inside report option',
+        type: 'FIX',
+      },
+      {
+        description: 'App is now available on Google Play',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Changed top left menu into a sidebar',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Split about and changelog sections',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Revamped Pokemon details - now with more dynamic move selector and expandable sections',
+        type: 'UPDATE',
+      },
+      {
+        description: 'New icons for app',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 3.3.0',
     date: 1630126800000,
     notes: [

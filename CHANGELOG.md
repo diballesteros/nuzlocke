@@ -1,3 +1,40 @@
+## Version 3.4.0
+
+🚀 New features
+
+- New Team Builder - access from Builder tab - create your ideal team!
+- Click on type to see a breakdown of the effectiveness
+- Click on question mark next to nature to see nature chart
+- App is now available on Google Play
+
+🐛 Bug Fix
+
+- Fixed share rules text formatting
+- Fixed bug when typing inside report option
+
+💅 Enhancement
+
+- Changed top left menu into a sidebar - @RyoMasumura1201
+- Split about and changelog - @RyoMasumura1201
+- Pokemon details now has expandible sections
+- Pokemon details move selector revamped
+- Revamped the look of pokemon types
+- New icons for app
+
+📝 Documentation
+
+- README updates
+- Included pull request template
+- CONTRIBUTING updates
+
+🏠 Internal
+
+- Bumped immer to 9.0.6
+- Bumped @types/node to 16.7.10
+- Bumped @typescript-eslint/eslint-plugin to 4.30.0
+- Bumped @typescript-eslint/parser to 4.30.0
+- Bumped eslint-plugin-react to 7.25.1
+
 ## Version 3.3.0
 
 🚀 New features
@@ -29,7 +66,7 @@
 🚀 New features
 
 - New buttons in footer and about section to support project. Completely **optional**
-- The app will soon be available in the Playstore and Microsoft Store
+- The app will soon be available on Google Play and Microsoft Store
 
 💅 Enhancement
 

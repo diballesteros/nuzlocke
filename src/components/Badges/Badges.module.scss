@@ -86,4 +86,8 @@
   :global(.ui.menu) {
     overflow: auto;
   }
+
+  :global(.ui.bottom.segment) {
+    padding: 0.25em;
+  }
 }

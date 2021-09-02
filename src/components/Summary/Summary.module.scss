@@ -17,11 +17,28 @@
     overflow: auto;
 
     .settings {
-      width: 300px;
+      width: 250px;
+      min-width: 250px;
       height: fit-content;
+      background-color: var(--card);
+      border-radius: 8px;
+      padding: 15px;
+      color: var(--contrast);
 
-      > div {
-        width: 300px;
+      > details {
+        padding: 5px;
+        border-bottom: 1px solid var(--contrast);
+
+        > div {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 5px;
+          padding: 5px 0;
+        }
+      }
+
+      .dropdown {
+        min-height: unset !important;
       }
 
       .textarea {
@@ -31,6 +48,10 @@
 
       :global(.ui.checkbox) {
         width: 100%;
+
+        label {
+          color: var(--contrast);
+        }
       }
     }
 

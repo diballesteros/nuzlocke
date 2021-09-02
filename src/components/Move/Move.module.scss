@@ -1,0 +1,32 @@
+.move {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 5px;
+  align-items: center;
+  flex: 1;
+  border-radius: 4px;
+  height: 30px;
+  max-height: 30px;
+
+  &:hover {
+    transform: scale(1.01);
+    cursor: pointer;
+  }
+
+  > svg {
+    height: 100%;
+    width: 29px;
+  }
+
+  > span {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  > img {
+    height: 18px;
+    width: 41px;
+    margin-left: auto;
+    margin-right: 35px;
+  }
+}

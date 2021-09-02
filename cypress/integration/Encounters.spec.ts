@@ -70,6 +70,6 @@ describe('Encounters', () => {
 
   it('Share', () => {
     cy.get('[data-testid=share-encounters]').click();
-    cy.get('.header').contains('Share').should('exist');
+    cy.contains('Nuzlocke Encounter List').should('exist');
   });
 });

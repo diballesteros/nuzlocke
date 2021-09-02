@@ -1,25 +1,13 @@
 import React from 'react';
-import { TRule, TRuleContent, TRuleEntry } from 'constants/types';
+import { TRuleEntry } from 'constants/types';
+import { getRuleContent } from 'constants/constant';
 import styles from './RuleContent.module.scss';
 
 interface RuleContentProps {
   hideSmart?: boolean;
-  rule: TRuleEntry;
   i: number;
+  rule: TRuleEntry;
 }
-
-const getRuleContent = (content: TRuleContent, type: TRule) => {
-  switch (type) {
-    case 'TYPE':
-      return `Allowed types: ${(content as string[])?.join(', ')}`;
-    case 'GENERATION':
-      return `Allowed generations: ${(content as string[])?.join(', ')}`;
-    case 'LEVEL':
-      return `Max level ${content}`;
-    default:
-      return content;
-  }
-};
 
 const RuleContent: React.FC<RuleContentProps> = ({ hideSmart, i, rule }) => {
   return (

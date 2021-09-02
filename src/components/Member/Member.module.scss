@@ -1,0 +1,66 @@
+.member {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 7px;
+
+  .info {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    color: var(--contrast);
+  }
+
+  .other {
+    display: flex;
+    flex-flow: nowrap;
+    gap: 3px;
+    align-items: center;
+
+    .arrow {
+      color: var(--contrast);
+      font-size: 20px;
+      transition: transform 150ms ease;
+      cursor: pointer;
+    }
+
+    > div:first-child {
+      flex-flow: column nowrap;
+    }
+  }
+}
+
+.details {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+  height: 0px;
+  padding: 0px;
+  width: 100%;
+  transition: height 0.6s, padding 0.6s, clip-path 0s ease-out, height 0.6s ease-out;
+  clip-path: inset(0);
+
+  &.open {
+    height: 330px;
+    padding: 10px;
+    clip-path: inset(-100vh, -100vw);
+  }
+
+  .dropdown {
+    min-height: unset !important;
+    > i {
+      top: 0 !important;
+    }
+  }
+
+  > button {
+    margin-top: 10px !important;
+    padding: 0 !important;
+    height: 30px;
+    > i {
+      margin-left: 5px !important;
+      margin-right: 0 !important;
+    }
+  }
+}

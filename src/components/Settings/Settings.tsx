@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 
 const Settings: React.FC = () => {
   const appState = useStore((state) => state);
@@ -14,7 +15,12 @@ const Settings: React.FC = () => {
       closeOnDimmerClick
       onClose={() => setShow(false)}
       open={show}
-      trigger={<Dropdown.Item icon="wrench" onClick={() => setShow(true)} text="Settings" />}
+      trigger={
+        <Menu.Item onClick={() => setShow(true)}>
+          Settings
+          <Icon name="wrench" />
+        </Menu.Item>
+      }
     >
       <Modal.Header>Settings</Modal.Header>
       <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>

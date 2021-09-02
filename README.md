@@ -37,7 +37,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
 - Export, import and share Nuzlocke runs with others!
-- Share, add and edit custom rules and rulesets
+- Share, add and edit custom rules and rulesets - including smart rules that alert if they're broken
 - View overview and summary of your nuzlocke run
 - Dupes clause alerts
 - Works offline
@@ -142,7 +142,3 @@ Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK 
 ## Contact
 
 Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
-
-## Other
-
-<a href='//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge'><img src='https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png' alt='English badge' style='width: 284px; height: 104px;'/></a>

@@ -1,11 +1,9 @@
-import React, { ReactText, useCallback, useMemo, useRef, useState } from 'react';
-import Accordion from 'semantic-ui-react/dist/commonjs/modules/Accordion';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { toPng } from 'html-to-image';
 import useStore from 'store';
@@ -33,7 +31,6 @@ const Summary: React.FC = () => {
     shallow
   );
   const [showSettings, setShowSettings] = useState(false);
-  const [settingsIndex, setSettingsIndex] = useState(0);
   const [title, setTitle] = useState('Nuzlocke Run');
   const [status, setStatus] = useState(0);
   const [encounters, setEncounters] = useState(true);
@@ -44,10 +41,6 @@ const Summary: React.FC = () => {
   const [showBoxed, setShowBoxed] = useState(true);
   const [fainted, setFainted] = useState(true);
   const summaryRef = useRef(null);
-
-  const handleSettings = (newIndex: ReactText) => {
-    setSettingsIndex(Number(newIndex) === settingsIndex ? -1 : Number(newIndex));
-  };
 
   const teamPokemon = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -125,7 +118,7 @@ const Summary: React.FC = () => {
     switch (status) {
       case 0:
         return (
-          <b style={{ color: 'yellow' }}>
+          <b style={{ color: '#FBD200' }}>
             ONGOING <Icon name="refresh" />
           </b>
         );
@@ -176,15 +169,10 @@ const Summary: React.FC = () => {
       </div>
       <div className={styles.inner}>
         {showSettings && (
-          <Accordion className={styles.settings} as={Menu} vertical>
-            <Menu.Item>
-              <Accordion.Title
-                active={settingsIndex === 0}
-                content="Header"
-                index={0}
-                onClick={(e, v) => handleSettings(v.index)}
-              />
-              <Accordion.Content active={settingsIndex === 0}>
+          <div className={styles.settings}>
+            <details>
+              <summary>Header</summary>
+              <div>
                 <Input
                   label="Title"
                   fluid
@@ -194,38 +182,27 @@ const Summary: React.FC = () => {
                 />
                 <span>Status:</span>
                 <Dropdown
-                  basic
-                  fluid
+                  className={styles.dropdown}
+                  inline
                   onChange={(e, data) => setStatus(data.value as number)}
                   options={SUM_STATUS}
-                  selection
                   value={status}
                 />
-              </Accordion.Content>
-            </Menu.Item>
-            <Menu.Item>
-              <Accordion.Title
-                active={settingsIndex === 1}
-                content="Encounters"
-                index={1}
-                onClick={(e, v) => handleSettings(v.index)}
-              />
-              <Accordion.Content active={settingsIndex === 1}>
+              </div>
+            </details>
+            <details>
+              <summary>Encounters</summary>
+              <div>
                 <Checkbox
                   checked={encounters}
                   label="Show encounters"
                   onChange={() => setEncounters((prevState) => !prevState)}
                 />
-              </Accordion.Content>
-            </Menu.Item>
-            <Menu.Item>
-              <Accordion.Title
-                active={settingsIndex === 2}
-                content="Stats"
-                index={2}
-                onClick={(e, v) => handleSettings(v.index)}
-              />
-              <Accordion.Content active={settingsIndex === 2}>
+              </div>
+            </details>
+            <details>
+              <summary>Stats</summary>
+              <div>
                 <Checkbox
                   checked={stats}
                   label="Show stats"
@@ -241,31 +218,21 @@ const Summary: React.FC = () => {
                   label="Show fainted pokémon"
                   onChange={() => setFainted((prevState) => !prevState)}
                 />
-              </Accordion.Content>
-            </Menu.Item>
-            <Menu.Item>
-              <Accordion.Title
-                active={settingsIndex === 3}
-                content="Rules"
-                index={3}
-                onClick={(e, v) => handleSettings(v.index)}
-              />
-              <Accordion.Content active={settingsIndex === 3}>
+              </div>
+            </details>
+            <details>
+              <summary>Rules</summary>
+              <div>
                 <Checkbox
                   checked={showRules}
                   label="Show rules"
                   onChange={() => setShowRules((prevState) => !prevState)}
                 />
-              </Accordion.Content>
-            </Menu.Item>
-            <Menu.Item>
-              <Accordion.Title
-                active={settingsIndex === 4}
-                content="Description"
-                index={4}
-                onClick={(e, v) => handleSettings(v.index)}
-              />
-              <Accordion.Content active={settingsIndex === 4}>
+              </div>
+            </details>
+            <details>
+              <summary>Description</summary>
+              <div>
                 <Checkbox
                   checked={showDesc}
                   label="Show description"
@@ -277,9 +244,9 @@ const Summary: React.FC = () => {
                   rows={5}
                   value={description}
                 />
-              </Accordion.Content>
-            </Menu.Item>
-          </Accordion>
+              </div>
+            </details>
+          </div>
         )}
         <div className={styles.summary} ref={summaryRef}>
           <div className={styles.header}>
