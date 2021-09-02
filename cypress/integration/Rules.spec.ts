@@ -72,4 +72,19 @@ describe('Rules', () => {
     cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
     cy.contains('FORBIDDEN TYPE').should('exist');
   })
+
+  it('Smart Rules of generation', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Generation').click();
+    cy.get('[data-testid=add-rule-generation]').click();
+    cy.get('[data-testid=add-rule-generation]').contains(1).click();
+    cy.contains('Add Rule').click();
+    cy.contains('Save').click();
+    cy.contains('Allowed generations: 1').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=tab]').contains('Tracker').click();
+    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.contains('FORBIDDEN GEN').should('exist');
+  })
 });
