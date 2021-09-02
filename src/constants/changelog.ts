@@ -3,7 +3,7 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.4.0',
-    date: 1630126800000,
+    date: 1630551581923,
     notes: [
       {
         description: 'New Team Builder - access from Builder tab - create your ideal team!',

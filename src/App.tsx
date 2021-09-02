@@ -239,7 +239,6 @@ const App: React.FC = () => {
           </Menu.Menu>
         </Menu>
       </header>
-
       <Sidebar.Pushable>
         <Sidebar
           as={Menu}
@@ -277,7 +276,6 @@ const App: React.FC = () => {
           </Container>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-
       <footer className={styles.footer}>
         <b className={styles.name}>Nuzlocke Tracker</b>
         <span className={styles.pokemon}>

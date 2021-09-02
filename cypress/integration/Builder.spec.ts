@@ -1,4 +1,4 @@
-describe('Badges', () => {
+describe('Builder', () => {
   beforeEach(() => {
     cy.visit('/');
     cy.get('[data-testid=game-select]').click();

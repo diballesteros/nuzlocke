@@ -44,6 +44,8 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Nickname randomizer
 - Details on all gym and Elite Four pokémon for all base games
 - Download a summary image
+- Build an ideal team with the Team Builder!
+- Quick access to details on type effectiveness and natures
 
 ### ✨ How it works
 
