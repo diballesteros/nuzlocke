@@ -65,14 +65,14 @@ const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
           <Natures />
         </div>
         <Input
-          data-testid="ability"
+          data-testid={`team-ability-${pokemon?.text}`}
           label="Ability"
           onChange={(e) => changeTeamMember(index, { ...pokemonDetail, ability: e.target.value })}
           type="text"
           value={pokemonDetail.ability ?? ''}
         />
         <Input
-          data-testid="item"
+          data-testid={`team-item-${pokemon?.text}`}
           label="Item"
           onChange={(e) => changeTeamMember(index, { ...pokemonDetail, item: e.target.value })}
           type="text"

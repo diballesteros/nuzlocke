@@ -40,6 +40,7 @@ const Builder: React.FC = () => {
           <Button
             circular
             className={styles.button}
+            data-testid="builder-add"
             disabled={team?.length === 6}
             icon="plus"
             type="button"

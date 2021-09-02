@@ -36,7 +36,6 @@ describe('PokéStats', () => {
     cy.get('[data-testid=status-4]').click();
     cy.get('[data-testid=status-4] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=edit-encounter-4]').click();
-    cy.get('[data-testid=detail-summary]').click();
     cy.get('[data-testid=level] > input').type('15').should('have.value', 15);
     cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
     cy.get('[data-testid=ability] > input').type('Ability').should('have.value', 'Ability');
