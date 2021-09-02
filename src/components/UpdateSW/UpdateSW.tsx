@@ -39,7 +39,7 @@ const UpdateSW: React.FC = () => {
     <>
       {!!waitingServiceWorker && (
         <div className={styles.alert}>
-          <span>There is a new version available</span>
+          <span>New version available</span>
           <Button color="grey" onClick={updateServiceWorker} type="button">
             Update
           </Button>

@@ -7,7 +7,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { TRuleEntry } from 'constants/types';
-import { DEFAULT_RULESET_NAMES } from 'constants/constant';
+import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
 import { AddRule, RuleContent, RuleEditor, Share } from 'components';
 import styles from './Rules.module.scss';
 
@@ -62,7 +62,7 @@ const Rules: React.FC = () => {
               ? rules[selectedRuleset]?.reduce(
                   (str, rule, i) => {
                     return `${str}
-      ${i + 1}. ${rule.content || 'N/A'}`;
+      ${i + 1}. ${getRuleContent(rule.content, rule.type) || 'N/A'}`;
                   },
                   `Ruleset
         `

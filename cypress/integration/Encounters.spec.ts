@@ -16,28 +16,24 @@ describe('Encounters', () => {
   });
 
   it('Edit base encounter', () => {
-    cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
-    cy.contains('Scorbunny').click();
-    cy.get('#search-filter').click();
-    cy.scrollTo('top');
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Scorbunny');
-    cy.scrollTo('top');
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.contains('Scorbunny').should('exist');
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
     cy.get('[data-testid="evolve-0}"]').click();
     cy.get(':nth-child(2) > .ui > label').click();
     cy.contains('Save').click();
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Raboot');
+    cy.contains('Raboot').should('exist');
     cy.get('[data-testid=encounter-0] .repeat').click();
-    cy.get('[data-testid=pokemon-0] > .divider').should('have.text', 'Select...');
+    cy.get('[data-testid=encounter-empty-0]').should('exist');
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
   });
 
   it('Reset all encounters', () => {
-    cy.get('[data-testid=pokemon-0] > .search').type('Scorb');
-    cy.contains('Scorbunny').click();
-    cy.get('#search-filter').click();
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=reset-all]').click();
     cy.contains('OK').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
@@ -70,6 +66,6 @@ describe('Encounters', () => {
 
   it('Share', () => {
     cy.get('[data-testid=share-encounters]').click();
-    cy.get('.header').contains('Share').should('exist');
+    cy.contains('Nuzlocke Encounter List').should('exist');
   });
 });

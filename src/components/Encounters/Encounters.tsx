@@ -16,7 +16,6 @@ const Encounters: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const missing = useStore(useCallback((state) => state.missing, []));
-
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),

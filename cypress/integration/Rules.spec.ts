@@ -33,7 +33,7 @@ describe('Rules', () => {
 
   it('Share rules', () => {
     cy.get('[data-testid=share-encounters]').click();
-    cy.get('.header').contains('Share').should('exist');
+    cy.contains('Ruleset').should('exist');
   });
 
   it('Custom ruleset', () => {

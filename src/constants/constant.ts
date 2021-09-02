@@ -10,7 +10,16 @@ import X_Y from 'constants/locations/X_Y';
 import SW_SH from 'constants/locations/SW_SH';
 import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
-import { AppState, TGame, TRuleEntry, TRulesetDictionary, TypeObj } from 'constants/types';
+import {
+  AppState,
+  TGame,
+  TRule,
+  TRuleContent,
+  TRuleEntry,
+  TRulesetDictionary,
+  Type,
+  TypeObj,
+} from 'constants/types';
 import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
@@ -191,10 +200,11 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedGame: null,
   selectedRuleset: 'Nuzlocke',
   showAll: false,
+  team: {},
   text: null,
 };
 
-export const PHYS_SPEC_SPLIT: string[] = ['4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+export const PHYS_SPEC_SPLIT: string[] = ['1', '2', '3'];
 
 export const DEFAULT_RULESET_NAMES = [
   'Nuzlocke',
@@ -204,6 +214,21 @@ export const DEFAULT_RULESET_NAMES = [
   'Genlocke',
   'Hardcore Nuzlocke',
 ];
+
+export const getRuleContent = (content: TRuleContent, type: TRule): string => {
+  switch (type) {
+    case 'TYPE':
+      return `Allowed types: ${(content as string[])?.join(', ')}`;
+    case 'GENERATION':
+      return `Allowed generations: ${(content as string[])?.join(', ')}`;
+    case 'LEVEL':
+      return `Max level ${content}`;
+    case 'TEXT':
+      return content as string;
+    default:
+      return '';
+  }
+};
 
 export const GENDERS = [
   { key: '1', text: 'MALE', value: 'MALE' },
@@ -251,3 +276,24 @@ export const SUM_STATUS = [
 ];
 
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+export const TYPES: Type[] = [
+  'NORMAL',
+  'FIRE',
+  'WATER',
+  'GRASS',
+  'ELECTRIC',
+  'ICE',
+  'POISON',
+  'FIGHTING',
+  'GROUND',
+  'FLYING',
+  'PSYCHIC',
+  'BUG',
+  'ROCK',
+  'GHOST',
+  'DARK',
+  'DRAGON',
+  'STEEL',
+  'FAIRY',
+];

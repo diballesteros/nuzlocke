@@ -12,11 +12,14 @@ export interface AppState {
   selectedGame: TGame;
   selectedRuleset: string;
   showAll: boolean;
+  team: TTeamDictionary;
   text: string;
+  typeModal: Type;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
+  addTeamMember: (pokemonId: number) => void;
   changeDetails: (
     encounterId: number,
     level: number,
@@ -36,11 +39,14 @@ export interface AppState {
   changeNickname: (encounterId: number, nickname: string) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
+  changeTeamMember: (teamIndex: number, detail: PokemonDetail) => void;
   clearEncounter: (encounterId: number) => void;
+  closeTypeModal: () => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
+  deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
   importState: (newAppState: Partial<AppState>) => void;
@@ -51,10 +57,17 @@ export interface AppState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  showTypeModal: (type: Type) => void;
   toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
+}
+
+declare global {
+  interface Navigator {
+    canShare: (stuff: unknown) => boolean;
+  }
 }
 
 export type Games = { [key: string]: TrackData };
@@ -84,6 +97,10 @@ export type TLevelCapDictionary = {
 
 export type TBadgeDictionary = {
   [key: string]: TBadge[];
+};
+
+export type TTeamDictionary = {
+  [key: string]: PokemonDetail[];
 };
 
 export type TBadge = {
@@ -179,6 +196,10 @@ export type TypeColor = {
   [key in Type]: string;
 };
 
+export type TypeIcon = {
+  [key in Type]: React.ReactNode;
+};
+
 export type CategoryColor = {
   [key in Category]: string;
 };
@@ -194,11 +215,11 @@ export type TNature = {
   text: string;
 };
 
-export type Move = {
+export type TMove = {
   accuracy: string;
   category: Category;
   contest: string;
-  gen: string;
+  gen: number;
   name: string;
   id: number;
   power: string;
@@ -230,3 +251,18 @@ export type TReleaseNote = {
 };
 
 export type TReleaseGroup = 'UPDATE' | 'FEATURE' | 'FIX';
+
+export type TEffectiveness = {
+  [key in Type]: {
+    'Has no effect on': Type[];
+    'Immune to': Type[];
+    'Super effective against': Type[];
+    'Not very effective against': Type[];
+    'Weak against': Type[];
+    'Resists': Type[];
+  };
+};
+
+export type TGenerationEffects = {
+  [key: string]: TEffectiveness;
+};

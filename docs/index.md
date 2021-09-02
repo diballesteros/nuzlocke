@@ -44,20 +44,26 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Nickname randomizer
 - Details on all gym and Elite Four pokémon for all base games
 - Download a summary image
+- Build an ideal team with the Team Builder!
+- Quick access to details on type effectiveness and natures
 
 ### ✨ How it works
 
 - Adding Encounter:
 
-![til](https://media.giphy.com/media/MFVRBEEiQvYL9MWtCf/giphy.gif)
+![til](https://media.giphy.com/media/3Vg6oiO9k2ki9SqurG/giphy.gif?cid=790b7611d41d7f9775f131bd3a5dba9e339d7b5f23ce359a&rid=giphy.gif&ct=g)
 
 - Editing Encounter:
 
-![til](https://media.giphy.com/media/25ve1fcEPi7kVrckOs/giphy.gif?cid=790b76112e7ec4c38b0d6751fd48444d98a52b030a96935c&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/JNKFRBlRkg0Fr9q9pX/giphy.gif?cid=790b7611346c86f533776d9f9f266eb63f88ba4d8e0b4758&rid=giphy.gif&ct=g)
 
 - Badges:
 
-![til](https://media.giphy.com/media/E2bYqnlbr1PGdjQxCD/giphy.gif)
+![til](https://media.giphy.com/media/ew5Ooc73PE3YqwWgLA/giphy.gif?cid=790b7611ad6f0af63550c3107bc6bf981007b33ed5e93a39&rid=giphy.gif&ct=g)
+
+- Team Builder:
+
+![til](https://media.giphy.com/media/T0yMtbmR5hVX3ARLbN/giphy.gif?cid=790b761127516fcf192c309d7f6a15a9c452beade4f80b5f&rid=giphy.gif&ct=g)
 
 - Summary Image:
 

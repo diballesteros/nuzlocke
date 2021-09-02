@@ -3,12 +3,14 @@ import { persist } from 'zustand/middleware';
 import produce from 'immer';
 import {
   AppState,
+  PokemonDetail,
   TGame,
   TPokemon,
   TRuleContent,
   TRuleEntry,
   TRulesetDictionary,
   TStatus,
+  Type,
 } from 'constants/types';
 import { DEFAULT_RULES, DEFAULT_RULESET_NAMES, GAMES, INITIAL_STATE } from 'constants/constant';
 import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
@@ -30,19 +32,21 @@ const useStore = create<AppState>(
   persist(
     immer((set) => ({
       badges: BADGES,
-      darkMode: false,
-      duplicates: false,
+      darkMode: INITIAL_STATE.darkMode,
+      duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
       gamesList: GAMES,
-      missing: false,
+      missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
-      nicknames: false,
+      nicknames: INITIAL_STATE.nicknames,
       rules: INITIAL_STATE.rules,
       rulesets: null, // No longer used
-      selectedGame: null,
+      selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
-      showAll: false,
+      showAll: INITIAL_STATE.showAll,
+      team: INITIAL_STATE.team,
       text: '',
+      typeModal: null,
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters.push({
@@ -69,6 +73,14 @@ const useStore = create<AppState>(
       addRuleset: (rulesetName: string) =>
         set((state) => {
           state.rules[rulesetName] = [];
+        }),
+      addTeamMember: (pokemonId: number) =>
+        set((state) => {
+          if (state.team[state?.selectedGame?.value]) {
+            state.team[state?.selectedGame?.value].push({ id: pokemonId, level: 0, moves: [] });
+          } else {
+            state.team[state?.selectedGame?.value] = [{ id: pokemonId, level: 0, moves: [] }];
+          }
         }),
       changeDetails: (
         encounterId: number,
@@ -133,6 +145,10 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].status = status;
         }),
+      changeTeamMember: (teamIndex: number, detail: PokemonDetail) =>
+        set((state) => {
+          state.team[state.selectedGame?.value][teamIndex] = { ...detail };
+        }),
       clearEncounter: (encounterId: number) => {
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -146,6 +162,11 @@ const useStore = create<AppState>(
           }
         });
       },
+      closeTypeModal: () => {
+        set((state) => {
+          state.typeModal = null;
+        });
+      },
       deleteEncounter: (encounterId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -156,6 +177,9 @@ const useStore = create<AppState>(
       deleteGame: () =>
         set((state) => {
           delete state.games[state?.selectedGame.value];
+          if (state.team[state?.selectedGame?.value]) {
+            delete state.team[state?.selectedGame?.value];
+          }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
           );
@@ -169,6 +193,10 @@ const useStore = create<AppState>(
       deleteRuleset: () =>
         set((state) => {
           delete state.rules[state.selectedRuleset];
+        }),
+      deleteTeamMember: (teamIndex: number) =>
+        set((state) => {
+          state.team[state?.selectedGame?.value].splice(teamIndex, 1);
         }),
       editBadge: (newBadge: string, i: number) =>
         set((state) => {
@@ -185,6 +213,7 @@ const useStore = create<AppState>(
           state.gamesList = newAppState.gamesList;
           if (newAppState.badges) state.badges = newAppState.badges;
           if (newAppState.rules) state.rules = newAppState.rules;
+          if (newAppState.team) state.team = newAppState.team;
         }),
       removeNew: () =>
         set((state) => {
@@ -229,6 +258,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      showTypeModal: (type: Type) => {
+        set((state) => {
+          state.typeModal = type;
+        });
+      },
       toggleMissing: () => {
         set((state) => {
           state.missing = !state.missing;

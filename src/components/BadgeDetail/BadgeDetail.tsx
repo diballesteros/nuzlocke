@@ -3,7 +3,7 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import POKEMON from 'constants/pokemon';
 import { TDetail } from 'constants/types';
 import { TYPE_COLOR } from 'constants/colors';
-import { Moves, Type } from 'components';
+import { Moves, PokemonType } from 'components';
 import styles from './BadgeDetail.module.scss';
 
 interface BadgeDetailProps {
@@ -57,12 +57,11 @@ const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
                       <span className={styles.totem}>DYNAMAX</span>
                     )}
                   <img src={poke?.image} alt={poke?.text} />
-                  <span>
-                    {poke?.text} Lv.{pokemon?.level}
-                  </span>
+                  <span>{poke?.text}</span>
+                  <span>Lv. {pokemon?.level}</span>
                 </div>
                 <div className={styles.pokemonDetails}>
-                  <Type pokemon={poke} />
+                  <PokemonType pokemon={poke} />
                   {!!pokemon?.ability && (
                     <div className={styles.pokemonLabel}>
                       <span>Ability:</span>

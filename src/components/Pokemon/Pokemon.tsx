@@ -1,10 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import shallow from 'zustand/shallow';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
-import { Evolve } from 'components';
+import { Evolve, PokemonSelector } from 'components';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {
@@ -23,8 +22,8 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const foundPokemon = POKEMON.find((poke) => poke.value === encounter?.pokemon);
-  const onChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
-    changePokemon(encounter.id, data.value as number);
+  const onChange = (pokemonId: number) => {
+    changePokemon(encounter.id, pokemonId);
   };
 
   const alertText = useMemo(() => {
@@ -73,38 +72,42 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
     return alert;
   }, [duplicates, encounter, foundPokemon, games, rules, selectedGame, selectedRuleset]);
 
-  return (
-    <label className={styles.label}>
-      <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
-      <div className={styles.dropdownContainer}>
-        <Dropdown
-          aria-label="Pokémon selector"
-          basic
-          className={styles.pokemonSelect}
-          data-testid={`pokemon-${encounter.id}`}
-          fluid
-          inline
-          labeled
-          lazyLoad
-          onChange={onChange}
-          options={
-            encounter?.filter && !showAll
-              ? POKEMON.filter(
-                  (poke) =>
-                    encounter?.filter?.includes(poke.text) || encounter.pokemon === poke.value
-                )
-              : POKEMON
+  const filter = useMemo(() => {
+    return encounter?.filter && !showAll
+      ? POKEMON.reduce((filtered, poke) => {
+          if (encounter?.filter?.includes(poke.text) || encounter.pokemon === poke.value) {
+            filtered.push(poke.value);
           }
-          placeholder="Select..."
-          search
-          selection
-          value={encounter.pokemon ?? null}
-        />
+          return filtered;
+        }, [])
+      : false;
+  }, [encounter, showAll]);
+
+  return (
+    <div className={styles.pokemonSelect}>
+      <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
+      <div
+        aria-label="Pokémon selector"
+        className={styles.container}
+        data-testid={`pokemon-${encounter.id}`}
+      >
+        <PokemonSelector filter={filter} handlePokemon={onChange}>
+          {encounter?.pokemon ? (
+            <div className={`${styles.selector} ${!!foundPokemon?.evolve ? styles.evolve : ''}`}>
+              <img alt={foundPokemon.text} src={foundPokemon.image} />
+              <span>{foundPokemon.text}</span>
+            </div>
+          ) : (
+            <div className={styles.selector}>
+              <span data-testid={`encounter-empty-${encounter.id}`}>Select...</span>
+            </div>
+          )}
+        </PokemonSelector>
         {!!foundPokemon?.evolve && (
           <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
         )}
       </div>
-    </label>
+    </div>
   );
 });
 

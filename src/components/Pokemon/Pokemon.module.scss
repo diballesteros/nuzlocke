@@ -1,38 +1,4 @@
 .pokemonSelect {
-  background: transparent !important;
-  border-color: var(--contrast) !important;
-
-  > div {
-    color: var(--contrast) !important;
-  }
-
-  > i {
-    color: var(--contrast);
-    top: 0 !important;
-  }
-
-  :global(search) {
-    color: var(--contrast);
-  }
-
-  :global(.ui.image) {
-    width: 37.5px !important;
-    height: 30px;
-  }
-
-  :global(.divider.text) {
-    @media (max-width: 550px) {
-      max-width: 100px;
-      white-space: nowrap;
-    }
-  }
-
-  @media (max-width: 550px) {
-    font-size: 11px;
-  }
-}
-
-.label {
   display: flex;
   align-items: center;
   font-weight: bold;
@@ -49,8 +15,42 @@
     }
   }
 
-  .dropdownContainer {
+  .container {
     display: flex;
     width: 100%;
+
+    > div {
+      flex: 1;
+    }
+
+    .selector {
+      display: flex;
+      flex-flow: row nowrap;
+      gap: 8px;
+      padding-left: 10px;
+      align-items: center;
+      height: 36px;
+      width: calc(100% - 12px);
+      color: var(--contrast);
+      box-sizing: unset;
+      border-radius: 5px;
+      border: 1px solid var(--contrast);
+      cursor: pointer;
+
+      @media (max-width: 550px) {
+        font-size: 12px;
+      }
+
+      &.evolve {
+        border-top-right-radius: unset;
+        border-bottom-right-radius: unset;
+      }
+
+      > img {
+        width: 37.5px;
+        height: 30px;
+        object-fit: cover;
+      }
+    }
   }
 }

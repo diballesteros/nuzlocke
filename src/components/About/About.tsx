@@ -1,33 +1,15 @@
 import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
-import CHANGELOG from 'constants/changelog';
-import { TReleaseGroup } from 'constants/types';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
+import google from 'assets/img/google-play-badge.png';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
-  const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
-
-  const handleAbout = () => {
-    appState.removeNew();
-    setShow(true);
-  };
-
-  const getClass = (type: TReleaseGroup) => {
-    switch (type) {
-      case 'FEATURE':
-        return styles.feature;
-      case 'FIX':
-        return styles.fix;
-      default:
-        return styles.update;
-    }
-  };
 
   return (
     <Modal
@@ -35,49 +17,22 @@ const About: React.FC = () => {
       onClose={() => setShow(false)}
       open={show}
       trigger={
-        <Dropdown.Item
-          className={`${
-            appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
-          }`}
-          icon="question"
-          onClick={handleAbout}
-          text={`About ${appState.newVersion !== process.env.REACT_APP_VERSION ? '(NEW)' : ''}`}
-        />
+        <Menu.Item onClick={() => setShow(true)} data-testid="about">
+          About
+          <Icon name="question" />
+        </Menu.Item>
       }
     >
       <Modal.Header>About</Modal.Header>
-      <Modal.Content
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          gap: '3px',
-          maxHeight: '76vh',
-        }}
-      >
-        <h3>Changelog</h3>
-        <div className={styles.changelog}>
-          {CHANGELOG.map((release, i) => {
-            return (
-              <React.Fragment key={`release-${i + 1}`}>
-                <h4>
-                  {release.name} <span>{new Date(release.date).toDateString()}</span>
-                </h4>
-                <ul>
-                  {release.notes.map((note) => {
-                    return (
-                      <li key={note.description}>
-                        <span className={`${styles.type} ${getClass(note.type)}`}>{note.type}</span>
-                        {note.description}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </React.Fragment>
-            );
-          })}
-        </div>
+      <Modal.Content className={styles.about}>
+        <p>
+          Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving
+          this app in our free time. If you like the app please rate it in the Microsoft Store or
+          Google Play. Also, check out ways to <b>optionally</b> support the app below.
+        </p>
+        <h3>Credits:</h3>
         <ul className={styles.credits}>
-          <h3>Credits:</h3>
+          <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
           <li>
             Images provided by{' '}
             <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
@@ -140,6 +95,23 @@ const About: React.FC = () => {
               Find Nicknames
             </a>
           </li>
+          <li>
+            Favicon provided by{' '}
+            <a
+              href="https://icon-icons.com/users/b1kqPGvWi4JzKkAi8Q0MR/icon-sets/"
+              title="findnicknames"
+            >
+              Mohammad Ali
+            </a>{' '}
+            from
+            <a href="https://icon-icons.com/" title="icon-icons">
+              Icon-icons{' '}
+            </a>{' '}
+            under the{' '}
+            <a href="https://creativecommons.org/licenses/by/4.0/" title="creative commons">
+              Creative Commons License
+            </a>
+          </li>
         </ul>
         <div className={styles.support}>
           <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
@@ -148,7 +120,7 @@ const About: React.FC = () => {
           <a
             className={styles.patron}
             href="https://www.patreon.com/bePatron?u=60585540"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
             Become a Patron!
@@ -156,11 +128,18 @@ const About: React.FC = () => {
         </div>
         <div className={styles.stores}>
           <a
+            className={styles.microsoft}
             href="//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             target="_blank"
           >
-            <MicrosoftSVG className={styles.microsoft} />
+            <MicrosoftSVG />
+          </a>
+          <a
+            className={styles.playstore}
+            href="https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
+          >
+            <img alt="Get it on Google Play" src={google} />
           </a>
         </div>
       </Modal.Content>
