@@ -2,7 +2,7 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "3.4.0",
+  "version": "3.5.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
@@ -22,6 +22,7 @@
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
     "start": "react-scripts start",
+    "httpss": "HTTPS=true react-scripts start",
     "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test",

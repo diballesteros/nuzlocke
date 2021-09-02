@@ -7,6 +7,11 @@
   .options {
     display: flex;
     width: 100%;
+
+    > button > i {
+      margin-left: 5px !important;
+      margin-right: 0 !important;
+    }
   }
 
   .inner {

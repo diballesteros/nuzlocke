@@ -12,13 +12,30 @@ interface ShareProps {
 }
 
 const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
-  const appState = useStore((state) => state);
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
+  const appState = useStore((state) => state);
 
   const handleCopy = () => {
     shareRef.current.select();
     document.execCommand('copy');
+  };
+
+  const handleShare = async (data: ShareData) => {
+    try {
+      await navigator.share(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleClick = () => {
+    const data = { title: 'Nuzlocke', text };
+    if ('share' in navigator && 'canShare' in navigator && navigator.canShare(data)) {
+      handleShare(data);
+    } else {
+      setShow(true);
+    }
   };
 
   return (
@@ -29,21 +46,21 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
       trigger={
         icon ? (
           <Button
-            icon="share"
             circular
             className={styles.iconButton}
             color="blue"
             data-testid="share-encounters"
             disabled={disabled}
-            onClick={() => setShow(true)}
+            icon="share"
+            onClick={handleClick}
           />
         ) : (
           <Button
             color="blue"
-            disabled={disabled}
             data-testid="share-encounters"
+            disabled={disabled}
             inverted={appState.darkMode}
-            onClick={() => setShow(true)}
+            onClick={handleClick}
           >
             SHARE
             <Icon name="share" />

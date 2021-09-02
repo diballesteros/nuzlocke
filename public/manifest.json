@@ -5,7 +5,7 @@
   "icons": [
     {
       "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
+      "sizes": "32x32",
       "type": "image/x-icon"
     },
     {
@@ -22,12 +22,6 @@
       "src": "maskable_icon.png",
       "type": "image/png",
       "sizes": "192x192",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "maskable_icon.png",
-      "type": "image/png",
-      "sizes": "192x192",
       "purpose": "maskable"
     }
   ],
@@ -37,5 +31,14 @@
   "background_color": "#AE2A2F",
   "orientation": "portrait-primary",
   "categories": ["entertainment", "productivity"],
-  "iarc_rating_id": "0e709b1e-f322-4f7e-974d-0c965ce09b7b"
+  "iarc_rating_id": "0e709b1e-f322-4f7e-974d-0c965ce09b7b",
+  "shortcuts": [
+    {
+      "name": "Start tracking",
+      "short_name": "Track",
+      "url": "/",
+      "description": "Record and track nuzlocke progress",
+      "icons": [{ "src": "shortcut.ico", "sizes": "96x96" }]
+    }
+  ]
 }

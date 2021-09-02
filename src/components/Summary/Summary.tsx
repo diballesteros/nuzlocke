@@ -5,7 +5,7 @@ import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { toPng } from 'html-to-image';
+import { toPng, toBlob } from 'html-to-image';
 import useStore from 'store';
 import shallow from 'zustand/shallow';
 import POKEMON from 'constants/pokemon';
@@ -152,11 +152,36 @@ const Summary: React.FC = () => {
       });
   };
 
+  const handleShare = async () => {
+    const newFile = await toBlob(summaryRef.current);
+    const data = {
+      files: [
+        new File([newFile], 'nuzlocke.png', {
+          type: newFile.type,
+        }),
+      ],
+      title: 'Nuzlocke',
+      text: 'Nuzlocke',
+    };
+
+    try {
+      if (!navigator.canShare(data)) {
+        console.error("Can't share");
+      }
+      await navigator.share(data);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div className={styles.container}>
       <div className={styles.options}>
-        <Button color="blue" onClick={handleDownload}>
-          Download <Icon name="download" />
+        <Button color="green" onClick={handleDownload}>
+          DOWNLOAD <Icon name="download" />
+        </Button>
+        <Button color="blue" onClick={handleShare}>
+          SHARE <Icon name="share" />
         </Button>
         <Button
           active={showSettings}
@@ -164,7 +189,7 @@ const Summary: React.FC = () => {
           onClick={() => setShowSettings((prevState) => !prevState)}
           toggle
         >
-          Display Settings <Icon name="settings" />
+          SETTINGS <Icon name="settings" />
         </Button>
       </div>
       <div className={styles.inner}>

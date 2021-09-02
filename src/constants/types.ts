@@ -64,6 +64,12 @@ export interface AppState {
   toggleShowAll: () => void;
 }
 
+declare global {
+  interface Navigator {
+    canShare: (stuff: unknown) => boolean;
+  }
+}
+
 export type Games = { [key: string]: TrackData };
 
 export type TrackData = {

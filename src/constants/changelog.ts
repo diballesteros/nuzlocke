@@ -2,6 +2,21 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.5.0',
+    date: 1630617340278,
+    notes: [
+      {
+        description:
+          'Revamped share button for the tracker, rules and summary sections can now share directly to various social media apps or other apps.(REQUIREMENT: Safari 15 or later on macOS and iOS. Chrome 75 or later on Android, and 89 or later on Chrome OS and Windows.)',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Various accessibility fixes for buttons and icons',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.4.0',
     date: 1630551581923,
     notes: [
@@ -70,7 +85,7 @@ const CHANGELOG: TReleaseNotes = [
         type: 'UPDATE',
       },
       {
-        description: 'App is now availabe in the Microsoft Store',
+        description: 'App is now available in the Microsoft Store',
         type: 'UPDATE',
       },
     ],

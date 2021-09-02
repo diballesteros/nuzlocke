@@ -46,7 +46,7 @@ const Effectiveness: React.FC = React.memo(() => {
   }, []);
 
   return (
-    <Modal closeOnDimmerClick onClose={closeTypeModal} open={!!typeModal}>
+    <Modal open={!!typeModal}>
       <Modal.Content className={styles.content}>
         <h3>
           <Type type={typeModal} />

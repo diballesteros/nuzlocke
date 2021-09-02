@@ -68,8 +68,6 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
 
   return (
     <Modal
-      closeOnDimmerClick
-      onClose={handleClose}
       open={show}
       trigger={
         <Button

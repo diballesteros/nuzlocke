@@ -1,3 +1,15 @@
+## Version 3.5.0
+
+🚀 New features
+
+- Share button in the tracker, rules and summary sections can now share directly to various social media apps or other apps.
+  - Safari 15 or later on macOS and iOS.
+  - Chrome 75 or later on Android, and 89 or later on Chrome OS and Windows.
+
+🐛 Bug Fix
+
+- Various accessibility fixes
+
 ## Version 3.4.1
 
 🚀 New features

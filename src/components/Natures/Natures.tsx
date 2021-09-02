@@ -11,7 +11,7 @@ const Natures: React.FC = () => {
       closeOnDimmerClick
       onClose={() => setOpen(false)}
       open={open}
-      trigger={<Button icon="question" onClick={() => setOpen(true)} />}
+      trigger={<Button aria-label="nature chart" icon="question" onClick={() => setOpen(true)} />}
     >
       <Modal.Content className={styles.container}>
         <div className={styles.table}>
