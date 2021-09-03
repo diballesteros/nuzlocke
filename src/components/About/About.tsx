@@ -95,6 +95,23 @@ const About: React.FC = () => {
               Find Nicknames
             </a>
           </li>
+          <li>
+            Favicon provided by{' '}
+            <a
+              href="https://icon-icons.com/users/b1kqPGvWi4JzKkAi8Q0MR/icon-sets/"
+              title="findnicknames"
+            >
+              Mohammad Ali
+            </a>{' '}
+            from
+            <a href="https://icon-icons.com/" title="icon-icons">
+              Icon-icons{' '}
+            </a>{' '}
+            under the{' '}
+            <a href="https://creativecommons.org/licenses/by/4.0/" title="creative commons">
+              Creative Commons License
+            </a>
+          </li>
         </ul>
         <div className={styles.support}>
           <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">

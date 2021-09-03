@@ -149,6 +149,7 @@ const App: React.FC = () => {
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
           <button
+            aria-label="sidebar-button"
             onClick={() => setVisible(!visible)}
             type="button"
             className={styles.sidebarButton}

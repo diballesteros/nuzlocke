@@ -14,12 +14,14 @@ const Type: React.FC<TypeProps> = ({ hideName = false, type }) => {
   const showTypeModal = useStore(useCallback((state) => state.showTypeModal, []));
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     e.stopPropagation();
     showTypeModal(type);
   };
 
   return (
     <button
+      aria-label="pokemon type"
       className={styles.type}
       onClick={handleClick}
       style={{ backgroundColor: TYPE_COLOR[type] }}

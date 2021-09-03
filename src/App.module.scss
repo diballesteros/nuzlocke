@@ -147,8 +147,9 @@
 
     .pokemon {
       display: flex;
-      font-size: 10px;
+      font-size: 12px;
       text-align: center;
+      line-height: 1.1;
     }
 
     .socials {
@@ -181,6 +182,10 @@
       > span {
         bottom: -5px;
         font-size: 12px;
+      }
+
+      @media (max-width: 550px) {
+        padding: 0 5px;
       }
     }
   }

@@ -34,6 +34,7 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
   };
 
   const handleClear = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
     e.stopPropagation();
     handleMove(null);
   };
@@ -56,7 +57,6 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
 
   return (
     <Modal
-      closeOnDimmerClick
       open={open}
       trigger={
         currentMoveId ? (
