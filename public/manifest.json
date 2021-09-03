@@ -38,7 +38,7 @@
       "short_name": "Track",
       "url": "/",
       "description": "Record and track nuzlocke progress",
-      "icons": [{ "src": "shortcut.ico", "sizes": "96x96" }]
+      "icons": [{ "src": "shortcut.png", "sizes": "96x96" }]
     }
   ]
 }
