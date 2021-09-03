@@ -180,9 +180,11 @@ const Summary: React.FC = () => {
         <Button color="green" onClick={handleDownload}>
           DOWNLOAD <Icon name="download" />
         </Button>
-        <Button color="blue" onClick={handleShare}>
-          SHARE <Icon name="share" />
-        </Button>
+        {'share' in navigator && 'canShare' in navigator && (
+          <Button color="blue" onClick={handleShare}>
+            SHARE <Icon name="share" />
+          </Button>
+        )}
         <Button
           active={showSettings}
           color="grey"
