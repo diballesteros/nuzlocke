@@ -273,7 +273,7 @@ const App: React.FC = () => {
         </Sidebar>
         <Sidebar.Pusher>
           <Container className={styles.container}>
-            <Tab className={styles.tabs} panes={panes} />
+            <Tab className={styles.tabs} panes={panes} data-testid="tab" />
           </Container>
         </Sidebar.Pusher>
       </Sidebar.Pushable>

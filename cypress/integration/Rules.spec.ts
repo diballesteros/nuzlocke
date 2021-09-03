@@ -69,7 +69,8 @@ describe('Rules', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=tab]').contains('Tracker').click();
-    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
     cy.contains('FORBIDDEN TYPE').should('exist');
   })
 
@@ -84,7 +85,8 @@ describe('Rules', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=tab]').contains('Tracker').click();
-    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
     cy.contains('FORBIDDEN GEN').should('exist');
   })
 
@@ -98,7 +100,8 @@ describe('Rules', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=tab]').contains('Tracker').click();
-    cy.get('[data-testid=pokemon-0] > .search').type('Scorb{enter}');
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.get('[data-testid=level] > input')
       .type('5');
