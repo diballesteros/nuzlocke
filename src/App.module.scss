@@ -1,3 +1,13 @@
+/* Responsive Variables */
+$break1: '(max-width:499px)';
+$break2: '(min-width:500px) and (max-width:1004px)';
+$break2open: '(min-width:500px)';
+$break3: '(min-width:1005px) and (max-width:1094px)';
+$break3open: '(min-width:1005px)';
+$break4: '(min-width:1095px) and (max-width:1281px)';
+$break4open: '(min-width:1095px)';
+$break5open: '(min-width:1282px)';
+
 .app {
   height: fit-content;
   background-color: var(--bgprimary);
@@ -81,7 +91,6 @@
       right: 5px;
       width: 14px;
       height: 14px;
-      padding-left: 1px;
       background-color: red;
       font-weight: bold;
       color: #ffffff;
@@ -128,65 +137,15 @@
     }
   }
 
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 10px;
-    position: relative;
-    z-index: 2;
-    padding: 10px 15px;
-    width: 100%;
-    height: fit-content;
-    background-color: #1b1c1d;
-    color: #ffffff;
+  .grid {
+    display: grid;
+    max-width: 1200px;
+    margin: 0 auto;
 
-    .name {
-      margin: 0;
-    }
-
-    .pokemon {
-      display: flex;
-      font-size: 12px;
-      text-align: center;
-      line-height: 1.1;
-    }
-
-    .socials {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-      gap: 5px;
-    }
-
-    .github {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 48px;
-      padding: 5px;
-      min-height: 26px;
-      font-size: 26px;
-      border: 2px solid #ffffff;
-      border-radius: 4px;
-      color: #ffffff;
-      position: relative;
-      > i {
-        padding-top: 2px;
-      }
-      &:hover {
-        background-color: #ffffff;
-        color: black;
-      }
-
-      > span {
-        bottom: -5px;
-        font-size: 12px;
-      }
-
-      @media (max-width: 550px) {
-        padding: 0 5px;
-      }
+    .mainContent {
+      padding: 10px 0;
+      height: calc(100vh - 70px);
+      background-color: var(--bgsecondary);
     }
   }
 }

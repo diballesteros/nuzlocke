@@ -1,16 +1,14 @@
 .about {
   display: flex;
   flex-flow: column nowrap;
-  gap: 5px;
-  height: 75vh;
-  max-height: 75vh;
+  gap: 10px;
+  overflow: auto;
+  flex: 1;
   font-size: 13px !important;
-  color: #718096;
   overflow: auto;
 
   h3 {
     font-size: 20px;
-    color: #161e2e;
     margin: 0;
   }
 

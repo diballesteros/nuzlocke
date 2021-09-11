@@ -1,0 +1,14 @@
+.page {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 5px;
+  height: 100%;
+  padding: 0 15px;
+
+  .header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    color: var(--contrast);
+  }
+}

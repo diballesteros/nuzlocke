@@ -1,30 +1,14 @@
-import React, { useState } from 'react';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import React from 'react';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import kofi from 'assets/img/kofi2.png';
 import google from 'assets/img/google-play-badge.png';
+import { Page } from 'common';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
-  const [show, setShow] = useState(false);
-
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={() => setShow(false)}
-      open={show}
-      trigger={
-        <Menu.Item onClick={() => setShow(true)} data-testid="about">
-          About
-          <Icon name="question" />
-        </Menu.Item>
-      }
-    >
-      <Modal.Header>About</Modal.Header>
-      <Modal.Content className={styles.about}>
+    <Page header="About">
+      <div className={styles.about}>
         <p>
           Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving
           this app in our free time. If you like the app please rate it in the Microsoft Store or
@@ -142,11 +126,8 @@ const About: React.FC = () => {
             <img alt="Get it on Google Play" src={google} />
           </a>
         </div>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={() => setShow(false)}>Close</Button>
-      </Modal.Actions>
-    </Modal>
+      </div>
+    </Page>
   );
 };
 

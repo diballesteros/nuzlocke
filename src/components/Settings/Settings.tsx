@@ -1,29 +1,15 @@
-import React, { useState } from 'react';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import React from 'react';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { Page } from 'common';
+import styles from './Settings.module.scss';
 
 const Settings: React.FC = () => {
   const appState = useStore((state) => state);
-  const [show, setShow] = useState(false);
 
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={() => setShow(false)}
-      open={show}
-      trigger={
-        <Menu.Item onClick={() => setShow(true)}>
-          Settings
-          <Icon name="wrench" />
-        </Menu.Item>
-      }
-    >
-      <Modal.Header>Settings</Modal.Header>
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+    <Page header="Settings">
+      <div className={styles.settings}>
         <Checkbox
           checked={appState.duplicates}
           data-testid="settings-dupes"
@@ -48,11 +34,8 @@ const Settings: React.FC = () => {
           label="Show all pokémon in every encounter"
           onChange={() => appState.toggleShowAll()}
         />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={() => setShow(false)}>Close</Button>
-      </Modal.Actions>
-    </Modal>
+      </div>
+    </Page>
   );
 };
 

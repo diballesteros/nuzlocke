@@ -1,72 +1,79 @@
-.options {
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 4px;
-  margin-bottom: 10px;
-
-  > button {
-    white-space: nowrap;
-    max-width: 130px;
-    max-height: 36px;
-    flex: 1;
-
-    @media (max-width: 630px) {
-      max-width: unset;
-    }
-    > i {
-      margin-left: 5px !important;
-      margin-right: 0 !important;
-    }
-  }
-
-  .button {
-    flex: unset;
-  }
-
-  .ruleSelect {
-    flex: 1;
-    > i {
-      top: 0 !important;
-    }
-  }
-}
-
-.rules {
+.container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 10px;
-  height: calc(100vh - 200px);
-  overflow: auto;
+  height: calc(100% - 10px);
+  padding: 5px;
 
-  .rule {
+  .options {
     display: flex;
-    flex-flow: row nowrap;
-    gap: 10px;
-    padding: 10px;
-    color: var(--contrast);
-    background-color: var(--card);
-    transition: all 500ms;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-    border-radius: 3px;
-    position: relative;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 4px;
+    margin-bottom: 10px;
 
-    .reorder {
-      display: flex;
-      flex-flow: column nowrap;
-      gap: 8px;
+    > button {
+      white-space: nowrap;
+      max-width: 130px;
+      max-height: 36px;
+      flex: 1;
 
-      > button {
-        padding: 7.5px;
+      @media (max-width: 630px) {
+        max-width: unset;
+      }
+      > i {
+        margin-left: 5px !important;
+        margin-right: 0 !important;
       }
     }
 
-    .buttons {
+    .button {
+      flex: unset;
+    }
+
+    .ruleSelect {
+      flex: 1;
+      > i {
+        top: 0 !important;
+      }
+    }
+  }
+
+  .rules {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+    flex: 1;
+    overflow: auto;
+
+    .rule {
       display: flex;
-      flex-flow: column nowrap;
-      gap: 8px;
-      margin-left: auto;
+      flex-flow: row nowrap;
+      gap: 10px;
+      padding: 10px;
+      color: var(--contrast);
+      background-color: var(--card);
+      transition: all 500ms;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+      border-radius: 3px;
+      position: relative;
+
+      .reorder {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 8px;
+
+        > button {
+          padding: 7.5px;
+        }
+      }
+
+      .buttons {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 8px;
+        margin-left: auto;
+      }
     }
   }
 }

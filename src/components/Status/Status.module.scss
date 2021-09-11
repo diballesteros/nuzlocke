@@ -2,6 +2,7 @@
   width: 100%;
   background-color: transparent !important;
   border-color: var(--contrast) !important;
+  min-height: unset;
 
   > div {
     color: var(--contrast) !important;

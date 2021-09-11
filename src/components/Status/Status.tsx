@@ -18,7 +18,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
   };
 
   return (
-    <label className={styles.label}>
+    <div className={styles.label}>
       <div className={styles.innerLabel}>Status:</div>
       <Dropdown
         aria-label="status-selector"
@@ -35,7 +35,7 @@ const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
         selection
         value={status?.value ?? ''}
       />
-    </label>
+    </div>
   );
 });
 

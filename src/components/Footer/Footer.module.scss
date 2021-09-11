@@ -1,0 +1,61 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 10px;
+  position: relative;
+  z-index: 2;
+  padding: 10px 15px;
+  width: 100%;
+  height: fit-content;
+  background-color: #1b1c1d;
+  color: #ffffff;
+
+  .name {
+    margin: 0;
+  }
+
+  .pokemon {
+    display: flex;
+    font-size: 12px;
+    text-align: center;
+    line-height: 1.1;
+  }
+
+  .socials {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    gap: 5px;
+  }
+
+  .github {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 48px;
+    padding: 5px;
+    min-height: 26px;
+    font-size: 26px;
+    border: 2px solid #ffffff;
+    border-radius: 4px;
+    color: #ffffff;
+    position: relative;
+    > i {
+      padding-top: 2px;
+    }
+    &:hover {
+      background-color: #ffffff;
+      color: black;
+    }
+
+    > span {
+      bottom: -5px;
+      font-size: 12px;
+    }
+
+    @media (max-width: 550px) {
+      padding: 0 5px;
+    }
+  }
+}

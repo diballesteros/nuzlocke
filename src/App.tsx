@@ -1,71 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import { AppState } from 'constants/types';
-import {
-  About,
-  BadgeEditor,
-  Builder,
-  Contact,
-  Changelog,
-  Effectiveness,
-  Pokestats,
-  Rules,
-  Settings,
-  Tracker,
-} from 'components';
+import AppRouter from 'routes/AppRouter';
+import { BadgeEditor, Contact, Effectiveness, Footer } from 'components';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
+  const history = useHistory();
   const appState = useStore((state) => state);
   const [open, setOpen] = useState(false);
   const [confirm, setConfirm] = useState(false);
   const [gameName, setGameName] = useState('');
   const [visible, setVisible] = useState(false);
-
-  const panes = [
-    {
-      menuItem: 'Tracker',
-      render: () => (
-        <Tab.Pane>
-          <Tracker />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: 'Rules',
-      render: () => (
-        <Tab.Pane>
-          <Rules />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: 'Stats',
-      render: () => (
-        <Tab.Pane>
-          <Pokestats />
-        </Tab.Pane>
-      ),
-    },
-    {
-      menuItem: 'Builder',
-      render: () => (
-        <Tab.Pane>
-          <Builder />
-        </Tab.Pane>
-      ),
-    },
-  ];
 
   useEffect(() => {
     if (appState.darkMode) {
@@ -142,6 +97,10 @@ const App: React.FC = () => {
   const handleDelete = () => {
     appState.deleteGame();
     setConfirm(false);
+  };
+
+  const handleRoute = (route: string) => {
+    history.push(route);
   };
 
   return (
@@ -251,7 +210,26 @@ const App: React.FC = () => {
           width="thin"
           aria-label="options"
         >
-          <Settings />
+          <Menu.Item onClick={() => handleRoute('/')}>
+            Tracker
+            <Icon name="map" />
+          </Menu.Item>
+          <Menu.Item onClick={() => handleRoute('/rules')}>
+            <Icon name="book" />
+            Rules
+          </Menu.Item>
+          <Menu.Item onClick={() => handleRoute('/stats')}>
+            <Icon name="pie graph" />
+            Stats
+          </Menu.Item>
+          <Menu.Item onClick={() => handleRoute('/builder')}>
+            <Icon name="gavel" />
+            Builder
+          </Menu.Item>
+          <Menu.Item onClick={() => handleRoute('/settings')}>
+            Settings
+            <Icon name="wrench" />
+          </Menu.Item>
           <Menu.Item onClick={handleExport}>
             <Icon name="download" />
             Export
@@ -268,43 +246,31 @@ const App: React.FC = () => {
             Import
           </Menu.Item>
           <Contact />
-          <Changelog />
-          <About />
+          <Menu.Item
+            className={`${
+              appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
+            }`}
+            data-testid="changelog"
+            onClick={() => handleRoute('/changelog')}
+          >
+            Changelog
+            {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}
+            <Icon name="clipboard outline" />
+          </Menu.Item>
+          <Menu.Item data-testid="about" onClick={() => handleRoute('/about')}>
+            About
+            <Icon name="question" />
+          </Menu.Item>
         </Sidebar>
         <Sidebar.Pusher>
-          <Container className={styles.container}>
-            <Tab className={styles.tabs} panes={panes} data-testid="tab" />
-          </Container>
+          <div className={styles.grid}>
+            <div className={styles.mainContent}>
+              <AppRouter />
+            </div>
+          </div>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-      <footer className={styles.footer}>
-        <b className={styles.name}>Nuzlocke Tracker</b>
-        <span className={styles.pokemon}>
-          Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and
-          Pokémon character names are trademarks of Nintendo.
-        </span>
-        <div className={styles.socials}>
-          <a
-            className={styles.github}
-            data-show-count="false"
-            href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Icon name="twitter square" />
-            <span>Follow</span>
-          </a>
-          <a
-            className={styles.github}
-            href="https://github.com/diballesteros/nuzlocke/"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Icon name="github" />
-            <span>Source</span>
-          </a>
-        </div>
-      </footer>
+      <Footer />
       <Effectiveness />
     </main>
   );

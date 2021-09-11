@@ -16,7 +16,8 @@ import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as ShinySVG } from 'assets/svg/shiny.svg';
-import { Moves, PokeInfo, RuleContent } from 'components';
+import { Moves, PokeInfo } from 'components';
+import { RuleContent } from 'components/Rules/elements';
 import styles from './Summary.module.scss';
 
 const CALC = 140 * Math.PI;
