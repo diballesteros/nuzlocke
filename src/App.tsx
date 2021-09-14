@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -239,7 +239,7 @@ const App: React.FC = () => {
             <Icon name="upload" />
             <input
               aria-labelledby="import"
-              className={styles.input}
+              className={styles.hiddenFileInput}
               id="file-input"
               onChange={handleImport}
               type="file"
@@ -265,6 +265,20 @@ const App: React.FC = () => {
         </Sidebar>
         <Sidebar.Pusher>
           <div className={styles.grid}>
+            <nav className={styles.nav}>
+              <NavLink activeClassName={styles.activeLink} exact to="/">
+                <Icon name="map" /> <span>Tracker</span>
+              </NavLink>
+              <NavLink activeClassName={styles.activeLink} exact to="/rules">
+                <Icon name="book" /> <span>Rules</span>
+              </NavLink>
+              <NavLink activeClassName={styles.activeLink} exact to="/stats">
+                <Icon name="pie graph" /> <span>Stats</span>
+              </NavLink>
+              <NavLink activeClassName={styles.activeLink} exact to="/builder">
+                <Icon name="gavel" /> <span>Builder</span>
+              </NavLink>
+            </nav>
             <div className={styles.mainContent}>
               <AppRouter />
             </div>

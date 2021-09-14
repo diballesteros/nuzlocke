@@ -2,11 +2,7 @@
 $break1: '(max-width:499px)';
 $break2: '(min-width:500px) and (max-width:1004px)';
 $break2open: '(min-width:500px)';
-$break3: '(min-width:1005px) and (max-width:1094px)';
-$break3open: '(min-width:1005px)';
-$break4: '(min-width:1095px) and (max-width:1281px)';
-$break4open: '(min-width:1095px)';
-$break5open: '(min-width:1282px)';
+$break3: '(min-width:1005px)';
 
 .app {
   height: fit-content;
@@ -14,7 +10,7 @@ $break5open: '(min-width:1282px)';
   transition: all 500ms;
   overflow: auto;
 
-  .input {
+  .hiddenFileInput {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -57,6 +53,7 @@ $break5open: '(min-width:1282px)';
       top: 0 !important;
     }
   }
+
   .button {
     background-color: transparent;
     color: var(--contrast) !important;
@@ -99,53 +96,46 @@ $break5open: '(min-width:1282px)';
     }
   }
 
-  .container {
-    height: calc(100% - 42px);
-  }
-
-  .tabs {
-    padding: 20px 0px;
-
-    @media (max-width: 600px) {
-      padding: 2px 0px;
-    }
-
-    :global(.ui.tabular.menu) {
-      border: none;
-      color: var(--contrast);
-    }
-
-    :global(.ui.tabular.menu .active) {
-      background-color: var(--bgsecondary);
-      transition: all 500ms;
-      border: none;
-    }
-
-    :global(.ui.tabular.menu .item) {
-      color: var(--contrast);
-    }
-
-    :global(.ui.bottom) {
-      background-color: var(--bgsecondary);
-      transition: all 500ms;
-      border: none;
-
-      @media (max-width: 550px) {
-        padding-left: 0.7em;
-        padding-right: 0.7em;
-      }
-    }
-  }
-
   .grid {
     display: grid;
     max-width: 1200px;
+    column-gap: 30px;
     margin: 0 auto;
 
     .mainContent {
       padding: 10px 0;
       height: calc(100vh - 70px);
       background-color: var(--bgsecondary);
+    }
+
+    .nav {
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 50px 10px 0 10px;
+      gap: 45px;
+
+      .activeLink {
+        color: var(--badge);
+      }
+
+      > a {
+        font-weight: bold;
+        font-size: 24px;
+        color: var(--contrast);
+
+        &:hover {
+          color: var(--badge);
+        }
+      }
+    }
+
+    @media #{$break1}, #{$break2} {
+      .nav {
+        display: none;
+      }
+    }
+    @media #{$break3} {
+      grid-template-columns: auto minmax(auto, 1200px);
     }
   }
 }
