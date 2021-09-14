@@ -1,0 +1,21 @@
+.tabs {
+  display: flex;
+  flex-flow: column nowrap;
+  flex: 1;
+  min-height: 0;
+
+  :global(.ui.menu) {
+    overflow: auto;
+  }
+
+  :global(.ui.bottom.segment) {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    gap: 10px;
+    padding: 0.25em;
+    min-height: 0;
+    background-color: inherit;
+    border: none;
+  }
+}

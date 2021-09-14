@@ -11,7 +11,8 @@ import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import { AppState } from 'constants/types';
 import AppRouter from 'routes/AppRouter';
-import { BadgeEditor, Contact, Effectiveness, Footer } from 'components';
+import { Contact, Effectiveness, Footer } from 'components';
+import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {

@@ -1,4 +1,5 @@
 import { About, Builder, Changelog, Pokestats, Rules, Settings, Tracker } from 'components';
+import { BadgePage } from 'components/Badges/elements';
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -12,6 +13,7 @@ const AppRouter: React.FC = () => {
       <Route path="/settings" component={Settings} />
       <Route path="/changelog" component={Changelog} />
       <Route path="/about" component={About} />
+      <Route exact path="/badgedetail/:game/:badge" component={BadgePage} />
       <Redirect to="/" />
     </Switch>
   );
