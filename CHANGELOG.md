@@ -1,10 +1,26 @@
+## Version 3.6.0
+
+💅 Enhancement
+
+- Revamped interface for better accessibility and mobile responsiveness
+- Dark mode now applies to modals
+
+🏠 Internal
+
+- Added react-router 5.3.0
+- Bumped cypress to 8.4.0
+- Bumped @types/node to 16.9.1
+- Bumped @types/react to 17.0.20
+- Bumped @typescript-eslint/eslint-plugin to 4.31.1
+- Bumped @typescript-eslint/parser to 4.31.1
+
 ## Version 3.5.0
 
 🚀 New features
 
 - Share button in the tracker, rules and summary sections can now share directly to various social media apps or other apps.
-  - Safari 15 or later on macOS and iOS.
-  - Chrome 75 or later on Android, and 89 or later on Chrome OS and Windows.
+- Safari 15 or later on macOS and iOS.
+- Chrome 75 or later on Android, and 89 or later on Chrome OS and Windows.
 
 🐛 Bug Fix
 
