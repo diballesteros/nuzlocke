@@ -13,7 +13,7 @@ const Back: React.FC = () => {
   };
 
   return (
-    <Button onClick={handleBack} style={{ height: 36 }} inverted={darkMode}>
+    <Button onClick={handleBack} style={{ height: 36 }} inverted={darkMode} type="button">
       <Icon name="arrow left" />
       Back
     </Button>

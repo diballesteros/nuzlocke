@@ -23,4 +23,22 @@
       gap: 7px;
     }
   }
+
+  :global(.ui.attached.tabular.menu) {
+    border-color: var(--bgsecondary);
+  }
+
+  :global(.ui.attached.tabular > .item) {
+    color: var(--contrast);
+  }
+
+  :global(.ui.attached.tabular > .active.item) {
+    background-color: var(--bgsecondary);
+    border-color: var(--bgsecondary);
+  }
+
+  :global(.ui.bottom.attached.segment) {
+    background-color: var(--bgsecondary);
+    border-color: var(--bgsecondary);
+  }
 }

@@ -78,22 +78,22 @@ $break3: '(min-width:1005px)';
     padding-right: 15px;
     position: relative;
     cursor: pointer;
+  }
 
-    > span {
-      display: grid;
-      place-items: center;
-      order: 1;
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      width: 14px;
-      height: 14px;
-      background-color: red;
-      font-weight: bold;
-      color: #ffffff;
-      font-size: 9px;
-      border-radius: 50%;
-    }
+  .exclamation {
+    display: grid;
+    place-items: center;
+    order: 1;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 9px;
+    border-radius: 50%;
   }
 
   .grid {

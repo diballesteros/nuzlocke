@@ -11,7 +11,7 @@ import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import { AppState } from 'constants/types';
 import AppRouter from 'routes/AppRouter';
-import { Contact, Effectiveness, Footer } from 'components';
+import { Effectiveness, Footer } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
@@ -116,7 +116,9 @@ const App: React.FC = () => {
             data-testid="options"
           >
             <Icon name="bars" />
-            {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}
+            {appState.newVersion !== process.env.REACT_APP_VERSION && (
+              <span className={styles.exclamation}>!</span>
+            )}
           </button>
           <Dropdown
             aria-label="games"
@@ -246,16 +248,15 @@ const App: React.FC = () => {
             />
             Import
           </Menu.Item>
-          <Contact />
-          <Menu.Item
-            className={`${
-              appState.newVersion !== process.env.REACT_APP_VERSION ? styles.newVersion : ''
-            }`}
-            data-testid="changelog"
-            onClick={() => handleRoute('/changelog')}
-          >
+          <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
+            Report
+            <Icon name="bug" />
+          </Menu.Item>
+          <Menu.Item data-testid="changelog" onClick={() => handleRoute('/changelog')}>
             Changelog
-            {appState.newVersion !== process.env.REACT_APP_VERSION && <span>!</span>}
+            {appState.newVersion !== process.env.REACT_APP_VERSION && (
+              <span className={styles.exclamation}>!</span>
+            )}
             <Icon name="clipboard outline" />
           </Menu.Item>
           <Menu.Item data-testid="about" onClick={() => handleRoute('/about')}>

@@ -16,7 +16,6 @@
 
       thead tr {
         height: 60px;
-
         color: #333;
         font-size: 16px;
         text-align: center;
@@ -24,7 +23,7 @@
         th {
           padding: 0 8px;
           position: sticky;
-          top: -15px;
+          top: -20px;
           background-color: var(--badge);
         }
       }

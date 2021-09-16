@@ -3,7 +3,7 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.6.0',
-    date: 1630617340278,
+    date: 1631750976504,
     notes: [
       {
         description: 'Revamped interface for better accessibility and mobile responsiveness',

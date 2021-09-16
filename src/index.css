@@ -142,3 +142,25 @@ body .ui.inverted::-webkit-scrollbar-thumb:window-inactive {
 body .ui.inverted::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.35);
 }
+
+.ui.modal > .content,
+.ui.modal > .actions,
+.ui.modal > .header {
+  background-color: var(--bgprimary) !important;
+  color: var(--contrast) !important;
+}
+.ui.modal > .header,
+.ui.modal > .content {
+  border-top-left-radius: 2px !important;
+  border-top-right-radius: 2px !important;
+}
+
+.ui.modal > .actions {
+  border-bottom-left-radius: 2px !important;
+  border-bottom-right-radius: 2px !important;
+  border-color: var(--contrast) !important;
+}
+
+.ui.modal > .header {
+  border-color: var(--contrast) !important;
+}
