@@ -31,7 +31,16 @@ const SW_SH: TEncounter[] = [
     status: null,
   },
   {
-    filter: ['Caterpie', 'Hoothoot', 'Grubbin', 'Skwovet', 'Blipbug', 'Nickit', 'Wooloo'],
+    filter: [
+      'Caterpie',
+      'Hoothoot',
+      'Grubbin',
+      'Skwovet',
+      'Blipbug',
+      'Nickit',
+      'Wooloo',
+      'Rookidee',
+    ],
     id: 2,
     pokemon: null,
     location: 'Route 1',
