@@ -13,6 +13,11 @@ const CHANGELOG: TReleaseNotes = [
         description: 'Dark mode now applies to modals',
         type: 'UPDATE',
       },
+      {
+        description:
+          'Sword and Shield: Rookidee should now show up on Route 1 (Encounters must be reset for this to be seen)',
+        type: 'FIX',
+      },
     ],
   },
   {
