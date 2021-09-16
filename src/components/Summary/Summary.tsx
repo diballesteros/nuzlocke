@@ -397,10 +397,10 @@ const Summary: React.FC = () => {
                     const foundPokemon = POKEMON.find((poke) => poke.value === box.pokemon);
                     return (
                       <img
-                        alt={foundPokemon.text}
+                        alt={foundPokemon?.text}
                         className={styles.pokeImg}
                         key={`boxed-${i + 1}`}
-                        src={foundPokemon.image}
+                        src={foundPokemon?.image}
                       />
                     );
                   })}
@@ -417,10 +417,10 @@ const Summary: React.FC = () => {
                     const foundPokemon = POKEMON.find((poke) => poke.value === faint.pokemon);
                     return (
                       <img
-                        alt={foundPokemon.text}
+                        alt={foundPokemon?.text}
                         className={styles.pokeImg}
                         key={`fainted-${i + 1}`}
-                        src={foundPokemon.image}
+                        src={foundPokemon?.image}
                       />
                     );
                   })}
