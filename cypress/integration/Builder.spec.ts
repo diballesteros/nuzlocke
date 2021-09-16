@@ -3,6 +3,7 @@ describe('Builder', () => {
     cy.visit('/');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=options]').click();
     cy.contains('Builder').click();
   });
 

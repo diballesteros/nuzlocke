@@ -1,35 +1,20 @@
-.newVersion > span {
-  display: grid;
-  place-items: center;
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  width: 14px;
-  height: 14px;
-  padding-left: 1px;
-  background-color: red;
-  font-weight: bold;
-  color: #ffffff;
-  font-size: 9px;
-  border-radius: 50%;
-}
-
 .changelog {
   display: flex;
+  flex: 1;
   flex-flow: column nowrap;
+  padding-right: 5px;
   overflow: auto;
+  color: var(--contrast);
 
   > h4 {
     font-size: 24px;
     > span {
       font-size: 13px;
-      color: #718096;
     }
   }
 
   > ul > li {
     margin-bottom: 5px;
-    color: #6b7280;
     font-size: 15px;
   }
 

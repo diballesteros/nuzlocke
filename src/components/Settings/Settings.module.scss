@@ -1,0 +1,10 @@
+.settings {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 10px;
+
+  :global(.ui.checkbox label),
+  :global(.ui.checkbox input:focus ~ label) {
+    color: var(--contrast);
+  }
+}

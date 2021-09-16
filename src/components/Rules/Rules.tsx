@@ -8,7 +8,8 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { TRuleEntry } from 'constants/types';
 import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
-import { AddRule, RuleContent, RuleEditor, Share } from 'components';
+import { Share } from 'components';
+import { AddRule, RuleContent, RuleEditor } from 'components/Rules/elements';
 import styles from './Rules.module.scss';
 
 const Rules: React.FC = () => {
@@ -53,7 +54,7 @@ const Rules: React.FC = () => {
   };
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.options}>
         <Share
           disabled={!selectedRuleset}
@@ -201,7 +202,7 @@ const Rules: React.FC = () => {
           );
         })}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -58,7 +58,6 @@ const AddEncounter: React.FC<AddEncounterProps> = ({ icon = false }) => {
         )
       }
     >
-      <Modal.Header>Add Encounter</Modal.Header>
       <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
         Please enter the location name
         <Input

@@ -63,6 +63,7 @@ describe('PokéStats', () => {
     cy.get('[data-testid=status-5]').click();
     cy.get('[data-testid=status-5] > .visible > :nth-child(5)').click();
 
+    cy.get('[data-testid=options]').click();
     cy.contains('Stats').click();
     cy.contains('16%').should('exist');
     cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '4');

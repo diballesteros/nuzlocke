@@ -1,14 +1,11 @@
-import React, { ReactText, useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import useStore from 'store';
+import { useHistory } from 'react-router-dom';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
-import DETAILS from 'constants/details';
-import { BadgeDetail } from 'components';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {
+  const history = useHistory();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
   const badges = useStore(useCallback((state) => state.badges, []));
@@ -16,43 +13,12 @@ const Badges: React.FC = () => {
   const handleClick = (badgeIndex: number) => {
     selectBadge(badgeIndex);
   };
-  const [open, setOpen] = useState(false);
-  const [detail, setDetail] = useState(0);
-  const [tab, setTab] = useState(0);
 
   const handleOpen = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
     e.preventDefault();
     e.stopPropagation();
-    setOpen(true);
-    setDetail(index);
+    history.push(`/badgedetail/${selectedGame?.value}/${index}`);
   };
-  const selectedDetail =
-    !!selectedGame && typeof detail === 'number' && DETAILS[selectedGame?.value]
-      ? DETAILS[selectedGame?.value][detail]
-      : null;
-
-  const handleTabChange = (newIndex: ReactText) => {
-    setTab(Number(newIndex));
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setDetail(0);
-    setTab(0);
-  };
-
-  const panes = !!selectedDetail
-    ? selectedDetail.map((game) => {
-        return {
-          menuItem: game.game,
-          render: () => (
-            <Tab.Pane>
-              <BadgeDetail selectedDetail={selectedDetail[tab]} />
-            </Tab.Pane>
-          ),
-        };
-      })
-    : null;
 
   return (
     <div className={styles.badges}>
@@ -81,29 +47,6 @@ const Badges: React.FC = () => {
             </button>
           );
         })}
-      <Modal closeOnDimmerClick onClose={handleClose} open={open}>
-        <Modal.Header>Details</Modal.Header>
-        <Modal.Content
-          style={{
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            maxHeight: '70vh',
-            gap: '5px',
-            overflow: 'auto',
-          }}
-        >
-          <Tab
-            activeIndex={tab}
-            className={styles.tabs}
-            menu={{ attached: false, tabular: false }}
-            onTabChange={(e, data) => handleTabChange(data.activeIndex)}
-            panes={panes}
-          />
-        </Modal.Content>
-        <Modal.Actions>
-          <Button onClick={handleClose}>Close</Button>
-        </Modal.Actions>
-      </Modal>
     </div>
   );
 };

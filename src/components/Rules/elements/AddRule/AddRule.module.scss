@@ -1,29 +1,4 @@
-.content {
-  @media (max-width: 550px) {
-    min-height: 76vh;
-    max-height: 76vh;
-  }
-
-  overflow: auto;
-
-  > h3 {
-    display: grid;
-    place-items: center;
-    margin-bottom: 10px;
-  }
-
-  .container {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 10px;
-
-    .list {
-      display: flex;
-      flex-flow: row wrap;
-      gap: 7px;
-    }
-  }
-
+.addRule {
   :global(.ui.attached.tabular.menu) {
     border-color: var(--bgsecondary);
   }

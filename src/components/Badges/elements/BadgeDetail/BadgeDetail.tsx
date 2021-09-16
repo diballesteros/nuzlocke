@@ -80,7 +80,7 @@ const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
             </div>
           );
         })}
-      </div>{' '}
+      </div>
     </>
   );
 };

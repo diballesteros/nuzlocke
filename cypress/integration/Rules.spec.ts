@@ -1,6 +1,7 @@
 describe('Rules', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid=options]').click();
     cy.contains('Rules').click();
   });
 
@@ -31,11 +32,6 @@ describe('Rules', () => {
     );
   });
 
-  it('Share rules', () => {
-    cy.get('[data-testid=share-encounters]').click();
-    cy.contains('Ruleset').should('exist');
-  });
-
   it('Custom ruleset', () => {
     cy.get('[data-testid=add-ruleset]').click();
     cy.get('[data-testid=add-ruleset-input] > input')
@@ -56,5 +52,57 @@ describe('Rules', () => {
     cy.contains('OK').click();
     cy.get('[data-testid=rule-select]').click();
     cy.contains('Nuzlocke Custom').should('not.exist');
+  });
+
+  it('Smart Rules of type', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Type').click();
+    cy.get('[data-testid=add-rule-type]').click();
+    cy.contains('GRASS').click();
+    cy.contains('Add Rule').click();
+    cy.contains('Save').click();
+    cy.contains('Allowed types: GRASS').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('.vertical > :nth-child(1)').click();
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
+    cy.contains('FORBIDDEN TYPE').should('exist');
+  });
+
+  it('Smart Rules of generation', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Generation').click();
+    cy.get('[data-testid=add-rule-generation]').click();
+    cy.get('[data-testid=add-rule-generation]').contains(1).click();
+    cy.contains('Add Rule').click();
+    cy.contains('Save').click();
+    cy.contains('Allowed generations: 1').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('.vertical > :nth-child(1)').click();
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
+    cy.contains('FORBIDDEN GEN').should('exist');
+  });
+
+  it('Smart Rules of level', () => {
+    cy.get('[data-testid=add-rule]').click();
+    cy.contains('Level').click();
+    cy.get('[data-testid=add-rule-level-input] > input').type('1');
+    cy.contains('Save').click();
+    cy.contains('Max level 1').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('.vertical > :nth-child(1)').click();
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid=level] > input').type('5');
+    cy.contains('Save').click();
+    cy.contains('OVERLEVELED').should('exist');
   });
 });

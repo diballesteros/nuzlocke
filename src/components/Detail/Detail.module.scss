@@ -64,6 +64,11 @@
     align-self: center;
   }
 
+  .natureContainer {
+    display: flex;
+    gap: 5px;
+  }
+
   .dropdown {
     min-height: unset !important;
     > i {

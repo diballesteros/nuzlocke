@@ -123,7 +123,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
               selection
               value={gender ?? ''}
             />
-            <div>
+            <div className={styles.natureContainer}>
               <Dropdown
                 aria-label="nature-selector"
                 basic

@@ -86,19 +86,18 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
   return (
     <div className={styles.pokemonSelect}>
       <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
-      <div
-        aria-label="Pokémon selector"
-        className={styles.container}
-        data-testid={`pokemon-${encounter.id}`}
-      >
+      <div aria-label="Pokémon selector" className={styles.container}>
         <PokemonSelector filter={filter} handlePokemon={onChange}>
           {encounter?.pokemon ? (
-            <div className={`${styles.selector} ${!!foundPokemon?.evolve ? styles.evolve : ''}`}>
+            <div
+              className={`${styles.selector} ${!!foundPokemon?.evolve ? styles.evolve : ''}`}
+              data-testid={`pokemon-${encounter.id}`}
+            >
               <img alt={foundPokemon.text} src={foundPokemon.image} />
               <span>{foundPokemon.text}</span>
             </div>
           ) : (
-            <div className={styles.selector}>
+            <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
               <span data-testid={`encounter-empty-${encounter.id}`}>Select...</span>
             </div>
           )}

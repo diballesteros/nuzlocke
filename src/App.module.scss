@@ -1,10 +1,16 @@
+/* Responsive Variables */
+$break1: '(max-width:499px)';
+$break2: '(min-width:500px) and (max-width:1004px)';
+$break2open: '(min-width:500px)';
+$break3: '(min-width:1005px)';
+
 .app {
   height: fit-content;
   background-color: var(--bgprimary);
   transition: all 500ms;
   overflow: auto;
 
-  .input {
+  .hiddenFileInput {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -47,6 +53,7 @@
       top: 0 !important;
     }
   }
+
   .button {
     background-color: transparent;
     color: var(--contrast) !important;
@@ -71,122 +78,64 @@
     padding-right: 15px;
     position: relative;
     cursor: pointer;
-
-    > span {
-      display: grid;
-      place-items: center;
-      order: 1;
-      position: absolute;
-      bottom: 5px;
-      right: 5px;
-      width: 14px;
-      height: 14px;
-      padding-left: 1px;
-      background-color: red;
-      font-weight: bold;
-      color: #ffffff;
-      font-size: 9px;
-      border-radius: 50%;
-    }
   }
 
-  .container {
-    height: calc(100% - 42px);
-  }
-
-  .tabs {
-    padding: 20px 0px;
-
-    @media (max-width: 600px) {
-      padding: 2px 0px;
-    }
-
-    :global(.ui.tabular.menu) {
-      border: none;
-      color: var(--contrast);
-    }
-
-    :global(.ui.tabular.menu .active) {
-      background-color: var(--bgsecondary);
-      transition: all 500ms;
-      border: none;
-    }
-
-    :global(.ui.tabular.menu .item) {
-      color: var(--contrast);
-    }
-
-    :global(.ui.bottom) {
-      background-color: var(--bgsecondary);
-      transition: all 500ms;
-      border: none;
-
-      @media (max-width: 550px) {
-        padding-left: 0.7em;
-        padding-right: 0.7em;
-      }
-    }
-  }
-
-  .footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    gap: 10px;
-    position: relative;
-    z-index: 2;
-    padding: 10px 15px;
-    width: 100%;
-    height: fit-content;
-    background-color: #1b1c1d;
+  .exclamation {
+    display: grid;
+    place-items: center;
+    order: 1;
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    width: 14px;
+    height: 14px;
+    background-color: red;
+    font-weight: bold;
     color: #ffffff;
+    font-size: 9px;
+    border-radius: 50%;
+  }
 
-    .name {
-      margin: 0;
+  .grid {
+    display: grid;
+    max-width: 1200px;
+    column-gap: 30px;
+    margin: 0 auto;
+
+    .mainContent {
+      padding: 10px 0;
+      height: calc(100vh - 70px);
+      background-color: var(--bgsecondary);
     }
 
-    .pokemon {
+    .nav {
       display: flex;
-      font-size: 12px;
-      text-align: center;
-      line-height: 1.1;
+      flex-flow: column nowrap;
+      padding: 50px 10px 0 10px;
+      gap: 45px;
+
+      .activeLink {
+        color: var(--badge);
+      }
+
+      > a {
+        font-weight: bold;
+        font-size: 24px;
+        color: var(--contrast);
+
+        &:hover {
+          color: var(--badge);
+        }
+      }
     }
 
-    .socials {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-evenly;
-      gap: 5px;
+    @media #{$break1}, #{$break2} {
+      .nav {
+        display: none;
+      }
     }
-
-    .github {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 48px;
-      padding: 5px;
-      min-height: 26px;
-      font-size: 26px;
-      border: 2px solid #ffffff;
-      border-radius: 4px;
-      color: #ffffff;
-      position: relative;
-      > i {
-        padding-top: 2px;
-      }
-      &:hover {
-        background-color: #ffffff;
-        color: black;
-      }
-
-      > span {
-        bottom: -5px;
-        font-size: 12px;
-      }
-
-      @media (max-width: 550px) {
-        padding: 0 5px;
-      }
+    @media #{$break3} {
+      grid-template-columns: auto minmax(auto, 1200px);
     }
   }
 }

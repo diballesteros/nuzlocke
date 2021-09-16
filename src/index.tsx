@@ -20,15 +20,18 @@ import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
 import 'semantic-ui-css/components/sidebar.min.css';
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
+import { BrowserRouter } from 'react-router-dom';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
 import App from './App';
 
 ReactDOM.render(
   <>
-    <ErrorBoundary>
-      <App />
-    </ErrorBoundary>
+    <BrowserRouter>
+      <ErrorBoundary>
+        <App />
+      </ErrorBoundary>
+    </BrowserRouter>
     <UpdateSW />
   </>,
   document.getElementById('root')

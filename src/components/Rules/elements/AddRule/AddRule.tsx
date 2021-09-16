@@ -46,7 +46,7 @@ const AddRule: React.FC = () => {
         <Tab.Pane>
           Allow only these types:
           <Dropdown
-            data-testid="add-rule-generation"
+            data-testid="add-rule-type"
             disabled={!!containsType}
             fluid
             multiple
@@ -154,6 +154,7 @@ const AddRule: React.FC = () => {
 
   return (
     <Modal
+      className={styles.addRule}
       open={open}
       trigger={
         <Button

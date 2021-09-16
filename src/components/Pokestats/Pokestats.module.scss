@@ -1,7 +1,7 @@
 .pokestats {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100vh - 130px);
+  height: 100%;
   overflow: auto;
 
   .filters {
@@ -44,6 +44,8 @@
     :global(.ui.segment) {
       flex: 1;
       overflow: auto;
+      background-color: inherit;
+      border: none;
     }
   }
 

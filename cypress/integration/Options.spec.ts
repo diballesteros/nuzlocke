@@ -8,23 +8,22 @@ describe('Options', () => {
 
   it('Settings', () => {
     cy.contains('Settings').click();
-    cy.get('.header').contains('Settings').should('exist');
+    cy.contains('Settings').should('exist');
     cy.get('[data-testid=settings-dupes] > label').click();
     cy.get('[data-testid=settings-nickname] > label').click();
     cy.get('[data-testid=settings-missing] > label').click();
     cy.get('[data-testid=settings-showall] > label').click();
-    cy.contains('Close').click();
+    cy.contains('Back').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.get('[data-testid=nickname-0] > input')
       .type('Bulba Nickname')
       .should('have.value', 'Bulba Nickname');
     cy.get('#search-filter').click();
-    cy.get('[data-testid=pokemon-0] > .search').type('Bulb');
-    cy.contains('Bulbasaur').click();
-    cy.get('#search-filter').click();
-    cy.get('[data-testid=pokemon-1] > .search').type('Bulb');
-    cy.contains('Bulbasaur').click();
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.contains('DUPE').should('exist');
     cy.scrollTo('top');
     cy.contains('Starter').should('exist');
@@ -35,15 +34,15 @@ describe('Options', () => {
     cy.get('[data-testid=nickname-1] > input').should('have.length.above', 0);
   });
 
-  it.only('About and Changelog', () => {
+  it('About and Changelog', () => {
     cy.contains('!').should('exist');
     cy.get('[data-testid=about]').click();
-    cy.get('.header').contains('About').should('exist');
-    cy.contains('Close').click();
+    cy.contains('About').should('exist');
+    cy.contains('Back').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=changelog]').click();
-    cy.get('.header').contains('Changelog').should('exist');
-    cy.contains('Close').click();
+    cy.contains('Changelog').should('exist');
+    cy.contains('Back').click();
     cy.contains('!').should('not.exist');
   });
 

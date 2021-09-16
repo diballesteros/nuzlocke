@@ -58,6 +58,7 @@ const Evolve: React.FC<EvolveProps> = ({ encounter, evolveIds }) => {
             <div key={`evolve-${id}`}>
               <img src={foundPokemon?.image} alt={foundPokemon?.text} />{' '}
               <Radio
+                className={styles.radio}
                 checked={id === selected}
                 label={foundPokemon?.text}
                 onChange={(e, data) => handleChange(data.value as number)}

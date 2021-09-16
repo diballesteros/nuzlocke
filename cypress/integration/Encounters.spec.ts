@@ -63,9 +63,4 @@ describe('Encounters', () => {
       .children()
       .should('have.length', 1);
   });
-
-  it('Share', () => {
-    cy.get('[data-testid=share-encounters]').click();
-    cy.contains('Nuzlocke Encounter List').should('exist');
-  });
 });

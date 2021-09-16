@@ -1,41 +1,31 @@
 .options {
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
 
   .search {
     width: 100%;
-    max-width: 50%;
+    max-width: 100%;
   }
 
   .buttons {
     display: flex;
     gap: 2px;
+    width: 100%;
     font-weight: bold;
 
     @media (max-width: 550px) {
       display: none;
     }
 
-    > button > i {
-      margin-left: 5px !important;
-      margin-right: 0 !important;
-    }
-  }
-
-  @media (max-width: 992px) {
-    flex-wrap: wrap;
-    gap: 10px;
-
-    .search {
-      max-width: 100%;
-    }
-
-    .buttons {
+    > button {
       width: 100%;
-      button {
-        width: 100%;
-        flex: 1;
+      flex: 1;
+      > i {
+        margin-left: 5px !important;
+        margin-right: 0 !important;
       }
     }
   }
