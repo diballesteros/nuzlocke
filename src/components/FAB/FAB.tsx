@@ -13,7 +13,7 @@ const FAB: React.FC = () => {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
   return (
-    <div className={styles.fab}>
+    <div className={styles.fab} data-testid="fab-tracker">
       {open && (
         <div className={styles.list}>
           <div className={styles.listItem}>
@@ -32,7 +32,7 @@ const FAB: React.FC = () => {
               )}
             />
           </div>
-          <div className={styles.listItem}>
+          <div className={styles.listItem} data-testid="fab-add-encounter">
             <span className={styles.label}>Add Encounter</span>
             <AddEncounter icon />
           </div>
