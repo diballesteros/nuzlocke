@@ -111,6 +111,7 @@ jobs:
           wait-on: http://localhost:3000
           wait-on-timeout: 120
           browser: chrome
+          record: true
           parallel: true
           group: 'UI - Chrome - Mobile'
         env:
@@ -147,6 +148,7 @@ jobs:
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: firefox
+          record: true
           parallel: true
           group: 'UI - Firefox'
         env:
@@ -184,6 +186,7 @@ jobs:
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: firefox
+          record: true
           parallel: true
           group: 'UI - Firefox - Mobile'
         env:
@@ -216,6 +219,7 @@ jobs:
           start: yarn run develop:ci
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
+          record: true
           parallel: true
           group: 'UI - Electron - Windows'
         env:
