@@ -1,3 +1,10 @@
+## Version 3.6.2
+
+🐛 Bug Fix
+
+- Show rookidee on Route 1 encounter in Sword and Shield
+- Improved error management
+
 ## Version 3.6.0
 
 💅 Enhancement

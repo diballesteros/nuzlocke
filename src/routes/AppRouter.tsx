@@ -1,5 +1,6 @@
 import { About, Builder, Changelog, Pokestats, Report, Rules, Settings, Tracker } from 'components';
 import { BadgePage } from 'components/Badges/elements';
+import ErrorBoundary from 'error/ErrorBoundary';
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
@@ -10,28 +11,44 @@ const AppRouter: React.FC = () => {
         <Tracker />
       </Route>
       <Route path="/rules">
-        <Rules />
+        <ErrorBoundary>
+          <Rules />
+        </ErrorBoundary>
       </Route>
       <Route path="/stats">
-        <Pokestats />
+        <ErrorBoundary>
+          <Pokestats />
+        </ErrorBoundary>
       </Route>
       <Route path="/builder">
-        <Builder />
+        <ErrorBoundary>
+          <Builder />
+        </ErrorBoundary>
       </Route>
       <Route path="/settings">
-        <Settings />
+        <ErrorBoundary>
+          <Settings />
+        </ErrorBoundary>
       </Route>
       <Route exact path="/report">
-        <Report />
+        <ErrorBoundary>
+          <Report />
+        </ErrorBoundary>
       </Route>
       <Route path="/changelog">
-        <Changelog />
+        <ErrorBoundary>
+          <Changelog />
+        </ErrorBoundary>
       </Route>
       <Route path="/about">
-        <About />
+        <ErrorBoundary>
+          <About />
+        </ErrorBoundary>
       </Route>
       <Route exact path="/badgedetail/:game/:badge">
-        <BadgePage />
+        <ErrorBoundary>
+          <BadgePage />
+        </ErrorBoundary>
       </Route>
       <Redirect to="/" />
     </Switch>
