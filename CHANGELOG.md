@@ -2,7 +2,7 @@
 
 🐛 Bug Fix
 
-- Customer encounters can now be edited properly in SW/SH (Custom encounters will most likely have to be remade)
+- Custom encounters can now be edited properly in SW/SH (They will most likely have to be remade)
 
 🏠 Internal
 
