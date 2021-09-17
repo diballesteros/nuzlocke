@@ -67,7 +67,7 @@ const Encounters: React.FC = React.memo(() => {
       <div style={style}>
         <div
           className={`${styles.row} ${!!encounter?.pokemon ? styles.type : ''}`}
-          data-testid={`encounter-${encounter.id}`}
+          data-testid={`encounter-${index}`}
           style={{
             borderImage: !!encounter?.pokemon
               ? `linear-gradient(to left, ${
