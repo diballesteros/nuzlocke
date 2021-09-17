@@ -2,6 +2,17 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.6.3',
+    date: 1631847543576,
+    notes: [
+      {
+        description:
+          'Custom encounters can now be edited properly in SW/SH (They will have to be remade for this to take effect)',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.6.0',
     date: 1631750976504,
     notes: [

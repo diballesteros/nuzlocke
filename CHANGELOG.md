@@ -1,5 +1,9 @@
 ## Version 3.6.3
 
+🐛 Bug Fix
+
+- Customer encounters can now be edited properly in SW/SH (Custom encounters will most likely have to be remade)
+
 🏠 Internal
 
 - Improved workflow to include firefox tests in parallel
