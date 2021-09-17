@@ -1,6 +1,6 @@
 # Nuzlocke Tracker
 
-[![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
+[![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues) [![codecov](https://codecov.io/gh/diballesteros/nuzlocke/branch/master/graph/badge.svg?token=SQPSF96J1S)](https://codecov.io/gh/diballesteros/nuzlocke)
 
 ## Table of Contents
 
@@ -152,3 +152,5 @@ Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diba
 ## Other
 
 <a href='//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge'><img src='https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png' alt='English badge' style='width: 284px; height: 104px;'/></a>
+
+<a href='https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>

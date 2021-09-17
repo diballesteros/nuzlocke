@@ -1,3 +1,12 @@
+## Version 3.6.3
+
+🏠 Internal
+
+- Improved workflow to include firefox tests in parallel
+- Included code coverage
+- Added @cypress/code-coverage 3.9.11
+- Added @cypress/instrument-cra 1.4.0
+
 ## Version 3.6.2
 
 🐛 Bug Fix
