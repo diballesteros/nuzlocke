@@ -17,22 +17,11 @@
  */
 // eslint-disable-next-line no-unused-vars
 module.exports = (on, config) => {
-  // `on` is used to hook into various events Cypress emits
-  // `config` is the resolved Cypress config
-  on('before:browser:launch', (browser, options) => {
-    // only Firefox requires all mime types to be listed
-    if (browser.family === 'firefox') {
-      const downloadDirectory = process.cwd() + '\\cypress\\downloads';
-      options.preferences['browser.download.dir'] = downloadDirectory;
-      const existingMimeTypes = options.preferences['browser.helperApps.neverAsk.saveToDisk'];
-      const myMimeType = 'my/mimetype';
+  require('@cypress/code-coverage/task')(on, config);
 
-      // prevents the browser download prompt
-      options.preferences[
-        'browser.helperApps.neverAsk.saveToDisk'
-      ] = `${existingMimeTypes},${myMimeType}`;
+  // add other tasks to be registered here
 
-      return options;
-    }
-  });
+  // IMPORTANT to return the config object
+  // with the any changed environment variables
+  return config;
 };

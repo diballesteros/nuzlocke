@@ -7,6 +7,9 @@
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
   },
+  "nyc": {
+    "exclude": "src/serviceWorker.js"
+  },
   "private": true,
   "dependencies": {
     "html-to-image": "^1.7.0",
@@ -22,9 +25,9 @@
   },
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
-    "start": "react-scripts start",
+    "start": "react-scripts -r @cypress/instrument-cra start",
     "httpss": "HTTPS=true react-scripts start",
-    "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start",
+    "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -49,6 +52,8 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.11",
+    "@cypress/instrument-cra": "^1.4.0",
     "@types/lodash": "^4.14.172",
     "@types/node": "^16.9.1",
     "@types/react": "^17.0.20",
