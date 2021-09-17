@@ -17,7 +17,6 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
-- [Other](#other)
 
 ## About
 
