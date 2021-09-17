@@ -46,7 +46,7 @@ describe('Options', () => {
     cy.contains('!').should('not.exist');
   });
 
-  it('Export', () => {
+  it('Export', { browser: '!firefox' }, () => {
     const downloadsFolder = Cypress.config('downloadsFolder');
     cy.contains('Export').click();
     const filename = path.join(downloadsFolder, 'PokemonList.json');

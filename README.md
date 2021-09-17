@@ -1,6 +1,6 @@
 # Nuzlocke Tracker
 
-[![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
+[![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Cypress](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/main.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues) [![codecov](https://codecov.io/gh/diballesteros/nuzlocke/branch/master/graph/badge.svg?token=SQPSF96J1S)](https://codecov.io/gh/diballesteros/nuzlocke)
 
 ## Table of Contents
 
@@ -17,7 +17,6 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
-- [Other](#other)
 
 ## About
 

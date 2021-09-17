@@ -50,7 +50,7 @@ const useStore = create<AppState>(
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters.push({
-            id: state.games[state.selectedGame?.value].encounters.length,
+            id: new Date().getTime(),
             location: newLocation,
             pokemon: null,
             status: null,

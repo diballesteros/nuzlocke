@@ -1,3 +1,16 @@
+## Version 3.6.3
+
+🐛 Bug Fix
+
+- Custom encounters can now be edited properly in SW/SH (They will most likely have to be remade)
+
+🏠 Internal
+
+- Improved workflow to include firefox tests in parallel
+- Included code coverage
+- Added @cypress/code-coverage 3.9.11
+- Added @cypress/instrument-cra 1.4.0
+
 ## Version 3.6.2
 
 🐛 Bug Fix

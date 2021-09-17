@@ -63,4 +63,32 @@ describe('Encounters', () => {
       .children()
       .should('have.length', 1);
   });
+
+  context('Small screens', () => {
+    beforeEach(() => {
+      cy.viewport('iphone-6+');
+      cy.get('[data-testid=fab-tracker] > .ui').click();
+    });
+
+    it('Add encounter', () => {
+      cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
+      cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
+      cy.contains('Save').click();
+      cy.get('#search-filter').type('Test');
+      cy.wait(1000);
+      cy.get('[data-testid=encounters-list]')
+        .children()
+        .children()
+        .children()
+        .should('have.length', 1);
+    });
+
+    it('Reset all encounters', () => {
+      cy.get('[data-testid=encounter-0]').click();
+      cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+      cy.get(':nth-child(3) > [data-testid=reset-all]').click();
+      cy.contains('OK').click();
+      cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
+    });
+  });
 });
