@@ -39,6 +39,20 @@
       "url": "/",
       "description": "Record and track nuzlocke progress",
       "icons": [{ "src": "shortcut.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Build a team",
+      "short_name": "Builder",
+      "url": "/builder",
+      "description": "Build your ideal team",
+      "icons": [{ "src": "shortcut.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Check out stats",
+      "short_name": "Stats",
+      "url": "/stats",
+      "description": "See nuzlocke run stats",
+      "icons": [{ "src": "shortcut.png", "sizes": "96x96" }]
     }
   ]
 }
