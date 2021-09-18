@@ -1,3 +1,26 @@
+## Version 3.7.0
+
+🚀 New features
+
+- App now available on the Amazon AppStore
+- See a breakdown in the Team Builder of what your team is strong and weak against
+
+💅 Enhancement
+
+- There is now a loading icon when generating the summary image for sharing
+- Summary page is now much more responsive on smaller screens
+
+🏠 Internal
+
+- Bumped html-to-image to 1.8.5
+- Bumped @types/lodash to 4.14.173
+- Bumped @types/node to 16.9.2
+- Bumped @types/react to 17.0.21
+- Bumped @types/react-router-dom to 5.1.9
+- Bumped cypress to 8.4.1
+- Bumped node-sass to 6.0.1
+- Added sass-loader 12.1.0
+
 ## Version 3.6.3
 
 🐛 Bug Fix
