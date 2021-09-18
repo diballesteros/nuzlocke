@@ -2,6 +2,29 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.7.0',
+    date: 1631847543576,
+    notes: [
+      {
+        description: 'Now available on the Amazon Appstore',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'See a breakdown in the Team Builder of what your team is strong and weak against',
+        type: 'FEATURE',
+      },
+      {
+        description: 'There is now a loading icon when generating the summary image for sharing',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Summary page is now much more responsive on smaller screens',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 3.6.3',
     date: 1631847543576,
     notes: [
