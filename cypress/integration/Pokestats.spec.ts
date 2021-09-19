@@ -154,6 +154,8 @@ describe('PokéStats', () => {
       .should('have.value', 'Nuzlocke Run New');
     cy.get('[data-testid=summary-status]').click();
     cy.get('[data-testid=summary-status] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid=summary-status]').click();
+    cy.get('[data-testid=summary-status] > .visible > :nth-child(3)').click();
     cy.get(':nth-child(2) > summary').click();
     cy.get('[data-testid=summary-encounters] > label').click();
     cy.get(':nth-child(3) > summary').click();
@@ -163,6 +165,8 @@ describe('PokéStats', () => {
     cy.get(':nth-child(4) > summary').click();
     cy.get('[data-testid=summary-rules] > label').click();
     cy.get(':nth-child(5) > summary').click();
+    cy.get('[data-testid=summary-show-description] > label').click();
+    cy.get('[data-testid=summary-show-description] > label').click();
     cy.get('[data-testid=summary-description]')
       .type('Summary description')
       .should('have.value', 'Summary description');
