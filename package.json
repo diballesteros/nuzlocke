@@ -16,8 +16,6 @@
   },
   "private": true,
   "dependencies": {
-    "@cypress/code-coverage": "^3.9.11",
-    "@cypress/instrument-cra": "^1.4.0",
     "html-to-image": "^1.8.5",
     "immer": "^9.0.6",
     "react": "^17.0.2",
@@ -33,7 +31,7 @@
     "analyze": "source-map-explorer ''build/static/js/*.js'",
     "start": "react-scripts start",
     "httpss": "HTTPS=true react-scripts start",
-    "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start -r @cypress/instrument-cra start",
+    "develop:ci": "CHOKIDAR_USEPOLLING=1 react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
@@ -58,6 +56,8 @@
     ]
   },
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.11",
+    "@cypress/instrument-cra": "^1.4.0",
     "@types/lodash": "^4.14.173",
     "@types/node": "^16.9.2",
     "@types/react": "^17.0.21",
