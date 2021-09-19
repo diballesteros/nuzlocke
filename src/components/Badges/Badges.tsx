@@ -21,7 +21,7 @@ const Badges: React.FC = () => {
   };
 
   return (
-    <div className={styles.badges}>
+    <div className={styles.badges} data-testid="badges">
       {!!selectedGame &&
         badges[selectedGame?.value]?.map((badge, index) => {
           return (

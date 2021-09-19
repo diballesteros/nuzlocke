@@ -113,7 +113,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
               aria-label="gender-selector"
               basic
               className={styles.dropdown}
-              data-testid={`gender-${encounter?.id}`}
+              data-testid="gender"
               inline
               labeled
               lazyLoad
@@ -128,7 +128,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
                 aria-label="nature-selector"
                 basic
                 className={styles.dropdown}
-                data-testid={`nature-${encounter?.id}`}
+                data-testid="nature"
                 inline
                 lazyLoad
                 onChange={(e, data) => setNature(data.value as unknown as string)}

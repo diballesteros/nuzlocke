@@ -54,7 +54,9 @@ const Effectiveness: React.FC = React.memo(() => {
         <Tab panes={panes} />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={closeTypeModal}>Close</Button>
+        <Button data-testid="effect-close" onClick={closeTypeModal}>
+          Close
+        </Button>
       </Modal.Actions>
     </Modal>
   );

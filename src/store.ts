@@ -10,9 +10,16 @@ import {
   TRuleEntry,
   TRulesetDictionary,
   TStatus,
+  TSummaryBasic,
   Type,
 } from 'constants/types';
-import { DEFAULT_RULES, DEFAULT_RULESET_NAMES, GAMES, INITIAL_STATE } from 'constants/constant';
+import {
+  DEFAULT_RULES,
+  DEFAULT_RULESET_NAMES,
+  GAMES,
+  INITIAL_STATE,
+  INITIAL_SUMMARY,
+} from 'constants/constant';
 import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
 
 const immer =
@@ -44,6 +51,7 @@ const useStore = create<AppState>(
       selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
+      summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
       text: '',
       typeModal: null,
@@ -60,6 +68,7 @@ const useStore = create<AppState>(
         set((state) => {
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = { badge: null, encounters: [] };
+          state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
           state.gamesList.push({
             value: newKey.toString(),
             text: newGame,
@@ -145,6 +154,18 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].status = status;
         }),
+      changeSummaryDescription: (desc: string) =>
+        set((state) => {
+          state.summary[state.selectedGame?.value].description = desc;
+        }),
+      changeSummaryStatus: (status: number) =>
+        set((state) => {
+          state.summary[state.selectedGame?.value].status = status;
+        }),
+      changeSummaryTitle: (title: string) =>
+        set((state) => {
+          state.summary[state.selectedGame?.value].title = title;
+        }),
       changeTeamMember: (teamIndex: number, detail: PokemonDetail) =>
         set((state) => {
           state.team[state.selectedGame?.value][teamIndex] = { ...detail };
@@ -179,6 +200,9 @@ const useStore = create<AppState>(
           delete state.games[state?.selectedGame.value];
           if (state.team[state?.selectedGame?.value]) {
             delete state.team[state?.selectedGame?.value];
+          }
+          if (state.summary[state?.selectedGame?.value]) {
+            delete state.summary[state?.selectedGame?.value];
           }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
@@ -281,6 +305,12 @@ const useStore = create<AppState>(
       toggleShowAll: () => {
         set((state) => {
           state.showAll = !state.showAll;
+        });
+      },
+      toggleSummarySetting: (property: keyof TSummaryBasic) => {
+        set((state) => {
+          state.summary[state?.selectedGame?.value][property] =
+            !state.summary[state?.selectedGame?.value][property];
         });
       },
     })),

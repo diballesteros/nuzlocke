@@ -24,4 +24,24 @@ describe('Badges', () => {
     cy.contains('Close').click();
     cy.get('[title="Grass Badge"]').should('have.text', '20');
   });
+
+  it('Badge Details', () => {
+    cy.get('[data-testid=badge-detail-0] > .question').click();
+    cy.contains('Eldegoss').should('exist');
+    cy.contains('DYNAMAX').should('exist');
+    cy.contains('Back').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Ultra Sun and Ultra Moon').click();
+    cy.get('[data-testid=badge-detail-0] > .question').click();
+    cy.contains('TOTEM').should('exist');
+    cy.contains('Back').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('HeartGold and SoulSilver').click();
+    cy.get('[data-testid=badges]').scrollTo('right');
+    cy.get('[data-testid=badge-detail-8] > .question').click();
+    cy.contains('Rematch').should('exist').click();
+    cy.contains('Bronzong').should('exist');
+    cy.get('[data-testid=badge-details-tabs] > .menu > :nth-child(5)').click();
+    cy.contains('Salamence').should('exist');
+  });
 });

@@ -62,6 +62,11 @@ describe('Rules', () => {
     cy.contains('Add Rule').click();
     cy.contains('Save').click();
     cy.contains('Allowed types: GRASS').should('exist');
+    cy.get('[data-testid=edit-rule-3]').click();
+    cy.get('[data-testid=edit-rule-type]').click();
+    cy.contains('ICE').click();
+    cy.contains('Edit Rule').click();
+    cy.contains('Save').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=options]').click();
@@ -79,6 +84,11 @@ describe('Rules', () => {
     cy.contains('Add Rule').click();
     cy.contains('Save').click();
     cy.contains('Allowed generations: 1').should('exist');
+    cy.get('[data-testid=edit-rule-3]').click();
+    cy.get('[data-testid=edit-rule-generation]').click();
+    cy.contains('6').click();
+    cy.contains('Edit Rule').click();
+    cy.contains('Save').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=options]').click();
@@ -94,6 +104,9 @@ describe('Rules', () => {
     cy.get('[data-testid=add-rule-level-input] > input').type('1');
     cy.contains('Save').click();
     cy.contains('Max level 1').should('exist');
+    cy.get('[data-testid=edit-rule-3]').click();
+    cy.get('[data-testid=edit-rule-level-input] > input').clear().type('2');
+    cy.contains('Save').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=options]').click();
@@ -104,5 +117,12 @@ describe('Rules', () => {
     cy.get('[data-testid=level] > input').type('5');
     cy.contains('Save').click();
     cy.contains('OVERLEVELED').should('exist');
+  });
+
+  it.only('Share', { browser: 'firefox' }, () => {
+    cy.get('h1').click();
+    cy.get('[data-testid=share-encounters]').click();
+    cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
+    cy.contains('Copy').click();
   });
 });

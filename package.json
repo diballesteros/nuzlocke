@@ -8,7 +8,11 @@
     "url": "https://github.com/diballesteros/nuzlocke/issues"
   },
   "nyc": {
-    "exclude": "src/serviceWorker.js"
+    "exclude": [
+      "src/serviceWorker.ts",
+      "src/serviceWorkerRegistration.ts",
+      "src/components/UpdateSW/UpdateSW.tsx"
+    ]
   },
   "private": true,
   "dependencies": {
@@ -25,7 +29,7 @@
   },
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts start",
     "httpss": "HTTPS=true react-scripts start",
     "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start -r @cypress/instrument-cra start",
     "build": "react-scripts build",
