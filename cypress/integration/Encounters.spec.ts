@@ -17,6 +17,9 @@ describe('Encounters', () => {
 
   it('Edit base encounter', () => {
     cy.get('[data-testid=encounter-0]').click();
+    cy.get('.st0Fire').click({ force: true });
+    cy.contains('Super effective against').should('exist');
+    cy.get('[data-testid=effect-close]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.contains('Scorbunny').should('exist');
     cy.get('[data-testid=status-0]').click();
