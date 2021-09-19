@@ -79,13 +79,12 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
           </b>
         );
       case 2:
+      default:
         return (
           <b style={{ color: 'red' }}>
             FAILED <Icon name="x" />
           </b>
         );
-      default:
-        return null;
     }
   };
 

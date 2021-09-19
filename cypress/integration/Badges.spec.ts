@@ -6,11 +6,9 @@ describe('Badges', () => {
   });
 
   it('Select badge', () => {
-    cy.get('[title="Fire Badge"]')
-      .click()
-      .should('have.css', 'background-color', 'rgb(212, 106, 106)');
-    cy.get('[data-testid=badge-detail-0] > .question').click();
-    cy.contains('Milo').should('exist');
+    cy.get('[title="Fire Badge"]').should('have.css', 'filter', 'grayscale(1)');
+    cy.get('[title="Fire Badge"]').click().should('not.have.css', 'filter', 'grayscale(1)');
+    cy.get('[title="Fire Badge"]').click().should('have.css', 'filter', 'grayscale(1)');
   });
 
   it('Edit badges', () => {
