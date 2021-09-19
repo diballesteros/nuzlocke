@@ -7,6 +7,8 @@ describe('Rules', () => {
 
   it('Rule CRUD', () => {
     cy.get('[data-testid=add-rule]').click();
+    cy.contains('Cancel').click();
+    cy.get('[data-testid=add-rule]').click();
     cy.get('[data-testid=add-rule-input] > input')
       .type('This is a test rule')
       .should('have.value', 'This is a test rule');
@@ -34,6 +36,8 @@ describe('Rules', () => {
 
   it('Custom ruleset', () => {
     cy.get('[data-testid=add-ruleset]').click();
+    cy.contains('Cancel').click();
+    cy.get('[data-testid=add-ruleset]').click();
     cy.get('[data-testid=add-ruleset-input] > input')
       .type('Nuzlocke Custom')
       .should('have.value', 'Nuzlocke Custom');
@@ -48,6 +52,8 @@ describe('Rules', () => {
     cy.contains('This is a test rule').should('exist');
     cy.get('[data-testid=delete-rule-0]').click();
     cy.contains('This is a test rule').should('not.exist');
+    cy.get('[data-testid=delete-ruleset]').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=delete-ruleset]').click();
     cy.contains('OK').click();
     cy.get('[data-testid=rule-select]').click();

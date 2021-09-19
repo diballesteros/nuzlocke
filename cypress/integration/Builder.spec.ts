@@ -20,17 +20,23 @@ describe('Builder', () => {
       .type('Oran Berry')
       .should('have.value', 'Oran Berry');
     cy.get(':nth-child(4) > b').click();
+    cy.contains('Close').click();
+    cy.get(':nth-child(4) > b').click();
     cy.get('[data-testid=move-Pound]').click();
     cy.get(':nth-child(5) > b').click();
     cy.get('[data-testid=filter] > input').type('punch').should('have.value', 'PUNCH');
     cy.get('[data-testid=filter-button]').click();
-    cy.get('[data-testid=filter-gen-1]');
-    cy.get('[data-testid=filter-gen-1]');
+    cy.get('[data-testid=filter-gen-1]').click();
+    cy.get('[data-testid=filter-gen-2]').click();
+    cy.get('[data-testid=filter-gen-2]').click();
     cy.contains('NORMAL').click();
     cy.contains('NORMAL').click();
     cy.contains('ICE').click();
     cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid="move-Ice Punch"]').click();
+    cy.get(':nth-child(6) > b').click();
+    cy.get('[data-testid=move-Pound]').click();
+    cy.get(':nth-child(6) > .ui > .trash').click();
     cy.get(':nth-child(6) > b').click();
     cy.get('[data-testid=move-Pound]').click();
     cy.get(':nth-child(7) > b').click();

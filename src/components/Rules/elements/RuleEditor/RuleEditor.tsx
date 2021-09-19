@@ -47,7 +47,10 @@ const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
   };
 
   const handleEditClose = () => {
-    setRuleText('');
+    setRuleText(content);
+    setLevel(content);
+    setTypes(content);
+    setGens(content);
     setOpen(false);
   };
 

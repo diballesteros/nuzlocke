@@ -47,7 +47,17 @@ describe('Badges', () => {
     cy.get('[data-testid=badge-detail-8] > .question').click();
     cy.contains('Rematch').should('exist').click();
     cy.contains('Bronzong').should('exist');
+    cy.contains('Original').should('exist').click();
+    cy.contains('Xatu').should('exist');
+    cy.contains('Rematch').click();
     cy.get('[data-testid=badge-details-tabs] > .menu > :nth-child(5)').click();
     cy.contains('Salamence').should('exist');
+  });
+
+  it('Badge detail incorrect parameters', () => {
+    cy.visit('/badgedetail/13/15');
+    cy.url().should('not.include', '/badgedetail');
+    cy.visit('/badgedetail/25/25');
+    cy.url().should('not.include', '/badgedetail');
   });
 });
