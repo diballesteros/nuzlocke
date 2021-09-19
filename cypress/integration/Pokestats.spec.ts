@@ -120,7 +120,7 @@ describe('PokéStats', () => {
     cy.get('.visible.menu.transition').scrollTo('bottom');
     cy.get('.visible > :nth-child(7)').click();
     cy.get('[data-testid=edit-encounter-0]').click();
-    cy.get('Close').click();
+    cy.contains('Close').click();
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.pokemondetail();
     cy.contains('Save').click();
