@@ -1,0 +1,246 @@
+.summary {
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  gap: 10px;
+  background-color: var(--bgsecondary);
+  padding: 5px;
+
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header) !important;
+    color: var(--contrast);
+    padding: 15px 20px;
+    font-size: 24px;
+
+    .headerTitle {
+      max-width: 225px;
+    }
+
+    .badges {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 3px;
+      max-width: 300px;
+
+      .badge {
+        height: 28px;
+        width: 28px;
+        filter: brightness(0.2);
+
+        &.active {
+          filter: brightness(1);
+        }
+      }
+    }
+  }
+
+  .row {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 25px;
+  }
+
+  .card {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1;
+    padding: 15px 20px;
+    box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
+    background-color: var(--card);
+    color: var(--contrast);
+    border-radius: 2px;
+
+    &.small {
+      flex-basis: calc(25% - 25px);
+    }
+
+    &.medium {
+      flex-basis: calc(25% - 25px);
+    }
+
+    &.large {
+      flex-basis: calc(75% - 25px);
+    }
+
+    .title {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .team {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
+      min-width: 0;
+      column-gap: 8px;
+
+      .pokemon {
+        display: grid;
+        grid-template-columns: 80px minmax(auto, 160px) minmax(0, 1fr);
+        column-gap: 10px;
+        padding: 3px 0;
+        margin-bottom: 5px;
+        border-bottom: 1px solid var(--contrast);
+        > img {
+          height: 80px;
+          width: 80px;
+          object-fit: cover;
+          align-self: center;
+        }
+      }
+    }
+
+    .stat {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      padding: 5px;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid var(--contrast);
+      border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      > svg {
+        width: 22px;
+        height: 22px;
+      }
+
+      :global(.ui.label) {
+        background-color: #999;
+        color: #fff;
+      }
+    }
+
+    .box {
+      display: flex;
+      flex-flow: row wrap;
+      gap: 10px;
+
+      .pokeImg {
+        height: 48px;
+        width: 48px;
+        object-fit: cover;
+      }
+    }
+
+    .encounters {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-evenly;
+      gap: 10px;
+
+      .completion {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        margin-top: 10px;
+
+        > b {
+          font-size: 16px;
+          color: var(--badge);
+        }
+
+        .circle {
+          .circlebg {
+            fill: none;
+            stroke: #ddd;
+          }
+          .progress {
+            fill: none;
+            stroke: var(--badge);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+          }
+
+          .text {
+            font-size: 3em;
+            font-weight: bold;
+            fill: var(--badge);
+          }
+        }
+      }
+
+      .byType {
+        display: flex;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+
+        .byTypeContainer {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 90px));
+          column-gap: 8px;
+          row-gap: 8px;
+
+          .type {
+            text-align: center;
+            height: 24px;
+            min-width: 90px;
+            padding: 3px;
+            border-radius: 8px;
+            color: black;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+
+    .rules {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 5px;
+
+      span {
+        font-size: 16px;
+      }
+
+      p {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .credit {
+    color: var(--contrast);
+    margin-left: auto;
+  }
+
+  &.responsive {
+    width: 100%;
+
+    .header {
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+    .row {
+      flex-flow: row wrap;
+    }
+
+    .card {
+      .team .pokemon {
+        @media (max-width: 500px) {
+          display: flex;
+          flex-flow: row wrap;
+        }
+      }
+
+      .encounters {
+        flex-flow: row wrap;
+
+        .byTypeContainer {
+          @media (max-width: 500px) {
+            grid-template-columns: repeat(3, minmax(0, 90px));
+          }
+        }
+      }
+
+      .rules {
+        min-width: 200px;
+      }
+    }
+  }
+}

@@ -77,7 +77,7 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
           overflow: 'auto',
         }}
       >
-        <textarea defaultValue={text} ref={shareRef} rows={5} />
+        <textarea data-testid="share-textarea" defaultValue={text} ref={shareRef} rows={5} />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleCopy}>Copy</Button>

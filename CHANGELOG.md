@@ -4,11 +4,12 @@
 
 - App now available on the Amazon AppStore
 - See a breakdown in the Team Builder of what your team is strong and weak against
+- Summary image display settings now save per game so they don't have to be re-entered everytime
 
 💅 Enhancement
 
-- There is now a loading icon when generating the summary image for sharing
-- Summary page is now much more responsive on smaller screens
+- Loading icon when generating the summary image for sharing
+- Summary image is now much more responsive on smaller screens
 
 🏠 Internal
 

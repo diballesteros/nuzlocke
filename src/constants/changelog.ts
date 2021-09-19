@@ -15,11 +15,16 @@ const CHANGELOG: TReleaseNotes = [
         type: 'FEATURE',
       },
       {
-        description: 'There is now a loading icon when generating the summary image for sharing',
+        description:
+          "Summary image display settings now save per game so they don't have to be re-entered everytime",
+        type: 'FEATURE',
+      },
+      {
+        description: 'Loading icon when generating the summary image',
         type: 'UPDATE',
       },
       {
-        description: 'Summary page is now much more responsive on smaller screens',
+        description: 'Summary image is now much more responsive on smaller screens',
         type: 'UPDATE',
       },
     ],
