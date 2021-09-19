@@ -7,8 +7,6 @@
 
 # testing
 /coverage
-.nyc_output
-*/out.json
 /cypress/downloads
 
 # production
