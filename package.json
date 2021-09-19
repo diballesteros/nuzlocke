@@ -16,6 +16,8 @@
   },
   "private": true,
   "dependencies": {
+    "@cypress/code-coverage": "^3.9.11",
+    "@cypress/instrument-cra": "^1.4.0",
     "html-to-image": "^1.8.5",
     "immer": "^9.0.6",
     "react": "^17.0.2",
@@ -56,8 +58,6 @@
     ]
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.11",
-    "@cypress/instrument-cra": "^1.4.0",
     "@types/lodash": "^4.14.173",
     "@types/node": "^16.9.2",
     "@types/react": "^17.0.21",
