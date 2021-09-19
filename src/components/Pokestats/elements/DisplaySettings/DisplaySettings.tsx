@@ -106,6 +106,7 @@ const DisplaySettings: React.FC = () => {
             <div>
               <Checkbox
                 checked={summary?.showDescription}
+                data-testid="summary-show-description"
                 label="Show description"
                 onChange={() => toggleSummarySetting('showDescription')}
               />
