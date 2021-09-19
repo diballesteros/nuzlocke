@@ -251,9 +251,8 @@ export const getRuleContent = (content: TRuleContent, type: TRule): string => {
     case 'LEVEL':
       return `Max level ${content}`;
     case 'TEXT':
-      return content as string;
     default:
-      return '';
+      return content as string;
   }
 };
 

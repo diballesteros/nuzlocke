@@ -23,6 +23,12 @@ describe('Badges', () => {
     cy.contains('Set default').click();
     cy.contains('Close').click();
     cy.get('[title="Grass Badge"]').should('have.text', '20');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Red, Blue and Yellow').click();
+    cy.get('[data-testid=edit-badges]').click();
+    cy.get('[data-testid=badge-multiple-default]').click();
+    cy.get('[data-testid=badge-multiple-default] > .visible > :nth-child(2)').click();
+    cy.get('.content > :nth-child(1) > input').should('have.value', '12');
   });
 
   it('Badge Details', () => {

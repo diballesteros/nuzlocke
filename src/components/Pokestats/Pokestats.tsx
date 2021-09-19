@@ -88,7 +88,7 @@ const Pokestats: React.FC = () => {
                   pinned
                   position="top center"
                   trigger={
-                    <div className={styles.pokeball}>
+                    <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
                       <img
                         alt={foundPokemon?.text}
                         className={styles.pokemon}

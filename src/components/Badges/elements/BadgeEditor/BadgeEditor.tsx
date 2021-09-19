@@ -68,9 +68,10 @@ const BadgeEditor: React.FC = () => {
         {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
           <Dropdown
             button
-            text="Set default"
+            data-testid="badge-multiple-default"
             onChange={handleMultiReset}
             options={LEVEL_CAPS[selectedGame?.value]}
+            text="Set default"
             value={null}
           />
         ) : (
