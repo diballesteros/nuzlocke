@@ -26,6 +26,9 @@ describe('Encounters', () => {
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
     cy.get('[data-testid="evolve-0}"]').click();
+    cy.get(':nth-child(3) > .ui > label').click();
+    cy.contains('Cancel').click();
+    cy.get('[data-testid="evolve-0}"]').click();
     cy.get(':nth-child(2) > .ui > label').click();
     cy.contains('Save').click();
     cy.contains('Raboot').should('exist');
@@ -55,6 +58,8 @@ describe('Encounters', () => {
   });
 
   it('Add encounter', () => {
+    cy.get('[data-testid=add-encounter]').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=add-encounter]').click();
     cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
     cy.contains('Save').click();
