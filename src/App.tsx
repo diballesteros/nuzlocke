@@ -105,7 +105,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className={styles.app}>
+    <main className={styles.app} data-testid="app">
       <header>
         <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
           <button
@@ -194,6 +194,7 @@ const App: React.FC = () => {
             <Button
               aria-label="darkmode"
               className={`${styles.button} ${styles.darkmode}`}
+              data-testid="darkmode"
               icon
               onClick={() => appState.toggleMode()}
             >

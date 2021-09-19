@@ -32,6 +32,8 @@ describe('Custom game', () => {
 
     it('Add game', () => {
       cy.get('[data-testid=add-game]').click();
+      cy.contains('Cancel').click();
+      cy.get('[data-testid=add-game]').click();
       cy.get('[data-testid=add-game-input] > input')
         .type('Emerald Kaizo')
         .should('have.value', 'Emerald Kaizo');

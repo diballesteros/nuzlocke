@@ -11,7 +11,8 @@
     "exclude": [
       "src/serviceWorker.ts",
       "src/serviceWorkerRegistration.ts",
-      "src/components/UpdateSW/UpdateSW.tsx"
+      "src/components/UpdateSW/UpdateSW.tsx",
+      "src/index.tsx"
     ]
   },
   "private": true,

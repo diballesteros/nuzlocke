@@ -68,4 +68,10 @@ describe('Options', () => {
       .type('Please implement new feature')
       .should('have.value', 'Please implement new feature');
   });
+
+  it('Dark mode', () => {
+    cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(255, 255, 255)');
+    cy.get('[data-testid=darkmode]').click();
+    cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(33, 33, 33)');
+  });
 });

@@ -70,6 +70,48 @@ describe('PokéStats', () => {
     cy.contains('Cause of Fainting: Died to crit').should('exist');
   });
 
+  it('Team Badge', { scrollBehavior: 'center', viewportWidth: 550 }, () => {
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.contains('Scorbunny').should('exist');
+    cy.get('[data-testid=status-0]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.contains('Save').click();
+
+    cy.get('[data-testid=encounter-1]').click();
+    cy.get('[data-testid=poke-Butterfree]').click();
+    cy.get('[data-testid=status-1]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+    cy.get('[data-testid=edit-encounter-1]').click();
+    cy.get('[data-testid=gender]').click();
+    cy.get('[data-testid=gender] > .visible > :nth-child(1)').click();
+    cy.contains('Save').click();
+
+    cy.get('[data-testid=encounter-2]').click();
+    cy.get('[data-testid=poke-Hoothoot]').click();
+    cy.get('[data-testid=status-2]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+    cy.get('[data-testid=edit-encounter-2]').click();
+    cy.get('[data-testid=gender]').click();
+    cy.get('[data-testid=gender] > .visible > :nth-child(3)').click();
+    cy.contains('Save').click();
+
+    cy.get('[data-testid=options]').click();
+    cy.contains('Stats').click();
+    cy.get('.secondary > :nth-child(2) > .ui').click();
+
+    cy.get('[data-testid=team-0]').click();
+    cy.contains('Met at: Starter').should('exist');
+    cy.get('[data-testid=team-1]').click();
+    cy.contains('Slumbering Weald').should('exist');
+    cy.get('[data-testid=team-2]').click();
+    cy.contains('Route 1').should('exist');
+  });
+
   it('Summary Page', { scrollBehavior: 'center', viewportWidth: 550 }, () => {
     cy.get('[data-testid=encounter-0]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
@@ -77,6 +119,8 @@ describe('PokéStats', () => {
     cy.get('[data-testid=status-0]').click();
     cy.get('.visible.menu.transition').scrollTo('bottom');
     cy.get('.visible > :nth-child(7)').click();
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('Close').click();
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.pokemondetail();
     cy.contains('Save').click();
