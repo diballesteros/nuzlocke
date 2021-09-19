@@ -69,6 +69,8 @@ describe('Rules', () => {
     cy.contains('Save').click();
     cy.contains('Allowed types: GRASS').should('exist');
     cy.get('[data-testid=edit-rule-3]').click();
+    cy.contains('Cancel').click();
+    cy.get('[data-testid=edit-rule-3]').click();
     cy.get('[data-testid=edit-rule-type]').click();
     cy.contains('ICE').click();
     cy.contains('Edit Rule').click();
