@@ -111,9 +111,6 @@ const AddRule: React.FC = () => {
 
   const handleAdd = () => {
     switch (tab) {
-      case 0:
-        addRule({ content: ruleText, default: false, type: 'TEXT' });
-        break;
       case 1:
         addRule({ content: types, default: false, type: 'TYPE' });
         break;
@@ -123,7 +120,9 @@ const AddRule: React.FC = () => {
       case 3:
         addRule({ content: level, default: false, type: 'LEVEL' });
         break;
+      case 0:
       default:
+        addRule({ content: ruleText, default: false, type: 'TEXT' });
         break;
     }
     setOpen(false);
