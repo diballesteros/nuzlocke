@@ -185,17 +185,4 @@ describe('Rules', () => {
     cy.get('[data-testid=share-encounters]').click();
     cy.get('.page').click(1, 1);
   });
-
-  it('Share Image - WebShare', { browser: '!firefox' }, () => {
-    cy.visit('/', {
-      onBeforeLoad(win) {
-        cy.stub(win.console, 'error').as('consoleError');
-      },
-    });
-    cy.get('[data-testid=options]').click();
-    cy.contains('Rules').click();
-    cy.get('h1').click();
-    cy.get('[data-testid=share-encounters]').click();
-    cy.get('@consoleError').should('be.calledOnce');
-  });
 });
