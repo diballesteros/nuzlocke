@@ -138,16 +138,15 @@ const AddRule: React.FC = () => {
 
   const getDisabled = () => {
     switch (tab) {
-      case 0:
-        return ruleText?.length === 0;
       case 1:
         return types?.length === 0 || containsType;
       case 2:
         return gens?.length === 0 || containsGen;
       case 3:
         return !level || containsLevel;
+      case 0:
       default:
-        return true;
+        return ruleText?.length === 0;
     }
   };
 

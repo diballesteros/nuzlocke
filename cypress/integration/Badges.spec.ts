@@ -27,6 +27,7 @@ describe('Badges', () => {
     cy.get('[data-testid=badge-multiple-default]').click();
     cy.get('[data-testid=badge-multiple-default] > .visible > :nth-child(2)').click();
     cy.get('.content > :nth-child(1) > input').should('have.value', '12');
+    cy.get('.page').click(1, 1);
   });
 
   it('Badge Details', () => {

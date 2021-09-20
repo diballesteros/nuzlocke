@@ -44,6 +44,7 @@ const FAB: React.FC = () => {
       )}
       <Button
         active={open}
+        aria-label="tracker-options"
         className={styles.button}
         circular
         icon="cog"

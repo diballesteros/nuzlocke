@@ -127,10 +127,68 @@ describe('Rules', () => {
     cy.contains('OVERLEVELED').should('exist');
   });
 
+  it('Over 6 alert', { scrollBehavior: 'center' }, () => {
+    cy.visit('/');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=pokemon-0]').click();
+    cy.contains('Scorbunny').click();
+    cy.get('[data-testid=status-0]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.contains('Butterfree').click();
+    cy.get('[data-testid=status-1]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-2]').click();
+    cy.contains('Caterpie').click();
+    cy.get('[data-testid=status-2]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-3]').click();
+    cy.get('[data-testid="poke-Slowpoke (Galarian)"]').click();
+    cy.get('[data-testid=status-3]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-4]').click();
+    cy.contains('Magikarp').click();
+    cy.get('[data-testid=status-4]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-5]').click();
+    cy.contains('Metapod').click();
+    cy.get('[data-testid=status-5]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.get('[data-testid=pokemon-6]').click();
+    cy.get('[data-testid=poke-Vulpix]').click({ force: true });
+    cy.get('[data-testid=status-6]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
+
+    cy.contains('TEAM OVER 6').should('exist');
+  });
+
   it('Share', { browser: 'firefox' }, () => {
     cy.get('h1').click();
     cy.get('[data-testid=share-encounters]').click();
     cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
     cy.contains('Copy').click();
+    cy.contains('Close').click();
+    cy.get('[data-testid=add-ruleset]').click();
+    cy.get('[data-testid=add-ruleset-input] > input').type('Nuzlocke Custom').click();
+    cy.contains('Save').click();
+    cy.get('[data-testid=rule-select]').click();
+    cy.contains('Nuzlocke Custom').should('exist').click();
+    cy.get('[data-testid=share-encounters]').click();
+    cy.get('[data-testid=share-textarea]').should('have.value', 'Ruleset\n        ');
+    cy.get('.page').click(1, 1);
   });
 });
