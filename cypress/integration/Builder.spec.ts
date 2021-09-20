@@ -12,6 +12,7 @@ describe('Builder', () => {
     cy.get('[data-testid=builder-add]').click();
     cy.get('[data-testid=filter-button]').click();
     cy.contains('GRASS').click();
+    cy.contains('GRASS').click();
     cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click();
     cy.get('.angle').click();
