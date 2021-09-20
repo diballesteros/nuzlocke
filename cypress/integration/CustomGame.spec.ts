@@ -28,8 +28,6 @@ describe('Custom game', () => {
         .children()
         .children()
         .should('have.length', 0);
-      cy.get('[data-testid=add-encounter-input] > input').type('Test');
-      cy.contains('Save').click();
     });
 
     it('Add game', () => {
