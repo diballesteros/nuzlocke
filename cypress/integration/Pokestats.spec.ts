@@ -41,6 +41,8 @@ describe('PokéStats', () => {
     cy.contains('Increased Stat').should('exist');
     cy.contains('Hardy').should('exist');
     cy.get('[data-testid=nature-close]').click();
+    cy.get('[data-testid=nature-info]').click();
+    cy.get('.dimmable > :nth-child(8)').click(1, 1);
     cy.pokemondetail();
     cy.contains('Save').click();
 

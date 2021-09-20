@@ -10,6 +10,9 @@ describe('Builder', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=builder-add]').click();
+    cy.get('[data-testid=filter-button]').click();
+    cy.contains('GRASS').click();
+    cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click();
     cy.get('.angle').click();
     cy.get('[data-testid=team-nature-Bulbasaur]').type('Bold');

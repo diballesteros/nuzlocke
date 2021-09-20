@@ -21,6 +21,8 @@ describe('Encounters', () => {
     cy.get('[data-testid=encounter-0]').click();
     cy.get('.st0Fire').click({ force: true });
     cy.contains('Super effective against').should('exist');
+    cy.get('.tabular > :nth-child(3)').click();
+    cy.get('.st0Steel').click({ force: true, multiple: true });
     cy.get('[data-testid=effect-close]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.contains('Scorbunny').should('exist');
@@ -45,11 +47,15 @@ describe('Encounters', () => {
     cy.get('[data-testid=reset-all]').click();
     cy.contains('Cancel').click();
     cy.get('[data-testid=reset-all]').click();
+    cy.get('.page').click(1, 1);
+    cy.get('[data-testid=reset-all]').click();
     cy.contains('OK').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
   });
 
   it('Delete encounter', () => {
+    cy.get('[data-testid=encounter-0] .trash').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=encounter-0] .trash').click();
     cy.contains('OK').click();
     cy.get('#search-filter').type('Starter');
