@@ -1,3 +1,5 @@
+import { ExtendedNavigator } from '../support/commands';
+
 describe('Rules', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -184,5 +186,23 @@ describe('Rules', () => {
     cy.contains('Close').click();
     cy.get('[data-testid=share-encounters]').click();
     cy.get('.page').click(1, 1);
+  });
+
+  it.only('Share Image - WebShare', { browser: '!firefox' }, () => {
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        (win.navigator as ExtendedNavigator).canShare = () => {
+          return true;
+        };
+        delete win.navigator.share;
+        delete (win.navigator as ExtendedNavigator).canShare;
+        (win.navigator as ExtendedNavigator).canShare = cy.stub().resolves(true);
+        win.navigator.share = cy.stub().resolves(true);
+      },
+    });
+    cy.get('[data-testid=options]').click();
+    cy.contains('Rules').click();
+    cy.get('h1').click();
+    cy.get('[data-testid=share-encounters]').click();
   });
 });

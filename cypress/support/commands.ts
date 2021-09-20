@@ -30,6 +30,10 @@ declare namespace Cypress {
   }
 }
 
+export interface ExtendedNavigator extends Navigator {
+  canShare: (stuff: unknown) => boolean;
+}
+
 Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid=level] > input').type('15').should('have.value', 15);
   cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
