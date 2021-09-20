@@ -188,7 +188,7 @@ describe('Rules', () => {
     cy.get('.page').click(1, 1);
   });
 
-  it.only('Share Image - WebShare', { browser: '!firefox' }, () => {
+  it('Share Image - WebShare', { browser: '!firefox' }, () => {
     cy.visit('/', {
       onBeforeLoad(win) {
         (win.navigator as ExtendedNavigator).canShare = () => {

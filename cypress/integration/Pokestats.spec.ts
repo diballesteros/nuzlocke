@@ -196,7 +196,7 @@ describe('PokéStats', () => {
     });
   });
 
-  it.only('Share Image - WebShare', { browser: '!firefox' }, () => {
+  it('Share Image - WebShare', { browser: '!firefox' }, () => {
     cy.visit('/', {
       onBeforeLoad(win) {
         (win.navigator as ExtendedNavigator).canShare = () => {
