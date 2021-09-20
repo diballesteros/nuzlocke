@@ -18,25 +18,24 @@ const Effectiveness: React.FC = React.memo(() => {
         render: () => (
           <Tab.Pane>
             <div className={styles.container}>
-              {!!typeModal
-                ? Object.entries(effectEntry[1][typeModal])?.reduce((effects, entry) => {
-                    if (entry[1]?.length > 0) {
-                      effects.push(
-                        <div key={`${effectEntry[0]}-${entry[0]}`}>
-                          <h4>{entry[0]}:</h4>
-                          <div className={styles.list}>
-                            {entry[1]?.map((value) => {
-                              return (
-                                <Type key={`${effectEntry[0]}-${entry[0]}-${value}`} type={value} />
-                              );
-                            })}
-                          </div>
+              {!!typeModal &&
+                Object.entries(effectEntry[1][typeModal])?.reduce((effects, entry) => {
+                  if (entry[1]?.length > 0) {
+                    effects.push(
+                      <div key={`${effectEntry[0]}-${entry[0]}`}>
+                        <h4>{entry[0]}:</h4>
+                        <div className={styles.list}>
+                          {entry[1]?.map((value) => {
+                            return (
+                              <Type key={`${effectEntry[0]}-${entry[0]}-${value}`} type={value} />
+                            );
+                          })}
                         </div>
-                      );
-                    }
-                    return effects;
-                  }, [])
-                : null}
+                      </div>
+                    );
+                  }
+                  return effects;
+                }, [])}
             </div>
           </Tab.Pane>
         ),

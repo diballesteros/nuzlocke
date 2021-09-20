@@ -32,6 +32,7 @@ const Summary: React.FC = () => {
   const handleShare = async () => {
     setLoading(true);
     const newFile = await toBlob(summaryRef.current);
+    setLoading(false);
     const data = {
       files: [
         new File([newFile], 'nuzlocke.png', {
@@ -47,10 +48,8 @@ const Summary: React.FC = () => {
         console.error("Can't share");
       }
       await navigator.share(data);
-      setLoading(false);
     } catch (err) {
       console.error(err);
-      setLoading(false);
     }
   };
 
