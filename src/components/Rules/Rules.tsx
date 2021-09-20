@@ -56,21 +56,19 @@ const Rules: React.FC = () => {
   return (
     <div className={styles.container}>
       <div className={styles.options}>
-        <Share
-          disabled={!selectedRuleset}
-          text={
-            selectedRuleset
-              ? rules[selectedRuleset]?.reduce(
-                  (str, rule, i) => {
-                    return `${str}
+        {!!selectedRuleset && (
+          <Share
+            disabled={!selectedRuleset}
+            text={rules[selectedRuleset]?.reduce(
+              (str, rule, i) => {
+                return `${str}
       ${i + 1}. ${getRuleContent(rule.content, rule.type) || 'N/A'}`;
-                  },
-                  `Ruleset
+              },
+              `Ruleset
         `
-                )
-              : ''
-          }
-        />
+            )}
+          />
+        )}
         <AddRule />
         <Dropdown
           aria-label="rules"
