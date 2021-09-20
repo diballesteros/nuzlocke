@@ -196,25 +196,47 @@ describe('PokéStats', () => {
     });
   });
 
-  it('Share Image - WebShare', { browser: '!firefox' }, () => {
-    cy.visit('/', {
-      onBeforeLoad(win) {
-        (win.navigator as ExtendedNavigator).canShare = () => {
-          return true;
-        };
-        delete win.navigator.share;
-        delete (win.navigator as ExtendedNavigator).canShare;
-        (win.navigator as ExtendedNavigator).canShare = cy.stub().resolves(true);
-        win.navigator.share = cy.stub().resolves(true);
-      },
+  context('Webshare', () => {
+    it('Share Image - WebShare', { browser: '!firefox' }, () => {
+      cy.visit('/', {
+        onBeforeLoad(win) {
+          (win.navigator as ExtendedNavigator).canShare = () => {
+            return true;
+          };
+          delete win.navigator.share;
+          delete (win.navigator as ExtendedNavigator).canShare;
+          (win.navigator as ExtendedNavigator).canShare = cy.stub().resolves(true);
+          win.navigator.share = cy.stub().resolves(true);
+        },
+      });
+      cy.get('[data-testid=game-select]').click();
+      cy.contains('Sword and Shield').click();
+      cy.get('[data-testid=options]').click();
+      cy.contains('Stats').click();
+      cy.get('h1').click();
+      cy.get('[data-testid=share-image]').click();
+      cy.contains('Generating Image').should('exist');
+      cy.wait(2000);
     });
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('Sword and Shield').click();
-    cy.get('[data-testid=options]').click();
-    cy.contains('Stats').click();
-    cy.get('h1').click();
-    cy.get('[data-testid=share-image]').click();
-    cy.contains('Generating Image').should('exist');
-    cy.wait(2000);
+
+    it('Share Image - WebShare - Error', { browser: '!firefox' }, () => {
+      cy.visit('/', {
+        onBeforeLoad(win) {
+          delete win.navigator.share;
+          delete (win.navigator as ExtendedNavigator).canShare;
+          (win.navigator as ExtendedNavigator).canShare = () => true;
+          win.navigator.share = cy.stub().rejects(Error('test'));
+          cy.stub(win.console, 'error').as('consoleError');
+        },
+      });
+      cy.get('[data-testid=game-select]').click();
+      cy.contains('Sword and Shield').click();
+      cy.get('[data-testid=options]').click();
+      cy.contains('Stats').click();
+      cy.get('h1').click();
+      cy.get('[data-testid=share-image]').click();
+      cy.contains('Generating Image').should('exist');
+      cy.get('@consoleError').should('be.calledOnce');
+    });
   });
 });
