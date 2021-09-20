@@ -182,13 +182,20 @@ describe('Rules', () => {
     cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
     cy.contains('Copy').click();
     cy.contains('Close').click();
-    cy.get('[data-testid=add-ruleset]').click();
-    cy.get('[data-testid=add-ruleset-input] > input').type('Nuzlocke Custom').click();
-    cy.contains('Save').click();
-    cy.get('[data-testid=rule-select]').click();
-    cy.contains('Nuzlocke Custom').should('exist').click();
     cy.get('[data-testid=share-encounters]').click();
-    cy.get('[data-testid=share-textarea]').should('have.value', 'Ruleset\n        ');
     cy.get('.page').click(1, 1);
+  });
+
+  it('Share Image - WebShare', { browser: '!firefox' }, () => {
+    cy.visit('/', {
+      onBeforeLoad(win) {
+        cy.stub(win.console, 'error').as('consoleError');
+      },
+    });
+    cy.get('[data-testid=options]').click();
+    cy.contains('Rules').click();
+    cy.get('h1').click();
+    cy.get('[data-testid=share-encounters]').click();
+    cy.get('@consoleError').should('be.calledOnce');
   });
 });
