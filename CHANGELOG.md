@@ -6,6 +6,10 @@
 - See a breakdown in the Team Builder of what your team is strong and weak against
 - Summary image display settings now save per game so they don't have to be re-entered everytime
 
+🐛 Bug Fix
+
+- Added Route 46 to HeartGold, SoulSilver, Gold, Silver and Crystal
+
 💅 Enhancement
 
 - Loading icon when generating the summary image for sharing

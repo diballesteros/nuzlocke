@@ -27,6 +27,11 @@ const CHANGELOG: TReleaseNotes = [
         description: 'Summary image is now much more responsive on smaller screens',
         type: 'UPDATE',
       },
+      {
+        description:
+          'Added Route 46 to HeartGold, SoulSilver, Gold, Silver and Crystal (Reset all encounters to see)',
+        type: 'FIX',
+      },
     ],
   },
   {
