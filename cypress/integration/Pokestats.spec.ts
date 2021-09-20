@@ -215,5 +215,6 @@ describe('PokéStats', () => {
     cy.get('h1').click();
     cy.get('[data-testid=share-image]').click();
     cy.contains('Generating Image').should('exist');
+    cy.wait(2000);
   });
 });

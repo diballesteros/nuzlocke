@@ -9,7 +9,9 @@ const AppRouter: React.FC = () => {
   return (
     <Switch>
       <Route exact path="/">
-        <Tracker />
+        <ErrorBoundary>
+          <Tracker />
+        </ErrorBoundary>
       </Route>
       <Route path="/rules">
         <ErrorBoundary>

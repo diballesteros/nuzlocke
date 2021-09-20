@@ -12,7 +12,8 @@
       "src/serviceWorker.ts",
       "src/serviceWorkerRegistration.ts",
       "src/components/UpdateSW/UpdateSW.tsx",
-      "src/index.tsx"
+      "src/index.tsx",
+      "src/error/ErrorBoundary.tsx"
     ]
   },
   "private": true,

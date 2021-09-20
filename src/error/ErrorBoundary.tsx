@@ -25,8 +25,6 @@ class ErrorBoundary extends Component {
             display: 'flex',
             flexFlow: 'column nowrap',
             gap: '10px',
-            width: '100vw',
-            height: '100vh',
             textAlign: 'center',
           }}
         >
