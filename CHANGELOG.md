@@ -3,7 +3,6 @@
 🚀 New features
 
 - App now available on the Amazon AppStore
-- See a breakdown in the Team Builder of what your team is strong and weak against
 - Summary image display settings now save per game so they don't have to be re-entered everytime
 
 🐛 Bug Fix
