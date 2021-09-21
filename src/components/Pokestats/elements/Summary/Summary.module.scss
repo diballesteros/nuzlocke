@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  gap: 10px;
+  padding: 0 5px;
+
+  .options {
+    display: flex;
+    width: calc(100% - 10px);
+    padding: 0 5px;
+    position: relative;
+
+    > button > i {
+      margin-left: 5px !important;
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 500px) {
+      > button {
+        padding: 10px;
+        > i {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .loading {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--contrast);
+  }
+
+  .inner {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 5px;
+    width: 100%;
+    overflow: auto;
+  }
+
+  .offscreen {
+    position: absolute;
+    max-width: 1200px;
+    bottom: -100000px;
+    right: -100000px;
+  }
+}

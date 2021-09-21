@@ -39,6 +39,9 @@ export interface AppState {
   changeNickname: (encounterId: number, nickname: string) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
+  changeSummaryDescription: (desc: string) => void;
+  changeSummaryStatus: (status: number) => void;
+  changeSummaryTitle: (title: string) => void;
   changeTeamMember: (teamIndex: number, detail: PokemonDetail) => void;
   clearEncounter: (encounterId: number) => void;
   closeTypeModal: () => void;
@@ -58,10 +61,12 @@ export interface AppState {
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
   showTypeModal: (type: Type) => void;
+  summary: TSummaryDictionary;
   toggleMissing: () => void;
   toggleMode: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
+  toggleSummarySetting: (property: keyof TSummaryBasic) => void;
 }
 
 declare global {
@@ -101,6 +106,10 @@ export type TBadgeDictionary = {
 
 export type TTeamDictionary = {
   [key: string]: PokemonDetail[];
+};
+
+export type TSummaryDictionary = {
+  [key: string]: TSummary;
 };
 
 export type TBadge = {
@@ -161,6 +170,21 @@ export type TRuleContent = string | string[] | number | number[];
 export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
 type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH';
+
+export interface TSummary extends TSummaryBasic {
+  description: string;
+  status: number;
+  title: string;
+}
+
+export interface TSummaryBasic {
+  boxed: boolean;
+  encounters: boolean;
+  fainted: boolean;
+  rules: boolean;
+  stats: boolean;
+  showDescription: boolean;
+}
 
 export type TDetail = {
   content: PokemonDetail[];

@@ -2,6 +2,34 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.7.0',
+    date: 1632193286534,
+    notes: [
+      {
+        description: 'Now available on the Amazon Appstore',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          "Summary image display settings now save per game so they don't have to be re-entered everytime",
+        type: 'FEATURE',
+      },
+      {
+        description: 'Loading icon when generating the summary image',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Summary image is now much more responsive on smaller screens',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Route 46 to HeartGold, SoulSilver, Gold, Silver and Crystal (Reset all encounters to see)',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.6.3',
     date: 1631847543576,
     notes: [

@@ -172,6 +172,18 @@ export const DEFAULT_RULES: TRulesetDictionary = {
   'Genlocke': GENERATION_RULESET,
 };
 
+export const INITIAL_SUMMARY = {
+  boxed: true,
+  description: '',
+  encounters: true,
+  fainted: true,
+  rules: true,
+  showDescription: true,
+  stats: true,
+  status: 0,
+  title: 'Nuzlocke Run',
+};
+
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
   darkMode: false,
@@ -200,6 +212,21 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedGame: null,
   selectedRuleset: 'Nuzlocke',
   showAll: false,
+  summary: {
+    '1': { ...INITIAL_SUMMARY },
+    '2': { ...INITIAL_SUMMARY },
+    '3': { ...INITIAL_SUMMARY },
+    '4': { ...INITIAL_SUMMARY },
+    '5': { ...INITIAL_SUMMARY },
+    '6': { ...INITIAL_SUMMARY },
+    '7': { ...INITIAL_SUMMARY },
+    '8': { ...INITIAL_SUMMARY },
+    '9': { ...INITIAL_SUMMARY },
+    '10': { ...INITIAL_SUMMARY },
+    '11': { ...INITIAL_SUMMARY },
+    '12': { ...INITIAL_SUMMARY },
+    '13': { ...INITIAL_SUMMARY },
+  },
   team: {},
   text: null,
 };
@@ -224,9 +251,8 @@ export const getRuleContent = (content: TRuleContent, type: TRule): string => {
     case 'LEVEL':
       return `Max level ${content}`;
     case 'TEXT':
-      return content as string;
     default:
-      return '';
+      return content as string;
   }
 };
 

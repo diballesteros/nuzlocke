@@ -11,7 +11,14 @@ const Natures: React.FC = () => {
       closeOnDimmerClick
       onClose={() => setOpen(false)}
       open={open}
-      trigger={<Button aria-label="nature chart" icon="question" onClick={() => setOpen(true)} />}
+      trigger={
+        <Button
+          aria-label="nature chart"
+          data-testid="nature-info"
+          icon="question"
+          onClick={() => setOpen(true)}
+        />
+      }
     >
       <Modal.Content className={styles.container}>
         <div className={styles.table}>
@@ -38,7 +45,9 @@ const Natures: React.FC = () => {
         </div>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Close</Button>
+        <Button data-testid="nature-close" onClick={() => setOpen(false)}>
+          Close
+        </Button>
       </Modal.Actions>
     </Modal>
   );

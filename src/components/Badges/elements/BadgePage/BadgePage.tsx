@@ -52,6 +52,7 @@ const BadgePage: React.FC = () => {
       <Tab
         activeIndex={tab}
         className={styles.tabs}
+        data-testid="badge-details-tabs"
         menu={{ attached: false, tabular: false }}
         onTabChange={(e, data) => handleTabChange(data.activeIndex)}
         panes={panes}

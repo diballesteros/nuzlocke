@@ -6,6 +6,7 @@ import 'semantic-ui-css/components/container.min.css';
 import 'semantic-ui-css/components/dropdown.min.css';
 import 'semantic-ui-css/components/checkbox.min.css';
 import 'semantic-ui-css/components/icon.min.css';
+import 'semantic-ui-css/components/loader.min.css';
 import 'semantic-ui-css/components/modal.min.css';
 import 'semantic-ui-css/components/menu.min.css';
 import 'semantic-ui-css/components/popup.min.css';

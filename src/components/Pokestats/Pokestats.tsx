@@ -11,7 +11,8 @@ import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
-import { PokeInfo, Summary } from 'components';
+import { PokeInfo } from 'components';
+import { Summary } from 'components/Pokestats/elements';
 import styles from './Pokestats.module.scss';
 
 const Pokestats: React.FC = () => {
@@ -87,7 +88,7 @@ const Pokestats: React.FC = () => {
                   pinned
                   position="top center"
                   trigger={
-                    <div className={styles.pokeball}>
+                    <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
                       <img
                         alt={foundPokemon?.text}
                         className={styles.pokemon}

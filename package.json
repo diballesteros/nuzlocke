@@ -2,17 +2,23 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "3.6.3",
+  "version": "3.7.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
   },
   "nyc": {
-    "exclude": "src/serviceWorker.js"
+    "exclude": [
+      "src/serviceWorker.ts",
+      "src/serviceWorkerRegistration.ts",
+      "src/components/UpdateSW/UpdateSW.tsx",
+      "src/index.tsx",
+      "src/error/ErrorBoundary.tsx"
+    ]
   },
   "private": true,
   "dependencies": {
-    "html-to-image": "^1.7.0",
+    "html-to-image": "^1.8.5",
     "immer": "^9.0.6",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -25,10 +31,11 @@
   },
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
-    "start": "react-scripts -r @cypress/instrument-cra start",
+    "start": "react-scripts start",
     "httpss": "HTTPS=true react-scripts start",
-    "develop:ci": "CHOKIDAR_USEPOLLING=1 yarn start -r @cypress/instrument-cra start",
+    "develop:ci": "CHOKIDAR_USEPOLLING=1 react-scripts -r @cypress/instrument-cra start",
     "build": "react-scripts build",
+    "e2e": "cypress open",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",
@@ -54,15 +61,15 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.11",
     "@cypress/instrument-cra": "^1.4.0",
-    "@types/lodash": "^4.14.172",
-    "@types/node": "^16.9.1",
-    "@types/react": "^17.0.20",
+    "@types/lodash": "^4.14.173",
+    "@types/node": "^16.9.2",
+    "@types/react": "^17.0.21",
     "@types/react-dom": "^17.0.9",
-    "@types/react-router-dom": "^5.1.8",
+    "@types/react-router-dom": "^5.1.9",
     "@types/react-window": "^1.8.5",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
-    "cypress": "^8.4.0",
+    "cypress": "^8.4.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-typescript": "^12.3.1",
@@ -70,10 +77,11 @@
     "eslint-plugin-import": "^2.24.2",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "3.4.1",
-    "eslint-plugin-react": "^7.25.1",
+    "eslint-plugin-react": "^7.25.2",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "node-sass": "4.14.1",
-    "prettier": "^2.3.2",
+    "node-sass": "^6.0.1",
+    "prettier": "^2.4.1",
+    "sass-loader": "^12.1.0",
     "source-map-explorer": "^2.5.2",
     "typescript": "4.0.8"
   }

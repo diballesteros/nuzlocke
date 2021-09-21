@@ -28,7 +28,6 @@ export { default as Rules } from './Rules/Rules';
 export { default as Settings } from './Settings/Settings';
 export { default as Share } from './Share/Share';
 export { default as Status } from './Status/Status';
-export { default as Summary } from './Summary/Summary';
 export { default as Tracker } from './Tracker/Tracker';
 export { default as Type } from './Type/Type';
 export { default as UpdateSW } from './UpdateSW/UpdateSW';

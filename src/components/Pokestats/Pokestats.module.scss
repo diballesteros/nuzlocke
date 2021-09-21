@@ -32,6 +32,7 @@
       display: flex;
       flex-flow: row nowrap;
       overflow: auto;
+      padding: 1px 8px;
     }
     :global(.ui.secondary.menu .active) {
       background-color: var(--card);

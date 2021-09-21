@@ -1,0 +1,65 @@
+.container {
+  position: relative;
+
+  > button > i {
+    margin-left: 5px !important;
+    margin-right: 0 !important;
+  }
+
+  @media (max-width: 500px) {
+    > button {
+      padding: 10px;
+      > i {
+        display: none;
+      }
+    }
+  }
+
+  .popup {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+    position: absolute;
+    right: 0;
+    top: 40px;
+    width: 250px;
+    min-width: 250px;
+    height: fit-content;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 1px 0px 14px 1px #d0d0d0;
+    text-align: center;
+    z-index: 1;
+
+    > details {
+      padding: 5px;
+      border-bottom: 1px solid var(--contrast);
+      text-align: left;
+
+      > div {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 5px;
+        padding: 5px 0;
+      }
+    }
+
+    .dropdown {
+      min-height: unset !important;
+    }
+
+    .textarea {
+      width: 100%;
+      resize: none;
+    }
+
+    :global(.ui.checkbox) {
+      width: 100%;
+
+      label {
+        color: var(--contrast);
+      }
+    }
+  }
+}
