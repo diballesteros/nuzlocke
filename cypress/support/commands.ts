@@ -23,13 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-
-declare namespace Cypress {
-  interface Chainable {
-    pokemondetail(): Chainable<Element>;
-  }
-}
-
 export interface ExtendedNavigator extends Navigator {
   canShare: (stuff: unknown) => boolean;
 }
