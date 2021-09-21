@@ -3,15 +3,10 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.7.0',
-    date: 1631847543576,
+    date: 1632193286534,
     notes: [
       {
         description: 'Now available on the Amazon Appstore',
-        type: 'FEATURE',
-      },
-      {
-        description:
-          'See a breakdown in the Team Builder of what your team is strong and weak against',
         type: 'FEATURE',
       },
       {
