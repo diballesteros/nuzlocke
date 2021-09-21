@@ -2,6 +2,7 @@ import { Type } from 'constants/types';
 import { useState } from 'react';
 
 export type TFilter = {
+  reset: () => void;
   search: string;
   setSearch: (e: string) => void;
   gens: number[];
@@ -35,7 +36,13 @@ function useFilter(): TFilter {
     }
   };
 
-  return { search, setSearch, gens, setGens, types, setTypes };
+  const reset = () => {
+    setSearch('');
+    handleGens([]);
+    handleTypes([]);
+  };
+
+  return { reset, search, setSearch, gens, setGens, types, setTypes };
 }
 
 export default useFilter;
