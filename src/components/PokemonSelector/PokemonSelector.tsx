@@ -33,6 +33,12 @@ const PokemonSelector: React.FC<PokemonSelectorProps> = ({
 
   const handleClick = (pokemonId: number) => {
     handlePokemon(pokemonId);
+    values.reset();
+    setOpen(false);
+  };
+
+  const handleClose = () => {
+    values.reset();
     setOpen(false);
   };
 
@@ -74,7 +80,7 @@ const PokemonSelector: React.FC<PokemonSelectorProps> = ({
         </FixedSizeList>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Close</Button>
+        <Button onClick={handleClose}>Close</Button>
       </Modal.Actions>
     </Modal>
   );
