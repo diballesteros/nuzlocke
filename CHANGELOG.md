@@ -1,3 +1,10 @@
+## Version 3.7.1
+
+🐛 Bug Fix
+
+- Spinarak should now show up in all locations where it can be found
+- Mawile, Sableye and Nosepass now show up in Granite Cave for Ruby, Sapphire, Emerald, OmegaRuby and AlphaSapphire
+
 ## Version 3.7.0
 
 🚀 New features
