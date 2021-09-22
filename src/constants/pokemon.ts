@@ -2605,7 +2605,7 @@ const POKEMON: TPokemon[] = [
   },
   {
     value: 167,
-    text: 'Spinark',
+    text: 'Spinarak',
     image: spinarak,
     type: 'BUG',
     dualtype: 'POISON',
