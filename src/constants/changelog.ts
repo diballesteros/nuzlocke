@@ -2,6 +2,21 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.7.1',
+    date: 1632269766819,
+    notes: [
+      {
+        description: 'Spinarak should now show up in all locations where it can be found',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Mawile, Sableye and Nosepass now show up in Granite Cave for Ruby, Sapphire, Emerald, OmegaRuby and AlphaSapphire (Reset all encounters to see)',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.7.0',
     date: 1632193286534,
     notes: [
