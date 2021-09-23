@@ -243,6 +243,7 @@ const App: React.FC = () => {
             <input
               aria-labelledby="import"
               className={styles.hiddenFileInput}
+              data-testid="import"
               id="file-input"
               onChange={handleImport}
               type="file"

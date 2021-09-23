@@ -55,6 +55,30 @@ describe('Options', () => {
     cy.readFile(filename).its('gamesList').should('exist');
   });
 
+  context('Import', () => {
+    it('Import - Success', () => {
+      cy.get('[data-testid=import]').attachFile('PokemonList.json');
+      cy.contains('Emerald Kaizo').should('exist');
+      cy.contains('Super Secret Place').should('exist');
+      cy.contains('Bulbasaur').should('exist');
+      cy.contains('Team').should('exist');
+      cy.contains('Rules').click();
+      cy.contains('Have fun!').should('exist');
+      cy.contains('Builder').click();
+      cy.get('[data-testid=team-poke-Venusaur]').should('exist');
+    });
+
+    it('Import - Failure', () => {
+      cy.visit('/', {
+        onBeforeLoad(win) {
+          cy.stub(win.console, 'error').as('consoleError');
+        },
+      });
+      cy.get('[data-testid=import]').attachFile('Invalid.json');
+      cy.get('@consoleError').should('be.calledOnce');
+    });
+  });
+
   it('Report', () => {
     cy.contains('Report').click();
     cy.get('[data-testid=report-type]').select('Suggestion').should('have.value', 'suggestion');
