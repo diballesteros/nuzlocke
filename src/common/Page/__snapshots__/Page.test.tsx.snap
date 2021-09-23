@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page Page renders correctly 1`] = `
+<div>
+  <div
+    class="page"
+  >
+    <div
+      class="header"
+    >
+      <h2>
+        Test
+      </h2>
+       
+      <button
+        class="ui button"
+        style="height: 36px;"
+        type="button"
+      >
+        <i
+          aria-hidden="true"
+          class="arrow left icon"
+        />
+        Back
+      </button>
+    </div>
+    <div>
+      Test
+    </div>
+  </div>
+</div>
+`;
