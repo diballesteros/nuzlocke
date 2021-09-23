@@ -19,7 +19,6 @@ export { default as Nickname } from './Nickname/Nickname';
 export { default as Options } from './Options/Options';
 export { default as PokeInfo } from './PokeInfo/PokeInfo';
 export { default as Pokemon } from './Pokemon/Pokemon';
-export { default as PokemonSelector } from './PokemonSelector/PokemonSelector';
 export { default as PokemonType } from './PokemonType/PokemonType';
 export { default as Pokestats } from './Pokestats/Pokestats';
 export { default as Report } from './Report/Report';

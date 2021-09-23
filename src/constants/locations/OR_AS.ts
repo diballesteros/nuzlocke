@@ -141,7 +141,17 @@ const OR_AS: TEncounter[] = [
     status: null,
   },
   {
-    filter: ['Zubat', 'Abra', 'Geodude', 'Makuhita', 'Aron', 'Onix'],
+    filter: [
+      'Zubat',
+      'Abra',
+      'Geodude',
+      'Makuhita',
+      'Aron',
+      'Onix',
+      'Mawile',
+      'Sabeleye',
+      'Nosepass',
+    ],
     id: 14,
     pokemon: null,
     location: 'Granite Cave',

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Back Back renders correctly 1`] = `
+<div>
+  <button
+    class="ui button"
+    style="height: 36px;"
+    type="button"
+  >
+    <i
+      aria-hidden="true"
+      class="arrow left icon"
+    />
+    Back
+  </button>
+</div>
+`;
