@@ -45,7 +45,7 @@ const Summary: React.FC = () => {
 
     try {
       if (!navigator.canShare(data)) {
-        console.error("Can't share");
+        throw Error("Can't share");
       }
       await navigator.share(data);
     } catch (err) {
