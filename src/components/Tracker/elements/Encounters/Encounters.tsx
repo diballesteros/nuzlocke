@@ -7,7 +7,8 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TYPE_COLOR } from 'constants/colors';
-import { Detail, Nickname, Pokemon, Status } from 'components';
+import { Status } from 'components';
+import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 

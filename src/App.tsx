@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -9,9 +10,8 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
-import { AppState } from 'constants/types';
 import AppRouter from 'routes/AppRouter';
-import { Effectiveness, Footer } from 'components';
+import { Effectiveness, Footer, Import } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
@@ -60,23 +60,6 @@ const App: React.FC = () => {
     document.body.appendChild(downloadAnchorNode);
     downloadAnchorNode.click();
     downloadAnchorNode.remove();
-  };
-
-  const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fileReader = new FileReader();
-    fileReader.readAsText(e.target.files[0], 'UTF-8');
-    fileReader.onload = (event) => {
-      try {
-        const partialState: Partial<AppState> = JSON.parse(event.target.result as string);
-        if (!!partialState?.games && !!partialState?.selectedGame && !!partialState?.gamesList) {
-          appState.importState(partialState);
-        } else {
-          throw Error('Invalid');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
   };
 
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
@@ -238,18 +221,7 @@ const App: React.FC = () => {
             <Icon name="download" />
             Export
           </Menu.Item>
-          <Menu.Item id="import">
-            <Icon name="upload" />
-            <input
-              aria-labelledby="import"
-              className={styles.hiddenFileInput}
-              data-testid="import"
-              id="file-input"
-              onChange={handleImport}
-              type="file"
-            />
-            Import
-          </Menu.Item>
+          <Import />
           <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
             Report
             <Icon name="bug" />
@@ -290,6 +262,12 @@ const App: React.FC = () => {
       </Sidebar.Pushable>
       <Footer />
       <Effectiveness />
+      <ToastContainer
+        position="bottom-center"
+        limit={3}
+        pauseOnHover={false}
+        theme={appState.darkMode ? 'dark' : 'light'}
+      />
     </main>
   );
 };

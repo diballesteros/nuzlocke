@@ -4,7 +4,8 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import useStore from 'store';
 import useDebounce from 'hooks/useDebounce';
 import POKEMON from 'constants/pokemon';
-import { AddEncounter, ResetEncounters, Share } from 'components';
+import { Share } from 'components';
+import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {

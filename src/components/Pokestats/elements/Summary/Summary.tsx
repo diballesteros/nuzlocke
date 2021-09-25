@@ -1,7 +1,7 @@
-import React, { useCallback, useRef, useState } from 'react';
+import React, { useCallback, useRef } from 'react';
+import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Loader from 'semantic-ui-react/dist/commonjs/elements/Loader/Loader';
 import { toPng, toBlob } from 'html-to-image';
 import useStore from 'store';
 import shallow from 'zustand/shallow';
@@ -9,18 +9,19 @@ import { DisplaySettings, Image } from 'components/Pokestats/elements';
 import styles from './Summary.module.scss';
 
 const Summary: React.FC = () => {
-  const [loading, setLoading] = useState(false);
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
   );
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
+
   const summaryRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {
-    setLoading(true);
-    const newFile = await toPng(summaryRef.current, { cacheBust: true });
-    setLoading(false);
+    const newFile = await toast.promise(toPng(summaryRef.current, { cacheBust: true }), {
+      pending: 'Generating Image',
+      success: 'Image downloaded',
+      error: 'Unable to download image',
+    });
     if (newFile) {
       const link = document.createElement('a');
       link.download = 'nuzlocke.png';
@@ -30,9 +31,11 @@ const Summary: React.FC = () => {
   };
 
   const handleShare = async () => {
-    setLoading(true);
-    const newFile = await toBlob(summaryRef.current);
-    setLoading(false);
+    const newFile = await toast.promise(toBlob(summaryRef.current), {
+      pending: 'Generating Image',
+      success: 'Image downloaded',
+      error: 'Unable to download image',
+    });
     const data = {
       files: [
         new File([newFile], 'nuzlocke.png', {
@@ -47,9 +50,13 @@ const Summary: React.FC = () => {
       if (!navigator.canShare(data)) {
         throw Error("Can't share");
       }
-      await navigator.share(data);
+      toast.promise(navigator.share(data), {
+        pending: 'Validating sharing options',
+        success: 'Share the image!',
+        error: 'Unable to share image',
+      });
     } catch (err) {
-      console.error(err);
+      toast.error('Unable to share image');
     }
   };
 
@@ -66,12 +73,6 @@ const Summary: React.FC = () => {
             </Button>
           )}
           <DisplaySettings />
-        </div>
-      )}
-      {loading && (
-        <div className={styles.loading}>
-          <Loader active={loading} inline inverted={darkMode} />
-          Generating Image...
         </div>
       )}
       <div className={styles.inner}>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Badges, Encounters, FAB, Options } from 'components';
+import { Badges } from 'components';
+import { Encounters, FAB, Options } from 'components/Tracker/elements';
 import styles from './Tracker.module.scss';
 
 const Tracker: React.FC = () => {

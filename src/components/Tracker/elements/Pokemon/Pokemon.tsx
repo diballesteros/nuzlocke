@@ -3,7 +3,7 @@ import shallow from 'zustand/shallow';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
-import { Evolve } from 'components';
+import { Evolve } from 'components/Tracker/elements';
 import { PokemonSelector } from 'common';
 import styles from './Pokemon.module.scss';
 

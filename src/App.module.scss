@@ -10,15 +10,6 @@ $break3: '(min-width:1005px)';
   transition: all 500ms;
   overflow: auto;
 
-  .hiddenFileInput {
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: 0;
-  }
-
   .header {
     color: var(--contrast);
     margin-left: auto !important;
