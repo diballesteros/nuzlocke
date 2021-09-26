@@ -13,7 +13,6 @@ const Summary: React.FC = () => {
     useCallback((state) => state.selectedGame, []),
     shallow
   );
-
   const summaryRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {

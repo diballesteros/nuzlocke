@@ -1,4 +1,4 @@
-import React, { LegacyRef, useCallback, useMemo } from 'react';
+import React, { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
@@ -53,6 +53,13 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       []
     )
   );
+  const setDefaultSummary = useStore(useCallback((state) => state.setDefaultSummary, []));
+
+  useEffect(() => {
+    if (!!selectedGame && responsive && !summary) {
+      setDefaultSummary();
+    }
+  }, [responsive, selectedGame, setDefaultSummary, summary]);
 
   const types = useMemo(() => {
     const TEMP = { ...TYPE_COUNT };

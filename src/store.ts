@@ -284,6 +284,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      setDefaultSummary: () => {
+        set((state) => {
+          state.summary[state?.selectedGame?.value] = { ...INITIAL_SUMMARY };
+        });
+      },
       showTypeModal: (type: Type) => {
         set((state) => {
           state.typeModal = type;

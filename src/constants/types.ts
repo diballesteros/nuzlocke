@@ -60,6 +60,7 @@ export interface AppState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  setDefaultSummary: () => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
   toggleMissing: () => void;
