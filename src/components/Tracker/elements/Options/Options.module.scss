@@ -5,9 +5,18 @@
   justify-content: space-between;
   align-items: center;
 
-  .search {
+  .searchBar {
+    display: flex;
+    gap: 2px;
     width: 100%;
     max-width: 100%;
+    .search {
+      flex: 1;
+    }
+
+    .searchBarButton {
+      box-shadow: 0 0 0 2px var(--contrast) inset !important;
+    }
   }
 
   .buttons {
