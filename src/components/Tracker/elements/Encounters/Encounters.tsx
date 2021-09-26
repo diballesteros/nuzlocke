@@ -18,6 +18,8 @@ const Encounters: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const missing = useStore(useCallback((state) => state.missing, []));
+  const gens = useStore(useCallback((state) => state.gens, []));
+  const types = useStore(useCallback((state) => state.types, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
@@ -42,10 +44,14 @@ const Encounters: React.FC = React.memo(() => {
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
           foundPokemon?.text?.toUpperCase()?.includes(upperCase)) &&
+        (gens.length > 0 ? gens.includes(foundPokemon?.generation) : true) &&
+        (types.length > 0
+          ? types.includes(foundPokemon?.type) || types.includes(foundPokemon?.dualtype)
+          : true) &&
         (!missing || (missing && (!enc.pokemon || !enc.status)))
       );
     });
-  }, [games, missing, selectedGame, text]);
+  }, [games, gens, missing, selectedGame, text, types]);
 
   const handleClear = (encounterId: number) => {
     clearEncounter(encounterId);

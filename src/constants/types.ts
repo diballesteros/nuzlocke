@@ -4,6 +4,7 @@ export interface AppState {
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  gens: number[];
   missing: boolean;
   newVersion: string;
   nicknames: boolean;
@@ -15,6 +16,7 @@ export interface AppState {
   team: TTeamDictionary;
   text: string;
   typeModal: Type;
+  types: Type[];
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
@@ -62,6 +64,8 @@ export interface AppState {
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
   setDefaultSummary: () => void;
+  setGens: (genId: number) => void;
+  setTypes: (typeId: Type) => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
   toggleMissing: () => void;

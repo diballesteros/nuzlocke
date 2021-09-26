@@ -1,12 +1,9 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import useStore from 'store';
-import useDebounce from 'hooks/useDebounce';
 import POKEMON from 'constants/pokemon';
-import { Share } from 'components';
+import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import styles from './Options.module.scss';
 
@@ -17,16 +14,10 @@ const Options: React.FC = React.memo(() => {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const games = useStore(useCallback((state) => state.games, []));
-  const [searchText, setSearchText] = useState(text);
-  const debouncedValue = useDebounce<string>(searchText, 250);
-
-  useEffect(() => {
-    search(debouncedValue);
-  }, [debouncedValue, search]);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchText(e.target.value);
-  };
+  const gens = useStore(useCallback((state) => state.gens, []));
+  const setGens = useStore(useCallback((state) => state.setGens, []));
+  const types = useStore(useCallback((state) => state.types, []));
+  const setTypes = useStore(useCallback((state) => state.setTypes, []));
 
   const onSearchOptions = () => {
     history.push('/settings');
@@ -35,22 +26,6 @@ const Options: React.FC = React.memo(() => {
   return (
     <div className={styles.options}>
       <div className={styles.searchBar}>
-        <Input
-          aria-label="search"
-          className={styles.search}
-          disabled={!selectedGame}
-          fluid
-          icon
-          id="search-filter"
-          inverted={darkMode}
-          onChange={handleChange}
-          placeholder="Filter encounters..."
-          type="search"
-          value={searchText}
-        >
-          <input />
-          <Icon name="search" />
-        </Input>
         <Button
           aria-label="search-options"
           className={styles.searchBarButton}
@@ -59,6 +34,17 @@ const Options: React.FC = React.memo(() => {
           inverted={darkMode}
           onClick={onSearchOptions}
           type="button"
+        />
+        <Filter
+          values={{
+            gens,
+            reset: () => {},
+            search: text,
+            setGens,
+            setSearch: search,
+            setTypes,
+            types,
+          }}
         />
       </div>
       <div className={styles.buttons}>

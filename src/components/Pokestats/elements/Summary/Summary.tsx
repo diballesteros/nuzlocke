@@ -32,8 +32,8 @@ const Summary: React.FC = () => {
   const handleShare = async () => {
     const newFile = await toast.promise(toBlob(summaryRef.current), {
       pending: 'Generating Image',
-      success: 'Image downloaded',
-      error: 'Unable to download image',
+      success: 'Image generated',
+      error: 'Unable to generate image',
     });
     const data = {
       files: [

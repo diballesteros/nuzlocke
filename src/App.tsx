@@ -200,9 +200,9 @@ const App: React.FC = () => {
       <Effectiveness />
       <ToastContainer
         limit={3}
-        position="bottom-center"
         pauseOnFocusLoss={false}
         pauseOnHover={false}
+        position="bottom-center"
         theme={darkMode ? 'dark' : 'light'}
       />
     </main>

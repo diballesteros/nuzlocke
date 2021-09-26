@@ -43,6 +43,7 @@ const useStore = create<AppState>(
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
       gamesList: GAMES,
+      gens: [],
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
@@ -54,6 +55,7 @@ const useStore = create<AppState>(
       summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
       text: '',
+      types: [],
       typeModal: null,
       addEncounter: (newLocation: string) =>
         set((state) => {
@@ -287,6 +289,22 @@ const useStore = create<AppState>(
       search: (text: string) =>
         set((state) => {
           state.text = text;
+        }),
+      setGens: (genId: number) =>
+        set((state) => {
+          if (state?.gens.includes(genId)) {
+            state.gens = state.gens.filter((current) => current !== genId);
+          } else {
+            state.gens.push(genId);
+          }
+        }),
+      setTypes: (typeId: Type) =>
+        set((state) => {
+          if (state?.types.includes(typeId)) {
+            state.types = state.types.filter((current) => current !== typeId);
+          } else {
+            state.types.push(typeId);
+          }
         }),
       setDefaultSummary: () => {
         set((state) => {

@@ -31,6 +31,7 @@ const Filter: React.FC<FilterProps> = ({ values }) => {
       </Input>
       <Button
         active={show}
+        color={values.gens?.length > 0 || values?.types?.length > 0 ? 'blue' : undefined}
         data-testid="filter-button"
         icon="filter"
         onClick={() => setShow((prevState) => !prevState)}
