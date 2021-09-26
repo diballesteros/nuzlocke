@@ -52,6 +52,7 @@ export interface AppState {
   deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
+  exportTeamMember: (detail: PokemonDetail) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;

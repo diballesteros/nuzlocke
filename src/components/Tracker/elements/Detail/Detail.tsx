@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -19,6 +20,7 @@ interface DetailProps {
 const Detail: React.FC<DetailProps> = ({ encounter }) => {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
+  const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
   const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
   const [show, setShow] = useState(false);
   const [level, setLevel] = useState(encounter?.details?.level);
@@ -64,6 +66,17 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
       moveFour
     );
     setShow(false);
+  };
+
+  const handleExport = () => {
+    exportTeamMember({
+      id: encounter.pokemon,
+      level,
+      item,
+      nature,
+      moves: [moveOne, moveTwo, moveThree, moveFour],
+    });
+    toast.success('Pokémon successfully exported');
   };
 
   return (
@@ -204,6 +217,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleExport}>Export to Builder</Button>
         <Button onClick={handleSave}>Save</Button>
       </Modal.Actions>
     </Modal>
