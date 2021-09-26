@@ -36,6 +36,7 @@ const Options: React.FC = React.memo(() => {
           type="button"
         />
         <Filter
+          darkMode={darkMode}
           values={{
             gens,
             reset: () => {},
