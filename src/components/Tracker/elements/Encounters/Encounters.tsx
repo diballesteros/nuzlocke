@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import shallow from 'zustand/shallow';
+import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
@@ -59,6 +60,7 @@ const Encounters: React.FC = React.memo(() => {
     deleteEncounter(encounterToDelete);
     setConfirm(false);
     setEncounterToDelete(null);
+    toast.success('Successfully deleted encounter');
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {

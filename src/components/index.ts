@@ -1,8 +1,10 @@
 export { default as About } from './About/About';
+export { default as AddGame } from './AddGame/AddGame';
 export { default as Badges } from './Badges/Badges';
 export { default as Builder } from './Builder/Builder';
 export { default as Changelog } from './Changelog/Changelog';
 export { default as Effectiveness } from './Effectiveness/Effectiveness';
+export { default as Export } from './Export/Export';
 export { default as Filter } from './Filter/Filter';
 export { default as Footer } from './Footer/Footer';
 export { default as Import } from './Import/Import';

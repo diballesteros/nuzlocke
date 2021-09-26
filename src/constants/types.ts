@@ -263,10 +263,6 @@ export interface PokemonDetail {
   nature?: string;
 }
 
-export type TypeObj = {
-  [key in Type]: number;
-};
-
 export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];
 
 export type TReleaseNote = {

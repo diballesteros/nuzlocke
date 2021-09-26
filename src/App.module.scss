@@ -54,7 +54,8 @@ $break3: '(min-width:1005px)';
       color: var(--contrast) !important;
     }
 
-    &.darkmode {
+    &.darkmode,
+    &.delete {
       @media (max-width: 550px) {
         padding: 2px;
       }

@@ -69,11 +69,13 @@ const useStore = create<AppState>(
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = { badge: null, encounters: [] };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
-          state.gamesList.push({
+          const newGameObj = {
             value: newKey.toString(),
             text: newGame,
             key: `custom-game-${newGame}-${new Date()}`,
-          });
+          };
+          state.gamesList.push(newGameObj);
+          state.selectedGame = newGameObj;
         }),
       addRule: (entry: TRuleEntry) =>
         set((state) => {
