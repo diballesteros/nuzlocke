@@ -1,11 +1,11 @@
 describe('Builder', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid=options]').click();
-    cy.contains('Builder').click();
   });
 
   it('Build Team', () => {
+    cy.get('[data-testid=options]').click();
+    cy.contains('Builder').click();
     cy.contains('Select a game to begin').should('exist');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
@@ -60,5 +60,43 @@ describe('Builder', () => {
     cy.get('[data-testid=builder-add]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.get('[data-testid=builder-add]').should('be.disabled');
+  });
+
+  context('Export to builder', () => {
+    afterEach(() => {
+      cy.get('[data-testid=pokemon-0]').click();
+      cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+      cy.get('[data-testid=edit-encounter-0]').click();
+      cy.pokemondetail();
+      cy.contains('Export to Builder').click();
+      cy.contains('Pokémon successfully exported').should('exist');
+      cy.contains('Close').click({ force: true });
+      cy.get('[data-testid=options]').click();
+      cy.contains('Builder').click();
+      cy.get('[data-testid=team-poke-Scorbunny] > div > .angle').click();
+      cy.contains('Scorbunny').should('exist');
+      cy.get('[data-testid=team-ability-Scorbunny] > input').should('have.value', 'Ability');
+      cy.get('[data-testid=team-item-Scorbunny] > input').should('have.value', 'Oran Berry');
+      cy.contains('Pound').should('exist');
+      cy.contains('Karate Chop').should('exist');
+      cy.contains('Surf').should('exist');
+      cy.contains('Bold').should('exist');
+    });
+
+    it('No team beforehand', () => {
+      cy.get('[data-testid=game-select]').click();
+      cy.contains('Sword and Shield').click();
+    });
+
+    it('With team beforehand', () => {
+      cy.get('[data-testid=game-select]').click();
+      cy.contains('Sword and Shield').click();
+      cy.get('[data-testid=options]').click();
+      cy.contains('Builder').click();
+      cy.get('[data-testid=builder-add]').click();
+      cy.get('[data-testid=poke-Bulbasaur]').click();
+      cy.get('[data-testid=options]').click();
+      cy.get('[data-testid=tracker]').click();
+    });
   });
 });

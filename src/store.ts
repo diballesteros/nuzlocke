@@ -236,7 +236,11 @@ const useStore = create<AppState>(
         }),
       exportTeamMember: (detail: PokemonDetail) =>
         set((state) => {
-          state.team[state?.selectedGame?.value].push(detail);
+          if (state.team[state?.selectedGame?.value]) {
+            state.team[state?.selectedGame?.value].push(detail);
+          } else {
+            state.team[state?.selectedGame?.value] = [detail];
+          }
         }),
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {

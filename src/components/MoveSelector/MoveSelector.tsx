@@ -79,7 +79,9 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
       }
     >
       <Modal.Content className={styles.content}>
-        <Filter values={values} />
+        <div data-testid="move-selector-wrapper">
+          <Filter values={values} />
+        </div>
         <FixedSizeList height={400} itemCount={filteredMoves.length} itemSize={40} width="100%">
           {renderRow}
         </FixedSizeList>

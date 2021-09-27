@@ -2,6 +2,43 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.8.0',
+    date: 1632702001639,
+    notes: [
+      {
+        description:
+          'Notifications! These should pop up when breaking rules and on a variety of actions',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Added button to pokemon details that lets you directly export it to the Team Builder',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Tracker now has a filter for generation/type! As a reminder the searchbar also works for status',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Creating a game now automatically selects it',
+        type: 'UPDATE',
+      },
+      {
+        description: 'See more button for Changelog',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added button to directly go to Settings page from tracker',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fixed stats for older custom games',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.7.1',
     date: 1632269766819,
     notes: [

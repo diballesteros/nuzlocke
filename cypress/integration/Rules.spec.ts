@@ -207,6 +207,7 @@ describe('Rules', () => {
       cy.contains('Rules').click();
       cy.get('h1').click();
       cy.get('[data-testid=share-encounters]').click();
+      cy.contains('Sharing now available!').should('exist');
     });
 
     it('Share Rules - WebShare - Error', { browser: '!firefox' }, () => {
@@ -216,14 +217,13 @@ describe('Rules', () => {
           delete (win.navigator as ExtendedNavigator).canShare;
           (win.navigator as ExtendedNavigator).canShare = () => true;
           win.navigator.share = cy.stub().rejects(Error('test'));
-          cy.stub(win.console, 'error').as('consoleError');
         },
       });
       cy.get('[data-testid=options]').click();
       cy.contains('Rules').click();
       cy.get('h1').click();
       cy.get('[data-testid=share-encounters]').click();
-      cy.get('@consoleError').should('be.calledOnce');
+      cy.contains('Unable to share').should('exist');
     });
   });
 });

@@ -32,6 +32,7 @@ const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
       </Input>
       <Button
         active={show}
+        aria-label="search-filter"
         color={values.gens?.length > 0 || values?.types?.length > 0 ? 'blue' : undefined}
         data-testid="filter-button"
         icon="filter"

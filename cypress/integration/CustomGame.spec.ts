@@ -7,7 +7,7 @@ describe('Custom game', () => {
     afterEach(() => {
       cy.get('[data-testid=add-encounter-input] > input').type('Test');
       cy.contains('Save').click();
-      cy.get('#search-filter').type('Test');
+      cy.get('[data-testid=filter] > input').type('Test');
       cy.wait(1000);
       cy.get('[data-testid=encounters-list]')
         .children()
@@ -38,8 +38,6 @@ describe('Custom game', () => {
         .type('Emerald Kaizo')
         .should('have.value', 'Emerald Kaizo');
       cy.contains('Save').click();
-      cy.get('[data-testid=game-select]').click();
-      cy.contains('Emerald Kaizo').click();
       cy.get('[data-testid=add-encounter]').click();
     });
 
@@ -48,8 +46,6 @@ describe('Custom game', () => {
       cy.get('[data-testid=add-game]').click();
       cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
       cy.contains('Save').click();
-      cy.get('[data-testid=game-select]').click();
-      cy.contains('Emerald Kaizo').click();
       cy.get('[data-testid=fab-tracker] > .ui').click();
       cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
     });
@@ -59,8 +55,6 @@ describe('Custom game', () => {
     cy.get('[data-testid=add-game]').click();
     cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
     cy.contains('Save').click();
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('Emerald Kaizo').click();
     cy.get('[data-testid=add-encounter]').click();
     cy.get('[data-testid=add-encounter-input] > input').type('Test');
     cy.contains('Save').click();
@@ -79,8 +73,6 @@ describe('Custom game', () => {
       .type('Emerald Kaizo')
       .should('have.value', 'Emerald Kaizo');
     cy.contains('Save').click();
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('Emerald Kaizo').click();
     cy.get('[data-testid=options]').click();
     cy.contains('Builder').click();
     cy.get('[data-testid=builder-add]').click();

@@ -70,6 +70,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
 
   const handleExport = () => {
     exportTeamMember({
+      ability,
       id: encounter.pokemon,
       level,
       item,

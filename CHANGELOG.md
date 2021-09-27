@@ -1,3 +1,25 @@
+## Version 3.8.0
+
+🚀 New features
+
+- Notifications! These should pop up when breaking rules and on a variety of actions
+- Added button to pokemon details that lets you directly export it to the Team Builder
+- Tracker now has a filter for generation/type! As a reminder the searchbar also works for status
+
+🐛 Bug Fix
+
+- Fixed stats for older custom games
+
+💅 Enhancement
+
+- Creating a game now automatically selects it
+- See more button for Changelog
+- Added button to directly go to Settings page from tracker
+
+🏠 Internal
+
+- Added react-toastify 8.0.3
+
 ## Version 3.7.1
 
 🐛 Bug Fix

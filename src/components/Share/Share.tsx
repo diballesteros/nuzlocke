@@ -27,11 +27,11 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
       await navigator.share(data);
       toast.promise(navigator.share(data), {
         pending: 'Validating sharing options',
-        success: 'Share the image!',
-        error: 'Unable to share image',
+        success: 'Sharing now available!',
+        error: 'Unable to share',
       });
     } catch (err) {
-      toast.error('Unable to share image');
+      toast.error('Unable to share');
     }
   };
 

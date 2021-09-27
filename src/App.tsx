@@ -136,7 +136,7 @@ const App: React.FC = () => {
           width="thin"
           aria-label="options"
         >
-          <Menu.Item onClick={() => handleRoute('/')}>
+          <Menu.Item data-testid="tracker" onClick={() => handleRoute('/')}>
             Tracker
             <Icon name="map" />
           </Menu.Item>
