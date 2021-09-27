@@ -62,7 +62,7 @@ describe('Options', () => {
   });
 
   context('Import', () => {
-    it.only('Import - Success', () => {
+    it('Import - Success', () => {
       cy.get('[data-testid=import]').attachFile('PokemonList.json');
       cy.contains('Emerald Kaizo').should('exist');
       cy.contains('Super Secret Place').should('exist');
