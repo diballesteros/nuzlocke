@@ -1,4 +1,4 @@
-import React, { LegacyRef, useCallback, useMemo } from 'react';
+import React, { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
@@ -7,6 +7,15 @@ import POKEMON from 'constants/pokemon';
 import { TYPE_COUNT } from 'constants/constant';
 import { Type } from 'constants/types';
 import { TYPE_COLOR } from 'constants/colors';
+import {
+  selectBoxed,
+  selectCaught,
+  selectCompletion,
+  selectFailed,
+  selectFainted,
+  selectShiny,
+  selectTeam,
+} from 'selectors';
 import { Moves, PokeInfo } from 'components';
 import { RuleContent } from 'components/Rules/elements';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
@@ -27,7 +36,13 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const games = useStore(useCallback((state) => state.games, []));
-
+  const teamPokemon = useStore(selectTeam);
+  const boxedPokemon = useStore(selectBoxed);
+  const faintedPokemon = useStore(selectFainted);
+  const caughtPokemon = useStore(selectCaught);
+  const completion = useStore(selectCompletion);
+  const failedPokemon = useStore(selectFailed);
+  const shinyPokemon = useStore(selectShiny);
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -38,13 +53,13 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       []
     )
   );
+  const setDefaultSummary = useStore(useCallback((state) => state.setDefaultSummary, []));
 
-  const completion = useMemo(() => {
-    const encountered = games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc.pokemon && enc.status;
-    });
-    return !!encountered ? encountered?.length / games[selectedGame?.value]?.encounters?.length : 0;
-  }, [games, selectedGame]);
+  useEffect(() => {
+    if (!!selectedGame && responsive && !summary) {
+      setDefaultSummary();
+    }
+  }, [responsive, selectedGame, setDefaultSummary, summary]);
 
   const types = useMemo(() => {
     const TEMP = { ...TYPE_COUNT };
@@ -87,53 +102,6 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
         );
     }
   };
-
-  const teamPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 7;
-    });
-  }, [games, selectedGame]);
-
-  const boxedPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return (
-        enc?.status?.value === 1 ||
-        enc?.status?.value === 3 ||
-        enc?.status?.value === 4 ||
-        enc?.status?.value === 6
-      );
-    });
-  }, [games, selectedGame]);
-
-  const caughtPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return (
-        enc?.status?.value === 1 ||
-        enc?.status?.value === 3 ||
-        enc?.status?.value === 4 ||
-        enc?.status?.value === 6 ||
-        enc?.status?.value === 7
-      );
-    });
-  }, [games, selectedGame]);
-
-  const faintedPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 2;
-    });
-  }, [games, selectedGame]);
-
-  const failedPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 5;
-    });
-  }, [games, selectedGame]);
-
-  const shinyPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 6;
-    });
-  }, [games, selectedGame]);
 
   return (
     <div className={`${styles.summary} ${responsive ? styles.responsive : ''}`} ref={forwardedRef}>

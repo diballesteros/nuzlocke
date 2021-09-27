@@ -4,6 +4,7 @@ export interface AppState {
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
+  gens: number[];
   missing: boolean;
   newVersion: string;
   nicknames: boolean;
@@ -15,6 +16,7 @@ export interface AppState {
   team: TTeamDictionary;
   text: string;
   typeModal: Type;
+  types: Type[];
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
@@ -52,6 +54,7 @@ export interface AppState {
   deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
+  exportTeamMember: (detail: PokemonDetail) => void;
   importState: (newAppState: Partial<AppState>) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;
@@ -60,6 +63,9 @@ export interface AppState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  setDefaultSummary: () => void;
+  setGens: (genId: number) => void;
+  setTypes: (typeId: Type) => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
   toggleMissing: () => void;
@@ -262,10 +268,6 @@ export interface PokemonDetail {
   moves: number[];
   nature?: string;
 }
-
-export type TypeObj = {
-  [key in Type]: number;
-};
 
 export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];
 

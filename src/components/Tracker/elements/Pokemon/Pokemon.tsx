@@ -1,9 +1,11 @@
 import React, { useCallback, useMemo } from 'react';
+import { toast } from 'react-toastify';
 import shallow from 'zustand/shallow';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
-import { Evolve } from 'components';
+import { RULE_ALERTS } from 'constants/constant';
+import { Evolve } from 'components/Tracker/elements';
 import { PokemonSelector } from 'common';
 import styles from './Pokemon.module.scss';
 
@@ -23,55 +25,60 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const foundPokemon = POKEMON.find((poke) => poke.value === encounter?.pokemon);
-  const onChange = (pokemonId: number) => {
-    changePokemon(encounter.id, pokemonId);
-  };
+
+  const getAlertText = useCallback(
+    (pokemonId) => {
+      let alert = '';
+      let teamCounter = 0;
+      const genRule = rules[selectedRuleset]?.find((rule) => rule.type === 'GENERATION');
+      const levelRule = rules[selectedRuleset]?.find((rule) => rule.type === 'LEVEL');
+      const typeRule = rules[selectedRuleset]?.find((rule) => rule.type === 'TYPE');
+      const foundPoke = POKEMON.find((poke) => poke.value === pokemonId);
+      if (!foundPoke) {
+        return '';
+      }
+      games[selectedGame?.value].encounters?.forEach((enc) => {
+        if (
+          duplicates &&
+          !!pokemonId &&
+          enc?.pokemon === pokemonId &&
+          enc.id !== encounter?.id &&
+          enc?.status?.value !== 5 &&
+          encounter?.status?.value !== 5
+        ) {
+          alert = 'DUPE';
+        }
+        if (encounter?.status?.value === 7 && enc?.status?.value === 7) {
+          teamCounter += 1;
+        }
+        if (
+          (genRule?.content as number[])?.length > 0 &&
+          !(genRule?.content as number[])?.includes(foundPoke?.generation)
+        ) {
+          alert = 'FORBIDDEN GEN';
+        }
+        if (levelRule?.content < encounter?.details?.level) {
+          alert = 'OVERLEVELED';
+        }
+        if (
+          (typeRule?.content as string[])?.length > 0 &&
+          !(typeRule?.content as string[])?.includes(foundPoke?.type) &&
+          !(typeRule?.content as string[])?.includes(foundPoke?.dualtype)
+        ) {
+          alert = 'FORBIDDEN TYPE';
+        }
+      });
+      if (teamCounter > 6) {
+        return 'TEAM OVER 6';
+      }
+      return alert;
+    },
+    [duplicates, encounter, games, rules, selectedGame, selectedRuleset]
+  );
 
   const alertText = useMemo(() => {
-    let alert = '';
-    let teamCounter = 0;
-    const genRule = rules[selectedRuleset]?.find((rule) => rule.type === 'GENERATION');
-    const levelRule = rules[selectedRuleset]?.find((rule) => rule.type === 'LEVEL');
-    const typeRule = rules[selectedRuleset]?.find((rule) => rule.type === 'TYPE');
-    if (!foundPokemon) {
-      return '';
-    }
-    games[selectedGame?.value].encounters?.forEach((enc) => {
-      if (
-        duplicates &&
-        !!encounter?.pokemon &&
-        enc?.pokemon === encounter.pokemon &&
-        enc.id !== encounter?.id &&
-        enc?.status?.value !== 5 &&
-        encounter?.status?.value !== 5
-      ) {
-        alert = 'DUPE';
-      }
-      if (encounter?.status?.value === 7 && enc?.status?.value === 7) {
-        teamCounter += 1;
-      }
-      if (
-        (genRule?.content as number[])?.length > 0 &&
-        !(genRule?.content as number[])?.includes(foundPokemon?.generation)
-      ) {
-        alert = 'FORBIDDEN GEN';
-      }
-      if (levelRule?.content < encounter?.details?.level) {
-        alert = 'OVERLEVELED';
-      }
-      if (
-        (typeRule?.content as string[])?.length > 0 &&
-        !(typeRule?.content as string[])?.includes(foundPokemon?.type) &&
-        !(typeRule?.content as string[])?.includes(foundPokemon?.dualtype)
-      ) {
-        alert = 'FORBIDDEN TYPE';
-      }
-    });
-    if (teamCounter > 6) {
-      return 'TEAM OVER 6';
-    }
-    return alert;
-  }, [duplicates, encounter, foundPokemon, games, rules, selectedGame, selectedRuleset]);
+    return getAlertText(encounter?.pokemon);
+  }, [encounter?.pokemon, getAlertText]);
 
   const filter = useMemo(() => {
     return encounter?.filter && !showAll
@@ -83,6 +90,14 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
         }, [])
       : false;
   }, [encounter, showAll]);
+
+  const onChange = (pokemonId: number) => {
+    changePokemon(encounter.id, pokemonId);
+    const alert = getAlertText(pokemonId);
+    if (!!alert && !toast.isActive(alert)) {
+      toast.warn(RULE_ALERTS[alert], { toastId: alert });
+    }
+  };
 
   return (
     <div className={styles.pokemonSelect}>

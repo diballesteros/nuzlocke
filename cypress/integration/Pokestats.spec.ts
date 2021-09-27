@@ -196,8 +196,8 @@ describe('PokéStats', () => {
     });
   });
 
-  context('Webshare', () => {
-    it('Share Image - WebShare', { browser: '!firefox' }, () => {
+  context('WebShare', () => {
+    it('Success', { browser: '!firefox' }, () => {
       cy.visit('/', {
         onBeforeLoad(win) {
           (win.navigator as ExtendedNavigator).canShare = () => {
@@ -217,26 +217,43 @@ describe('PokéStats', () => {
       cy.get('[data-testid=share-image]').click();
       cy.contains('Generating Image').should('exist');
       cy.wait(2000);
+      cy.contains('Share the image').should('exist');
     });
 
-    it('Share Image - WebShare - Error', { browser: '!firefox' }, () => {
-      cy.visit('/', {
-        onBeforeLoad(win) {
-          delete win.navigator.share;
-          delete (win.navigator as ExtendedNavigator).canShare;
-          (win.navigator as ExtendedNavigator).canShare = () => true;
-          win.navigator.share = cy.stub().rejects(Error('test'));
-          cy.stub(win.console, 'error').as('consoleError');
-        },
+    context('Errors', { browser: '!firefox' }, () => {
+      afterEach(() => {
+        cy.get('[data-testid=game-select]').click();
+        cy.contains('Sword and Shield').click();
+        cy.get('[data-testid=options]').click();
+        cy.contains('Stats').click();
+        cy.get('h1').click();
+        cy.get('[data-testid=share-image]').click();
+        cy.contains('Generating Image').should('exist');
+        cy.wait(2000);
+        cy.contains('Unable to share image').should('exist');
       });
-      cy.get('[data-testid=game-select]').click();
-      cy.contains('Sword and Shield').click();
-      cy.get('[data-testid=options]').click();
-      cy.contains('Stats').click();
-      cy.get('h1').click();
-      cy.get('[data-testid=share-image]').click();
-      cy.contains('Generating Image').should('exist');
-      cy.get('@consoleError').should('be.calledOnce');
+
+      it('Share error', () => {
+        cy.visit('/', {
+          onBeforeLoad(win) {
+            delete win.navigator.share;
+            delete (win.navigator as ExtendedNavigator).canShare;
+            (win.navigator as ExtendedNavigator).canShare = () => true;
+            win.navigator.share = cy.stub().rejects(Error('test'));
+          },
+        });
+      });
+
+      it('canShare error', () => {
+        cy.visit('/', {
+          onBeforeLoad(win) {
+            delete win.navigator.share;
+            delete (win.navigator as ExtendedNavigator).canShare;
+            (win.navigator as ExtendedNavigator).canShare = () => false;
+            win.navigator.share = cy.stub().rejects(Error('test'));
+          },
+        });
+      });
     });
   });
 });

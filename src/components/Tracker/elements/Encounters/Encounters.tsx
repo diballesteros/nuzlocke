@@ -1,5 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import shallow from 'zustand/shallow';
+import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
@@ -7,7 +8,8 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { TYPE_COLOR } from 'constants/colors';
-import { Detail, Nickname, Pokemon, Status } from 'components';
+import { Status } from 'components';
+import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 
@@ -16,6 +18,8 @@ const Encounters: React.FC = React.memo(() => {
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const missing = useStore(useCallback((state) => state.missing, []));
+  const gens = useStore(useCallback((state) => state.gens, []));
+  const types = useStore(useCallback((state) => state.types, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
@@ -40,10 +44,14 @@ const Encounters: React.FC = React.memo(() => {
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
           foundPokemon?.text?.toUpperCase()?.includes(upperCase)) &&
+        (gens.length > 0 ? gens.includes(foundPokemon?.generation) : true) &&
+        (types.length > 0
+          ? types.includes(foundPokemon?.type) || types.includes(foundPokemon?.dualtype)
+          : true) &&
         (!missing || (missing && (!enc.pokemon || !enc.status)))
       );
     });
-  }, [games, missing, selectedGame, text]);
+  }, [games, gens, missing, selectedGame, text, types]);
 
   const handleClear = (encounterId: number) => {
     clearEncounter(encounterId);
@@ -58,6 +66,7 @@ const Encounters: React.FC = React.memo(() => {
     deleteEncounter(encounterToDelete);
     setConfirm(false);
     setEncounterToDelete(null);
+    toast.success('Successfully deleted encounter');
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {

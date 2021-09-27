@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -18,6 +19,7 @@ const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
   const handleReset = () => {
     resetAll();
     setOpen(false);
+    toast.success('Successfully reset encounters');
   };
 
   return (

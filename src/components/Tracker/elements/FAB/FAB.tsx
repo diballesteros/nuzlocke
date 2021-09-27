@@ -1,7 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import useStore from 'store';
-import { AddEncounter, ResetEncounters, Share } from 'components';
+import { Share } from 'components';
+import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import POKEMON from 'constants/pokemon';
 import styles from './FAB.module.scss';
 

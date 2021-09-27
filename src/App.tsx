@@ -1,30 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
-import { AppState } from 'constants/types';
 import AppRouter from 'routes/AppRouter';
-import { Effectiveness, Footer } from 'components';
+import { AddGame, Effectiveness, Export, Footer, Import } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {
   const history = useHistory();
-  const appState = useStore((state) => state);
-  const [open, setOpen] = useState(false);
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const newVersion = useStore(useCallback((state) => state.newVersion, []));
+  const gamesList = useStore(useCallback((state) => state.gamesList, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const toggleMode = useStore(useCallback((state) => state.toggleMode, []));
+  const selectGame = useStore(useCallback((state) => state.selectGame, []));
+  const deleteGame = useStore(useCallback((state) => state.deleteGame, []));
   const [confirm, setConfirm] = useState(false);
-  const [gameName, setGameName] = useState('');
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (appState.darkMode) {
+    if (darkMode) {
       document.documentElement.style.setProperty('--header', '#1b1c1d');
       document.documentElement.style.setProperty('--card', '#424242');
       document.documentElement.style.setProperty('--badge', '#C395FE');
@@ -41,63 +43,17 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
       document.documentElement.style.setProperty('--contrast', '#333333');
     }
-  }, [appState.darkMode]);
-
-  const handleExport = () => {
-    const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
-      JSON.stringify({
-        badges: appState.badges,
-        games: appState.games,
-        gamesList: appState.gamesList,
-        rules: appState.rules,
-        selectedGame: appState.selectedGame,
-        team: appState.team,
-      })
-    )}`;
-    const downloadAnchorNode = document.createElement('a');
-    downloadAnchorNode.setAttribute('href', dataStr);
-    downloadAnchorNode.setAttribute('download', 'PokemonList.json');
-    document.body.appendChild(downloadAnchorNode);
-    downloadAnchorNode.click();
-    downloadAnchorNode.remove();
-  };
-
-  const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const fileReader = new FileReader();
-    fileReader.readAsText(e.target.files[0], 'UTF-8');
-    fileReader.onload = (event) => {
-      try {
-        const partialState: Partial<AppState> = JSON.parse(event.target.result as string);
-        if (!!partialState?.games && !!partialState?.selectedGame && !!partialState?.gamesList) {
-          appState.importState(partialState);
-        } else {
-          throw Error('Invalid');
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-  };
+  }, [darkMode]);
 
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
-    const foundGame = appState.gamesList.find((game) => game.value === data.value);
-    appState.selectGame(foundGame);
-  };
-
-  const handleAdd = () => {
-    appState.addGame(gameName);
-    setOpen(false);
-    setGameName('');
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-    setGameName('');
+    const foundGame = gamesList.find((game) => game.value === data.value);
+    selectGame(foundGame);
   };
 
   const handleDelete = () => {
-    appState.deleteGame();
+    deleteGame();
     setConfirm(false);
+    toast.success('Successfully deleted game');
   };
 
   const handleRoute = (route: string) => {
@@ -107,7 +63,7 @@ const App: React.FC = () => {
   return (
     <main className={styles.app} data-testid="app">
       <header>
-        <Menu attached="top" inverted={appState.darkMode} style={{ width: '100%' }}>
+        <Menu attached="top" inverted={darkMode} style={{ width: '100%' }}>
           <button
             aria-label="sidebar-button"
             onClick={() => setVisible(!visible)}
@@ -116,7 +72,7 @@ const App: React.FC = () => {
             data-testid="options"
           >
             <Icon name="bars" />
-            {appState.newVersion !== process.env.REACT_APP_VERSION && (
+            {newVersion !== process.env.REACT_APP_VERSION && (
               <span className={styles.exclamation}>!</span>
             )}
           </button>
@@ -126,59 +82,25 @@ const App: React.FC = () => {
             data-testid="game-select"
             inline
             onChange={handleChange}
-            options={appState.gamesList}
+            options={gamesList}
             placeholder="Choose a game"
             selection
-            value={appState.selectedGame?.value ?? ''}
+            value={selectedGame?.value ?? ''}
           />
           <Menu.Menu position="left">
-            <Modal
-              closeOnDimmerClick
-              onClose={handleClose}
-              open={open}
-              trigger={
-                <Button
-                  aria-label="addgame"
-                  className={styles.button}
-                  data-testid="add-game"
-                  icon
-                  onClick={() => setOpen(true)}
-                  style={{ boxShadow: 'none' }}
-                >
-                  <Icon name="plus" />
-                </Button>
-              }
-            >
-              <Modal.Header>Add Game</Modal.Header>
-              <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-                Please enter the game name
-                <Input
-                  data-testid="add-game-input"
-                  onChange={(e, data) => setGameName(data.value)}
-                  value={gameName}
-                />
-              </Modal.Content>
-              <Modal.Actions>
-                <Button onClick={handleClose}>Cancel</Button>
-                <Button disabled={gameName?.length === 0} onClick={handleAdd}>
-                  Save
-                </Button>
-              </Modal.Actions>
-            </Modal>
-            {appState.selectedGame?.value && Number(appState.selectedGame.value) > 13 ? (
+            <AddGame />
+            {selectedGame?.value && Number(selectedGame.value) > 13 ? (
               <Button
                 aria-label="deletegame"
-                className={styles.button}
+                className={`${styles.button} ${styles.delete}`}
                 icon
                 onClick={() => setConfirm(true)}
-                style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+                style={{ boxShadow: 'none', margin: 0 }}
               >
                 <Icon name="trash" />
               </Button>
             ) : null}
-            {appState.selectedGame?.value && Number(appState.selectedGame.value) <= 13 ? (
-              <BadgeEditor />
-            ) : null}
+            {selectedGame?.value && Number(selectedGame.value) <= 13 ? <BadgeEditor /> : null}
             <Confirm
               closeOnDimmerClick
               content="This will delete the custom game. Are you sure?"
@@ -196,9 +118,9 @@ const App: React.FC = () => {
               className={`${styles.button} ${styles.darkmode}`}
               data-testid="darkmode"
               icon
-              onClick={() => appState.toggleMode()}
+              onClick={toggleMode}
             >
-              <Icon name={appState.darkMode ? 'sun outline' : 'sun'} />
+              <Icon name={darkMode ? 'sun outline' : 'sun'} />
             </Button>
           </Menu.Menu>
         </Menu>
@@ -208,13 +130,13 @@ const App: React.FC = () => {
           as={Menu}
           visible={visible}
           vertical
-          inverted={appState.darkMode}
+          inverted={darkMode}
           animation="overlay"
           onHide={() => setVisible(false)}
           width="thin"
           aria-label="options"
         >
-          <Menu.Item onClick={() => handleRoute('/')}>
+          <Menu.Item data-testid="tracker" onClick={() => handleRoute('/')}>
             Tracker
             <Icon name="map" />
           </Menu.Item>
@@ -234,29 +156,15 @@ const App: React.FC = () => {
             Settings
             <Icon name="wrench" />
           </Menu.Item>
-          <Menu.Item onClick={handleExport}>
-            <Icon name="download" />
-            Export
-          </Menu.Item>
-          <Menu.Item id="import">
-            <Icon name="upload" />
-            <input
-              aria-labelledby="import"
-              className={styles.hiddenFileInput}
-              data-testid="import"
-              id="file-input"
-              onChange={handleImport}
-              type="file"
-            />
-            Import
-          </Menu.Item>
+          <Export />
+          <Import />
           <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
             Report
             <Icon name="bug" />
           </Menu.Item>
           <Menu.Item data-testid="changelog" onClick={() => handleRoute('/changelog')}>
             Changelog
-            {appState.newVersion !== process.env.REACT_APP_VERSION && (
+            {newVersion !== process.env.REACT_APP_VERSION && (
               <span className={styles.exclamation}>!</span>
             )}
             <Icon name="clipboard outline" />
@@ -290,6 +198,13 @@ const App: React.FC = () => {
       </Sidebar.Pushable>
       <Footer />
       <Effectiveness />
+      <ToastContainer
+        limit={3}
+        pauseOnFocusLoss={false}
+        pauseOnHover={false}
+        position="bottom-center"
+        theme={darkMode ? 'dark' : 'light'}
+      />
     </main>
   );
 };

@@ -43,10 +43,10 @@ Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid=move-2] > div').click();
   cy.get('[data-testid="move-Karate Chop"]').click({ force: true });
   cy.get('[data-testid=move-3] > div').click();
-  cy.get('[data-testid=filter-button]').click();
+  cy.get('[data-testid=move-selector-wrapper] > div > [data-testid=filter-button]').click();
   cy.get('[data-testid=filter-gen-1]').click();
   cy.get('[data-testid=filter-type-WATER]').click();
-  cy.get('[data-testid=filter-button]').click();
+  cy.get('[data-testid=move-selector-wrapper] > div > [data-testid=filter-button]').click();
   cy.get('[data-testid=move-Surf]').click({ force: true });
   cy.get('[data-testid=move-4] > div').click();
   cy.get('[data-testid=move-Pound]').click();

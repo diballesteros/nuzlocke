@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -24,8 +25,13 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
   const handleShare = async (data: ShareData) => {
     try {
       await navigator.share(data);
+      toast.promise(navigator.share(data), {
+        pending: 'Validating sharing options',
+        success: 'Sharing now available!',
+        error: 'Unable to share',
+      });
     } catch (err) {
-      console.error(err);
+      toast.error('Unable to share');
     }
   };
 

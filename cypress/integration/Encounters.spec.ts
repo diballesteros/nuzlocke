@@ -6,8 +6,17 @@ describe('Encounters', () => {
   });
 
   it('Filter', () => {
-    cy.get('#search-filter').type('Slumbering Weald').should('have.value', 'Slumbering Weald');
-    cy.wait(1000);
+    cy.get('[data-testid=filter] > input')
+      .type('Slumbering Weald')
+      .should('have.value', 'Slumbering Weald');
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.get('[data-testid=poke-Butterfree]').click();
+    cy.get('[data-testid=filter-button]').click();
+    cy.get('[data-testid=filter-gen-1]').click();
+    cy.get('[data-testid=filter-gen-1]').click();
+    cy.get('[data-testid=filter-type-BUG]').click();
+    cy.get('[data-testid=filter-type-BUG]').click();
+    cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=encounters-list]')
       .children()
       .children()
@@ -58,8 +67,7 @@ describe('Encounters', () => {
     cy.contains('Cancel').click();
     cy.get('[data-testid=encounter-0] .trash').click();
     cy.contains('OK').click();
-    cy.get('#search-filter').type('Starter');
-    cy.wait(1000);
+    cy.get('[data-testid=filter] > input').type('Starter');
     cy.get('[data-testid=encounters-list]')
       .children()
       .children()
@@ -73,8 +81,7 @@ describe('Encounters', () => {
     cy.get('[data-testid=add-encounter]').click();
     cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
     cy.contains('Save').click();
-    cy.get('#search-filter').type('Test');
-    cy.wait(1000);
+    cy.get('[data-testid=filter] > input').type('Test');
     cy.get('[data-testid=encounters-list]')
       .children()
       .children()
@@ -92,8 +99,7 @@ describe('Encounters', () => {
       cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
       cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
       cy.contains('Save').click();
-      cy.get('#search-filter').type('Test');
-      cy.wait(1000);
+      cy.get('[data-testid=filter] > input').type('Test');
       cy.get('[data-testid=encounters-list]')
         .children()
         .children()

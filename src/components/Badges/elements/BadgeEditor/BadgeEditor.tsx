@@ -53,16 +53,17 @@ const BadgeEditor: React.FC = () => {
           overflow: 'auto',
         }}
       >
-        {badges[selectedGame?.value].map((val, i) => {
-          return (
-            <Input
-              key={`badge-${i + 1}`}
-              label={val.name}
-              onChange={(e, data) => handleChange(data.value, i)}
-              value={val.levelCap}
-            />
-          );
-        })}
+        {selectedGame &&
+          badges[selectedGame?.value]?.map((val, i) => {
+            return (
+              <Input
+                key={`badge-${i + 1}`}
+                label={val.name}
+                onChange={(e, data) => handleChange(data.value, i)}
+                value={val.levelCap}
+              />
+            );
+          })}
       </Modal.Content>
       <Modal.Actions>
         {MULTIPLE_CAPS.includes(selectedGame?.value) ? (

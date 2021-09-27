@@ -1,57 +1,26 @@
-import React, { useCallback, useMemo } from 'react';
-import shallow from 'zustand/shallow';
+import React, { useCallback } from 'react';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
+import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
+import { PokeInfo } from 'components';
+import { Summary } from 'components/Pokestats/elements';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
-import { PokeInfo } from 'components';
-import { Summary } from 'components/Pokestats/elements';
 import styles from './Pokestats.module.scss';
 
 const Pokestats: React.FC = () => {
-  const games = useStore(useCallback((state) => state.games, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
-
-  const caughtPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return (
-        enc?.status?.value === 1 ||
-        enc?.status?.value === 3 ||
-        enc?.status?.value === 4 ||
-        enc?.status?.value === 6 ||
-        enc?.status?.value === 7
-      );
-    });
-  }, [games, selectedGame]);
-
-  const faintedPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 2;
-    });
-  }, [games, selectedGame]);
-
-  const failedPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 5;
-    });
-  }, [games, selectedGame]);
-
-  const teamPokemon = useMemo(() => {
-    return games[selectedGame?.value]?.encounters?.filter((enc) => {
-      return enc?.status?.value === 7;
-    });
-  }, [games, selectedGame]);
+  const teamPokemon = useStore(selectTeam);
+  const faintedPokemon = useStore(selectFainted);
+  const caughtPokemon = useStore(selectCaught);
+  const failedPokemon = useStore(selectFailed);
 
   const panes = [
     {

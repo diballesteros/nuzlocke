@@ -43,6 +43,7 @@ const useStore = create<AppState>(
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
       gamesList: GAMES,
+      gens: [],
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
@@ -54,6 +55,7 @@ const useStore = create<AppState>(
       summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
       text: '',
+      types: [],
       typeModal: null,
       addEncounter: (newLocation: string) =>
         set((state) => {
@@ -69,11 +71,13 @@ const useStore = create<AppState>(
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = { badge: null, encounters: [] };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
-          state.gamesList.push({
+          const newGameObj = {
             value: newKey.toString(),
             text: newGame,
             key: `custom-game-${newGame}-${new Date()}`,
-          });
+          };
+          state.gamesList.push(newGameObj);
+          state.selectedGame = newGameObj;
         }),
       addRule: (entry: TRuleEntry) =>
         set((state) => {
@@ -230,6 +234,14 @@ const useStore = create<AppState>(
         set((state) => {
           state.rules[state.selectedRuleset][i].content = newRule;
         }),
+      exportTeamMember: (detail: PokemonDetail) =>
+        set((state) => {
+          if (state.team[state?.selectedGame?.value]) {
+            state.team[state?.selectedGame?.value].push(detail);
+          } else {
+            state.team[state?.selectedGame?.value] = [detail];
+          }
+        }),
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
           state.games = newAppState.games;
@@ -282,6 +294,27 @@ const useStore = create<AppState>(
         set((state) => {
           state.text = text;
         }),
+      setGens: (genId: number) =>
+        set((state) => {
+          if (state?.gens.includes(genId)) {
+            state.gens = state.gens.filter((current) => current !== genId);
+          } else {
+            state.gens.push(genId);
+          }
+        }),
+      setTypes: (typeId: Type) =>
+        set((state) => {
+          if (state?.types.includes(typeId)) {
+            state.types = state.types.filter((current) => current !== typeId);
+          } else {
+            state.types.push(typeId);
+          }
+        }),
+      setDefaultSummary: () => {
+        set((state) => {
+          state.summary[state?.selectedGame?.value] = { ...INITIAL_SUMMARY };
+        });
+      },
       showTypeModal: (type: Type) => {
         set((state) => {
           state.typeModal = type;

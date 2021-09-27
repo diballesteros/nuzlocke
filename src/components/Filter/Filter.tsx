@@ -9,9 +9,10 @@ import styles from './Filter.module.scss';
 
 interface FilterProps {
   values: TFilter;
+  darkMode?: boolean;
 }
 
-const Filter: React.FC<FilterProps> = ({ values }) => {
+const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
   const [show, setShow] = useState(false);
   return (
     <div className={styles.filter}>
@@ -31,8 +32,11 @@ const Filter: React.FC<FilterProps> = ({ values }) => {
       </Input>
       <Button
         active={show}
+        aria-label="search-filter"
+        color={values.gens?.length > 0 || values?.types?.length > 0 ? 'blue' : undefined}
         data-testid="filter-button"
         icon="filter"
+        inverted={darkMode}
         onClick={() => setShow((prevState) => !prevState)}
         toggle
         type="button"

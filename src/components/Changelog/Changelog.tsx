@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
-import CHANGELOG from 'constants/changelog';
 import { TReleaseGroup } from 'constants/types';
+import CHANGELOG from 'constants/changelog';
 import { Page } from 'common';
 import styles from './Changelog.module.scss';
 
 const Changelog: React.FC = () => {
-  const appState = useStore((state) => state);
+  const [logs, setLogs] = useState(3);
+  const removeNew = useStore((state) => state.removeNew);
+  const darkMode = useStore((state) => state.darkMode);
 
   useEffect(() => {
-    appState.removeNew();
+    removeNew();
   });
 
   const getClass = (type: TReleaseGroup) => {
@@ -23,10 +27,14 @@ const Changelog: React.FC = () => {
     }
   };
 
+  const onSeeMore = () => {
+    setLogs(CHANGELOG.length);
+  };
+
   return (
     <Page header="Changelog">
-      <div className={styles.changelog}>
-        {CHANGELOG.map((release, i) => {
+      <div className={styles.changelog} data-testid="changelog-list">
+        {CHANGELOG.slice(0, logs).map((release, i) => {
           return (
             <React.Fragment key={`release-${i + 1}`}>
               <h4>
@@ -45,6 +53,18 @@ const Changelog: React.FC = () => {
             </React.Fragment>
           );
         })}
+        {logs < CHANGELOG.length && (
+          <Button
+            className={styles.seeMore}
+            data-testid="see-more"
+            inverted={darkMode}
+            onClick={onSeeMore}
+            type="button"
+          >
+            <Icon name="plus" />
+            See more
+          </Button>
+        )}
       </div>
     </Page>
   );

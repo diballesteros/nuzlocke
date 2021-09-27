@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -51,6 +52,7 @@ const Rules: React.FC = () => {
   const handleDeleteRuleset = () => {
     deleteRuleset();
     setConfirm(false);
+    toast.success('Succesfully deleted ruleset');
   };
 
   return (

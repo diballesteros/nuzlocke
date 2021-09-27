@@ -5,9 +5,15 @@
   justify-content: space-between;
   align-items: center;
 
-  .search {
+  .searchBar {
+    display: flex;
+    gap: 2px;
     width: 100%;
     max-width: 100%;
+    position: relative;
+    .search {
+      flex: 1;
+    }
   }
 
   .buttons {

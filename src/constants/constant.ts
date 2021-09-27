@@ -18,7 +18,6 @@ import {
   TRuleEntry,
   TRulesetDictionary,
   Type,
-  TypeObj,
 } from 'constants/types';
 import BADGES from 'constants/badges';
 
@@ -262,7 +261,7 @@ export const GENDERS = [
   { key: '3', text: 'NEUTRAL', value: 'NEUTRAL' },
 ];
 
-export const TYPE_COUNT: TypeObj = {
+export const TYPE_COUNT: { [key in Type]: number } = {
   'NORMAL': 0,
   'FIRE': 0,
   'WATER': 0,
@@ -323,3 +322,11 @@ export const TYPES: Type[] = [
   'STEEL',
   'FAIRY',
 ];
+
+export const RULE_ALERTS: { [key: string]: string } = {
+  'DUPE': 'Duplicate pokémon are not allowed',
+  'FORBIDDEN GEN': 'Pokémon from this generation are not allowed',
+  'OVERLEVELED': 'Max level set has been exceeded',
+  'FORBIDDEN TYPE': 'Pokémon of this type are not allowed',
+  'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
+};
