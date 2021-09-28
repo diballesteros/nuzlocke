@@ -58,6 +58,7 @@ const App: React.FC = () => {
 
   const handleRoute = (route: string) => {
     history.push(route);
+    setVisible(false);
   };
 
   return (
@@ -157,7 +158,11 @@ const App: React.FC = () => {
             <Icon name="wrench" />
           </Menu.Item>
           <Export />
-          <Import />
+          {/* <Import /> */}
+          <Menu.Item onClick={() => handleRoute('/import')}>
+            <Icon name="upload" />
+            Import
+          </Menu.Item>
           <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
             Report
             <Icon name="bug" />
@@ -174,7 +179,7 @@ const App: React.FC = () => {
             <Icon name="question" />
           </Menu.Item>
         </Sidebar>
-        <Sidebar.Pusher>
+        <Sidebar.Pusher dimmed={visible}>
           <div className={styles.grid}>
             <nav className={styles.nav}>
               <NavLink activeClassName={styles.activeLink} exact to="/">

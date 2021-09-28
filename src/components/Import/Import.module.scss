@@ -1,8 +1,35 @@
-.hiddenFileInput {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: 0;
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 16px;
+  color: var(--contrast);
+
+  .subheading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    > h3 {
+      margin-top: 0;
+    }
+  }
+
+  .csv {
+    height: 75px;
+    width: 60%;
+
+    > div > div {
+      background: unset !important;
+    }
+  }
+
+  .download {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  > button {
+    width: fit-content;
+  }
 }
