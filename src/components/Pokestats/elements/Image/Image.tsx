@@ -127,16 +127,22 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       <div className={styles.card}>
         <span className={styles.title}>TEAM</span>
         <div className={styles.team}>
-          {teamPokemon?.map((enc) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <div className={styles.pokemon} key={`team-${enc.id}`}>
-                <img src={foundPokemon?.image} alt={foundPokemon?.text} />
-                <PokeInfo encounter={enc} pokemon={foundPokemon} />
-                <Moves moves={enc?.details?.moves} />
-              </div>
-            );
-          })}
+          {teamPokemon?.length > 0 ? (
+            teamPokemon?.map((enc) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <div className={styles.pokemon} key={`team-${enc.id}`}>
+                  <img src={foundPokemon?.image} alt={foundPokemon?.text} />
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                  <Moves moves={enc?.details?.moves} />
+                </div>
+              );
+            })
+          ) : (
+            <p>
+              In the Tracker set a pokémon to the status <strong>Team</strong> to see it here
+            </p>
+          )}
         </div>
       </div>
       <div className={styles.row}>

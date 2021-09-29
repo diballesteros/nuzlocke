@@ -1,3 +1,28 @@
+## Version 3.9.0
+
+🚀 New features
+
+- Import custom or PKHeX CSVs or custom CSVs to automatically populate the tracker. Click on Import in the sidebar to see how it works!
+
+🐛 Bug Fix
+
+- Sidebar now correctly dims the rest and closes when selecting an option
+
+💅 Enhancement
+
+- Relocated "Edit Badges" button on smaller screens
+
+🏠 Internal
+
+- Bumped @types/lodash 4.14.174
+- Bumped @types/node 16.10.1
+- Bumped @types/react 17.0.24
+- Bumped @types/react-router-dom 5.3.0
+- Bumped @typescript-eslint/eslint-plugin 4.31.2
+- Bumped @typescript-eslint/parser 4.31.2
+- Bumped @eslint-plugin-react 7.26.0
+- Bumped semantic-ui-react 2.0.4
+
 ## Version 3.8.0
 
 🚀 New features

@@ -9,7 +9,7 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import AppRouter from 'routes/AppRouter';
-import { AddGame, Effectiveness, Export, Footer, Import } from 'components';
+import { AddGame, Effectiveness, Export, Footer } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
@@ -62,7 +62,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <main className={styles.app} data-testid="app">
+    <div className={styles.app} data-testid="app">
       <header>
         <Menu attached="top" inverted={darkMode} style={{ width: '100%' }}>
           <button
@@ -180,7 +180,7 @@ const App: React.FC = () => {
           </Menu.Item>
         </Sidebar>
         <Sidebar.Pusher dimmed={visible}>
-          <div className={styles.grid}>
+          <main className={styles.grid}>
             <nav className={styles.nav}>
               <NavLink activeClassName={styles.activeLink} exact to="/">
                 <Icon name="map" /> <span>Tracker</span>
@@ -198,7 +198,7 @@ const App: React.FC = () => {
             <div className={styles.mainContent}>
               <AppRouter />
             </div>
-          </div>
+          </main>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
       <Footer />
@@ -210,7 +210,7 @@ const App: React.FC = () => {
         position="bottom-center"
         theme={darkMode ? 'dark' : 'light'}
       />
-    </main>
+    </div>
   );
 };
 

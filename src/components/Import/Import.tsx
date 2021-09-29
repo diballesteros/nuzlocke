@@ -9,13 +9,13 @@ import { Page } from 'common';
 import styles from './Import.module.scss';
 
 const Import: React.FC = () => {
-  const [option, setOption] = useState('site');
-  const [file, setFile] = useState('');
+  const [option, setOption] = useState<'all' | 'game'>('all');
+  const [file, setFile] = useState<File>(undefined);
   const importState = useStore((state) => state.importState);
 
-  const handleImport = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleImport = () => {
     const fileReader = new FileReader();
-    fileReader.readAsText(e.target.files[0], 'UTF-8');
+    fileReader.readAsText(file, 'UTF-8');
     fileReader.onload = (event) => {
       try {
         const partialState: Partial<AppState> = JSON.parse(event.target.result as string);
@@ -31,15 +31,23 @@ const Import: React.FC = () => {
     };
   };
 
-  const handleCSV = (data: unknown[]) => {
-    console.log(data);
+  const handleCSV = () => {
+    // TODO: PARSING CSV
+  };
+
+  const handleApply = () => {
+    if (option === 'all') {
+      handleImport();
+    } else {
+      handleCSV();
+    }
   };
 
   return (
     <Page header="Import">
       <article className={styles.container}>
         <div className={styles.subheading}>
-          <Radio checked={option === 'site'} onChange={() => setOption('site')} value="site" />
+          <Radio checked={option === 'all'} onChange={() => setOption('all')} value="all" />
           <h3>Complete Import</h3>
         </div>
         <p>
@@ -54,9 +62,9 @@ const Import: React.FC = () => {
           aria-labelledby="import"
           data-testid="import"
           id="file-input"
-          onChange={() => setFile(file)}
+          onChange={(e) => setFile(e.target.files[0])}
           type="file"
-          value={file}
+          value={file?.name || ''}
         />
         <div className={styles.subheading}>
           <Radio checked={option === 'game'} onChange={() => setOption('game')} value="game" />
@@ -66,9 +74,9 @@ const Import: React.FC = () => {
         <div className={styles.csv}>
           <CSVReader
             addRemoveButton
-            onDrop={(data) => handleCSV(data)}
+            onDrop={() => handleCSV()}
             onError={() => {}}
-            onFileLoad={(data) => handleCSV(data)}
+            onFileLoad={() => handleCSV()}
             onRemoveFile={() => {}}
             removeButtonColor="#659cef"
           >
@@ -81,7 +89,7 @@ const Import: React.FC = () => {
             Download
           </Button>
         </div>
-        <Button primary type="button">
+        <Button onClick={handleApply} primary type="button">
           Apply
         </Button>
       </article>

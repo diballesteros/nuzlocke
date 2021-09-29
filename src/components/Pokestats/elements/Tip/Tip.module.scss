@@ -1,0 +1,9 @@
+.container {
+  width: 100%;
+  padding: 8px;
+  background-color: var(--secondarybg);
+
+  .missing {
+    color: var(--contrast);
+  }
+}
