@@ -1,7 +1,8 @@
 .container {
   width: 100%;
   padding: 8px;
-  background-color: var(--secondarybg);
+  background-color: var(--bgsecondary);
+  border-radius: 4px;
 
   .missing {
     color: var(--contrast);

@@ -18,6 +18,7 @@ import {
 } from 'selectors';
 import { Moves, PokeInfo } from 'components';
 import { RuleContent } from 'components/Rules/elements';
+import { Tip } from 'components/Pokestats/elements';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
@@ -139,9 +140,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
               );
             })
           ) : (
-            <p>
-              In the Tracker set a pokémon to the status <strong>Team</strong> to see it here
-            </p>
+            <Tip missing="Team" />
           )}
         </div>
       </div>

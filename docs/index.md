@@ -37,7 +37,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
 - Export, import and share Nuzlocke runs with others!
-- Share, add and edit custom rules and rulesets
+- Share, add and edit custom rules and rulesets - including smart rules that alert if they're broken
 - View overview and summary of your nuzlocke run
 - Dupes clause alerts
 - Works offline
@@ -51,19 +51,19 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 - Adding Encounter:
 
-![til](https://media.giphy.com/media/3Vg6oiO9k2ki9SqurG/giphy.gif?cid=790b7611d41d7f9775f131bd3a5dba9e339d7b5f23ce359a&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/FMh9lSkFUKElUYFMew/giphy.gif?cid=790b761168ce308166c7a32020f6daf149969e8cf84c65af&rid=giphy.gif&ct=g)
 
 - Editing Encounter:
 
-![til](https://media.giphy.com/media/JNKFRBlRkg0Fr9q9pX/giphy.gif?cid=790b7611346c86f533776d9f9f266eb63f88ba4d8e0b4758&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/fyq5z58gUVWO2U3aSY/giphy.gif?cid=790b7611d728375309bfe8d1e1573526a5fbf0c20669d975&rid=giphy.gif&ct=g)
 
 - Badges:
 
-![til](https://media.giphy.com/media/ew5Ooc73PE3YqwWgLA/giphy.gif?cid=790b7611ad6f0af63550c3107bc6bf981007b33ed5e93a39&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/1hGkVwGIIuOFdCeWh4/giphy.gif)
 
 - Team Builder:
 
-![til](https://media.giphy.com/media/T0yMtbmR5hVX3ARLbN/giphy.gif?cid=790b761127516fcf192c309d7f6a15a9c452beade4f80b5f&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/dPFBWj43BKMsSLjJSD/giphy.gif)
 
 - Summary Image:
 
@@ -106,7 +106,7 @@ This is an example of how to list things you need to use the software and how to
 This project uses [Cypress](https://www.cypress.io/) for testing. To run them:
 
 ```sh
-yarn run cypress open
+yarn e2e
 ```
 
 In the new window execute any of the \*.spec.ts files.

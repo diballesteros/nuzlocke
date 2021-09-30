@@ -9,6 +9,19 @@ describe('PokéStats', () => {
     cy.contains('Sword and Shield').click();
   });
 
+  it('Tips', () => {
+    cy.get('[data-testid=options]').click();
+    cy.contains('Stats').click();
+    cy.get('.secondary > :nth-child(2) > .ui').click();
+    cy.get('[data-testid=status-tip]').should('exist');
+    cy.get('.secondary > :nth-child(3) > .ui').click();
+    cy.get('[data-testid=status-tip]').should('exist');
+    cy.get('.secondary > :nth-child(4) > .ui').click();
+    cy.get('[data-testid=status-tip]').should('exist');
+    cy.get('.secondary > :nth-child(5) > .ui').click();
+    cy.get('[data-testid=status-tip]').should('exist');
+  });
+
   it('Pokemon counters', () => {
     cy.get('[data-testid=encounter-0]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });

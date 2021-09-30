@@ -5,10 +5,10 @@ jobs:
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome88-ff89
     steps:
-      - name: Checkout
+      - name: 🛫 Checkout
         uses: actions/checkout@v2
 
-      - name: Cypress install
+      - name: 🌲 Cypress install
         uses: cypress-io/github-action@v2.9.7
         with:
           runTests: false
@@ -18,7 +18,7 @@ jobs:
       - run: yarn lint
       - run: yarn build
 
-      - name: Save build folder
+      - name: 📁 Save build folder
         uses: actions/upload-artifact@v2
         with:
           name: build
@@ -36,16 +36,16 @@ jobs:
         # runs copies of the current job in parallel
         containers: [1, 2]
     steps:
-      - name: Checkout
+      - name: 🛫 Checkout
         uses: actions/checkout@v2
 
-      - name: Download the build folders
+      - name: 🏗 Download the build folders
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
 
-      - name: 'UI Tests - Chrome'
+      - name: 💻 'UI Tests - Chrome'
         uses: cypress-io/github-action@v2.9.7
         with:
           start: yarn run develop:ci
@@ -60,7 +60,7 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload coverage to Codecov
+      - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2
 
   ui-firefox-tests:
@@ -76,16 +76,16 @@ jobs:
         # run copies of the current job in parallel
         containers: [1, 2]
     steps:
-      - name: Checkout
+      - name: 🛫 Checkout
         uses: actions/checkout@v2
 
-      - name: Download the build folders
+      - name: 🏗 Download the build folders
         uses: actions/download-artifact@v2
         with:
           name: build
           path: build
 
-      - name: 'UI Tests - Firefox'
+      - name: 💻 'UI Tests - Firefox'
         uses: cypress-io/github-action@v2
         with:
           start: yarn run develop:ci
@@ -100,5 +100,5 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Upload coverage to Codecov
+      - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2

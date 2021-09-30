@@ -62,7 +62,7 @@ describe('Options', () => {
   });
 
   context('Import', () => {
-    it('Import - Success', () => {
+    it.skip('Import - Success', () => {
       cy.get('[data-testid=import]').attachFile('PokemonList.json');
       cy.contains('Emerald Kaizo').should('exist');
       cy.contains('Super Secret Place').should('exist');
@@ -76,7 +76,7 @@ describe('Options', () => {
       cy.get('[data-testid=team-poke-Venusaur]').should('exist');
     });
 
-    it('Import - Failure', () => {
+    it.skip('Import - Failure', () => {
       cy.get('[data-testid=import]').attachFile('Invalid.json');
       cy.contains('Invalid file').should('exist');
     });

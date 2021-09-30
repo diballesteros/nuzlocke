@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
@@ -9,9 +9,10 @@ import { Page } from 'common';
 import styles from './Import.module.scss';
 
 const Import: React.FC = () => {
+  const importState = useStore(useCallback((state) => state.importState, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const [option, setOption] = useState<'all' | 'game'>('all');
   const [file, setFile] = useState<File>(undefined);
-  const importState = useStore((state) => state.importState);
 
   const handleImport = () => {
     const fileReader = new FileReader();
@@ -36,26 +37,25 @@ const Import: React.FC = () => {
   };
 
   const handleApply = () => {
-    if (option === 'all') {
-      handleImport();
-    } else {
-      handleCSV();
-    }
+    if (option === 'all') handleImport();
+    if (option === 'game') handleCSV();
   };
 
   return (
     <Page header="Import">
-      <article className={styles.container}>
-        <div className={styles.subheading}>
-          <Radio checked={option === 'all'} onChange={() => setOption('all')} value="all" />
-          <h3>Complete Import</h3>
-        </div>
+      <section className={styles.container}>
+        <Radio
+          checked={option === 'all'}
+          label="Complete Import"
+          onChange={() => setOption('all')}
+          value="all"
+        />
         <p>
           This will import and replace the encounters for{' '}
           <u>
-            <b>all</b>
+            <strong>all</strong>
           </u>{' '}
-          games! This uses the file generated from <b>export</b> in the sidebar
+          games! This uses the file generated from <strong>export</strong> in the sidebar.
         </p>
         <input
           accept=".json, text/json"
@@ -66,11 +66,16 @@ const Import: React.FC = () => {
           type="file"
           value={file?.name || ''}
         />
-        <div className={styles.subheading}>
-          <Radio checked={option === 'game'} onChange={() => setOption('game')} value="game" />
-          <h3>Game Import</h3>
-        </div>
-        <p>Use PKHeX&apos;s CSV to import encounters for the selected game</p>
+        <Radio
+          checked={option === 'game'}
+          disabled={!selectedGame?.value}
+          label="Game Import"
+          onChange={() => setOption('game')}
+          value="game"
+        />
+        <p>
+          Use PKHeX&apos;s CSV to import encounters for the <strong>selected</strong> game.
+        </p>
         <div className={styles.csv}>
           <CSVReader
             addRemoveButton
@@ -92,7 +97,7 @@ const Import: React.FC = () => {
         <Button onClick={handleApply} primary type="button">
           Apply
         </Button>
-      </article>
+      </section>
     </Page>
   );
 };

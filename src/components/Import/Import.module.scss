@@ -4,16 +4,6 @@
   gap: 16px;
   color: var(--contrast);
 
-  .subheading {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    > h3 {
-      margin-top: 0;
-    }
-  }
-
   .csv {
     height: 75px;
     width: 60%;
@@ -21,6 +11,12 @@
     > div > div {
       background: unset !important;
     }
+  }
+
+  :global(.ui.radio.checkbox > label) {
+    color: var(--contrast);
+    font-size: 16px;
+    font-weight: bold;
   }
 
   .download {

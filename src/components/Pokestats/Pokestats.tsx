@@ -7,7 +7,7 @@ import useStore from 'store';
 import POKEMON from 'constants/pokemon';
 import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import { PokeInfo } from 'components';
-import { Summary } from 'components/Pokestats/elements';
+import { Summary, Tip } from 'components/Pokestats/elements';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
@@ -46,38 +46,42 @@ const Pokestats: React.FC = () => {
       ),
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.team}`}>
-          {teamPokemon?.map((enc, i) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <div className={styles.member} key={`team-${enc.id}-${i + 1}`}>
-                <Popup
-                  key={`team-${enc.id}-${i + 1}`}
-                  inverted={darkMode}
-                  on="click"
-                  pinned
-                  position="top center"
-                  trigger={
-                    <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
-                      <img
-                        alt={foundPokemon?.text}
-                        className={styles.pokemon}
-                        src={foundPokemon?.image}
-                      />
-                      <div className={styles.center} />
-                    </div>
-                  }
-                >
-                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
-                </Popup>
-                <div className={styles.memberText}>
-                  <span>{enc.nickname || foundPokemon?.text}</span>
-                  {!!enc?.details?.level && <span>Lv. {enc.details.level}</span>}
+          {teamPokemon?.length > 0 ? (
+            teamPokemon?.map((enc, i) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <div className={styles.member} key={`team-${enc.id}-${i + 1}`}>
+                  <Popup
+                    key={`team-${enc.id}-${i + 1}`}
+                    inverted={darkMode}
+                    on="click"
+                    pinned
+                    position="top center"
+                    trigger={
+                      <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
+                        <img
+                          alt={foundPokemon?.text}
+                          className={styles.pokemon}
+                          src={foundPokemon?.image}
+                        />
+                        <div className={styles.center} />
+                      </div>
+                    }
+                  >
+                    <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                  </Popup>
+                  <div className={styles.memberText}>
+                    <span>{enc.nickname || foundPokemon?.text}</span>
+                    {!!enc?.details?.level && <span>Lv. {enc.details.level}</span>}
+                  </div>
+                  <div className={styles.lineOne} />
+                  <div className={styles.lineTwo} />
                 </div>
-                <div className={styles.lineOne} />
-                <div className={styles.lineTwo} />
-              </div>
-            );
-          })}
+              );
+            })
+          ) : (
+            <Tip missing="Team" />
+          )}
         </Tab.Pane>
       ),
     },
@@ -91,27 +95,31 @@ const Pokestats: React.FC = () => {
       ),
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.grass}`}>
-          {caughtPokemon?.map((enc, i) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <Popup
-                key={`caught-${enc.id}-${i + 1}`}
-                inverted={darkMode}
-                on="click"
-                pinned
-                position="top center"
-                trigger={
-                  <img
-                    alt={foundPokemon?.text}
-                    className={styles.pokemon}
-                    src={foundPokemon?.image}
-                  />
-                }
-              >
-                <PokeInfo encounter={enc} pokemon={foundPokemon} />
-              </Popup>
-            );
-          })}
+          {caughtPokemon?.length > 0 ? (
+            caughtPokemon?.map((enc, i) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <Popup
+                  key={`caught-${enc.id}-${i + 1}`}
+                  inverted={darkMode}
+                  on="click"
+                  pinned
+                  position="top center"
+                  trigger={
+                    <img
+                      alt={foundPokemon?.text}
+                      className={styles.pokemon}
+                      src={foundPokemon?.image}
+                    />
+                  }
+                >
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                </Popup>
+              );
+            })
+          ) : (
+            <Tip missing="Captured,  Gifted, Traded, Shiny or Team" />
+          )}
         </Tab.Pane>
       ),
     },
@@ -125,27 +133,31 @@ const Pokestats: React.FC = () => {
       ),
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.sky}`}>
-          {failedPokemon?.map((enc, i) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <Popup
-                key={`failed-${enc.id}-${i + 1}`}
-                inverted={darkMode}
-                on="click"
-                pinned
-                position="top center"
-                trigger={
-                  <img
-                    alt={foundPokemon?.text}
-                    className={styles.pokemon}
-                    src={foundPokemon?.image}
-                  />
-                }
-              >
-                <PokeInfo encounter={enc} pokemon={foundPokemon} />
-              </Popup>
-            );
-          })}
+          {failedPokemon?.length > 0 ? (
+            failedPokemon?.map((enc, i) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <Popup
+                  key={`failed-${enc.id}-${i + 1}`}
+                  inverted={darkMode}
+                  on="click"
+                  pinned
+                  position="top center"
+                  trigger={
+                    <img
+                      alt={foundPokemon?.text}
+                      className={styles.pokemon}
+                      src={foundPokemon?.image}
+                    />
+                  }
+                >
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                </Popup>
+              );
+            })
+          ) : (
+            <Tip missing="Failed" />
+          )}
         </Tab.Pane>
       ),
     },
@@ -159,27 +171,31 @@ const Pokestats: React.FC = () => {
       ),
       render: () => (
         <Tab.Pane attached={false} className={`${styles.box} ${styles.crag}`}>
-          {faintedPokemon?.map((enc, i) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <Popup
-                key={`fainted-${enc.id}-${i + 1}`}
-                inverted={darkMode}
-                on="click"
-                pinned
-                position="top center"
-                trigger={
-                  <img
-                    alt={foundPokemon?.text}
-                    className={styles.pokemon}
-                    src={foundPokemon?.image}
-                  />
-                }
-              >
-                <PokeInfo encounter={enc} pokemon={foundPokemon} />
-              </Popup>
-            );
-          })}
+          {faintedPokemon?.length > 0 ? (
+            faintedPokemon?.map((enc, i) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <Popup
+                  key={`fainted-${enc.id}-${i + 1}`}
+                  inverted={darkMode}
+                  on="click"
+                  pinned
+                  position="top center"
+                  trigger={
+                    <img
+                      alt={foundPokemon?.text}
+                      className={styles.pokemon}
+                      src={foundPokemon?.image}
+                    />
+                  }
+                >
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                </Popup>
+              );
+            })
+          ) : (
+            <Tip missing="Fainted" />
+          )}
         </Tab.Pane>
       ),
     },
