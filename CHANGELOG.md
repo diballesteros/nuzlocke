@@ -7,6 +7,7 @@
 🐛 Bug Fix
 
 - Sidebar now correctly dims the rest and closes when selecting an option
+- Added missing encounters to Route 4, 6, 7 and 8 for X and Y (Reset all encounters to see)
 
 💅 Enhancement
 

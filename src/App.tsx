@@ -158,8 +158,7 @@ const App: React.FC = () => {
             <Icon name="wrench" />
           </Menu.Item>
           <Export />
-          {/* <Import /> */}
-          <Menu.Item onClick={() => handleRoute('/import')}>
+          <Menu.Item data-testid="import" onClick={() => handleRoute('/import')}>
             <Icon name="upload" />
             Import
           </Menu.Item>
