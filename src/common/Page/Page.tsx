@@ -9,12 +9,12 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ children, header }) => {
   return (
-    <div className={styles.page}>
+    <section className={styles.page}>
       <div className={styles.header}>
         <h2>{header}</h2> <Back />
       </div>
       {children}
-    </div>
+    </section>
   );
 };
 
