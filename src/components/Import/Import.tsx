@@ -63,7 +63,7 @@ const Import: React.FC = () => {
       const newEncounters = parsedResult.reduce((parsedArr: TEncounter[], { data, errors }) => {
         const pokemonName = data[arrPositions.get('Species')];
         if (errors?.length > 0 || data?.length < 5 || !pokemonName) {
-          return parsedArr;
+          throw Error('Invalid File');
         }
 
         const foundEnc = encounterList.encounters.find((enc) => {
@@ -107,12 +107,8 @@ const Import: React.FC = () => {
     if (option === 'all') handleAllImport();
     if (option === 'game') {
       massImport(importEncounters);
-      toast.success('Succesfully imported game encounters');
+      toast.success('Successfully imported game encounters');
     }
-  };
-
-  const handleError = () => {
-    toast.error('Invalid CSV file');
   };
 
   return (
@@ -135,14 +131,13 @@ const Import: React.FC = () => {
           <div className={styles.fileText}>
             <span>{file?.name || 'Select a file...'}</span>
           </div>
-          <Button color="grey" type="button">
+          <Button color="grey" data-testid="attach-file" type="button">
             Select a file
             <input
               accept=".json, text/json"
               aria-labelledby="import"
               className={styles.hiddenFile}
-              data-testid="import"
-              id="file-input"
+              data-testid="import-file-input"
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
             />
@@ -150,6 +145,7 @@ const Import: React.FC = () => {
         </div>
         <Radio
           checked={option === 'game'}
+          data-testid="game-import-option"
           disabled={!selectedGame?.value}
           label="Game Import"
           onChange={() => setOption('game')}
@@ -157,12 +153,11 @@ const Import: React.FC = () => {
         />
         <p>
           <strong>[BETA]</strong> Use PKHeX&apos;s (version 21.10.1) CSV to import encounters for
-          the <strong>selected</strong> game.
+          the <strong>selected</strong> game: <em>{selectedGame?.text || 'No game selected'}</em>
         </p>
-        <div className={styles.csv}>
+        <div className={styles.csv} data-testid="csv-input">
           <CSVReader
             addRemoveButton
-            onError={handleError}
             onFileLoad={handleCSV}
             onRemoveFile={() => setImportEncounters(null)}
             removeButtonColor="#659cef"
@@ -170,7 +165,7 @@ const Import: React.FC = () => {
             <span>Drop CSV file here or click to upload.</span>
           </CSVReader>
         </div>
-        <div className={styles.download}>
+        <div className={styles.download} data-testid="csv-downloader">
           <p>Or download a CSV to edit for mass importing:</p>
           <CSVDownloader
             bom
@@ -198,6 +193,7 @@ const Import: React.FC = () => {
           </CSVDownloader>
         </div>
         <Button
+          data-testid="apply-import"
           disabled={(option === 'all' && !file) || (option === 'game' && !importEncounters)}
           onClick={handleApply}
           primary
