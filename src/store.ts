@@ -4,6 +4,7 @@ import produce from 'immer';
 import {
   AppState,
   PokemonDetail,
+  TEncounter,
   TGame,
   TPokemon,
   TRuleContent,
@@ -250,6 +251,15 @@ const useStore = create<AppState>(
           if (newAppState.badges) state.badges = newAppState.badges;
           if (newAppState.rules) state.rules = newAppState.rules;
           if (newAppState.team) state.team = newAppState.team;
+        }),
+      massImport: (newEncounters: TEncounter[]) =>
+        set((state) => {
+          newEncounters.forEach((newEnc) => {
+            const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+              return enc.id === newEnc.id;
+            });
+            state.games[state.selectedGame?.value].encounters[index] = { ...newEnc };
+          });
         }),
       removeNew: () =>
         set((state) => {
