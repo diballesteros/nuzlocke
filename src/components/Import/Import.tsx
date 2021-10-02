@@ -52,9 +52,12 @@ const Import: React.FC = () => {
     };
   };
 
-  const handleCSV = (result: unknown) => {
+  const handleCSV = (result: unknown, csvFile: File) => {
     const parsedResult = result as ParseResult<string>[];
     try {
+      if (!csvFile.type.includes('csv')) {
+        throw Error('Invalid file');
+      }
       const arrPositions = new Map<string, number>();
       parsedResult[0].data.forEach((v, i) => {
         arrPositions.set(v, i);
@@ -63,7 +66,7 @@ const Import: React.FC = () => {
       const newEncounters = parsedResult.reduce((parsedArr: TEncounter[], { data, errors }) => {
         const pokemonName = data[arrPositions.get('Species')];
         if (errors?.length > 0 || data?.length < 5 || !pokemonName) {
-          throw Error('Invalid File');
+          return parsedArr;
         }
 
         const foundEnc = encounterList.encounters.find((enc) => {

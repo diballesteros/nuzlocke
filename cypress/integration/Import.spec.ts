@@ -63,7 +63,7 @@ describe('Import', () => {
     cy.get('[data-testid=csv-downloader] > button').click();
     const downloadsFolder = Cypress.config('downloadsFolder');
     const filename = path.join(downloadsFolder, 'nuzlocke.csv');
-    cy.readFile(filename, { timeout: 15000 })
+    cy.readFile(filename, 'utf8', { timeout: 15000 })
       .should('have.length.gt', 50)
       .then((list) => {
         expect(list, 'number of record').to.have.length(108);
