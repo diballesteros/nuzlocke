@@ -3,11 +3,11 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.9.0',
-    date: 1632702001639,
+    date: 1633295020079,
     notes: [
       {
         description:
-          'Import PKHeX CSVs or custom CSVs to automatically populate the tracker. Click on Import in the sidebar to see how it works!',
+          'Import PKHeX CSVs, custom CSVs or PkHeX tables to automatically populate the tracker. Click on Import in the sidebar to see how it works!',
         type: 'FEATURE',
       },
       {

@@ -33,30 +33,52 @@ describe('Import', () => {
     cy.contains('Invalid file').should('exist');
   });
 
-  it('Game Import', () => {
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('HeartGold and SoulSilver').click();
-    cy.get('[data-testid=game-import-option] > label').click();
-    cy.get('[data-testid=csv-input] > input').attachFile('Box Data Dump.csv', {
-      force: true,
+  context('PkHeX Imports', () => {
+    beforeEach(() => {
+      cy.get('[data-testid=game-select]').click();
+      cy.contains('HeartGold and SoulSilver').click();
     });
-    cy.wait(1500);
-    cy.get('[data-testid=apply-import]').click();
-    cy.contains('Successfully imported game encounters').should('exist');
-    cy.get('[data-testid=options]').click();
-    cy.get('[data-testid=tracker]').click();
-    cy.contains('Bayleef').should('exist');
-  });
 
-  it('Game Import - Failure', () => {
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('HeartGold and SoulSilver').click();
-    cy.get('[data-testid=game-import-option] > label').click();
-    cy.get('[data-testid=csv-input] > input').attachFile('Invalid.json', {
-      force: true,
+    it('Import Game by Table', () => {
+      cy.fixture('table.txt', 'utf8').then((data) => {
+        cy.get('[data-testid=table-import-textarea]').invoke('val', data).trigger('change');
+        cy.get('[data-testid=table-import-option] > label').click();
+        cy.get('[data-testid=apply-import]').click();
+        cy.contains('Successfully imported game encounters').should('exist');
+        cy.get('[data-testid=options]').click();
+        cy.get('[data-testid=tracker]').click();
+        cy.contains('Bayleef').should('exist');
+      });
     });
-    cy.wait(1000);
-    cy.contains('Invalid file').should('exist');
+
+    it('Import Game by Table - Failure', () => {
+      cy.get('[data-testid=table-import-textarea]').type('Invalid text');
+      cy.get('[data-testid=table-import-option] > label').click();
+      cy.get('[data-testid=apply-import]').click();
+      cy.contains('Invalid text').should('exist');
+    });
+
+    it('Import Game by CSV', () => {
+      cy.get('[data-testid=game-import-option] > label').click();
+      cy.get('[data-testid=csv-input] > input').attachFile('Box Data Dump.csv', {
+        force: true,
+      });
+      cy.wait(1500);
+      cy.get('[data-testid=apply-import]').click();
+      cy.contains('Successfully imported game encounters').should('exist');
+      cy.get('[data-testid=options]').click();
+      cy.get('[data-testid=tracker]').click();
+      cy.contains('Bayleef').should('exist');
+    });
+
+    it('Import Game by CSV - Failure', () => {
+      cy.get('[data-testid=game-import-option] > label').click();
+      cy.get('[data-testid=csv-input] > input').attachFile('Invalid.json', {
+        force: true,
+      });
+      cy.wait(1000);
+      cy.contains('Invalid file').should('exist');
+    });
   });
 
   it('CSV Download', { browser: '!firefox' }, () => {

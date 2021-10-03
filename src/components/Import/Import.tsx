@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { CSVDownloader, CSVReader } from 'react-papaparse';
 import useStore from 'store';
@@ -30,9 +31,10 @@ const Import: React.FC = () => {
   const encounterList = useStore(
     useCallback((state) => state.games[state.selectedGame?.value], [])
   );
-  const [option, setOption] = useState<'all' | 'game'>('all');
+  const [option, setOption] = useState<'all' | 'game' | 'table'>('all');
   const [file, setFile] = useState<File>(undefined);
   const [importEncounters, setImportEncounters] = useState<TEncounter[]>(null);
+  const [text, setText] = useState('');
 
   const handleAllImport = () => {
     const fileReader = new FileReader();
@@ -52,16 +54,90 @@ const Import: React.FC = () => {
     };
   };
 
+  const getEncounter = (
+    data: string[],
+    arrPositions: Map<string, number>,
+    pokemonName: string
+  ): TEncounter => {
+    const foundEnc = encounterList.encounters.find((enc) => {
+      return enc.location.includes(data[arrPositions.get('MetLoc')]);
+    });
+
+    if (foundEnc) {
+      const foundPoke = POKEMON.find((poke) => poke.text === pokemonName);
+      return {
+        details: {
+          ability: data[arrPositions.get('Ability')],
+          gender: GENDER_DICTIONARY[data[arrPositions.get('Gender')]],
+          id: foundPoke?.value,
+          item: removeNone(data[arrPositions.get('HeldItem')]),
+          level: Number(data[arrPositions.get('Level')]),
+          metLevel: Number(data[arrPositions.get('MetLevel')]),
+          moves: [
+            getMoveByName(data[arrPositions.get('Move1')]),
+            getMoveByName(data[arrPositions.get('Move2')]),
+            getMoveByName(data[arrPositions.get('Move3')]),
+            getMoveByName(data[arrPositions.get('Move4')]),
+          ],
+          nature: removeNone(data[arrPositions.get('Nature')]),
+        },
+        id: foundEnc.id,
+        location: foundEnc.location,
+        nickname: removeNone(data[arrPositions.get('Nickname')]),
+        pokemon: foundPoke?.value,
+        status: null,
+      };
+    }
+    return null;
+  };
+
+  const getPositionsMap = (arr: string[]) => {
+    const arrPositions = new Map<string, number>();
+    arr.forEach((v, i) => {
+      arrPositions.set(v, i);
+    });
+    return arrPositions;
+  };
+
+  const handleTable = () => {
+    try {
+      const formatted = text.split('\n');
+      if (formatted?.length <= 1 || !text.includes('|')) {
+        throw Error('Invalid text');
+      }
+      const arrPositions = getPositionsMap(formatted[0].split('|'));
+      formatted.shift();
+      formatted.shift();
+
+      const newEncounters = formatted.reduce((parsedArr: TEncounter[], line) => {
+        const lineArr = line.split('|');
+        const pokemonName = lineArr[arrPositions.get('Species')];
+
+        if (lineArr?.length < 5 || !pokemonName) {
+          return parsedArr;
+        }
+
+        const newEncounter = getEncounter(lineArr, arrPositions, pokemonName);
+        if (newEncounter) {
+          parsedArr.push(newEncounter);
+        }
+
+        return parsedArr;
+      }, []);
+      massImport(newEncounters);
+      toast.success('Successfully imported game encounters');
+    } catch (e) {
+      toast.error('Invalid text');
+    }
+  };
+
   const handleCSV = (result: unknown, csvFile: File) => {
     const parsedResult = result as ParseResult<string>[];
     try {
-      if (!csvFile.type.includes('csv')) {
+      if (!(csvFile.type.includes('csv') || csvFile.name.includes('csv'))) {
         throw Error('Invalid file');
       }
-      const arrPositions = new Map<string, number>();
-      parsedResult[0].data.forEach((v, i) => {
-        arrPositions.set(v, i);
-      });
+      const arrPositions = getPositionsMap(parsedResult[0].data);
       parsedResult.shift();
       const newEncounters = parsedResult.reduce((parsedArr: TEncounter[], { data, errors }) => {
         const pokemonName = data[arrPositions.get('Species')];
@@ -69,34 +145,9 @@ const Import: React.FC = () => {
           return parsedArr;
         }
 
-        const foundEnc = encounterList.encounters.find((enc) => {
-          return enc.location.includes(data[arrPositions.get('MetLoc')]);
-        });
-
-        if (foundEnc) {
-          const foundPoke = POKEMON.find((poke) => poke.text === pokemonName);
-          parsedArr.push({
-            details: {
-              ability: data[arrPositions.get('Ability')],
-              gender: GENDER_DICTIONARY[data[arrPositions.get('Gender')]],
-              id: foundPoke?.value,
-              item: removeNone(data[arrPositions.get('HeldItem')]),
-              level: Number(data[arrPositions.get('Level')]),
-              metLevel: Number(data[arrPositions.get('MetLevel')]),
-              moves: [
-                getMoveByName(data[arrPositions.get('Move1')]),
-                getMoveByName(data[arrPositions.get('Move2')]),
-                getMoveByName(data[arrPositions.get('Move3')]),
-                getMoveByName(data[arrPositions.get('Move4')]),
-              ],
-              nature: removeNone(data[arrPositions.get('Nature')]),
-            },
-            id: foundEnc.id,
-            location: foundEnc.location,
-            nickname: removeNone(data[arrPositions.get('Nickname')]),
-            pokemon: foundPoke?.value,
-            status: null,
-          });
+        const newEncounter = getEncounter(data, arrPositions, pokemonName);
+        if (newEncounter) {
+          parsedArr.push(newEncounter);
         }
         return parsedArr;
       }, []);
@@ -108,6 +159,7 @@ const Import: React.FC = () => {
 
   const handleApply = () => {
     if (option === 'all') handleAllImport();
+    if (option === 'table') handleTable();
     if (option === 'game') {
       massImport(importEncounters);
       toast.success('Successfully imported game encounters');
@@ -124,7 +176,7 @@ const Import: React.FC = () => {
           value="all"
         />
         <p>
-          This will import and replace the encounters for{' '}
+          This will import and replace the encounters, rules and builder teams for{' '}
           <u>
             <strong>all</strong>
           </u>{' '}
@@ -146,18 +198,54 @@ const Import: React.FC = () => {
             />
           </Button>
         </div>
+        <b style={{ color: 'red' }}>
+          IMPORTANT: The following two options may not import ALL encounters but should work on the
+          majority and will rewrite encounters if it already exists
+        </b>
+        <b style={{ color: 'red' }}>The status is not imported</b>
+        <p>
+          Use PKHeX&apos;s (version 21.10.1) Box Data Report to generate to import encounters for
+          the <strong>selected</strong> game: <em>{selectedGame?.text || 'No game selected'}</em>
+        </p>
+        <Radio
+          checked={option === 'table'}
+          data-testid="table-import-option"
+          disabled={!selectedGame?.value}
+          label="Import Game by Table [BETA]"
+          onChange={() => setOption('table')}
+          value="table"
+        />
+        <b>Is more stable than CSV for the time-being</b>
+        <a
+          href="https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-table-with-PkHeX"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          How To Generate table with PokeHeX <Icon name="linkify" />
+        </a>
+        <textarea
+          className={styles.textarea}
+          data-testid="table-import-textarea"
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Copy and paste the table data..."
+          rows={5}
+          value={text}
+        />
         <Radio
           checked={option === 'game'}
           data-testid="game-import-option"
           disabled={!selectedGame?.value}
-          label="Game Import"
+          label="Import Game by CSV [BETA]"
           onChange={() => setOption('game')}
           value="game"
         />
-        <p>
-          <strong>[BETA]</strong> Use PKHeX&apos;s (version 21.10.1) CSV to import encounters for
-          the <strong>selected</strong> game: <em>{selectedGame?.text || 'No game selected'}</em>
-        </p>
+        <a
+          href="https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-CSV-from-PkHeX"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          How To Generate CSV with PokeHeX <Icon name="linkify" />
+        </a>
         <div className={styles.csv} data-testid="csv-input">
           <CSVReader
             addRemoveButton
@@ -196,8 +284,13 @@ const Import: React.FC = () => {
           </CSVDownloader>
         </div>
         <Button
+          className={styles.apply}
           data-testid="apply-import"
-          disabled={(option === 'all' && !file) || (option === 'game' && !importEncounters)}
+          disabled={
+            (option === 'all' && !file) ||
+            (option === 'game' && !importEncounters) ||
+            (option === 'table' && !text)
+          }
           onClick={handleApply}
           primary
           type="button"

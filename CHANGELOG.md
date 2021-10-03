@@ -2,27 +2,36 @@
 
 🚀 New features
 
-- Import custom or PKHeX CSVs or custom CSVs to automatically populate the tracker. Click on Import in the sidebar to see how it works!
+- Import PKHeX CSVs, custom CSVs or PkHeX tables to automatically populate the tracker. Click on Import in the sidebar to see how it works!
 
 🐛 Bug Fix
 
-- Sidebar now correctly dims the rest and closes when selecting an option
+- HeartGold and SoulSilver routes were incorrectly mapped to regular Gold and Silver (Reset all encounters to see)
+- Added Bug Catching Contest encounters to National Park in Gold, Silver and Crystal (Reset all encounters to see)
 - Added missing encounters to Route 4, 6, 7 and 8 for X and Y (Reset all encounters to see)
+- Sidebar now correctly dims the screen and closes when selecting an option
 
 💅 Enhancement
 
 - Relocated "Edit Badges" button on smaller screens
+- Included a tip to indicate what status is needed for the pokemon to show up in the respective Stats tab
+- Dark mode should automatically be set if indicated in browser preferences
 
 🏠 Internal
 
-- Bumped @types/lodash 4.14.174
-- Bumped @types/node 16.10.1
-- Bumped @types/react 17.0.24
+- Bumped Zustand to 3.5.12
+- Bumped @testing-library/react to 12.1.1
+- Bumped @types/lodash 4.14.175
+- Bumped @types/node 16.10.2
+- Bumped @types/react 17.0.26
 - Bumped @types/react-router-dom 5.3.0
-- Bumped @typescript-eslint/eslint-plugin 4.31.2
-- Bumped @typescript-eslint/parser 4.31.2
-- Bumped @eslint-plugin-react 7.26.0
+- Bumped @typescript-eslint/eslint-plugin 4.32.0
+- Bumped @typescript-eslint/parser 4.32.0
+- Bumped cypress to 8.5.0
+- Bumped @eslint-plugin-react 7.26.1
 - Bumped semantic-ui-react 2.0.4
+- Updated README
+- Added Emojis to main.yml
 
 ## Version 3.8.0
 

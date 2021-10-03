@@ -3,6 +3,8 @@
   flex-flow: column nowrap;
   gap: 16px;
   color: var(--contrast);
+  box-sizing: unset;
+  overflow: auto;
 
   .customFile {
     display: flex;
@@ -40,12 +42,24 @@
     }
   }
 
+  .textarea {
+    height: 100px;
+    min-height: 100px;
+    resize: none;
+  }
+
+  > p {
+    margin-bottom: 0;
+  }
+
   .csv {
-    height: 75px;
     width: 60%;
 
-    > div > div {
-      background: unset !important;
+    > div {
+      height: unset !important;
+      > div {
+        background: unset !important;
+      }
     }
   }
 
@@ -63,5 +77,10 @@
 
   > button {
     width: fit-content;
+  }
+
+  .apply {
+    align-self: flex-end;
+    margin-right: 8px;
   }
 }
