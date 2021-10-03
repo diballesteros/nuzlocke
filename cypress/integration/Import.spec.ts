@@ -41,7 +41,7 @@ describe('Import', () => {
 
     it('Import Game by Table', () => {
       cy.fixture('table.txt', 'utf8').then((data) => {
-        cy.get('[data-testid=table-import-textarea]').invoke('val', data).trigger('change');
+        cy.get('[data-testid=table-import-textarea]').type(data, { delay: 0 });
         cy.get('[data-testid=table-import-option] > label').click();
         cy.get('[data-testid=apply-import]').click();
         cy.contains('Successfully imported game encounters').should('exist');
