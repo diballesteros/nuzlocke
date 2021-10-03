@@ -44,7 +44,7 @@ const FAB: React.FC = () => {
             <span className={styles.label}>Add Encounter</span>
             <AddEncounter icon />
           </div>
-          <div className={styles.listItem}>
+          <div className={styles.listItem} data-testid="fab-reset-encounters">
             <span className={styles.label}>Reset Encounters</span>
             <ResetEncounters icon />
           </div>

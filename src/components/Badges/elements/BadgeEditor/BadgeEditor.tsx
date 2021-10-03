@@ -30,78 +30,75 @@ const BadgeEditor: React.FC<BadgeEditorProps> = ({ icon }) => {
     resetBadges(data.value as string);
   };
 
-  return (
-    selectedGame?.value &&
-    Number(selectedGame.value) <= 13 && (
-      <Modal
-        closeOnDimmerClick
-        onClose={() => setOpen(false)}
-        open={open}
-        trigger={
-          icon ? (
-            <Button
-              icon="pencil"
-              circular
-              className={buttonStyles.iconButton}
-              color="yellow"
-              data-testid="edit-badges"
-              disabled={!selectedGame}
-              onClick={() => setOpen(true)}
-            />
-          ) : (
-            <Button
-              aria-label="editgame"
-              className={styles.button}
-              data-testid="edit-badges"
-              icon
-              onClick={() => setOpen(true)}
-              style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
-            >
-              <Icon name="pencil" />
-            </Button>
-          )
-        }
+  return selectedGame?.value && Number(selectedGame.value) <= 13 ? (
+    <Modal
+      closeOnDimmerClick
+      onClose={() => setOpen(false)}
+      open={open}
+      trigger={
+        icon ? (
+          <Button
+            icon="pencil"
+            circular
+            className={buttonStyles.iconButton}
+            color="yellow"
+            data-testid="edit-badges"
+            disabled={!selectedGame}
+            onClick={() => setOpen(true)}
+          />
+        ) : (
+          <Button
+            aria-label="editgame"
+            className={styles.button}
+            data-testid="edit-badges"
+            icon
+            onClick={() => setOpen(true)}
+            style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+          >
+            <Icon name="pencil" />
+          </Button>
+        )
+      }
+    >
+      <Modal.Header>Edit Badge Level Caps</Modal.Header>
+      <Modal.Content
+        style={{
+          display: 'flex',
+          flexFlow: 'column nowrap',
+          gap: '5px',
+          maxHeight: '70vh',
+          overflow: 'auto',
+        }}
       >
-        <Modal.Header>Edit Badge Level Caps</Modal.Header>
-        <Modal.Content
-          style={{
-            display: 'flex',
-            flexFlow: 'column nowrap',
-            gap: '5px',
-            maxHeight: '70vh',
-            overflow: 'auto',
-          }}
-        >
-          {selectedGame &&
-            badges[selectedGame?.value]?.map((val, i) => {
-              return (
-                <Input
-                  key={`badge-${i + 1}`}
-                  label={val.name}
-                  onChange={(e, data) => handleChange(data.value, i)}
-                  value={val.levelCap}
-                />
-              );
-            })}
-        </Modal.Content>
-        <Modal.Actions>
-          {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
-            <Dropdown
-              button
-              data-testid="badge-multiple-default"
-              onChange={handleMultiReset}
-              options={LEVEL_CAPS[selectedGame?.value]}
-              text="Set default"
-              value={null}
-            />
-          ) : (
-            <Button onClick={() => resetBadges()}>Set default</Button>
-          )}
-          <Button onClick={() => setOpen(false)}>Close</Button>
-        </Modal.Actions>
-      </Modal>
-    )
-  );
+        {selectedGame &&
+          badges[selectedGame?.value]?.map((val, i) => {
+            return (
+              <Input
+                key={`badge-${i + 1}`}
+                label={val.name}
+                onChange={(e, data) => handleChange(data.value, i)}
+                value={val.levelCap}
+              />
+            );
+          })}
+      </Modal.Content>
+      <Modal.Actions>
+        {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
+          <Dropdown
+            button
+            data-testid="badge-multiple-default"
+            onChange={handleMultiReset}
+            options={LEVEL_CAPS[selectedGame?.value]}
+            text="Set default"
+            value={null}
+          />
+        ) : (
+          <Button onClick={() => resetBadges()}>Set default</Button>
+        )}
+        <Button onClick={() => setOpen(false)}>Close</Button>
+      </Modal.Actions>
+    </Modal>
+  ) : null;
 };
 
 export default BadgeEditor;
