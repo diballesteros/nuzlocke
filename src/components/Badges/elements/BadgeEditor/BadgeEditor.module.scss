@@ -2,6 +2,10 @@
   background-color: transparent !important;
   color: var(--contrast) !important;
 
+  @media (max-width: 550px) {
+    display: none !important;
+  }
+
   &:hover {
     background-color: transparent !important;
     color: var(--contrast) !important;

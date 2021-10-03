@@ -101,7 +101,7 @@ const App: React.FC = () => {
                 <Icon name="trash" />
               </Button>
             ) : null}
-            {selectedGame?.value && Number(selectedGame.value) <= 13 ? <BadgeEditor /> : null}
+            <BadgeEditor />
             <Confirm
               closeOnDimmerClick
               content="This will delete the custom game. Are you sure?"
