@@ -1,6 +1,7 @@
 import {
   About,
   Builder,
+  Calculator,
   Changelog,
   Import,
   Pokestats,
@@ -35,6 +36,11 @@ const AppRouter: React.FC = () => {
       <Route path="/builder">
         <ErrorBoundary>
           <Builder />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/calculator">
+        <ErrorBoundary>
+          <Calculator />
         </ErrorBoundary>
       </Route>
       <Route path="/settings">

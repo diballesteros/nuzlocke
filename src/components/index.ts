@@ -2,6 +2,7 @@ export { default as About } from './About/About';
 export { default as AddGame } from './AddGame/AddGame';
 export { default as Badges } from './Badges/Badges';
 export { default as Builder } from './Builder/Builder';
+export { default as Calculator } from './Calculator/Calculator';
 export { default as Changelog } from './Changelog/Changelog';
 export { default as Effectiveness } from './Effectiveness/Effectiveness';
 export { default as Export } from './Export/Export';
