@@ -57,7 +57,7 @@ $break3: '(min-width:1005px)';
     &.darkmode,
     &.delete {
       @media (max-width: 550px) {
-        padding: 2px;
+        padding: 5px !important;
       }
     }
   }

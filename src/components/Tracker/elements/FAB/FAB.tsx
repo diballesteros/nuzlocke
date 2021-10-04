@@ -1,9 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import useStore from 'store';
+import POKEMON from 'constants/pokemon';
 import { Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
-import POKEMON from 'constants/pokemon';
+import { BadgeEditor } from 'components/Badges/elements';
 import styles from './FAB.module.scss';
 
 const FAB: React.FC = () => {
@@ -33,11 +34,17 @@ const FAB: React.FC = () => {
               )}
             />
           </div>
+          {selectedGame?.value && Number(selectedGame.value) <= 13 && (
+            <div className={styles.listItem} data-testid="fab-add-edit-badges">
+              <span className={styles.label}>Edit Badges</span>
+              <BadgeEditor icon />
+            </div>
+          )}
           <div className={styles.listItem} data-testid="fab-add-encounter">
             <span className={styles.label}>Add Encounter</span>
             <AddEncounter icon />
           </div>
-          <div className={styles.listItem}>
+          <div className={styles.listItem} data-testid="fab-reset-encounters">
             <span className={styles.label}>Reset Encounters</span>
             <ResetEncounters icon />
           </div>

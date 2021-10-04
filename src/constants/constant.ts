@@ -2,6 +2,7 @@ import D_P_PLAT from 'constants/locations/D_P_PLAT';
 import FR_LG from 'constants/locations/FR_LG';
 import R_B_Y from 'constants/locations/R_B_Y';
 import G_S_C from 'constants/locations/G_S_C';
+import HG_SS from 'constants/locations/HG_SS';
 import R_S_E from 'constants/locations/R_S_E';
 import OR_AS from 'constants/locations/OR_AS';
 import B_W from 'constants/locations/B_W';
@@ -193,7 +194,7 @@ export const INITIAL_STATE: Partial<AppState> = {
     '3': { badge: null, encounters: R_S_E },
     '4': { badge: null, encounters: FR_LG },
     '5': { badge: null, encounters: D_P_PLAT },
-    '6': { badge: null, encounters: [...G_S_C] },
+    '6': { badge: null, encounters: HG_SS },
     '7': { badge: null, encounters: B_W },
     '8': { badge: null, encounters: B_W_2 },
     '9': { badge: null, encounters: X_Y },

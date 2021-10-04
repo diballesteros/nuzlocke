@@ -18,6 +18,7 @@ import {
 } from 'selectors';
 import { Moves, PokeInfo } from 'components';
 import { RuleContent } from 'components/Rules/elements';
+import { Tip } from 'components/Pokestats/elements';
 import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
@@ -127,16 +128,20 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       <div className={styles.card}>
         <span className={styles.title}>TEAM</span>
         <div className={styles.team}>
-          {teamPokemon?.map((enc) => {
-            const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
-            return (
-              <div className={styles.pokemon} key={`team-${enc.id}`}>
-                <img src={foundPokemon?.image} alt={foundPokemon?.text} />
-                <PokeInfo encounter={enc} pokemon={foundPokemon} />
-                <Moves moves={enc?.details?.moves} />
-              </div>
-            );
-          })}
+          {teamPokemon?.length > 0 ? (
+            teamPokemon?.map((enc) => {
+              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              return (
+                <div className={styles.pokemon} key={`team-${enc.id}`}>
+                  <img src={foundPokemon?.image} alt={foundPokemon?.text} />
+                  <PokeInfo encounter={enc} pokemon={foundPokemon} />
+                  <Moves moves={enc?.details?.moves} />
+                </div>
+              );
+            })
+          ) : (
+            <Tip missing="Team" />
+          )}
         </div>
       </div>
       <div className={styles.row}>

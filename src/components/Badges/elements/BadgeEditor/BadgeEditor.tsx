@@ -6,11 +6,16 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import { LEVEL_CAPS } from 'constants/badges';
+import buttonStyles from 'assets/styles/Button.module.scss';
 import styles from './BadgeEditor.module.scss';
 
 const MULTIPLE_CAPS = ['1', '3', '5', '8'];
 
-const BadgeEditor: React.FC = () => {
+interface BadgeEditorProps {
+  icon?: boolean;
+}
+
+const BadgeEditor: React.FC<BadgeEditorProps> = ({ icon }) => {
   const [open, setOpen] = useState(false);
   const badges = useStore(useCallback((state) => state.badges, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -25,22 +30,34 @@ const BadgeEditor: React.FC = () => {
     resetBadges(data.value as string);
   };
 
-  return (
+  return selectedGame?.value && Number(selectedGame.value) <= 13 ? (
     <Modal
       closeOnDimmerClick
       onClose={() => setOpen(false)}
       open={open}
       trigger={
-        <Button
-          aria-label="editgame"
-          className={styles.button}
-          data-testid="edit-badges"
-          icon
-          onClick={() => setOpen(true)}
-          style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
-        >
-          <Icon name="pencil" />
-        </Button>
+        icon ? (
+          <Button
+            icon="pencil"
+            circular
+            className={buttonStyles.iconButton}
+            color="yellow"
+            data-testid="edit-badges"
+            disabled={!selectedGame}
+            onClick={() => setOpen(true)}
+          />
+        ) : (
+          <Button
+            aria-label="editgame"
+            className={styles.button}
+            data-testid="edit-badges"
+            icon
+            onClick={() => setOpen(true)}
+            style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+          >
+            <Icon name="pencil" />
+          </Button>
+        )
       }
     >
       <Modal.Header>Edit Badge Level Caps</Modal.Header>
@@ -81,7 +98,7 @@ const BadgeEditor: React.FC = () => {
         <Button onClick={() => setOpen(false)}>Close</Button>
       </Modal.Actions>
     </Modal>
-  );
+  ) : null;
 };
 
 export default BadgeEditor;

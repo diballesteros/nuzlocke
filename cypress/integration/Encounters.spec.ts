@@ -110,7 +110,7 @@ describe('Encounters', () => {
     it('Reset all encounters', () => {
       cy.get('[data-testid=encounter-0]').click();
       cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
-      cy.get(':nth-child(3) > [data-testid=reset-all]').click();
+      cy.get('[data-testid=fab-reset-encounters] > [data-testid=reset-all]').click();
       cy.contains('OK').click();
       cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
     });

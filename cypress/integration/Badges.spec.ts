@@ -30,6 +30,13 @@ describe('Badges', () => {
     cy.get('.page').click(1, 1);
   });
 
+  it('Edit bages - Smaller screen', () => {
+    cy.viewport('iphone-6+');
+    cy.get('[data-testid=fab-tracker] > .ui').click();
+    cy.get('[data-testid=fab-add-edit-badges] > [data-testid=edit-badges]').click();
+    cy.contains('Edit Badge Level Caps').should('exist');
+  });
+
   it('Badge Details', () => {
     cy.get('[data-testid=badge-detail-0] > .question').click();
     cy.contains('Eldegoss').should('exist');

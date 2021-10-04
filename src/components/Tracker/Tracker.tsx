@@ -5,14 +5,14 @@ import styles from './Tracker.module.scss';
 
 const Tracker: React.FC = () => {
   return (
-    <div className={styles.layout}>
+    <section className={styles.layout}>
       <div className={styles.container}>
         <Badges />
         <Options />
         <Encounters />
       </div>
       <FAB />
-    </div>
+    </section>
   );
 };
 

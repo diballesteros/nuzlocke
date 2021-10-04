@@ -1,4 +1,14 @@
-import { About, Builder, Changelog, Pokestats, Report, Rules, Settings, Tracker } from 'components';
+import {
+  About,
+  Builder,
+  Changelog,
+  Import,
+  Pokestats,
+  Report,
+  Rules,
+  Settings,
+  Tracker,
+} from 'components';
 import { BadgePage } from 'components/Badges/elements';
 import ErrorBoundary from 'error/ErrorBoundary';
 import React from 'react';
@@ -45,6 +55,11 @@ const AppRouter: React.FC = () => {
       <Route path="/about">
         <ErrorBoundary>
           <About />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/import">
+        <ErrorBoundary>
+          <Import />
         </ErrorBoundary>
       </Route>
       <Route exact path="/badgedetail/:game/:badge">

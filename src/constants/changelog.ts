@@ -2,6 +2,45 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.9.0',
+    date: 1633295020079,
+    notes: [
+      {
+        description:
+          'Import PkHeX tables to automatically populate the tracker. Click on Import in the sidebar to see how it works!',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Relocated "Edit Badges" button on smaller screens',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Included a tip to indicate what status is needed for the pokemon to show up in the respective Stats tab',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'HeartGold and SoulSilver routes were incorrectly mapped to regular Gold and Silver (Reset all encounters to see)',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Bug Catching Contest encounters to National Park in Gold, Silver and Crystal (Reset all encounters to see)',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added missing encounters to Route 4, 6, 7 and 8 for X and Y (Reset all encounters to see)',
+        type: 'FIX',
+      },
+      {
+        description: 'Sidebar now correctly dims the rest and closes when selecting an option',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.8.0',
     date: 1632702001639,
     notes: [

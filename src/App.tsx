@@ -9,7 +9,7 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import useStore from 'store';
 import AppRouter from 'routes/AppRouter';
-import { AddGame, Effectiveness, Export, Footer, Import } from 'components';
+import { AddGame, Effectiveness, Export, Footer } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import styles from './App.module.scss';
 
@@ -58,10 +58,11 @@ const App: React.FC = () => {
 
   const handleRoute = (route: string) => {
     history.push(route);
+    setVisible(false);
   };
 
   return (
-    <main className={styles.app} data-testid="app">
+    <div className={styles.app} data-testid="app">
       <header>
         <Menu attached="top" inverted={darkMode} style={{ width: '100%' }}>
           <button
@@ -100,7 +101,7 @@ const App: React.FC = () => {
                 <Icon name="trash" />
               </Button>
             ) : null}
-            {selectedGame?.value && Number(selectedGame.value) <= 13 ? <BadgeEditor /> : null}
+            <BadgeEditor />
             <Confirm
               closeOnDimmerClick
               content="This will delete the custom game. Are you sure?"
@@ -157,7 +158,10 @@ const App: React.FC = () => {
             <Icon name="wrench" />
           </Menu.Item>
           <Export />
-          <Import />
+          <Menu.Item data-testid="import" onClick={() => handleRoute('/import')}>
+            <Icon name="upload" />
+            Import
+          </Menu.Item>
           <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
             Report
             <Icon name="bug" />
@@ -174,8 +178,8 @@ const App: React.FC = () => {
             <Icon name="question" />
           </Menu.Item>
         </Sidebar>
-        <Sidebar.Pusher>
-          <div className={styles.grid}>
+        <Sidebar.Pusher dimmed={visible}>
+          <main className={styles.grid}>
             <nav className={styles.nav}>
               <NavLink activeClassName={styles.activeLink} exact to="/">
                 <Icon name="map" /> <span>Tracker</span>
@@ -193,7 +197,7 @@ const App: React.FC = () => {
             <div className={styles.mainContent}>
               <AppRouter />
             </div>
-          </div>
+          </main>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
       <Footer />
@@ -205,7 +209,7 @@ const App: React.FC = () => {
         position="bottom-center"
         theme={darkMode ? 'dark' : 'light'}
       />
-    </main>
+    </div>
   );
 };
 
