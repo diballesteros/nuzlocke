@@ -15,7 +15,6 @@
 
 - Relocated "Edit Badges" button on smaller screens
 - Included a tip to indicate what status is needed for the pokemon to show up in the respective Stats tab
-- Dark mode should automatically be set if indicated in browser preferences
 
 🏠 Internal
 
