@@ -56,39 +56,7 @@ describe('Import', () => {
       cy.get('[data-testid=table-import-option] > label').click();
       cy.get('[data-testid=apply-import]').click();
       cy.contains('Invalid text').should('exist');
+      cy.get('[data-testid=all-import-option] > label').click();
     });
-
-    it('Import Game by CSV', () => {
-      cy.get('[data-testid=game-import-option] > label').click();
-      cy.get('[data-testid=csv-input] > input').attachFile('Box Data Dump.csv', {
-        force: true,
-      });
-      cy.wait(1500);
-      cy.get('[data-testid=apply-import]').click();
-      cy.contains('Successfully imported game encounters').should('exist');
-      cy.get('[data-testid=options]').click();
-      cy.get('[data-testid=tracker]').click();
-      cy.contains('Bayleef').should('exist');
-    });
-
-    it('Import Game by CSV - Failure', () => {
-      cy.get('[data-testid=game-import-option] > label').click();
-      cy.get('[data-testid=csv-input] > input').attachFile('Invalid.json', {
-        force: true,
-      });
-      cy.wait(1000);
-      cy.contains('Invalid file').should('exist');
-    });
-  });
-
-  it('CSV Download', { browser: '!firefox' }, () => {
-    cy.get('[data-testid=csv-downloader] > button').click();
-    const downloadsFolder = Cypress.config('downloadsFolder');
-    const filename = path.join(downloadsFolder, 'nuzlocke.csv');
-    cy.readFile(filename, 'utf8', { timeout: 15000 })
-      .should('have.length.gt', 50)
-      .then((list) => {
-        expect(list, 'number of record').to.have.length(108);
-      });
   });
 });

@@ -2,7 +2,7 @@ import { Type } from 'constants/types';
 import { useState } from 'react';
 
 export type TFilter = {
-  reset: () => void;
+  reset?: () => void;
   search: string;
   setSearch: (e: string) => void;
   gens: number[];

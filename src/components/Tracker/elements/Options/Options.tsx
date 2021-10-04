@@ -39,7 +39,6 @@ const Options: React.FC = React.memo(() => {
           darkMode={darkMode}
           values={{
             gens,
-            reset: () => {},
             search: text,
             setGens,
             setSearch: search,

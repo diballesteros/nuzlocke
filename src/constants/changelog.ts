@@ -7,7 +7,7 @@ const CHANGELOG: TReleaseNotes = [
     notes: [
       {
         description:
-          'Import PKHeX CSVs, custom CSVs or PkHeX tables to automatically populate the tracker. Click on Import in the sidebar to see how it works!',
+          'Import PkHeX tables to automatically populate the tracker. Click on Import in the sidebar to see how it works!',
         type: 'FEATURE',
       },
       {

@@ -3,9 +3,8 @@ import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import { CSVDownloader, CSVReader } from 'react-papaparse';
 import useStore from 'store';
-import { AppState, Gender, ParseResult, TEncounter } from 'constants/types';
+import { AppState, Gender, TEncounter } from 'constants/types';
 import POKEMON from 'constants/pokemon';
 import MOVES from 'constants/moves';
 import { Page } from 'common';
@@ -31,9 +30,8 @@ const Import: React.FC = () => {
   const encounterList = useStore(
     useCallback((state) => state.games[state.selectedGame?.value], [])
   );
-  const [option, setOption] = useState<'all' | 'game' | 'table'>('all');
+  const [option, setOption] = useState<'all' | 'table'>('all');
   const [file, setFile] = useState<File>(undefined);
-  const [importEncounters, setImportEncounters] = useState<TEncounter[]>(null);
   const [text, setText] = useState('');
 
   const handleAllImport = () => {
@@ -131,39 +129,9 @@ const Import: React.FC = () => {
     }
   };
 
-  const handleCSV = (result: unknown, csvFile: File) => {
-    const parsedResult = result as ParseResult<string>[];
-    try {
-      if (!(csvFile.type.includes('csv') || csvFile.name.includes('csv'))) {
-        throw Error('Invalid file');
-      }
-      const arrPositions = getPositionsMap(parsedResult[0].data);
-      parsedResult.shift();
-      const newEncounters = parsedResult.reduce((parsedArr: TEncounter[], { data, errors }) => {
-        const pokemonName = data[arrPositions.get('Species')];
-        if (errors?.length > 0 || data?.length < 5 || !pokemonName) {
-          return parsedArr;
-        }
-
-        const newEncounter = getEncounter(data, arrPositions, pokemonName);
-        if (newEncounter) {
-          parsedArr.push(newEncounter);
-        }
-        return parsedArr;
-      }, []);
-      setImportEncounters(newEncounters);
-    } catch (e) {
-      toast.error('Invalid file');
-    }
-  };
-
   const handleApply = () => {
     if (option === 'all') handleAllImport();
     if (option === 'table') handleTable();
-    if (option === 'game') {
-      massImport(importEncounters);
-      toast.success('Successfully imported game encounters');
-    }
   };
 
   return (
@@ -171,6 +139,7 @@ const Import: React.FC = () => {
       <div className={styles.container}>
         <Radio
           checked={option === 'all'}
+          data-testid="all-import-option"
           label="Complete Import"
           onChange={() => setOption('all')}
           value="all"
@@ -199,7 +168,7 @@ const Import: React.FC = () => {
           </Button>
         </div>
         <b style={{ color: 'red' }}>
-          IMPORTANT: The following two options may not import ALL encounters but should work on the
+          IMPORTANT: The following option may not import ALL encounters but should work on the
           majority and will rewrite encounters if it already exists
         </b>
         <b style={{ color: 'red' }}>The status is not imported</b>
@@ -231,66 +200,10 @@ const Import: React.FC = () => {
           rows={5}
           value={text}
         />
-        <Radio
-          checked={option === 'game'}
-          data-testid="game-import-option"
-          disabled={!selectedGame?.value}
-          label="Import Game by CSV [BETA]"
-          onChange={() => setOption('game')}
-          value="game"
-        />
-        <a
-          href="https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-CSV-from-PkHeX"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          How To Generate CSV with PokeHeX <Icon name="linkify" />
-        </a>
-        <div className={styles.csv} data-testid="csv-input">
-          <CSVReader
-            addRemoveButton
-            onFileLoad={handleCSV}
-            onRemoveFile={() => setImportEncounters(null)}
-            removeButtonColor="#659cef"
-          >
-            <span>Drop CSV file here or click to upload.</span>
-          </CSVReader>
-        </div>
-        <div className={styles.download} data-testid="csv-downloader">
-          <p>Or download a CSV to edit for mass importing:</p>
-          <CSVDownloader
-            bom
-            data={[
-              {
-                'Nickname': '',
-                'Species': '',
-                'Nature': '',
-                'Gender': '',
-                'Ability': '',
-                'Move1': '',
-                'Move2': '',
-                'Move3': '',
-                'Move4': '',
-                'HeldItem': '',
-                'MetLoc': '',
-                'Level': '',
-                'MetLevel': '',
-              },
-            ]}
-            filename="nuzlocke"
-            type="button"
-          >
-            Download
-          </CSVDownloader>
-        </div>
         <Button
           className={styles.apply}
           data-testid="apply-import"
-          disabled={
-            (option === 'all' && !file) ||
-            (option === 'game' && !importEncounters) ||
-            (option === 'table' && !text)
-          }
+          disabled={(option === 'all' && !file) || (option === 'table' && !text)}
           onClick={handleApply}
           primary
           type="button"
