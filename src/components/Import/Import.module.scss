@@ -52,27 +52,10 @@
     margin-bottom: 0;
   }
 
-  .csv {
-    width: 60%;
-
-    > div {
-      height: unset !important;
-      > div {
-        background: unset !important;
-      }
-    }
-  }
-
   :global(.ui.radio.checkbox > label) {
     color: var(--contrast);
     font-size: 16px;
     font-weight: bold;
-  }
-
-  .download {
-    display: flex;
-    align-items: center;
-    gap: 8px;
   }
 
   > button {

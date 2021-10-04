@@ -184,13 +184,12 @@ const Import: React.FC = () => {
           onChange={() => setOption('table')}
           value="table"
         />
-        <b>Is more stable than CSV for the time-being</b>
         <a
           href="https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-table-with-PkHeX"
           rel="noopener noreferrer"
           target="_blank"
         >
-          How To Generate table with PokeHeX <Icon name="linkify" />
+          How To Generate table with PKHeX <Icon name="linkify" />
         </a>
         <textarea
           className={styles.textarea}
