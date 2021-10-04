@@ -153,6 +153,10 @@ const App: React.FC = () => {
             <Icon name="gavel" />
             Builder
           </Menu.Item>
+          <Menu.Item data-testid="calculator" onClick={() => handleRoute('/calculator')}>
+            <Icon name="calculator" />
+            Damage Calculator
+          </Menu.Item>
           <Menu.Item onClick={() => handleRoute('/settings')}>
             Settings
             <Icon name="wrench" />
