@@ -18,6 +18,7 @@ import {
   DEFAULT_RULES,
   DEFAULT_RULESET_NAMES,
   GAMES,
+  GAME_KEY_DICTIONARY,
   INITIAL_STATE,
   INITIAL_SUMMARY,
 } from 'constants/constant';
@@ -359,32 +360,55 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 2,
-      migrate: (persistedState: AppState) => {
+      version: 3,
+      migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
-        Object.keys(gameMigration).map((key) => {
-          gameMigration[key].encounters.forEach((enc) => {
-            if (!!(enc?.pokemon as unknown as TPokemon)?.value) {
-              enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+        if (version < 1) {
+          Object.keys(gameMigration).forEach((key) => {
+            gameMigration[key].encounters.forEach((enc) => {
+              if (!!(enc?.pokemon as unknown as TPokemon)?.value) {
+                enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
+              }
+            });
+          });
+        }
+
+        const newRules: TRulesetDictionary = { ...DEFAULT_RULES };
+
+        if (persistedState?.rulesets && version < 2) {
+          persistedState.rulesets.forEach((ruleset) => {
+            if (DEFAULT_RULESET_NAMES.includes(ruleset.text)) {
+              newRules[`old-${ruleset.text}`] = persistedState.rules[ruleset.value]?.map((rule) => {
+                return { content: rule.content, default: false, type: 'TEXT' };
+              });
+            } else {
+              newRules[ruleset.text] = persistedState.rules[ruleset.value]?.map((rule) => {
+                return { content: rule.content, default: false, type: 'TEXT' };
+              });
             }
           });
-        });
-        const newRules: TRulesetDictionary = { ...DEFAULT_RULES };
-        persistedState.rulesets.forEach((ruleset) => {
-          if (DEFAULT_RULESET_NAMES.includes(ruleset.text)) {
-            newRules[`old-${ruleset.text}`] = persistedState.rules[ruleset.value]?.map((rule) => {
-              return { content: rule.content, default: false, type: 'TEXT' };
+        }
+
+        if (version < 3) {
+          Object.keys(GAME_KEY_DICTIONARY).forEach((key) => {
+            gameMigration[key].encounters.forEach((enc) => {
+              if (!!enc?.filter) {
+                const newEnc = GAME_KEY_DICTIONARY[key].find(
+                  (constEnc) => constEnc.location === enc.location
+                );
+                if (!!newEnc) {
+                  enc.filterKey = newEnc.filterKey;
+                  delete enc.filter;
+                }
+              }
             });
-          } else {
-            newRules[ruleset.text] = persistedState.rules[ruleset.value]?.map((rule) => {
-              return { content: rule.content, default: false, type: 'TEXT' };
-            });
-          }
-        });
+          });
+        }
+
         return {
           ...persistedState,
           games: gameMigration,
-          rules: newRules,
+          ...(version <= 2 && { rules: newRules }),
           selectedRuleset: 'Nuzlocke',
         };
       },

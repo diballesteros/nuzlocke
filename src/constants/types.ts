@@ -129,6 +129,7 @@ export type TBadge = {
 export type TEncounter = {
   details?: PokemonDetail;
   filter?: string[];
+  filterKey?: string;
   id: number;
   location: string;
   nickname?: string;

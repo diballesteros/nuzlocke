@@ -1,3 +1,13 @@
+## Version 3.9.1
+
+💅 Enhancement
+
+- Encounters no longer have to be reset to see the latest encounter rates! Rejoice!
+
+🐛 Bug Fix
+
+- Added horde/ambush encounters for all respective X and Y encounters
+
 ## Version 3.9.0
 
 🚀 New features
