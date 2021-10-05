@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import shallow from 'zustand/shallow';
 import useStore from 'store';
 import POKEMON from 'constants/pokemon';
+import FILTERS from 'constants/filters';
 import { TEncounter } from 'constants/types';
 import { RULE_ALERTS } from 'constants/constant';
 import { Evolve } from 'components/Tracker/elements';
@@ -81,9 +82,12 @@ const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
   }, [encounter?.pokemon, getAlertText]);
 
   const filter = useMemo(() => {
-    return encounter?.filter && !showAll
+    return encounter?.filterKey && !showAll
       ? POKEMON.reduce((filtered, poke) => {
-          if (encounter?.filter?.includes(poke.text) || encounter.pokemon === poke.value) {
+          if (
+            FILTERS[encounter?.filterKey]?.includes(poke.text) ||
+            encounter.pokemon === poke.value
+          ) {
             filtered.push(poke.value);
           }
           return filtered;

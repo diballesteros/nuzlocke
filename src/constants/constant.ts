@@ -13,6 +13,7 @@ import S_M from 'constants/locations/S_M';
 import US_UM from 'constants/locations/US_UM';
 import {
   AppState,
+  TEncounter,
   TGame,
   TRule,
   TRuleContent,
@@ -254,6 +255,22 @@ export const getRuleContent = (content: TRuleContent, type: TRule): string => {
     default:
       return content as string;
   }
+};
+
+export const GAME_KEY_DICTIONARY: { [key in string]: TEncounter[] } = {
+  '1': R_B_Y,
+  '2': G_S_C,
+  '3': R_S_E,
+  '4': FR_LG,
+  '5': D_P_PLAT,
+  '6': HG_SS,
+  '7': B_W,
+  '8': B_W_2,
+  '9': X_Y,
+  '10': OR_AS,
+  '11': S_M,
+  '12': US_UM,
+  '13': SW_SH,
 };
 
 export const GENDERS = [

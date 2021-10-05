@@ -28,6 +28,7 @@ export interface ExtendedNavigator extends Navigator {
 }
 
 import 'cypress-file-upload';
+import 'cypress-localstorage-commands';
 
 Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid=level] > input').type('15').should('have.value', 15);

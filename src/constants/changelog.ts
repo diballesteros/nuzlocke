@@ -2,6 +2,21 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.9.1',
+    date: 1633405396418,
+    notes: [
+      {
+        description:
+          'Encounters no longer have to be reset to see the latest encounter tables! Rejoice!',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added horde/ambush encounters for all respective X and Y encounters',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.9.0',
     date: 1633295020079,
     notes: [
