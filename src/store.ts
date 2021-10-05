@@ -408,7 +408,7 @@ const useStore = create<AppState>(
         return {
           ...persistedState,
           games: gameMigration,
-          ...(version <= 2 && { rules: newRules }),
+          ...(version < 2 && { rules: newRules }),
           selectedRuleset: 'Nuzlocke',
         };
       },
