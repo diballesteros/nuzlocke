@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
+import { Moves, PokemonType } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
 import { TDetail } from 'constants/types';
-import { TYPE_COLOR } from 'constants/colors';
-import { Moves, PokemonType } from 'components';
 import styles from './BadgeDetail.module.scss';
 
 interface BadgeDetailProps {

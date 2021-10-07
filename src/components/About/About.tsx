@@ -1,9 +1,9 @@
 import React from 'react';
-import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
-import kofi from 'assets/img/kofi2.png';
-import google from 'assets/img/google-play-badge.png';
-import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import { Page } from 'common';
+import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
+import google from 'assets/img/google-play-badge.png';
+import kofi from 'assets/img/kofi2.png';
+import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import useStore from 'store';
 import STATUSES from 'constants/status';
 import { TStatus } from 'constants/types';
+import useStore from 'store';
 import styles from './Status.module.scss';
 
 interface StatusProps {

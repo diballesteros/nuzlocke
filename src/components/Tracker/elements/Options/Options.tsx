@@ -1,10 +1,10 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import POKEMON from 'constants/pokemon';
+import useStore from 'store';
 import styles from './Options.module.scss';
 
 const Options: React.FC = React.memo(() => {

@@ -1,13 +1,13 @@
 import React, { useCallback, useMemo } from 'react';
 import { toast } from 'react-toastify';
 import shallow from 'zustand/shallow';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
-import FILTERS from 'constants/filters';
-import { TEncounter } from 'constants/types';
-import { RULE_ALERTS } from 'constants/constant';
-import { Evolve } from 'components/Tracker/elements';
 import { PokemonSelector } from 'common';
+import { Evolve } from 'components/Tracker/elements';
+import { RULE_ALERTS } from 'constants/constant';
+import FILTERS from 'constants/filters';
+import POKEMON from 'constants/pokemon';
+import { TEncounter } from 'constants/types';
+import useStore from 'store';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {

@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
-import { Gender, TEncounter } from 'constants/types';
-import { GENDERS } from 'constants/constant';
-import POKEMON from 'constants/pokemon';
-import NATURES from 'constants/natures';
 import { MoveSelector, Natures, PokemonType } from 'components';
+import { GENDERS } from 'constants/constant';
+import NATURES from 'constants/natures';
+import POKEMON from 'constants/pokemon';
+import { Gender, TEncounter } from 'constants/types';
+import useStore from 'store';
 import styles from './Detail.module.scss';
 
 interface DetailProps {

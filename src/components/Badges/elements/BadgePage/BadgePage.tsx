@@ -1,10 +1,10 @@
 import React, { ReactText, useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
-import useStore from 'store';
-import DETAILS from 'constants/details';
-import { BadgeDetail } from 'components/Badges/elements';
 import { Page } from 'common';
+import { BadgeDetail } from 'components/Badges/elements';
+import DETAILS from 'constants/details';
+import useStore from 'store';
 import styles from './BadgePage.module.scss';
 
 const BadgePage: React.FC = () => {

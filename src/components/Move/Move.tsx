@@ -1,7 +1,7 @@
 import React from 'react';
+import { Type } from 'components';
 import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
 import { TMove } from 'constants/types';
-import { Type } from 'components';
 import styles from './Move.module.scss';
 
 interface MoveProps {

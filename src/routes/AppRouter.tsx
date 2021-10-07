@@ -1,3 +1,5 @@
+import React from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import {
   About,
   Builder,
@@ -12,8 +14,6 @@ import {
 } from 'components';
 import { BadgePage } from 'components/Badges/elements';
 import ErrorBoundary from 'error/ErrorBoundary';
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
 
 const AppRouter: React.FC = () => {
   return (

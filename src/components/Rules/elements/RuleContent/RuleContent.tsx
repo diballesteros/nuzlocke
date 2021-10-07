@@ -1,6 +1,6 @@
 import React from 'react';
-import { TRuleEntry } from 'constants/types';
 import { getRuleContent } from 'constants/constant';
+import { TRuleEntry } from 'constants/types';
 import styles from './RuleContent.module.scss';
 
 interface RuleContentProps {

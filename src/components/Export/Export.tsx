@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 
 const Export: React.FC = () => {

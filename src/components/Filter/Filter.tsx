@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import { GENERATIONS, TYPES } from 'constants/constant';
 import { TYPE_COLOR } from 'constants/colors';
+import { GENERATIONS, TYPES } from 'constants/constant';
 import { TFilter } from 'hooks/useFilter';
 import styles from './Filter.module.scss';
 

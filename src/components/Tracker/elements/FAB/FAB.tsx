@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
 import { Share } from 'components';
-import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import { BadgeEditor } from 'components/Badges/elements';
+import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import POKEMON from 'constants/pokemon';
+import useStore from 'store';
 import styles from './FAB.module.scss';
 
 const FAB: React.FC = () => {

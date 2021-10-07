@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import NICKNAMES from 'constants/nicknames';
+import useStore from 'store';
 import styles from './Nickname.module.scss';
 
 interface NicknameProps {

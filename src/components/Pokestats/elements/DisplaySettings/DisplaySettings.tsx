@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import useStore from 'store';
 import { SUM_STATUS } from 'constants/constant';
+import useStore from 'store';
 import styles from './DisplaySettings.module.scss';
 
 const DisplaySettings: React.FC = () => {

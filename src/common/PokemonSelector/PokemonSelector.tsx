@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { Filter, PokemonType } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
 import useFilter from 'hooks/useFilter';
-import { TYPE_COLOR } from 'constants/colors';
-import { Filter, PokemonType } from 'components';
 import styles from './PokemonSelector.module.scss';
 
 interface PokemonSelectorProps {

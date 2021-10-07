@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
-import useStore from 'store';
 import { useHistory } from 'react-router-dom';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import useStore from 'store';
 import styles from './Badges.module.scss';
 
 const Badges: React.FC = () => {

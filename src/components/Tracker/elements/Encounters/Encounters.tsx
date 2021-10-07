@@ -1,15 +1,15 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import shallow from 'zustand/shallow';
 import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
-import { TYPE_COLOR } from 'constants/colors';
+import shallow from 'zustand/shallow';
 import { Status } from 'components';
 import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
+import { TYPE_COLOR } from 'constants/colors';
+import POKEMON from 'constants/pokemon';
+import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 

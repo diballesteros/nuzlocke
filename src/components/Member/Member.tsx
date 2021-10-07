@@ -1,14 +1,14 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import useStore from 'store';
-import { PokemonDetail } from 'constants/types';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
 import POKEMON from 'constants/pokemon';
-import { MoveSelector, Natures, PokemonType } from 'components';
+import { PokemonDetail } from 'constants/types';
+import useStore from 'store';
 import styles from './Member.module.scss';
 
 interface MemberProps {

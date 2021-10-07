@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
 import { LEVEL_CAPS } from 'constants/badges';
+import useStore from 'store';
 import buttonStyles from 'assets/styles/Button.module.scss';
 import styles from './BadgeEditor.module.scss';
 

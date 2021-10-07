@@ -1,11 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { TRule, TRuleContent } from 'constants/types';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
+import { TRule, TRuleContent } from 'constants/types';
 import useStore from 'store';
 
 interface RuleEditorProps {

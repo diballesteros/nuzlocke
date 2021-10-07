@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import useStore from 'store';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import MOVES from 'constants/moves';
-import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import useFilter from 'hooks/useFilter';
 import { Filter, Move } from 'components';
+import { PHYS_SPEC_SPLIT } from 'constants/constant';
+import MOVES from 'constants/moves';
+import useFilter from 'hooks/useFilter';
+import useStore from 'store';
 import styles from './MoveSelector.module.scss';
 
 interface MoveSelectorProps {

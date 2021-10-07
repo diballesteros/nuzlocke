@@ -1,16 +1,17 @@
-import D_P_PLAT from 'constants/locations/D_P_PLAT';
-import FR_LG from 'constants/locations/FR_LG';
-import R_B_Y from 'constants/locations/R_B_Y';
-import G_S_C from 'constants/locations/G_S_C';
-import HG_SS from 'constants/locations/HG_SS';
-import R_S_E from 'constants/locations/R_S_E';
-import OR_AS from 'constants/locations/OR_AS';
+import BADGES from 'constants/badges';
 import B_W from 'constants/locations/B_W';
 import B_W_2 from 'constants/locations/B_W_2';
-import X_Y from 'constants/locations/X_Y';
-import SW_SH from 'constants/locations/SW_SH';
+import D_P_PLAT from 'constants/locations/D_P_PLAT';
+import FR_LG from 'constants/locations/FR_LG';
+import G_S_C from 'constants/locations/G_S_C';
+import HG_SS from 'constants/locations/HG_SS';
+import OR_AS from 'constants/locations/OR_AS';
+import R_B_Y from 'constants/locations/R_B_Y';
+import R_S_E from 'constants/locations/R_S_E';
 import S_M from 'constants/locations/S_M';
+import SW_SH from 'constants/locations/SW_SH';
 import US_UM from 'constants/locations/US_UM';
+import X_Y from 'constants/locations/X_Y';
 import {
   AppState,
   TEncounter,
@@ -21,7 +22,6 @@ import {
   TRulesetDictionary,
   Type,
 } from 'constants/types';
-import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
   {

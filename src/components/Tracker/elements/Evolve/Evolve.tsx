@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from 'react';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import useStore from 'store';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import POKEMON from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
+import useStore from 'store';
 import styles from './Evolve.module.scss';
 
 interface EvolveProps {

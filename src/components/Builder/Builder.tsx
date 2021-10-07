@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import { Member } from 'components';
 import { PokemonSelector } from 'common';
+import { Member } from 'components';
+import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Builder.module.scss';
 

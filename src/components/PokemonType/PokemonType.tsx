@@ -1,6 +1,6 @@
 import React from 'react';
-import { TPokemon } from 'constants/types';
 import { Type } from 'components';
+import { TPokemon } from 'constants/types';
 import styles from './PokemonType.module.scss';
 
 interface PokemonTypeProps {

@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
-import useStore from 'store';
 import { TYPE_COLOR } from 'constants/colors';
 import TYPE_ICON from 'constants/icons';
 import { Type as TType } from 'constants/types';
+import useStore from 'store';
 import styles from './Type.module.scss';
 
 interface TypeProps {

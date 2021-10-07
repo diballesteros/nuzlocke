@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
-import useStore from 'store';
-import AppRouter from 'routes/AppRouter';
 import { AddGame, Effectiveness, Export, Footer } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
+import AppRouter from 'routes/AppRouter';
+import useStore from 'store';
 import styles from './App.module.scss';
 
 const App: React.FC = () => {

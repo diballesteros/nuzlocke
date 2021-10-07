@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
-import MOVES from 'constants/moves';
-import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import useStore from 'store';
 import { Move } from 'components';
+import { PHYS_SPEC_SPLIT } from 'constants/constant';
+import MOVES from 'constants/moves';
+import useStore from 'store';
 import styles from './Moves.module.scss';
 
 interface MovesProps {

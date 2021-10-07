@@ -1,6 +1,15 @@
+import produce from 'immer';
 import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
-import produce from 'immer';
+import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
+import {
+  DEFAULT_RULES,
+  DEFAULT_RULESET_NAMES,
+  GAME_KEY_DICTIONARY,
+  GAMES,
+  INITIAL_STATE,
+  INITIAL_SUMMARY,
+} from 'constants/constant';
 import {
   AppState,
   PokemonDetail,
@@ -14,15 +23,6 @@ import {
   TSummaryBasic,
   Type,
 } from 'constants/types';
-import {
-  DEFAULT_RULES,
-  DEFAULT_RULESET_NAMES,
-  GAMES,
-  GAME_KEY_DICTIONARY,
-  INITIAL_STATE,
-  INITIAL_SUMMARY,
-} from 'constants/constant';
-import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>

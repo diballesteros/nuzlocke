@@ -1,16 +1,16 @@
 import React, { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
-import { TRuleEntry } from 'constants/types';
-import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
 import { Share } from 'components';
 import { AddRule, RuleContent, RuleEditor } from 'components/Rules/elements';
+import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
+import { TRuleEntry } from 'constants/types';
+import useStore from 'store';
 import styles from './Rules.module.scss';
 
 const Rules: React.FC = () => {

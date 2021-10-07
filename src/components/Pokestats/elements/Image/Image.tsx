@@ -1,12 +1,4 @@
 import React, { LegacyRef, useCallback, useEffect, useMemo } from 'react';
-import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import useStore from 'store';
-import shallow from 'zustand/shallow';
-import POKEMON from 'constants/pokemon';
-import { TYPE_COUNT } from 'constants/constant';
-import { Type } from 'constants/types';
-import { TYPE_COLOR } from 'constants/colors';
 import {
   selectBoxed,
   selectCaught,
@@ -16,12 +8,20 @@ import {
   selectShiny,
   selectTeam,
 } from 'selectors';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
+import shallow from 'zustand/shallow';
 import { Moves, PokeInfo } from 'components';
-import { RuleContent } from 'components/Rules/elements';
 import { Tip } from 'components/Pokestats/elements';
-import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
-import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
+import { RuleContent } from 'components/Rules/elements';
+import { TYPE_COLOR } from 'constants/colors';
+import { TYPE_COUNT } from 'constants/constant';
+import POKEMON from 'constants/pokemon';
+import { Type } from 'constants/types';
+import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
+import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
+import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as ShinySVG } from 'assets/svg/shiny.svg';
 import styles from './Image.module.scss';
 

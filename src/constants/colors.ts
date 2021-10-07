@@ -1,7 +1,7 @@
+import { CategoryColor, TypeColor } from 'constants/types';
 import physical from 'assets/img/status/Physical.png';
 import special from 'assets/img/status/Special.png';
 import status from 'assets/img/status/Status.png';
-import { CategoryColor, TypeColor } from 'constants/types';
 
 export const TYPE_COLOR: TypeColor = {
   'NORMAL': '#929BA3',
