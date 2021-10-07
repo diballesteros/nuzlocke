@@ -197,6 +197,9 @@ function App(): JSX.Element {
               <NavLink activeClassName={styles.activeLink} exact to="/builder">
                 <Icon name="gavel" /> <span>Builder</span>
               </NavLink>
+              <NavLink activeClassName={styles.activeLink} exact to="/calculator">
+                <Icon name="calculator" /> <span>Calculator</span>
+              </NavLink>
             </nav>
             <div className={styles.mainContent}>
               <AppRouter />
