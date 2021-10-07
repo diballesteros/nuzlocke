@@ -15,7 +15,7 @@ interface BadgeEditorProps {
   icon?: boolean;
 }
 
-const BadgeEditor: React.FC<BadgeEditorProps> = ({ icon }) => {
+function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const badges = useStore(useCallback((state) => state.badges, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -99,6 +99,6 @@ const BadgeEditor: React.FC<BadgeEditorProps> = ({ icon }) => {
       </Modal.Actions>
     </Modal>
   ) : null;
-};
+}
 
 export default BadgeEditor;

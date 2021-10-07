@@ -8,7 +8,7 @@ interface PokeInfoProps {
   pokemon: TPokemon;
 }
 
-const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
+function PokeInfo({ encounter, pokemon }: PokeInfoProps): JSX.Element {
   const getGenderIcon = () => {
     switch (encounter?.details?.gender) {
       case 'MALE':
@@ -38,6 +38,6 @@ const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
       )}
     </div>
   );
-};
+}
 
 export default PokeInfo;

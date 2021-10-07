@@ -9,7 +9,7 @@ import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import useStore from 'store';
 import styles from './AddRule.module.scss';
 
-const AddRule: React.FC = () => {
+function AddRule(): JSX.Element {
   const addRule = useStore(useCallback((state) => state.addRule, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -185,6 +185,6 @@ const AddRule: React.FC = () => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddRule;

@@ -8,7 +8,7 @@ import { DisplaySettings, Image } from 'components/Pokestats/elements';
 import useStore from 'store';
 import styles from './Summary.module.scss';
 
-const Summary: React.FC = () => {
+function Summary(): JSX.Element {
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -82,6 +82,6 @@ const Summary: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Summary;

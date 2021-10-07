@@ -12,7 +12,7 @@ interface FilterProps {
   darkMode?: boolean;
 }
 
-const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
+function Filter({ darkMode = false, values }: FilterProps): JSX.Element {
   const [show, setShow] = useState(false);
   return (
     <div className={styles.filter}>
@@ -80,6 +80,6 @@ const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
       )}
     </div>
   );
-};
+}
 
 export default Filter;

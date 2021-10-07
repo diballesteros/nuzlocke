@@ -16,7 +16,7 @@ interface MemberProps {
   pokemonDetail: PokemonDetail;
 }
 
-const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
+function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
   const pokemon = POKEMON.find((p) => p.value === pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));
   const deleteTeamMember = useStore(useCallback((state) => state.deleteTeamMember, []));
@@ -147,6 +147,6 @@ const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
       </div>
     </>
   );
-};
+}
 
 export default Member;

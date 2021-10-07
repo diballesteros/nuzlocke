@@ -4,7 +4,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 
-const Back: React.FC = () => {
+function Back(): JSX.Element {
   const history = useHistory();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
 
@@ -18,6 +18,6 @@ const Back: React.FC = () => {
       Back
     </Button>
   );
-};
+}
 
 export default Back;

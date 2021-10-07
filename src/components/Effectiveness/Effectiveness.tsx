@@ -7,7 +7,7 @@ import EFFECTIVENESS from 'constants/effectiveness';
 import useStore from 'store';
 import styles from './Effectiveness.module.scss';
 
-const Effectiveness: React.FC = React.memo(() => {
+const Effectiveness = React.memo(function Effectiveness() {
   const typeModal = useStore((state) => state.typeModal);
   const closeTypeModal = useStore((state) => state.closeTypeModal);
 

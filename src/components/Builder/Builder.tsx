@@ -6,7 +6,7 @@ import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Builder.module.scss';
 
-const Builder: React.FC = () => {
+function Builder(): JSX.Element {
   const team = useStore(
     useCallback(
       (state) => (state?.selectedGame?.value ? state.team[state?.selectedGame?.value] : null),
@@ -50,6 +50,6 @@ const Builder: React.FC = () => {
       )}
     </div>
   );
-};
+}
 
 export default Builder;

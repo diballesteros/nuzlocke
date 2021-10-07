@@ -15,7 +15,7 @@ import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
 import styles from './Pokestats.module.scss';
 
-const Pokestats: React.FC = () => {
+function Pokestats(): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const teamPokemon = useStore(selectTeam);
   const faintedPokemon = useStore(selectFainted);
@@ -206,6 +206,6 @@ const Pokestats: React.FC = () => {
       <Tab className={styles.tabs} menu={{ secondary: true }} panes={panes} />
     </div>
   );
-};
+}
 
 export default Pokestats;

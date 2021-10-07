@@ -9,7 +9,7 @@ interface MoveProps {
   showStatus: boolean;
 }
 
-const Move: React.FC<MoveProps> = ({ moveDetail, showStatus }) => {
+function Move({ moveDetail, showStatus }: MoveProps): JSX.Element {
   return (
     <div className={styles.move} style={{ backgroundColor: `${TYPE_COLOR[moveDetail.type]}90` }}>
       <Type hideName type={moveDetail.type} />
@@ -23,6 +23,6 @@ const Move: React.FC<MoveProps> = ({ moveDetail, showStatus }) => {
       )}
     </div>
   );
-};
+}
 
 export default Move;

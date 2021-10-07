@@ -10,7 +10,7 @@ interface ResetEncounterProps {
   icon?: boolean;
 }
 
-const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
+function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const resetAll = useStore(useCallback((state) => state.resetAll, []));
@@ -63,6 +63,6 @@ const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default ResetEncounters;

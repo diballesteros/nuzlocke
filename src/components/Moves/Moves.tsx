@@ -9,7 +9,7 @@ interface MovesProps {
   moves?: number[];
 }
 
-const Moves: React.FC<MovesProps> = ({ moves = [] }) => {
+function Moves({ moves = [] }: MovesProps): JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
   return (
@@ -24,6 +24,6 @@ const Moves: React.FC<MovesProps> = ({ moves = [] }) => {
       })}
     </div>
   );
-};
+}
 
 export default Moves;

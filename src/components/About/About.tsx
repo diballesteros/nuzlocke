@@ -6,7 +6,7 @@ import kofi from 'assets/img/kofi2.png';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
-const About: React.FC = () => {
+function About(): JSX.Element {
   return (
     <Page header="About">
       <div className={styles.about}>
@@ -140,6 +140,6 @@ const About: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default About;

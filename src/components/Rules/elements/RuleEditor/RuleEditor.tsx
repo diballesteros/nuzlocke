@@ -14,7 +14,7 @@ interface RuleEditorProps {
   type: TRule;
 }
 
-const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
+function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));
   const [open, setOpen] = useState(false);
@@ -140,6 +140,6 @@ const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default RuleEditor;

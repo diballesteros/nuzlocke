@@ -13,7 +13,7 @@ import AppRouter from 'routes/AppRouter';
 import useStore from 'store';
 import styles from './App.module.scss';
 
-const App: React.FC = () => {
+function App(): JSX.Element {
   const history = useHistory();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const newVersion = useStore(useCallback((state) => state.newVersion, []));
@@ -215,6 +215,6 @@ const App: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default App;

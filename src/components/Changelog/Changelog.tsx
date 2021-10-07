@@ -7,7 +7,7 @@ import { TReleaseGroup } from 'constants/types';
 import useStore from 'store';
 import styles from './Changelog.module.scss';
 
-const Changelog: React.FC = () => {
+function Changelog(): JSX.Element {
   const [logs, setLogs] = useState(3);
   const removeNew = useStore((state) => state.removeNew);
   const darkMode = useStore((state) => state.darkMode);
@@ -68,6 +68,6 @@ const Changelog: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default Changelog;

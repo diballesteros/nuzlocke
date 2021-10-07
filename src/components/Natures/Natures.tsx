@@ -4,7 +4,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import NATURES from 'constants/natures';
 import styles from './Natures.module.scss';
 
-const Natures: React.FC = () => {
+function Natures(): JSX.Element {
   const [open, setOpen] = useState(false);
   return (
     <Modal
@@ -51,6 +51,6 @@ const Natures: React.FC = () => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Natures;

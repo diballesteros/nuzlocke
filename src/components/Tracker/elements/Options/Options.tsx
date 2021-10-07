@@ -7,7 +7,7 @@ import POKEMON from 'constants/pokemon';
 import useStore from 'store';
 import styles from './Options.module.scss';
 
-const Options: React.FC = React.memo(() => {
+const Options = React.memo(function Options() {
   const history = useHistory();
   const text = useStore(useCallback((state) => state.text, []));
   const search = useStore(useCallback((state) => state.search, []));

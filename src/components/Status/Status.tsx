@@ -10,7 +10,7 @@ interface StatusProps {
   status: TStatus;
 }
 
-const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
+const Status = React.memo(function Status({ encounterId, status }: StatusProps) {
   const changeStatus = useStore((state) => state.changeStatus);
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
     const foundStatus = STATUSES.find((stat) => stat.value === data.value);

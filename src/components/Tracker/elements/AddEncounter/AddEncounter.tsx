@@ -10,7 +10,7 @@ interface AddEncounterProps {
   icon?: boolean;
 }
 
-const AddEncounter: React.FC<AddEncounterProps> = ({ icon = false }) => {
+function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -74,6 +74,6 @@ const AddEncounter: React.FC<AddEncounterProps> = ({ icon = false }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddEncounter;

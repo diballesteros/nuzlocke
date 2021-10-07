@@ -12,7 +12,7 @@ interface ShareProps {
   text: string;
 }
 
-const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
+function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
   const appState = useStore((state) => state);
@@ -91,6 +91,6 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Share;

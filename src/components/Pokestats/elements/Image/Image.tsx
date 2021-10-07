@@ -32,7 +32,7 @@ interface ImageProps {
   responsive?: boolean;
 }
 
-const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
+function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
   const badges = useStore(useCallback((state) => state.badges, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -278,7 +278,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       <span className={styles.credit}>https://nuzlocke.netlify.app</span>
     </div>
   );
-};
+}
 
 Image.propTypes = {};
 

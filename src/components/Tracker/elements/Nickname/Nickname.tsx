@@ -10,7 +10,7 @@ interface NicknameProps {
   nickname?: string;
 }
 
-const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
+function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
   const changeNickname = useStore((state) => state.changeNickname);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [nick, setNick] = useState(nickname ?? '');
@@ -53,6 +53,6 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
       </Input>
     </label>
   );
-};
+}
 
 export default Nickname;

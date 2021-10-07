@@ -6,7 +6,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from './AddGame.module.scss';
 
-const AddGame: React.FC = () => {
+function AddGame(): JSX.Element {
   const [open, setOpen] = useState(false);
   const [gameName, setGameName] = useState('');
   const addGame = useStore(useCallback((state) => state.addGame, []));
@@ -57,6 +57,6 @@ const AddGame: React.FC = () => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddGame;

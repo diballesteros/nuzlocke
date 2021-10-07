@@ -7,7 +7,7 @@ import POKEMON from 'constants/pokemon';
 import useStore from 'store';
 import styles from './FAB.module.scss';
 
-const FAB: React.FC = () => {
+function FAB(): JSX.Element {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen((prevState) => !prevState);
@@ -62,6 +62,6 @@ const FAB: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default FAB;

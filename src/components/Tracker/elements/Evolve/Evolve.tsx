@@ -12,7 +12,7 @@ interface EvolveProps {
   evolveIds: number[];
 }
 
-const Evolve: React.FC<EvolveProps> = ({ encounter, evolveIds }) => {
+function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
   const changePokemon = useStore((state) => state.changePokemon);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [selected, setSelected] = useState(encounter.pokemon);
@@ -74,6 +74,6 @@ const Evolve: React.FC<EvolveProps> = ({ encounter, evolveIds }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Evolve;

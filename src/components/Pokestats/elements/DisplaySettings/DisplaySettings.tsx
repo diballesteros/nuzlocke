@@ -8,7 +8,7 @@ import { SUM_STATUS } from 'constants/constant';
 import useStore from 'store';
 import styles from './DisplaySettings.module.scss';
 
-const DisplaySettings: React.FC = () => {
+function DisplaySettings(): JSX.Element {
   const summary = useStore(
     useCallback(
       (state) => (state?.selectedGame?.value ? state.summary[state?.selectedGame?.value] : null),
@@ -123,6 +123,6 @@ const DisplaySettings: React.FC = () => {
       )}
     </div>
   );
-};
+}
 
 export default DisplaySettings;

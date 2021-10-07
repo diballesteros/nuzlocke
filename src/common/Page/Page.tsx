@@ -7,7 +7,7 @@ interface PageProps {
   header: string;
 }
 
-const Page: React.FC<PageProps> = ({ children, header }) => {
+function Page({ children, header }: PageProps): JSX.Element {
   return (
     <section className={styles.page}>
       <div className={styles.header}>
@@ -16,6 +16,6 @@ const Page: React.FC<PageProps> = ({ children, header }) => {
       {children}
     </section>
   );
-};
+}
 
 export default Page;

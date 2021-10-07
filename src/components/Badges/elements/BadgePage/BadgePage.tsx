@@ -7,7 +7,7 @@ import DETAILS from 'constants/details';
 import useStore from 'store';
 import styles from './BadgePage.module.scss';
 
-const BadgePage: React.FC = () => {
+function BadgePage(): JSX.Element {
   const history = useHistory();
   const { badge, game } = useParams<{ game: string; badge: string }>();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -59,6 +59,6 @@ const BadgePage: React.FC = () => {
       />
     </Page>
   );
-};
+}
 
 export default BadgePage;

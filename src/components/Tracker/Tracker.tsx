@@ -3,7 +3,7 @@ import { Badges } from 'components';
 import { Encounters, FAB, Options } from 'components/Tracker/elements';
 import styles from './Tracker.module.scss';
 
-const Tracker: React.FC = () => {
+function Tracker(): JSX.Element {
   return (
     <section className={styles.layout}>
       <div className={styles.container}>
@@ -14,6 +14,6 @@ const Tracker: React.FC = () => {
       <FAB />
     </section>
   );
-};
+}
 
 export default Tracker;

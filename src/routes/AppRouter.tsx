@@ -15,7 +15,7 @@ import {
 import { BadgePage } from 'components/Badges/elements';
 import ErrorBoundary from 'error/ErrorBoundary';
 
-const AppRouter: React.FC = () => {
+function AppRouter(): JSX.Element {
   return (
     <Switch>
       <Route exact path="/">
@@ -76,6 +76,6 @@ const AppRouter: React.FC = () => {
       <Redirect to="/" />
     </Switch>
   );
-};
+}
 
 export default AppRouter;

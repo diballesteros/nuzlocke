@@ -17,7 +17,7 @@ interface DetailProps {
   encounter?: TEncounter;
 }
 
-const Detail: React.FC<DetailProps> = ({ encounter }) => {
+function Detail({ encounter }: DetailProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
@@ -223,6 +223,6 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Detail;

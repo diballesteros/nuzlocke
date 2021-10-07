@@ -14,11 +14,11 @@ interface PokemonSelectorProps {
   handlePokemon: (pokemonId: number) => void;
 }
 
-const PokemonSelector: React.FC<PokemonSelectorProps> = ({
+function PokemonSelector({
   children,
   filter = false,
   handlePokemon,
-}) => {
+}: PokemonSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const filteredPokemon = POKEMON.filter(
@@ -84,6 +84,6 @@ const PokemonSelector: React.FC<PokemonSelectorProps> = ({
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default PokemonSelector;

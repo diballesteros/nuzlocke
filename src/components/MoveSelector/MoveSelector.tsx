@@ -15,7 +15,7 @@ interface MoveSelectorProps {
   handleMove: (moveId: number) => void;
 }
 
-const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }) => {
+function MoveSelector({ currentMoveId, handleMove }: MoveSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -91,6 +91,6 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default MoveSelector;

@@ -10,7 +10,7 @@ interface TypeProps {
   type: TType;
 }
 
-const Type: React.FC<TypeProps> = ({ hideName = false, type }) => {
+function Type({ hideName = false, type }: TypeProps): JSX.Element {
   const showTypeModal = useStore(useCallback((state) => state.showTypeModal, []));
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -31,6 +31,6 @@ const Type: React.FC<TypeProps> = ({ hideName = false, type }) => {
       {!hideName && <div className={styles.text}>{type}</div>}
     </button>
   );
-};
+}
 
 export default Type;

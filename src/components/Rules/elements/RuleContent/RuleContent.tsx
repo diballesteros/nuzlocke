@@ -9,7 +9,7 @@ interface RuleContentProps {
   rule: TRuleEntry;
 }
 
-const RuleContent: React.FC<RuleContentProps> = ({ hideSmart, i, rule }) => {
+function RuleContent({ hideSmart, i, rule }: RuleContentProps): JSX.Element {
   return (
     <div className={styles.content}>
       {rule.type !== 'TEXT' && !hideSmart && (
@@ -27,6 +27,6 @@ const RuleContent: React.FC<RuleContentProps> = ({ hideSmart, i, rule }) => {
       </div>
     </div>
   );
-};
+}
 
 export default RuleContent;

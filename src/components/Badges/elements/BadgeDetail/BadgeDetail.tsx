@@ -10,7 +10,7 @@ interface BadgeDetailProps {
   selectedDetail: TDetail;
 }
 
-const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
+function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
   const [view, setView] = useState(0);
 
   const getContent = () => {
@@ -83,6 +83,6 @@ const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
       </div>
     </>
   );
-};
+}
 
 export default BadgeDetail;

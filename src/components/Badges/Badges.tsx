@@ -4,7 +4,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import styles from './Badges.module.scss';
 
-const Badges: React.FC = () => {
+function Badges(): JSX.Element {
   const history = useHistory();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
@@ -49,6 +49,6 @@ const Badges: React.FC = () => {
         })}
     </div>
   );
-};
+}
 
 export default Badges;

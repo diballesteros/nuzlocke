@@ -13,7 +13,7 @@ import { TRuleEntry } from 'constants/types';
 import useStore from 'store';
 import styles from './Rules.module.scss';
 
-const Rules: React.FC = () => {
+function Rules(): JSX.Element {
   const rules = useStore(useCallback((state) => state.rules, []));
   const reorderRule = useStore(useCallback((state) => state.reorderRule, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -204,6 +204,6 @@ const Rules: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Rules;

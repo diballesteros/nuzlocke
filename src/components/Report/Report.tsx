@@ -1,7 +1,7 @@
 import React from 'react';
 import { Page } from 'common';
 
-const Report: React.FC = () => {
+function Report(): JSX.Element {
   return (
     <Page header="Report a bug or suggest a feature">
       <form
@@ -64,6 +64,6 @@ const Report: React.FC = () => {
       </form>
     </Page>
   );
-};
+}
 
 export default Report;

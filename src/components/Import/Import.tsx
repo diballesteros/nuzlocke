@@ -23,7 +23,7 @@ const removeNone = (value: string) => {
   return value === '(None)' ? null : value;
 };
 
-const Import: React.FC = () => {
+function Import(): JSX.Element {
   const importState = useStore(useCallback((state) => state.importState, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const massImport = useStore(useCallback((state) => state.massImport, []));
@@ -212,6 +212,6 @@ const Import: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default Import;

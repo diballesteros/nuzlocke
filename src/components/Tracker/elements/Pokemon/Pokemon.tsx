@@ -14,7 +14,7 @@ interface PokemonProps {
   encounter: TEncounter;
 }
 
-const Pokemon: React.FC<PokemonProps> = React.memo(({ encounter }) => {
+const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
   const changePokemon = useStore((state) => state.changePokemon);
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const showAll = useStore(useCallback((state) => state.showAll, []));

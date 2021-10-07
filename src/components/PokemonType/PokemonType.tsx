@@ -7,13 +7,13 @@ interface PokemonTypeProps {
   pokemon: TPokemon;
 }
 
-const PokemonType: React.FC<PokemonTypeProps> = ({ pokemon }) => {
+function PokemonType({ pokemon }: PokemonTypeProps): JSX.Element {
   return (
     <div className={styles.container}>
       <Type type={pokemon?.type} />
       {!!pokemon?.dualtype && <Type type={pokemon?.dualtype} />}
     </div>
   );
-};
+}
 
 export default PokemonType;
