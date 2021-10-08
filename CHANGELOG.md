@@ -1,3 +1,10 @@
+## Version 3.9.2
+
+🐛 Bug Fix
+
+- Responsive fix for team tip in the Stats tab on smaller screens
+- Omega Ruby and Alpha Sapphire Route 101 encounters fix
+
 ## Version 3.9.1
 
 💅 Enhancement
