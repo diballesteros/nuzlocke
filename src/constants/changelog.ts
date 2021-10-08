@@ -2,6 +2,20 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.9.2',
+    date: 1633655488519,
+    notes: [
+      {
+        description: 'Responsive fix for team tip in the Stats tab on smaller screens',
+        type: 'FIX',
+      },
+      {
+        description: 'Omega Ruby and Alpha Sapphire Route 101 encounters fix',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.9.1',
     date: 1633405396418,
     notes: [
