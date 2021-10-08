@@ -127,9 +127,9 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
       </div>
       <div className={styles.card}>
         <span className={styles.title}>TEAM</span>
-        <div className={styles.team}>
-          {teamPokemon?.length > 0 ? (
-            teamPokemon?.map((enc) => {
+        {teamPokemon?.length > 0 ? (
+          <div className={styles.team}>
+            {teamPokemon?.map((enc) => {
               const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
               return (
                 <div className={styles.pokemon} key={`team-${enc.id}`}>
@@ -138,11 +138,11 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                   <Moves moves={enc?.details?.moves} />
                 </div>
               );
-            })
-          ) : (
-            <Tip missing="Team" />
-          )}
-        </div>
+            })}
+          </div>
+        ) : (
+          <Tip missing="Team" />
+        )}
       </div>
       <div className={styles.row}>
         {summary?.encounters && (
