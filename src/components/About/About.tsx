@@ -1,4 +1,3 @@
-import React from 'react';
 import { Page } from 'common';
 import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import google from 'assets/img/google-play-badge.png';

@@ -1,4 +1,3 @@
-import React from 'react';
 import { Type } from 'components';
 import { TPokemon } from 'constants/types';
 import styles from './PokemonType.module.scss';

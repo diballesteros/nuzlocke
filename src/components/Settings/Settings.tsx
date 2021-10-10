@@ -1,4 +1,3 @@
-import React from 'react';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { Page } from 'common';
 import useStore from 'store';

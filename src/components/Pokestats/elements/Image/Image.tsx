@@ -1,4 +1,4 @@
-import React, { LegacyRef, useCallback, useEffect, useMemo } from 'react';
+import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import {
   selectBoxed,
   selectCaught,

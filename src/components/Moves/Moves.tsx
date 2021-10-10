@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { Move } from 'components';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import MOVES from 'constants/moves';

@@ -1,5 +1,5 @@
 import { toBlob, toPng } from 'html-to-image';
-import React, { useCallback, useRef } from 'react';
+import { useCallback, useRef } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';

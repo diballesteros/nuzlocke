@@ -1,4 +1,3 @@
-import React from 'react';
 import { Badges } from 'components';
 import { Encounters, FAB, Options } from 'components/Tracker/elements';
 import styles from './Tracker.module.scss';

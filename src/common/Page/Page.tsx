@@ -1,4 +1,3 @@
-import React from 'react';
 import { Back } from 'common';
 import styles from './Page.module.scss';
 

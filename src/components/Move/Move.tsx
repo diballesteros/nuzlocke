@@ -1,4 +1,3 @@
-import React from 'react';
 import { Type } from 'components';
 import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
 import { TMove } from 'constants/types';

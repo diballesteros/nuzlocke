@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { PokemonSelector } from 'common';
 import { Member } from 'components';

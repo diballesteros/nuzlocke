@@ -1,4 +1,4 @@
-import React, { ReactText, useCallback, useEffect, useState } from 'react';
+import { ReactText, useCallback, useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Page } from 'common';

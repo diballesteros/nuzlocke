@@ -1,3 +1,4 @@
+import { GenerationNum } from '@smogon/calc';
 import BADGES from 'constants/badges';
 import B_W from 'constants/locations/B_W';
 import B_W_2 from 'constants/locations/B_W_2';
@@ -319,6 +320,33 @@ export const SUM_STATUS = [
 ];
 
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+export const GAME_GENERATION: Record<string, GenerationNum> = {
+  '1': 1,
+  '2': 2,
+  '3': 3,
+  '4': 3,
+  '5': 4,
+  '6': 4,
+  '7': 5,
+  '8': 5,
+  '9': 6,
+  '10': 6,
+  '11': 7,
+  '12': 7,
+  '13': 8,
+};
+
+export const GENERATION_SELECT = [
+  { key: '1', text: '1', value: 1 },
+  { key: '2', text: '2', value: 2 },
+  { key: '3', text: '2', value: 3 },
+  { key: '4', text: '4', value: 4 },
+  { key: '5', text: '5', value: 5 },
+  { key: '6', text: '6', value: 6 },
+  { key: '7', text: '7', value: 7 },
+  { key: '8', text: '8', value: 8 },
+];
 
 export const TYPES: Type[] = [
   'NORMAL',

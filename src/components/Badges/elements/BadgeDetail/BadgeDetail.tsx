@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
