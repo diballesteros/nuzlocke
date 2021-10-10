@@ -16,7 +16,7 @@ import { Tip } from 'components/Pokestats/elements';
 import { RuleContent } from 'components/Rules/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import { Type } from 'constants/types';
 import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
@@ -66,7 +66,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
     const TEMP = { ...TYPE_COUNT };
 
     games[selectedGame?.value]?.encounters?.forEach((enc) => {
-      const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+      const foundPokemon = POKEMAP.get(enc.pokemon);
       if (!!foundPokemon) {
         TEMP[foundPokemon.type] += 1;
         if (foundPokemon.dualtype) {
@@ -130,7 +130,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         {teamPokemon?.length > 0 ? (
           <div className={styles.team}>
             {teamPokemon?.map((enc) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <div className={styles.pokemon} key={`team-${enc.id}`}>
                   <img src={foundPokemon?.image} alt={foundPokemon?.text} />
@@ -221,7 +221,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
             <span className={styles.title}>BOXED</span>
             <div className={styles.box}>
               {boxedPokemon.map((box, i) => {
-                const foundPokemon = POKEMON.find((poke) => poke.value === box.pokemon);
+                const foundPokemon = POKEMAP.get(box.pokemon);
                 return (
                   <img
                     alt={foundPokemon?.text}
@@ -242,7 +242,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
             <span className={styles.title}>FAINTED</span>
             <div className={styles.box}>
               {faintedPokemon.map((faint, i) => {
-                const foundPokemon = POKEMON.find((poke) => poke.value === faint.pokemon);
+                const foundPokemon = POKEMAP.get(faint.pokemon);
                 return (
                   <img
                     alt={foundPokemon?.text}

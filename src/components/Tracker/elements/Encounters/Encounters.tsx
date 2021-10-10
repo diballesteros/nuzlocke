@@ -8,7 +8,7 @@ import shallow from 'zustand/shallow';
 import { Status } from 'components';
 import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
 import { TYPE_COLOR } from 'constants/colors';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
@@ -39,7 +39,7 @@ const Encounters = React.memo(function Encounters() {
   const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
       const upperCase = text?.toUpperCase();
-      const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+      const foundPokemon = POKEMAP.get(enc.pokemon);
       return (
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
@@ -71,7 +71,7 @@ const Encounters = React.memo(function Encounters() {
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredEncounters[index];
-    const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
+    const foundPokemon = POKEMAP.get(encounter.pokemon);
     return (
       <div style={style}>
         <div

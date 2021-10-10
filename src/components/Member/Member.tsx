@@ -6,7 +6,7 @@ import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import { PokemonDetail } from 'constants/types';
 import useStore from 'store';
 import styles from './Member.module.scss';
@@ -17,7 +17,7 @@ interface MemberProps {
 }
 
 function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
-  const pokemon = POKEMON.find((p) => p.value === pokemonDetail.id);
+  const pokemon = POKEMAP.get(pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));
   const deleteTeamMember = useStore(useCallback((state) => state.deleteTeamMember, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));

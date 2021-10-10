@@ -26,7 +26,8 @@
     min-width: 250px;
     height: fit-content;
     padding: 15px;
-    background-color: #ffffff;
+    background-color: var(--card);
+    color: var(--contrast);
     border-radius: 8px;
     box-shadow: 1px 0px 14px 1px #d0d0d0;
     text-align: center;

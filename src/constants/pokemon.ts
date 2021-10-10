@@ -8741,4 +8741,6 @@ const POKEMON: TPokemon[] = [
   },
 ];
 
+export const POKEMAP = new Map(POKEMON.map((poke) => [poke.value, poke]));
+
 export default POKEMON;

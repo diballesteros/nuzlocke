@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Evolve.module.scss';
@@ -53,7 +53,7 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
       <Modal.Header>Evolution Chain</Modal.Header>
       <Modal.Content>
         {evolveIds.map((id) => {
-          const foundPokemon = POKEMON.find((poke) => poke.value === id);
+          const foundPokemon = POKEMAP.get(id);
           return (
             <div key={`evolve-${id}`}>
               <img src={foundPokemon?.image} alt={foundPokemon?.text} />{' '}

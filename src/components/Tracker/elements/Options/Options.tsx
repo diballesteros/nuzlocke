@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import styles from './Options.module.scss';
 
@@ -52,7 +52,7 @@ const Options = React.memo(function Options() {
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
             (str, enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return `${str}
       ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
             },

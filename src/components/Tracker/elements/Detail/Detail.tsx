@@ -8,7 +8,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import { Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Detail.module.scss';
@@ -21,7 +21,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
-  const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
+  const foundPokemon = POKEMAP.get(encounter.pokemon);
   const [show, setShow] = useState(false);
   const [level, setLevel] = useState(encounter?.details?.level);
   const [metLevel, setMetLevel] = useState(encounter?.details?.metLevel);

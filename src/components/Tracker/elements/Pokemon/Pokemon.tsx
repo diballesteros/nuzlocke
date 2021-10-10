@@ -5,7 +5,7 @@ import { PokemonSelector } from 'common';
 import { Evolve } from 'components/Tracker/elements';
 import { RULE_ALERTS } from 'constants/constant';
 import FILTERS from 'constants/filters';
-import POKEMON from 'constants/pokemon';
+import POKEMON, { POKEMAP } from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Pokemon.module.scss';
@@ -25,7 +25,7 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
   );
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
-  const foundPokemon = POKEMON.find((poke) => poke.value === encounter?.pokemon);
+  const foundPokemon = POKEMAP.get(encounter.pokemon);
 
   const getAlertText = useCallback(
     (pokemonId) => {
@@ -34,7 +34,7 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
       const genRule = rules[selectedRuleset]?.find((rule) => rule.type === 'GENERATION');
       const levelRule = rules[selectedRuleset]?.find((rule) => rule.type === 'LEVEL');
       const typeRule = rules[selectedRuleset]?.find((rule) => rule.type === 'TYPE');
-      const foundPoke = POKEMON.find((poke) => poke.value === pokemonId);
+      const foundPoke = POKEMAP.get(pokemonId);
       if (!foundPoke) {
         return '';
       }

@@ -6,7 +6,7 @@ import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { PokeInfo } from 'components';
 import { Summary, Tip } from 'components/Pokestats/elements';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
@@ -48,7 +48,7 @@ function Pokestats(): JSX.Element {
         <Tab.Pane attached={false} className={`${styles.box} ${styles.team}`}>
           {teamPokemon?.length > 0 ? (
             teamPokemon?.map((enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <div className={styles.member} key={`team-${enc.id}-${i + 1}`}>
                   <Popup
@@ -97,7 +97,7 @@ function Pokestats(): JSX.Element {
         <Tab.Pane attached={false} className={`${styles.box} ${styles.grass}`}>
           {caughtPokemon?.length > 0 ? (
             caughtPokemon?.map((enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
                   key={`caught-${enc.id}-${i + 1}`}
@@ -135,7 +135,7 @@ function Pokestats(): JSX.Element {
         <Tab.Pane attached={false} className={`${styles.box} ${styles.sky}`}>
           {failedPokemon?.length > 0 ? (
             failedPokemon?.map((enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
                   key={`failed-${enc.id}-${i + 1}`}
@@ -173,7 +173,7 @@ function Pokestats(): JSX.Element {
         <Tab.Pane attached={false} className={`${styles.box} ${styles.crag}`}>
           {faintedPokemon?.length > 0 ? (
             faintedPokemon?.map((enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
                   key={`fainted-${enc.id}-${i + 1}`}

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
 import { TDetail } from 'constants/types';
 import styles from './BadgeDetail.module.scss';
 
@@ -40,7 +40,7 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
       )}
       <div className={styles.gymPokemon}>
         {getContent()?.map((pokemon, ind) => {
-          const poke = POKEMON.find((item) => item.value === pokemon.id);
+          const poke = POKEMAP.get(pokemon.id);
           return (
             <div
               className={styles.pokemon}
