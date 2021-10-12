@@ -4,7 +4,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { PokeController } from 'components/Calculator/elements';
-import { GENDERS } from 'constants/constant';
+import { GENDERS, STATUS_EFFECTS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { TCalculatorForm, TEncounter } from 'constants/types';
 import styles from './General.module.scss';
@@ -114,6 +114,26 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
               return { text: smogonAbility, value: smogonAbility };
             })}
             placeholder="Select an ability..."
+            search
+            selection
+            value={value ?? ''}
+          />
+        )}
+      />
+      <Controller
+        control={form.control}
+        name={`status${pokemon}`}
+        render={({ field: { onChange, value } }) => (
+          <Dropdown
+            aria-label="status"
+            basic
+            className={`${styles.dropdown} ${styles.fullColumn}`}
+            data-testid="status"
+            inline
+            lazyLoad
+            onChange={(e, data) => onChange(data.value as unknown as string)}
+            options={STATUS_EFFECTS}
+            placeholder="Select a status..."
             search
             selection
             value={value ?? ''}

@@ -423,3 +423,13 @@ export enum GenderCalc {
   'MALE' = 'M',
   'NEUTRAL' = 'N',
 }
+
+export const STATUS_EFFECTS = [
+  { key: 'healthy', text: 'Healthy', value: undefined },
+  { key: 'psn', text: 'Poisoned', value: 'psn' },
+  { key: 'par', text: 'Paralyzed', value: 'par' },
+  { key: 'slp', text: 'Asleep', value: 'slp' },
+  { key: 'brn', text: 'Burned', value: 'brn' },
+  { key: 'tox', text: 'Badly poisoned', value: 'tox' },
+  { key: 'frz', text: 'Frozen', value: 'frozen' },
+];

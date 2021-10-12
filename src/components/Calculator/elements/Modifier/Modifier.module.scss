@@ -1,0 +1,29 @@
+.modifier {
+  display: flex;
+  flex-flow: row nowrap;
+  align-self: center;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+  gap: 8px;
+
+  > span:first-child {
+    margin-right: 8px;
+    user-select: none;
+  }
+
+  > button {
+    margin: 0 !important;
+  }
+
+  > output {
+    font-weight: bold;
+    border: 1px solid var(--contrast);
+    border-radius: 4px;
+    padding: 1px 3px;
+    text-align: center;
+    padding: 4px 8px;
+    min-width: 30px;
+    user-select: none;
+  }
+}

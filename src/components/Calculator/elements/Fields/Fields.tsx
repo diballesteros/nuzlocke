@@ -1,5 +1,5 @@
 import { Control, UseFormRegister } from 'react-hook-form';
-import { Range } from 'components/Calculator/elements';
+import { Modifier, Range } from 'components/Calculator/elements';
 import { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
 import styles from './Fields.module.scss';
@@ -46,6 +46,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivatk${pokemon}`} register={register} {...IV} />
           <Range control={control} name={`evatk${pokemon}`} register={register} {...EV} />
+          <Modifier control={control} name={`modatk${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
@@ -55,6 +56,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivdef${pokemon}`} register={register} {...IV} />
           <Range control={control} name={`evdef${pokemon}`} register={register} {...EV} />
+          <Modifier control={control} name={`moddef${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
@@ -64,6 +66,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspatk${pokemon}`} register={register} {...IV} />
           <Range control={control} name={`evspatk${pokemon}`} register={register} {...EV} />
+          <Modifier control={control} name={`modspatk${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
@@ -73,6 +76,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspdef${pokemon}`} register={register} {...IV} />
           <Range control={control} name={`evspdef${pokemon}`} register={register} {...EV} />
+          <Modifier control={control} name={`modspdef${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
@@ -82,6 +86,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspeed${pokemon}`} register={register} {...IV} />
           <Range control={control} name={`evspeed${pokemon}`} register={register} {...EV} />
+          <Modifier control={control} name={`modspeed${pokemon}`} />
         </fieldset>
       </details>
     </section>

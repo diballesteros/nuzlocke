@@ -1,4 +1,5 @@
 import { GenerationNum } from '@smogon/calc';
+import { StatusName } from '@smogon/calc/dist/data/interface';
 
 export interface AppState {
   badges: TBadgeDictionary;
@@ -332,7 +333,7 @@ export interface TCalculatorForm {
   nature1: string;
   ability1: string;
   item1: string;
-  status1: string;
+  status1: StatusName;
   currenthp1: number;
   poke1move1?: number;
   poke1move2?: number;
@@ -361,7 +362,7 @@ export interface TCalculatorForm {
   nature2: string;
   ability2: string;
   item2: string;
-  status2: string;
+  status2: StatusName;
   currenthp2: number;
   poke2move1?: number;
   poke2move2?: number;
