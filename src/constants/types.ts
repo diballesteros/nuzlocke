@@ -1,5 +1,8 @@
+import { GenerationNum } from '@smogon/calc';
+
 export interface AppState {
   badges: TBadgeDictionary;
+  calcs: TCalcDictionary;
   darkMode: boolean;
   duplicates: boolean;
   games: Games;
@@ -26,7 +29,7 @@ export interface AppState {
     encounterId: number,
     level: number,
     metLevel: number,
-    gender: string,
+    gender: Gender,
     ability: string,
     nature: string,
     item: string,
@@ -74,6 +77,7 @@ export interface AppState {
   toggleNickname: () => void;
   toggleShowAll: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
+  updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }
 
 declare global {
@@ -117,6 +121,14 @@ export type TTeamDictionary = {
 
 export type TSummaryDictionary = {
   [key: string]: TSummary;
+};
+
+export type TCalcState = {
+  form: TCalculatorForm;
+};
+
+export type TCalcDictionary = {
+  [key: string]: TCalcState;
 };
 
 export type TBadge = {
@@ -262,7 +274,7 @@ export type TMove = {
 export interface PokemonDetail {
   ability?: string;
   faint?: string;
-  gender?: string;
+  gender?: Gender;
   id: number;
   item?: string;
   level: number;
@@ -295,8 +307,64 @@ export type TGenerationEffects = {
   [key: string]: TEffectiveness;
 };
 
-export interface ParseResult<T> {
-  data: T[];
-  errors: unknown[];
-  meta: unknown;
+export interface TCalculatorForm {
+  calculatorGen: GenerationNum;
+  pokemon1: number;
+  level1: number;
+  gender1: Gender;
+  evatk1: number;
+  evdef1: number;
+  evhp1: number;
+  evspatk1: number;
+  evspdef1: number;
+  evspeed1: number;
+  ivatk1: number;
+  ivdef1: number;
+  ivhp1: number;
+  ivspatk1: number;
+  ivspdef1: number;
+  ivspeed1: number;
+  modatk1: number;
+  moddef1: number;
+  modspatk1: number;
+  modspdef1: number;
+  modspeed1: number;
+  nature1: string;
+  ability1: string;
+  item1: string;
+  status1: string;
+  currenthp1: number;
+  poke1move1?: number;
+  poke1move2?: number;
+  poke1move3?: number;
+  poke1move4?: number;
+  pokemon2: number;
+  level2: number;
+  gender2: Gender;
+  evatk2: number;
+  evdef2: number;
+  evhp2: number;
+  evspatk2: number;
+  evspdef2: number;
+  evspeed2: number;
+  ivatk2: number;
+  ivdef2: number;
+  ivhp2: number;
+  ivspatk2: number;
+  ivspdef2: number;
+  ivspeed2: number;
+  modatk2: number;
+  moddef2: number;
+  modspatk2: number;
+  modspdef2: number;
+  modspeed2: number;
+  nature2: string;
+  ability2: string;
+  item2: string;
+  status2: string;
+  currenthp2: number;
+  poke2move1?: number;
+  poke2move2?: number;
+  poke2move3?: number;
+  poke2move4?: number;
 }

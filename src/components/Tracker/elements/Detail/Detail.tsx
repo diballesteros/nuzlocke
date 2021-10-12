@@ -81,8 +81,6 @@ function Detail({ encounter }: DetailProps): JSX.Element {
     toast.success('Pokémon successfully exported');
   };
 
-  console.log(ABILITIES);
-
   return (
     <Modal
       open={show}

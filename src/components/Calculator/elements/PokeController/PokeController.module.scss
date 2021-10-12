@@ -1,0 +1,29 @@
+.wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--contrast);
+
+  > div:first-child {
+    flex: 1;
+  }
+
+  .selector {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid var(--contrast);
+    padding: 4px;
+    border-radius: 4px;
+  }
+
+  .checkbox {
+    margin-left: auto;
+  }
+
+  :global(.ui.checkbox label),
+  :global(.ui.checkbox input:focus ~ label) {
+    color: var(--contrast);
+  }
+}

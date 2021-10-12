@@ -1,5 +1,6 @@
 import { GenerationNum } from '@smogon/calc';
 import BADGES from 'constants/badges';
+import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';
 import B_W_2 from 'constants/locations/B_W_2';
 import D_P_PLAT from 'constants/locations/D_P_PLAT';
@@ -186,8 +187,65 @@ export const INITIAL_SUMMARY = {
   title: 'Nuzlocke Run',
 };
 
+export const GAME_GENERATION: Record<string, GenerationNum> = {
+  '1': 1,
+  '2': 2,
+  '3': 3,
+  '4': 3,
+  '5': 4,
+  '6': 4,
+  '7': 5,
+  '8': 5,
+  '9': 6,
+  '10': 6,
+  '11': 7,
+  '12': 7,
+  '13': 8,
+};
+
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
+  calcs: {
+    '1': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['1'], pokemon1: 1, pokemon2: 1 },
+    },
+    '2': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['2'], pokemon1: 1, pokemon2: 1 },
+    },
+    '3': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['3'], pokemon1: 1, pokemon2: 1 },
+    },
+    '4': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['4'], pokemon1: 1, pokemon2: 1 },
+    },
+    '5': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['5'], pokemon1: 1, pokemon2: 1 },
+    },
+    '6': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['6'], pokemon1: 1, pokemon2: 1 },
+    },
+    '7': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['7'], pokemon1: 1, pokemon2: 1 },
+    },
+    '8': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['8'], pokemon1: 1, pokemon2: 1 },
+    },
+    '9': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['9'], pokemon1: 1, pokemon2: 1 },
+    },
+    '10': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['10'], pokemon1: 1, pokemon2: 1 },
+    },
+    '11': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['11'], pokemon1: 1, pokemon2: 1 },
+    },
+    '12': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['12'], pokemon1: 1, pokemon2: 1 },
+    },
+    '13': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['13'], pokemon1: 1, pokemon2: 1 },
+    },
+  },
   darkMode: false,
   duplicates: false,
   games: {
@@ -321,22 +379,6 @@ export const SUM_STATUS = [
 
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
 
-export const GAME_GENERATION: Record<string, GenerationNum> = {
-  '1': 1,
-  '2': 2,
-  '3': 3,
-  '4': 3,
-  '5': 4,
-  '6': 4,
-  '7': 5,
-  '8': 5,
-  '9': 6,
-  '10': 6,
-  '11': 7,
-  '12': 7,
-  '13': 8,
-};
-
 export const GENERATION_SELECT = [
   { key: '1', text: '1', value: 1 },
   { key: '2', text: '2', value: 2 },
@@ -376,3 +418,8 @@ export const RULE_ALERTS: { [key: string]: string } = {
   'FORBIDDEN TYPE': 'Pokémon of this type are not allowed',
   'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
 };
+export enum GenderCalc {
+  'FEMALE' = 'F',
+  'MALE' = 'M',
+  'NEUTRAL' = 'N',
+}

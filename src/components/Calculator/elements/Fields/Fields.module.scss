@@ -1,0 +1,22 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8px;
+  color: var(--contrast);
+
+  summary {
+    padding: 0.5rem;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .fieldset {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr) 40px;
+    column-gap: 8px;
+    row-gap: 12px;
+    color: var(--contrast);
+    padding: 16px;
+    border-radius: 4px;
+  }
+}

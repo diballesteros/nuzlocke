@@ -1,0 +1,28 @@
+.general {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 8px;
+
+  > div:first-child,
+  .fullColumn {
+    grid-column: 1 / -1;
+  }
+
+  .levelContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 4px;
+
+    .level {
+      width: 300px;
+    }
+  }
+
+  .dropdown {
+    min-height: unset !important;
+    > i {
+      top: 0 !important;
+    }
+  }
+}
