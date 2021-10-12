@@ -1,3 +1,4 @@
+import { ABILITIES, ITEMS } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -80,6 +81,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
     toast.success('Pokémon successfully exported');
   };
 
+  console.log(ABILITIES);
+
   return (
     <Modal
       open={show}
@@ -154,18 +157,36 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               />
               <Natures />
             </div>
-            <Input
+            <Dropdown
+              aria-label="ability"
+              basic
+              className={styles.dropdown}
               data-testid="ability"
-              label="Ability"
-              onChange={(e) => setAbility(e.target.value)}
-              type="text"
+              inline
+              lazyLoad
+              onChange={(e, data) => setAbility(data.value as unknown as string)}
+              options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+                return { text: smogonAbility, value: smogonAbility };
+              })}
+              placeholder="Select an ability..."
+              search
+              selection
               value={ability ?? ''}
             />
-            <Input
-              data-testid="item"
-              label="Item"
-              onChange={(e) => setItem(e.target.value)}
-              type="text"
+            <Dropdown
+              aria-label="item"
+              basic
+              className={styles.dropdown}
+              data-testid="nature"
+              inline
+              lazyLoad
+              onChange={(e, data) => setItem(data.value as unknown as string)}
+              options={[...new Set(ITEMS[8])].map((smogonItem) => {
+                return { text: smogonItem, value: smogonItem };
+              })}
+              placeholder="Select an item..."
+              search
+              selection
               value={item ?? ''}
             />
           </div>

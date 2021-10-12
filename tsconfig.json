@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -15,6 +11,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
+    "downlevelIteration": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -22,11 +19,6 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
-  "exclude": [
-    "cypress",
-    "*.spec.ts"
-  ],
-  "include": [
-    "src"
-  ]
+  "exclude": ["cypress", "*.spec.ts"],
+  "include": ["src"]
 }
