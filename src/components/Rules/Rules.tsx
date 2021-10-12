@@ -122,6 +122,7 @@ function Rules(): JSX.Element {
             <Button
               disabled={rulesetName?.length === 0 || !!rules[rulesetName]}
               onClick={handleAddRuleset}
+              primary
             >
               Save
             </Button>

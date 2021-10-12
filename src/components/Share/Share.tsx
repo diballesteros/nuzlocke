@@ -86,8 +86,10 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
         <textarea data-testid="share-textarea" defaultValue={text} ref={shareRef} rows={5} />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleCopy}>Copy</Button>
         <Button onClick={() => setShow(false)}>Close</Button>
+        <Button onClick={handleCopy} primary>
+          Copy
+        </Button>
       </Modal.Actions>
     </Modal>
   );

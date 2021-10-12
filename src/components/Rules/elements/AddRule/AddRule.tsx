@@ -179,7 +179,7 @@ function AddRule(): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={getDisabled()} onClick={handleAdd}>
+        <Button disabled={getDisabled()} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>

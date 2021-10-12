@@ -70,7 +70,9 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleEvolve}>Save</Button>
+        <Button onClick={handleEvolve} primary>
+          Save
+        </Button>
       </Modal.Actions>
     </Modal>
   );

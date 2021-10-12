@@ -5,7 +5,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { Filter, Move } from 'components';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import MOVES from 'constants/moves';
+import MOVES, { MOVEMAP } from 'constants/moves';
 import useFilter from 'hooks/useFilter';
 import useStore from 'store';
 import styles from './MoveSelector.module.scss';
@@ -20,7 +20,7 @@ function MoveSelector({ currentMoveId, handleMove }: MoveSelectorProps): JSX.Ele
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
-  const currentMove = MOVES.find((m) => m.id === currentMoveId);
+  const currentMove = MOVEMAP.get(currentMoveId);
   const filteredMoves = MOVES.filter(
     (m) =>
       m.name.toUpperCase().includes(values.search) &&

@@ -59,7 +59,9 @@ function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setOpen(false)}>Cancel</Button>
-        <Button onClick={handleReset}>OK</Button>
+        <Button onClick={handleReset} primary>
+          OK
+        </Button>
       </Modal.Actions>
     </Modal>
   );

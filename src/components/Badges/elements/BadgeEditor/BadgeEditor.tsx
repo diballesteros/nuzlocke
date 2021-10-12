@@ -83,19 +83,22 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
           })}
       </Modal.Content>
       <Modal.Actions>
+        <Button onClick={() => setOpen(false)}>Close</Button>
         {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
           <Dropdown
             button
             data-testid="badge-multiple-default"
             onChange={handleMultiReset}
             options={LEVEL_CAPS[selectedGame?.value]}
+            primary
             text="Set default"
             value={null}
           />
         ) : (
-          <Button onClick={() => resetBadges()}>Set default</Button>
+          <Button onClick={() => resetBadges()} primary>
+            Set default
+          </Button>
         )}
-        <Button onClick={() => setOpen(false)}>Close</Button>
       </Modal.Actions>
     </Modal>
   ) : null;

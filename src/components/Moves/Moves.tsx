@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { Move } from 'components';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import MOVES from 'constants/moves';
+import { MOVEMAP } from 'constants/moves';
 import useStore from 'store';
 import styles from './Moves.module.scss';
 
@@ -15,7 +15,7 @@ function Moves({ moves = [] }: MovesProps): JSX.Element {
   return (
     <div className={styles.moves}>
       {moves?.map((move, i) => {
-        const moveDetail = MOVES.find((item) => item.id === move);
+        const moveDetail = MOVEMAP.get(move);
         return (
           !!moveDetail && (
             <Move key={`move-${move}-${i + 1}`} moveDetail={moveDetail} showStatus={isSplit} />

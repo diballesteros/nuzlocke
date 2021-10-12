@@ -68,7 +68,7 @@ function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={location?.length === 0} onClick={handleAdd}>
+        <Button disabled={location?.length === 0} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>

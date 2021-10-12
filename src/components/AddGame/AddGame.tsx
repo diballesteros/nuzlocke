@@ -51,7 +51,7 @@ function AddGame(): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={gameName?.length === 0} onClick={handleAdd}>
+        <Button disabled={gameName?.length === 0} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>

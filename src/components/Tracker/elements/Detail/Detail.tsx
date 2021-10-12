@@ -219,7 +219,9 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       <Modal.Actions>
         <Button onClick={handleClose}>Close</Button>
         <Button onClick={handleExport}>Export to Builder</Button>
-        <Button onClick={handleSave}>Save</Button>
+        <Button onClick={handleSave} primary>
+          Save
+        </Button>
       </Modal.Actions>
     </Modal>
   );

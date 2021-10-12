@@ -134,7 +134,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleEditClose}>Cancel</Button>
-        <Button disabled={false} onClick={handleEditRule}>
+        <Button disabled={false} onClick={handleEditRule} primary>
           Save
         </Button>
       </Modal.Actions>
