@@ -30,6 +30,7 @@ function App(): JSX.Element {
       document.documentElement.style.setProperty('--header', '#1b1c1d');
       document.documentElement.style.setProperty('--card', '#424242');
       document.documentElement.style.setProperty('--badge', '#C395FE');
+      document.documentElement.style.setProperty('--badgeopac', '#C395FE50');
       document.documentElement.style.setProperty('--badgeflash', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#212121');
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
@@ -39,6 +40,7 @@ function App(): JSX.Element {
       document.documentElement.style.setProperty('--card', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
       document.documentElement.style.setProperty('--badge', '#D46A6A');
+      document.documentElement.style.setProperty('--badgeopac', '#D46A6A50');
       document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
       document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
       document.documentElement.style.setProperty('--contrast', '#333333');

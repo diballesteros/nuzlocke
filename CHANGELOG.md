@@ -1,3 +1,23 @@
+## Version 3.10.0
+
+🚀 New features
+
+- [BETA] Damage Calculator! This comes fully integrated with the app, check out your entire caught collection of pokemon (excluding fainted) as available options or optionally calculate damage with any pokemon
+- Export gym opponent to damage calculator from the badge details!
+
+💅 Enhancement
+
+- Various performance improvements
+- Styled primary buttons in modals
+
+🐛 Bug Fix
+
+- Darkmode now correctly applies to display settings popup in Stats
+
+🏠 Internal
+
+- Updated PR templates to use comments for instruction text
+
 ## Version 3.9.2
 
 🐛 Bug Fix

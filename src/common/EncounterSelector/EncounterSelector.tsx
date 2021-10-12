@@ -4,35 +4,37 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { Filter, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import POKEMON from 'constants/pokemon';
+import { POKEMAP } from 'constants/pokemon';
+import { TEncounter } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import styles from 'assets/styles/Selector.module.scss';
 
-interface PokemonSelectorProps {
+interface EncounterSelectorProps {
   children: React.ReactNode;
-  filter?: number[] | false;
-  handlePokemon: (pokemonId: number) => void;
+  encounters: TEncounter[];
+  handleEncounter: (encounter: TEncounter) => void;
 }
 
-function PokemonSelector({
+function EncounterSelector({
   children,
-  filter = false,
-  handlePokemon,
-}: PokemonSelectorProps): JSX.Element {
+  encounters,
+  handleEncounter,
+}: EncounterSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
-  const filteredPokemon = POKEMON.filter(
-    (p) =>
-      (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
-      p.text.toUpperCase().includes(values.search) &&
-      (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
+  const filteredEncounters = encounters.filter((p) => {
+    const foundPokemon = POKEMAP.get(p.pokemon);
+    return (
+      foundPokemon?.text.toUpperCase().includes(values.search) &&
+      (values.gens.length > 0 ? values.gens.includes(foundPokemon.generation) : true) &&
       (values.types.length > 0
-        ? values.types.includes(p.type) || values.types.includes(p?.dualtype)
+        ? values.types.includes(foundPokemon.type) || values.types.includes(foundPokemon?.dualtype)
         : true)
-  );
+    );
+  });
 
-  const handleClick = (pokemonId: number) => {
-    handlePokemon(pokemonId);
+  const handleClick = (encounter: TEncounter) => {
+    handleEncounter(encounter);
     values.reset();
     setOpen(false);
   };
@@ -43,26 +45,26 @@ function PokemonSelector({
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
-    const pokemon = filteredPokemon[index];
+    const encounter = filteredEncounters[index];
+    const foundPokemon = POKEMAP.get(encounter.pokemon);
     return (
       <div className={styles.rowContainer} style={style}>
         <div
           className={styles.row}
-          data-testid={`poke-${pokemon.text}`}
-          onClick={() => handleClick(pokemon.value)}
+          data-testid={`poke-${foundPokemon.text}`}
+          onClick={() => handleClick(encounter)}
           role="presentation"
-          style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
+          style={{ backgroundColor: `${TYPE_COLOR[foundPokemon.type]}50` }}
         >
           <div className={styles.details}>
-            <img alt={pokemon.text} src={pokemon.image} />
-            <b>{pokemon.text}</b>
+            <img alt={foundPokemon.text} src={foundPokemon.image} />
+            <b>{encounter.nickname || foundPokemon.text}</b>
           </div>
-          <PokemonType pokemon={pokemon} />
+          <PokemonType pokemon={foundPokemon} />
         </div>
       </div>
     );
   };
-
   return (
     <Modal
       closeOnDimmerClick
@@ -75,7 +77,12 @@ function PokemonSelector({
     >
       <Modal.Content className={styles.content}>
         <Filter values={values} />
-        <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
+        <FixedSizeList
+          height={400}
+          itemCount={filteredEncounters.length}
+          itemSize={100}
+          width="100%"
+        >
           {renderRow}
         </FixedSizeList>
       </Modal.Content>
@@ -86,4 +93,4 @@ function PokemonSelector({
   );
 }
 
-export default PokemonSelector;
+export default EncounterSelector;
