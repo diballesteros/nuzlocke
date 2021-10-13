@@ -9,25 +9,6 @@
     flex: 1;
   }
 
-  .selector {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    padding: 10px 7px;
-    border-radius: 4px;
-
-    .info {
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-    }
-
-    > div:last-child {
-      flex-flow: column nowrap;
-    }
-  }
-
   .checkbox {
     margin-left: auto;
   }

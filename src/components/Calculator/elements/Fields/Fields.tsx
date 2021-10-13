@@ -28,8 +28,22 @@ const T: Record<string, 'attacker' | 'defender'> = {
 function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
   const result = useCalculate(control);
 
+  console.log(result[T[pokemon]].stats.hp);
+
   return (
     <section className={styles.container}>
+      <div className={styles.currenthpContainer}>
+        <label className={styles.label} htmlFor={`currenthp${pokemon}`}>
+          Current Hp:
+        </label>
+        <input
+          className={styles.currenthp}
+          id={`currenthp${pokemon}`}
+          type="number"
+          {...register(`currenthp${pokemon}`, { valueAsNumber: true })}
+        />
+        <output>/{result[T[pokemon]].stats.hp}</output>
+      </div>
       <details open={false}>
         <summary>
           HP <output>{result[T[pokemon]].stats.hp}</output>

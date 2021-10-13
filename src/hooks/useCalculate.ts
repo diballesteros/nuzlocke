@@ -1,4 +1,4 @@
-import { calculate, Move, Pokemon, Result } from '@smogon/calc';
+import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
 import { Control, useWatch } from 'react-hook-form';
 import { GenderCalc } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
@@ -34,17 +34,19 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
         spe: all.modspeed1,
       },
       curHP: all.currenthp1,
-      item: 'Choice Specs',
+      item: all.item1,
       gender: GenderCalc[all.gender1],
       level: all.level1,
-      nature: 'Timid',
+      nature: all.nature1,
+      status: all.status1,
     }),
     new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
       item: 'Eviolite',
       nature: 'Calm',
       evs: { spd: 252 },
     }),
-    new Move(all.calculatorGen, 'Wood Hammer')
+    new Move(all.calculatorGen, 'Wood Hammer'),
+    new Field({ attackerSide: {} })
   );
 
   return result;

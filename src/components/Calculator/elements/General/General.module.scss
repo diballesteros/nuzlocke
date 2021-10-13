@@ -1,7 +1,7 @@
 .general {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 8px;
+  gap: 16px;
 
   > div:first-child,
   .fullColumn {

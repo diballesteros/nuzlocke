@@ -2,6 +2,25 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.10.0',
+    date: 1633655488519,
+    notes: [
+      {
+        description:
+          '[BETA] Damage Calculator! This comes fully integrated with the app, check out your entire caught collection of pokemon (excluding fainted) as available options or optionally calculate damage with any pokemon',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Export gym opponent to damage calculator from the badge details!',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Various dark mode fixes',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.9.2',
     date: 1633655488519,
     notes: [

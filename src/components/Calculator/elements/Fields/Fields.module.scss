@@ -1,8 +1,16 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 8px;
+  gap: 16px;
   color: var(--contrast);
+
+  .currenthpContainer {
+    display: flex;
+    gap: 8px;
+    .currenthp {
+      width: 48px;
+    }
+  }
 
   summary {
     padding: 0.5rem;

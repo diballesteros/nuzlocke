@@ -2,10 +2,9 @@ import { useCallback, useState } from 'react';
 import { Control, useController, UseFormReset } from 'react-hook-form';
 import { Checkbox } from 'semantic-ui-react';
 import { EncounterSelector, PokemonSelector } from 'common';
-import { PokemonType } from 'components';
-import { TYPE_COLOR } from 'constants/colors';
+import { PokemonSlot } from 'components/Calculator/elements';
 import { POKEMAP } from 'constants/pokemon';
-import { TCalculatorForm, TEncounter, TPokemon } from 'constants/types';
+import { TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './PokeController.module.scss';
 
@@ -14,18 +13,6 @@ interface PokeControllerProps {
   encounters?: TEncounter[];
   name: 'pokemon1' | 'pokemon2';
   reset: UseFormReset<TCalculatorForm>;
-}
-
-function PokemonSlot({ pokemon }: { pokemon: TPokemon }) {
-  return (
-    <div className={styles.selector} style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}>
-      <div className={styles.info}>
-        <img alt={pokemon?.text} src={pokemon?.image} />
-        <span>{pokemon.text}</span>
-      </div>
-      <PokemonType pokemon={pokemon} />
-    </div>
-  );
 }
 
 function PokeController({ control, encounters, name, reset }: PokeControllerProps): JSX.Element {
