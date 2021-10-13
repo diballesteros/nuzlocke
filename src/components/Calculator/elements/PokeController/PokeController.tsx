@@ -2,8 +2,10 @@ import { useCallback, useState } from 'react';
 import { Control, useController, UseFormReset } from 'react-hook-form';
 import { Checkbox } from 'semantic-ui-react';
 import { EncounterSelector, PokemonSelector } from 'common';
+import { PokemonType } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
-import { TCalculatorForm, TEncounter } from 'constants/types';
+import { TCalculatorForm, TEncounter, TPokemon } from 'constants/types';
 import useStore from 'store';
 import styles from './PokeController.module.scss';
 
@@ -12,6 +14,18 @@ interface PokeControllerProps {
   encounters?: TEncounter[];
   name: 'pokemon1' | 'pokemon2';
   reset: UseFormReset<TCalculatorForm>;
+}
+
+function PokemonSlot({ pokemon }: { pokemon: TPokemon }) {
+  return (
+    <div className={styles.selector} style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}>
+      <div className={styles.info}>
+        <img alt={pokemon?.text} src={pokemon?.image} />
+        <span>{pokemon.text}</span>
+      </div>
+      <PokemonType pokemon={pokemon} />
+    </div>
+  );
 }
 
 function PokeController({ control, encounters, name, reset }: PokeControllerProps): JSX.Element {
@@ -42,17 +56,11 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
     <div className={styles.wrapper}>
       {showAll ? (
         <PokemonSelector handlePokemon={field.onChange}>
-          <div className={styles.selector}>
-            <img alt={foundPokemon?.text} src={foundPokemon?.image} />
-            <span>{foundPokemon.text}</span>
-          </div>
+          <PokemonSlot pokemon={foundPokemon} />
         </PokemonSelector>
       ) : name === 'pokemon1' ? (
         <EncounterSelector handleEncounter={handleEncounter} encounters={encounters}>
-          <div className={styles.selector}>
-            <img alt={foundPokemon?.text} src={foundPokemon?.image} />
-            <span>{foundPokemon.text}</span>
-          </div>
+          <PokemonSlot pokemon={foundPokemon} />
         </EncounterSelector>
       ) : (
         <div>test</div>
