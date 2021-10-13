@@ -52,7 +52,12 @@ function Calculator(): JSX.Element {
     <form className={styles.container} id="calculator">
       <div className={styles.header} style={{ gridColumn: '1 / -1' }}>
         <GenSelector watch={form.watch} setValue={form.setValue} />
-        <Button className={styles.button} type="reset" inverted={darkMode}>
+        <Button
+          className={styles.button}
+          inverted={darkMode}
+          onClick={() => form.reset()}
+          type="button"
+        >
           Reset
           <Icon className="icon refresh" />
         </Button>
