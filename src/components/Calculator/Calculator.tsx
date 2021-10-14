@@ -5,7 +5,7 @@ import { selectCaught } from 'selectors';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { Fields, General } from 'components/Calculator/elements';
+import { Field, General, Stats } from 'components/Calculator/elements';
 import { GENERATION_SELECT } from 'constants/constant';
 import { TCalculatorForm } from 'constants/types';
 import useStore from 'store';
@@ -64,11 +64,13 @@ function Calculator(): JSX.Element {
       </div>
       <fieldset className={styles.fieldset}>
         <General encounters={caught} form={form} pokemon="1" />
-        <Fields control={form.control} pokemon="1" register={form.register} />
+        <Stats form={form} pokemon="1" />
+        <Field form={form} pokemon="2" />
       </fieldset>
       <fieldset className={styles.fieldset}>
         <General form={form} pokemon="2" />
-        <Fields control={form.control} pokemon="2" register={form.register} />
+        <Stats form={form} pokemon="2" />
+        <Field form={form} pokemon="2" />
       </fieldset>
     </form>
   );

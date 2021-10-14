@@ -11,7 +11,6 @@ import styles from './General.module.scss';
 
 interface GeneralProps {
   encounters?: TEncounter[];
-  // eslint-disable-next-line @typescript-eslint/ban-types
   form: UseFormReturn<TCalculatorForm, object>;
   pokemon: '1' | '2';
 }

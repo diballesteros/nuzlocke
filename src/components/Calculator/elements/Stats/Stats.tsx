@@ -1,13 +1,13 @@
-import { Control, UseFormRegister } from 'react-hook-form';
+import { useEffect } from 'react';
+import { UseFormReturn } from 'react-hook-form';
 import { Modifier, Range } from 'components/Calculator/elements';
 import { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
-import styles from './Fields.module.scss';
+import styles from './Stats.module.scss';
 
-interface FieldsProps {
-  control: Control<TCalculatorForm>;
+interface StatsProps {
+  form: UseFormReturn<TCalculatorForm, object>;
   pokemon: '1' | '2';
-  register: UseFormRegister<TCalculatorForm>;
 }
 
 const EV = {
@@ -25,10 +25,14 @@ const T: Record<string, 'attacker' | 'defender'> = {
   '2': 'defender',
 };
 
-function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
+function Stats({ form, pokemon }: StatsProps): JSX.Element {
+  const { control, register, setValue } = form;
   const result = useCalculate(control);
+  const totalHp = result[T[pokemon]].stats.hp;
 
-  console.log(result[T[pokemon]].stats.hp);
+  useEffect(() => {
+    setValue(`currenthp${pokemon}`, totalHp);
+  }, [pokemon, setValue, totalHp]);
 
   return (
     <section className={styles.container}>
@@ -46,7 +50,7 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
       </div>
       <details open={false}>
         <summary>
-          HP <output>{result[T[pokemon]].stats.hp}</output>
+          HP <output>{totalHp}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivhp${pokemon}`} register={register} {...IV} />
@@ -107,4 +111,4 @@ function Fields({ control, pokemon, register }: FieldsProps): JSX.Element {
   );
 }
 
-export default Fields;
+export default Stats;

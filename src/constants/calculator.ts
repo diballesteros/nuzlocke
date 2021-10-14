@@ -1,4 +1,4 @@
-import { TCalculatorForm } from 'constants/types';
+import { CalculatorFields, TCalculatorForm } from 'constants/types';
 
 export const DEFAULT_VALUES: Omit<TCalculatorForm, 'calculatorGen' | 'pokemon1' | 'pokemon2'> = {
   level1: 100,
@@ -49,6 +49,53 @@ export const DEFAULT_VALUES: Omit<TCalculatorForm, 'calculatorGen' | 'pokemon1' 
   item2: undefined,
   status2: undefined,
   currenthp2: 100,
+  cannonade1: false,
+  cannonade2: false,
+  isAuroraVeil1: false,
+  isAuroraVeil2: false,
+  isBattery1: false,
+  isBattery2: false,
+  isHelpingHand1: false,
+  isHelpingHand2: false,
+  isLightScreen1: false,
+  isLightScreen2: false,
+  isProtected1: false,
+  isProtected2: false,
+  isReflect1: false,
+  isReflect2: false,
+  isSeeded1: false,
+  isSeeded2: false,
+  isSR1: false,
+  isSR2: false,
+  isTailwind1: false,
+  isTailwind2: false,
+  spikes1: 0,
+  spikes2: 0,
+  steelsurge1: false,
+  steelsurge2: false,
+  vinelash1: false,
+  vinelash2: false,
+  volcalith1: false,
+  volcalith2: false,
+  wildfire1: false,
+  wildfire2: false,
+};
+
+export const SIDE_FIELD: { [key in keyof Omit<CalculatorFields, 'spikes'>]: string } = {
+  isLightScreen: 'Light Screen',
+  isReflect: 'Reflect',
+  isProtected: 'Protect',
+  isSR: 'Stealth Rock',
+  isSeeded: 'Leech Seed',
+  isTailwind: 'Tailwind',
+  isHelpingHand: 'Helping Hand',
+  cannonade: 'Cannonade',
+  isAuroraVeil: 'Aurora Veil',
+  isBattery: 'Battery',
+  steelsurge: 'Steelsurge',
+  vinelash: 'Vinelash',
+  volcalith: 'Volcalith',
+  wildfire: 'Wildfire',
 };
 
 export const getDefaultValues = (
@@ -60,8 +107,4 @@ export const getDefaultValues = (
     ...(!!pokemon2 && { pokemon2 }),
     ...DEFAULT_VALUES,
   };
-};
-
-export const getPDDefaultValues = (): Omit<TCalculatorForm, 'calculatorGen'> => {
-  return null;
 };

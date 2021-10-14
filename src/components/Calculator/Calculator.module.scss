@@ -1,9 +1,12 @@
 .container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  height: 100%;
+  min-height: 0;
   row-gap: 8px;
   column-gap: 8px;
   padding: 8px;
+  overflow: auto;
 
   .header {
     display: flex;
@@ -28,5 +31,6 @@
     background-color: var(--card);
     border: none;
     border-radius: 4px;
+    overflow: auto;
   }
 }

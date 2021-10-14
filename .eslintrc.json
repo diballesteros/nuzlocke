@@ -83,6 +83,7 @@
     "no-debugger": [0, {}],
     "react/prop-types": 0,
     "react/require-default-props": 0,
+    "@typescript-eslint/ban-types": [0, {}],
     "@typescript-eslint/comma-dangle": [
       "error",
       {

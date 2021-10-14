@@ -308,64 +308,54 @@ export type TGenerationEffects = {
   [key: string]: TEffectiveness;
 };
 
-export interface TCalculatorForm {
-  calculatorGen: GenerationNum;
-  pokemon1: number;
-  level1: number;
-  gender1: Gender;
-  evatk1: number;
-  evdef1: number;
-  evhp1: number;
-  evspatk1: number;
-  evspdef1: number;
-  evspeed1: number;
-  ivatk1: number;
-  ivdef1: number;
-  ivhp1: number;
-  ivspatk1: number;
-  ivspdef1: number;
-  ivspeed1: number;
-  modatk1: number;
-  moddef1: number;
-  modspatk1: number;
-  modspdef1: number;
-  modspeed1: number;
-  nature1: string;
-  ability1: string;
-  item1: string;
-  status1: StatusName;
-  currenthp1: number;
-  poke1move1?: number;
-  poke1move2?: number;
-  poke1move3?: number;
-  poke1move4?: number;
-  pokemon2: number;
-  level2: number;
-  gender2: Gender;
-  evatk2: number;
-  evdef2: number;
-  evhp2: number;
-  evspatk2: number;
-  evspdef2: number;
-  evspeed2: number;
-  ivatk2: number;
-  ivdef2: number;
-  ivhp2: number;
-  ivspatk2: number;
-  ivspdef2: number;
-  ivspeed2: number;
-  modatk2: number;
-  moddef2: number;
-  modspatk2: number;
-  modspdef2: number;
-  modspeed2: number;
-  nature2: string;
-  ability2: string;
-  item2: string;
-  status2: StatusName;
-  currenthp2: number;
-  poke2move1?: number;
-  poke2move2?: number;
-  poke2move3?: number;
-  poke2move4?: number;
+export interface CalculatorFields {
+  cannonade: boolean;
+  isAuroraVeil: boolean;
+  isBattery: boolean;
+  isHelpingHand: boolean;
+  isLightScreen: boolean;
+  isProtected: boolean;
+  isReflect: boolean;
+  isSeeded: boolean;
+  isSR: boolean;
+  isTailwind: boolean;
+  spikes: number;
+  steelsurge: boolean;
+  vinelash: boolean;
+  volcalith: boolean;
+  wildfire: boolean;
 }
+
+interface CalculatorStats extends CalculatorFields {
+  ability: string;
+  currenthp: number;
+  evatk: number;
+  evdef: number;
+  evhp: number;
+  evspatk: number;
+  evspdef: number;
+  evspeed: number;
+  gender: Gender;
+  item: string;
+  ivatk: number;
+  ivdef: number;
+  ivhp: number;
+  ivspatk: number;
+  ivspdef: number;
+  ivspeed: number;
+  level: number;
+  modatk: number;
+  moddef: number;
+  modspatk: number;
+  modspdef: number;
+  modspeed: number;
+  pokemon: number;
+  nature: string;
+  status: StatusName;
+}
+
+type TSplitCalculator<T> = {
+  [Property in keyof T as `${Property & string}${1 | 2}`]: T[Property];
+};
+
+export type TCalculatorForm = TSplitCalculator<CalculatorStats> & { calculatorGen: GenerationNum };

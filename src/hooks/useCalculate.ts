@@ -46,7 +46,42 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
       evs: { spd: 252 },
     }),
     new Move(all.calculatorGen, 'Wood Hammer'),
-    new Field({ attackerSide: {} })
+    new Field({
+      attackerSide: {
+        cannonade: all.cannonade1,
+        isAuroraVeil: all.isAuroraVeil1,
+        isBattery: all.isBattery1,
+        isHelpingHand: all.isHelpingHand1,
+        isLightScreen: all.isLightScreen1,
+        isProtected: all.isProtected1,
+        isReflect: all.isReflect1,
+        isSeeded: all.isSeeded1,
+        isSR: all.isSR1,
+        isTailwind: all.isTailwind1,
+        spikes: all.spikes1,
+        steelsurge: all.steelsurge1,
+        vinelash: all.vinelash1,
+        volcalith: all.volcalith1,
+        wildfire: all.wildfire1,
+      },
+      defenderSide: {
+        cannonade: all.cannonade2,
+        isAuroraVeil: all.isAuroraVeil2,
+        isBattery: all.isBattery2,
+        isHelpingHand: all.isHelpingHand2,
+        isLightScreen: all.isLightScreen2,
+        isProtected: all.isProtected2,
+        isReflect: all.isReflect2,
+        isSeeded: all.isSeeded2,
+        isSR: all.isSR2,
+        isTailwind: all.isTailwind2,
+        spikes: all.spikes2,
+        steelsurge: all.steelsurge2,
+        vinelash: all.vinelash2,
+        volcalith: all.volcalith2,
+        wildfire: all.wildfire2,
+      },
+    })
   );
 
   return result;
