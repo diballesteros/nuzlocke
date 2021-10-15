@@ -48,7 +48,6 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
               className={styles.level}
               data-testid={`level${pokemon}`}
               fluid
-              label="Level"
               onChange={onChange}
               type="number"
               value={value}
@@ -63,12 +62,9 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
         render={({ field: { onChange, value } }) => (
           <Dropdown
             aria-label="gender-selector"
-            basic
-            className={styles.dropdown}
+            className={`${styles.dropdown} ${styles.gender}`}
             data-testid={`gender${pokemon}`}
             inline
-            labeled
-            lazyLoad
             onChange={(e, data) => onChange(data.value)}
             options={GENDERS}
             placeholder="Gender..."

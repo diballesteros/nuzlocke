@@ -7,7 +7,7 @@ import { TCalculatorForm } from 'constants/types';
 function useCalculate(control: Control<TCalculatorForm>): Result {
   const all = useWatch({ control });
   const result = calculate(
-    5,
+    all.calculatorGen,
     new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon1)?.text, {
       ability: all.ability1,
       ivs: {
@@ -41,9 +41,36 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
       status: all.status1,
     }),
     new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
-      item: 'Eviolite',
-      nature: 'Calm',
-      evs: { spd: 252 },
+      ability: all.ability2,
+      curHP: all.currenthp2,
+      gender: GenderCalc[all.gender2],
+      item: all.item2,
+      level: all.level2,
+      nature: all.nature2,
+      ivs: {
+        hp: all.ivhp2 ?? undefined,
+        atk: all.ivatk2 ?? undefined,
+        def: all.ivdef2 ?? undefined,
+        spa: all.ivspatk2 ?? undefined,
+        spd: all.ivspdef2 ?? undefined,
+        spe: all.ivspeed2 ?? undefined,
+      },
+      evs: {
+        hp: all.evhp2,
+        atk: all.evatk2,
+        def: all.evdef2,
+        spa: all.evspatk2,
+        spd: all.evspdef2,
+        spe: all.evspeed2,
+      },
+      boosts: {
+        atk: all.modatk2,
+        def: all.moddef2,
+        spa: all.modspatk2,
+        spd: all.modspdef2,
+        spe: all.modspeed2,
+      },
+      status: all.status2,
     }),
     new Move(all.calculatorGen, 'Wood Hammer'),
     new Field({
@@ -83,7 +110,6 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
       },
     })
   );
-
   return result;
 }
 

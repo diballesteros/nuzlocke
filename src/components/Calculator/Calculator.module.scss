@@ -22,6 +22,23 @@
       margin-left: 6px !important;
       margin-right: 0 !important;
     }
+
+    .genSelector {
+      width: 100%;
+      min-width: 125px;
+      max-width: 125px;
+      background-color: transparent !important;
+      color: var(--contrast) !important;
+
+      > div {
+        color: var(--contrast) !important;
+      }
+
+      > i {
+        color: var(--contrast);
+        top: 0 !important;
+      }
+    }
   }
 
   .fieldset {

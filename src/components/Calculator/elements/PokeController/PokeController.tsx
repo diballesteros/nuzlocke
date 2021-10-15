@@ -28,10 +28,10 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       ...(enc.details?.item && { item1: enc.details?.item }),
       ...(enc.details?.level && { level1: enc.details?.level }),
       ...(enc.details?.nature && { nature1: enc.details?.nature }),
-      ...(enc.details?.moves && { poke1move1: enc.details?.moves[0] }),
-      ...(enc.details?.moves && { poke1move2: enc.details?.moves[1] }),
-      ...(enc.details?.moves && { poke1move3: enc.details?.moves[2] }),
-      ...(enc.details?.moves && { poke1move4: enc.details?.moves[2] }),
+      ...(enc.details?.moves && { move1_1: enc.details?.moves[0] }),
+      ...(enc.details?.moves && { move2_1: enc.details?.moves[1] }),
+      ...(enc.details?.moves && { move3_1: enc.details?.moves[2] }),
+      ...(enc.details?.moves && { move4_1: enc.details?.moves[3] }),
       pokemon1: enc.pokemon,
     };
     field.onChange(enc.pokemon);

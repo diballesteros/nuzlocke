@@ -308,7 +308,7 @@ export type TGenerationEffects = {
   [key: string]: TEffectiveness;
 };
 
-export interface CalculatorFields {
+export interface TCalculatorFields {
   cannonade: boolean;
   isAuroraVeil: boolean;
   isBattery: boolean;
@@ -326,7 +326,14 @@ export interface CalculatorFields {
   wildfire: boolean;
 }
 
-interface CalculatorStats extends CalculatorFields {
+export interface TCalculatorMoves {
+  move1_: number;
+  move2_: number;
+  move3_: number;
+  move4_: number;
+}
+
+interface TCalculatorStats extends TCalculatorFields, TCalculatorMoves {
   ability: string;
   currenthp: number;
   evatk: number;
@@ -358,4 +365,4 @@ type TSplitCalculator<T> = {
   [Property in keyof T as `${Property & string}${1 | 2}`]: T[Property];
 };
 
-export type TCalculatorForm = TSplitCalculator<CalculatorStats> & { calculatorGen: GenerationNum };
+export type TCalculatorForm = TSplitCalculator<TCalculatorStats> & { calculatorGen: GenerationNum };

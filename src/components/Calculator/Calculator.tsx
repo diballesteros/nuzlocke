@@ -5,7 +5,7 @@ import { selectCaught } from 'selectors';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { Field, General, Stats } from 'components/Calculator/elements';
+import { General, MoveController, SideField, Stats } from 'components/Calculator/elements';
 import { GENERATION_SELECT } from 'constants/constant';
 import { TCalculatorForm } from 'constants/types';
 import useStore from 'store';
@@ -26,8 +26,9 @@ function GenSelector({
 
   return (
     <Dropdown
+      text="Generation"
       aria-label="generation-selector"
-      basic
+      className={styles.genSelector}
       data-testid="gen-selector"
       labeled
       inline
@@ -64,13 +65,21 @@ function Calculator(): JSX.Element {
       </div>
       <fieldset className={styles.fieldset}>
         <General encounters={caught} form={form} pokemon="1" />
+        <MoveController control={form.control} name="move1_1" />
+        <MoveController control={form.control} name="move2_1" />
+        <MoveController control={form.control} name="move3_1" />
+        <MoveController control={form.control} name="move4_1" />
         <Stats form={form} pokemon="1" />
-        <Field form={form} pokemon="2" />
+        <SideField form={form} pokemon="1" />
       </fieldset>
       <fieldset className={styles.fieldset}>
         <General form={form} pokemon="2" />
+        <MoveController control={form.control} name="move1_2" />
+        <MoveController control={form.control} name="move2_2" />
+        <MoveController control={form.control} name="move3_2" />
+        <MoveController control={form.control} name="move4_2" />
         <Stats form={form} pokemon="2" />
-        <Field form={form} pokemon="2" />
+        <SideField form={form} pokemon="2" />
       </fieldset>
     </form>
   );

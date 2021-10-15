@@ -1,4 +1,4 @@
-import { CalculatorFields, TCalculatorForm } from 'constants/types';
+import { TCalculatorFields, TCalculatorForm } from 'constants/types';
 
 export const DEFAULT_VALUES: Omit<TCalculatorForm, 'calculatorGen' | 'pokemon1' | 'pokemon2'> = {
   level1: 100,
@@ -79,9 +79,17 @@ export const DEFAULT_VALUES: Omit<TCalculatorForm, 'calculatorGen' | 'pokemon1' 
   volcalith2: false,
   wildfire1: false,
   wildfire2: false,
+  move1_1: undefined,
+  move1_2: undefined,
+  move2_1: undefined,
+  move2_2: undefined,
+  move3_1: undefined,
+  move3_2: undefined,
+  move4_1: undefined,
+  move4_2: undefined,
 };
 
-export const SIDE_FIELD: { [key in keyof Omit<CalculatorFields, 'spikes'>]: string } = {
+export const SIDE_FIELD: { [key in keyof Omit<TCalculatorFields, 'spikes'>]: string } = {
   isLightScreen: 'Light Screen',
   isReflect: 'Reflect',
   isProtected: 'Protect',
