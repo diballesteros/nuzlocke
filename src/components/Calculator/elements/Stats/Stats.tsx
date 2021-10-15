@@ -20,15 +20,11 @@ const IV = {
   max: 31,
 };
 
-const T: Record<string, 'attacker' | 'defender'> = {
-  '1': 'attacker',
-  '2': 'defender',
-};
-
 function Stats({ form, pokemon }: StatsProps): JSX.Element {
   const { control, register, setValue } = form;
-  const result = useCalculate(control);
-  const totalHp = result[T[pokemon]].stats.hp;
+  const { pokemon1, pokemon2 } = useCalculate(control);
+  const currentPokemon = pokemon === '1' ? pokemon1 : pokemon2;
+  const totalHp = currentPokemon.stats.hp;
 
   useEffect(() => {
     setValue(`currenthp${pokemon}`, totalHp);
@@ -46,7 +42,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
           type="number"
           {...register(`currenthp${pokemon}`, { valueAsNumber: true })}
         />
-        <output>/{result[T[pokemon]].stats.hp}</output>
+        <output>/{currentPokemon.stats.hp}</output>
       </div>
       <details open={false}>
         <summary>
@@ -59,7 +55,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       <details open={false}>
         <summary>
-          ATK <output>{result[T[pokemon]].stats.atk}</output>
+          ATK <output>{currentPokemon.stats.atk}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivatk${pokemon}`} register={register} {...IV} />
@@ -69,7 +65,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       <details open={false}>
         <summary>
-          DEF <output>{result[T[pokemon]].stats.def}</output>
+          DEF <output>{currentPokemon.stats.def}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivdef${pokemon}`} register={register} {...IV} />
@@ -79,7 +75,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       <details open={false}>
         <summary>
-          SP. ATK <output>{result[T[pokemon]].stats.spa}</output>
+          SP. ATK <output>{currentPokemon.stats.spa}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspatk${pokemon}`} register={register} {...IV} />
@@ -89,7 +85,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       <details open={false}>
         <summary>
-          SP. DEF <output>{result[T[pokemon]].stats.spd}</output>
+          SP. DEF <output>{currentPokemon.stats.spd}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspdef${pokemon}`} register={register} {...IV} />
@@ -99,7 +95,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       <details open={false}>
         <summary>
-          SPEED <output>{result[T[pokemon]].stats.spe}</output>
+          SPEED <output>{currentPokemon.stats.spe}</output>
         </summary>
         <fieldset className={styles.fieldset}>
           <Range control={control} name={`ivspeed${pokemon}`} register={register} {...IV} />

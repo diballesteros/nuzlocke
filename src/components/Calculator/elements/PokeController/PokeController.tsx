@@ -21,6 +21,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
   const calc = useStore(useCallback((state) => state.calcs[state.selectedGame?.value], []));
   const { field } = useController({ control, name });
   const foundPokemon = POKEMAP.get(field.value);
+
   const handleEncounter = (enc: TEncounter) => {
     const partialCalc: Partial<TCalculatorForm> = {
       ...(enc.details?.ability && { ability1: enc.details?.ability }),
@@ -39,10 +40,19 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
     reset({ ...calc.form, ...partialCalc });
   };
 
+  const handlePokemon = (pokemonId: number) => {
+    const partialCalc: Partial<TCalculatorForm> = {
+      [name]: pokemonId,
+    };
+    field.onChange(pokemonId);
+    updateDefaultValues(partialCalc);
+    reset({ ...calc.form, ...partialCalc });
+  };
+
   return (
     <div className={styles.wrapper}>
       {showAll ? (
-        <PokemonSelector handlePokemon={field.onChange}>
+        <PokemonSelector handlePokemon={handlePokemon}>
           <PokemonSlot pokemon={foundPokemon} />
         </PokemonSelector>
       ) : name === 'pokemon1' ? (

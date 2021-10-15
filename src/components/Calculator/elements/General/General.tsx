@@ -1,7 +1,6 @@
 import { ABILITIES } from '@smogon/calc';
 import { Controller, UseFormReturn } from 'react-hook-form';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { PokeController } from 'components/Calculator/elements';
 import { GENDERS, STATUS_EFFECTS } from 'constants/constant';
@@ -40,19 +39,11 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
       />
       <div className={styles.levelContainer}>
         <Button icon="minus" onClick={decrement} type="button" />
-        <Controller
-          control={form.control}
-          name={`level${pokemon}`}
-          render={({ field: { onChange, value } }) => (
-            <Input
-              className={styles.level}
-              data-testid={`level${pokemon}`}
-              fluid
-              onChange={onChange}
-              type="number"
-              value={value}
-            />
-          )}
+        <input
+          className={styles.level}
+          id={`level${pokemon}`}
+          type="number"
+          {...form.register(`level${pokemon}`, { valueAsNumber: true })}
         />
         <Button icon="plus" onClick={increment} type="button" />
       </div>

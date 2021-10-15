@@ -1,14 +1,21 @@
 import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
+import { useMemo } from 'react';
 import { Control, useWatch } from 'react-hook-form';
 import { GenderCalc } from 'constants/constant';
+import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm } from 'constants/types';
 
-function useCalculate(control: Control<TCalculatorForm>): Result {
+function useCalculate(control: Control<TCalculatorForm>): {
+  pokemon1: Pokemon;
+  pokemon2: Pokemon;
+  attackerResults: [Result, Result, Result, Result];
+  defenderResults: [Result, Result, Result, Result];
+} {
   const all = useWatch({ control });
-  const result = calculate(
-    all.calculatorGen,
-    new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon1)?.text, {
+
+  const pokemon1 = useMemo(() => {
+    return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon1)?.text, {
       ability: all.ability1,
       ivs: {
         hp: all.ivhp1 ?? undefined,
@@ -39,8 +46,11 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
       level: all.level1,
       nature: all.nature1,
       status: all.status1,
-    }),
-    new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
+    });
+  }, [all]);
+
+  const pokemon2 = useMemo(() => {
+    return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
       ability: all.ability2,
       curHP: all.currenthp2,
       gender: GenderCalc[all.gender2],
@@ -71,9 +81,11 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
         spe: all.modspeed2,
       },
       status: all.status2,
-    }),
-    new Move(all.calculatorGen, 'Wood Hammer'),
-    new Field({
+    });
+  }, [all]);
+
+  const field = useMemo(() => {
+    return new Field({
       attackerSide: {
         cannonade: all.cannonade1,
         isAuroraVeil: all.isAuroraVeil1,
@@ -108,9 +120,79 @@ function useCalculate(control: Control<TCalculatorForm>): Result {
         volcalith: all.volcalith2,
         wildfire: all.wildfire2,
       },
-    })
+    });
+  }, [all]);
+
+  const attackerOne = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move1_1)?.name),
+    field
   );
-  return result;
+
+  const attackerTwo = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move2_1)?.name),
+    field
+  );
+
+  const attackerThree = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move3_1)?.name),
+    field
+  );
+
+  const attackerFour = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move4_1)?.name),
+    field
+  );
+
+  const defenderOne = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move1_2)?.name),
+    field
+  );
+
+  const defenderTwo = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move2_2)?.name),
+    field
+  );
+
+  const defenderThree = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move3_2)?.name),
+    field
+  );
+
+  const defenderFour = calculate(
+    all.calculatorGen,
+    pokemon1,
+    pokemon2,
+    new Move(all.calculatorGen, MOVEMAP.get(all.move4_2)?.name),
+    field
+  );
+
+  return {
+    pokemon1,
+    pokemon2,
+    attackerResults: [attackerOne, attackerTwo, attackerThree, attackerFour],
+    defenderResults: [defenderOne, defenderTwo, defenderThree, defenderFour],
+  };
 }
 
 export default useCalculate;
