@@ -19,35 +19,40 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
 
   return (
     <div className={styles.header}>
-      <output className={styles.primary}>{attackerResults[0].fullDesc()}</output>
-      <Controller
-        control={form.control}
-        name="calculatorGen"
-        render={({ field: { onChange, value } }) => (
-          <Dropdown
-            text="Generation"
-            aria-label="generation-selector"
-            className={styles.genSelector}
-            data-testid="gen-selector"
-            labeled
-            inline
-            onChange={onChange}
-            options={GENERATION_SELECT}
-            placeholder="Select..."
-            selection
-            value={value}
-          />
-        )}
-      />
-      <Button
-        className={styles.button}
-        inverted={darkMode}
-        onClick={() => form.reset()}
-        type="button"
-      >
-        Reset
-        <Icon className="icon refresh" />
-      </Button>
+      <div className={styles.options}>
+        <Controller
+          control={form.control}
+          name="calculatorGen"
+          render={({ field: { onChange, value } }) => (
+            <Dropdown
+              text="Generation"
+              aria-label="generation-selector"
+              className={styles.genSelector}
+              data-testid="gen-selector"
+              labeled
+              inline
+              onChange={onChange}
+              options={GENERATION_SELECT}
+              placeholder="Select..."
+              selection
+              value={value}
+            />
+          )}
+        />
+        <Button
+          className={styles.button}
+          inverted={darkMode}
+          onClick={() => form.reset()}
+          type="button"
+        >
+          Reset
+          <Icon className="icon refresh" />
+        </Button>
+      </div>
+      <div className={styles.primary}>
+        <output className={styles.mainResult}>{attackerResults[0].fullDesc()}</output>
+        <Icon name="angle right" />
+      </div>
     </div>
   );
 }
