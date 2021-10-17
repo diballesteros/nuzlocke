@@ -15,7 +15,6 @@ jobs:
       # report machine parameters
       - run: yarn cypress info
       - run: node -p 'os.cpus()'
-      - run: yarn lint
       - run: yarn build
 
       - name: 📁 Save build folder
