@@ -2,6 +2,20 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.9.3',
+    date: 1634495380559,
+    notes: [
+      {
+        description: "Fixed moveset for Clair's Gyarados in Heart Gold and Soul Silver",
+        type: 'FIX',
+      },
+      {
+        description: 'Omega Ruby and Alpha Sapphire Route 110 encounters fix',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.9.2',
     date: 1633655488519,
     notes: [
