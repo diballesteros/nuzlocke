@@ -32,6 +32,13 @@
 - Bumped @typescript-eslint/parser 5.0.0
 - Bumped eslint-plugin-import to 2.25.2
 
+## Version 3.9.3
+
+🐛 Bug Fix
+
+- Fixed moveset for Clair's Gyarados in Heart Gold and Soul Silver
+- Omega Ruby and Alpha Sapphire Route 110 encounters fix
+
 ## Version 3.9.2
 
 🐛 Bug Fix
