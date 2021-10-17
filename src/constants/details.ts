@@ -3699,7 +3699,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             ability: 'Initimdate',
             id: 130,
             level: 38,
-            moves: [406, 239, 44, 406],
+            moves: [406, 239, 44, 82],
           },
           {
             ability: 'Shed Skin',

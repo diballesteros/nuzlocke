@@ -4104,6 +4104,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Gulpin',
     'Wailmer',
     'Magnemite',
+    'Voltorb',
   ],
   'oras-19': ['Magnemite', 'Magneton', 'Voltorb', 'Electrode'],
   'oras-20': [
