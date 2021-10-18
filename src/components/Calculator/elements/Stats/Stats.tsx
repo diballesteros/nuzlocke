@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { UseFormReturn } from 'react-hook-form';
+import { UseFormReturn, useWatch } from 'react-hook-form';
 import { Modifier, Range } from 'components/Calculator/elements';
 import { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
@@ -23,12 +23,13 @@ const IV = {
 function Stats({ form, pokemon }: StatsProps): JSX.Element {
   const { control, register, setValue } = form;
   const { pokemon1, pokemon2 } = useCalculate(control);
+  const values = useWatch({ control, name: ['pokemon1', 'pokemon2'] });
   const currentPokemon = pokemon === '1' ? pokemon1 : pokemon2;
-  const totalHp = currentPokemon?.stats?.hp ?? 0;
+  const totalHp = currentPokemon?.stats?.hp;
 
   useEffect(() => {
     setValue(`currenthp${pokemon}`, totalHp);
-  }, [pokemon, setValue, totalHp]);
+  }, [pokemon, values, setValue, totalHp]);
 
   return (
     <section className={styles.container}>

@@ -368,6 +368,14 @@ type TSplitCalculator<T> = {
   [Property in keyof T as `${Property & string}${1 | 2}`]: T[Property];
 };
 
+export type TFirstSplit = {
+  [Property in keyof TCalculatorStats as `${Property & string}1`]: TCalculatorStats[Property];
+};
+
+export type TSecondSplit = {
+  [Property in keyof TCalculatorStats as `${Property & string}2`]: TCalculatorStats[Property];
+};
+
 type TCalculatorMain = {
   calculatorGen: GenerationNum;
   gameType: 'Singles' | 'Doubles';

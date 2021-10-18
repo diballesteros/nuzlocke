@@ -3,7 +3,7 @@ import { Control, useController, UseFormReset } from 'react-hook-form';
 import { Checkbox } from 'semantic-ui-react';
 import { EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
-import { DEFAULT_VALUES } from 'constants/calculator';
+import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
@@ -37,8 +37,8 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       pokemon1: enc.pokemon,
     };
     field.onChange(enc.pokemon);
-    updateDefaultValues(partialCalc);
-    reset({ ...calc.form, ...partialCalc });
+    updateDefaultValues({ ...DEFAULT_POKEMON_1, ...partialCalc });
+    reset({ ...calc.form, ...DEFAULT_POKEMON_1, ...partialCalc });
   };
 
   const handlePokemon = (pokemonId: number) => {
@@ -46,8 +46,9 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       [name]: pokemonId,
     };
     field.onChange(pokemonId);
-    updateDefaultValues({ ...DEFAULT_VALUES, ...partialCalc });
-    reset({ ...DEFAULT_VALUES, ...partialCalc });
+    const DEFAULT = name === 'pokemon1' ? DEFAULT_POKEMON_1 : DEFAULT_POKEMON_2;
+    updateDefaultValues({ ...DEFAULT, ...partialCalc });
+    reset({ ...calc.form, ...DEFAULT, ...partialCalc });
   };
 
   return (

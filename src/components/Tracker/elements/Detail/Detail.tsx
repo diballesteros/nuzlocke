@@ -143,6 +143,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
                 aria-label="nature-selector"
                 basic
                 className={styles.dropdown}
+                clearable
                 data-testid="nature"
                 inline
                 lazyLoad
@@ -159,6 +160,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               aria-label="ability"
               basic
               className={styles.dropdown}
+              clearable
               data-testid="ability"
               inline
               lazyLoad
@@ -175,7 +177,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               aria-label="item"
               basic
               className={styles.dropdown}
-              data-testid="nature"
+              clearable
+              data-testid="item"
               inline
               lazyLoad
               onChange={(e, data) => setItem(data.value as unknown as string)}

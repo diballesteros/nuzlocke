@@ -86,6 +86,11 @@
           text-decoration: underline;
         }
       }
+
+      .active {
+        color: var(--badge);
+        font-weight: bold;
+      }
     }
   }
 }

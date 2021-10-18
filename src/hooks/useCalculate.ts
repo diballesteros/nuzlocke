@@ -18,6 +18,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
     if (all.calculatorGen && all.pokemon1) {
       return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon1)?.text, {
         ability: all.ability1,
+        abilityOn: true,
         ivs: {
           hp: all.ivhp1 ?? undefined,
           atk: all.ivatk1 ?? undefined,
@@ -57,6 +58,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
     if (all.calculatorGen && all.pokemon2) {
       return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
         ability: all.ability2,
+        abilityOn: true,
         boosts: {
           atk: all.modatk2,
           def: all.moddef2,

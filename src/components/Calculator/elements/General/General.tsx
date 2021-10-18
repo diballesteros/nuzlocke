@@ -1,4 +1,4 @@
-import { ABILITIES } from '@smogon/calc';
+import { ABILITIES, ITEMS } from '@smogon/calc';
 import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -75,6 +75,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
                 aria-label="nature-selector"
                 basic
                 className={`${styles.dropdown} ${styles.fullColumn}`}
+                clearable
                 data-testid={`nature${pokemon}`}
                 inline
                 lazyLoad
@@ -95,7 +96,8 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
                 aria-label="ability"
                 basic
                 className={`${styles.dropdown} ${styles.fullColumn}`}
-                data-testid="ability"
+                clearable
+                data-testid={`ability${pokemon}`}
                 inline
                 lazyLoad
                 onChange={(e, data) => onChange(data.value as unknown as string)}
@@ -111,6 +113,31 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
           />
         </>
       )}
+      {calcGen > 1 && (
+        <Controller
+          control={form.control}
+          name={`item${pokemon}`}
+          render={({ field: { onChange, value } }) => (
+            <Dropdown
+              aria-label="item"
+              basic
+              className={`${styles.dropdown} ${styles.fullColumn}`}
+              clearable
+              data-testid={`item${pokemon}`}
+              inline
+              lazyLoad
+              onChange={(e, data) => onChange(data.value as unknown as string)}
+              options={[...new Set(ITEMS[8])].map((smogonItem) => {
+                return { text: smogonItem, value: smogonItem };
+              })}
+              placeholder="Select a item..."
+              search
+              selection
+              value={value ?? ''}
+            />
+          )}
+        />
+      )}
       <Controller
         control={form.control}
         name={`status${pokemon}`}
@@ -119,7 +146,8 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
             aria-label="status"
             basic
             className={`${styles.dropdown} ${styles.fullColumn}`}
-            data-testid="status"
+            clearable
+            data-testid={`status${pokemon}`}
             inline
             lazyLoad
             onChange={(e, data) => onChange(data.value as unknown as string)}

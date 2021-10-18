@@ -74,6 +74,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
           {attackerResults.map((result, i) => {
             return (
               <div
+                className={primary[0] === 'attacker' && primary[1] === i ? styles.active : ''}
                 key={`attacker-result-${i + 1}`}
                 onClick={() => setPrimary(['attacker', i])}
                 role="presentation"
@@ -89,6 +90,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
           {defenderResults.map((result, i) => {
             return (
               <div
+                className={primary[0] === 'defender' && primary[1] === i ? styles.active : ''}
                 key={`defender-result-${i + 1}`}
                 onClick={() => setPrimary(['defender', i])}
                 role="presentation"
