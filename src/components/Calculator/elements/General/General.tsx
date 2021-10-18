@@ -1,5 +1,5 @@
 import { ABILITIES } from '@smogon/calc';
-import { Controller, UseFormReturn } from 'react-hook-form';
+import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { PokeController } from 'components/Calculator/elements';
@@ -15,6 +15,7 @@ interface GeneralProps {
 }
 
 function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
+  const calcGen = useWatch({ control: form.control, name: 'calculatorGen' });
   const increment = () => {
     const currentLevel = form.getValues(`level${pokemon}`);
     if (currentLevel < 100) {
@@ -64,48 +65,52 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
           />
         )}
       />
-      <Controller
-        control={form.control}
-        name={`nature${pokemon}`}
-        render={({ field: { onChange, value } }) => (
-          <Dropdown
-            aria-label="nature-selector"
-            basic
-            className={`${styles.dropdown} ${styles.fullColumn}`}
-            data-testid={`nature${pokemon}`}
-            inline
-            lazyLoad
-            onChange={(e, data) => onChange(data.value as unknown as string)}
-            options={NATURES}
-            placeholder="Select a nature..."
-            search
-            selection
-            value={value ?? ''}
+      {calcGen > 2 && (
+        <>
+          <Controller
+            control={form.control}
+            name={`nature${pokemon}`}
+            render={({ field: { onChange, value } }) => (
+              <Dropdown
+                aria-label="nature-selector"
+                basic
+                className={`${styles.dropdown} ${styles.fullColumn}`}
+                data-testid={`nature${pokemon}`}
+                inline
+                lazyLoad
+                onChange={(e, data) => onChange(data.value as unknown as string)}
+                options={NATURES}
+                placeholder="Select a nature..."
+                search
+                selection
+                value={value ?? ''}
+              />
+            )}
           />
-        )}
-      />
-      <Controller
-        control={form.control}
-        name={`ability${pokemon}`}
-        render={({ field: { onChange, value } }) => (
-          <Dropdown
-            aria-label="ability"
-            basic
-            className={`${styles.dropdown} ${styles.fullColumn}`}
-            data-testid="ability"
-            inline
-            lazyLoad
-            onChange={(e, data) => onChange(data.value as unknown as string)}
-            options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
-              return { text: smogonAbility, value: smogonAbility };
-            })}
-            placeholder="Select an ability..."
-            search
-            selection
-            value={value ?? ''}
+          <Controller
+            control={form.control}
+            name={`ability${pokemon}`}
+            render={({ field: { onChange, value } }) => (
+              <Dropdown
+                aria-label="ability"
+                basic
+                className={`${styles.dropdown} ${styles.fullColumn}`}
+                data-testid="ability"
+                inline
+                lazyLoad
+                onChange={(e, data) => onChange(data.value as unknown as string)}
+                options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+                  return { text: smogonAbility, value: smogonAbility };
+                })}
+                placeholder="Select an ability..."
+                search
+                selection
+                value={value ?? ''}
+              />
+            )}
           />
-        )}
-      />
+        </>
+      )}
       <Controller
         control={form.control}
         name={`status${pokemon}`}

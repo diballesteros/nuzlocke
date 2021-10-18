@@ -3,6 +3,7 @@ import { Control, useController, UseFormReset } from 'react-hook-form';
 import { Checkbox } from 'semantic-ui-react';
 import { EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
+import { DEFAULT_VALUES } from 'constants/calculator';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
@@ -45,8 +46,8 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       [name]: pokemonId,
     };
     field.onChange(pokemonId);
-    updateDefaultValues(partialCalc);
-    reset({ ...calc.form, ...partialCalc });
+    updateDefaultValues({ ...DEFAULT_VALUES, ...partialCalc });
+    reset({ ...DEFAULT_VALUES, ...partialCalc });
   };
 
   return (
@@ -68,6 +69,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
           className={styles.checkbox}
           onChange={(e, data) => setShowAll(data.checked)}
           label="Show all"
+          toggle
         />
       )}
     </div>

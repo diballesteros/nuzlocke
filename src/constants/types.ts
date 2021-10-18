@@ -312,6 +312,9 @@ export interface TCalculatorFields {
   cannonade: boolean;
   isAuroraVeil: boolean;
   isBattery: boolean;
+  isDynamaxed: boolean;
+  isForesight: boolean;
+  isFriendGuard: boolean;
   isHelpingHand: boolean;
   isLightScreen: boolean;
   isProtected: boolean;
@@ -365,4 +368,21 @@ type TSplitCalculator<T> = {
   [Property in keyof T as `${Property & string}${1 | 2}`]: T[Property];
 };
 
-export type TCalculatorForm = TSplitCalculator<TCalculatorStats> & { calculatorGen: GenerationNum };
+type TCalculatorMain = {
+  calculatorGen: GenerationNum;
+  gameType: 'Singles' | 'Doubles';
+  isGravity: boolean;
+  terrain: 'Electric' | 'Grassy' | 'Misty' | 'Psychic' | 'None';
+  weather:
+    | 'None'
+    | 'Hail'
+    | 'Harsh Sunshine'
+    | 'Heavy Rain'
+    | 'Rain'
+    | 'Sand'
+    | 'Strong Winds'
+    | 'Sun'
+    | undefined;
+};
+
+export type TCalculatorForm = TSplitCalculator<TCalculatorStats> & TCalculatorMain;

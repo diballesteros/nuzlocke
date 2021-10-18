@@ -2,16 +2,17 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   grid-column: 1 / -1;
-  gap: 10px;
   align-items: center;
   width: 100%;
+  padding: 8px;
   background-color: var(--card);
   border-radius: 4px;
-  padding: 8px;
 
   .options {
     grid-column: 1 / -1;
-    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    margin: 0 0 10px auto;
 
     .button > i {
       margin-left: 6px !important;
@@ -50,7 +51,41 @@
     }
 
     > i {
+      font-size: 24px;
       justify-self: flex-end;
+      transition: transform 150ms ease;
+      cursor: pointer;
+    }
+  }
+
+  .moreResults {
+    grid-column: 1 /-1;
+    display: flex;
+    flex-flow: column nowrap;
+    padding: 0 8px;
+    margin-top: 10px;
+    gap: 8px;
+    width: 100%;
+    height: 0px;
+    clip-path: inset(0);
+    color: var(--contrast);
+
+    &.open {
+      height: fit-content;
+      clip-path: inset(-100vh, -100vw);
+    }
+
+    .grouped {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 4px;
+
+      > div {
+        cursor: pointer;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

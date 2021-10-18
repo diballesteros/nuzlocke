@@ -9,10 +9,10 @@ interface PokemonSlotProps {
 
 function PokemonSlot({ pokemon }: PokemonSlotProps): JSX.Element {
   return (
-    <div className={styles.selector} style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}>
+    <div className={styles.selector} style={{ backgroundColor: `${TYPE_COLOR[pokemon?.type]}50` }}>
       <div className={styles.info}>
         <img alt={pokemon?.text} src={pokemon?.image} />
-        <span>{pokemon.text}</span>
+        <span>{pokemon?.text}</span>
       </div>
       <PokemonType pokemon={pokemon} />
     </div>

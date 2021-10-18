@@ -1,11 +1,12 @@
 .wrapper {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   align-items: center;
   gap: 8px;
   color: var(--contrast);
 
   > div:first-child {
+    width: 100%;
     flex: 1;
   }
 
