@@ -1,7 +1,7 @@
 import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
 import { useMemo } from 'react';
 import { Control, useWatch } from 'react-hook-form';
-import { GenderCalc } from 'constants/constant';
+import { GenderCalc } from 'constants/calculator';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm } from 'constants/types';
@@ -48,7 +48,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         gender: GenderCalc[all.gender1],
         level: all.level1,
         nature: all.nature1,
-        status: all.status1,
+        status: all.status1 === 'none' ? undefined : all.status1,
       });
     }
     return null;
@@ -88,7 +88,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         item: all.item2,
         level: all.level2,
         nature: all.nature2,
-        status: all.status2,
+        status: all.status2 === 'none' ? undefined : all.status2,
       });
     }
     return null;

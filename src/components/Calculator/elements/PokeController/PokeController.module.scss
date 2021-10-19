@@ -14,8 +14,11 @@
     margin-left: auto;
   }
 
-  :global(.ui.checkbox label),
-  :global(.ui.checkbox input:focus ~ label) {
+  .showAll {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     color: var(--contrast);
+    align-self: flex-end;
   }
 }

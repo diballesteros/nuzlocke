@@ -369,7 +369,7 @@ interface TCalculatorStats extends TCalculatorFields, TCalculatorMoves {
   modspeed: number;
   pokemon: number;
   nature: string;
-  status: StatusName;
+  status: StatusName | 'none';
 }
 
 type TSplitCalculator<T> = {

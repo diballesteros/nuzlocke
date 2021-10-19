@@ -1,4 +1,4 @@
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { selectCaught } from 'selectors';
 import {
@@ -10,14 +10,17 @@ import {
 } from 'components/Calculator/elements';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import { TCalculatorForm } from 'constants/types';
+import useWindowSize from 'hooks/useWindowSize';
 import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Calculator.module.scss';
 
 function Calculator(): JSX.Element {
+  const [selected, setSelected] = useState<0 | 1>(0);
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const caught = useStore(selectCaught);
+  const size = useWindowSize();
   const form = useForm<TCalculatorForm>({
     defaultValues: selectedGame ? { ...calc.form } : { ...DEFAULT_VALUES },
   });
@@ -34,7 +37,10 @@ function Calculator(): JSX.Element {
       {selectedGame ? (
         <>
           <CalculatorHeader form={form} />
-          <fieldset className={styles.fieldset}>
+          <fieldset
+            className={styles.fieldset}
+            style={{ display: selected === 0 || size?.width >= 750 ? 'flex' : 'none' }}
+          >
             <General encounters={caught} form={form} pokemon="1" />
             <MoveController control={form.control} move="1" pokemon="1" />
             <MoveController control={form.control} move="2" pokemon="1" />
@@ -43,7 +49,10 @@ function Calculator(): JSX.Element {
             <Stats form={form} pokemon="1" />
             <SideField form={form} pokemon="1" />
           </fieldset>
-          <fieldset className={styles.fieldset}>
+          <fieldset
+            className={styles.fieldset}
+            style={{ display: selected === 1 || size?.width >= 750 ? 'flex' : 'none' }}
+          >
             <General form={form} pokemon="2" />
             <MoveController control={form.control} move="1" pokemon="2" />
             <MoveController control={form.control} move="2" pokemon="2" />
@@ -52,6 +61,24 @@ function Calculator(): JSX.Element {
             <Stats form={form} pokemon="2" />
             <SideField form={form} pokemon="2" />
           </fieldset>
+          <ul className={styles.tabs} role="menu">
+            <li
+              className={`${styles.tab} ${selected === 0 ? styles.active : ''}`}
+              onClick={() => setSelected(0)}
+              onKeyPress={() => setSelected(0)}
+              role="menuitem"
+            >
+              Pokémon 1
+            </li>
+            <li
+              className={`${styles.tab} ${selected === 1 ? styles.active : ''}`}
+              onClick={() => setSelected(1)}
+              onKeyPress={() => setSelected(0)}
+              role="menuitem"
+            >
+              Pokémon 2
+            </li>
+          </ul>
         </>
       ) : (
         <div className={styles.placeholder}>

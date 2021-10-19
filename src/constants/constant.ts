@@ -418,18 +418,3 @@ export const RULE_ALERTS: { [key: string]: string } = {
   'FORBIDDEN TYPE': 'Pokémon of this type are not allowed',
   'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
 };
-export enum GenderCalc {
-  'FEMALE' = 'F',
-  'MALE' = 'M',
-  'NEUTRAL' = 'N',
-}
-
-export const STATUS_EFFECTS = [
-  { key: 'healthy', text: 'Healthy', value: undefined },
-  { key: 'psn', text: 'Poisoned', value: 'psn' },
-  { key: 'par', text: 'Paralyzed', value: 'par' },
-  { key: 'slp', text: 'Asleep', value: 'slp' },
-  { key: 'brn', text: 'Burned', value: 'brn' },
-  { key: 'tox', text: 'Badly poisoned', value: 'tox' },
-  { key: 'frz', text: 'Frozen', value: 'frozen' },
-];

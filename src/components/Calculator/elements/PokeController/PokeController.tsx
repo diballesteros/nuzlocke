@@ -65,13 +65,15 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
         <div>test</div>
       )}
       {encounters?.length > 0 && (
-        <Checkbox
-          checked={showAll}
-          className={styles.checkbox}
-          onChange={(e, data) => setShowAll(data.checked)}
-          label="Show all"
-          toggle
-        />
+        <div className={styles.showAll}>
+          <Checkbox
+            checked={showAll}
+            className={styles.checkbox}
+            onChange={(e, data) => setShowAll(data.checked)}
+            toggle
+          />
+          <span>Show All</span>
+        </div>
       )}
     </div>
   );

@@ -23,7 +23,7 @@ export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
   nature1: undefined,
   ability1: undefined,
   item1: undefined,
-  status1: undefined,
+  status1: 'none',
   cannonade1: false,
   isAuroraVeil1: false,
   isBattery1: false,
@@ -79,7 +79,7 @@ export const DEFAULT_POKEMON_2: Omit<TSecondSplit, 'pokemon2' | 'currenthp2'> = 
   nature2: undefined,
   ability2: undefined,
   item2: undefined,
-  status2: undefined,
+  status2: 'none',
   cannonade2: false,
   isAuroraVeil2: false,
   isBattery2: false,
@@ -245,6 +245,22 @@ export const FIELD_EXCLUSIONS: { [key: string]: string[] } = {
   '7': ['steelsurge', 'vinelash', 'volcalith', 'wildfire', 'cannonade', 'isDynamaxed'],
   '8': [],
 };
+
+export enum GenderCalc {
+  'FEMALE' = 'F',
+  'MALE' = 'M',
+  'NEUTRAL' = 'N',
+}
+
+export const STATUS_EFFECTS = [
+  { key: 'healthy', text: 'Healthy', value: 'none' },
+  { key: 'psn', text: 'Poisoned', value: 'psn' },
+  { key: 'par', text: 'Paralyzed', value: 'par' },
+  { key: 'slp', text: 'Asleep', value: 'slp' },
+  { key: 'brn', text: 'Burned', value: 'brn' },
+  { key: 'tox', text: 'Badly poisoned', value: 'tox' },
+  { key: 'frz', text: 'Frozen', value: 'frozen' },
+];
 
 export const getDefaultValues = (
   pokemon1?: number,
