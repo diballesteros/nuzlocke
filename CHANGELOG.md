@@ -21,15 +21,15 @@
 - Bumped html-to-image to 1.9.0
 - Added react-hook-form to 7.17.2
 - Bumped @testing-library/react 12.1.12
-- Bumped @testing-library/user-event 13.3.0
-- Bumped @types/react 17.0.29
+- Bumped @testing-library/user-event 13.5.0
+- Bumped @types/react 17.0.30
 - Bumped @types/react-router-dom 5.3.1
-- Bumped @types/node to 16.10.4
+- Bumped @types/node to 16.11.1
 - Bumped cypress to 8.6.0
 - Bumped Typescript to 4.4.4
 - Bumped sass-loader to 12.2.0
-- Bumped @typescript-eslint/eslint-plugin 5.0.0
-- Bumped @typescript-eslint/parser 5.0.0
+- Bumped @typescript-eslint/eslint-plugin 5.1.0
+- Bumped @typescript-eslint/parser 5.1.0
 - Bumped eslint-plugin-import to 2.25.2
 
 ## Version 3.9.3

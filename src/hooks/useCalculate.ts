@@ -147,7 +147,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move1_1)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move1_1)?.name, {
+            isCrit: all.move1_crit1,
+            useZ: all.move1_z1,
+          }),
           field
         )
       : null;
@@ -158,7 +161,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move2_1)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move2_1)?.name, {
+            isCrit: all.move2_crit1,
+            useZ: all.move2_z1,
+          }),
           field
         )
       : null;
@@ -169,7 +175,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move3_1)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move3_1)?.name, {
+            isCrit: all.move3_crit1,
+            useZ: all.move3_z1,
+          }),
           field
         )
       : null;
@@ -180,7 +189,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move4_1)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move4_1)?.name, {
+            isCrit: all.move4_crit1,
+            useZ: all.move4_z1,
+          }),
           field
         )
       : null;
@@ -191,7 +203,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move1_2)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move1_2)?.name, {
+            isCrit: all.move1_crit2,
+            useZ: all.move1_z2,
+          }),
           field
         )
       : null;
@@ -202,7 +217,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move2_2)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move2_2)?.name, {
+            isCrit: all.move2_crit2,
+            useZ: all.move2_z2,
+          }),
           field
         )
       : null;
@@ -213,7 +231,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move3_2)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move3_2)?.name, {
+            isCrit: all.move3_crit2,
+            useZ: all.move3_z2,
+          }),
           field
         )
       : null;
@@ -224,7 +245,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
           all.calculatorGen,
           pokemon1,
           pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move4_2)?.name),
+          new Move(all.calculatorGen, MOVEMAP.get(all.move4_2)?.name, {
+            isCrit: all.move4_crit2,
+            useZ: all.move4_z2,
+          }),
           field
         )
       : null;

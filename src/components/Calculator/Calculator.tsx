@@ -36,19 +36,19 @@ function Calculator(): JSX.Element {
           <CalculatorHeader form={form} />
           <fieldset className={styles.fieldset}>
             <General encounters={caught} form={form} pokemon="1" />
-            <MoveController control={form.control} name="move1_1" />
-            <MoveController control={form.control} name="move2_1" />
-            <MoveController control={form.control} name="move3_1" />
-            <MoveController control={form.control} name="move4_1" />
+            <MoveController control={form.control} move="1" pokemon="1" />
+            <MoveController control={form.control} move="2" pokemon="1" />
+            <MoveController control={form.control} move="3" pokemon="1" />
+            <MoveController control={form.control} move="4" pokemon="1" />
             <Stats form={form} pokemon="1" />
             <SideField form={form} pokemon="1" />
           </fieldset>
           <fieldset className={styles.fieldset}>
             <General form={form} pokemon="2" />
-            <MoveController control={form.control} name="move1_2" />
-            <MoveController control={form.control} name="move2_2" />
-            <MoveController control={form.control} name="move3_2" />
-            <MoveController control={form.control} name="move4_2" />
+            <MoveController control={form.control} move="1" pokemon="2" />
+            <MoveController control={form.control} move="2" pokemon="2" />
+            <MoveController control={form.control} move="3" pokemon="2" />
+            <MoveController control={form.control} move="4" pokemon="2" />
             <Stats form={form} pokemon="2" />
             <SideField form={form} pokemon="2" />
           </fieldset>

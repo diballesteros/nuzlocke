@@ -43,9 +43,17 @@ export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
   vinelash1: false,
   wildfire1: false,
   move1_1: 1,
+  move1_crit1: false,
+  move1_z1: false,
   move2_1: 1,
+  move2_crit1: false,
+  move2_z1: false,
   move3_1: 1,
+  move3_crit1: false,
+  move3_z1: false,
   move4_1: 1,
+  move4_crit1: false,
+  move4_z1: false,
 };
 
 export const DEFAULT_POKEMON_2: Omit<TSecondSplit, 'pokemon2' | 'currenthp2'> = {
@@ -91,9 +99,17 @@ export const DEFAULT_POKEMON_2: Omit<TSecondSplit, 'pokemon2' | 'currenthp2'> = 
   volcalith2: false,
   wildfire2: false,
   move1_2: 1,
+  move1_crit2: false,
+  move1_z2: false,
   move2_2: 1,
+  move2_crit2: false,
+  move2_z2: false,
   move3_2: 1,
+  move3_crit2: false,
+  move3_z2: false,
   move4_2: 1,
+  move4_crit2: false,
+  move4_z2: false,
 };
 
 export const DEFAULT_VALUES: Omit<TCalculatorForm, 'calculatorGen' | 'pokemon1' | 'pokemon2'> = {

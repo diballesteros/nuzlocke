@@ -331,9 +331,17 @@ export interface TCalculatorFields {
 
 export interface TCalculatorMoves {
   move1_: number;
+  move1_crit: boolean;
+  move1_z: boolean;
   move2_: number;
+  move2_crit: boolean;
+  move2_z: boolean;
   move3_: number;
+  move3_crit: boolean;
+  move3_z: boolean;
   move4_: number;
+  move4_crit: boolean;
+  move4_z: boolean;
 }
 
 interface TCalculatorStats extends TCalculatorFields, TCalculatorMoves {
