@@ -33,8 +33,10 @@ import 'cypress-localstorage-commands';
 Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid=level] > input').type('15').should('have.value', 15);
   cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
-  cy.get('[data-testid=ability] > input').type('Ability').should('have.value', 'Ability');
-  cy.get('[data-testid=item] > input').type('Oran Berry').should('have.value', 'Oran Berry');
+  cy.get('[data-testid=ability]').click();
+  cy.get('[data-testid=ability] > .visible > :nth-child(2)').click();
+  cy.get('[data-testid=item]').click();
+  cy.get('[data-testid=item] > .visible > :nth-child(2)').click();
   cy.get('[data-testid=gender]').click();
   cy.get('[data-testid=gender] > .visible > :nth-child(2)').click();
   cy.get('[data-testid=nature]').type('Bold');
