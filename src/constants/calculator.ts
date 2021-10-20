@@ -273,14 +273,3 @@ export const STATUS_EFFECTS = [
   { key: 'tox', text: 'Badly poisoned', value: 'tox' },
   { key: 'frz', text: 'Frozen', value: 'frozen' },
 ];
-
-export const getDefaultValues = (
-  pokemon1?: number,
-  pokemon2?: number
-): Omit<TCalculatorForm, 'calculatorGen'> => {
-  return {
-    ...(!!pokemon1 && { pokemon1 }),
-    ...(!!pokemon2 && { pokemon2 }),
-    ...DEFAULT_VALUES,
-  };
-};

@@ -84,7 +84,12 @@ describe('Calculator', () => {
     cy.get('[data-testid=gym-filter]').click();
     cy.get('[data-testid=gym-filter] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
+    cy.contains('Close').click();
+    cy.get('[data-testid=pokecontroller-pokemon2]').click();
     cy.contains('Gossifleur').should('exist');
+    cy.get('[data-testid=filter-button]').click();
+    cy.get('[data-testid=filter-type-GRASS]').click();
+    cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=poke-Eldegoss]').click({ force: true });
     cy.get('[data-testid=level-input2]').should('have.value', '20');
     cy.contains('Regenerator').should('exist');
@@ -101,6 +106,11 @@ describe('Calculator', () => {
     cy.get('[data-testid=calculator]').click();
     cy.get('[data-testid=show-all-pokemon1] > label').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
+    cy.contains('Close').click();
+    cy.get('[data-testid=pokecontroller-pokemon1]').click();
+    cy.get('[data-testid=filter-button]').click();
+    cy.get('[data-testid=filter-type-FIRE]').click();
+    cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.contains('Bold').should('exist');
     cy.contains('Arena Trap').should('exist');
@@ -127,5 +137,18 @@ describe('Calculator', () => {
     cy.contains(
       'Bulbasaur Pound vs. Bulbasaur: 29-35 (9.8 - 11.9%) -- possible 8HKO after Spikes'
     ).should('exist');
+  });
+
+  it('Alolan and Galarian', () => {
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=pokecontroller-pokemon1]').click();
+    cy.get('[data-testid=filter] > input').type('Galarian');
+    cy.get('[data-testid="poke-Meowth (Galarian)"]').click({ force: true });
+    cy.get('[data-testid=pokecontroller-pokemon2]').click();
+    cy.get('[data-testid=filter] > input').type('Alolan');
+    cy.get('[data-testid="poke-Rattata (Alolan)"]').click({ force: true });
+    cy.contains('Rattata (Alolan)').should('exist');
+    cy.contains('Meowth (Galarian)').should('exist');
   });
 });
