@@ -347,6 +347,10 @@ export interface TCalculatorMoves {
 interface TCalculatorStats extends TCalculatorFields, TCalculatorMoves {
   ability: string;
   currenthp: number;
+  dvatk: number;
+  dvdef: number;
+  dvspc: number;
+  dvspeed: number;
   evatk: number;
   evdef: number;
   evhp: number;

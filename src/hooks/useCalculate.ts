@@ -16,16 +16,20 @@ function useCalculate(control: Control<TCalculatorForm>): {
 
   const pokemon1 = useMemo(() => {
     if (all.calculatorGen && all.pokemon1) {
+      const getDVorIV = (iv: number, dv: number) => {
+        return all.calculatorGen > 2 ? iv : dv * 2 + 1;
+      };
+
       return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon1)?.text, {
         ability: all.ability1,
         abilityOn: true,
         ivs: {
-          hp: all.ivhp1 ?? undefined,
-          atk: all.ivatk1 ?? undefined,
-          def: all.ivdef1 ?? undefined,
-          spa: all.ivspatk1 ?? undefined,
-          spd: all.ivspdef1 ?? undefined,
-          spe: all.ivspeed1 ?? undefined,
+          hp: getDVorIV(all.ivhp1, 15) ?? undefined,
+          atk: getDVorIV(all.ivatk1, all.dvatk1) ?? undefined,
+          def: getDVorIV(all.ivdef1, all.dvdef1) ?? undefined,
+          spa: getDVorIV(all.ivspatk1, all.dvspc1) ?? undefined,
+          spd: getDVorIV(all.ivspdef1, all.dvspc1) ?? undefined,
+          spe: getDVorIV(all.ivspeed1, all.dvspeed1) ?? undefined,
         },
         evs: {
           hp: all.evhp1,
@@ -56,6 +60,10 @@ function useCalculate(control: Control<TCalculatorForm>): {
 
   const pokemon2 = useMemo(() => {
     if (all.calculatorGen && all.pokemon2) {
+      const getDVorIV = (iv: number, dv: number) => {
+        return all.calculatorGen > 2 ? iv : dv * 2 + 1;
+      };
+
       return new Pokemon(all.calculatorGen, POKEMAP.get(all.pokemon2)?.text, {
         ability: all.ability2,
         abilityOn: true,
@@ -77,12 +85,12 @@ function useCalculate(control: Control<TCalculatorForm>): {
         },
         gender: GenderCalc[all.gender2],
         ivs: {
-          hp: all.ivhp2 ?? undefined,
-          atk: all.ivatk2 ?? undefined,
-          def: all.ivdef2 ?? undefined,
-          spa: all.ivspatk2 ?? undefined,
-          spd: all.ivspdef2 ?? undefined,
-          spe: all.ivspeed2 ?? undefined,
+          hp: getDVorIV(all.ivhp2, 15) ?? undefined,
+          atk: getDVorIV(all.ivatk2, all.dvatk2) ?? undefined,
+          def: getDVorIV(all.ivdef2, all.dvdef2) ?? undefined,
+          spa: getDVorIV(all.ivspatk2, all.dvspc2) ?? undefined,
+          spd: getDVorIV(all.ivspdef2, all.dvspc2) ?? undefined,
+          spe: getDVorIV(all.ivspeed2, all.dvspeed2) ?? undefined,
         },
         isDynamaxed: all.isDynamaxed1,
         item: all.item2,
@@ -150,6 +158,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move1_1)?.name, {
             isCrit: all.move1_crit1,
             useZ: all.move1_z1,
+            useMax: all.isDynamaxed1,
           }),
           field
         )
@@ -164,6 +173,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move2_1)?.name, {
             isCrit: all.move2_crit1,
             useZ: all.move2_z1,
+            useMax: all.isDynamaxed1,
           }),
           field
         )
@@ -178,6 +188,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move3_1)?.name, {
             isCrit: all.move3_crit1,
             useZ: all.move3_z1,
+            useMax: all.isDynamaxed1,
           }),
           field
         )
@@ -192,6 +203,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move4_1)?.name, {
             isCrit: all.move4_crit1,
             useZ: all.move4_z1,
+            useMax: all.isDynamaxed1,
           }),
           field
         )
@@ -206,6 +218,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move1_2)?.name, {
             isCrit: all.move1_crit2,
             useZ: all.move1_z2,
+            useMax: all.isDynamaxed2,
           }),
           field
         )
@@ -220,6 +233,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move2_2)?.name, {
             isCrit: all.move2_crit2,
             useZ: all.move2_z2,
+            useMax: all.isDynamaxed2,
           }),
           field
         )
@@ -234,6 +248,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move3_2)?.name, {
             isCrit: all.move3_crit2,
             useZ: all.move3_z2,
+            useMax: all.isDynamaxed2,
           }),
           field
         )
@@ -248,6 +263,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           new Move(all.calculatorGen, MOVEMAP.get(all.move4_2)?.name, {
             isCrit: all.move4_crit2,
             useZ: all.move4_z2,
+            useMax: all.isDynamaxed2,
           }),
           field
         )
