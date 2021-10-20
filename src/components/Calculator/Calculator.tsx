@@ -61,20 +61,20 @@ function Calculator(): JSX.Element {
             <Stats form={form} pokemon="2" />
             <SideField form={form} pokemon="2" />
           </fieldset>
-          <ul className={styles.tabs} role="menu">
+          <ul className={styles.tabs}>
             <li
               className={`${styles.tab} ${selected === 0 ? styles.active : ''}`}
+              data-testid="pokemon1-tab"
               onClick={() => setSelected(0)}
-              onKeyPress={() => setSelected(0)}
-              role="menuitem"
+              role="presentation"
             >
               Pokémon 1
             </li>
             <li
               className={`${styles.tab} ${selected === 1 ? styles.active : ''}`}
+              data-testid="pokemon2-tab"
               onClick={() => setSelected(1)}
-              onKeyPress={() => setSelected(0)}
-              role="menuitem"
+              role="presentation"
             >
               Pokémon 2
             </li>

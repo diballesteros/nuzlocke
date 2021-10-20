@@ -94,7 +94,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
   const showGymDetails = name === 'pokemon2' && detailsToOptions?.length > 0;
 
   return (
-    <div className={styles.wrapper}>
+    <div className={styles.wrapper} data-testid={`pokecontroller-${name}`}>
       {showAll ? (
         <PokemonSelector handlePokemon={handlePokemon}>
           <PokemonSlot pokemon={foundPokemon} />
@@ -128,6 +128,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
           <Checkbox
             checked={showAll}
             className={styles.checkbox}
+            data-testid={`show-all-${name}`}
             onChange={(e, data) => setShowAll(data.checked)}
             toggle
           />

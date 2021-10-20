@@ -1,11 +1,11 @@
 describe('Calculator', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=calculator]').click();
   });
 
   it('Base Calculations', { scrollBehavior: 'center' }, () => {
-    cy.get('[data-testid=options]').click();
-    cy.get('[data-testid=calculator]').click();
     cy.contains('Please select a game').should('exist');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
@@ -14,6 +14,8 @@ describe('Calculator', () => {
     cy.get('[data-testid=plus-level1]').click();
     cy.get('[data-testid=level-input1]').should('have.value', '100');
     cy.get('[data-testid=level-input1]').clear().type('10').should('have.value', '10');
+    cy.get('[data-testid=gender1]').click();
+    cy.get('[data-testid=gender1] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=nature1] > .search').type('Bold');
     cy.get('[data-testid=nature1] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=ability1] > .search').click().type('Overgrow');
@@ -62,6 +64,7 @@ describe('Calculator', () => {
     cy.get('[data-testid=isSwitching1]').click();
     cy.get('[data-testid=field-settings]').click();
     cy.get('[data-testid=gameType-doubles] > label').click();
+    cy.get('[data-testid=gameType-singles] > label').click();
     cy.get('[data-testid=terrain-Grassy] > label').click();
     cy.get('[data-testid=weather-Rain] > label').click();
     cy.get('[data-testid=isGravity]').click();
@@ -69,6 +72,60 @@ describe('Calculator', () => {
     cy.get('[data-testid=reset-calculator]').click();
     cy.contains(
       '0 Atk Bulbasaur Pound vs. 0 HP / 0 Def Bulbasaur: 29-35 (12.5 - 15.1%) -- possible 7HKO'
+    ).should('exist');
+  });
+
+  it('Switching pokemon', () => {
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=pokecontroller-pokemon2]').click();
+    cy.get('[data-testid=poke-Charmander]').click({ force: true });
+    cy.get('[data-testid=show-all-pokemon2] > label').click();
+    cy.get('[data-testid=gym-filter]').click();
+    cy.get('[data-testid=gym-filter] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid=pokecontroller-pokemon2]').click();
+    cy.contains('Gossifleur').should('exist');
+    cy.get('[data-testid=poke-Eldegoss]').click({ force: true });
+    cy.get('[data-testid=level-input2]').should('have.value', '20');
+    cy.contains('Regenerator').should('exist');
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid=status-0]').click();
+    cy.get('[data-testid=status-0] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.pokemondetail();
+    cy.contains('Save').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=calculator]').click();
+    cy.get('[data-testid=show-all-pokemon1] > label').click();
+    cy.get('[data-testid=pokecontroller-pokemon1]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.contains('Bold').should('exist');
+    cy.contains('Arena Trap').should('exist');
+    cy.contains('Black Belt').should('exist');
+    cy.contains('Surf').should('exist');
+    cy.contains(
+      'Lvl 15 0- Atk Scorbunny Pound vs. Lvl 20 0 HP / 0 Def Eldegoss: 4-5 (6.6 - 8.3%)'
+    ).should('exist');
+  });
+
+  it('Mobile & Custom game', () => {
+    cy.viewport('iphone-6+');
+    cy.get('[data-testid=add-game]').click();
+    cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
+    cy.contains('Save').click();
+    cy.get('[data-testid=pokemon2-tab]').click();
+    cy.get('[data-testid=pokemon1-tab]').click();
+    cy.get('[data-testid=pokemon2-tab]').click();
+    cy.get('[data-testid=gen-selector]').click();
+    cy.get('[data-testid=gen-selector] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid=gen-selector]').click();
+    cy.get('[data-testid=gen-selector] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid=spike-1-2] > label').click();
+    cy.contains(
+      'Bulbasaur Pound vs. Bulbasaur: 29-35 (9.8 - 11.9%) -- possible 8HKO after Spikes'
     ).should('exist');
   });
 });

@@ -33,7 +33,6 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
             name="calculatorGen"
             render={({ field: { onChange, value } }) => (
               <Dropdown
-                text="Generation"
                 aria-label="generation-selector"
                 className={styles.genSelector}
                 data-testid="gen-selector"
@@ -43,6 +42,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
                 options={GENERATION_SELECT}
                 placeholder="Select..."
                 selection
+                text="Generation"
                 value={value}
               />
             )}

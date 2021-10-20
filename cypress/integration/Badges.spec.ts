@@ -30,7 +30,7 @@ describe('Badges', () => {
     cy.get('.page').click(1, 1);
   });
 
-  it('Edit bages - Smaller screen', () => {
+  it('Edit badges - Smaller screen', () => {
     cy.viewport('iphone-6+');
     cy.get('[data-testid=fab-tracker] > .ui').click();
     cy.get('[data-testid=fab-add-edit-badges] > [data-testid=edit-badges]').click();
