@@ -1,11 +1,12 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { Control, useController, UseFormReset } from 'react-hook-form';
-import { Checkbox } from 'semantic-ui-react';
-import { EncounterSelector, PokemonSelector } from 'common';
+import { Checkbox, Dropdown } from 'semantic-ui-react';
+import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
+import DETAILS from 'constants/details';
 import { POKEMAP } from 'constants/pokemon';
-import { TCalculatorForm, TEncounter } from 'constants/types';
+import { PokemonDetail, TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './PokeController.module.scss';
 
@@ -18,7 +19,9 @@ interface PokeControllerProps {
 
 function PokeController({ control, encounters, name, reset }: PokeControllerProps): JSX.Element {
   const [showAll, setShowAll] = useState(true);
+  const [selectedDetail, setSelectedDetail] = useState(undefined);
   const updateDefaultValues = useStore(useCallback((state) => state.updateDefaultValues, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const calc = useStore(useCallback((state) => state.calcs[state.selectedGame?.value], []));
   const { field } = useController({ control, name });
   const foundPokemon = POKEMAP.get(field.value);
@@ -51,6 +54,45 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
     reset({ ...calc.form, ...DEFAULT, ...partialCalc });
   };
 
+  const handleDetail = (detail: PokemonDetail) => {
+    const partialCalc: Partial<TCalculatorForm> = {
+      ...(detail?.ability && { ability2: detail?.ability }),
+      ...(detail?.gender && { gender2: detail?.gender }),
+      ...(detail?.item && { item2: detail?.item }),
+      ...(detail?.level && { level2: detail?.level }),
+      ...(detail?.nature && { nature1: detail?.nature }),
+      ...(detail?.moves && { move1_2: detail?.moves[0] }),
+      ...(detail?.moves && { move2_2: detail?.moves[1] }),
+      ...(detail?.moves && { move3_2: detail?.moves[2] }),
+      ...(detail?.moves && { move4_2: detail?.moves[3] }),
+      pokemon2: detail.id,
+    };
+    field.onChange(detail.id);
+    updateDefaultValues({ ...DEFAULT_POKEMON_2, ...partialCalc });
+    reset({ ...calc.form, ...DEFAULT_POKEMON_2, ...partialCalc });
+  };
+
+  const detailsToOptions = useMemo(() => {
+    if (selectedGame && DETAILS[selectedGame?.value]) {
+      return DETAILS[selectedGame.value].flat().map((gym, i) => {
+        return {
+          value: i,
+          text: `${gym.name}${gym.name !== gym.game ? ` - ${gym.game}` : ''}`,
+        };
+      });
+    }
+    return [];
+  }, [selectedGame]);
+
+  const details = useMemo(() => {
+    if (selectedGame && DETAILS[selectedGame?.value]) {
+      return DETAILS[selectedGame.value].flat();
+    }
+    return [];
+  }, [selectedGame]);
+
+  const showGymDetails = name === 'pokemon2' && detailsToOptions?.length > 0;
+
   return (
     <div className={styles.wrapper}>
       {showAll ? (
@@ -62,10 +104,27 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
           <PokemonSlot pokemon={foundPokemon} />
         </EncounterSelector>
       ) : (
-        <div>test</div>
+        <DetailSelector details={details[selectedDetail]?.content} handleDetail={handleDetail}>
+          <PokemonSlot pokemon={foundPokemon} />
+        </DetailSelector>
       )}
-      {encounters?.length > 0 && (
+      {(encounters?.length > 0 || showGymDetails) && (
         <div className={styles.showAll}>
+          {showGymDetails && !showAll && (
+            <Dropdown
+              aria-label="gym-filter"
+              className={styles.dropdown}
+              clearable
+              data-testid="gym-filter"
+              inline
+              labeled
+              onChange={(e, data) => setSelectedDetail(data.value)}
+              options={detailsToOptions}
+              placeholder="Select a gym..."
+              selection
+              value={selectedDetail ?? ''}
+            />
+          )}
           <Checkbox
             checked={showAll}
             className={styles.checkbox}

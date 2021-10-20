@@ -17,8 +17,17 @@
   .showAll {
     display: flex;
     align-items: center;
+    width: 100%;
     gap: 8px;
     color: var(--contrast);
     align-self: flex-end;
+
+    .dropdown {
+      margin-right: auto;
+      > i {
+        color: var(--contrast);
+        top: 0 !important;
+      }
+    }
   }
 }
