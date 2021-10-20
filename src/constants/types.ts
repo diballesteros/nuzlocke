@@ -321,6 +321,7 @@ export interface TCalculatorFields {
   isReflect: boolean;
   isSeeded: boolean;
   isSR: boolean;
+  isSwitching: boolean;
   isTailwind: boolean;
   spikes: number;
   steelsurge: boolean;

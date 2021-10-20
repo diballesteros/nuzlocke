@@ -6,6 +6,18 @@ import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm } from 'constants/types';
 
+function assertResult(val: unknown[]): asserts val is [Result, Result, Result, Result] {
+  if (val.length !== 4) {
+    throw new TypeError('Result should have been an array of calculations');
+  }
+}
+
+function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
+  if (![1, 2, 3, 4].includes(val)) {
+    throw new TypeError('Invalid move index');
+  }
+}
+
 function useCalculate(control: Control<TCalculatorForm>): {
   pokemon1: Pokemon;
   pokemon2: Pokemon;
@@ -116,6 +128,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         isReflect: all.isReflect1,
         isSeeded: all.isSeeded1,
         isSR: all.isSR1,
+        isSwitching: all.isSwitching1 ? 'out' : undefined,
         isTailwind: all.isTailwind1,
         spikes: all.spikes1,
         steelsurge: all.steelsurge1,
@@ -135,6 +148,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         isReflect: all.isReflect2,
         isSeeded: all.isSeeded2,
         isSR: all.isSR2,
+        isSwitching: all.isSwitching2 ? 'out' : undefined,
         isTailwind: all.isTailwind2,
         spikes: all.spikes2,
         steelsurge: all.steelsurge2,
@@ -149,132 +163,48 @@ function useCalculate(control: Control<TCalculatorForm>): {
     });
   }, [all]);
 
-  const attackerOne =
-    all.calculatorGen && all.move1_1
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move1_1)?.name, {
-            isCrit: all.move1_crit1,
-            useZ: all.move1_z1,
-            useMax: all.isDynamaxed1,
-          }),
-          field
-        )
-      : null;
+  const attackerResults = Array.from(Array(4)).map((val, i) => {
+    const moveIndex = i + 1;
+    assertIndex(moveIndex);
+    if (all.calculatorGen && all[`move${moveIndex}_1`]) {
+      return calculate(
+        all.calculatorGen,
+        pokemon1,
+        pokemon2,
+        new Move(all.calculatorGen, MOVEMAP.get(all[`move${moveIndex}_1`])?.name, {
+          isCrit: all[`move${moveIndex}_crit1`],
+          useZ: all[`move${moveIndex}_z1`],
+          useMax: all.isDynamaxed1,
+        }),
+        field
+      );
+    }
+    return null;
+  });
 
-  const attackerTwo =
-    all.calculatorGen && all.move1_2
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move2_1)?.name, {
-            isCrit: all.move2_crit1,
-            useZ: all.move2_z1,
-            useMax: all.isDynamaxed1,
-          }),
-          field
-        )
-      : null;
+  const defenderResults = Array.from(Array(4)).map((val, i) => {
+    const moveIndex = i + 1;
+    assertIndex(moveIndex);
+    if (all.calculatorGen && all[`move${moveIndex}_1`]) {
+      return calculate(
+        all.calculatorGen,
+        pokemon2,
+        pokemon1,
+        new Move(all.calculatorGen, MOVEMAP.get(all[`move${moveIndex}_2`])?.name, {
+          isCrit: all[`move${moveIndex}_crit2`],
+          useZ: all[`move${moveIndex}_z2`],
+          useMax: all.isDynamaxed2,
+        }),
+        field
+      );
+    }
+    return null;
+  });
 
-  const attackerThree =
-    all.calculatorGen && all.move3_1
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move3_1)?.name, {
-            isCrit: all.move3_crit1,
-            useZ: all.move3_z1,
-            useMax: all.isDynamaxed1,
-          }),
-          field
-        )
-      : null;
+  assertResult(attackerResults);
+  assertResult(defenderResults);
 
-  const attackerFour =
-    all.calculatorGen && all.move4_1
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move4_1)?.name, {
-            isCrit: all.move4_crit1,
-            useZ: all.move4_z1,
-            useMax: all.isDynamaxed1,
-          }),
-          field
-        )
-      : null;
-
-  const defenderOne =
-    all.calculatorGen && all.move1_2
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move1_2)?.name, {
-            isCrit: all.move1_crit2,
-            useZ: all.move1_z2,
-            useMax: all.isDynamaxed2,
-          }),
-          field
-        )
-      : null;
-
-  const defenderTwo =
-    all.calculatorGen && all.move2_2
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move2_2)?.name, {
-            isCrit: all.move2_crit2,
-            useZ: all.move2_z2,
-            useMax: all.isDynamaxed2,
-          }),
-          field
-        )
-      : null;
-
-  const defenderThree =
-    all.calculatorGen && all.move3_2
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move3_2)?.name, {
-            isCrit: all.move3_crit2,
-            useZ: all.move3_z2,
-            useMax: all.isDynamaxed2,
-          }),
-          field
-        )
-      : null;
-
-  const defenderFour =
-    all.calculatorGen && all.move4_2
-      ? calculate(
-          all.calculatorGen,
-          pokemon1,
-          pokemon2,
-          new Move(all.calculatorGen, MOVEMAP.get(all.move4_2)?.name, {
-            isCrit: all.move4_crit2,
-            useZ: all.move4_z2,
-            useMax: all.isDynamaxed2,
-          }),
-          field
-        )
-      : null;
-
-  return {
-    pokemon1,
-    pokemon2,
-    attackerResults: [attackerOne, attackerTwo, attackerThree, attackerFour],
-    defenderResults: [defenderOne, defenderTwo, defenderThree, defenderFour],
-  };
+  return { pokemon1, pokemon2, attackerResults, defenderResults };
 }
 
 export default useCalculate;

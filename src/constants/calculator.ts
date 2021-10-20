@@ -40,6 +40,7 @@ export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
   isReflect1: false,
   isSeeded1: false,
   isSR1: false,
+  isSwitching1: false,
   isTailwind1: false,
   spikes1: 0,
   steelsurge1: false,
@@ -100,6 +101,7 @@ export const DEFAULT_POKEMON_2: Omit<TSecondSplit, 'pokemon2' | 'currenthp2'> = 
   isReflect2: false,
   isSeeded2: false,
   isSR2: false,
+  isSwitching2: false,
   isTailwind2: false,
   spikes2: 0,
   steelsurge2: false,
@@ -149,6 +151,7 @@ export const SIDE_FIELD: { [key in keyof Omit<TCalculatorFields, 'spikes'>]: str
   vinelash: 'Vinelash',
   volcalith: 'Volcalith',
   wildfire: 'Wildfire',
+  isSwitching: 'Switching out',
 };
 
 export const TERRAIN = ['None', 'Electric', 'Grassy', 'Misty', 'Psychic'];
@@ -191,6 +194,7 @@ export const FIELD_EXCLUSIONS: { [key: string]: string[] } = {
     'isHelpingHand',
     'isProtected',
     'isDynamaxed',
+    'isSwitching',
   ],
   '2': [
     'isSR',

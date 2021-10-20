@@ -21,30 +21,33 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
     0,
   ]);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const { attackerResults, defenderResults } = useCalculate(form.control);
 
   return (
     <div className={styles.header}>
       <div className={styles.options}>
-        <Controller
-          control={form.control}
-          name="calculatorGen"
-          render={({ field: { onChange, value } }) => (
-            <Dropdown
-              text="Generation"
-              aria-label="generation-selector"
-              className={styles.genSelector}
-              data-testid="gen-selector"
-              labeled
-              inline
-              onChange={onChange}
-              options={GENERATION_SELECT}
-              placeholder="Select..."
-              selection
-              value={value}
-            />
-          )}
-        />
+        {selectedGame?.value && Number(selectedGame.value) > 13 && (
+          <Controller
+            control={form.control}
+            name="calculatorGen"
+            render={({ field: { onChange, value } }) => (
+              <Dropdown
+                text="Generation"
+                aria-label="generation-selector"
+                className={styles.genSelector}
+                data-testid="gen-selector"
+                labeled
+                inline
+                onChange={(e, data) => onChange(data.value)}
+                options={GENERATION_SELECT}
+                placeholder="Select..."
+                selection
+                value={value}
+              />
+            )}
+          />
+        )}
         <MainField form={form} />
         <Button
           className={styles.button}
