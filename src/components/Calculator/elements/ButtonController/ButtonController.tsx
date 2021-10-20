@@ -16,7 +16,7 @@ function ButtonController({ control, label, name }: ButtonControllerProps): JSX.
   };
 
   return (
-    <Button active={!!field.value} onClick={toggle} toggle type="button">
+    <Button active={!!field.value} data-testid={name} onClick={toggle} toggle type="button">
       {label}
     </Button>
   );

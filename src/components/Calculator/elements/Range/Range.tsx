@@ -25,6 +25,7 @@ function Range({ control, label, name, max, register }: RangeProps): JSX.Element
       </label>
       <input
         className={styles.input}
+        data-testid={name}
         id={name}
         style={getBarFill()}
         type="range"

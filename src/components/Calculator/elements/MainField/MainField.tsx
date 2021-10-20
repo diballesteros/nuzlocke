@@ -40,6 +40,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                     <Radio
                       className={styles.radio}
                       checked={value === 'Singles'}
+                      data-testid="gameType-singles"
                       label="Singles"
                       name="gameType"
                       onChange={(e, data) => onChange(data.value)}
@@ -48,6 +49,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                     <Radio
                       className={styles.radio}
                       checked={value === 'Doubles'}
+                      data-testid="gameType-doubles"
                       label="Doubles"
                       name="gameType"
                       onChange={(e, data) => onChange(data.value)}
@@ -71,6 +73,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                         <Radio
                           className={styles.radio}
                           checked={tera === value}
+                          data-testid={`terrain-${tera}`}
                           key={`terrain-${tera}`}
                           label={tera}
                           name="terrain"
@@ -98,6 +101,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                           <Radio
                             className={styles.radio}
                             checked={type === value}
+                            data-testid={`weather-${type}`}
                             key={`weather-${type}`}
                             label={type}
                             name="weather"

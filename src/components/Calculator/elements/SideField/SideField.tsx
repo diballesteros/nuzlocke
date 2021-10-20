@@ -50,6 +50,7 @@ function SideField({ form, pokemon }: SideFieldProps): JSX.Element {
                       <Radio
                         className={styles.radio}
                         checked={amt === value}
+                        data-testid={`spike-${amt}-${pokemon}`}
                         key={`spike-${amt}-${pokemon}`}
                         label={amt}
                         name={`spikes${pokemon}`}

@@ -45,6 +45,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         </label>
         <input
           className={styles.currenthp}
+          data-testid={`currenthp${pokemon}`}
           id={`currenthp${pokemon}`}
           type="number"
           {...register(`currenthp${pokemon}`, { valueAsNumber: true })}
@@ -52,7 +53,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         <output>/{totalHp}</output>
       </div>
       <details open={false}>
-        <summary>
+        <summary data-testid={`hp${pokemon}-detail`}>
           HP <output>{totalHp}</output>
         </summary>
         {calcGen > 2 && (
@@ -63,7 +64,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         )}
       </details>
       <details open={false}>
-        <summary>
+        <summary data-testid={`atk${pokemon}-detail`}>
           ATK <output>{currentPokemon?.stats?.atk ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
@@ -79,7 +80,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         </fieldset>
       </details>
       <details open={false}>
-        <summary>
+        <summary data-testid={`def${pokemon}-detail`}>
           DEF <output>{currentPokemon?.stats?.def ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
@@ -95,7 +96,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         </fieldset>
       </details>
       <details open={false}>
-        <summary>
+        <summary data-testid={`spatk${pokemon}-detail`}>
           {calcGen > 2 ? 'SP. ATK' : 'SPECIAL'} <output>{currentPokemon?.stats?.spa ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
@@ -112,7 +113,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
       </details>
       {calcGen > 2 && (
         <details open={false}>
-          <summary>
+          <summary data-testid={`spdef${pokemon}-detail`}>
             SP. DEF <output>{currentPokemon?.stats?.spd ?? 0}</output>
           </summary>
           <fieldset className={styles.fieldset}>
@@ -123,7 +124,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         </details>
       )}
       <details open={false}>
-        <summary>
+        <summary data-testid={`speed${pokemon}-detail`}>
           SPEED <output>{currentPokemon?.stats?.spe ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>

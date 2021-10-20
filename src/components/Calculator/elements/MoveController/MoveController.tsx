@@ -19,7 +19,7 @@ function MoveController({ control, move, pokemon }: MoveControllerProps): JSX.El
   };
 
   return (
-    <div className={styles.move}>
+    <div className={styles.move} data-testid={`move${move}_${pokemon}`}>
       <MoveSelector currentMoveId={field.value} handleMove={handleMove} />
       {field.value && (
         <>

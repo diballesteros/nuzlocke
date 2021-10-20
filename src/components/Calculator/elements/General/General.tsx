@@ -40,14 +40,25 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
         reset={form.reset}
       />
       <div className={styles.levelContainer}>
-        <Button icon="minus" onClick={decrement} type="button" />
+        <Button
+          data-testid={`minus-level${pokemon}`}
+          icon="minus"
+          onClick={decrement}
+          type="button"
+        />
         <input
           className={styles.level}
+          data-testid={`level-input${pokemon}`}
           id={`level${pokemon}`}
           type="number"
           {...form.register(`level${pokemon}`, { valueAsNumber: true })}
         />
-        <Button icon="plus" onClick={increment} type="button" />
+        <Button
+          data-testid={`plus-level${pokemon}`}
+          icon="plus"
+          onClick={increment}
+          type="button"
+        />
       </div>
       <Controller
         control={form.control}

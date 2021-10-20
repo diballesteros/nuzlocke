@@ -51,6 +51,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
         <MainField form={form} />
         <Button
           className={styles.button}
+          data-testid="reset-calculator"
           inverted={darkMode}
           onClick={() => form.reset()}
           type="button"
@@ -60,12 +61,13 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
         </Button>
       </div>
       <div className={styles.primary}>
-        <output className={styles.mainResult}>
+        <output className={styles.mainResult} data-testid="primary-damage">
           {primary[0] === 'attacker'
             ? attackerResults[primary[1]]?.fullDesc()
             : defenderResults[primary[1]]?.fullDesc()}
         </output>
         <Icon
+          data-testid="expand-moves"
           name="angle right"
           onClick={() => setExpanded((prevState) => !prevState)}
           style={{ transform: expanded ? 'rotate(90deg)' : undefined }}
@@ -78,6 +80,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
             return (
               <div
                 className={primary[0] === 'attacker' && primary[1] === i ? styles.active : ''}
+                data-testid={`attacker-result-${i + 1}`}
                 key={`attacker-result-${i + 1}`}
                 onClick={() => setPrimary(['attacker', i])}
                 role="presentation"
@@ -94,6 +97,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
             return (
               <div
                 className={primary[0] === 'defender' && primary[1] === i ? styles.active : ''}
+                data-testid={`defender-result-${i + 1}`}
                 key={`defender-result-${i + 1}`}
                 onClick={() => setPrimary(['defender', i])}
                 role="presentation"

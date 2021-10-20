@@ -36,9 +36,9 @@ function Modifier({ control, name }: ModifierProps): JSX.Element {
   return (
     <div className={styles.modifier}>
       <span>Modifier:</span>
-      <Button icon="minus" onClick={decrement} type="button" />
-      <output>{field.value}</output>
-      <Button icon="plus" onClick={increment} type="button" />
+      <Button data-testid={`minus-${name}`} icon="minus" onClick={decrement} type="button" />
+      <output data-testid={name}>{field.value}</output>
+      <Button data-testid={`plus-${name}`} icon="plus" onClick={increment} type="button" />
     </div>
   );
 }
