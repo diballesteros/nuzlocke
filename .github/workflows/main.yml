@@ -150,7 +150,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox'
-            spec: 'cypress/integration/main/*'
+          spec: 'cypress/integration/main/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -191,7 +191,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox'
-            spec: 'cypress/integration/other/*'
+          spec: 'cypress/integration/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
