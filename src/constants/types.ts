@@ -68,6 +68,7 @@ export interface AppState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  setDefaultCalculator: () => void;
   setDefaultSummary: () => void;
   setGens: (genId: number) => void;
   setTypes: (typeId: Type) => void;

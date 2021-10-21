@@ -19,15 +19,22 @@ function Calculator(): JSX.Element {
   const [selected, setSelected] = useState<0 | 1>(0);
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const setDefaultCalculator = useStore(useCallback((state) => state.setDefaultCalculator, []));
   const caught = useStore(selectCaught);
   const size = useWindowSize();
   const form = useForm<TCalculatorForm>({
-    defaultValues: selectedGame ? { ...calc.form } : { ...DEFAULT_VALUES },
+    defaultValues: selectedGame && !!calc?.form ? { ...calc.form } : { ...DEFAULT_VALUES },
   });
   const { reset } = form;
 
   useEffect(() => {
-    if (selectedGame) {
+    if (selectedGame?.value && !calc?.form) {
+      setDefaultCalculator();
+    }
+  }, [calc, selectedGame, setDefaultCalculator]);
+
+  useEffect(() => {
+    if (selectedGame && !!calc?.form) {
       reset({ ...calc.form });
     }
   }, [calc, reset, selectedGame]);

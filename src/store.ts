@@ -331,6 +331,13 @@ const useStore = create<AppState>(
             state.types.push(typeId);
           }
         }),
+      setDefaultCalculator: () => {
+        set((state) => {
+          state.calcs[state?.selectedGame?.value] = {
+            form: { ...DEFAULT_VALUES, calculatorGen: 8, pokemon1: 1, pokemon2: 1 },
+          };
+        });
+      },
       setDefaultSummary: () => {
         set((state) => {
           state.summary[state?.selectedGame?.value] = { ...INITIAL_SUMMARY };
