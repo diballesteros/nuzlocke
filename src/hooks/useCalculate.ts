@@ -6,13 +6,13 @@ import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm } from 'constants/types';
 
-function assertResult(val: unknown[]): asserts val is [Result, Result, Result, Result] {
+export function assertResult(val: unknown[]): asserts val is [Result, Result, Result, Result] {
   if (val.length !== 4) {
     throw new TypeError('Result should have been an array of calculations');
   }
 }
 
-function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
+export function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
   if (![1, 2, 3, 4].includes(val)) {
     throw new TypeError('Invalid move index');
   }
