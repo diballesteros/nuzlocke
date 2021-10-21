@@ -2,7 +2,7 @@
 
 exports[`Page Page renders correctly 1`] = `
 <div>
-  <div
+  <section
     class="page"
   >
     <div
@@ -27,6 +27,6 @@ exports[`Page Page renders correctly 1`] = `
     <div>
       Test
     </div>
-  </div>
+  </section>
 </div>
 `;
