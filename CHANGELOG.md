@@ -2,13 +2,14 @@
 
 🚀 New features
 
-- [BETA] Damage Calculator! This comes fully integrated with the app, check out your entire caught collection of pokemon (excluding fainted) as available options or optionally calculate damage with any pokemon
-- Export gym opponent to damage calculator from the badge details!
+- [BETA] Damage Calculator! This comes fully integrated with the app, check out your entire caught collection of pokemon (excluding fainted) as available options or optionally calculate damage with any pokemon.
+- Check out badge detail/level cap gym leaders inside of the calculator!
 
 💅 Enhancement
 
 - Various performance improvements
 - Styled primary buttons in modals
+- Included file input for bug reporting in the Report page
 
 🐛 Bug Fix
 
@@ -17,13 +18,15 @@
 🏠 Internal
 
 - Updated PR templates to use comments for instruction text
-- Bumped Zustand to 3.5.13
+- Bumped Zustand to 3.5.14
 - Bumped html-to-image to 1.9.0
-- Added react-hook-form to 7.17.2
+- Added react-hook-form to 7.17.5
 - Bumped @testing-library/react 12.1.12
 - Bumped @testing-library/user-event 13.5.0
-- Bumped @types/react 17.0.30
-- Bumped @types/react-router-dom 5.3.1
+- Bumped @types/lodash to 4.14.176
+- Bumped @types/react to 17.0.31
+- Bumped @types/react-dom to 17.0.10
+- Bumped @types/react-router-dom to 5.3.1
 - Bumped @types/node to 16.11.1
 - Bumped cypress to 8.6.0
 - Bumped Typescript to 4.4.4
