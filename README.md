@@ -36,6 +36,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
 - Export, import and share Nuzlocke runs with others!
+- Fully integrated damage calculator
 - Share, add and edit custom rules and rulesets - including smart rules that alert if they're broken
 - View overview and summary of your nuzlocke run
 - Dupes clause alerts
