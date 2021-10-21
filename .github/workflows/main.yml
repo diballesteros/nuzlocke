@@ -40,7 +40,7 @@ jobs:
       - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2
 
-  ui-chrome-tests:
+  ui-chrome-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container: cypress/browsers:node14.17.0-chrome88-ff89
@@ -49,7 +49,7 @@ jobs:
       fail-fast: false
       matrix:
         # runs copies of the current job in parallel
-        containers: [1, 2, 3]
+        containers: [1, 2, 3, 4]
     steps:
       - name: 🛫 Checkout
         uses: actions/checkout@v2
@@ -70,6 +70,46 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome'
+          spec: 'cypress/integration/main/*'
+        env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ✅ Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+
+  ui-chrome-tests-other:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container: cypress/browsers:node14.17.0-chrome88-ff89
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        # runs copies of the current job in parallel
+        containers: [1, 2, 3, 4]
+    steps:
+      - name: 🛫 Checkout
+        uses: actions/checkout@v2
+
+      - name: 🏗 Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: 💻 'UI Tests - Chrome'
+        uses: cypress-io/github-action@v2.9.7
+        with:
+          start: yarn run develop:ci
+          wait-on: http://localhost:3000
+          wait-on-timeout: 120
+          browser: chrome
+          record: true
+          parallel: true
+          group: 'UI - Chrome'
+          spec: 'cypress/integration/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -89,7 +129,7 @@ jobs:
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3]
+        containers: [1, 2, 3, 4]
     steps:
       - name: 🛫 Checkout
         uses: actions/checkout@v2
@@ -110,6 +150,48 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox'
+            spec: 'cypress/integration/main/*'
+        env:
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: ✅ Upload coverage to Codecov
+        uses: codecov/codecov-action@v2
+
+  ui-firefox-tests:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:node14.17.0-chrome88-ff89
+      options: --user 1001
+    needs: install
+    strategy:
+      fail-fast: false
+      matrix:
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4]
+    steps:
+      - name: 🛫 Checkout
+        uses: actions/checkout@v2
+
+      - name: 🏗 Download the build folders
+        uses: actions/download-artifact@v2
+        with:
+          name: build
+          path: build
+
+      - name: 💻 'UI Tests - Firefox'
+        uses: cypress-io/github-action@v2
+        with:
+          start: yarn run develop:ci
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          browser: firefox
+          record: true
+          parallel: true
+          group: 'UI - Firefox'
+            spec: 'cypress/integration/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}

@@ -40,7 +40,7 @@ describe('Import', () => {
       cy.contains('HeartGold and SoulSilver').click();
     });
 
-    it('Import Game by Table', () => {
+    it.only('Import Game by Table', () => {
       cy.fixture('table.txt', 'utf8').then((data) => {
         cy.get('[data-testid=table-import-textarea]').type(data, { delay: 0 });
         cy.get('[data-testid=table-import-option] > label').click();
