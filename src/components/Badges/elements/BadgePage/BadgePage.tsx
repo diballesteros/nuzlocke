@@ -30,7 +30,7 @@ function BadgePage(): JSX.Element {
     }
   }, [game, history, selectedDetail]);
 
-  const panes = !!selectedDetail
+  const panes = selectedDetail
     ? selectedDetail.map((gameDetail) => {
         return {
           menuItem: gameDetail.game,

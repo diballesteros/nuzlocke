@@ -110,7 +110,7 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
         <PokemonSelector filter={filter} handlePokemon={onChange}>
           {encounter?.pokemon ? (
             <div
-              className={`${styles.selector} ${!!foundPokemon?.evolve ? styles.evolve : ''}`}
+              className={`${styles.selector} ${foundPokemon?.evolve ? styles.evolve : ''}`}
               data-testid={`pokemon-${encounter.id}`}
             >
               <img alt={foundPokemon.text} src={foundPokemon.image} />

@@ -28,7 +28,7 @@ function DetailSelector({
     const foundPokemon = POKEMAP.get(p.id);
     return (
       foundPokemon?.text.toUpperCase().includes(values.search) &&
-      (!!limitGen ? foundPokemon.generation <= limitGen : true) &&
+      (limitGen ? foundPokemon.generation <= limitGen : true) &&
       (values.gens.length > 0 ? values.gens.includes(foundPokemon.generation) : true) &&
       (values.types.length > 0
         ? values.types.includes(foundPokemon.type) || values.types.includes(foundPokemon?.dualtype)

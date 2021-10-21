@@ -26,7 +26,7 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
     (m) =>
       m.name.toUpperCase().includes(values.search) &&
       (values.gens.length > 0 ? values.gens.includes(m.gen) : true) &&
-      (!!limitGen ? m.gen <= limitGen : true) &&
+      (limitGen ? m.gen <= limitGen : true) &&
       (values.types.length > 0 ? values.types.includes(m.type) : true)
   );
 
