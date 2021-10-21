@@ -79,7 +79,8 @@ describe('Calculator', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
-    cy.get('[data-testid=poke-Charmander]').click({ force: true });
+    cy.get('[data-testid=filter] > input').type('Giratina');
+    cy.get('[data-testid=poke-Giratina]').click({ force: true });
     cy.get('[data-testid=show-all-pokemon2] > label').click();
     cy.get('[data-testid=gym-filter]').click();
     cy.get('[data-testid=gym-filter] > .visible > :nth-child(1)').click();
@@ -139,7 +140,7 @@ describe('Calculator', () => {
     ).should('exist');
   });
 
-  it('Alolan and Galarian', () => {
+  it('Smogon names', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
@@ -150,5 +151,13 @@ describe('Calculator', () => {
     cy.get('[data-testid="poke-Rattata (Alolan)"]').click({ force: true });
     cy.contains('Rattata (Alolan)').should('exist');
     cy.contains('Meowth (Galarian)').should('exist');
+    cy.get('[data-testid=pokecontroller-pokemon1]').click();
+    cy.get('[data-testid=filter] > input').type('Nidoran');
+    cy.get('[data-testid="poke-Nidoran♀"]').click({ force: true });
+    cy.get('[data-testid=pokecontroller-pokemon2]').click();
+    cy.get('[data-testid=filter] > input').type('Nidoran♂');
+    cy.get('[data-testid="poke-Nidoran♂"]').click({ force: true });
+    cy.contains('Nidoran♀').should('exist');
+    cy.contains('Nidoran♂').should('exist');
   });
 });

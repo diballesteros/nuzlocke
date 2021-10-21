@@ -12,12 +12,14 @@ interface PokemonSelectorProps {
   children: React.ReactNode;
   filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
+  limitGen?: number;
 }
 
 function PokemonSelector({
   children,
   filter = false,
   handlePokemon,
+  limitGen,
 }: PokemonSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
@@ -25,6 +27,7 @@ function PokemonSelector({
     (p) =>
       (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
       p.text.toUpperCase().includes(values.search) &&
+      (!!limitGen ? p.generation <= limitGen : true) &&
       (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
       (values.types.length > 0
         ? values.types.includes(p.type) || values.types.includes(p?.dualtype)
@@ -74,7 +77,7 @@ function PokemonSelector({
       }
     >
       <Modal.Content className={styles.content}>
-        <Filter values={values} />
+        <Filter hideGen={!!limitGen} values={values} />
         <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
           {renderRow}
         </FixedSizeList>

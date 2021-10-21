@@ -13,9 +13,10 @@ import styles from './MoveSelector.module.scss';
 interface MoveSelectorProps {
   currentMoveId: number;
   handleMove: (moveId: number) => void;
+  limitGen?: number;
 }
 
-function MoveSelector({ currentMoveId, handleMove }: MoveSelectorProps): JSX.Element {
+function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -25,6 +26,7 @@ function MoveSelector({ currentMoveId, handleMove }: MoveSelectorProps): JSX.Ele
     (m) =>
       m.name.toUpperCase().includes(values.search) &&
       (values.gens.length > 0 ? values.gens.includes(m.gen) : true) &&
+      (!!limitGen ? m.gen <= limitGen : true) &&
       (values.types.length > 0 ? values.types.includes(m.type) : true)
   );
 
@@ -80,7 +82,7 @@ function MoveSelector({ currentMoveId, handleMove }: MoveSelectorProps): JSX.Ele
     >
       <Modal.Content className={styles.content}>
         <div data-testid="move-selector-wrapper">
-          <Filter values={values} />
+          <Filter hideGen={!!limitGen} values={values} />
         </div>
         <FixedSizeList height={400} itemCount={filteredMoves.length} itemSize={40} width="100%">
           {renderRow}

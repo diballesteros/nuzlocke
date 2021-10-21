@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useState } from 'react';
-import { Control, useController, UseFormReset } from 'react-hook-form';
+import { Control, useController, UseFormReset, useWatch } from 'react-hook-form';
 import { Checkbox, Dropdown } from 'semantic-ui-react';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
@@ -23,6 +23,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
   const updateDefaultValues = useStore(useCallback((state) => state.updateDefaultValues, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const calc = useStore(useCallback((state) => state.calcs[state.selectedGame?.value], []));
+  const calcGen = useWatch({ control, name: 'calculatorGen' });
   const { field } = useController({ control, name });
   const foundPokemon = POKEMAP.get(field.value);
 
@@ -96,15 +97,23 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
   return (
     <div className={styles.wrapper} data-testid={`pokecontroller-${name}`}>
       {showAll ? (
-        <PokemonSelector handlePokemon={handlePokemon}>
+        <PokemonSelector handlePokemon={handlePokemon} limitGen={calcGen}>
           <PokemonSlot pokemon={foundPokemon} />
         </PokemonSelector>
       ) : name === 'pokemon1' ? (
-        <EncounterSelector handleEncounter={handleEncounter} encounters={encounters}>
+        <EncounterSelector
+          encounters={encounters}
+          handleEncounter={handleEncounter}
+          limitGen={calcGen}
+        >
           <PokemonSlot pokemon={foundPokemon} />
         </EncounterSelector>
       ) : (
-        <DetailSelector details={details[selectedDetail]?.content} handleDetail={handleDetail}>
+        <DetailSelector
+          details={details[selectedDetail]?.content}
+          handleDetail={handleDetail}
+          limitGen={calcGen}
+        >
           <PokemonSlot pokemon={foundPokemon} />
         </DetailSelector>
       )}

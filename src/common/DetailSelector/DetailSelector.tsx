@@ -13,15 +13,22 @@ interface DetailSelectorProps {
   children: React.ReactNode;
   details: PokemonDetail[];
   handleDetail: (encounter: PokemonDetail) => void;
+  limitGen?: number;
 }
 
-function DetailSelector({ children, details, handleDetail }: DetailSelectorProps): JSX.Element {
+function DetailSelector({
+  children,
+  details,
+  handleDetail,
+  limitGen,
+}: DetailSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const filteredEncounters = details?.filter((p) => {
     const foundPokemon = POKEMAP.get(p.id);
     return (
       foundPokemon?.text.toUpperCase().includes(values.search) &&
+      (!!limitGen ? foundPokemon.generation <= limitGen : true) &&
       (values.gens.length > 0 ? values.gens.includes(foundPokemon.generation) : true) &&
       (values.types.length > 0
         ? values.types.includes(foundPokemon.type) || values.types.includes(foundPokemon?.dualtype)
@@ -72,7 +79,7 @@ function DetailSelector({ children, details, handleDetail }: DetailSelectorProps
       }
     >
       <Modal.Content className={styles.content}>
-        <Filter values={values} />
+        <Filter hideGen={!!limitGen} values={values} />
         <FixedSizeList
           height={400}
           itemCount={filteredEncounters?.length ?? 0}

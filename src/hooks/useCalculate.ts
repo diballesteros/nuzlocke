@@ -18,14 +18,20 @@ function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
   }
 }
 
-const regionalize = (pokemonName: string): string => {
-  if (pokemonName.includes('(Galarian)')) {
+const getSmogonName = (pokemonName: string): string => {
+  if (pokemonName?.includes('(Galarian)')) {
     const split = pokemonName.split(' ');
     return `${split[0]}-Galar`;
   }
-  if (pokemonName.includes('(Alolan)')) {
+  if (pokemonName?.includes('(Alolan)')) {
     const split = pokemonName.split(' ');
     return `${split[0]}-Alola`;
+  }
+  if (pokemonName === 'Nidoran♀') {
+    return 'Nidoran-F';
+  }
+  if (pokemonName === 'Nidoran♂') {
+    return 'Nidoran-M';
   }
   return pokemonName;
 };
@@ -44,7 +50,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         return all.calculatorGen > 2 ? iv : dv * 2 + 1;
       };
 
-      return new Pokemon(all.calculatorGen, regionalize(POKEMAP.get(all.pokemon1)?.text), {
+      return new Pokemon(all.calculatorGen, getSmogonName(POKEMAP.get(all.pokemon1)?.text), {
         ability: all.ability1,
         abilityOn: true,
         ivs: {
@@ -88,7 +94,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         return all.calculatorGen > 2 ? iv : dv * 2 + 1;
       };
 
-      return new Pokemon(all.calculatorGen, regionalize(POKEMAP.get(all.pokemon2)?.text), {
+      return new Pokemon(all.calculatorGen, getSmogonName(POKEMAP.get(all.pokemon2)?.text), {
         ability: all.ability2,
         abilityOn: true,
         boosts: {

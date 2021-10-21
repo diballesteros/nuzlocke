@@ -2,7 +2,7 @@ import { TCalculatorFields, TCalculatorForm, TFirstSplit, TSecondSplit } from 'c
 
 export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
   level1: 100,
-  gender1: 'MALE',
+  gender1: undefined,
   dvatk1: 15,
   dvdef1: 15,
   dvspc1: 15,
@@ -63,7 +63,7 @@ export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
 
 export const DEFAULT_POKEMON_2: Omit<TSecondSplit, 'pokemon2' | 'currenthp2'> = {
   level2: 100,
-  gender2: 'MALE',
+  gender2: undefined,
   dvatk2: 15,
   dvdef2: 15,
   dvspc2: 15,

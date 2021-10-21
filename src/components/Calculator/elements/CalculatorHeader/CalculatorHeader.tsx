@@ -1,3 +1,4 @@
+import { Result } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -23,6 +24,17 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const { attackerResults, defenderResults } = useCalculate(form.control);
+
+  const getDesc = (result: Result) => {
+    try {
+      return result?.fullDesc() || 'No move selected';
+    } catch (e) {
+      if ((e as Error).message === 'damage[damage.length - 1] === 0.') {
+        return `${result.attacker.name} ${result.move.name} vs ${result.defender.name}: 0 - 0%`;
+      }
+      return 'Invalid calculation';
+    }
+  };
 
   return (
     <div className={styles.header}>
@@ -63,8 +75,8 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
       <div className={styles.primary}>
         <output className={styles.mainResult} data-testid="primary-damage">
           {primary[0] === 'attacker'
-            ? attackerResults[primary[1]]?.fullDesc()
-            : defenderResults[primary[1]]?.fullDesc()}
+            ? getDesc(attackerResults[primary[1]])
+            : getDesc(defenderResults[primary[1]])}
         </output>
         <Icon
           data-testid="expand-moves"
@@ -86,7 +98,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
                 role="presentation"
               >
                 <Icon name="pin" />
-                {result?.fullDesc() || 'No move selected'}
+                {getDesc(result)}
               </div>
             );
           })}
@@ -103,7 +115,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
                 role="presentation"
               >
                 <Icon name="pin" />
-                {result?.fullDesc() || 'No move selected'}
+                {getDesc(result)}
               </div>
             );
           })}

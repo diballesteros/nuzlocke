@@ -8,11 +8,12 @@ import { TFilter } from 'hooks/useFilter';
 import styles from './Filter.module.scss';
 
 interface FilterProps {
-  values: TFilter;
   darkMode?: boolean;
+  hideGen?: boolean;
+  values: TFilter;
 }
 
-function Filter({ darkMode = false, values }: FilterProps): JSX.Element {
+function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX.Element {
   const [show, setShow] = useState(false);
   return (
     <div className={styles.filter}>
@@ -43,22 +44,26 @@ function Filter({ darkMode = false, values }: FilterProps): JSX.Element {
       />
       {show && (
         <div className={styles.popup}>
-          <b>Generations:</b>
-          <div className={styles.buttonRow}>
-            {GENERATIONS.map((gen) => {
-              return (
-                <Button
-                  active={values.gens.includes(gen)}
-                  data-testid={`filter-gen-${gen}`}
-                  key={`filter-gen-${gen}`}
-                  onClick={() => values.setGens(gen)}
-                  toggle
-                >
-                  {gen}
-                </Button>
-              );
-            })}
-          </div>
+          {!hideGen && (
+            <>
+              <b>Generations:</b>
+              <div className={styles.buttonRow}>
+                {GENERATIONS.map((gen) => {
+                  return (
+                    <Button
+                      active={values.gens.includes(gen)}
+                      data-testid={`filter-gen-${gen}`}
+                      key={`filter-gen-${gen}`}
+                      onClick={() => values.setGens(gen)}
+                      toggle
+                    >
+                      {gen}
+                    </Button>
+                  );
+                })}
+              </div>
+            </>
+          )}
           <b>Types:</b>
           <div className={styles.buttonRow}>
             {TYPES.map((type) => {

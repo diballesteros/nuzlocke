@@ -20,7 +20,7 @@ function MoveController({ control, move, pokemon }: MoveControllerProps): JSX.El
 
   return (
     <div className={styles.move} data-testid={`move${move}_${pokemon}`}>
-      <MoveSelector currentMoveId={field.value} handleMove={handleMove} />
+      <MoveSelector currentMoveId={field.value} handleMove={handleMove} limitGen={calcGen} />
       {field.value && (
         <>
           <ButtonController control={control} label="Crit" name={`move${move}_crit${pokemon}`} />
