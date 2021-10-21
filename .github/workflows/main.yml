@@ -118,7 +118,7 @@ jobs:
       - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2
 
-  ui-firefox-tests:
+  ui-firefox-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
@@ -159,7 +159,7 @@ jobs:
       - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2
 
-  ui-firefox-tests:
+  ui-firefox-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
