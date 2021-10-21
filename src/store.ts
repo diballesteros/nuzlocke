@@ -1,9 +1,21 @@
+import produce from 'immer';
 import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
-import produce from 'immer';
+import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
+import { DEFAULT_VALUES } from 'constants/calculator';
+import {
+  DEFAULT_RULES,
+  DEFAULT_RULESET_NAMES,
+  GAME_KEY_DICTIONARY,
+  GAMES,
+  INITIAL_STATE,
+  INITIAL_SUMMARY,
+} from 'constants/constant';
 import {
   AppState,
+  Gender,
   PokemonDetail,
+  TCalculatorForm,
   TEncounter,
   TGame,
   TPokemon,
@@ -14,15 +26,6 @@ import {
   TSummaryBasic,
   Type,
 } from 'constants/types';
-import {
-  DEFAULT_RULES,
-  DEFAULT_RULESET_NAMES,
-  GAMES,
-  GAME_KEY_DICTIONARY,
-  INITIAL_STATE,
-  INITIAL_SUMMARY,
-} from 'constants/constant';
-import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
 
 const immer =
   <T extends State>(config: StateCreator<T>): StateCreator<T> =>
@@ -41,6 +44,7 @@ const useStore = create<AppState>(
   persist(
     immer((set) => ({
       badges: BADGES,
+      calcs: INITIAL_STATE.calcs,
       darkMode: INITIAL_STATE.darkMode,
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
@@ -73,6 +77,9 @@ const useStore = create<AppState>(
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = { badge: null, encounters: [] };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
+          state.calcs[newKey.toString()] = {
+            form: { ...DEFAULT_VALUES, calculatorGen: 8, pokemon1: 1, pokemon2: 1 },
+          };
           const newGameObj = {
             value: newKey.toString(),
             text: newGame,
@@ -101,7 +108,7 @@ const useStore = create<AppState>(
         encounterId: number,
         level: number,
         metLevel: number,
-        gender: string,
+        gender: Gender,
         ability: string,
         nature: string,
         item: string,
@@ -209,6 +216,9 @@ const useStore = create<AppState>(
           }
           if (state.summary[state?.selectedGame?.value]) {
             delete state.summary[state?.selectedGame?.value];
+          }
+          if (state.calcs[state?.selectedGame?.value]) {
+            delete state.calcs[state?.selectedGame?.value];
           }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
@@ -321,6 +331,13 @@ const useStore = create<AppState>(
             state.types.push(typeId);
           }
         }),
+      setDefaultCalculator: () => {
+        set((state) => {
+          state.calcs[state?.selectedGame?.value] = {
+            form: { ...DEFAULT_VALUES, calculatorGen: 8, pokemon1: 1, pokemon2: 1 },
+          };
+        });
+      },
       setDefaultSummary: () => {
         set((state) => {
           state.summary[state?.selectedGame?.value] = { ...INITIAL_SUMMARY };
@@ -355,6 +372,14 @@ const useStore = create<AppState>(
         set((state) => {
           state.summary[state?.selectedGame?.value][property] =
             !state.summary[state?.selectedGame?.value][property];
+        });
+      },
+      updateDefaultValues: (values: Partial<TCalculatorForm>) => {
+        set((state) => {
+          state.calcs[state?.selectedGame?.value].form = {
+            ...state.calcs[state?.selectedGame?.value].form,
+            ...values,
+          };
         });
       },
     })),

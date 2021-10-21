@@ -1,30 +1,32 @@
 import React, { useCallback, useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import useStore from 'store';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import MOVES from 'constants/moves';
-import { PHYS_SPEC_SPLIT } from 'constants/constant';
-import useFilter from 'hooks/useFilter';
 import { Filter, Move } from 'components';
+import { PHYS_SPEC_SPLIT } from 'constants/constant';
+import MOVES, { MOVEMAP } from 'constants/moves';
+import useFilter from 'hooks/useFilter';
+import useStore from 'store';
 import styles from './MoveSelector.module.scss';
 
 interface MoveSelectorProps {
   currentMoveId: number;
   handleMove: (moveId: number) => void;
+  limitGen?: number;
 }
 
-const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }) => {
+function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
-  const currentMove = MOVES.find((m) => m.id === currentMoveId);
+  const currentMove = MOVEMAP.get(currentMoveId);
   const filteredMoves = MOVES.filter(
     (m) =>
       m.name.toUpperCase().includes(values.search) &&
       (values.gens.length > 0 ? values.gens.includes(m.gen) : true) &&
+      (!!limitGen ? m.gen <= limitGen : true) &&
       (values.types.length > 0 ? values.types.includes(m.type) : true)
   );
 
@@ -80,7 +82,7 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
     >
       <Modal.Content className={styles.content}>
         <div data-testid="move-selector-wrapper">
-          <Filter values={values} />
+          <Filter hideGen={!!limitGen} values={values} />
         </div>
         <FixedSizeList height={400} itemCount={filteredMoves.length} itemSize={40} width="100%">
           {renderRow}
@@ -91,6 +93,6 @@ const MoveSelector: React.FC<MoveSelectorProps> = ({ currentMoveId, handleMove }
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default MoveSelector;

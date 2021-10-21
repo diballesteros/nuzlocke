@@ -1,11 +1,10 @@
-import React from 'react';
 import styles from './Tip.module.scss';
 
 interface TipProps {
   missing: string;
 }
 
-const Tip: React.FC<TipProps> = ({ missing }) => {
+function Tip({ missing }: TipProps): JSX.Element {
   return (
     <div className={styles.container} data-testid="status-tip">
       <p className={styles.missing}>
@@ -13,6 +12,6 @@ const Tip: React.FC<TipProps> = ({ missing }) => {
       </p>
     </div>
   );
-};
+}
 
 export default Tip;

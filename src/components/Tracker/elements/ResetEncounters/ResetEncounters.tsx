@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -10,7 +10,7 @@ interface ResetEncounterProps {
   icon?: boolean;
 }
 
-const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
+function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const resetAll = useStore(useCallback((state) => state.resetAll, []));
@@ -59,10 +59,12 @@ const ResetEncounters: React.FC<ResetEncounterProps> = ({ icon = false }) => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setOpen(false)}>Cancel</Button>
-        <Button onClick={handleReset}>OK</Button>
+        <Button onClick={handleReset} primary>
+          OK
+        </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default ResetEncounters;

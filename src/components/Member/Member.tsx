@@ -1,14 +1,14 @@
-import React, { useCallback, useState } from 'react';
+import { ABILITIES, ITEMS } from '@smogon/calc';
+import { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import useStore from 'store';
-import { PokemonDetail } from 'constants/types';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
-import POKEMON from 'constants/pokemon';
-import { MoveSelector, Natures, PokemonType } from 'components';
+import { POKEMAP } from 'constants/pokemon';
+import { PokemonDetail } from 'constants/types';
+import useStore from 'store';
 import styles from './Member.module.scss';
 
 interface MemberProps {
@@ -16,8 +16,8 @@ interface MemberProps {
   pokemonDetail: PokemonDetail;
 }
 
-const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
-  const pokemon = POKEMON.find((p) => p.value === pokemonDetail.id);
+function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
+  const pokemon = POKEMAP.get(pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));
   const deleteTeamMember = useStore(useCallback((state) => state.deleteTeamMember, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -49,7 +49,7 @@ const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
           <Dropdown
             aria-label="nature-selector"
             basic
-            className={styles.dropdown}
+            className={`${styles.dropdown} ${styles.nature}`}
             data-testid={`team-nature-${pokemon?.text}`}
             inline
             lazyLoad
@@ -64,18 +64,40 @@ const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
           />
           <Natures />
         </div>
-        <Input
+        <Dropdown
+          aria-label="ability"
+          basic
+          className={styles.dropdown}
           data-testid={`team-ability-${pokemon?.text}`}
-          label="Ability"
-          onChange={(e) => changeTeamMember(index, { ...pokemonDetail, ability: e.target.value })}
-          type="text"
+          inline
+          lazyLoad
+          onChange={(e, data) =>
+            changeTeamMember(index, { ...pokemonDetail, ability: data.value as string })
+          }
+          options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+            return { text: smogonAbility, value: smogonAbility };
+          })}
+          placeholder="Select an ability..."
+          search
+          selection
           value={pokemonDetail.ability ?? ''}
         />
-        <Input
+        <Dropdown
+          aria-label="item"
+          basic
+          className={styles.dropdown}
           data-testid={`team-item-${pokemon?.text}`}
-          label="Item"
-          onChange={(e) => changeTeamMember(index, { ...pokemonDetail, item: e.target.value })}
-          type="text"
+          inline
+          lazyLoad
+          onChange={(e, data) =>
+            changeTeamMember(index, { ...pokemonDetail, item: data.value as string })
+          }
+          options={[...new Set(ITEMS[8])].map((smogonItem) => {
+            return { text: smogonItem, value: smogonItem };
+          })}
+          placeholder="Select an item..."
+          search
+          selection
           value={pokemonDetail.item ?? ''}
         />
         <MoveSelector
@@ -147,6 +169,6 @@ const Member: React.FC<MemberProps> = ({ index, pokemonDetail }) => {
       </div>
     </>
   );
-};
+}
 
 export default Member;

@@ -17,12 +17,12 @@ describe('Builder', () => {
     cy.get('[data-testid=poke-Bulbasaur]').click();
     cy.get('.angle').click();
     cy.get('[data-testid=team-nature-Bulbasaur]').type('Bold');
-    cy.get('[data-testid=team-ability-Bulbasaur] > input')
-      .type('Ability')
-      .should('have.value', 'Ability');
-    cy.get('[data-testid=team-item-Bulbasaur] > input')
-      .type('Oran Berry')
-      .should('have.value', 'Oran Berry');
+    cy.get('[data-testid=team-ability-Bulbasaur]').click();
+    cy.get('[data-testid=team-ability-Bulbasaur] > .visible > :nth-child(2)').click();
+    cy.contains('Arena Trap').should('exist');
+    cy.get('[data-testid=team-item-Bulbasaur]').click();
+    cy.get('[data-testid=team-item-Bulbasaur] > .visible > :nth-child(2)').click();
+    cy.contains('Black Belt').should('exist');
     cy.get(':nth-child(4) > b').click();
     cy.contains('Close').click();
     cy.get(':nth-child(4) > b').click();
@@ -75,8 +75,8 @@ describe('Builder', () => {
       cy.contains('Builder').click();
       cy.get('[data-testid=team-poke-Scorbunny] > div > .angle').click();
       cy.contains('Scorbunny').should('exist');
-      cy.get('[data-testid=team-ability-Scorbunny] > input').should('have.value', 'Ability');
-      cy.get('[data-testid=team-item-Scorbunny] > input').should('have.value', 'Oran Berry');
+      cy.contains('Arena Trap').should('exist');
+      cy.contains('Black Belt').should('exist');
       cy.contains('Pound').should('exist');
       cy.contains('Karate Chop').should('exist');
       cy.contains('Surf').should('exist');

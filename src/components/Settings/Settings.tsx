@@ -1,10 +1,9 @@
-import React from 'react';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import useStore from 'store';
 import { Page } from 'common';
+import useStore from 'store';
 import styles from './Settings.module.scss';
 
-const Settings: React.FC = () => {
+function Settings(): JSX.Element {
   const appState = useStore((state) => state);
 
   return (
@@ -37,6 +36,6 @@ const Settings: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default Settings;

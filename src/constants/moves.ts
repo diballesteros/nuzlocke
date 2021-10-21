@@ -9089,4 +9089,6 @@ const MOVES: TMove[] = [
   },
 ];
 
+export const MOVEMAP = new Map(MOVES.map((poke) => [poke.id, poke]));
+
 export default MOVES;

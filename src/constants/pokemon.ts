@@ -525,8 +525,8 @@ import morgrem from 'assets/img/pokemon/morgrem.png';
 import morpeko from 'assets/img/pokemon/morpeko.png';
 import mothim from 'assets/img/pokemon/mothim.png';
 import mrmime from 'assets/img/pokemon/mr-mime.png';
-import mrmimeg from 'assets/img/pokemon/mrmimeG.png';
 import mrrime from 'assets/img/pokemon/mr-rime.png';
+import mrmimeg from 'assets/img/pokemon/mrmimeG.png';
 import mudbray from 'assets/img/pokemon/mudbray.png';
 import mudkip from 'assets/img/pokemon/mudkip.png';
 import mudsdale from 'assets/img/pokemon/mudsdale.png';
@@ -8740,5 +8740,7 @@ const POKEMON: TPokemon[] = [
     generation: 8,
   },
 ];
+
+export const POKEMAP = new Map(POKEMON.map((poke) => [poke.value, poke]));
 
 export default POKEMON;

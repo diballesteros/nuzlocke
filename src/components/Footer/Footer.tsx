@@ -2,7 +2,7 @@ import React from 'react';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import styles from './Footer.module.scss';
 
-const Footer: React.FC = React.memo(() => {
+const Footer = React.memo(function Footer() {
   return (
     <footer className={styles.footer}>
       <b className={styles.name}>Nuzlocke Tracker</b>

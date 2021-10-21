@@ -1,6 +1,5 @@
-import React from 'react';
-import { TRuleEntry } from 'constants/types';
 import { getRuleContent } from 'constants/constant';
+import { TRuleEntry } from 'constants/types';
 import styles from './RuleContent.module.scss';
 
 interface RuleContentProps {
@@ -9,7 +8,7 @@ interface RuleContentProps {
   rule: TRuleEntry;
 }
 
-const RuleContent: React.FC<RuleContentProps> = ({ hideSmart, i, rule }) => {
+function RuleContent({ hideSmart, i, rule }: RuleContentProps): JSX.Element {
   return (
     <div className={styles.content}>
       {rule.type !== 'TEXT' && !hideSmart && (
@@ -27,6 +26,6 @@ const RuleContent: React.FC<RuleContentProps> = ({ hideSmart, i, rule }) => {
       </div>
     </div>
   );
-};
+}
 
 export default RuleContent;

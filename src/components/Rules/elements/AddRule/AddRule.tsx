@@ -1,15 +1,15 @@
-import React, { ReactText, useCallback, useState } from 'react';
+import { ReactText, useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
-import useStore from 'store';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
+import useStore from 'store';
 import styles from './AddRule.module.scss';
 
-const AddRule: React.FC = () => {
+function AddRule(): JSX.Element {
   const addRule = useStore(useCallback((state) => state.addRule, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -179,12 +179,12 @@ const AddRule: React.FC = () => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={getDisabled()} onClick={handleAdd}>
+        <Button disabled={getDisabled()} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddRule;

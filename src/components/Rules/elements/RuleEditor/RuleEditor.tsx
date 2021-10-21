@@ -1,11 +1,11 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { TRule, TRuleContent } from 'constants/types';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
+import { TRule, TRuleContent } from 'constants/types';
 import useStore from 'store';
 
 interface RuleEditorProps {
@@ -14,7 +14,7 @@ interface RuleEditorProps {
   type: TRule;
 }
 
-const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
+function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));
   const [open, setOpen] = useState(false);
@@ -134,12 +134,12 @@ const RuleEditor: React.FC<RuleEditorProps> = ({ content, index, type }) => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleEditClose}>Cancel</Button>
-        <Button disabled={false} onClick={handleEditRule}>
+        <Button disabled={false} onClick={handleEditRule} primary>
           Save
         </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default RuleEditor;

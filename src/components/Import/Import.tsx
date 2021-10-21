@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
+import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import useStore from 'store';
-import { AppState, Gender, TEncounter } from 'constants/types';
-import POKEMON from 'constants/pokemon';
-import MOVES from 'constants/moves';
 import { Page } from 'common';
+import MOVES from 'constants/moves';
+import POKEMON from 'constants/pokemon';
+import { AppState, Gender, TEncounter } from 'constants/types';
+import useStore from 'store';
 import styles from './Import.module.scss';
 
 const GENDER_DICTIONARY: Record<string, Gender> = {
@@ -23,7 +23,7 @@ const removeNone = (value: string) => {
   return value === '(None)' ? null : value;
 };
 
-const Import: React.FC = () => {
+function Import(): JSX.Element {
   const importState = useStore(useCallback((state) => state.importState, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const massImport = useStore(useCallback((state) => state.massImport, []));
@@ -212,6 +212,6 @@ const Import: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default Import;

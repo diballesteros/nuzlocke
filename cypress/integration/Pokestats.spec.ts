@@ -82,8 +82,8 @@ describe('PokéStats', () => {
     cy.contains('Lv. 15').should('exist');
     cy.contains('Met at: Route 2, at lv. 5').should('exist');
     cy.contains('Bold nature').should('exist');
-    cy.contains('Ability').should('exist');
-    cy.contains('Item: Oran Berry').should('exist');
+    cy.contains('Arena Trap').should('exist');
+    cy.contains('Item: Black Belt').should('exist');
     cy.contains('Cause of Fainting: Died to crit').should('exist');
   });
 

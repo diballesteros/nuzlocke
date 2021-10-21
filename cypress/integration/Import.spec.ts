@@ -23,6 +23,9 @@ describe('Import', () => {
     cy.get('[data-testid=options]').click();
     cy.contains('Builder').click();
     cy.get('[data-testid=team-poke-Venusaur]').should('exist');
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=calculator]').click();
+    cy.contains('Bulbasaur').should('exist');
   });
 
   it('Import - Failure', () => {

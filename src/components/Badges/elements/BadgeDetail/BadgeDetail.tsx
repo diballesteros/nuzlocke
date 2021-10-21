@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import POKEMON from 'constants/pokemon';
-import { TDetail } from 'constants/types';
-import { TYPE_COLOR } from 'constants/colors';
 import { Moves, PokemonType } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
+import { POKEMAP } from 'constants/pokemon';
+import { TDetail } from 'constants/types';
 import styles from './BadgeDetail.module.scss';
 
 interface BadgeDetailProps {
   selectedDetail: TDetail;
 }
 
-const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
+function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
   const [view, setView] = useState(0);
 
   const getContent = () => {
@@ -40,7 +40,7 @@ const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
       )}
       <div className={styles.gymPokemon}>
         {getContent()?.map((pokemon, ind) => {
-          const poke = POKEMON.find((item) => item.value === pokemon.id);
+          const poke = POKEMAP.get(pokemon.id);
           return (
             <div
               className={styles.pokemon}
@@ -83,6 +83,6 @@ const BadgeDetail: React.FC<BadgeDetailProps> = ({ selectedDetail }) => {
       </div>
     </>
   );
-};
+}
 
 export default BadgeDetail;

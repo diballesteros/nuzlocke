@@ -1,0 +1,33 @@
+.wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--contrast);
+
+  > div:first-child {
+    width: 100%;
+    flex: 1;
+  }
+
+  .checkbox {
+    margin-left: auto;
+  }
+
+  .showAll {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+    color: var(--contrast);
+    align-self: flex-end;
+
+    .dropdown {
+      margin-right: auto;
+      color: black;
+      > i {
+        top: 0 !important;
+      }
+    }
+  }
+}

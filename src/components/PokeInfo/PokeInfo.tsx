@@ -1,4 +1,3 @@
-import React from 'react';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { TEncounter, TPokemon } from 'constants/types';
 import styles from './PokeInfo.module.scss';
@@ -8,7 +7,7 @@ interface PokeInfoProps {
   pokemon: TPokemon;
 }
 
-const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
+function PokeInfo({ encounter, pokemon }: PokeInfoProps): JSX.Element {
   const getGenderIcon = () => {
     switch (encounter?.details?.gender) {
       case 'MALE':
@@ -38,6 +37,6 @@ const PokeInfo: React.FC<PokeInfoProps> = ({ encounter, pokemon }) => {
       )}
     </div>
   );
-};
+}
 
 export default PokeInfo;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -10,7 +10,7 @@ interface AddEncounterProps {
   icon?: boolean;
 }
 
-const AddEncounter: React.FC<AddEncounterProps> = ({ icon = false }) => {
+function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -68,12 +68,12 @@ const AddEncounter: React.FC<AddEncounterProps> = ({ icon = false }) => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={location?.length === 0} onClick={handleAdd}>
+        <Button disabled={location?.length === 0} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddEncounter;

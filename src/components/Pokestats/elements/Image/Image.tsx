@@ -1,12 +1,4 @@
-import React, { LegacyRef, useCallback, useEffect, useMemo } from 'react';
-import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import useStore from 'store';
-import shallow from 'zustand/shallow';
-import POKEMON from 'constants/pokemon';
-import { TYPE_COUNT } from 'constants/constant';
-import { Type } from 'constants/types';
-import { TYPE_COLOR } from 'constants/colors';
+import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import {
   selectBoxed,
   selectCaught,
@@ -16,12 +8,20 @@ import {
   selectShiny,
   selectTeam,
 } from 'selectors';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
+import shallow from 'zustand/shallow';
 import { Moves, PokeInfo } from 'components';
-import { RuleContent } from 'components/Rules/elements';
 import { Tip } from 'components/Pokestats/elements';
-import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
-import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
+import { RuleContent } from 'components/Rules/elements';
+import { TYPE_COLOR } from 'constants/colors';
+import { TYPE_COUNT } from 'constants/constant';
+import { POKEMAP } from 'constants/pokemon';
+import { Type } from 'constants/types';
+import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
+import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
+import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
 import { ReactComponent as ShinySVG } from 'assets/svg/shiny.svg';
 import styles from './Image.module.scss';
 
@@ -32,7 +32,7 @@ interface ImageProps {
   responsive?: boolean;
 }
 
-const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
+function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
   const badges = useStore(useCallback((state) => state.badges, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -66,7 +66,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
     const TEMP = { ...TYPE_COUNT };
 
     games[selectedGame?.value]?.encounters?.forEach((enc) => {
-      const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+      const foundPokemon = POKEMAP.get(enc.pokemon);
       if (!!foundPokemon) {
         TEMP[foundPokemon.type] += 1;
         if (foundPokemon.dualtype) {
@@ -130,7 +130,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
         {teamPokemon?.length > 0 ? (
           <div className={styles.team}>
             {teamPokemon?.map((enc) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <div className={styles.pokemon} key={`team-${enc.id}`}>
                   <img src={foundPokemon?.image} alt={foundPokemon?.text} />
@@ -221,7 +221,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
             <span className={styles.title}>BOXED</span>
             <div className={styles.box}>
               {boxedPokemon.map((box, i) => {
-                const foundPokemon = POKEMON.find((poke) => poke.value === box.pokemon);
+                const foundPokemon = POKEMAP.get(box.pokemon);
                 return (
                   <img
                     alt={foundPokemon?.text}
@@ -242,7 +242,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
             <span className={styles.title}>FAINTED</span>
             <div className={styles.box}>
               {faintedPokemon.map((faint, i) => {
-                const foundPokemon = POKEMON.find((poke) => poke.value === faint.pokemon);
+                const foundPokemon = POKEMAP.get(faint.pokemon);
                 return (
                   <img
                     alt={foundPokemon?.text}
@@ -278,7 +278,7 @@ const Image: React.FC<ImageProps> = ({ forwardedRef, responsive = false }) => {
       <span className={styles.credit}>https://nuzlocke.netlify.app</span>
     </div>
   );
-};
+}
 
 Image.propTypes = {};
 

@@ -1,13 +1,13 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
 import { Share } from 'components';
-import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import { BadgeEditor } from 'components/Badges/elements';
+import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import { POKEMAP } from 'constants/pokemon';
+import useStore from 'store';
 import styles from './FAB.module.scss';
 
-const FAB: React.FC = () => {
+function FAB(): JSX.Element {
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen((prevState) => !prevState);
@@ -25,7 +25,7 @@ const FAB: React.FC = () => {
               icon
               text={games[selectedGame?.value]?.encounters?.reduce(
                 (str, enc, i) => {
-                  const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+                  const foundPokemon = POKEMAP.get(enc.pokemon);
                   return `${str}
       ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
                 },
@@ -62,6 +62,6 @@ const FAB: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default FAB;

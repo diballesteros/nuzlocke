@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -12,7 +12,7 @@ interface ShareProps {
   text: string;
 }
 
-const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
+function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
   const appState = useStore((state) => state);
@@ -86,11 +86,13 @@ const Share: React.FC<ShareProps> = ({ disabled, icon = false, text }) => {
         <textarea data-testid="share-textarea" defaultValue={text} ref={shareRef} rows={5} />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleCopy}>Copy</Button>
         <Button onClick={() => setShow(false)}>Close</Button>
+        <Button onClick={handleCopy} primary>
+          Copy
+        </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Share;

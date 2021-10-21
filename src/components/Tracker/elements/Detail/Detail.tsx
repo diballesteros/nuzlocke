@@ -1,27 +1,28 @@
-import React, { useCallback, useState } from 'react';
+import { ABILITIES, ITEMS } from '@smogon/calc';
+import { useCallback, useState } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import useStore from 'store';
-import { Gender, TEncounter } from 'constants/types';
-import { GENDERS } from 'constants/constant';
-import POKEMON from 'constants/pokemon';
-import NATURES from 'constants/natures';
 import { MoveSelector, Natures, PokemonType } from 'components';
+import { GENDERS } from 'constants/constant';
+import NATURES from 'constants/natures';
+import { POKEMAP } from 'constants/pokemon';
+import { Gender, TEncounter } from 'constants/types';
+import useStore from 'store';
 import styles from './Detail.module.scss';
 
 interface DetailProps {
   encounter?: TEncounter;
 }
 
-const Detail: React.FC<DetailProps> = ({ encounter }) => {
+function Detail({ encounter }: DetailProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
-  const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
+  const foundPokemon = POKEMAP.get(encounter.pokemon);
   const [show, setShow] = useState(false);
   const [level, setLevel] = useState(encounter?.details?.level);
   const [metLevel, setMetLevel] = useState(encounter?.details?.metLevel);
@@ -142,6 +143,7 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
                 aria-label="nature-selector"
                 basic
                 className={styles.dropdown}
+                clearable
                 data-testid="nature"
                 inline
                 lazyLoad
@@ -154,18 +156,38 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
               />
               <Natures />
             </div>
-            <Input
+            <Dropdown
+              aria-label="ability"
+              basic
+              className={styles.dropdown}
+              clearable
               data-testid="ability"
-              label="Ability"
-              onChange={(e) => setAbility(e.target.value)}
-              type="text"
+              inline
+              lazyLoad
+              onChange={(e, data) => setAbility(data.value as unknown as string)}
+              options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+                return { text: smogonAbility, value: smogonAbility };
+              })}
+              placeholder="Select an ability..."
+              search
+              selection
               value={ability ?? ''}
             />
-            <Input
+            <Dropdown
+              aria-label="item"
+              basic
+              className={styles.dropdown}
+              clearable
               data-testid="item"
-              label="Item"
-              onChange={(e) => setItem(e.target.value)}
-              type="text"
+              inline
+              lazyLoad
+              onChange={(e, data) => setItem(data.value as unknown as string)}
+              options={[...new Set(ITEMS[8])].map((smogonItem) => {
+                return { text: smogonItem, value: smogonItem };
+              })}
+              placeholder="Select an item..."
+              search
+              selection
               value={item ?? ''}
             />
           </div>
@@ -219,10 +241,12 @@ const Detail: React.FC<DetailProps> = ({ encounter }) => {
       <Modal.Actions>
         <Button onClick={handleClose}>Close</Button>
         <Button onClick={handleExport}>Export to Builder</Button>
-        <Button onClick={handleSave}>Save</Button>
+        <Button onClick={handleSave} primary>
+          Save
+        </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default Detail;

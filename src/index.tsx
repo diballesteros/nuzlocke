@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'semantic-ui-css/components/button.min.css';
@@ -20,8 +19,8 @@ import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
 import 'semantic-ui-css/components/sidebar.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { BrowserRouter } from 'react-router-dom';
+import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
 import App from './App';

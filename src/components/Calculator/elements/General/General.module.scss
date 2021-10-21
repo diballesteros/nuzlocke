@@ -1,0 +1,35 @@
+.general {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+
+  > div:first-child,
+  .fullColumn {
+    grid-column: 1 / -1;
+  }
+
+  .levelContainer {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: 4px;
+
+    .level {
+      width: 60px;
+      padding: 4px;
+    }
+  }
+
+  .dropdown {
+    min-height: unset !important;
+    > i {
+      top: 0 !important;
+    }
+  }
+
+  .gender {
+    width: 100%;
+    min-width: 125px !important;
+    margin-left: auto;
+  }
+}

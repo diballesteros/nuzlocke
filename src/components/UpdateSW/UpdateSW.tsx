@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react';
+import { useCallback, useLayoutEffect, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import styles from './UpdateSW.module.scss';
 
@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const UpdateSW: React.FC = () => {
+function UpdateSW(): JSX.Element {
   const [waitingServiceWorker, setWaitingServiceWorker] = useState(null);
 
   const setServiceWorker = useCallback(
@@ -47,6 +47,6 @@ const UpdateSW: React.FC = () => {
       )}
     </>
   );
-};
+}
 
 export default UpdateSW;

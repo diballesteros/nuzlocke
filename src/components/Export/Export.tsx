@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { useCallback } from 'react';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 
-const Export: React.FC = () => {
+function Export(): JSX.Element {
   const team = useStore(useCallback((state) => state.team, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
@@ -36,6 +36,6 @@ const Export: React.FC = () => {
       Export
     </Menu.Item>
   );
-};
+}
 
 export default Export;

@@ -7,6 +7,7 @@ import bolt from 'assets/img/badges/bolt.png';
 import boulder from 'assets/img/badges/boulder.png';
 import bug from 'assets/img/badges/bug.png';
 import cascade from 'assets/img/badges/cascade.png';
+import champion from 'assets/img/badges/champion.png';
 import cliff from 'assets/img/badges/cliff.png';
 import coal from 'assets/img/badges/coal.png';
 import cobble from 'assets/img/badges/cobble.png';
@@ -73,7 +74,6 @@ import voltage from 'assets/img/badges/voltage.png';
 import water from 'assets/img/badges/water.png';
 import wave from 'assets/img/badges/wave.png';
 import zephyr from 'assets/img/badges/zephyr.png';
-import champion from 'assets/img/badges/champion.png';
 
 const BADGES: TBadgeDictionary = {
   '1': [

@@ -1,20 +1,19 @@
-import React from 'react';
-import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
-import kofi from 'assets/img/kofi2.png';
-import google from 'assets/img/google-play-badge.png';
-import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import { Page } from 'common';
+import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
+import google from 'assets/img/google-play-badge.png';
+import kofi from 'assets/img/kofi2.png';
+import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
-const About: React.FC = () => {
+function About(): JSX.Element {
   return (
     <Page header="About">
       <div className={styles.about}>
         <p>
           Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving
           this app in our free time. If you like the app please rate it in the Microsoft Store,
-          Google Play or the Amazon Appstore. Also, check out ways to <b>optionally</b> support the
-          app below.
+          Google Play or the Amazon Appstore. To <b>optionally</b> support the app check out the{' '}
+          <em>Buy me a Coffee link</em> below
         </p>
         <h3>Credits:</h3>
         <ul className={styles.credits}>
@@ -103,14 +102,6 @@ const About: React.FC = () => {
           <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
             <img style={{ border: 0, height: 36 }} src={kofi} alt="Buy Me a Coffee at ko-fi.com" />
           </a>
-          <a
-            className={styles.patron}
-            href="https://www.patreon.com/bePatron?u=60585540"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Become a Patron!
-          </a>
         </div>
         <div className={styles.stores}>
           <a
@@ -140,6 +131,6 @@ const About: React.FC = () => {
       </div>
     </Page>
   );
-};
+}
 
 export default About;

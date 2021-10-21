@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { useHistory } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import { POKEMAP } from 'constants/pokemon';
+import useStore from 'store';
 import styles from './Options.module.scss';
 
-const Options: React.FC = React.memo(() => {
+const Options = React.memo(function Options() {
   const history = useHistory();
   const text = useStore(useCallback((state) => state.text, []));
   const search = useStore(useCallback((state) => state.search, []));
@@ -52,7 +52,7 @@ const Options: React.FC = React.memo(() => {
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
             (str, enc, i) => {
-              const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+              const foundPokemon = POKEMAP.get(enc.pokemon);
               return `${str}
       ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
             },

@@ -2,29 +2,32 @@ import React, { useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { Filter, PokemonType } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
 import useFilter from 'hooks/useFilter';
-import { TYPE_COLOR } from 'constants/colors';
-import { Filter, PokemonType } from 'components';
-import styles from './PokemonSelector.module.scss';
+import styles from 'assets/styles/Selector.module.scss';
 
 interface PokemonSelectorProps {
   children: React.ReactNode;
   filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
+  limitGen?: number;
 }
 
-const PokemonSelector: React.FC<PokemonSelectorProps> = ({
+function PokemonSelector({
   children,
   filter = false,
   handlePokemon,
-}) => {
+  limitGen,
+}: PokemonSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const filteredPokemon = POKEMON.filter(
     (p) =>
       (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
       p.text.toUpperCase().includes(values.search) &&
+      (!!limitGen ? p.generation <= limitGen : true) &&
       (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
       (values.types.length > 0
         ? values.types.includes(p.type) || values.types.includes(p?.dualtype)
@@ -74,7 +77,7 @@ const PokemonSelector: React.FC<PokemonSelectorProps> = ({
       }
     >
       <Modal.Content className={styles.content}>
-        <Filter values={values} />
+        <Filter hideGen={!!limitGen} values={values} />
         <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
           {renderRow}
         </FixedSizeList>
@@ -84,6 +87,6 @@ const PokemonSelector: React.FC<PokemonSelectorProps> = ({
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default PokemonSelector;

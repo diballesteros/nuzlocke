@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import { GENERATIONS, TYPES } from 'constants/constant';
 import { TYPE_COLOR } from 'constants/colors';
+import { GENERATIONS, TYPES } from 'constants/constant';
 import { TFilter } from 'hooks/useFilter';
 import styles from './Filter.module.scss';
 
 interface FilterProps {
-  values: TFilter;
   darkMode?: boolean;
+  hideGen?: boolean;
+  values: TFilter;
 }
 
-const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
+function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX.Element {
   const [show, setShow] = useState(false);
   return (
     <div className={styles.filter}>
@@ -43,22 +44,26 @@ const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
       />
       {show && (
         <div className={styles.popup}>
-          <b>Generations:</b>
-          <div className={styles.buttonRow}>
-            {GENERATIONS.map((gen) => {
-              return (
-                <Button
-                  active={values.gens.includes(gen)}
-                  data-testid={`filter-gen-${gen}`}
-                  key={`filter-gen-${gen}`}
-                  onClick={() => values.setGens(gen)}
-                  toggle
-                >
-                  {gen}
-                </Button>
-              );
-            })}
-          </div>
+          {!hideGen && (
+            <>
+              <b>Generations:</b>
+              <div className={styles.buttonRow}>
+                {GENERATIONS.map((gen) => {
+                  return (
+                    <Button
+                      active={values.gens.includes(gen)}
+                      data-testid={`filter-gen-${gen}`}
+                      key={`filter-gen-${gen}`}
+                      onClick={() => values.setGens(gen)}
+                      toggle
+                    >
+                      {gen}
+                    </Button>
+                  );
+                })}
+              </div>
+            </>
+          )}
           <b>Types:</b>
           <div className={styles.buttonRow}>
             {TYPES.map((type) => {
@@ -80,6 +85,6 @@ const Filter: React.FC<FilterProps> = ({ darkMode = false, values }) => {
       )}
     </div>
   );
-};
+}
 
 export default Filter;

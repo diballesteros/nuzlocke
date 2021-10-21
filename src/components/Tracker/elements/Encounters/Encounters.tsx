@@ -1,19 +1,19 @@
 import React, { useCallback, useMemo, useState } from 'react';
-import shallow from 'zustand/shallow';
 import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import useStore from 'store';
-import POKEMON from 'constants/pokemon';
-import { TYPE_COLOR } from 'constants/colors';
+import shallow from 'zustand/shallow';
 import { Status } from 'components';
 import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
+import { TYPE_COLOR } from 'constants/colors';
+import { POKEMAP } from 'constants/pokemon';
+import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 
-const Encounters: React.FC = React.memo(() => {
+const Encounters = React.memo(function Encounters() {
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -39,7 +39,7 @@ const Encounters: React.FC = React.memo(() => {
   const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
       const upperCase = text?.toUpperCase();
-      const foundPokemon = POKEMON.find((poke) => poke.value === enc.pokemon);
+      const foundPokemon = POKEMAP.get(enc.pokemon);
       return (
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
@@ -71,7 +71,7 @@ const Encounters: React.FC = React.memo(() => {
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredEncounters[index];
-    const foundPokemon = POKEMON.find((poke) => poke.value === encounter.pokemon);
+    const foundPokemon = POKEMAP.get(encounter.pokemon);
     return (
       <div style={style}>
         <div

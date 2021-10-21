@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
+import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import NICKNAMES from 'constants/nicknames';
+import useStore from 'store';
 import styles from './Nickname.module.scss';
 
 interface NicknameProps {
@@ -10,7 +10,7 @@ interface NicknameProps {
   nickname?: string;
 }
 
-const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
+function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
   const changeNickname = useStore((state) => state.changeNickname);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [nick, setNick] = useState(nickname ?? '');
@@ -53,6 +53,6 @@ const Nickname: React.FC<NicknameProps> = ({ encounterId, nickname }) => {
       </Input>
     </label>
   );
-};
+}
 
 export default Nickname;

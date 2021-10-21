@@ -1,6 +1,8 @@
+import { Redirect, Route, Switch } from 'react-router-dom';
 import {
   About,
   Builder,
+  Calculator,
   Changelog,
   Import,
   Pokestats,
@@ -11,10 +13,8 @@ import {
 } from 'components';
 import { BadgePage } from 'components/Badges/elements';
 import ErrorBoundary from 'error/ErrorBoundary';
-import React from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
 
-const AppRouter: React.FC = () => {
+function AppRouter(): JSX.Element {
   return (
     <Switch>
       <Route exact path="/">
@@ -35,6 +35,11 @@ const AppRouter: React.FC = () => {
       <Route path="/builder">
         <ErrorBoundary>
           <Builder />
+        </ErrorBoundary>
+      </Route>
+      <Route path="/calculator">
+        <ErrorBoundary>
+          <Calculator />
         </ErrorBoundary>
       </Route>
       <Route path="/settings">
@@ -70,6 +75,6 @@ const AppRouter: React.FC = () => {
       <Redirect to="/" />
     </Switch>
   );
-};
+}
 
 export default AppRouter;

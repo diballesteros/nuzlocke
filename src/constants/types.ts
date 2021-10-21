@@ -1,5 +1,9 @@
+import { GenerationNum } from '@smogon/calc';
+import { StatusName } from '@smogon/calc/dist/data/interface';
+
 export interface AppState {
   badges: TBadgeDictionary;
+  calcs: TCalcDictionary;
   darkMode: boolean;
   duplicates: boolean;
   games: Games;
@@ -26,7 +30,7 @@ export interface AppState {
     encounterId: number,
     level: number,
     metLevel: number,
-    gender: string,
+    gender: Gender,
     ability: string,
     nature: string,
     item: string,
@@ -64,6 +68,7 @@ export interface AppState {
   search: (text: string) => void;
   selectGame: (game: TGame) => void;
   selectBadge: (badgeIndex: number) => void;
+  setDefaultCalculator: () => void;
   setDefaultSummary: () => void;
   setGens: (genId: number) => void;
   setTypes: (typeId: Type) => void;
@@ -74,6 +79,7 @@ export interface AppState {
   toggleNickname: () => void;
   toggleShowAll: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
+  updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }
 
 declare global {
@@ -117,6 +123,14 @@ export type TTeamDictionary = {
 
 export type TSummaryDictionary = {
   [key: string]: TSummary;
+};
+
+export type TCalcState = {
+  form: TCalculatorForm;
+};
+
+export type TCalcDictionary = {
+  [key: string]: TCalcState;
 };
 
 export type TBadge = {
@@ -262,7 +276,7 @@ export type TMove = {
 export interface PokemonDetail {
   ability?: string;
   faint?: string;
-  gender?: string;
+  gender?: Gender;
   id: number;
   item?: string;
   level: number;
@@ -295,8 +309,102 @@ export type TGenerationEffects = {
   [key: string]: TEffectiveness;
 };
 
-export interface ParseResult<T> {
-  data: T[];
-  errors: unknown[];
-  meta: unknown;
+export interface TCalculatorFields {
+  cannonade: boolean;
+  isAuroraVeil: boolean;
+  isBattery: boolean;
+  isDynamaxed: boolean;
+  isForesight: boolean;
+  isFriendGuard: boolean;
+  isHelpingHand: boolean;
+  isLightScreen: boolean;
+  isProtected: boolean;
+  isReflect: boolean;
+  isSeeded: boolean;
+  isSR: boolean;
+  isSwitching: boolean;
+  isTailwind: boolean;
+  spikes: number;
+  steelsurge: boolean;
+  vinelash: boolean;
+  volcalith: boolean;
+  wildfire: boolean;
 }
+
+export interface TCalculatorMoves {
+  move1_: number;
+  move1_crit: boolean;
+  move1_z: boolean;
+  move2_: number;
+  move2_crit: boolean;
+  move2_z: boolean;
+  move3_: number;
+  move3_crit: boolean;
+  move3_z: boolean;
+  move4_: number;
+  move4_crit: boolean;
+  move4_z: boolean;
+}
+
+interface TCalculatorStats extends TCalculatorFields, TCalculatorMoves {
+  ability: string;
+  currenthp: number;
+  dvatk: number;
+  dvdef: number;
+  dvspc: number;
+  dvspeed: number;
+  evatk: number;
+  evdef: number;
+  evhp: number;
+  evspatk: number;
+  evspdef: number;
+  evspeed: number;
+  gender: Gender;
+  item: string;
+  ivatk: number;
+  ivdef: number;
+  ivhp: number;
+  ivspatk: number;
+  ivspdef: number;
+  ivspeed: number;
+  level: number;
+  modatk: number;
+  moddef: number;
+  modspatk: number;
+  modspdef: number;
+  modspeed: number;
+  pokemon: number;
+  nature: string;
+  status: StatusName | 'none';
+}
+
+type TSplitCalculator<T> = {
+  [Property in keyof T as `${Property & string}${1 | 2}`]: T[Property];
+};
+
+export type TFirstSplit = {
+  [Property in keyof TCalculatorStats as `${Property & string}1`]: TCalculatorStats[Property];
+};
+
+export type TSecondSplit = {
+  [Property in keyof TCalculatorStats as `${Property & string}2`]: TCalculatorStats[Property];
+};
+
+type TCalculatorMain = {
+  calculatorGen: GenerationNum;
+  gameType: 'Singles' | 'Doubles';
+  isGravity: boolean;
+  terrain: 'Electric' | 'Grassy' | 'Misty' | 'Psychic' | 'None';
+  weather:
+    | 'None'
+    | 'Hail'
+    | 'Harsh Sunshine'
+    | 'Heavy Rain'
+    | 'Rain'
+    | 'Sand'
+    | 'Strong Winds'
+    | 'Sun'
+    | undefined;
+};
+
+export type TCalculatorForm = TSplitCalculator<TCalculatorStats> & TCalculatorMain;

@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -6,7 +6,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from './AddGame.module.scss';
 
-const AddGame: React.FC = () => {
+function AddGame(): JSX.Element {
   const [open, setOpen] = useState(false);
   const [gameName, setGameName] = useState('');
   const addGame = useStore(useCallback((state) => state.addGame, []));
@@ -51,12 +51,12 @@ const AddGame: React.FC = () => {
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>Cancel</Button>
-        <Button disabled={gameName?.length === 0} onClick={handleAdd}>
+        <Button disabled={gameName?.length === 0} onClick={handleAdd} primary>
           Save
         </Button>
       </Modal.Actions>
     </Modal>
   );
-};
+}
 
 export default AddGame;

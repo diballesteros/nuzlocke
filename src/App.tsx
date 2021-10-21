@@ -1,19 +1,19 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { NavLink, useHistory } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
-import useStore from 'store';
-import AppRouter from 'routes/AppRouter';
 import { AddGame, Effectiveness, Export, Footer } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
+import AppRouter from 'routes/AppRouter';
+import useStore from 'store';
 import styles from './App.module.scss';
 
-const App: React.FC = () => {
+function App(): JSX.Element {
   const history = useHistory();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const newVersion = useStore(useCallback((state) => state.newVersion, []));
@@ -30,6 +30,7 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--header', '#1b1c1d');
       document.documentElement.style.setProperty('--card', '#424242');
       document.documentElement.style.setProperty('--badge', '#C395FE');
+      document.documentElement.style.setProperty('--badgeopac', '#C395FE50');
       document.documentElement.style.setProperty('--badgeflash', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#212121');
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
@@ -39,6 +40,7 @@ const App: React.FC = () => {
       document.documentElement.style.setProperty('--card', '#ffffff');
       document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
       document.documentElement.style.setProperty('--badge', '#D46A6A');
+      document.documentElement.style.setProperty('--badgeopac', '#D46A6A50');
       document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
       document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
       document.documentElement.style.setProperty('--contrast', '#333333');
@@ -153,6 +155,10 @@ const App: React.FC = () => {
             <Icon name="gavel" />
             Builder
           </Menu.Item>
+          <Menu.Item data-testid="calculator" onClick={() => handleRoute('/calculator')}>
+            <Icon name="calculator" />
+            Damage Calculator
+          </Menu.Item>
           <Menu.Item onClick={() => handleRoute('/settings')}>
             Settings
             <Icon name="wrench" />
@@ -193,6 +199,9 @@ const App: React.FC = () => {
               <NavLink activeClassName={styles.activeLink} exact to="/builder">
                 <Icon name="gavel" /> <span>Builder</span>
               </NavLink>
+              <NavLink activeClassName={styles.activeLink} exact to="/calculator">
+                <Icon name="calculator" /> <span>Calculator</span>
+              </NavLink>
             </nav>
             <div className={styles.mainContent}>
               <AppRouter />
@@ -211,6 +220,6 @@ const App: React.FC = () => {
       />
     </div>
   );
-};
+}
 
 export default App;

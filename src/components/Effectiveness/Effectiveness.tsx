@@ -2,12 +2,12 @@ import React from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
-import useStore from 'store';
-import EFFECTIVENESS from 'constants/effectiveness';
 import { Type } from 'components';
+import EFFECTIVENESS from 'constants/effectiveness';
+import useStore from 'store';
 import styles from './Effectiveness.module.scss';
 
-const Effectiveness: React.FC = React.memo(() => {
+const Effectiveness = React.memo(function Effectiveness() {
   const typeModal = useStore((state) => state.typeModal);
   const closeTypeModal = useStore((state) => state.closeTypeModal);
 

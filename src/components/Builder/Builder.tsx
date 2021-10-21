@@ -1,12 +1,12 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import useStore from 'store';
-import { Member } from 'components';
 import { PokemonSelector } from 'common';
+import { Member } from 'components';
+import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Builder.module.scss';
 
-const Builder: React.FC = () => {
+function Builder(): JSX.Element {
   const team = useStore(
     useCallback(
       (state) => (state?.selectedGame?.value ? state.team[state?.selectedGame?.value] : null),
@@ -50,6 +50,6 @@ const Builder: React.FC = () => {
       )}
     </div>
   );
-};
+}
 
 export default Builder;

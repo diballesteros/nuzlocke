@@ -1,14 +1,14 @@
-import React, { useCallback, useRef } from 'react';
+import { toBlob, toPng } from 'html-to-image';
+import { useCallback, useRef } from 'react';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import { toPng, toBlob } from 'html-to-image';
-import useStore from 'store';
 import shallow from 'zustand/shallow';
 import { DisplaySettings, Image } from 'components/Pokestats/elements';
+import useStore from 'store';
 import styles from './Summary.module.scss';
 
-const Summary: React.FC = () => {
+function Summary(): JSX.Element {
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -82,6 +82,6 @@ const Summary: React.FC = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Summary;

@@ -1,16 +1,19 @@
-import D_P_PLAT from 'constants/locations/D_P_PLAT';
-import FR_LG from 'constants/locations/FR_LG';
-import R_B_Y from 'constants/locations/R_B_Y';
-import G_S_C from 'constants/locations/G_S_C';
-import HG_SS from 'constants/locations/HG_SS';
-import R_S_E from 'constants/locations/R_S_E';
-import OR_AS from 'constants/locations/OR_AS';
+import { GenerationNum } from '@smogon/calc';
+import BADGES from 'constants/badges';
+import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';
 import B_W_2 from 'constants/locations/B_W_2';
-import X_Y from 'constants/locations/X_Y';
-import SW_SH from 'constants/locations/SW_SH';
+import D_P_PLAT from 'constants/locations/D_P_PLAT';
+import FR_LG from 'constants/locations/FR_LG';
+import G_S_C from 'constants/locations/G_S_C';
+import HG_SS from 'constants/locations/HG_SS';
+import OR_AS from 'constants/locations/OR_AS';
+import R_B_Y from 'constants/locations/R_B_Y';
+import R_S_E from 'constants/locations/R_S_E';
 import S_M from 'constants/locations/S_M';
+import SW_SH from 'constants/locations/SW_SH';
 import US_UM from 'constants/locations/US_UM';
+import X_Y from 'constants/locations/X_Y';
 import {
   AppState,
   TEncounter,
@@ -21,7 +24,6 @@ import {
   TRulesetDictionary,
   Type,
 } from 'constants/types';
-import BADGES from 'constants/badges';
 
 export const GAMES: TGame[] = [
   {
@@ -185,8 +187,65 @@ export const INITIAL_SUMMARY = {
   title: 'Nuzlocke Run',
 };
 
+export const GAME_GENERATION: Record<string, GenerationNum> = {
+  '1': 1,
+  '2': 2,
+  '3': 3,
+  '4': 3,
+  '5': 4,
+  '6': 4,
+  '7': 5,
+  '8': 5,
+  '9': 6,
+  '10': 6,
+  '11': 7,
+  '12': 7,
+  '13': 8,
+};
+
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
+  calcs: {
+    '1': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['1'], pokemon1: 1, pokemon2: 1 },
+    },
+    '2': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['2'], pokemon1: 1, pokemon2: 1 },
+    },
+    '3': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['3'], pokemon1: 1, pokemon2: 1 },
+    },
+    '4': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['4'], pokemon1: 1, pokemon2: 1 },
+    },
+    '5': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['5'], pokemon1: 1, pokemon2: 1 },
+    },
+    '6': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['6'], pokemon1: 1, pokemon2: 1 },
+    },
+    '7': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['7'], pokemon1: 1, pokemon2: 1 },
+    },
+    '8': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['8'], pokemon1: 1, pokemon2: 1 },
+    },
+    '9': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['9'], pokemon1: 1, pokemon2: 1 },
+    },
+    '10': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['10'], pokemon1: 1, pokemon2: 1 },
+    },
+    '11': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['11'], pokemon1: 1, pokemon2: 1 },
+    },
+    '12': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['12'], pokemon1: 1, pokemon2: 1 },
+    },
+    '13': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['13'], pokemon1: 1, pokemon2: 1 },
+    },
+  },
   darkMode: false,
   duplicates: false,
   games: {
@@ -319,6 +378,17 @@ export const SUM_STATUS = [
 ];
 
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
+
+export const GENERATION_SELECT = [
+  { key: '1', text: '1', value: 1 },
+  { key: '2', text: '2', value: 2 },
+  { key: '3', text: '3', value: 3 },
+  { key: '4', text: '4', value: 4 },
+  { key: '5', text: '5', value: 5 },
+  { key: '6', text: '6', value: 6 },
+  { key: '7', text: '7', value: 7 },
+  { key: '8', text: '8', value: 8 },
+];
 
 export const TYPES: Type[] = [
   'NORMAL',

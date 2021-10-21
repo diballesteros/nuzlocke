@@ -1,8 +1,8 @@
 import React from 'react';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import useStore from 'store';
 import STATUSES from 'constants/status';
 import { TStatus } from 'constants/types';
+import useStore from 'store';
 import styles from './Status.module.scss';
 
 interface StatusProps {
@@ -10,7 +10,7 @@ interface StatusProps {
   status: TStatus;
 }
 
-const Status: React.FC<StatusProps> = React.memo(({ encounterId, status }) => {
+const Status = React.memo(function Status({ encounterId, status }: StatusProps) {
   const changeStatus = useStore((state) => state.changeStatus);
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
     const foundStatus = STATUSES.find((stat) => stat.value === data.value);

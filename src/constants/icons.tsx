@@ -1,4 +1,3 @@
-import React from 'react';
 import { TypeIcon } from 'constants/types';
 import { ReactComponent as BugSVG } from 'assets/svg/bug.svg';
 import { ReactComponent as DarkSVG } from 'assets/svg/dark.svg';

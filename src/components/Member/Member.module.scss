@@ -34,7 +34,7 @@
 .details {
   display: flex;
   flex-flow: column nowrap;
-  gap: 5px;
+  gap: 8px;
   height: 0px;
   padding: 0px;
   width: 100%;
@@ -42,13 +42,17 @@
   clip-path: inset(0);
 
   &.open {
-    height: 330px;
+    height: 351px;
     padding: 10px;
     clip-path: inset(-100vh, -100vw);
   }
 
   .dropdown {
     min-height: unset !important;
+
+    &.nature {
+      margin-right: 6px;
+    }
     > i {
       top: 0 !important;
     }
