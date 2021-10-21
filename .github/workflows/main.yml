@@ -35,7 +35,7 @@ jobs:
         run: yarn install
 
       - name: 🃏 Run Jest
-        run: yarn test --ci --coverage --coverageDirectory=.nyc_output
+        run: yarn test --ci --coverage
 
       - name: ✅ Upload coverage to Codecov
         uses: codecov/codecov-action@v2

@@ -16,6 +16,14 @@
       "src/error/ErrorBoundary.tsx"
     ]
   },
+  "jest": {
+    "testpathIgnorePatterns": [
+      "<rootDir>/src/service-worker.ts",
+      "<rootDir>/src/serviceWorkerRegistration.ts",
+      "<rootDir>/components/UpdateSW/UpdateSW.tsx",
+      "<rootDir>/src/index.tsx"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@smogon/calc": "^0.6.0",
