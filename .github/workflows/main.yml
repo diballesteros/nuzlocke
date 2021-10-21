@@ -27,7 +27,6 @@ jobs:
   Jest:
     timeout-minutes: 5
     runs-on: ubuntu-latest
-    needs: install
     strategy:
       fail-fast: false
       matrix:
@@ -36,11 +35,8 @@ jobs:
       - name: 🛫 Checkout
         uses: actions/checkout@v2
 
-      - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v2
-        with:
-          name: build
-          path: build
+      - name: 🎓 Install dependencies
+        run: yarn install
 
       - name: 🃏 Run Jest
         run: yarn test --coverage
