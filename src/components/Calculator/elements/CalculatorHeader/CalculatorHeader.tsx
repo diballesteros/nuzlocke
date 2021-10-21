@@ -15,7 +15,7 @@ interface CalculatorHeaderProps {
   form: UseFormReturn<TCalculatorForm, object>;
 }
 
-export function getDesc(result: Result) {
+export function getDesc(result: Result): string {
   try {
     return result?.fullDesc() || 'No move selected';
   } catch (e) {
