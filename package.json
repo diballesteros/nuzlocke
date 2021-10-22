@@ -12,15 +12,14 @@
       "src/serviceWorker.ts",
       "src/serviceWorkerRegistration.ts",
       "src/components/UpdateSW/UpdateSW.tsx",
-      "src/index.tsx",
-      "src/error/ErrorBoundary.tsx"
+      "src/index.tsx"
     ]
   },
   "jest": {
     "coveragePathIgnorePatterns": [
       "<rootDir>/src/service-worker.ts",
       "<rootDir>/src/serviceWorkerRegistration.ts",
-      "<rootDir>/components/UpdateSW/UpdateSW.tsx",
+      "<rootDir>/src/components/UpdateSW/UpdateSW.tsx",
       "<rootDir>/src/index.tsx"
     ]
   },

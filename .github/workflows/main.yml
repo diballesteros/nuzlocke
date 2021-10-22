@@ -24,7 +24,7 @@ jobs:
           if-no-files-found: error
           path: build
 
-  Jest:
+  Jest-Lint:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
@@ -33,6 +33,9 @@ jobs:
 
       - name: 🎓 Install dependencies
         run: yarn install
+
+      - name: 🧹 Run linting
+        run: yarn lint
 
       - name: 🃏 Run Jest
         run: yarn test --ci --coverage

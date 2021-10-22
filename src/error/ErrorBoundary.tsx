@@ -21,6 +21,7 @@ class ErrorBoundary extends Component {
     if (this.state.hasError) {
       return (
         <main
+          data-testid="errorboundary"
           style={{
             display: 'flex',
             flexFlow: 'column nowrap',
