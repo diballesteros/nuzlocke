@@ -17,7 +17,7 @@
     ]
   },
   "jest": {
-    "testpathIgnorePatterns": [
+    "coveragePathIgnorePatterns": [
       "<rootDir>/src/service-worker.ts",
       "<rootDir>/src/serviceWorkerRegistration.ts",
       "<rootDir>/components/UpdateSW/UpdateSW.tsx",
