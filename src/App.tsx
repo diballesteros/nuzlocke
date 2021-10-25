@@ -26,6 +26,17 @@ function App(): JSX.Element {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    if (window?.matchMedia('(prefers-color-scheme:dark)')?.matches) {
+      useStore.setState((state) => {
+        state.darkMode = true;
+      });
+    } else {
+      useStore.setState((state) => {
+        state.darkMode = false;
+      });
+    }
+  }, []);
+  useEffect(() => {
     if (darkMode) {
       document.documentElement.style.setProperty('--header', '#1b1c1d');
       document.documentElement.style.setProperty('--card', '#424242');
