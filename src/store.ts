@@ -254,6 +254,14 @@ const useStore = create<AppState>(
             state.team[state?.selectedGame?.value] = [detail];
           }
         }),
+      exportToGame: (encounter: TEncounter, game: string, location: string) =>
+        set((state) => {
+          state.games[game].encounters.unshift({
+            ...encounter,
+            id: new Date().getTime(),
+            location,
+          });
+        }),
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
           state.games = newAppState.games;

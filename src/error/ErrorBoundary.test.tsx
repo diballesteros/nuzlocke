@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { render, screen } from '@testing-library/react';
 import ErrorBoundary from './ErrorBoundary';
 import '@testing-library/jest-dom';
@@ -8,9 +9,9 @@ describe('Error Boundary', () => {
       throw new Error('Test');
     };
     render(
-      <ErrorBoundary>
+      <Sentry.ErrorBoundary fallback={<ErrorBoundary />}>
         <ThrowError />
-      </ErrorBoundary>
+      </Sentry.ErrorBoundary>
     );
 
     expect(screen.getByTestId('errorboundary')).toBeVisible();
