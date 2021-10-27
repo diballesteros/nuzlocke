@@ -26,7 +26,6 @@ describe('Options', () => {
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.contains('DUPE').should('exist');
     cy.contains('Duplicate pokémon are not allowed').should('exist');
-    cy.scrollTo('top');
     cy.contains('Starter').should('exist');
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
