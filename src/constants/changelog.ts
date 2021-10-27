@@ -3,11 +3,11 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.11.0',
-    date: 1635122710463,
+    date: 1635333468470,
     notes: [
       {
         description:
-          'Added button to export pokémon to different game. Can be found in the pokémon details popup',
+          'Added button to export pokémon to different game (useful for genlockes!). Can be found in the pokémon details popup',
         type: 'FEATURE',
       },
       {
@@ -17,6 +17,10 @@ const CHANGELOG: TReleaseNotes = [
       },
       {
         description: 'Style fixes for moves in stats tab on smaller screens',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Amaura to Ambrette Town encounter in X and Y',
         type: 'FIX',
       },
       {

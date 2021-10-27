@@ -6730,7 +6730,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Tirtouga',
     'Archen',
     'Tyrunt',
-    'Armaura',
+    'Amaura',
     'Magikarp',
     'Eevee',
   ],

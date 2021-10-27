@@ -131,7 +131,7 @@ function About(): JSX.Element {
         </div>
         <div className={styles.socials}>
           <a
-            className={styles.github}
+            className={styles.socialButton}
             data-show-count="false"
             href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
             rel="noopener noreferrer"
@@ -141,7 +141,7 @@ function About(): JSX.Element {
             <span>Follow</span>
           </a>
           <a
-            className={styles.github}
+            className={styles.socialButton}
             href="https://github.com/diballesteros/nuzlocke/"
             rel="noopener noreferrer"
             target="_blank"

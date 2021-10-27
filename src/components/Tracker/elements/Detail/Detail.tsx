@@ -85,8 +85,11 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   };
 
   const handleGameExport = (game: string) => {
-    exportToGame(encounter, game, `From ${selectedGame?.text} - ${new Date().toLocaleString()}`);
-    toast.success('Pokémon successfully exported');
+    if (game !== selectedGame?.value) {
+      exportToGame(encounter, game, `From ${selectedGame?.text} - ${new Date().toLocaleString()}`);
+      handleClose();
+      toast.success('Pokémon successfully exported');
+    }
   };
 
   return (
@@ -254,8 +257,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
           data-testid="export-to-game"
           onChange={(e, data) => handleGameExport(data.value as string)}
           options={gamesList}
-          text="Export to Game"
-          value={null}
+          text="Export to game and close"
+          value={selectedGame?.value}
         />
         <Button onClick={handleSave} primary>
           Save

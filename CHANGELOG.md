@@ -1,5 +1,7 @@
 ## Version 3.11.0
 
+🚀 New features
+
 - Added button to export pokémon to different game. Can be found in the pokémon details popup
 
 💅 Enhancement
@@ -11,6 +13,7 @@
 
 - Style fixes for moves in stats tab on smaller screens
 - Show all toggle should no longer appear on top of the field settings in the calculator
+- Added Amaura to Ambrette Town Encounter in X and Y
 
 🏠 Internal
 
