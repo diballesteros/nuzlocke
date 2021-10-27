@@ -39,7 +39,7 @@ export const selectCompletion = (state: AppState): number => {
   const encountered = state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
     return enc.pokemon && enc.status;
   });
-  return !!encountered?.length
+  return encountered?.length
     ? encountered?.length / state?.games[state?.selectedGame?.value]?.encounters?.length
     : 0;
 };

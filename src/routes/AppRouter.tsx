@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import {
   About,
@@ -18,59 +19,59 @@ function AppRouter(): JSX.Element {
   return (
     <Switch>
       <Route exact path="/">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Tracker />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/rules">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Rules />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/stats">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Pokestats />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/builder">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Builder />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/calculator">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Calculator />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/settings">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Settings />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route exact path="/report">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Report />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/changelog">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Changelog />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/about">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <About />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route path="/import">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <Import />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Route exact path="/badgedetail/:game/:badge">
-        <ErrorBoundary>
+        <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
           <BadgePage />
-        </ErrorBoundary>
+        </Sentry.ErrorBoundary>
       </Route>
       <Redirect to="/" />
     </Switch>

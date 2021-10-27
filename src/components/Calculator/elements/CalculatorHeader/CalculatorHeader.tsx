@@ -15,6 +15,17 @@ interface CalculatorHeaderProps {
   form: UseFormReturn<TCalculatorForm, object>;
 }
 
+export function getDesc(result: Result): string {
+  try {
+    return result?.fullDesc() || 'No move selected';
+  } catch (e) {
+    if ((e as Error).message === 'damage[damage.length - 1] === 0.') {
+      return `${result.attacker.name} ${result.move.name} vs ${result.defender.name}: 0 - 0%`;
+    }
+    return 'Invalid calculation';
+  }
+}
+
 function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   const [expanded, setExpanded] = useState(false);
   const [primary, setPrimary] = useState<[position: 'attacker' | 'defender', index: number]>([
@@ -24,17 +35,6 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const { attackerResults, defenderResults } = useCalculate(form.control);
-
-  const getDesc = (result: Result) => {
-    try {
-      return result?.fullDesc() || 'No move selected';
-    } catch (e) {
-      if ((e as Error).message === 'damage[damage.length - 1] === 0.') {
-        return `${result.attacker.name} ${result.move.name} vs ${result.defender.name}: 0 - 0%`;
-      }
-      return 'Invalid calculation';
-    }
-  };
 
   return (
     <div className={styles.header}>

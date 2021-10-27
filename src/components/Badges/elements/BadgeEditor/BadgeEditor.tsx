@@ -90,7 +90,6 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
             data-testid="badge-multiple-default"
             onChange={handleMultiReset}
             options={LEVEL_CAPS[selectedGame?.value]}
-            primary
             text="Set default"
             value={null}
           />

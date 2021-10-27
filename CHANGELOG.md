@@ -1,3 +1,35 @@
+## Version 3.11.0
+
+🚀 New features
+
+- Added button to export pokémon to different game. Can be found in the pokémon details popup
+
+💅 Enhancement
+
+- Improved error tracking for the app. This uses a cookie to track errors and
+  send them to the server
+
+🐛 Bug Fix
+
+- Style fixes for moves in stats tab on smaller screens
+- Show all toggle should no longer appear on top of the field settings in the calculator
+- Added Amaura to Ambrette Town Encounter in X and Y
+
+🏠 Internal
+
+- Added jest code coverage to codecov
+- Added Error Boundary testing
+- Added DeepSource integration
+- Added @sentry/react 6.13.3
+- Added @sentry/tracing 6.13.3
+- Bumped @types/node to 16.11.6
+- Bumped @types/react to 17.0.33
+- Bumped @types/react-router-dom to 5.3.1
+- Bumped @typescript-eslint/eslint-plugin to 5.1.0
+- Bumped @typescript-eslint/eslint-parser to 5.1.0
+- Bumped Cypress to 8.7.0
+- Bumped zustand to 3.6.1
+
 ## Version 3.10.0
 
 🚀 New features

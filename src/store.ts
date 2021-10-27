@@ -254,6 +254,14 @@ const useStore = create<AppState>(
             state.team[state?.selectedGame?.value] = [detail];
           }
         }),
+      exportToGame: (encounter: TEncounter, game: string, location: string) =>
+        set((state) => {
+          state.games[game].encounters.unshift({
+            ...encounter,
+            id: new Date().getTime(),
+            location,
+          });
+        }),
       importState: (newAppState: Partial<AppState>) =>
         set((state) => {
           state.games = newAppState.games;
@@ -283,7 +291,7 @@ const useStore = create<AppState>(
         }),
       resetAll: () =>
         set((state) => {
-          state.games[state.selectedGame?.value].encounters = !!INITIAL_STATE.games[
+          state.games[state.selectedGame?.value].encounters = INITIAL_STATE.games[
             state.selectedGame?.value
           ]?.encounters
             ? INITIAL_STATE.games[state.selectedGame.value].encounters
@@ -391,7 +399,7 @@ const useStore = create<AppState>(
         if (version < 1) {
           Object.keys(gameMigration).forEach((key) => {
             gameMigration[key].encounters.forEach((enc) => {
-              if (!!(enc?.pokemon as unknown as TPokemon)?.value) {
+              if ((enc?.pokemon as unknown as TPokemon)?.value) {
                 enc.pokemon = (enc.pokemon as unknown as TPokemon)?.value || null;
               }
             });
@@ -417,11 +425,11 @@ const useStore = create<AppState>(
         if (version < 3) {
           Object.keys(GAME_KEY_DICTIONARY).forEach((key) => {
             gameMigration[key].encounters.forEach((enc) => {
-              if (!!enc?.filter) {
+              if (enc?.filter) {
                 const newEnc = GAME_KEY_DICTIONARY[key].find(
                   (constEnc) => constEnc.location === enc.location
                 );
-                if (!!newEnc) {
+                if (newEnc) {
                   enc.filterKey = newEnc.filterKey;
                   delete enc.filter;
                 }

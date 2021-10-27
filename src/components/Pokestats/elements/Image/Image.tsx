@@ -67,7 +67,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
 
     games[selectedGame?.value]?.encounters?.forEach((enc) => {
       const foundPokemon = POKEMAP.get(enc.pokemon);
-      if (!!foundPokemon) {
+      if (foundPokemon) {
         TEMP[foundPokemon.type] += 1;
         if (foundPokemon.dualtype) {
           TEMP[foundPokemon.dualtype] += 1;

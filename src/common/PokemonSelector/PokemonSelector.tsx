@@ -27,7 +27,7 @@ function PokemonSelector({
     (p) =>
       (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
       p.text.toUpperCase().includes(values.search) &&
-      (!!limitGen ? p.generation <= limitGen : true) &&
+      (limitGen ? p.generation <= limitGen : true) &&
       (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
       (values.types.length > 0
         ? values.types.includes(p.type) || values.types.includes(p?.dualtype)

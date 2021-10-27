@@ -83,6 +83,7 @@
         padding: 3px 0;
         margin-bottom: 5px;
         border-bottom: 1px solid var(--contrast);
+
         > img {
           height: 80px;
           width: 80px;
@@ -221,10 +222,21 @@
     }
 
     .card {
-      .team .pokemon {
+      .team {
         @media (max-width: 500px) {
           display: flex;
-          flex-flow: row wrap;
+          flex-flow: column nowrap;
+
+          .pokemon {
+            display: grid;
+            grid-template-columns: 80px minmax(0, 1fr);
+            width: 100%;
+            min-width: 0;
+
+            > div:last-child {
+              grid-column: 1 / -1;
+            }
+          }
         }
       }
 

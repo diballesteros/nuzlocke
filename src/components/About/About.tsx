@@ -1,3 +1,4 @@
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { Page } from 'common';
 import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import google from 'assets/img/google-play-badge.png';
@@ -126,6 +127,27 @@ function About(): JSX.Element {
             target="_blank"
           >
             <img alt="Get it on Amazon appstore" src={amazon} />
+          </a>
+        </div>
+        <div className={styles.socials}>
+          <a
+            className={styles.socialButton}
+            data-show-count="false"
+            href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icon name="twitter square" />
+            <span>Follow</span>
+          </a>
+          <a
+            className={styles.socialButton}
+            href="https://github.com/diballesteros/nuzlocke/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Icon name="github" />
+            <span>Source</span>
           </a>
         </div>
       </div>

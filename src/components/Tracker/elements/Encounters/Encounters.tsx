@@ -75,10 +75,10 @@ const Encounters = React.memo(function Encounters() {
     return (
       <div style={style}>
         <div
-          className={`${styles.row} ${!!encounter?.pokemon ? styles.type : ''}`}
+          className={`${styles.row} ${encounter?.pokemon ? styles.type : ''}`}
           data-testid={`encounter-${index}`}
           style={{
-            borderImage: !!encounter?.pokemon
+            borderImage: encounter?.pokemon
               ? `linear-gradient(to left, ${
                   TYPE_COLOR[foundPokemon?.dualtype || foundPokemon?.type]
                 } , ${TYPE_COLOR[foundPokemon.type]}) 1`

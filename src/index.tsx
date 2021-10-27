@@ -1,3 +1,5 @@
+import * as Sentry from '@sentry/react';
+import { Integrations } from '@sentry/tracing';
 import ReactDOM from 'react-dom';
 import './index.css';
 import 'semantic-ui-css/components/button.min.css';
@@ -25,12 +27,21 @@ import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
 import App from './App';
 
+Sentry.init({
+  dsn: !process.env.REACT_APP_DEV
+    ? 'https://de128952c75443f19989c0168eb19905@o1049034.ingest.sentry.io/6030383'
+    : null,
+  integrations: [new Integrations.BrowserTracing()],
+  release: process.env.REACT_APP_VERSION,
+  tracesSampleRate: 0.2,
+});
+
 ReactDOM.render(
   <>
     <BrowserRouter>
-      <ErrorBoundary>
+      <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
         <App />
-      </ErrorBoundary>
+      </Sentry.ErrorBoundary>
     </BrowserRouter>
     <UpdateSW />
   </>,

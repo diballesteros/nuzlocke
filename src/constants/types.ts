@@ -59,6 +59,7 @@ export interface AppState {
   editBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
   exportTeamMember: (detail: PokemonDetail) => void;
+  exportToGame: (encounter: TEncounter, game: string, location: string) => void;
   importState: (newAppState: Partial<AppState>) => void;
   massImport: (encounters: TEncounter[]) => void;
   removeNew: () => void;

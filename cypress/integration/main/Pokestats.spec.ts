@@ -1,4 +1,4 @@
-import { ExtendedNavigator } from '../support/commands';
+import { ExtendedNavigator } from '../../support/commands';
 
 const path = require('path');
 

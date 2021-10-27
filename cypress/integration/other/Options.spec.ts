@@ -26,7 +26,6 @@ describe('Options', () => {
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.contains('DUPE').should('exist');
     cy.contains('Duplicate pokémon are not allowed').should('exist');
-    cy.scrollTo('top');
     cy.contains('Starter').should('exist');
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
@@ -78,6 +77,20 @@ describe('Options', () => {
   it('Dark mode', () => {
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(255, 255, 255)');
     cy.get('[data-testid=darkmode]').click();
+    cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(33, 33, 33)');
+  });
+
+  it('Prefers Dark Mode', () => {
+    cy.visit('/', {
+      onBeforeLoad: (win) => {
+        cy.stub(win, 'matchMedia')
+          .withArgs('(prefers-color-scheme:dark)')
+          .returns({
+            matches: true,
+            addListener: () => {},
+          });
+      },
+    });
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(33, 33, 33)');
   });
 });

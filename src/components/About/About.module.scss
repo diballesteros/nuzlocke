@@ -48,4 +48,36 @@
       height: 52px;
     }
   }
+
+  .socials {
+    display: flex;
+    flex-flow: row wrap;
+    gap: 5px;
+
+    .socialButton {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 48px;
+      padding: 5px;
+      min-height: 26px;
+      font-size: 26px;
+      border: 2px solid #ffffff;
+      border-radius: 4px;
+      color: #ffffff;
+      position: relative;
+      > i {
+        padding-top: 2px;
+      }
+      &:hover {
+        background-color: #ffffff;
+        color: black;
+      }
+
+      > span {
+        bottom: -5px;
+        font-size: 12px;
+      }
+    }
+  }
 }

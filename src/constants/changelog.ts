@@ -2,6 +2,35 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.11.0',
+    date: 1635333468470,
+    notes: [
+      {
+        description:
+          'Added button to export pokémon to different game (useful for genlockes!). Can be found in the pokémon details popup',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Improved error tracking for the app. This uses a cookie to track errors and send them to the server',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Style fixes for moves in stats tab on smaller screens',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Amaura to Ambrette Town encounter in X and Y',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Show all toggle should no longer appear on top of the field settings in the calculator',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.10.0',
     date: 1634784076107,
     notes: [

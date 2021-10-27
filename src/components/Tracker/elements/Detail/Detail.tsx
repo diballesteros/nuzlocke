@@ -22,6 +22,9 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
+  const exportToGame = useStore(useCallback((state) => state.exportToGame, []));
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const gamesList = useStore(useCallback((state) => state.gamesList, []));
   const foundPokemon = POKEMAP.get(encounter.pokemon);
   const [show, setShow] = useState(false);
   const [level, setLevel] = useState(encounter?.details?.level);
@@ -79,6 +82,14 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       moves: [moveOne, moveTwo, moveThree, moveFour],
     });
     toast.success('Pokémon successfully exported');
+  };
+
+  const handleGameExport = (game: string) => {
+    if (game !== selectedGame?.value) {
+      exportToGame(encounter, game, `From ${selectedGame?.text} - ${new Date().toLocaleString()}`);
+      handleClose();
+      toast.success('Pokémon successfully exported');
+    }
   };
 
   return (
@@ -241,6 +252,14 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       <Modal.Actions>
         <Button onClick={handleClose}>Close</Button>
         <Button onClick={handleExport}>Export to Builder</Button>
+        <Dropdown
+          button
+          data-testid="export-to-game"
+          onChange={(e, data) => handleGameExport(data.value as string)}
+          options={gamesList}
+          text="Export to game and close"
+          value={selectedGame?.value}
+        />
         <Button onClick={handleSave} primary>
           Save
         </Button>

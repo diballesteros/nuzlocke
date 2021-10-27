@@ -2,7 +2,7 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "3.10.0",
+  "version": "3.11.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
@@ -12,12 +12,21 @@
       "src/serviceWorker.ts",
       "src/serviceWorkerRegistration.ts",
       "src/components/UpdateSW/UpdateSW.tsx",
-      "src/index.tsx",
-      "src/error/ErrorBoundary.tsx"
+      "src/index.tsx"
+    ]
+  },
+  "jest": {
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/service-worker.ts",
+      "<rootDir>/src/serviceWorkerRegistration.ts",
+      "<rootDir>/src/components/UpdateSW/UpdateSW.tsx",
+      "<rootDir>/src/index.tsx"
     ]
   },
   "private": true,
   "dependencies": {
+    "@sentry/react": "^6.13.3",
+    "@sentry/tracing": "^6.13.3",
     "@smogon/calc": "^0.6.0",
     "html-to-image": "^1.9.0",
     "immer": "^9.0.6",
@@ -30,7 +39,7 @@
     "react-window": "^1.8.6",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.4",
-    "zustand": "^3.5.14"
+    "zustand": "^3.6.1"
   },
   "scripts": {
     "analyze": "source-map-explorer ''build/static/js/*.js'",
@@ -70,14 +79,14 @@
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.0.2",
     "@types/lodash": "^4.14.176",
-    "@types/node": "^16.11.1",
-    "@types/react": "^17.0.31",
+    "@types/node": "^16.11.6",
+    "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
-    "@types/react-router-dom": "^5.3.1",
+    "@types/react-router-dom": "^5.3.2",
     "@types/react-window": "^1.8.5",
-    "@typescript-eslint/eslint-plugin": "^5.1.0",
-    "@typescript-eslint/parser": "^5.1.0",
-    "cypress": "^8.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.2.0",
+    "@typescript-eslint/parser": "^5.2.0",
+    "cypress": "^8.7.0",
     "cypress-file-upload": "^5.0.8",
     "cypress-localstorage-commands": "^1.5.0",
     "eslint": "7.32.0",

@@ -89,6 +89,18 @@ describe('Encounters', () => {
       .should('have.length', 1);
   });
 
+  it('Export to another game', () => {
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid=export-to-game]').click();
+    cy.get('[data-testid=export-to-game] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Gold, Silver and Crystal').click();
+    cy.contains('From Sword and Shield').should('exist');
+    cy.contains('Scorbunny').should('exist');
+  });
+
   context('Small screens', () => {
     beforeEach(() => {
       cy.viewport('iphone-6+');

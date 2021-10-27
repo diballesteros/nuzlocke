@@ -37,6 +37,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Add and edit custom games and custom encounter locations
 - Search and filter through all encounters - including only missing encounters
 - Export, import and share Nuzlocke runs with others!
+- Fully integrated damage calculator
 - Share, add and edit custom rules and rulesets - including smart rules that alert if they're broken
 - View overview and summary of your nuzlocke run
 - Dupes clause alerts
@@ -64,6 +65,10 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Team Builder:
 
 ![til](https://media.giphy.com/media/dPFBWj43BKMsSLjJSD/giphy.gif)
+
+- Damage Calculator:
+
+![Imgur Image](https://i.imgur.com/XpZfPhg.png)
 
 - Summary Image:
 
@@ -110,6 +115,12 @@ yarn e2e
 ```
 
 In the new window execute any of the \*.spec.ts files.
+
+This will run the unit tests:
+
+```bash
+yarn test
+```
 
 ## Roadmap
 
