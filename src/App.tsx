@@ -7,7 +7,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
-import { AddGame, Effectiveness, Export, Footer } from 'components';
+import { AddGame, Effectiveness, Export } from 'components';
 import { BadgeEditor } from 'components/Badges/elements';
 import AppRouter from 'routes/AppRouter';
 import useStore from 'store';
@@ -26,16 +26,17 @@ function App(): JSX.Element {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (window?.matchMedia('(prefers-color-scheme:dark)')?.matches) {
+    if (
+      newVersion !== process.env.REACT_APP_VERSION &&
+      window?.matchMedia('(prefers-color-scheme:dark)')?.matches
+    ) {
       useStore.setState((state) => {
         state.darkMode = true;
       });
-    } else {
-      useStore.setState((state) => {
-        state.darkMode = false;
-      });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
   useEffect(() => {
     if (darkMode) {
       document.documentElement.style.setProperty('--header', '#1b1c1d');
@@ -220,7 +221,6 @@ function App(): JSX.Element {
           </main>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-      <Footer />
       <Effectiveness />
       <ToastContainer
         limit={3}

@@ -65,6 +65,10 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 ![til](https://media.giphy.com/media/dPFBWj43BKMsSLjJSD/giphy.gif)
 
+- Damage Calculator:
+
+![Imgur Image](https://i.imgur.com/XpZfPhg.png)
+
 - Summary Image:
 
 ![Imgur Image](https://imgur.com/y5uiriQ.jpg)
@@ -110,6 +114,12 @@ yarn e2e
 ```
 
 In the new window execute any of the \*.spec.ts files.
+
+This will run the unit tests:
+
+```bash
+yarn test
+```
 
 ## Roadmap
 
