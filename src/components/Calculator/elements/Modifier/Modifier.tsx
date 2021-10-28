@@ -23,13 +23,13 @@ function Modifier({ control, name }: ModifierProps): JSX.Element {
 
   const decrement = () => {
     if (field.value > -6) {
-      field.onChange(field.value - 1);
+      field.onChange(Number(field.value) - 1);
     }
   };
 
   const increment = () => {
     if (field.value < 6) {
-      field.onChange(field.value + 1);
+      field.onChange(Number(field.value) + 1);
     }
   };
 

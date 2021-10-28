@@ -1,6 +1,5 @@
 import { ExtendedNavigator } from '../../support/commands';
-
-const path = require('path');
+import path = require('path');
 
 describe('PokéStats', () => {
   beforeEach(() => {

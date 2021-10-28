@@ -20,7 +20,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
   const increment = () => {
     const currentLevel = form.getValues(`level${pokemon}`);
     if (currentLevel < 100) {
-      form.setValue(`level${pokemon}`, currentLevel + 1);
+      form.setValue(`level${pokemon}`, Number(currentLevel) + 1);
     }
   };
 
