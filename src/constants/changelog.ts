@@ -2,6 +2,16 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.12.0',
+    date: 1635333468470,
+    notes: [
+      {
+        description: 'Fixed Route 4 encounters for Heart Gold and Soul Silver',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.11.0',
     date: 1635333468470,
     notes: [

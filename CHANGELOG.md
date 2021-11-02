@@ -1,3 +1,9 @@
+## Version 3.12.0
+
+🐛 Bug Fix
+
+- Fixed Route 4 encounters for Heart Gold and Soul Silver
+
 ## Version 3.11.0
 
 🚀 New features
