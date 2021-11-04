@@ -9,6 +9,10 @@ const CHANGELOG: TReleaseNotes = [
         description: 'Fixed Route 4 encounters for Heart Gold and Soul Silver',
         type: 'FIX',
       },
+      {
+        description: 'Fixed typed effectiveness for GRASS and POISON types',
+        type: 'FIX',
+      },
     ],
   },
   {

@@ -3,6 +3,7 @@
 🐛 Bug Fix
 
 - Fixed Route 4 encounters for Heart Gold and Soul Silver
+- Fixed typed effectiveness for GRASS and POISON types
 
 ## Version 3.11.0
 

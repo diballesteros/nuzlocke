@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { Filter, PokemonType } from 'components';
+import { Filter, PokemonType, Suggestion } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
 import useFilter from 'hooks/useFilter';
@@ -78,6 +78,7 @@ function PokemonSelector({
     >
       <Modal.Content className={styles.content}>
         <Filter hideGen={!!limitGen} values={values} />
+        <Suggestion pokemonList={filteredPokemon} />
         <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
           {renderRow}
         </FixedSizeList>
