@@ -3,14 +3,19 @@ import { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 3.12.0',
-    date: 1635333468470,
+    date: 1636149509458,
     notes: [
+      {
+        description:
+          'Encounter suggestions! In encounter lists offensive-minded compliments to your team (Pokemon with the current status of Team) will appear as a suggested encounter at the top of the list. This feature can be turned off in the settings.',
+        type: 'FEATURE',
+      },
       {
         description: 'Fixed Route 4 encounters for Heart Gold and Soul Silver',
         type: 'FIX',
       },
       {
-        description: 'Fixed typed effectiveness for GRASS and POISON types',
+        description: 'Fixed type effectiveness for GRASS and POISON types',
         type: 'FIX',
       },
     ],

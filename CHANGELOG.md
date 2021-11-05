@@ -1,9 +1,28 @@
 ## Version 3.12.0
 
+🚀 New features
+
+- Encounter suggestions! In encounter lists offensive-minded compliments to your team (Pokemon with the current status of Team) will appear as a suggested encounter at the top of the list. This feature can be turned off in the settings.
+
 🐛 Bug Fix
 
 - Fixed Route 4 encounters for Heart Gold and Soul Silver
-- Fixed typed effectiveness for GRASS and POISON types
+- Fixed type effectiveness for GRASS and POISON types
+
+🏠 Internal
+
+- Bumped react-router-dom to 6.0.0
+- Bumped @sentry/react to 16.14.0
+- Bumped @sentry/tracing to 16.14.0
+- Bumped react-hook-form to 7.18.1
+- Bumped react-toastify to 8.1.0
+- Bumped Zustand to 3.6.2
+- Bumped @testing-library/jest-dom to 5.15.0
+- Bumped @types/react to 17.0.34
+- Bumped @types/react-dom to 17.0.11
+- Bumped @typescript-eslint/eslint-plugin to 5.3.0
+- Bumped @typescript-eslint/eslint-parser to 5.3.0
+- Bumped cypress-localstorage-commands to 1.6.0
 
 ## Version 3.11.0
 
