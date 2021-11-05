@@ -21,148 +21,21 @@ describe('PokéStats', () => {
     cy.get('[data-testid=status-tip]').should('exist');
   });
 
-  it('Pokemon counters', () => {
-    cy.get('[data-testid=encounter-0]').click();
-    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
-    cy.contains('Scorbunny').should('exist');
-    cy.get('[data-testid=status-0]').click();
-    cy.get('[data-testid=status-0] > .visible > :nth-child(1)').click();
-
-    cy.get('[data-testid=encounter-1]').click();
-    cy.get('[data-testid=poke-Magikarp]').click({ force: true });
-    cy.get('[data-testid=status-1]').click();
-    cy.get('[data-testid=status-1] > .visible > :nth-child(3)').click();
-
-    cy.get('[data-testid=encounter-2]').click();
-    cy.get('[data-testid=poke-Caterpie]').click({ force: true });
-    cy.get('[data-testid=status-2]').click();
-    cy.get('[data-testid=status-2] > .visible > :nth-child(4)').click();
-
-    cy.get('[data-testid=encounter-3]').click();
-    cy.get('[data-testid="poke-Slowpoke (Galarian)"]').click({ force: true });
-    cy.get('[data-testid=status-3]').click();
-    cy.get('[data-testid=status-3] > .visible > :nth-child(6)').click();
-
-    cy.get('[data-testid=encounter-4]').click();
-    cy.get('[data-testid=poke-Lapras]').click({ force: true });
-    cy.get('[data-testid=status-4]').click();
-    cy.get('[data-testid=status-4] > .visible > :nth-child(2)').click();
-    cy.get('[data-testid=edit-encounter-4]').click();
-    cy.get('[data-testid="cause of fainting"]')
-      .type('Died to crit')
-      .should('have.value', 'Died to crit');
-    cy.get('[data-testid=nature-info]').click();
-    cy.contains('Increased Stat').should('exist');
-    cy.contains('Hardy').should('exist');
-    cy.get('[data-testid=nature-close]').click();
-    cy.get('[data-testid=nature-info]').click();
-    cy.get('.dimmable > :nth-child(8)').click(1, 1);
-    cy.pokemondetail();
-    cy.contains('Save').click();
-
-    cy.get('[data-testid=encounter-5]').click();
-    cy.get('[data-testid=poke-Butterfree]').click({ force: true });
-    cy.get('[data-testid=status-5]').click();
-    cy.get('[data-testid=status-5] > .visible > :nth-child(5)').click();
-
+  it('General Stats Page', () => {
     cy.get('[data-testid=options]').click();
-    cy.contains('Stats').click();
-    cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '4');
-    cy.get('.secondary > :nth-child(4) > .ui').should('have.text', '1');
-    cy.get('.secondary > :nth-child(5) > .ui').should('have.text', '1');
-    cy.get('[alt="Scorbunny"]').should('exist');
-    cy.get('[alt="Magikarp"]').should('exist');
-    cy.get('[alt="Caterpie"]').should('exist');
-    cy.get('[alt="Slowpoke (Galarian)"]').should('exist');
-    cy.get('.secondary > :nth-child(4)').click();
-    cy.get('[alt="Butterfree"]').should('exist');
-    cy.get('.secondary > :nth-child(5)').click();
-    cy.get('[alt="Lapras"]').should('exist').click();
-    cy.contains('Lv. 15').should('exist');
-    cy.contains('Met at: Route 2, at lv. 5').should('exist');
-    cy.contains('Bold nature').should('exist');
-    cy.contains('Arena Trap').should('exist');
-    cy.contains('Item: Black Belt').should('exist');
-    cy.contains('Cause of Fainting: Died to crit').should('exist');
-  });
-
-  it('Team Badge', { scrollBehavior: 'center', viewportWidth: 550 }, () => {
-    cy.get('[data-testid=encounter-0]').click();
-    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
-    cy.contains('Scorbunny').should('exist');
-    cy.get('[data-testid=status-0]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-    cy.get('[data-testid=edit-encounter-0]').click();
-    cy.contains('Save').click();
-
-    cy.get('[data-testid=encounter-1]').click();
-    cy.get('[data-testid=poke-Butterfree]').click();
-    cy.get('[data-testid=status-1]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-    cy.get('[data-testid=edit-encounter-1]').click();
-    cy.get('[data-testid=gender]').click();
-    cy.get('[data-testid=gender] > .visible > :nth-child(1)').click();
-    cy.contains('Save').click();
-
-    cy.get('[data-testid=encounter-2]').click();
-    cy.get('[data-testid=poke-Hoothoot]').click();
-    cy.get('[data-testid=status-2]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-    cy.get('[data-testid=edit-encounter-2]').click();
-    cy.get('[data-testid=gender]').click();
-    cy.get('[data-testid=gender] > .visible > :nth-child(3)').click();
-    cy.contains('Save').click();
-
+    cy.get('[data-testid=import]').click();
+    cy.get('[data-testid=import-file-input]').attachFile('Team.json', { force: true });
+    cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
-    cy.contains('Stats').click();
-    cy.get('.secondary > :nth-child(2) > .ui').click();
+    cy.get('[data-testid=stats]').click();
 
-    cy.get('[data-testid=team-0]').click();
-    cy.contains('Met at: Starter').should('exist');
-    cy.get('[data-testid=team-1]').click();
-    cy.contains('Slumbering Weald').should('exist');
-    cy.get('[data-testid=team-2]').click();
-    cy.contains('Route 1').should('exist');
-  });
-
-  it('Summary Page', { scrollBehavior: 'center', viewportWidth: 550 }, () => {
-    cy.get('[data-testid=encounter-0]').click();
-    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
-    cy.contains('Scorbunny').should('exist');
-    cy.get('[data-testid=status-0]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-    cy.get('[data-testid=edit-encounter-0]').click();
-    cy.contains('Close').click();
-    cy.get('[data-testid=edit-encounter-0]').click();
-    cy.pokemondetail();
-    cy.contains('Save').click();
-
-    cy.get('[data-testid=pokemon-1]').click();
-    cy.get('[data-testid=poke-Magikarp]').click({ force: true });
-    cy.contains('Magikarp').should('exist');
-    cy.get('[data-testid=status-1]').click();
-    cy.get('[data-testid=status-1] > .visible > :nth-child(1)').click();
-
-    cy.get('[data-testid=pokemon-2]').click();
-    cy.get('[data-testid=poke-Caterpie]').click({ force: true });
-    cy.contains('Magikarp').should('exist');
-    cy.get('[data-testid=status-2]').click();
-    cy.get('[data-testid=status-2] > .visible > :nth-child(2)').click();
-
-    cy.get('[data-testid=options]').click();
-    cy.contains('Stats').click();
-    cy.contains('8%').should('exist');
+    cy.contains('18%').should('exist');
     cy.contains('Pound').should('exist');
     cy.contains('Karate Chop').should('exist');
     cy.contains('Surf').should('exist');
-    cy.contains('Scorbunny').should('exist');
+    cy.contains('Vulpix').should('exist');
     cy.get('[data-testid=image-box-0-true]').should('exist');
     cy.get('[data-testid=image-fainted-0-true]').should('exist');
-
     cy.get('[data-testid=display-settings]').click();
     cy.get(':nth-child(1) > summary').click();
     cy.get('[data-testid=summary-title] > input')
@@ -193,6 +66,27 @@ describe('PokéStats', () => {
     cy.contains('FAINTED').should('not.exist');
     cy.contains('RULES').should('not.exist');
     cy.contains('Summary description').should('exist');
+
+    cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '5');
+    cy.get('.secondary > :nth-child(4) > .ui').should('have.text', '1');
+    cy.get('.secondary > :nth-child(5) > .ui').should('have.text', '1');
+    cy.get('[alt="Scorbunny"]').should('exist');
+    cy.get('[alt="Magikarp"]').should('exist');
+    cy.get('[alt="Caterpie"]').should('exist');
+    cy.get('[alt="Slowpoke (Galarian)"]').should('exist');
+    cy.get('.secondary > :nth-child(4)').click();
+    cy.get('[alt="Butterfree"]').should('exist');
+    cy.get('.secondary > :nth-child(5)').click();
+    cy.get('[alt="Lapras"]').should('exist').click();
+    cy.contains('Lv. 15').should('exist');
+    cy.contains('Met at: Route 2, at lv. 5').should('exist');
+    cy.contains('Bold nature').should('exist');
+    cy.contains('Arena Trap').should('exist');
+    cy.contains('Item: Black Belt').should('exist');
+    cy.contains('Cause of Fainting: Died to crit').should('exist');
+    cy.get('.secondary > :nth-child(2)').click();
+    cy.get('[data-testid=team-6]').click();
+    cy.contains('Wild Area: Dappled Grove').should('exist');
   });
 
   it('Download Image', { browser: '!firefox' }, () => {

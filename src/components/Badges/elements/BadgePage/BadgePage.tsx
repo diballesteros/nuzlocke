@@ -1,5 +1,5 @@
 import { ReactText, useCallback, useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Page } from 'common';
 import { BadgeDetail } from 'components/Badges/elements';
@@ -8,8 +8,8 @@ import useStore from 'store';
 import styles from './BadgePage.module.scss';
 
 function BadgePage(): JSX.Element {
-  const history = useHistory();
-  const { badge, game } = useParams<{ game: string; badge: string }>();
+  const navigate = useNavigate();
+  const { badge, game } = useParams();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const [tab, setTab] = useState(0);
 
@@ -20,15 +20,15 @@ function BadgePage(): JSX.Element {
 
   useEffect(() => {
     if (selectedGame?.value !== game) {
-      history.push('/');
+      navigate('/');
     }
-  }, [game, history, selectedGame]);
+  }, [game, navigate, selectedGame]);
 
   useEffect(() => {
     if (!selectedDetail) {
-      history.push('/');
+      navigate('/');
     }
-  }, [game, history, selectedDetail]);
+  }, [game, navigate, selectedDetail]);
 
   const panes = selectedDetail
     ? selectedDetail.map((gameDetail) => {

@@ -35,6 +35,18 @@ describe('Encounters', () => {
     cy.get('[data-testid=effect-close]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.contains('Scorbunny').should('exist');
+
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.contains('Close').click();
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid=nature-info]').click();
+    cy.contains('Increased Stat').should('exist');
+    cy.contains('Hardy').should('exist');
+    cy.get('[data-testid=nature-close]').click();
+    cy.get('[data-testid=nature-info]').click();
+    cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
+    cy.contains('Close').click();
+
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');

@@ -15,6 +15,7 @@ export const selectSuggestion = (state: AppState): Type[] => {
   const team = state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
     return enc?.status?.value === 7;
   });
+  if (team?.length === 0) return undefined;
   let types = [...TYPES];
   let genRange = 'Gen 6 - 8';
 

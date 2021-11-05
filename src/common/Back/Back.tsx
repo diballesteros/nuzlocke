@@ -1,15 +1,15 @@
 import { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 
 function Back(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
 
   const handleBack = () => {
-    history.goBack();
+    navigate(-1);
   };
 
   return (
