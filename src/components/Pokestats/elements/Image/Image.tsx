@@ -1,13 +1,4 @@
 import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
-import {
-  selectBoxed,
-  selectCaught,
-  selectCompletion,
-  selectFailed,
-  selectFainted,
-  selectShiny,
-  selectTeam,
-} from 'selectors';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import shallow from 'zustand/shallow';
@@ -18,6 +9,15 @@ import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import { Type } from 'constants/types';
+import {
+  selectBoxed,
+  selectCaught,
+  selectCompletion,
+  selectFailed,
+  selectFainted,
+  selectShiny,
+  selectTeam,
+} from 'selectors';
 import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';

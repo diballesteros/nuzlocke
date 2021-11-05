@@ -132,51 +132,12 @@ describe('Rules', () => {
   });
 
   it('Over 6 alert', { scrollBehavior: 'center' }, () => {
-    cy.visit('/');
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('Sword and Shield').click();
-    cy.get('[data-testid=pokemon-0]').click();
-    cy.contains('Scorbunny').click();
-    cy.get('[data-testid=status-0]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-1]').click();
-    cy.contains('Butterfree').click();
-    cy.get('[data-testid=status-1]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-2]').click();
-    cy.contains('Caterpie').click();
-    cy.get('[data-testid=status-2]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-3]').click();
-    cy.get('[data-testid="poke-Slowpoke (Galarian)"]').click();
-    cy.get('[data-testid=status-3]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-4]').click();
-    cy.contains('Magikarp').click();
-    cy.get('[data-testid=status-4]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-5]').click();
-    cy.contains('Metapod').click();
-    cy.get('[data-testid=status-5]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
-    cy.get('[data-testid=pokemon-6]').click();
-    cy.get('[data-testid=poke-Vulpix]').click({ force: true });
-    cy.get('[data-testid=status-6]').click();
-    cy.get('.visible.menu.transition').scrollTo('bottom');
-    cy.get('.visible > :nth-child(7)').click();
-
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=import]').click();
+    cy.get('[data-testid=import-file-input]').attachFile('over6.json', { force: true });
+    cy.get('[data-testid=apply-import]').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=tracker]').click();
     cy.contains('TEAM OVER 6').should('exist');
   });
 

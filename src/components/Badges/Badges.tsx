@@ -1,11 +1,11 @@
 import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import styles from './Badges.module.scss';
 
 function Badges(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
   const badges = useStore(useCallback((state) => state.badges, []));
@@ -17,7 +17,7 @@ function Badges(): JSX.Element {
   const handleOpen = (e: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
     e.preventDefault();
     e.stopPropagation();
-    history.push(`/badgedetail/${selectedGame?.value}/${index}`);
+    navigate(`/badgedetail/${selectedGame?.value}/${index}`);
   };
 
   return (

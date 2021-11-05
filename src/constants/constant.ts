@@ -272,6 +272,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedGame: null,
   selectedRuleset: 'Nuzlocke',
   showAll: false,
+  suggestions: true,
   summary: {
     '1': { ...INITIAL_SUMMARY },
     '2': { ...INITIAL_SUMMARY },

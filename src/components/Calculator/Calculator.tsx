@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { selectCaught } from 'selectors';
 import {
   CalculatorHeader,
   General,
@@ -11,6 +10,7 @@ import {
 import { DEFAULT_VALUES } from 'constants/calculator';
 import { TCalculatorForm } from 'constants/types';
 import useWindowSize from 'hooks/useWindowSize';
+import { selectCaught } from 'selectors';
 import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Calculator.module.scss';

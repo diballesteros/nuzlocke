@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
@@ -8,7 +8,7 @@ import useStore from 'store';
 import styles from './Options.module.scss';
 
 const Options = React.memo(function Options() {
-  const history = useHistory();
+  const navigate = useNavigate();
   const text = useStore(useCallback((state) => state.text, []));
   const search = useStore(useCallback((state) => state.search, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -20,7 +20,7 @@ const Options = React.memo(function Options() {
   const setTypes = useStore(useCallback((state) => state.setTypes, []));
 
   const onSearchOptions = () => {
-    history.push('/settings');
+    navigate('/settings');
   };
 
   return (

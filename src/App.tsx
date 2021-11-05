@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { NavLink, useHistory } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
@@ -14,7 +14,7 @@ import useStore from 'store';
 import styles from './App.module.scss';
 
 function App(): JSX.Element {
-  const history = useHistory();
+  const navigate = useNavigate();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const newVersion = useStore(useCallback((state) => state.newVersion, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
@@ -71,7 +71,7 @@ function App(): JSX.Element {
   };
 
   const handleRoute = (route: string) => {
-    history.push(route);
+    navigate(route);
     setVisible(false);
   };
 
@@ -159,7 +159,7 @@ function App(): JSX.Element {
             <Icon name="book" />
             Rules
           </Menu.Item>
-          <Menu.Item onClick={() => handleRoute('/stats')}>
+          <Menu.Item data-testid="stats" onClick={() => handleRoute('/stats')}>
             <Icon name="pie graph" />
             Stats
           </Menu.Item>
@@ -199,19 +199,35 @@ function App(): JSX.Element {
         <Sidebar.Pusher dimmed={visible}>
           <main className={styles.grid}>
             <nav className={styles.nav}>
-              <NavLink activeClassName={styles.activeLink} exact to="/">
+              <NavLink className={({ isActive }) => (isActive ? styles.activeLink : '')} end to="/">
                 <Icon name="map" /> <span>Tracker</span>
               </NavLink>
-              <NavLink activeClassName={styles.activeLink} exact to="/rules">
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.activeLink : '')}
+                end
+                to="/rules"
+              >
                 <Icon name="book" /> <span>Rules</span>
               </NavLink>
-              <NavLink activeClassName={styles.activeLink} exact to="/stats">
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.activeLink : '')}
+                end
+                to="/stats"
+              >
                 <Icon name="pie graph" /> <span>Stats</span>
               </NavLink>
-              <NavLink activeClassName={styles.activeLink} exact to="/builder">
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.activeLink : '')}
+                end
+                to="/builder"
+              >
                 <Icon name="gavel" /> <span>Builder</span>
               </NavLink>
-              <NavLink activeClassName={styles.activeLink} exact to="/calculator">
+              <NavLink
+                className={({ isActive }) => (isActive ? styles.activeLink : '')}
+                end
+                to="/calculator"
+              >
                 <Icon name="calculator" /> <span>Calculator</span>
               </NavLink>
             </nav>

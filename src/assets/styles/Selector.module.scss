@@ -35,6 +35,20 @@
         transform: scale(1.01);
       }
 
+      .suggestion {
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        position: absolute;
+        top: 2px;
+        left: 8px;
+
+        > i {
+          height: 100%;
+          margin: 0;
+        }
+      }
+
       .details {
         display: flex;
         flex-flow: column nowrap;

@@ -7,6 +7,7 @@ import { RULE_ALERTS } from 'constants/constant';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
+import { selectSuggestion } from 'selectors';
 import useStore from 'store';
 import styles from './Pokemon.module.scss';
 
@@ -18,7 +19,9 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
   const changePokemon = useStore((state) => state.changePokemon);
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const showAll = useStore(useCallback((state) => state.showAll, []));
+  const suggestionsSettings = useStore(useCallback((state) => state.suggestions, []));
   const games = useStore(useCallback((state) => state.games, []));
+  const suggestions = useStore(selectSuggestion);
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -107,7 +110,13 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
     <div className={styles.pokemonSelect}>
       <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
       <div aria-label="Pokémon selector" className={styles.container}>
-        <PokemonSelector filter={filter} handlePokemon={onChange}>
+        <PokemonSelector
+          filter={filter}
+          handlePokemon={onChange}
+          suggestions={
+            filter && suggestions && suggestionsSettings && !showAll ? suggestions : false
+          }
+        >
           {encounter?.pokemon ? (
             <div
               className={`${styles.selector} ${foundPokemon?.evolve ? styles.evolve : ''}`}

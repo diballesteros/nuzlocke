@@ -74,6 +74,32 @@ describe('Options', () => {
       .should('have.value', 'Please implement new feature');
   });
 
+  it('Suggestions', () => {
+    cy.get('[data-testid=import]').click();
+    cy.get('[data-testid=import-file-input]').attachFile('Suggestions.json', { force: true });
+    cy.get('[data-testid=apply-import]').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.contains('SUGGESTED').should('exist');
+    cy.contains('Close').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.get('[data-testid=game-select] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.contains('SUGGESTED').should('exist');
+    cy.contains('Close').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.contains('SUGGESTED').should('exist');
+    cy.contains('Close').click();
+    cy.get('[data-testid=search-options]').click();
+    cy.get('[data-testid=settings-suggestions] > label').click();
+    cy.contains('Back').click();
+    cy.get('[data-testid=pokemon-1]').click();
+    cy.contains('SUGGESTED').should('not.exist');
+  });
+
   it('Dark mode', () => {
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(255, 255, 255)');
     cy.get('[data-testid=darkmode]').click();

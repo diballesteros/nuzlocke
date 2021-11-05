@@ -33,6 +33,12 @@ function Settings(): JSX.Element {
           label="Show all pokémon in every encounter"
           onChange={() => appState.toggleShowAll()}
         />
+        <Checkbox
+          checked={appState.suggestions}
+          data-testid="settings-suggestions"
+          label="Show suggestions"
+          onChange={() => appState.toggleSuggestions()}
+        />
       </div>
     </Page>
   );
