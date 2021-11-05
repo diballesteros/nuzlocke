@@ -58,6 +58,7 @@ const useStore = create<AppState>(
       selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
+      suggestions: INITIAL_STATE.suggestions,
       summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
       text: '',
@@ -374,6 +375,11 @@ const useStore = create<AppState>(
       toggleShowAll: () => {
         set((state) => {
           state.showAll = !state.showAll;
+        });
+      },
+      toggleSuggestions: () => {
+        set((state) => {
+          state.suggestions = !state.suggestions;
         });
       },
       toggleSummarySetting: (property: keyof TSummaryBasic) => {

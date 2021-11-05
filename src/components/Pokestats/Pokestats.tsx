@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
@@ -7,6 +6,7 @@ import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { PokeInfo } from 'components';
 import { Summary, Tip } from 'components/Pokestats/elements';
 import { POKEMAP } from 'constants/pokemon';
+import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import useStore from 'store';
 import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
 import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';

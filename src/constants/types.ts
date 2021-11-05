@@ -17,6 +17,7 @@ export interface AppState {
   selectedGame: TGame;
   selectedRuleset: string;
   showAll: boolean;
+  suggestions: boolean;
   team: TTeamDictionary;
   text: string;
   typeModal: Type;
@@ -79,6 +80,7 @@ export interface AppState {
   toggleMode: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
+  toggleSuggestions: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
   updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }

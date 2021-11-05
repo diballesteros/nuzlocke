@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { Filter, PokemonType, Suggestion } from 'components';
+import { Filter, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
+import { Type } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import styles from 'assets/styles/Selector.module.scss';
 
@@ -13,6 +15,7 @@ interface PokemonSelectorProps {
   filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
   limitGen?: number;
+  suggestions?: Type[] | false;
 }
 
 function PokemonSelector({
@@ -20,19 +23,31 @@ function PokemonSelector({
   filter = false,
   handlePokemon,
   limitGen,
+  suggestions,
 }: PokemonSelectorProps): JSX.Element {
   const [open, setOpen] = useState(false);
   const values = useFilter();
-  const filteredPokemon = POKEMON.filter(
-    (p) =>
-      (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
-      p.text.toUpperCase().includes(values.search) &&
-      (limitGen ? p.generation <= limitGen : true) &&
-      (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
-      (values.types.length > 0
-        ? values.types.includes(p.type) || values.types.includes(p?.dualtype)
-        : true)
-  );
+
+  const filteredPokemon = useMemo(() => {
+    let filtered = POKEMON.filter(
+      (p) =>
+        (typeof filter === 'boolean' ? true : filter.includes(p.value)) &&
+        p.text.toUpperCase().includes(values.search) &&
+        (limitGen ? p.generation <= limitGen : true) &&
+        (values.gens.length > 0 ? values.gens.includes(p.generation) : true) &&
+        (values.types.length > 0
+          ? values.types.includes(p.type) || values.types.includes(p?.dualtype)
+          : true)
+    );
+    if (suggestions) {
+      filtered = filtered.sort(
+        (a, b) =>
+          Number(suggestions.includes(b.type) || suggestions.includes(b.dualtype)) -
+          Number(suggestions.includes(a.type) || suggestions.includes(a.dualtype))
+      );
+    }
+    return filtered;
+  }, [filter, suggestions, limitGen, values]);
 
   const handleClick = (pokemonId: number) => {
     handlePokemon(pokemonId);
@@ -56,6 +71,13 @@ function PokemonSelector({
           role="presentation"
           style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
         >
+          {suggestions &&
+            (suggestions.includes(pokemon.type) || suggestions.includes(pokemon.dualtype)) && (
+              <div className={styles.suggestion}>
+                <Icon name="star" />
+                <span>SUGGESTED</span>
+              </div>
+            )}
           <div className={styles.details}>
             <img alt={pokemon.text} src={pokemon.image} />
             <b>{pokemon.text}</b>
@@ -78,7 +100,6 @@ function PokemonSelector({
     >
       <Modal.Content className={styles.content}>
         <Filter hideGen={!!limitGen} values={values} />
-        <Suggestion pokemonList={filteredPokemon} />
         <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
           {renderRow}
         </FixedSizeList>

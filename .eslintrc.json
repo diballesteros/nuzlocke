@@ -65,6 +65,7 @@
           { "pattern": "error/**", "group": "internal" },
           { "pattern": "hooks/**", "group": "internal" },
           { "pattern": "routes/**", "group": "internal" },
+          { "pattern": "selectors", "group": "internal" },
           { "pattern": "store", "group": "internal" },
           { "pattern": "assets/**", "group": "internal", "position": "after" }
         ],
