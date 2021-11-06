@@ -46,6 +46,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Download a summary image
 - Build an ideal team with the Team Builder!
 - Quick access to details on type effectiveness and natures
+- Encounter suggestions
 
 ### ✨ How it works
 

@@ -33,13 +33,13 @@ export const selectSuggestion = (state: AppState): Type[] => {
   let i = 0;
   while (types.length > 0 && team.length > i) {
     const foundPokemon = POKEMAP.get(team[i]?.pokemon);
-    if (foundPokemon?.type) {
+    if (foundPokemon?.type && EFFECTIVENESS[genRange][foundPokemon.type]) {
       types = _.difference(
         types,
         EFFECTIVENESS[genRange][foundPokemon.type]['Super effective against']
       );
     }
-    if (foundPokemon?.dualtype) {
+    if (foundPokemon?.dualtype && EFFECTIVENESS[genRange][foundPokemon.dualtype]) {
       types = _.difference(
         types,
         EFFECTIVENESS[genRange][foundPokemon.dualtype]['Super effective against']
