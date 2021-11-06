@@ -1,3 +1,9 @@
+## Version 3.12.1
+
+🐛 Bug Fix
+
+- Fixed suggestions not working for some types and some suggestions (Happened when opening up the tracker).
+
 ## Version 3.12.0
 
 🚀 New features

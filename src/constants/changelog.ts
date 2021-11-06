@@ -2,6 +2,17 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.12.1',
+    date: 1636207154586,
+    notes: [
+      {
+        description:
+          'Fixed suggestions not working for some types and some suggestions. This caused the app to crash in some situations.',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.12.0',
     date: 1636149509458,
     notes: [
