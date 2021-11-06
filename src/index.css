@@ -1,19 +1,40 @@
+:root {
+  --font-size-1: 0.75rem;
+  --font-size-2: 0.875rem;
+  --font-size-3: 1rem;
+  --font-size-4: 1.125rem;
+  --font-size-5: 1.25rem;
+  --font-size-6: 1.5rem;
+  --font-size-7: 1.75rem;
+
+  --spacing-1: 0.25rem;
+  --spacing-2: 0.5rem;
+  --spacing-3: 0.75rem;
+  --spacing-4: 1rem;
+  --spacing-5: 1.25rem;
+  --spacing-6: 1.5rem;
+  --spacing-7: 1.75rem;
+
+  --screen-xxs: 22.857rem; /* 320px */
+  --screen-xs: 35.714rem; /* 500px */
+  --screen-sm: 39.286rem; /* 550px */
+  --screen-md: 53.751rem; /* 750px */
+  --screen-lg: 85.714rem; /* 1200px */
+}
+
 body,
 html {
   height: 100%;
-}
-html {
   font-size: 14px;
 }
 body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  min-width: 320px;
+  min-width: 20rem;
   background: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
     'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  font-size: 14px;
   line-height: 1.4285em;
   color: rgba(0, 0, 0, 0.87);
   -webkit-font-smoothing: antialiased;

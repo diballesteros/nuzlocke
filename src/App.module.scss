@@ -1,8 +1,10 @@
+@import 'styles/mixins';
+
 /* Responsive Variables */
-$break1: '(max-width:499px)';
-$break2: '(min-width:500px) and (max-width:1004px)';
-$break2open: '(min-width:500px)';
-$break3: '(min-width:1005px)';
+$break1: '(max-width:35.643rem)';
+$break2: '(min-width:35.714rem) and (max-width:71.714rem)';
+$break2open: '(min-width:35.714rem)';
+$break3: '(min-width:71.786rem)';
 
 .app {
   height: fit-content;
@@ -11,37 +13,32 @@ $break3: '(min-width:1005px)';
   overflow: auto;
 
   .header {
+    margin: 0 auto !important;
     color: var(--contrast);
-    margin-left: auto !important;
-    margin-right: auto !important;
 
     @media (max-width: 1200px) {
-      margin-left: 25px !important;
+      margin-left: var(--spacing-7) !important;
       margin-right: unset !important;
     }
     @media (max-width: 850px) {
-      margin-left: 15px !important;
+      margin-left: var(--spacing-4) !important;
     }
-    > h1 {
-      @media (max-width: 750px) {
+    @media (max-width: 750px) {
+      > h1 {
         display: none;
       }
     }
   }
 
   .gameSelect {
+    @include semantic-icon;
     width: 100%;
-    max-width: 300px;
+    max-width: var(--screen-xxs);
     background-color: transparent !important;
     color: var(--contrast) !important;
 
     > div {
       color: var(--contrast) !important;
-    }
-
-    > i {
-      color: var(--contrast);
-      top: 0 !important;
     }
   }
 
