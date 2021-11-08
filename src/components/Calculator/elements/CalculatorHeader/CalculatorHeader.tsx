@@ -35,6 +35,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const { attackerResults, defenderResults } = useCalculate(form.control);
+  console.log(attackerResults, defenderResults);
 
   return (
     <div className={styles.header}>

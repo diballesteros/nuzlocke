@@ -1,3 +1,10 @@
+## Version 3.13.0
+
+🏠 Internal
+
+- Removed node-sass due to deprecation
+- Added sass 1.43.4
+
 ## Version 3.12.1
 
 🐛 Bug Fix

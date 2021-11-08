@@ -1,7 +1,7 @@
 .filter {
   display: flex;
   flex-flow: row nowrap;
-  gap: 5px;
+  gap: var(--spacing-2);
   position: relative;
   width: 100%;
 
@@ -13,13 +13,13 @@
   .popup {
     display: flex;
     flex-flow: column nowrap;
-    gap: 5px;
+    gap: var(--spacing-2);
     position: absolute;
     right: 0;
-    top: 40px;
+    top: 2.857rem;
     width: fit-content;
     height: fit-content;
-    padding: 5px 10px;
+    padding: var(--spacing-3);
     background-color: #ffffff;
     box-shadow: 1px 0px 14px 1px #d0d0d0;
     text-align: center;
@@ -28,7 +28,7 @@
     .buttonRow {
       display: flex;
       flex-flow: row wrap;
-      gap: 5px;
+      gap: var(--spacing-2);
     }
   }
 }

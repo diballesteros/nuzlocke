@@ -12,8 +12,8 @@
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
-    gap: 10px;
-    padding: 0.25em;
+    gap: var(--spacing-3);
+    padding: var(--spacing-1);
     min-height: 0;
     background-color: inherit;
     border: none;

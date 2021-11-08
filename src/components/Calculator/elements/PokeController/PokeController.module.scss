@@ -2,7 +2,7 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 8px;
+  gap: var(--spacing-2);
   color: var(--contrast);
 
   > div:first-child {
@@ -18,7 +18,7 @@
     display: flex;
     align-items: center;
     width: 100%;
-    gap: 8px;
+    gap: var(--spacing-2);
     color: var(--contrast);
     align-self: flex-end;
 

@@ -1,14 +1,16 @@
+@import 'styles/variables';
+
 .container {
   position: relative;
 
   > button > i {
-    margin-left: 5px !important;
+    margin-left: var(--spacing-1) !important;
     margin-right: 0 !important;
   }
 
-  @media (max-width: 500px) {
+  @media (max-width: $screen-xs) {
     > button {
-      padding: 10px;
+      padding: var(--spacing-3);
       > i {
         display: none;
       }
@@ -18,31 +20,31 @@
   .popup {
     display: flex;
     flex-flow: column nowrap;
-    gap: 5px;
+    gap: var(--spacing-3);
     position: absolute;
     right: 0;
-    top: 40px;
-    width: 250px;
-    min-width: 250px;
+    top: var(--spacing-9);
+    width: 17.857rem;
+    min-width: 17.857rem;
     height: fit-content;
-    padding: 15px;
+    padding: var(--spacing-4);
     background-color: var(--card);
     color: var(--contrast);
-    border-radius: 8px;
+    border-radius: 4px;
     box-shadow: 1px 0px 14px 1px #d0d0d0;
     text-align: center;
     z-index: 1;
 
     > details {
-      padding: 5px;
+      padding: var(--spacing-1);
       border-bottom: 1px solid var(--contrast);
       text-align: left;
 
       > div {
         display: flex;
         flex-flow: column nowrap;
-        gap: 5px;
-        padding: 5px 0;
+        gap: var(--spacing-1);
+        padding: var(--spacing-1) 0;
       }
     }
 

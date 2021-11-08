@@ -1,7 +1,7 @@
 .builder {
   display: flex;
   height: 100%;
-  padding: 0 5px;
+  padding: 0 var(--spacing-7);
   position: relative;
 
   .team {
@@ -14,17 +14,17 @@
   .placeholder {
     display: flex;
     flex-flow: column nowrap;
-    gap: 15px;
+    gap: var(--spacing-5);
     flex: 1;
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 16px;
+    font-size: var(--font-size-5);
     color: var(--contrast);
 
     > svg {
       width: 50%;
-      max-width: 275px;
+      max-width: 20rem;
 
       path {
         fill: var(--contrast);
@@ -34,16 +34,16 @@
 
   .button {
     position: absolute;
-    bottom: 10px;
-    right: 5px;
-    width: 56px;
-    height: 56px;
+    bottom: var(--spacing-3);
+    right: var(--spacing-2);
+    width: 4rem;
+    height: 4rem;
     background-color: var(--badge);
     color: #ffffff;
     transition: all 500ms;
     > i {
-      padding-top: 5px;
-      font-size: 2em;
+      padding-top: var(--spacing-1);
+      font-size: var(--font-size-8);
     }
 
     &:hover {

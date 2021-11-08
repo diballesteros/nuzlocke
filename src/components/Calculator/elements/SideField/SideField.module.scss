@@ -1,14 +1,14 @@
 .toggles {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  row-gap: 8px;
-  column-gap: 8px;
+  row-gap: var(--spacing-2);
+  column-gap: var(--spacing-2);
 }
 
 .spikesContainer {
   display: flex;
   flex-flow: column nowrap;
-  gap: 8px;
+  gap: var(--spacing-2);
   color: var(--contrast);
 
   label {
@@ -17,11 +17,11 @@
 
   .spikes {
     display: flex;
-    gap: 8px;
+    gap: var(--spacing-2);
 
     :global(.ui.radio.checkbox > label) {
       color: var(--contrast);
-      font-size: 16px;
+      font-size: var(--font-size-4);
     }
   }
 }

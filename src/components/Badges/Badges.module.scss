@@ -11,11 +11,11 @@
     justify-content: center;
     position: relative;
     flex: 1;
-    gap: 5px;
-    height: 80px;
+    gap: var(--spacing-2);
+    height: 5.714rem;
     filter: grayscale(1.1);
     background-color: var(--badge);
-    padding: 10px;
+    padding: var(--spacing-3);
     border: none;
     border-right: 1px solid #ffffff;
     border-radius: 3px;
@@ -42,8 +42,8 @@
     }
 
     > img {
-      height: 45px;
-      width: 45px;
+      height: 3.214rem;
+      width: 3.214rem;
       object-fit: contain;
     }
 
@@ -55,13 +55,13 @@
       display: grid;
       place-items: center;
       position: absolute;
-      right: 3.5px;
-      top: 3.5px;
+      right: var(--spacing-1);
+      top: var(--spacing-1);
       border: 2px solid #333;
       box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-      font-size: 12px;
-      width: 24px;
-      height: 24px;
+      font-size: var(--font-size-2);
+      width: var(--spacing-7);
+      height: var(--spacing-7);
       border-radius: 50%;
       padding: 0;
       margin: 0;

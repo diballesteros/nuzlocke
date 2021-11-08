@@ -38,6 +38,7 @@ function Calculator(): JSX.Element {
       reset({ ...calc.form });
     }
   }, [calc, reset, selectedGame]);
+  console.log(form);
 
   return (
     <form className={styles.container} id="calculator">

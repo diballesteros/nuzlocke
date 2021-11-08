@@ -9,14 +9,14 @@
     align-items: center;
     grid-template-columns: 100%;
     grid-template-rows: repeat(4, auto);
-    row-gap: 5px;
+    row-gap: var(--spacing-1);
     height: fit-content;
-    margin: 1px 6px 10px 2.5px;
-    padding: 10px;
+    margin: var(--spacing-0) var(--spacing-1) var(--spacing-3) var(--spacing-0);
+    padding: var(--spacing-3);
     color: var(--contrast);
     background-color: var(--card);
     transition: all 500ms;
-    border-radius: 3px;
+    border-radius: 4px;
     position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 

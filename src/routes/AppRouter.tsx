@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react';
-import { Navigate, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import {
   About,
   Builder,
@@ -106,7 +106,6 @@ function AppRouter(): JSX.Element {
           </Sentry.ErrorBoundary>
         }
       />
-      <Navigate to="/" replace />
     </Routes>
   );
 }

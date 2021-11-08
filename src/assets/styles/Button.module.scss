@@ -1,9 +1,9 @@
 .iconButton {
-  width: 56px;
-  height: 56px;
+  width: 4rem;
+  height: 4rem;
   > i {
-    padding-top: 5px;
-    font-size: 2em;
+    padding-top: var(--spacing-2);
+    font-size: var(--font-size-8);
   }
 
   &:hover {

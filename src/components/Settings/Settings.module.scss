@@ -1,7 +1,7 @@
 .settings {
   display: flex;
   flex-flow: column nowrap;
-  gap: 10px;
+  gap: var(--spacing-3);
 
   :global(.ui.checkbox label),
   :global(.ui.checkbox input:focus ~ label) {

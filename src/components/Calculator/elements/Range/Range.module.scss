@@ -6,7 +6,7 @@
 input[type='range'].input {
   grid-column: 2;
   -webkit-appearance: none;
-  height: 7px;
+  height: var(--spacing-2);
   align-self: center;
   background: grey;
   border-radius: 5px;
@@ -15,8 +15,8 @@ input[type='range'].input {
 
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
-    height: 20px;
-    width: 20px;
+    height: 1.429rem;
+    width: 1.429rem;
     border-radius: 50%;
     background: var(--badge);
     cursor: pointer;
@@ -46,7 +46,7 @@ input[type='range'].input {
   font-weight: bold;
   border: 1px solid var(--contrast);
   border-radius: 4px;
-  padding: 1px 3px;
+  padding: var(--spacing-0) var(--spacing-1);
   text-align: center;
   grid-column: 3;
   user-select: none;

@@ -1,34 +1,20 @@
-.selector {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  justify-content: center;
-  height: 30px;
-  max-height: 30px;
-  padding: 3px 4.5px;
-  font-size: 14px;
-  border: 1px dashed #333;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
 .content {
   > div:first-child {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-3);
   }
 
   .rowContainer {
-    padding-right: 10px;
-    border-radius: 3px;
+    padding-right: var(--spacing-3);
+    border-radius: 4px;
 
     .row {
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-between;
       align-items: center;
-      padding: 0 10px;
-      height: calc(100% - 10px);
-      border-radius: 3px;
+      padding: 0 var(--spacing-3);
+      height: calc(100% - var(--spacing-3));
+      border-radius: 4px;
       cursor: pointer;
 
       &:hover {
@@ -37,11 +23,11 @@
 
       .suggestion {
         display: flex;
-        gap: 4px;
+        gap: var(--spacing-1);
         align-items: center;
         position: absolute;
-        top: 2px;
-        left: 8px;
+        top: var(--spacing-0);
+        left: var(--spacing-2);
 
         > i {
           height: 100%;

@@ -38,7 +38,9 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
   const handleClick = () => {
     const data = { title: 'Nuzlocke', text };
     if ('share' in navigator && 'canShare' in navigator && navigator.canShare(data)) {
-      handleShare(data);
+      handleShare(data).catch(() => {
+        toast.error('Unable to share');
+      });
     } else {
       setShow(true);
     }

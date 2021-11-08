@@ -3,7 +3,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 7px;
+  padding: var(--spacing-3);
 
   .info {
     display: flex;
@@ -15,12 +15,12 @@
   .other {
     display: flex;
     flex-flow: nowrap;
-    gap: 3px;
+    gap: var(--spacing-1);
     align-items: center;
 
     .arrow {
       color: var(--contrast);
-      font-size: 20px;
+      font-size: var(--font-size-5);
       transition: transform 150ms ease;
       cursor: pointer;
     }
@@ -34,16 +34,16 @@
 .details {
   display: flex;
   flex-flow: column nowrap;
-  gap: 8px;
-  height: 0px;
-  padding: 0px;
+  gap: var(--spacing-2);
+  height: 0;
+  padding: 0;
   width: 100%;
   transition: height 0.6s, padding 0.6s, clip-path 0s ease-out, height 0.6s ease-out;
   clip-path: inset(0);
 
   &.open {
-    height: 351px;
-    padding: 10px;
+    height: 25.071rem;
+    padding: var(--spacing-3);
     clip-path: inset(-100vh, -100vw);
   }
 
@@ -51,7 +51,7 @@
     min-height: unset !important;
 
     &.nature {
-      margin-right: 6px;
+      margin-right: var(--spacing-2);
     }
     > i {
       top: 0 !important;
@@ -59,11 +59,11 @@
   }
 
   > button {
-    margin-top: 10px !important;
+    margin-top: var(--spacing-3) !important;
     padding: 0 !important;
-    height: 30px;
+    height: 2.143rem;
     > i {
-      margin-left: 5px !important;
+      margin-left: var(--spacing-1) !important;
       margin-right: 0 !important;
     }
   }

@@ -1,7 +1,7 @@
 .content {
   display: flex !important;
   flex-flow: column nowrap;
-  gap: 10px;
+  gap: var(--spacing-3);
 
   .header {
     display: flex;
@@ -13,17 +13,17 @@
       flex-flow: column nowrap;
 
       > img {
-        height: 80px;
-        width: 100px;
+        height: 5.714rem;
+        width: 7.143rem;
         align-self: center;
       }
     }
   }
 
   summary {
-    padding: 1rem;
+    padding: var(--spacing-4);
     display: block;
-    padding-left: 2.2rem;
+    padding-left: var(--spacing-8);
     position: relative;
     cursor: pointer;
 
@@ -56,7 +56,7 @@
   .expandable {
     display: flex;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: var(--spacing-3);
   }
 
   .name {
@@ -66,7 +66,7 @@
 
   .natureContainer {
     display: flex;
-    gap: 5px;
+    gap: var(--spacing-1);
   }
 
   .dropdown {
@@ -86,10 +86,10 @@
 @keyframes sweep {
   0% {
     opacity: 0;
-    margin-left: -10px;
+    margin-left: var(--spacing-3);
   }
   100% {
     opacity: 1;
-    margin-left: 0px;
+    margin-left: 0;
   }
 }

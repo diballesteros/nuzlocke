@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  padding: 10px 7px;
+  padding: var(--spacing-3) var(--spacing-2);
   border-radius: 4px;
 
   .info {

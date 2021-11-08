@@ -1,26 +1,28 @@
+@import 'styles/variables';
+
 .container {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   height: 100%;
   min-height: 0;
-  row-gap: 8px;
-  column-gap: 8px;
-  padding: 8px;
+  row-gap: var(--spacing-2);
+  column-gap: var(--spacing-2);
+  padding: var(--spacing-2);
   overflow: auto;
   position: relative;
 
   .fieldset {
     display: flex;
     flex-flow: column nowrap;
-    gap: 16px;
+    gap: var(--spacing-5);
     background-color: var(--card);
     border: none;
     border-radius: 4px;
     overflow: auto;
   }
 
-  @media (max-width: 750px) {
-    padding-bottom: 24px;
+  @media (max-width: $screen-md) {
+    padding-bottom: var(--spacing-7);
     .fieldset {
       grid-column: 1 / -1;
     }
@@ -30,17 +32,17 @@
     grid-column: 1 / -1;
     display: flex;
     flex-flow: column nowrap;
-    gap: 15px;
+    gap: var(--spacing-5);
     flex: 1;
     align-items: center;
     justify-content: center;
     height: 100%;
-    font-size: 16px;
+    font-size: var(--font-size-4);
     color: var(--contrast);
 
     > svg {
       width: 50%;
-      max-width: 275px;
+      max-width: 20rem;
 
       path {
         fill: var(--contrast);
@@ -61,19 +63,19 @@
     width: 100%;
     background-color: grey;
 
-    @media (max-width: 750px) {
+    @media (max-width: $screen-md) {
       display: flex;
     }
 
     .tab {
       flex: 1;
       text-align: center;
-      padding: 4px;
+      padding: var(--spacing-2);
       background-color: var(--bgsecondary);
       border-top: 1px solid #cccccc;
       color: var(--contrast);
       cursor: pointer;
-      font-size: 16px;
+      font-size: var(--font-size-4);
       font-weight: bold;
 
       &:first-child {

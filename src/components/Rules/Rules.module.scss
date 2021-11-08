@@ -1,28 +1,28 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  height: calc(100% - 10px);
-  padding: 5px;
+  height: calc(100% - var(--spacing-3));
+  padding: var(--spacing-3);
 
   .options {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     justify-content: flex-end;
-    gap: 4px;
-    margin-bottom: 10px;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
 
     > button {
       white-space: nowrap;
-      max-width: 130px;
-      max-height: 36px;
+      max-width: 9.286rem;
+      max-height: 2.571rem;
       flex: 1;
 
-      @media (max-width: 630px) {
+      @media (max-width: 45rem) {
         max-width: unset;
       }
       > i {
-        margin-left: 5px !important;
+        margin-left: var(--spacing-1) !important;
         margin-right: 0 !important;
       }
     }
@@ -42,36 +42,36 @@
   .rules {
     display: flex;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: var(--spacing-3);
     flex: 1;
     overflow: auto;
 
     .rule {
       display: flex;
       flex-flow: row nowrap;
-      gap: 10px;
-      padding: 10px;
+      gap: var(--spacing-3);
+      padding: var(--spacing-3);
       color: var(--contrast);
       background-color: var(--card);
       transition: all 500ms;
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-      border-radius: 3px;
+      border-radius: 4px;
       position: relative;
 
       .reorder {
         display: flex;
         flex-flow: column nowrap;
-        gap: 8px;
+        gap: var(--spacing-2);
 
         > button {
-          padding: 7.5px;
+          padding: var(--spacing-2);
         }
       }
 
       .buttons {
         display: flex;
         flex-flow: column nowrap;
-        gap: 8px;
+        gap: var(--spacing-2);
         margin-left: auto;
       }
     }

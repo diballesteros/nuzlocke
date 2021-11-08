@@ -6,14 +6,20 @@
   --font-size-5: 1.25rem;
   --font-size-6: 1.5rem;
   --font-size-7: 1.75rem;
+  --font-size-8: 2rem;
+  --font-size-9: 3rem;
 
-  --spacing-1: 0.25rem;
-  --spacing-2: 0.5rem;
-  --spacing-3: 0.75rem;
-  --spacing-4: 1rem;
-  --spacing-5: 1.25rem;
-  --spacing-6: 1.5rem;
-  --spacing-7: 1.75rem;
+  --spacing-0: 0.1rem; /* 1.4px */
+  --spacing-1: 0.286rem; /* 4px */
+  --spacing-2: 0.571rem; /* 8px */
+  --spacing-3: 0.857rem; /* 12px */
+  --spacing-4: 1.143rem; /* 16px */
+  --spacing-5: 1.429rem; /* 17.5px */
+  --spacing-6: 1.714rem; /* 24px */
+  --spacing-7: 2rem; /* 28px */
+  --spacing-8: 2.286rem; /* 32px */
+  --spacing-9: 3rem; /* 42px */
+  --spacing-10: 3.571rem; /* 49px */
 
   --screen-xxs: 22.857rem; /* 320px */
   --screen-xs: 35.714rem; /* 500px */

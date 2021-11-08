@@ -1,10 +1,12 @@
+@import 'styles/variables';
+
 .summary {
   display: flex;
   flex: 1;
   flex-flow: column nowrap;
-  gap: 10px;
+  gap: var(--spacing-3);
   background-color: var(--bgsecondary);
-  padding: 5px;
+  padding: var(--spacing-2);
 
   .header {
     display: flex;
@@ -12,22 +14,22 @@
     justify-content: space-between;
     background-color: var(--header) !important;
     color: var(--contrast);
-    padding: 15px 20px;
-    font-size: 24px;
+    padding: var(--spacing-4) var(--spacing-6);
+    font-size: var(--font-size-7);
 
     .headerTitle {
-      max-width: 225px;
+      max-width: 16.071rem;
     }
 
     .badges {
       display: flex;
       flex-flow: row wrap;
-      gap: 3px;
-      max-width: 300px;
+      gap: var(--spacing-1);
+      max-width: 21.249rem;
 
       .badge {
-        height: 28px;
-        width: 28px;
+        height: 2rem;
+        width: 2rem;
         filter: brightness(0.2);
 
         &.active {
@@ -40,53 +42,53 @@
   .row {
     display: flex;
     flex-flow: row nowrap;
-    gap: 25px;
+    gap: var(--spacing-7);
   }
 
   .card {
     display: flex;
     flex-flow: column nowrap;
     flex: 1;
-    padding: 15px 20px;
+    padding: var(--spacing-4) var(--spacing-6);
     box-shadow: 0 0 10px -2px rgba(0, 0, 0, 0.075);
     background-color: var(--card);
     color: var(--contrast);
-    border-radius: 2px;
+    border-radius: 4px;
 
     &.small {
-      flex-basis: calc(25% - 25px);
+      flex-basis: calc(25% - 1.786rem);
     }
 
     &.medium {
-      flex-basis: calc(25% - 25px);
+      flex-basis: calc(25% - 1.786rem);
     }
 
     &.large {
-      flex-basis: calc(75% - 25px);
+      flex-basis: calc(75% - 1.786rem);
     }
 
     .title {
-      font-size: 18px;
-      margin-bottom: 8px;
+      font-size: var(--font-size-5);
+      margin-bottom: var(--spacing-2);
     }
 
     .team {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(425px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(30.357rem, 1fr));
       min-width: 0;
-      column-gap: 8px;
+      column-gap: var(--spacing-2);
 
       .pokemon {
         display: grid;
-        grid-template-columns: 80px minmax(auto, 160px) minmax(0, 1fr);
-        column-gap: 10px;
-        padding: 3px 0;
-        margin-bottom: 5px;
+        grid-template-columns: 5.714rem minmax(auto, 11.429rem) minmax(0, 1fr);
+        column-gap: var(--spacing-3);
+        padding: var(--spacing-1) 0;
+        margin-bottom: var(--spacing-2);
         border-bottom: 1px solid var(--contrast);
 
         > img {
-          height: 80px;
-          width: 80px;
+          height: 5.714rem;
+          width: 5.714rem;
           object-fit: cover;
           align-self: center;
         }
@@ -97,16 +99,16 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
-      padding: 5px;
+      padding: var(--spacing-1);
       align-items: center;
-      gap: 10px;
+      gap: var(--spacing-3);
       border: 2px solid var(--contrast);
       border-radius: 4px;
-      margin-bottom: 10px;
-      font-size: 16px;
+      margin-bottom: var(--spacing-3);
+      font-size: var(--font-size-4);
       > svg {
-        width: 22px;
-        height: 22px;
+        width: 1.571rem;
+        height: 1.571rem;
       }
 
       :global(.ui.label) {
@@ -118,11 +120,11 @@
     .box {
       display: flex;
       flex-flow: row wrap;
-      gap: 10px;
+      gap: var(--spacing-3);
 
       .pokeImg {
-        height: 48px;
-        width: 48px;
+        height: 3.429rem;
+        width: 3.429rem;
         object-fit: cover;
       }
     }
@@ -131,18 +133,18 @@
       display: flex;
       flex-flow: row nowrap;
       justify-content: space-evenly;
-      gap: 10px;
+      gap: var(--spacing-3);
 
       .completion {
         display: flex;
         flex-flow: column nowrap;
         justify-content: center;
         align-items: center;
-        gap: 10px;
-        margin-top: 10px;
+        gap: var(--spacing-3);
+        margin-top: var(--spacing-3);
 
         > b {
-          font-size: 16px;
+          font-size: var(--font-size-4);
           color: var(--badge);
         }
 
@@ -159,7 +161,7 @@
           }
 
           .text {
-            font-size: 3em;
+            font-size: var(--font-size-9);
             font-weight: bold;
             fill: var(--badge);
           }
@@ -173,15 +175,15 @@
 
         .byTypeContainer {
           display: grid;
-          grid-template-columns: repeat(4, minmax(0, 90px));
-          column-gap: 8px;
-          row-gap: 8px;
+          grid-template-columns: repeat(4, minmax(0, 6.429rem));
+          column-gap: var(--spacing-2);
+          row-gap: var(--spacing-2);
 
           .type {
             text-align: center;
-            height: 24px;
-            min-width: 90px;
-            padding: 3px;
+            height: 1.714rem;
+            min-width: 6.429rem;
+            padding: var(--spacing-1);
             border-radius: 8px;
             color: black;
             font-weight: bold;
@@ -193,14 +195,14 @@
     .rules {
       display: flex;
       flex-flow: column nowrap;
-      gap: 5px;
+      gap: var(--spacing-1);
 
       span {
-        font-size: 16px;
+        font-size: var(--font-size-4);
       }
 
       p {
-        font-size: 12px;
+        font-size: var(--font-size-2);
       }
     }
   }
@@ -214,7 +216,7 @@
     width: 100%;
 
     .header {
-      gap: 5px;
+      gap: var(--spacing-1);
       flex-wrap: wrap;
     }
     .row {
@@ -223,13 +225,13 @@
 
     .card {
       .team {
-        @media (max-width: 500px) {
+        @media (max-width: $screen-xs) {
           display: flex;
           flex-flow: column nowrap;
 
           .pokemon {
             display: grid;
-            grid-template-columns: 80px minmax(0, 1fr);
+            grid-template-columns: 5.714rem minmax(0, 1fr);
             width: 100%;
             min-width: 0;
 
@@ -244,14 +246,14 @@
         flex-flow: row wrap;
 
         .byTypeContainer {
-          @media (max-width: 500px) {
-            grid-template-columns: repeat(3, minmax(0, 90px));
+          @media (max-width: $screen-xs) {
+            grid-template-columns: repeat(3, minmax(0, 6.429rem));
           }
         }
       }
 
       .rules {
-        min-width: 200px;
+        min-width: 14.286rem;
       }
     }
   }

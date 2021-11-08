@@ -1,12 +1,12 @@
 .move {
   display: flex;
   flex-flow: row nowrap;
-  gap: 5px;
+  gap: var(--spacing-1);
   align-items: center;
   flex: 1;
   border-radius: 4px;
-  height: 30px;
-  max-height: 30px;
+  height: 2.143rem;
+  max-height: 2.143rem;
 
   &:hover {
     transform: scale(1.01);
@@ -15,18 +15,18 @@
 
   > svg {
     height: 100%;
-    width: 29px;
+    width: 2.143rem;
   }
 
   > span {
-    font-size: 14px;
+    font-size: var(--font-size-3);
     font-weight: bold;
   }
 
   > img {
-    height: 18px;
-    width: 41px;
+    height: 1.286rem;
+    width: 2.857rem;
     margin-left: auto;
-    margin-right: 35px;
+    margin-right: var(--spacing-9);
   }
 }
