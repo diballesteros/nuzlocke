@@ -2,6 +2,17 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.12.2',
+    date: 1636415060205,
+    notes: [
+      {
+        description:
+          'Fixed an error causing the app to crash when deleting a move from the defender in the calculator',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.12.1',
     date: 1636207154586,
     notes: [
