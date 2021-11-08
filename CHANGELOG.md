@@ -1,3 +1,9 @@
+## Version 3.12.2
+
+🐛 Bug Fix
+
+- Fixed an error causing the app to crash when deleting a move from the defender in the calculator
+
 ## Version 3.12.1
 
 🐛 Bug Fix

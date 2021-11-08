@@ -203,7 +203,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
   const defenderResults = Array.from(Array(4)).map((val, i) => {
     const moveIndex = i + 1;
     assertIndex(moveIndex);
-    if (all.calculatorGen && all[`move${moveIndex}_1`]) {
+    if (all.calculatorGen && all[`move${moveIndex}_2`]) {
       return calculate(
         all.calculatorGen,
         pokemon2,
