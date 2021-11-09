@@ -5,6 +5,12 @@
 - Removed node-sass due to deprecation
 - Added sass 1.43.4
 
+## Version 3.12.2
+
+🐛 Bug Fix
+
+- Fixed an error causing the app to crash when deleting a move from the defender in the calculator
+
 ## Version 3.12.1
 
 🐛 Bug Fix
