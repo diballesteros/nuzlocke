@@ -1,18 +1,10 @@
 import { Page } from 'common';
+import modalStyles from 'assets/styles/Modal.module.scss';
 
 function Report(): JSX.Element {
   return (
     <Page header="Report a bug or suggest a feature">
-      <form
-        name="contact"
-        method="post"
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          gap: '7px',
-          color: 'var(--contrast)',
-        }}
-      >
+      <form className={modalStyles.modalColor} name="contact" method="post">
         <input type="hidden" name="form-name" value="contact" />
         <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
           Type:
@@ -57,7 +49,7 @@ function Report(): JSX.Element {
           Description:
           <textarea name="description" data-testid="report-description" />
         </label>
-        <button style={{ width: '80px' }} type="submit">
+        <button style={{ width: '5.714rem' }} type="submit">
           Send
         </button>
       </form>

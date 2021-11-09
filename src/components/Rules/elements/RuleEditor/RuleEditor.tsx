@@ -7,6 +7,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import { TRule, TRuleContent } from 'constants/types';
 import useStore from 'store';
+import modalStyles from 'assets/styles/Modal.module.scss';
 
 interface RuleEditorProps {
   content: TRuleContent;
@@ -129,9 +130,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
       }
     >
       <Modal.Header>Edit Rule</Modal.Header>
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
-        {getInput()}
-      </Modal.Content>
+      <Modal.Content className={modalStyles.modal}>{getInput()}</Modal.Content>
       <Modal.Actions>
         <Button onClick={handleEditClose}>Cancel</Button>
         <Button disabled={false} onClick={handleEditRule} primary>

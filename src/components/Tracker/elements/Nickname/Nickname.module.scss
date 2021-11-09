@@ -1,3 +1,5 @@
+@import 'styles/variables';
+
 .nicknameInput {
   width: 100%;
 
@@ -14,8 +16,8 @@
     border-bottom-left-radius: unset !important;
     margin-right: 0 !important;
 
-    @media (max-width: 550px) {
-      padding: 0.5em !important;
+    @media (max-width: $screen-sm) {
+      padding: var(--spacing-2) !important;
     }
   }
 }
@@ -23,9 +25,9 @@
 .label {
   display: flex;
   align-items: center;
-  gap: 1px;
+  gap: var(--spacing-0);
   font-weight: bold;
   .innerLabel {
-    min-width: 72px;
+    min-width: 5.143rem;
   }
 }

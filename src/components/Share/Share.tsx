@@ -5,6 +5,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from 'assets/styles/Button.module.scss';
+import modalStyles from 'assets/styles/Modal.module.scss';
 
 interface ShareProps {
   disabled: boolean;
@@ -76,15 +77,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
         )
       }
     >
-      <Modal.Content
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          gap: '5px',
-          maxHeight: '80vh',
-          overflow: 'auto',
-        }}
-      >
+      <Modal.Content className={modalStyles.modalMax}>
         <textarea data-testid="share-textarea" defaultValue={text} ref={shareRef} rows={5} />
       </Modal.Content>
       <Modal.Actions>

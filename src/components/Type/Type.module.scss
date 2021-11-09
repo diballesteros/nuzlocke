@@ -1,8 +1,8 @@
 .type {
   display: flex;
   align-items: center;
-  height: 30px;
-  min-height: 30px;
+  height: 2.143rem;
+  min-height: 2.143rem;
   cursor: pointer;
   border: none;
   padding: 0;
@@ -12,8 +12,8 @@
   box-sizing: unset;
 
   > svg {
-    padding: 0 2.5px;
-    width: 24px;
+    padding: 0 var(--spacing-0);
+    width: 1.714rem;
   }
 
   .text {
@@ -23,7 +23,7 @@
     background-color: #595645;
     color: #ffffff;
     height: 100%;
-    padding: 0px 3.5px;
+    padding: 0 var(--spacing-1);
     border-top-right-radius: 3px;
     border-bottom-right-radius: 3px;
   }

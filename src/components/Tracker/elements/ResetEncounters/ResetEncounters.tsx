@@ -5,6 +5,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from 'assets/styles/Button.module.scss';
+import modalStyles from 'assets/styles/Modal.module.scss';
 
 interface ResetEncounterProps {
   icon?: boolean;
@@ -53,7 +54,7 @@ function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
       }
     >
       <Modal.Header>Reset all encounters</Modal.Header>
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+      <Modal.Content className={modalStyles.modal}>
         This will reset all encounters for the selected game and delete custom encounters. Are you
         sure?
       </Modal.Content>

@@ -7,6 +7,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { LEVEL_CAPS } from 'constants/badges';
 import useStore from 'store';
 import buttonStyles from 'assets/styles/Button.module.scss';
+import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './BadgeEditor.module.scss';
 
 const MULTIPLE_CAPS = ['1', '3', '5', '8'];
@@ -53,7 +54,7 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
             data-testid="edit-badges"
             icon
             onClick={() => setOpen(true)}
-            style={{ boxShadow: 'none', padding: '2px', margin: 0 }}
+            style={{ boxShadow: 'none', padding: 'var(--spacing-1)', margin: 0 }}
           >
             <Icon name="pencil" />
           </Button>
@@ -61,15 +62,7 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
       }
     >
       <Modal.Header>Edit Badge Level Caps</Modal.Header>
-      <Modal.Content
-        style={{
-          display: 'flex',
-          flexFlow: 'column nowrap',
-          gap: '5px',
-          maxHeight: '70vh',
-          overflow: 'auto',
-        }}
-      >
+      <Modal.Content className={modalStyles.maxModal}>
         {selectedGame &&
           badges[selectedGame?.value]?.map((val, i) => {
             return (

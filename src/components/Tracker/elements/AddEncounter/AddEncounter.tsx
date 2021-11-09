@@ -5,6 +5,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
 import styles from 'assets/styles/Button.module.scss';
+import modalStyles from 'assets/styles/Modal.module.scss';
 
 interface AddEncounterProps {
   icon?: boolean;
@@ -58,7 +59,7 @@ function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
         )
       }
     >
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+      <Modal.Content className={modalStyles.modal}>
         Please enter the location name
         <Input
           data-testid="add-encounter-input"

@@ -42,7 +42,7 @@ function DisplaySettings(): JSX.Element {
                 fluid
                 label="Title"
                 onChange={(e, data) => changeSummaryTitle(data.value)}
-                style={{ marginBottom: '10px' }}
+                style={{ marginBottom: 'var(--spacing-2)' }}
                 value={summary?.title}
               />
               <span>Status:</span>
