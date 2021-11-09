@@ -32,7 +32,7 @@ function Builder(): JSX.Element {
           {selectedGame ? (
             <span>Press + to begin building a team</span>
           ) : (
-            <span>Select a game to begin</span>
+            <span>Please select a game</span>
           )}
         </div>
       )}

@@ -138,7 +138,7 @@ const Encounters = React.memo(function Encounters() {
       ) : (
         <div className={styles.noGame}>
           <PokeballSVG />
-          <span>Choose a game</span>
+          <span>Please select a game</span>
         </div>
       )}
       <Confirm
