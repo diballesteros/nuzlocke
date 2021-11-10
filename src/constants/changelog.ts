@@ -2,6 +2,22 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.13.0',
+    date: 1636415060205,
+    notes: [
+      {
+        description:
+          'Custom level caps for added games (Not available for base games)! Can be added and edited by the pencil in the top bar for custom games',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          "Standardized the styling of the app so now it looks more consistent. Also, the app is more accessible, correctly adjusting to the device's font size.",
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 3.12.2',
     date: 1636415060205,
     notes: [

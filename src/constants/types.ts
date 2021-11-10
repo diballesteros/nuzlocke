@@ -4,6 +4,7 @@ import { StatusName } from '@smogon/calc/dist/data/interface';
 export interface AppState {
   badges: TBadgeDictionary;
   calcs: TCalcDictionary;
+  customBadges: TCustomBadgeDictionary;
   darkMode: boolean;
   duplicates: boolean;
   games: Games;
@@ -22,6 +23,7 @@ export interface AppState {
   text: string;
   typeModal: Type;
   types: Type[];
+  addCustomBadge: () => void;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
@@ -52,12 +54,14 @@ export interface AppState {
   changeTeamMember: (teamIndex: number, detail: PokemonDetail) => void;
   clearEncounter: (encounterId: number) => void;
   closeTypeModal: () => void;
+  deleteCustomBadge: (index: number) => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
   deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
+  editCustomBadge: (newBadge: string, i: number) => void;
   editRule: (newRule: TRuleContent, i: number) => void;
   exportTeamMember: (detail: PokemonDetail) => void;
   exportToGame: (encounter: TEncounter, game: string, location: string) => void;
@@ -118,6 +122,10 @@ export type TLevelCapDictionary = {
 
 export type TBadgeDictionary = {
   [key: string]: TBadge[];
+};
+
+export type TCustomBadgeDictionary = {
+  [key: string]: (number | string)[];
 };
 
 export type TTeamDictionary = {

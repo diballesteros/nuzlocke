@@ -9,6 +9,7 @@ function Badges(): JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
   const badges = useStore(useCallback((state) => state.badges, []));
+  const customBadges = useStore(useCallback((state) => state.customBadges, []));
   const selectBadge = useStore(useCallback((state) => state.selectBadge, []));
   const handleClick = (badgeIndex: number) => {
     selectBadge(badgeIndex);
@@ -44,6 +45,22 @@ function Badges(): JSX.Element {
               >
                 <Icon name="question" />
               </div>
+            </button>
+          );
+        })}
+      {!!selectedGame &&
+        customBadges[selectedGame?.value] &&
+        customBadges[selectedGame?.value]?.map((badge, index) => {
+          return (
+            <button
+              className={`${styles.badge} ${
+                index <= games[selectedGame?.value]?.badge ? styles.active : ''
+              }`}
+              key={`${badge}-${index + 1}`}
+              onClick={() => handleClick(index)}
+              type="button"
+            >
+              <span className={styles.customBadge}>{badge}</span>
             </button>
           );
         })}

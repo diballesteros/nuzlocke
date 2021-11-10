@@ -13,6 +13,7 @@
     flex: 1;
     gap: var(--spacing-2);
     height: 5.714rem;
+    max-width: 8.571rem;
     filter: grayscale(1.1);
     background-color: var(--badge);
     padding: var(--spacing-3);
@@ -78,6 +79,10 @@
         margin: 0;
         font-weight: bold;
       }
+    }
+
+    .customBadge {
+      font-size: var(--font-size-9);
     }
   }
 }

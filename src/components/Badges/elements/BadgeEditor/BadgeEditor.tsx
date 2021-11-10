@@ -54,7 +54,6 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
             data-testid="edit-badges"
             icon
             onClick={() => setOpen(true)}
-            style={{ boxShadow: 'none', padding: 'var(--spacing-1)', margin: 0 }}
           >
             <Icon name="pencil" />
           </Button>

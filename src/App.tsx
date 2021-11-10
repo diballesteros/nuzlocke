@@ -8,7 +8,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import { AddGame, Effectiveness, Export } from 'components';
-import { BadgeEditor } from 'components/Badges/elements';
+import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
 import AppRouter from 'routes/AppRouter';
 import useStore from 'store';
 import styles from './App.module.scss';
@@ -116,6 +116,7 @@ function App(): JSX.Element {
               </Button>
             ) : null}
             <BadgeEditor />
+            <CustomBadgeEditor />
             <Confirm
               closeOnDimmerClick
               content="This will delete the custom game. Are you sure?"

@@ -3,7 +3,6 @@
 .button {
   background-color: transparent !important;
   color: var(--contrast) !important;
-  padding: 'var(--spacing-1)';
   margin: 0;
   box-shadow: none;
 
@@ -15,4 +14,10 @@
     background-color: transparent !important;
     color: var(--contrast) !important;
   }
+}
+
+.custom {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
 }
