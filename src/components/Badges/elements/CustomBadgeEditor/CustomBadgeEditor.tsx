@@ -26,8 +26,6 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
 
   return selectedGame?.value && Number(selectedGame.value) > 13 ? (
     <Modal
-      closeOnDimmerClick
-      onClose={() => setOpen(false)}
       open={open}
       trigger={
         icon ? (

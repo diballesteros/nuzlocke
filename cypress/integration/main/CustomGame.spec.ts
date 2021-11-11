@@ -28,6 +28,12 @@ describe('Custom game', () => {
         .children()
         .children()
         .should('have.length', 0);
+      cy.get('[data-testid=options]').click();
+      cy.contains('Builder').click();
+      cy.get('[data-testid=builder-add]').click();
+      cy.get('[data-testid=poke-Bulbasaur]').click();
+      cy.get('[aria-label="deletegame"]').click();
+      cy.contains('Cancel').click();
       cy.get('[aria-label="deletegame"]').click();
       cy.contains('OK').click();
       cy.contains('Emerald Kaizo').should('not.exist');

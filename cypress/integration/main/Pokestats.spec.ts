@@ -70,8 +70,8 @@ describe('PokéStats', () => {
     cy.get('.secondary > :nth-child(4) > .ui').click().should('have.text', '1');
     cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '5');
 
-    cy.get('[alt="Scorbunny"]').should('exist');
-    cy.get('[alt="Magikarp"]').should('exist');
+    cy.get('[alt="Scorbunny"]').should('exist').click();
+    cy.get('[alt="Magikarp"]').should('exist').click();
     cy.get('[alt="Caterpie"]').should('exist');
     cy.get('[alt="Slowpoke (Galarian)"]').should('exist');
     cy.get('.secondary > :nth-child(4)').click();
