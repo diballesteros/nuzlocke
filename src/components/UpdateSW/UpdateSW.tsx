@@ -35,18 +35,14 @@ function UpdateSW(): JSX.Element {
     }
   };
 
-  return (
-    <>
-      {!!waitingServiceWorker && (
-        <div className={styles.alert}>
-          <span>New version available</span>
-          <Button color="grey" onClick={updateServiceWorker} type="button">
-            Update
-          </Button>
-        </div>
-      )}
-    </>
-  );
+  return !!waitingServiceWorker ? (
+    <div className={styles.alert}>
+      <span>New version available</span>
+      <Button color="grey" onClick={updateServiceWorker} type="button">
+        Update
+      </Button>
+    </div>
+  ) : null;
 }
 
 export default UpdateSW;

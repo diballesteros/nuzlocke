@@ -1,9 +1,9 @@
 .page {
   display: flex;
   flex-flow: column nowrap;
-  gap: 5px;
+  gap: var(--spacing-2);
   height: 100%;
-  padding: 0 15px;
+  padding: 0 var(--spacing-4);
 
   .header {
     display: flex;

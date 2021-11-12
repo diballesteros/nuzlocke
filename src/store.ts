@@ -45,6 +45,7 @@ const useStore = create<AppState>(
     immer((set) => ({
       badges: BADGES,
       calcs: INITIAL_STATE.calcs,
+      customBadges: {},
       darkMode: INITIAL_STATE.darkMode,
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
@@ -64,6 +65,15 @@ const useStore = create<AppState>(
       text: '',
       types: [],
       typeModal: null,
+      addCustomBadge: () =>
+        set((state) => {
+          if (state.customBadges[state.selectedGame?.value]) {
+            state.customBadges[state.selectedGame?.value].push(0);
+          } else {
+            state.customBadges[state.selectedGame?.value] = [0];
+          }
+        }),
+
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters.push({
@@ -202,6 +212,10 @@ const useStore = create<AppState>(
           state.typeModal = null;
         });
       },
+      deleteCustomBadge: (index: number) =>
+        set((state) => {
+          state.customBadges[state.selectedGame?.value].splice(index, 1);
+        }),
       deleteEncounter: (encounterId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -220,6 +234,9 @@ const useStore = create<AppState>(
           }
           if (state.calcs[state?.selectedGame?.value]) {
             delete state.calcs[state?.selectedGame?.value];
+          }
+          if (state.customBadges[state?.selectedGame?.value]) {
+            delete state.customBadges[state?.selectedGame?.value];
           }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
@@ -242,6 +259,10 @@ const useStore = create<AppState>(
       editBadge: (newBadge: string, i: number) =>
         set((state) => {
           state.badges[state.selectedGame?.value][i].levelCap = newBadge;
+        }),
+      editCustomBadge: (newBadge: string, i: number) =>
+        set((state) => {
+          state.customBadges[state.selectedGame?.value][i] = newBadge;
         }),
       editRule: (newRule: TRuleContent, i: number) =>
         set((state) => {

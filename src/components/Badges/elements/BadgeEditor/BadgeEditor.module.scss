@@ -1,8 +1,12 @@
+@import 'styles/variables';
+
 .button {
   background-color: transparent !important;
   color: var(--contrast) !important;
+  margin: 0;
+  box-shadow: none;
 
-  @media (max-width: 550px) {
+  @media (max-width: $screen-sm) {
     display: none !important;
   }
 
@@ -10,4 +14,10 @@
     background-color: transparent !important;
     color: var(--contrast) !important;
   }
+}
+
+.custom {
+  display: flex;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-2);
 }

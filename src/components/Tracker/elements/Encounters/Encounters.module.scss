@@ -9,14 +9,14 @@
     align-items: center;
     grid-template-columns: 100%;
     grid-template-rows: repeat(4, auto);
-    row-gap: 5px;
+    row-gap: var(--spacing-1);
     height: fit-content;
-    margin: 1px 6px 10px 2.5px;
-    padding: 10px;
+    margin: var(--spacing-0) var(--spacing-1) var(--spacing-3) var(--spacing-0);
+    padding: var(--spacing-3);
     color: var(--contrast);
     background-color: var(--card);
     transition: all 500ms;
-    border-radius: 3px;
+    border-radius: 4px;
     position: relative;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
@@ -34,16 +34,16 @@
         text-overflow: ellipsis;
         overflow: hidden;
         font-weight: bold;
-        height: 20px;
-        min-height: 20px;
+        height: 1.429rem;
+        min-height: 1.429rem;
       }
 
       .buttons {
         display: flex;
-        gap: 5px;
+        gap: var(--spacing-1);
         > button {
           margin-right: 0 !important;
-          font-size: 12px;
+          font-size: var(--font-size-2);
         }
       }
     }
@@ -62,22 +62,22 @@
     flex-flow: column nowrap;
     align-items: center;
     flex: 1;
-    gap: 15px;
-    height: 1000px;
-    min-height: 1000px;
-    max-height: 1000px;
+    gap: var(--spacing-4);
+    height: 71.429rem;
+    min-height: 71.429rem;
+    max-height: 71.429rem;
 
     > svg {
       width: 50%;
-      max-width: 360px;
-      margin-top: 20px;
+      max-width: 25.714rem;
+      margin-top: var(--spacing-5);
       path {
         fill: var(--contrast);
       }
     }
 
     > span {
-      font-size: 24px;
+      font-size: var(--font-size-7);
       font-weight: bold;
       color: var(--contrast);
     }

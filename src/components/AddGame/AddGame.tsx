@@ -4,6 +4,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
+import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './AddGame.module.scss';
 
 function AddGame(): JSX.Element {
@@ -41,7 +42,7 @@ function AddGame(): JSX.Element {
       }
     >
       <Modal.Header>Add Game</Modal.Header>
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+      <Modal.Content className={modalStyles.modal}>
         Please enter the game name
         <Input
           data-testid="add-game-input"

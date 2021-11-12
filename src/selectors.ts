@@ -91,7 +91,7 @@ export const selectCompletion = (state: AppState): number => {
     return enc.pokemon && enc.status;
   });
   return encountered?.length
-    ? encountered?.length / state?.games[state?.selectedGame?.value]?.encounters?.length
+    ? encountered.length / state.games[state.selectedGame.value].encounters.length
     : 0;
 };
 

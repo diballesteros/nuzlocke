@@ -1,14 +1,14 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 16px;
+  gap: var(--spacing-5);
   color: var(--contrast);
 
   .currenthpContainer {
     display: flex;
-    gap: 8px;
+    gap: var(--spacing-3);
     .currenthp {
-      width: 48px;
+      width: 3.429rem;
     }
   }
 
@@ -25,11 +25,11 @@
 
   .fieldset {
     display: grid;
-    grid-template-columns: 40px minmax(0, 1fr) 40px;
-    column-gap: 8px;
-    row-gap: 12px;
+    grid-template-columns: 2.857rem minmax(0, 1fr) 2.857rem;
+    column-gap: var(--spacing-3);
+    row-gap: var(--spacing-4);
     color: var(--contrast);
-    padding: 16px;
+    padding: var(--spacing-5);
     border-radius: 4px;
   }
 }
@@ -37,10 +37,10 @@
 @keyframes sweep {
   0% {
     opacity: 0;
-    margin-left: -10px;
+    margin-left: var(--spacing-3);
   }
   100% {
     opacity: 1;
-    margin-left: 0px;
+    margin-left: 0;
   }
 }

@@ -1,41 +1,35 @@
 .about {
   display: flex;
   flex-flow: column nowrap;
-  gap: 10px;
+  gap: var(--spacing-3);
   overflow: auto;
   flex: 1;
-  font-size: 13px !important;
+  font-size: var(--font-size-3) !important;
   overflow: auto;
   color: var(--contrast);
 
   h3 {
-    font-size: 20px;
+    font-size: var(--font-size-6);
     margin: 0;
   }
 
   .credits {
     display: flex;
     flex-flow: column nowrap;
-    gap: 5px;
+    gap: var(--spacing-2);
     margin: 0;
     overflow: auto;
     max-height: 45%;
-  }
-
-  .support {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 10px;
   }
 
   .stores {
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    gap: 10px;
+    gap: var(--spacing-3);
 
     .playstore {
-      height: 85px;
+      height: 6.071rem;
 
       > img {
         height: 100%;
@@ -43,31 +37,30 @@
     }
 
     .microsoft {
-      width: 127px;
-      min-width: 85px;
-      height: 52px;
+      width: 9.071rem;
+      min-width: 6.071rem;
+      height: 3.714rem;
     }
   }
 
   .socials {
     display: flex;
     flex-flow: row wrap;
-    gap: 5px;
+    gap: var(--spacing-2);
 
     .socialButton {
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 48px;
-      padding: 5px;
-      min-height: 26px;
-      font-size: 26px;
+      height: 3.429rem;
+      padding: var(--spacing-2);
+      font-size: var(--font-size-7);
       border: 2px solid #ffffff;
       border-radius: 4px;
       color: #ffffff;
       position: relative;
       > i {
-        padding-top: 2px;
+        padding-top: var(--spacing-0);
       }
       &:hover {
         background-color: #ffffff;
@@ -75,8 +68,8 @@
       }
 
       > span {
-        bottom: -5px;
-        font-size: 12px;
+        bottom: calc(-1 * var(--spacing-2));
+        font-size: var(--font-size-2);
       }
     }
   }

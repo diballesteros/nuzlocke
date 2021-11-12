@@ -2,30 +2,30 @@
   display: flex;
   flex: 1;
   flex-flow: column nowrap;
-  padding-right: 5px;
+  padding-right: var(--spacing-2);
   overflow: auto;
   color: var(--contrast);
 
   > h4 {
-    font-size: 24px;
+    font-size: var(--font-size-7);
     > span {
-      font-size: 13px;
+      font-size: var(--font-size-3);
     }
   }
 
   > ul > li {
-    margin-bottom: 5px;
-    font-size: 15px;
+    margin-bottom: var(--spacing-2);
+    font-size: var(--font-size-3);
   }
 
   .type {
     display: inline-block;
-    font-size: 10px;
+    font-size: var(--font-size-1);
     border-radius: 999px;
-    padding: 3px 8px;
+    padding: var(--spacing-1) var(--spacing-2);
     font-weight: bold;
-    letter-spacing: 0.75px;
-    margin-right: 10px;
+    letter-spacing: 0.054rem;
+    margin-right: var(--spacing-3);
   }
 
   .feature {
@@ -44,8 +44,8 @@
   }
 
   .seeMore {
-    height: 36px;
-    min-height: 36px;
+    height: 3.429rem;
+    min-height: 3.429rem;
     width: fit-content;
     align-self: center;
   }

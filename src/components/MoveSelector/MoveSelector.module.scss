@@ -3,10 +3,10 @@
   flex-flow: row nowrap;
   align-items: center;
   justify-content: center;
-  height: 30px;
-  max-height: 30px;
-  padding: 3px 4.5px;
-  font-size: 14px;
+  height: 2.143rem;
+  max-height: 2.143rem;
+  padding: var(--spacing-1);
+  font-size: var(--font-size-3);
   background-color: var(--card);
   color: var(--contrast);
   border: 1px dashed var(--contrast);
@@ -18,18 +18,18 @@
   position: relative;
   .trash {
     position: absolute;
-    right: 3px;
-    top: 5px;
-    padding: 4px !important;
+    right: var(--spacing-1);
+    top: var(--spacing-1);
+    padding: var(--spacing-1) !important;
   }
 }
 
 .content {
   > div:first-child {
-    margin-bottom: 10px;
+    margin-bottom: var(--spacing-3);
   }
 
   .row {
-    padding-right: 10px;
+    padding-right: var(--spacing-3);
   }
 }

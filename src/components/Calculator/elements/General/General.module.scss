@@ -1,7 +1,7 @@
 .general {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 16px;
+  gap: var(--spacing-5);
 
   > div:first-child,
   .fullColumn {
@@ -12,11 +12,11 @@
     display: flex;
     flex-flow: row nowrap;
     align-items: center;
-    gap: 4px;
+    gap: var(--spacing-1);
 
     .level {
-      width: 60px;
-      padding: 4px;
+      width: 4.286rem;
+      padding: var(--spacing-1);
     }
   }
 
@@ -29,7 +29,7 @@
 
   .gender {
     width: 100%;
-    min-width: 125px !important;
+    min-width: 8.929rem !important;
     margin-left: auto;
   }
 }

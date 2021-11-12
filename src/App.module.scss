@@ -1,8 +1,5 @@
-/* Responsive Variables */
-$break1: '(max-width:499px)';
-$break2: '(min-width:500px) and (max-width:1004px)';
-$break2open: '(min-width:500px)';
-$break3: '(min-width:1005px)';
+@use 'styles/mixins';
+@import 'styles/variables';
 
 .app {
   height: fit-content;
@@ -11,37 +8,32 @@ $break3: '(min-width:1005px)';
   overflow: auto;
 
   .header {
+    margin: 0 auto !important;
     color: var(--contrast);
-    margin-left: auto !important;
-    margin-right: auto !important;
 
-    @media (max-width: 1200px) {
-      margin-left: 25px !important;
+    @media (max-width: $screen-lg) {
+      margin-left: var(--spacing-7) !important;
       margin-right: unset !important;
     }
-    @media (max-width: 850px) {
-      margin-left: 15px !important;
+    @media (max-width: 53.125rem) {
+      margin-left: var(--spacing-4) !important;
     }
-    > h1 {
-      @media (max-width: 750px) {
+    @media (max-width: $screen-md) {
+      > h1 {
         display: none;
       }
     }
   }
 
   .gameSelect {
+    @include mixins.semantic-icon;
     width: 100%;
-    max-width: 300px;
+    max-width: var(--screen-xxs);
     background-color: transparent !important;
     color: var(--contrast) !important;
 
     > div {
       color: var(--contrast) !important;
-    }
-
-    > i {
-      color: var(--contrast);
-      top: 0 !important;
     }
   }
 
@@ -56,8 +48,8 @@ $break3: '(min-width:1005px)';
 
     &.darkmode,
     &.delete {
-      @media (max-width: 550px) {
-        padding: 5px !important;
+      @media (max-width: $screen-sm) {
+        padding: var(--spacing-1) !important;
       }
     }
   }
@@ -66,8 +58,8 @@ $break3: '(min-width:1005px)';
     background-color: var(--header);
     color: var(--contrast);
     border-style: none;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: var(--spacing-4);
+    padding-right: var(--spacing-4);
     position: relative;
     cursor: pointer;
   }
@@ -77,25 +69,25 @@ $break3: '(min-width:1005px)';
     place-items: center;
     order: 1;
     position: absolute;
-    bottom: 5px;
-    right: 5px;
-    width: 14px;
-    height: 14px;
+    bottom: var(--spacing-1);
+    right: var(--spacing-1);
+    width: var(--spacing-4);
+    height: var(--spacing-4);
     background-color: red;
     font-weight: bold;
     color: #ffffff;
-    font-size: 9px;
+    font-size: var(--font-size-1);
     border-radius: 50%;
   }
 
   .grid {
     display: grid;
-    max-width: 1200px;
-    column-gap: 30px;
+    max-width: var(--screen-lg);
+    column-gap: var(--spacing-8);
     margin: 0 auto;
 
     .mainContent {
-      padding: 10px 0;
+      padding: var(--spacing-3) 0;
       height: calc(100vh - 40px);
       background-color: var(--bgsecondary);
     }
@@ -103,8 +95,8 @@ $break3: '(min-width:1005px)';
     .nav {
       display: flex;
       flex-flow: column nowrap;
-      padding: 50px 10px 0 10px;
-      gap: 45px;
+      padding: var(--spacing-10) var(--spacing-3) 0 var(--spacing-3);
+      gap: var(--spacing-9);
 
       .activeLink {
         color: var(--badge);
@@ -112,7 +104,7 @@ $break3: '(min-width:1005px)';
 
       > a {
         font-weight: bold;
-        font-size: 24px;
+        font-size: var(--font-size-7);
         color: var(--contrast);
 
         &:hover {
@@ -127,7 +119,7 @@ $break3: '(min-width:1005px)';
       }
     }
     @media #{$break3} {
-      grid-template-columns: auto minmax(auto, 1200px);
+      grid-template-columns: auto minmax(auto, var(--screen-lg));
     }
   }
 }

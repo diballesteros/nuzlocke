@@ -1,17 +1,19 @@
+@import 'styles/variables';
+
 .container {
   position: relative;
 
   .popup {
     display: flex;
     flex-flow: row wrap;
-    gap: 8px;
+    gap: var(--spacing-2);
     position: absolute;
     right: 0;
-    top: 40px;
-    width: 350px;
-    min-width: 350px;
+    top: 2.857rem;
+    width: 25rem;
+    min-width: 25rem;
     height: fit-content;
-    padding: 15px;
+    padding: var(--spacing-5);
     background-color: var(--card);
     color: var(--contrast);
     border-radius: 8px;
@@ -19,20 +21,20 @@
     text-align: center;
     z-index: 3;
 
-    @media (max-width: 550px) {
-      right: -125px;
+    @media (max-width: $screen-sm) {
+      right: -8.929rem;
     }
 
     :global(.ui.radio.checkbox > label) {
       color: var(--contrast);
-      font-size: 14px;
+      font-size: var(--font-size-3);
     }
 
     label {
       color: var(--contrast);
-      font-size: 16px;
+      font-size: var(--font-size-4);
       align-self: flex-start;
-      margin-right: 8px;
+      margin-right: var(--spacing-2);
     }
   }
 }

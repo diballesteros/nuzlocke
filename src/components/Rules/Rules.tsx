@@ -11,6 +11,7 @@ import { AddRule, RuleContent, RuleEditor } from 'components/Rules/elements';
 import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
 import { TRuleEntry } from 'constants/types';
 import useStore from 'store';
+import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './Rules.module.scss';
 
 function Rules(): JSX.Element {
@@ -106,7 +107,7 @@ function Rules(): JSX.Element {
           }
         >
           <Modal.Header>Add Ruleset</Modal.Header>
-          <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+          <Modal.Content className={modalStyles.modal}>
             Please enter the ruleset name
             <Input
               data-testid="add-ruleset-input"
@@ -167,7 +168,7 @@ function Rules(): JSX.Element {
                     <Icon name="arrow up" />
                   </Button>
                 )}
-                {i < rules[selectedRuleset]?.length - 1 && (
+                {i < (rules[selectedRuleset]?.length ?? 0) - 1 && (
                   <Button
                     data-testid={`arrow-down-${i}`}
                     icon

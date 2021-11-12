@@ -7,6 +7,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import useStore from 'store';
+import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './AddRule.module.scss';
 
 function AddRule(): JSX.Element {
@@ -169,7 +170,7 @@ function AddRule(): JSX.Element {
       }
     >
       <Modal.Header>Add Rule</Modal.Header>
-      <Modal.Content style={{ display: 'flex', flexFlow: 'column nowrap', gap: '5px' }}>
+      <Modal.Content className={modalStyles.modal}>
         <Tab
           activeIndex={tab}
           className={styles.tabs}

@@ -1,13 +1,15 @@
+@import 'styles/variables';
+
 .options {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--spacing-3);
   justify-content: space-between;
   align-items: center;
 
   .searchBar {
     display: flex;
-    gap: 2px;
+    gap: var(--spacing-1);
     width: 100%;
     max-width: 100%;
     position: relative;
@@ -18,11 +20,11 @@
 
   .buttons {
     display: flex;
-    gap: 2px;
+    gap: var(--spacing-1);
     width: 100%;
     font-weight: bold;
 
-    @media (max-width: 550px) {
+    @media (max-width: $screen-sm) {
       display: none;
     }
 
@@ -30,7 +32,7 @@
       width: 100%;
       flex: 1;
       > i {
-        margin-left: 5px !important;
+        margin-left: var(--spacing-1) !important;
         margin-right: 0 !important;
       }
     }

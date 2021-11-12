@@ -1,28 +1,30 @@
+@import 'styles/variables';
+
 .fab {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 10px;
+  bottom: var(--spacing-5);
+  right: var(--spacing-3);
   z-index: 1;
 
   .list {
     display: flex;
     flex-flow: column nowrap;
-    gap: 8px;
+    gap: var(--spacing-2);
     align-items: flex-end;
 
     .listItem {
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
-      gap: 10px;
+      gap: var(--spacing-3);
 
       .label {
         display: grid;
         place-items: center;
-        padding: 5px 8px;
+        padding: var(--spacing-1) var(--spacing-2);
         height: fit-content;
-        border-radius: 12px;
+        border-radius: 4px;
         background: #999999;
         color: #ffffff;
         -webkit-box-shadow: 0 0 3px #fff;
@@ -31,22 +33,22 @@
     }
   }
 
-  @media (max-width: 550px) {
+  @media (max-width: $screen-sm) {
     display: flex;
     flex-flow: column nowrap;
     align-items: flex-end;
-    gap: 8px;
+    gap: var(--spacing-2);
   }
 
   .button {
-    width: 56px;
-    height: 56px;
+    width: 4rem;
+    height: 4rem;
     background-color: var(--badge);
     color: #ffffff;
     transition: all 500ms;
     > i {
-      padding-top: 5px;
-      font-size: 2em;
+      padding-top: var(--spacing-1);
+      font-size: var(--font-size-8);
     }
 
     &:hover {

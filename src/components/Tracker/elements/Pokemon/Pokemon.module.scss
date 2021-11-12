@@ -1,3 +1,5 @@
+@import 'styles/variables';
+
 .pokemonSelect {
   display: flex;
   align-items: center;
@@ -6,10 +8,10 @@
   .innerLabel {
     display: flex;
     flex-flow: column nowrap;
-    min-width: 72px;
+    min-width: 5.143rem;
 
     > span {
-      font-size: 10px;
+      font-size: var(--font-size-1);
       color: red;
       line-height: 1;
     }
@@ -26,19 +28,19 @@
     .selector {
       display: flex;
       flex-flow: row nowrap;
-      gap: 8px;
-      padding-left: 10px;
+      gap: var(--spacing-2);
+      padding-left: var(--spacing-3);
       align-items: center;
-      height: 36px;
-      width: calc(100% - 12px);
+      height: 2.571rem;
+      width: calc(100% - var(--spacing-3));
       color: var(--contrast);
       box-sizing: unset;
-      border-radius: 5px;
+      border-radius: 4px;
       border: 1px solid var(--contrast);
       cursor: pointer;
 
-      @media (max-width: 550px) {
-        font-size: 12px;
+      @media (max-width: $screen-sm) {
+        font-size: var(--font-size-2);
       }
 
       &.evolve {
@@ -47,8 +49,8 @@
       }
 
       > img {
-        width: 37.5px;
-        height: 30px;
+        width: 2.464rem;
+        height: 2.143rem;
         object-fit: cover;
       }
     }

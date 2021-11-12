@@ -99,11 +99,9 @@ function About(): JSX.Element {
             </a>
           </li>
         </ul>
-        <div className={styles.support}>
-          <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
-            <img style={{ border: 0, height: 36 }} src={kofi} alt="Buy Me a Coffee at ko-fi.com" />
-          </a>
-        </div>
+        <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
+          <img style={{ border: 0, height: 36 }} src={kofi} alt="Buy Me a Coffee at ko-fi.com" />
+        </a>
         <div className={styles.stores}>
           <a
             className={styles.microsoft}

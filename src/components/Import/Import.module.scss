@@ -1,7 +1,7 @@
 .container {
   display: flex;
   flex-flow: column nowrap;
-  gap: 16px;
+  gap: var(--spacing-4);
   color: var(--contrast);
   box-sizing: unset;
   overflow: auto;
@@ -17,7 +17,7 @@
     > .fileText {
       display: flex;
       align-items: center;
-      padding: 0 8px;
+      padding: 0 var(--spacing-2);
       height: 100%;
       min-width: 50%;
       background-color: #00000050;
@@ -43,8 +43,8 @@
   }
 
   .textarea {
-    height: 100px;
-    min-height: 100px;
+    height: 7.143rem;
+    min-height: 7.143rem;
     resize: none;
   }
 
@@ -54,7 +54,7 @@
 
   :global(.ui.radio.checkbox > label) {
     color: var(--contrast);
-    font-size: 16px;
+    font-size: var(--font-size-4);
     font-weight: bold;
   }
 
@@ -64,6 +64,6 @@
 
   .apply {
     align-self: flex-end;
-    margin-right: 8px;
+    margin-right: var(--spacing-2);
   }
 }

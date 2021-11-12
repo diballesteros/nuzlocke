@@ -1,26 +1,28 @@
+@import 'styles/variables';
+
 .container {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
   position: relative;
   overflow: hidden;
-  gap: 10px;
-  padding: 0 5px;
+  gap: var(--spacing-3);
+  padding: 0 var(--spacing-1);
 
   .options {
     display: flex;
-    width: calc(100% - 10px);
-    padding: 0 5px;
+    width: calc(100% - var(--spacing-3));
+    padding: 0 var(--spacing-1);
     position: relative;
 
     > button > i {
-      margin-left: 5px !important;
+      margin-left: var(--spacing-1) !important;
       margin-right: 0 !important;
     }
 
-    @media (max-width: 500px) {
+    @media (max-width: $screen-md) {
       > button {
-        padding: 10px;
+        padding: var(--spacing-3);
         > i {
           display: none;
         }
@@ -31,21 +33,21 @@
   .loading {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: var(--spacing-2);
     color: var(--contrast);
   }
 
   .inner {
     display: flex;
     flex-flow: row nowrap;
-    gap: 5px;
+    gap: var(--spacing-1);
     width: 100%;
     overflow: auto;
   }
 
   .offscreen {
     position: absolute;
-    max-width: 1200px;
+    max-width: $screen-lg;
     bottom: -100000px;
     right: -100000px;
   }

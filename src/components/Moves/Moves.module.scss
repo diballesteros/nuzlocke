@@ -2,6 +2,6 @@
   display: grid;
   grid-template-columns: 1fr;
   justify-content: center;
-  column-gap: 3px;
-  row-gap: 3px;
+  column-gap: var(--spacing-1);
+  row-gap: var(--spacing-1);
 }

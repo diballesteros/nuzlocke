@@ -5,7 +5,7 @@ function ErrorBoundary(): JSX.Element {
       style={{
         display: 'flex',
         flexFlow: 'column nowrap',
-        gap: '10px',
+        gap: '0.857rem',
         textAlign: 'center',
       }}
     >

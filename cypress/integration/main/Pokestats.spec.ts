@@ -66,12 +66,12 @@ describe('PokéStats', () => {
     cy.contains('FAINTED').should('not.exist');
     cy.contains('RULES').should('not.exist');
     cy.contains('Summary description').should('exist');
-
+    cy.get('.secondary > :nth-child(5) > .ui').click().should('have.text', '1');
+    cy.get('.secondary > :nth-child(4) > .ui').click().should('have.text', '1');
     cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '5');
-    cy.get('.secondary > :nth-child(4) > .ui').should('have.text', '1');
-    cy.get('.secondary > :nth-child(5) > .ui').should('have.text', '1');
-    cy.get('[alt="Scorbunny"]').should('exist');
-    cy.get('[alt="Magikarp"]').should('exist');
+
+    cy.get('[alt="Scorbunny"]').should('exist').click();
+    cy.get('[alt="Magikarp"]').should('exist').click();
     cy.get('[alt="Caterpie"]').should('exist');
     cy.get('[alt="Slowpoke (Galarian)"]').should('exist');
     cy.get('.secondary > :nth-child(4)').click();

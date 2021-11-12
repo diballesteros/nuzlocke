@@ -15,21 +15,21 @@
       width: 100%;
 
       thead tr {
-        height: 60px;
+        height: 4.286rem;
         color: #333;
-        font-size: 16px;
+        font-size: var(--font-size-4);
         text-align: center;
         font-weight: bold;
         th {
-          padding: 0 8px;
+          padding: 0 var(--spacing-2);
           position: sticky;
-          top: -20px;
+          top: calc(-1 * var(--spacing-6));
           background-color: var(--badge);
         }
       }
 
       tbody tr {
-        height: 48px;
+        height: 3.429rem;
         text-align: center;
 
         &:last-child {
@@ -38,8 +38,8 @@
       }
 
       .nature {
-        font-size: 16px;
-        padding: 0 8px;
+        font-size: var(--font-size-4);
+        padding: 0 var(--spacing-2);
       }
 
       .increased {

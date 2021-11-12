@@ -6,7 +6,7 @@ describe('Builder', () => {
   it('Build Team', () => {
     cy.get('[data-testid=options]').click();
     cy.contains('Builder').click();
-    cy.contains('Select a game to begin').should('exist');
+    cy.contains('Please select a game').should('exist');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=builder-add]').click();
