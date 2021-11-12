@@ -12,10 +12,18 @@
 
 - Removed node-sass due to deprecation
 - Added sass 1.43.4
+- Bumped @sentry/react to 6.14.3
+- Bumped @sentry/tracing to 6.14.3
 - Bumped @types/node to 16.11.7
 - Bumped @typescript-eslint/eslint-plugin to 5.3.1
 - Bumped @typescript-eslint/parser to 5.3.1
-- Bumped react-hook-form to 7.19.1
+- Bumped react-hook-form to 7.19.5
+- Bumped react-router-dom to 6.0.2
+- Bumped cypress to 9.0.0
+- Bumped cypress-localstorage-commands to 1.6.1
+- Bumped eslint-plugin-import to 2.25.3
+- Bumped eslint-plugin-jsx-a11y to 6.5.1
+- Bumped eslint-plugin-react-hooks to 4.3.0
 - Bumped eslint-config-airbnb-typescript to 15.0.0
 - Bumped eslint-config-prettier to 4.0.0
 

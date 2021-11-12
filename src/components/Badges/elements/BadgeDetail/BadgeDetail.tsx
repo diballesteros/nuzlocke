@@ -53,7 +53,7 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                     <span className={styles.totem}>TOTEM</span>
                   )}
                   {selectedDetail?.type === 'DYNAMAX' &&
-                    ind === selectedDetail?.content?.length - 1 && (
+                    ind === (selectedDetail?.content?.length ?? 0) - 1 && (
                       <span className={styles.totem}>DYNAMAX</span>
                     )}
                   <img src={poke?.image} alt={poke?.text} />

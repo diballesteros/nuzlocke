@@ -30,7 +30,7 @@ describe('Custom game', () => {
         .should('have.length', 0);
       cy.get('[data-testid=options]').click();
       cy.contains('Builder').click();
-      cy.get('[data-testid=builder-add]').click();
+      cy.get('[data-testid=builder-add]').click({ force: true });
       cy.get('[data-testid=poke-Bulbasaur]').click();
       cy.get('[aria-label="deletegame"]').click();
       cy.contains('Cancel').click();

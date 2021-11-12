@@ -168,7 +168,7 @@ function Rules(): JSX.Element {
                     <Icon name="arrow up" />
                   </Button>
                 )}
-                {i < rules[selectedRuleset]?.length - 1 && (
+                {i < (rules[selectedRuleset]?.length ?? 0) - 1 && (
                   <Button
                     data-testid={`arrow-down-${i}`}
                     icon

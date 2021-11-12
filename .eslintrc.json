@@ -45,7 +45,7 @@
         "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
     ],
-
+    "react/function-component-definition": [2, { "namedComponents": "function-declaration" }],
     "react/jsx-props-no-spreading": [0, {}],
     "react/forbid-prop-types": [0, {}],
     "react/no-danger": [0, {}],
