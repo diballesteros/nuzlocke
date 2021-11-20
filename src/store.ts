@@ -420,7 +420,7 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 3,
+      version: 4,
       migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
         if (version < 1) {
@@ -463,6 +463,14 @@ const useStore = create<AppState>(
               }
             });
           });
+        }
+
+        if (version < 4) {
+          gameMigration['13.1'] = INITIAL_STATE.games['13.1'];
+          persistedState.calcs['13.1'] = INITIAL_STATE.calcs['13.1'];
+          persistedState.summary['13.1'] = INITIAL_STATE.summary['13.1'];
+          persistedState.badges['13.1'] = INITIAL_STATE.badges['13.1'];
+          persistedState.gamesList.splice(13, 0, INITIAL_STATE.gamesList[13]);
         }
 
         return {

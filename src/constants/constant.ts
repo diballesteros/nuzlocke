@@ -3,6 +3,7 @@ import BADGES from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';
 import B_W_2 from 'constants/locations/B_W_2';
+import BD_SP from 'constants/locations/BD_SP';
 import D_P_PLAT from 'constants/locations/D_P_PLAT';
 import FR_LG from 'constants/locations/FR_LG';
 import G_S_C from 'constants/locations/G_S_C';
@@ -90,6 +91,11 @@ export const GAMES: TGame[] = [
     value: '13',
     text: 'Sword and Shield',
     key: '13',
+  },
+  {
+    value: '13.1',
+    text: 'Brilliant Diamond and Shining Pearl',
+    key: '13.1',
   },
 ];
 
@@ -201,7 +207,10 @@ export const GAME_GENERATION: Record<string, GenerationNum> = {
   '11': 7,
   '12': 7,
   '13': 8,
+  '13.1': 8,
 };
+
+export const MAX_GAME = 13.1;
 
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
@@ -245,6 +254,9 @@ export const INITIAL_STATE: Partial<AppState> = {
     '13': {
       form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['13'], pokemon1: 1, pokemon2: 1 },
     },
+    '13.1': {
+      form: { ...DEFAULT_VALUES, calculatorGen: GAME_GENERATION['13.1'], pokemon1: 1, pokemon2: 1 },
+    },
   },
   darkMode: false,
   duplicates: false,
@@ -262,6 +274,7 @@ export const INITIAL_STATE: Partial<AppState> = {
     '11': { badge: null, encounters: S_M },
     '12': { badge: null, encounters: US_UM },
     '13': { badge: null, encounters: SW_SH },
+    '13.1': { badge: null, encounters: BD_SP },
   },
   gamesList: GAMES,
   missing: false,
@@ -287,6 +300,7 @@ export const INITIAL_STATE: Partial<AppState> = {
     '11': { ...INITIAL_SUMMARY },
     '12': { ...INITIAL_SUMMARY },
     '13': { ...INITIAL_SUMMARY },
+    '13.1': { ...INITIAL_SUMMARY },
   },
   team: {},
   text: null,
@@ -331,6 +345,7 @@ export const GAME_KEY_DICTIONARY: { [key in string]: TEncounter[] } = {
   '11': S_M,
   '12': US_UM,
   '13': SW_SH,
+  '13.1': BD_SP,
 };
 
 export const GENDERS = [
@@ -418,4 +433,18 @@ export const RULE_ALERTS: { [key: string]: string } = {
   'OVERLEVELED': 'Max level set has been exceeded',
   'FORBIDDEN TYPE': 'Pokémon of this type are not allowed',
   'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
+};
+
+export const getTypeParams = (gameId: string): [types: Type[], genRange: string] => {
+  let types = [...TYPES];
+  let genRange = 'Gen 6 - 8';
+
+  if (GAME_GENERATION[gameId] === 1) {
+    genRange = 'Gen 1';
+    types = types.filter((gen1) => gen1 !== 'DARK' && gen1 !== 'FAIRY' && gen1 !== 'STEEL');
+  } else if (GAME_GENERATION[gameId] >= 2 && GAME_GENERATION[gameId] <= 5) {
+    genRange = 'Gen 2 - 5';
+    types = types.filter((gen2_5) => gen2_5 !== 'FAIRY');
+  }
+  return [types, genRange];
 };

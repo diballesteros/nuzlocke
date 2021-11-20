@@ -89,12 +89,6 @@ export interface AppState {
   updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }
 
-declare global {
-  interface Navigator {
-    canShare: (stuff: unknown) => boolean;
-  }
-}
-
 export type Games = { [key: string]: TrackData };
 
 export type TrackData = {

@@ -1,8 +1,8 @@
 import _ from 'lodash';
-import { GAME_GENERATION, TYPES } from 'constants/constant';
+import { getTypeParams } from 'constants/constant';
 import EFFECTIVENESS from 'constants/effectiveness';
+// import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
-
 import { AppState, TEncounter, Type } from 'constants/types';
 
 export const selectTeam = (state: AppState): TEncounter[] => {
@@ -16,46 +16,97 @@ export const selectSuggestion = (state: AppState): Type[] => {
     return enc?.status?.value === 7;
   });
   if (team?.length === 0) return undefined;
-  let types = [...TYPES];
-  let genRange = 'Gen 6 - 8';
-
-  if (GAME_GENERATION[state?.selectedGame?.value] === 1) {
-    genRange = 'Gen 1';
-    types = types.filter((gen1) => gen1 !== 'DARK' && gen1 !== 'FAIRY' && gen1 !== 'STEEL');
-  } else if (
-    GAME_GENERATION[state?.selectedGame?.value] >= 2 &&
-    GAME_GENERATION[state?.selectedGame?.value] <= 5
-  ) {
-    genRange = 'Gen 2 - 5';
-    types = types.filter((gen2_5) => gen2_5 !== 'FAIRY');
-  }
+  const typeParams = getTypeParams(state?.selectedGame?.value);
 
   let i = 0;
-  while (types.length > 0 && team.length > i) {
+  while (typeParams[0].length > 0 && team.length > i) {
     const foundPokemon = POKEMAP.get(team[i]?.pokemon);
-    if (foundPokemon?.type && EFFECTIVENESS[genRange][foundPokemon.type]) {
-      types = _.difference(
-        types,
-        EFFECTIVENESS[genRange][foundPokemon.type]['Super effective against']
+    if (foundPokemon?.type && EFFECTIVENESS[typeParams[1]][foundPokemon.type]) {
+      typeParams[0] = _.difference(
+        typeParams[0],
+        EFFECTIVENESS[typeParams[1]][foundPokemon.type]['Super effective against']
       );
     }
-    if (foundPokemon?.dualtype && EFFECTIVENESS[genRange][foundPokemon.dualtype]) {
-      types = _.difference(
-        types,
-        EFFECTIVENESS[genRange][foundPokemon.dualtype]['Super effective against']
+    if (foundPokemon?.dualtype && EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]) {
+      typeParams[0] = _.difference(
+        typeParams[0],
+        EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Super effective against']
       );
     }
     i += 1;
   }
 
-  const neededTypes = Object.keys(EFFECTIVENESS[genRange]).filter((type) => {
-    return EFFECTIVENESS[genRange][type as Type]?.['Super effective against']?.some((saType) => {
-      return types.includes(saType);
-    });
+  const neededTypes = Object.keys(EFFECTIVENESS[typeParams[1]]).filter((type) => {
+    return EFFECTIVENESS[typeParams[1]][type as Type]?.['Super effective against']?.some(
+      (saType) => {
+        return typeParams[0].includes(saType);
+      }
+    );
   });
 
   return neededTypes as Type[];
 };
+
+// export const selectBuilderStrong = (state: AppState): Type[] => {
+//   const team = state?.team[state?.selectedGame?.value];
+//   if (team?.length === 0) return undefined;
+//   const typeParams = getTypeParams(state?.selectedGame?.value);
+
+//   let i = 0;
+//   while (typeParams[0].length > 0 && team.length > i) {
+//     // eslint-disable-next-line @typescript-eslint/no-loop-func
+//     team[i]?.moves?.forEach((move) => {
+//       const foundMove = MOVEMAP.get(move);
+//       if (
+//         foundMove?.type &&
+//         (foundMove?.category === 'Physical' || foundMove?.category === 'Special') &&
+//         EFFECTIVENESS[typeParams[1]][foundMove.type]
+//       ) {
+//         typeParams[0] = _.difference(
+//           typeParams[0],
+//           EFFECTIVENESS[typeParams[1]][foundMove.type]['Super effective against']
+//         );
+//       }
+//     });
+//     i += 1;
+//   }
+
+//   const neededTypes = Object.keys(EFFECTIVENESS[typeParams[1]]).filter((type) => {
+//     return EFFECTIVENESS[typeParams[1]][type as Type]?.['Super effective against']?.some(
+//       (saType) => {
+//         return typeParams[1].includes(saType);
+//       }
+//     );
+//   });
+
+//   return neededTypes as Type[];
+// };
+
+// export const selectBuilderWeak = (state: AppState): Type[] => {
+//   const team = state?.team[state?.selectedGame?.value];
+//   if (team?.length === 0) return undefined;
+
+//   const typeParams = getTypeParams(state?.selectedGame?.value);
+
+//   let i = 0;
+//   while (typeParams[0].length > 0 && team.length > i) {
+//     const foundPokemon = POKEMAP.get(team[i]?.id);
+//     if (foundPokemon?.type && EFFECTIVENESS[typeParams[1]][foundPokemon.type]) {
+//       typeParams[0] = _.difference(
+//         typeParams[0],
+//         EFFECTIVENESS[typeParams[1]][foundPokemon.type]['Weak against']
+//       );
+//     }
+//     if (foundPokemon?.dualtype && EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]) {
+//       typeParams[0] = _.difference(
+//         typeParams[0],
+//         EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Weak against']
+//       );
+//       i += 1;
+//     }
+//   }
+//   return typeParams[0];
+// };
 
 export const selectBoxed = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {

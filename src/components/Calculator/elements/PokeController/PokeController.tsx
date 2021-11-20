@@ -119,12 +119,13 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       )}
       {(encounters?.length > 0 || showGymDetails) && (
         <div className={styles.showAll}>
-          {showGymDetails && !showAll && (
+          {showGymDetails && (
             <Dropdown
               aria-label="gym-filter"
               className={styles.dropdown}
               clearable
               data-testid="gym-filter"
+              disabled={showAll}
               inline
               labeled
               onChange={(e, data) => setSelectedDetail(data.value)}

@@ -5,6 +5,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { LEVEL_CAPS } from 'constants/badges';
+import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
 import buttonStyles from 'assets/styles/Button.module.scss';
 import modalStyles from 'assets/styles/Modal.module.scss';
@@ -31,7 +32,7 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
     resetBadges(data.value as string);
   };
 
-  return selectedGame?.value && Number(selectedGame.value) <= 13 ? (
+  return selectedGame?.value && Number(selectedGame.value) <= MAX_GAME ? (
     <Modal
       closeOnDimmerClick
       onClose={() => setOpen(false)}
