@@ -906,6 +906,62 @@ const BADGES: TBadgeDictionary = {
       src: champion,
     },
   ],
+  '13.1': [
+    {
+      id: 1,
+      levelCap: 14,
+      name: 'Coal Badge',
+      src: coal,
+    },
+    {
+      id: 2,
+      levelCap: 22,
+      name: 'Forest Badge',
+      src: forest,
+    },
+    {
+      id: 3,
+      levelCap: 30,
+      name: 'Cobble Badge',
+      src: cobble,
+    },
+    {
+      id: 4,
+      levelCap: 30,
+      name: 'Fen Badge',
+      src: fen,
+    },
+    {
+      id: 5,
+      levelCap: 36,
+      name: 'Relic Badge',
+      src: relic,
+    },
+    {
+      id: 6,
+      levelCap: 39,
+      name: 'Mine Badge',
+      src: mine,
+    },
+    {
+      id: 7,
+      levelCap: 42,
+      name: 'Icicle Badge',
+      src: icicle,
+    },
+    {
+      id: 8,
+      levelCap: 49,
+      name: 'Beacon Badge',
+      src: beacon,
+    },
+    {
+      id: 9,
+      levelCap: 66,
+      name: 'Elite 4',
+      src: champion,
+    },
+  ],
 };
 
 export const GAME_CAP_DICTIONARY: TLevelCapDictionary = {

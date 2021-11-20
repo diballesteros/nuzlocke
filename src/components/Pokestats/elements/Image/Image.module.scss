@@ -106,6 +106,10 @@
       border-radius: 4px;
       margin-bottom: var(--spacing-3);
       font-size: var(--font-size-4);
+
+      > b {
+        margin-right: auto;
+      }
       > svg {
         width: 1.571rem;
         height: 1.571rem;

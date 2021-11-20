@@ -1,3 +1,32 @@
+## Version 3.14.0
+
+🚀 New features
+
+- Added Brilliant Diamond and Shining Pearl with all caps, details and encounters! Some may be missing so please send in any missing info through the Report functionality
+
+💅 Enhancement
+
+- Dropdown for gym leader in the calculator now always show until Show all is disabled to make it more clear it's an option
+
+🐛 Bug Fix
+
+- Fixed all occurrences of Farfetch'd in encounters across all games
+- Cynthia's Roserade now correctly has Poison Point as the ability
+- Various style fixes
+
+🏠 Internal
+
+- Bumped react-hook-form to 7.20.2
+- Bumped zustand to 3.6.4
+- Bumped @sentry/react to 6.15.0
+- Bumped @sentry/tracing to 6.15.0
+- Bumped typescript to 4.5.2
+- Bumped @types/lodash to 4.14.177
+- Bumped @types/node to 16.11.9
+- Bumped @types/react to 17.0.35
+- Bumped @typescript-eslint/eslint-plugin to 5.4.0
+- Bumped @typescript-eslint/parser to 5.4.0
+
 ## Version 3.13.0
 
 🚀 New features

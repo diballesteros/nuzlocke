@@ -4,6 +4,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import styles from 'components/Badges/elements/BadgeEditor/BadgeEditor.module.scss';
+import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
 import buttonStyles from 'assets/styles/Button.module.scss';
 import modalStyles from 'assets/styles/Modal.module.scss';
@@ -24,7 +25,7 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
     editCustomBadge(newBadge, index);
   };
 
-  return selectedGame?.value && Number(selectedGame.value) > 13 ? (
+  return selectedGame?.value && Number(selectedGame.value) > MAX_GAME ? (
     <Modal
       open={open}
       trigger={

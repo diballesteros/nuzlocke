@@ -3,6 +3,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Share } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import { MAX_GAME } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import styles from './FAB.module.scss';
@@ -34,13 +35,13 @@ function FAB(): JSX.Element {
               )}
             />
           </div>
-          {selectedGame?.value && Number(selectedGame.value) <= 13 && (
+          {selectedGame?.value && Number(selectedGame.value) <= MAX_GAME && (
             <div className={styles.listItem} data-testid="fab-add-edit-badges">
               <span className={styles.label}>Edit Badges</span>
               <BadgeEditor icon />
             </div>
           )}
-          {selectedGame?.value && Number(selectedGame.value) > 13 && (
+          {selectedGame?.value && Number(selectedGame.value) > MAX_GAME && (
             <div className={styles.listItem} data-testid="fab-add-edit-badges">
               <span className={styles.label}>Edit Badges</span>
               <CustomBadgeEditor icon />

@@ -1,7 +1,38 @@
+.tabs {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100%;
+  width: 100%;
+
+  :global(.ui.secondary.menu) {
+    display: flex;
+    flex-flow: row nowrap;
+    overflow: auto;
+    padding: var(--spacing-0) var(--spacing-2);
+  }
+  :global(.ui.secondary.menu .active) {
+    background-color: var(--card);
+    transition: all 500ms;
+  }
+
+  :global(.ui.secondary.menu .item) {
+    color: var(--contrast) !important;
+  }
+
+  :global(.ui.segment) {
+    flex: 1;
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    background-color: inherit;
+    border: none;
+  }
+}
+
 .builder {
   display: flex;
   height: 100%;
-  padding: 0 var(--spacing-7);
+  padding: 0;
   position: relative;
 
   .team {

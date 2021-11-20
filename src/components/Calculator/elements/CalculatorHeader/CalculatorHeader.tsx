@@ -5,7 +5,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { MainField } from 'components/Calculator/elements';
-import { GENERATION_SELECT } from 'constants/constant';
+import { GENERATION_SELECT, MAX_GAME } from 'constants/constant';
 import { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
@@ -39,7 +39,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   return (
     <div className={styles.header}>
       <div className={styles.options}>
-        {selectedGame?.value && Number(selectedGame.value) > 13 && (
+        {selectedGame?.value && Number(selectedGame.value) > MAX_GAME && (
           <Controller
             control={form.control}
             name="calculatorGen"
