@@ -5,10 +5,12 @@ describe('Builder', () => {
 
   it('Build Team', () => {
     cy.get('[data-testid=options]').click();
-    cy.contains('Builder').click();
+    cy.get('[data-testid=builder]').click();
     cy.contains('Please select a game').should('exist');
+    cy.contains('Coverage').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
+    cy.get('.secondary > :nth-child(1)').click();
     cy.get('[data-testid=builder-add]').click();
     cy.get('[data-testid=filter-button]').click();
     cy.contains('GRASS').click();
@@ -60,6 +62,25 @@ describe('Builder', () => {
     cy.get('[data-testid=builder-add]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
     cy.get('[data-testid=builder-add]').should('be.disabled');
+  });
+
+  it('Coverage', () => {
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=builder]').click();
+    cy.contains('Coverage').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=import]').click();
+    cy.get('[data-testid=import-file-input]').attachFile('Coverage.json', { force: true });
+    cy.get('[data-testid=apply-import]').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=builder]').click();
+    cy.contains('Coverage').click();
+    cy.contains('ICE 4').should('exist');
+    cy.contains('WATER 1').should('exist');
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Red, Blue and Yellow').click();
   });
 
   context('Export to builder', () => {

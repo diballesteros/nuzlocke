@@ -448,3 +448,21 @@ export const getTypeParams = (gameId: string): [types: Type[], genRange: string]
   }
   return [types, genRange];
 };
+
+export const getTypeCountParams = (
+  gameId: string
+): [types: { [key in Type]: number }, genRange: string] => {
+  const types = { ...TYPE_COUNT };
+  let genRange = 'Gen 6 - 8';
+
+  if (GAME_GENERATION[gameId] === 1) {
+    genRange = 'Gen 1';
+    delete types.FAIRY;
+    delete types.DARK;
+    delete types.STEEL;
+  } else if (GAME_GENERATION[gameId] >= 2 && GAME_GENERATION[gameId] <= 5) {
+    genRange = 'Gen 2 - 5';
+    delete types.FAIRY;
+  }
+  return [types, genRange];
+};

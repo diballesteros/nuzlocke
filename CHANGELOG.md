@@ -1,3 +1,19 @@
+## Version 3.14.1
+
+🚀 New features
+
+- New coverage tab in the Builder! This shows what strengths and weaknesses of the current built team
+
+🐛 Bug Fix
+
+- Fixed evolution line of Pidove, Tranquil and Unfezant
+- Added starters to Lake Verity in Brilliant Diamond and Shining Pearl
+- Added Pokémon Mansion to Brilliant Diamond and Shining Pearl encounters
+
+🏠 Internal
+
+- Bumped @types/react to 17.0.36
+
 ## Version 3.14.0
 
 🚀 New features

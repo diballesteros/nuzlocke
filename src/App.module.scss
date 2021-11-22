@@ -122,4 +122,18 @@
       grid-template-columns: auto minmax(auto, var(--screen-lg));
     }
   }
+
+  .footer {
+    display: block;
+    position: absolute;
+    bottom: var(--spacing-2);
+    left: var(--spacing-2);
+    color: var(--contrast);
+    font-size: var(--font-size-1);
+    text-align: left;
+
+    @media (max-width: 90rem) {
+      display: none;
+    }
+  }
 }

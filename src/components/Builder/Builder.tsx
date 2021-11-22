@@ -61,9 +61,23 @@ function Builder(): JSX.Element {
     },
     {
       menuItem: 'Coverage',
+      disabled: !team?.length,
       render: () => (
         <Tab.Pane attached={false}>
-          <Coverage />
+          {team?.length > 0 ? (
+            <Coverage />
+          ) : (
+            <div className={styles.builder}>
+              <div className={styles.placeholder}>
+                <PokeballSVG />
+                {selectedGame ? (
+                  <span>Press + to begin building a team</span>
+                ) : (
+                  <span>Please select a game</span>
+                )}
+              </div>
+            </div>
+          )}
         </Tab.Pane>
       ),
     },

@@ -5562,7 +5562,7 @@ const POKEMON: TPokemon[] = [
     image: pidove,
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [518, 519, 520],
+    evolve: [519, 520, 521],
     generation: 5,
   },
   {
@@ -5571,7 +5571,7 @@ const POKEMON: TPokemon[] = [
     image: tranquill,
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [518, 519, 520],
+    evolve: [519, 520, 521],
     generation: 5,
   },
   {
@@ -5580,7 +5580,7 @@ const POKEMON: TPokemon[] = [
     image: unfezant,
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [518, 519, 520],
+    evolve: [519, 520, 521],
     generation: 5,
   },
   {
