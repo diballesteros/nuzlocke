@@ -2,6 +2,25 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.14.2',
+    date: 1637597204585,
+    notes: [
+      {
+        description:
+          'Fix for when the app would sometimes crash checking the coverage in Team Builder for older generation games',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Spiritomb to Route 209 encounters',
+        type: 'FIX',
+      },
+      {
+        description: 'Added encounters to Grand Underground',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.14.1',
     date: 1637597204585,
     notes: [

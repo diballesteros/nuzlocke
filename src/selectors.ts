@@ -86,8 +86,8 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
         typeParams[0][type] += 1;
         if (
           foundPokemon?.dualtype &&
-          (EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype].Resists.includes(type) ||
-            EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Immune to'].includes(type))
+          (EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]?.Resists.includes(type) ||
+            EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]?.['Immune to'].includes(type))
         ) {
           typeParams[0][type] -= 1;
         }
@@ -97,8 +97,8 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
       EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Weak against'].forEach((type) => {
         typeParams[0][type] += 1;
         if (
-          EFFECTIVENESS[typeParams[1]][foundPokemon.type].Resists.includes(type) ||
-          EFFECTIVENESS[typeParams[1]][foundPokemon.type]['Immune to'].includes(type)
+          EFFECTIVENESS[typeParams[1]][foundPokemon.type]?.Resists.includes(type) ||
+          EFFECTIVENESS[typeParams[1]][foundPokemon.type]?.['Immune to'].includes(type)
         ) {
           typeParams[0][type] -= 1;
         }

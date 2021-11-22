@@ -1,3 +1,11 @@
+## Version 3.14.2
+
+🐛 Bug Fix
+
+- Fix for when the app would sometimes crash checking the coverage in Team Builder for older generation games
+- Added Spiritomb to Route 209 encounters
+- Added encounters to Grand Underground
+
 ## Version 3.14.1
 
 🚀 New features
