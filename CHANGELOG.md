@@ -1,3 +1,9 @@
+## Version 3.14.2
+
+🐛 Bug Fix
+
+- Fix for when the app would sometimes crash checking the older generation games
+
 ## Version 3.14.1
 
 🚀 New features

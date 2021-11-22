@@ -2,6 +2,17 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.14.2',
+    date: 1637597204585,
+    notes: [
+      {
+        description:
+          'Fix for when the app would sometimes crash checking the older generation games',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.14.1',
     date: 1637597204585,
     notes: [
