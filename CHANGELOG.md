@@ -3,6 +3,8 @@
 🐛 Bug Fix
 
 - Fix for when the app would sometimes crash checking the older generation games
+- Added Spiritomb to Route 209 encounters
+- Added encounters to Grand Underground
 
 ## Version 3.14.1
 

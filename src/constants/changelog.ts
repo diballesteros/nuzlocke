@@ -10,6 +10,14 @@ const CHANGELOG: TReleaseNotes = [
           'Fix for when the app would sometimes crash checking the older generation games',
         type: 'FIX',
       },
+      {
+        description: 'Added Spiritomb to Route 209 encounters',
+        type: 'FIX',
+      },
+      {
+        description: 'Added encounters to Grand Underground',
+        type: 'FIX',
+      },
     ],
   },
   {
