@@ -254,6 +254,13 @@ const BD_SP: TEncounter[] = [
     filterKey: 'bdsp-38',
   },
   {
+    id: 64,
+    pokemon: null,
+    location: 'Pokémon Mansion',
+    status: null,
+    filterKey: 'bdsp-64',
+  },
+  {
     id: 39,
     pokemon: null,
     location: 'Route 210',

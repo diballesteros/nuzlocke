@@ -164,7 +164,7 @@ function App(): JSX.Element {
             <Icon name="pie graph" />
             Stats
           </Menu.Item>
-          <Menu.Item onClick={() => handleRoute('/builder')}>
+          <Menu.Item data-testid="builder" onClick={() => handleRoute('/builder')}>
             <Icon name="gavel" />
             Builder
           </Menu.Item>
@@ -238,6 +238,10 @@ function App(): JSX.Element {
           </main>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
+      <footer className={styles.footer}>
+        Pokémon © 2002-2021 Pokémon <br />© 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
+        <br />® and Pokémon character names are trademarks of Nintendo.
+      </footer>
       <Effectiveness />
       <ToastContainer
         limit={3}

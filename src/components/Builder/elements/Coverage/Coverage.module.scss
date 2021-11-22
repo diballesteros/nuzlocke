@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: var(--spacing-3);
+  gap: var(--spacing-2);
+
+  h2 {
+    color: var(--contrast);
+  }
+
+  .types {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 6.429rem));
+    column-gap: var(--spacing-2);
+    row-gap: var(--spacing-2);
+
+    .type {
+      text-align: center;
+      height: 1.714rem;
+      min-width: 6.429rem;
+      padding: var(--spacing-1);
+      border-radius: 8px;
+      color: black;
+      font-weight: bold;
+    }
+  }
+}

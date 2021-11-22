@@ -7031,6 +7031,9 @@ const FILTERS: { [key in string]: string[] } = {
   'bdsp-1': ['Psyduck', 'Golduck', 'Goldeen', 'Seaking', 'Magikarp', 'Gyarados'],
   'bdsp-2': ['Nidoran♀', 'Nidoran♂', 'Growlithe', 'Doduo', 'Starly', 'Bidoof'],
   'bdsp-3': [
+    'Turtwig',
+    'Chimchar',
+    'Piplup',
     'Psyduck',
     'Golduck',
     'Goldeen',
@@ -7746,5 +7749,6 @@ const FILTERS: { [key in string]: string[] } = {
     'Gyarados',
   ],
   'bdsp-63': [],
+  'bdsp-64': [],
 };
 export default FILTERS;

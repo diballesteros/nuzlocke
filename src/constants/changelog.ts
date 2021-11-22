@@ -2,24 +2,37 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.14.1',
+    date: 1637597204585,
+    notes: [
+      {
+        description:
+          'New coverage tab in the Builder! This shows what strengths and weaknesses of the current built team',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Fixed evolution line of Pidove, Tranquil and Unfezant',
+        type: 'FIX',
+      },
+      {
+        description: 'Added starters to Lake Verity in Brilliant Diamond and Shining Pearl',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Pokémon Mansion to Brilliant Diamond and Shining Pearl encounters',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.14.0',
     date: 1637421850005,
     notes: [
-      // {
-      //   description:
-      //     'New coverage tab in the Builder! This shows what strengths and weaknesses of the current built team',
-      //   type: 'FEATURE',
-      // },
       {
         description:
           'Added Brilliant Diamond and Shining Pearl with all caps, details and encounters! Some may be missing so please send in any missing info through the Report functionality',
         type: 'FEATURE',
       },
-      // {
-      //   description:
-      //     'App is now available for iOS in the App store! If you enjoy the app please leave a rating.',
-      //   type: 'UPDATE',
-      // },
       {
         description:
           "Dropdown for gym leader in the calculator now always show until Show all is disabled to make it more clear it's an option",
