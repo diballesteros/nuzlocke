@@ -7,7 +7,7 @@ const CHANGELOG: TReleaseNotes = [
     notes: [
       {
         description:
-          'Fix for when the app would sometimes crash checking the older generation games',
+          'Fix for when the app would sometimes crash checking the coverage in Team Builder for older generation games',
         type: 'FIX',
       },
       {
