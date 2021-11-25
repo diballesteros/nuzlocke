@@ -132,6 +132,10 @@
     font-size: var(--font-size-1);
     text-align: left;
 
+    &.hide {
+      display: none;
+    }
+
     @media (max-width: 90rem) {
       display: none;
     }

@@ -1,3 +1,19 @@
+## Version 3.15.0
+
+🚀 New features
+
+- App is now available in German and Spanish. This does not apply to the changelog.
+
+💅 Enhancement
+
+- App is now available for iOS on the App Store
+- Added Trophy Garden to encounter list for Brilliant Diamond and Shining Pearl
+
+🐛 Bug Fix
+
+- Added Pikachu to starter's list for Red, Blue and Yellow
+- Changed Norman's second pokemon from Slaking to Vigoroth in Emerald
+
 ## Version 3.14.2
 
 🐛 Bug Fix

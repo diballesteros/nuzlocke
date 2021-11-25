@@ -26,6 +26,7 @@ import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
 import App from './App';
+import './i18n';
 
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,

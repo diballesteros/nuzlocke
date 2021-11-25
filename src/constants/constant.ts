@@ -435,6 +435,12 @@ export const RULE_ALERTS: { [key: string]: string } = {
   'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
 };
 
+export const LANGUAGES = [
+  { text: 'English', value: 'en' },
+  { text: 'Español', value: 'es' },
+  { text: 'Deutsch', value: 'de' },
+];
+
 export const getTypeParams = (gameId: string): [types: Type[], genRange: string] => {
   let types = [...TYPES];
   let genRange = 'Gen 6 - 8';

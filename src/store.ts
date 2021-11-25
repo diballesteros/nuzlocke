@@ -18,6 +18,7 @@ import {
   TCalculatorForm,
   TEncounter,
   TGame,
+  TLanguage,
   TPokemon,
   TRuleContent,
   TRuleEntry,
@@ -51,6 +52,7 @@ const useStore = create<AppState>(
       games: INITIAL_STATE.games,
       gamesList: GAMES,
       gens: [],
+      language: 'en',
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
@@ -352,6 +354,10 @@ const useStore = create<AppState>(
           } else {
             state.gens.push(genId);
           }
+        }),
+      setLanguage: (language: TLanguage) =>
+        set((state) => {
+          state.language = language;
         }),
       setTypes: (typeId: Type) =>
         set((state) => {

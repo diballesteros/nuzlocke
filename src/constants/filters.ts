@@ -1,5 +1,5 @@
 const FILTERS: { [key in string]: string[] } = {
-  'rby-0': ['Bulbasaur', 'Charmander', 'Squirtle'],
+  'rby-0': ['Bulbasaur', 'Charmander', 'Squirtle', 'Pikachu'],
   'rby-1': [
     'Bulbasaur',
     'Charmander',
@@ -7829,5 +7829,28 @@ const FILTERS: { [key in string]: string[] } = {
     'Snover',
   ],
   'bdsp-64': [],
+  'bdsp-65': [
+    'Roselia',
+    'Pichu',
+    'Staravia',
+    'Pikachu',
+    'Kricketune',
+    'Clefairy',
+    'Cleffa',
+    'Meowth',
+    'Chansey',
+    'Eevee',
+    'Porygon',
+    'Cleffa',
+    'Igglybuff',
+    'Marill',
+    'Azurill',
+    'Plusle',
+    'Minun',
+    'Castform',
+    'Bonsly',
+    'Mime-Jr',
+    'Happiny',
+  ],
 };
 export default FILTERS;
