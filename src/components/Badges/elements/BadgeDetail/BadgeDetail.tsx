@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
@@ -11,6 +12,7 @@ interface BadgeDetailProps {
 }
 
 function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
+  const { t } = useTranslation('badges');
   const [view, setView] = useState(0);
 
   const getContent = () => {
@@ -26,13 +28,13 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
         <div className={styles.rematch}>
           <Radio
             checked={view === 0}
-            label="Original"
+            label={t('original')}
             onChange={(e, data) => setView(data.value as number)}
             value={0}
           />
           <Radio
             checked={view === 1}
-            label="Rematch"
+            label={t('rematch')}
             onChange={(e, data) => setView(data.value as number)}
             value={1}
           />
@@ -64,13 +66,13 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                   <PokemonType pokemon={poke} />
                   {!!pokemon?.ability && (
                     <div className={styles.pokemonLabel}>
-                      <span>Ability:</span>
+                      <span>{t('ability')}:</span>
                       <span className={styles.value}>{pokemon?.ability}</span>
                     </div>
                   )}
                   {!!pokemon?.item && (
                     <div className={styles.pokemonLabel}>
-                      <span>Item:</span>
+                      <span>{t('item')}:</span>
                       <span className={styles.value}>{pokemon?.item}</span>
                     </div>
                   )}

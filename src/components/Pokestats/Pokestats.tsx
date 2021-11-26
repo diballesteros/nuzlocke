@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
@@ -16,6 +17,7 @@ import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
 import styles from './Pokestats.module.scss';
 
 function Pokestats(): JSX.Element {
+  const { t } = useTranslation('stats');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const teamPokemon = useStore(selectTeam);
   const faintedPokemon = useStore(selectFainted);
@@ -27,7 +29,7 @@ function Pokestats(): JSX.Element {
       menuItem: (
         <Menu.Item key="overview">
           <SummarySVG className={styles.team} />
-          Summary
+          {t('summary')}
         </Menu.Item>
       ),
       render: () => (
@@ -40,7 +42,7 @@ function Pokestats(): JSX.Element {
       menuItem: (
         <Menu.Item key="Team">
           <TeamSVG className={styles.team} />
-          Team
+          {t('Team')}
           <Label>{teamPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
@@ -80,7 +82,7 @@ function Pokestats(): JSX.Element {
               );
             })
           ) : (
-            <Tip missing="Team" />
+            <Tip missing={t('Team')} />
           )}
         </Tab.Pane>
       ),
@@ -89,7 +91,7 @@ function Pokestats(): JSX.Element {
       menuItem: (
         <Menu.Item key="Caught">
           <CaughtSVG className={styles.team} />
-          Caught
+          {t('Caught')}
           <Label>{caughtPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
@@ -118,7 +120,7 @@ function Pokestats(): JSX.Element {
               );
             })
           ) : (
-            <Tip missing="Captured,  Gifted, Traded, Shiny or Team" />
+            <Tip missing={t('multi_status')} />
           )}
         </Tab.Pane>
       ),
@@ -127,7 +129,7 @@ function Pokestats(): JSX.Element {
       menuItem: (
         <Menu.Item key="failed">
           <FailedSVG className={styles.fainted} />
-          Failed
+          {t('Failed')}
           <Label>{failedPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
@@ -156,7 +158,7 @@ function Pokestats(): JSX.Element {
               );
             })
           ) : (
-            <Tip missing="Failed" />
+            <Tip missing={t('Failed')} />
           )}
         </Tab.Pane>
       ),
@@ -165,7 +167,7 @@ function Pokestats(): JSX.Element {
       menuItem: (
         <Menu.Item key="fainted">
           <FaintedSVG className={styles.fainted} />
-          Fainted
+          {t('Fainted')}
           <Label>{faintedPokemon?.length || 0}</Label>
         </Menu.Item>
       ),
@@ -194,7 +196,7 @@ function Pokestats(): JSX.Element {
               );
             })
           ) : (
-            <Tip missing="Fainted" />
+            <Tip missing={t('Fainted')} />
           )}
         </Tab.Pane>
       ),

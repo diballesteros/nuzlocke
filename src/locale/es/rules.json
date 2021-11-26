@@ -1,0 +1,7 @@
+{
+  "choose_ruleset": "Elige un conjunto de reglas",
+  "confirm_deletion": "Esto eliminará el conjunto de reglas personalizado. ¿Está seguro?",
+  "delete_ruleset_success": "Conjunto de reglas eliminado correctamente",
+  "please_ruleset": "Ingrese el nombre del conjunto de reglas",
+  "ruleset_already": "Un conjunto de reglas con este nombre ya existe"
+}

@@ -129,7 +129,6 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
         </Button>
       }
     >
-      <Modal.Header>Edit Rule</Modal.Header>
       <Modal.Content className={modalStyles.modal}>{getInput()}</Modal.Content>
       <Modal.Actions>
         <Button onClick={handleEditClose}>Cancel</Button>

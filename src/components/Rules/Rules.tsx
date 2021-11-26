@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -15,6 +16,7 @@ import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './Rules.module.scss';
 
 function Rules(): JSX.Element {
+  const { t } = useTranslation('rules');
   const rules = useStore(useCallback((state) => state.rules, []));
   const reorderRule = useStore(useCallback((state) => state.reorderRule, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -53,7 +55,7 @@ function Rules(): JSX.Element {
   const handleDeleteRuleset = () => {
     deleteRuleset();
     setConfirm(false);
-    toast.success('Succesfully deleted ruleset');
+    toast.success(t('delete_ruleset_success'));
   };
 
   return (
@@ -83,7 +85,7 @@ function Rules(): JSX.Element {
           options={Object.keys(rules).map((key) => {
             return { key, text: key, value: key };
           })}
-          placeholder="Choose a ruleset"
+          placeholder={t('choose_ruleset')}
           selection
           value={selectedRuleset}
         />
@@ -106,26 +108,23 @@ function Rules(): JSX.Element {
             </Button>
           }
         >
-          <Modal.Header>Add Ruleset</Modal.Header>
           <Modal.Content className={modalStyles.modal}>
-            Please enter the ruleset name
+            {t('please_ruleset')}
             <Input
               data-testid="add-ruleset-input"
               onChange={(e, data) => setRulesetName(data.value)}
               value={rulesetName}
             />
-            {!!rules[rulesetName] && (
-              <span style={{ color: 'red' }}>Ruleset with this name already exists</span>
-            )}
+            {!!rules[rulesetName] && <span style={{ color: 'red' }}>{t('ruleset_already')}</span>}
           </Modal.Content>
           <Modal.Actions>
-            <Button onClick={handleCloseRulesetModal}>Cancel</Button>
+            <Button onClick={handleCloseRulesetModal}>{t('cancel', { ns: 'common' })}</Button>
             <Button
               disabled={rulesetName?.length === 0 || !!rules[rulesetName]}
               onClick={handleAddRuleset}
               primary
             >
-              Save
+              {t('save', { ns: 'common' })}
             </Button>
           </Modal.Actions>
         </Modal>
@@ -145,8 +144,9 @@ function Rules(): JSX.Element {
           </Button>
         )}
         <Confirm
+          cancelButton={t('cancel', { ns: 'common' })}
           closeOnDimmerClick
-          content="This will delete the custom ruleset. Are you sure?"
+          content={t('confirm_deletion')}
           onCancel={() => setConfirm(false)}
           onConfirm={handleDeleteRuleset}
           open={confirm}

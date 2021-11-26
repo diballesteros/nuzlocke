@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -14,6 +15,7 @@ interface FilterProps {
 }
 
 function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX.Element {
+  const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   return (
     <div className={styles.filter}>
@@ -24,7 +26,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
         fluid
         icon
         onChange={(e, data) => values.setSearch(data.value)}
-        placeholder="Search..."
+        placeholder={`${t('search')}...`}
         type="search"
         value={values.search}
       >
@@ -46,7 +48,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
         <div className={styles.popup}>
           {!hideGen && (
             <>
-              <b>Generations:</b>
+              <b>{t('generations')}:</b>
               <div className={styles.buttonRow}>
                 {GENERATIONS.map((gen) => {
                   return (
@@ -64,7 +66,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
               </div>
             </>
           )}
-          <b>Types:</b>
+          <b>{t('types')}:</b>
           <div className={styles.buttonRow}>
             {TYPES.map((type) => {
               return (

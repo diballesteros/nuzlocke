@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -9,6 +10,7 @@ import useStore from 'store';
 import styles from './DisplaySettings.module.scss';
 
 function DisplaySettings(): JSX.Element {
+  const { t } = useTranslation('stats');
   const summary = useStore(
     useCallback(
       (state) => (state?.selectedGame?.value ? state.summary[state?.selectedGame?.value] : null),
@@ -30,22 +32,22 @@ function DisplaySettings(): JSX.Element {
         onClick={() => setShow((prevState) => !prevState)}
         toggle
       >
-        SETTINGS <Icon name="settings" />
+        {t('settings')} <Icon name="settings" />
       </Button>
       {show && (
         <div className={styles.popup}>
           <details>
-            <summary>Header</summary>
+            <summary>{t('header')}</summary>
             <div>
               <Input
                 data-testid="summary-title"
                 fluid
-                label="Title"
+                label={t('title')}
                 onChange={(e, data) => changeSummaryTitle(data.value)}
                 style={{ marginBottom: 'var(--spacing-2)' }}
                 value={summary?.title}
               />
-              <span>Status:</span>
+              <span>{t('status')}:</span>
               <Dropdown
                 className={styles.dropdown}
                 data-testid="summary-status"
@@ -57,57 +59,57 @@ function DisplaySettings(): JSX.Element {
             </div>
           </details>
           <details>
-            <summary>Encounters</summary>
+            <summary>{t('encounters')}</summary>
             <div>
               <Checkbox
                 checked={summary?.encounters}
                 data-testid="summary-encounters"
-                label="Show encounters"
+                label={t('show_encounters')}
                 onChange={() => toggleSummarySetting('encounters')}
               />
             </div>
           </details>
           <details>
-            <summary>Stats</summary>
+            <summary>{t('stats')}</summary>
             <div>
               <Checkbox
                 checked={summary?.stats}
                 data-testid="summary-stats"
-                label="Show stats"
+                label={t('show_stats')}
                 onChange={() => toggleSummarySetting('stats')}
               />
               <Checkbox
                 checked={summary?.boxed}
                 data-testid="summary-boxed"
-                label="Show boxed pokémon"
+                label={t('show_boxed')}
                 onChange={() => toggleSummarySetting('boxed')}
               />
               <Checkbox
                 checked={summary?.fainted}
                 data-testid="summary-fainted"
-                label="Show fainted pokémon"
+                label={t('show_fainted')}
                 onChange={() => toggleSummarySetting('fainted')}
               />
             </div>
           </details>
           <details>
-            <summary>Rules</summary>
+            <summary>{t('rules')}</summary>
             <div>
               <Checkbox
                 checked={summary?.rules}
                 data-testid="summary-rules"
-                label="Show rules"
+                label={t('show_rules')}
                 onChange={() => toggleSummarySetting('rules')}
               />
             </div>
           </details>
           <details>
-            <summary>Description</summary>
+            <summary>{t('description')}</summary>
             <div>
               <Checkbox
                 checked={summary?.showDescription}
                 data-testid="summary-show-description"
-                label="Show description"
+                label={t('show_description')}
                 onChange={() => toggleSummarySetting('showDescription')}
               />
               <textarea

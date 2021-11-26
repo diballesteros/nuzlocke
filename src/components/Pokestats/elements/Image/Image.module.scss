@@ -70,6 +70,7 @@
     .title {
       font-size: var(--font-size-5);
       margin-bottom: var(--spacing-2);
+      text-transform: uppercase;
     }
 
     .team {
@@ -222,6 +223,10 @@
     .header {
       gap: var(--spacing-1);
       flex-wrap: wrap;
+
+      > b {
+        text-transform: uppercase;
+      }
     }
     .row {
       flex-flow: row wrap;

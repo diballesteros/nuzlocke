@@ -1,5 +1,6 @@
 import { toBlob, toPng } from 'html-to-image';
 import { useCallback, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -9,6 +10,7 @@ import useStore from 'store';
 import styles from './Summary.module.scss';
 
 function Summary(): JSX.Element {
+  const { t } = useTranslation('stats');
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -17,9 +19,9 @@ function Summary(): JSX.Element {
 
   const handleDownload = async () => {
     const newFile = await toast.promise(toPng(summaryRef.current, { cacheBust: true }), {
-      pending: 'Generating Image',
-      success: 'Image downloaded',
-      error: 'Unable to download image',
+      pending: t('generating_image'),
+      success: t('image_downloaded'),
+      error: t('unable_download'),
     });
     if (newFile) {
       const link = document.createElement('a');
@@ -31,14 +33,14 @@ function Summary(): JSX.Element {
 
   const handleShare = async () => {
     const newFile = await toast.promise(toBlob(summaryRef.current), {
-      pending: 'Generating Image',
-      success: 'Image generated',
-      error: 'Unable to generate image',
+      pending: t('generating_image'),
+      success: t('image_generated'),
+      error: t('unable_generate'),
     });
     const data = {
       files: [
         new File([newFile], 'nuzlocke.png', {
-          type: newFile.type,
+          type: newFile?.type,
         }),
       ],
       title: 'Nuzlocke',
@@ -50,12 +52,12 @@ function Summary(): JSX.Element {
         throw Error("Can't share");
       }
       toast.promise(navigator.share(data), {
-        pending: 'Validating sharing options',
-        success: 'Share the image!',
-        error: 'Unable to share image',
+        pending: t('validating_share'),
+        success: t('share_image'),
+        error: t('unable_share'),
       });
     } catch (err) {
-      toast.error('Unable to share image');
+      toast.error(t('unable_share'));
     }
   };
 
@@ -64,11 +66,11 @@ function Summary(): JSX.Element {
       {!!selectedGame && (
         <div className={styles.options}>
           <Button color="green" data-testid="download-image" onClick={handleDownload}>
-            DOWNLOAD <Icon name="download" />
+            {t('download')} <Icon name="download" />
           </Button>
           {'share' in navigator && 'canShare' in navigator && (
             <Button color="blue" data-testid="share-image" onClick={handleShare}>
-              SHARE <Icon name="share" />
+              {t('share')} <Icon name="share" />
             </Button>
           )}
           <DisplaySettings />

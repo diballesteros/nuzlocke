@@ -1,0 +1,7 @@
+{
+  "choose_ruleset": "Wählen Sie einen Regelsatz",
+  "confirm_deletion": "Dadurch wird der benutzerdefinierte Regelsatz gelöscht. Bist du sicher?",
+  "delete_ruleset_success": "Regelsatz erfolgreich gelöscht",
+  "please_ruleset": "Bitte geben Sie den Namen des Regelsatzes ein",
+  "ruleset_already": "Regelsatz mit diesem Namen existiert bereits"
+}

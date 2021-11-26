@@ -1,0 +1,23 @@
+{
+  "cancel": "Abbrechen",
+  "choose_a_game": "Wähle ein Spiel",
+  "decreased_stat": "Verringerte statistik",
+  "export": "Exportar",
+  "generations": "Generationen",
+  "Has no effect on": "Hat keine Auswirkung auf",
+  "Immune to": "Immun gegen",
+  "increased_stat": "Erhöhte statistik",
+  "nature": "Natur",
+  "Not very effective against": "Nicht sehr wirksam gegen",
+  "please_enter": "Bitte geben Sie den Spielnamen ein",
+  "please_select": "Bitte wählen Sie ein Spiel aus",
+  "Resists": "Widersteht",
+  "save": "Speichern",
+  "search": "Suche",
+  "see_more": "Mehr sehen",
+  "select_move": "Wähle einen move...",
+  "Super effective against": "Super effektiv gegen",
+  "tracker": "Tracker",
+  "types": "Typen",
+  "Weak against": "Schwach gegenüber"
+}

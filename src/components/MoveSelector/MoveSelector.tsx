@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -17,6 +18,7 @@ interface MoveSelectorProps {
 }
 
 function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps): JSX.Element {
+  const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -75,7 +77,7 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
           </div>
         ) : (
           <div className={styles.selector} onClick={() => setOpen(true)} role="presentation">
-            <b>Select a move...</b> <Icon name="hand pointer outline" />
+            <b>{t('select_move')}</b> <Icon name="hand pointer outline" />
           </div>
         )
       }
@@ -89,7 +91,7 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
         </FixedSizeList>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Close</Button>
+        <Button onClick={() => setOpen(false)}>{t('cancel')}</Button>
       </Modal.Actions>
     </Modal>
   );

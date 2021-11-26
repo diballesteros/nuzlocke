@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { Control, useController, UseFormReset, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Checkbox, Dropdown } from 'semantic-ui-react';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
@@ -18,6 +19,7 @@ interface PokeControllerProps {
 }
 
 function PokeController({ control, encounters, name, reset }: PokeControllerProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState(undefined);
   const updateDefaultValues = useStore(useCallback((state) => state.updateDefaultValues, []));
@@ -130,7 +132,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
               labeled
               onChange={(e, data) => setSelectedDetail(data.value)}
               options={detailsToOptions}
-              placeholder="Select a gym..."
+              placeholder={t('select_gym')}
               selection
               value={selectedDetail ?? ''}
             />
@@ -142,7 +144,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
             onChange={(e, data) => setShowAll(data.checked)}
             toggle
           />
-          <span>Show All</span>
+          <span>{t('show_all')}</span>
         </div>
       )}
     </div>

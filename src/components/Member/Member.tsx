@@ -1,5 +1,6 @@
 import { ABILITIES, ITEMS } from '@smogon/calc';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -17,6 +18,7 @@ interface MemberProps {
 }
 
 function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
+  const { t } = useTranslation('builder');
   const pokemon = POKEMAP.get(pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));
   const deleteTeamMember = useStore(useCallback((state) => state.deleteTeamMember, []));
@@ -57,7 +59,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
               changeTeamMember(index, { ...pokemonDetail, nature: data.value as unknown as string })
             }
             options={NATURES}
-            placeholder="Select a nature..."
+            placeholder={t('select_nature', { ns: 'calculator' })}
             search
             selection
             value={pokemonDetail.nature ?? ''}
@@ -77,7 +79,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
           options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
             return { text: smogonAbility, value: smogonAbility };
           })}
-          placeholder="Select an ability..."
+          placeholder={t('select_ability', { ns: 'calculator' })}
           search
           selection
           value={pokemonDetail.ability ?? ''}
@@ -95,7 +97,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
           options={[...new Set(ITEMS[8])].map((smogonItem) => {
             return { text: smogonItem, value: smogonItem };
           })}
-          placeholder="Select an item..."
+          placeholder={t('select_item', { ns: 'calculator' })}
           search
           selection
           value={pokemonDetail.item ?? ''}
@@ -163,7 +165,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
           inverted={darkMode}
           onClick={() => deleteTeamMember(index)}
         >
-          DELETE
+          {t('delete')}
           <Icon className="icon close" />
         </Button>
       </div>

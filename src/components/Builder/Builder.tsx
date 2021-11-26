@@ -1,4 +1,5 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { PokemonSelector } from 'common';
@@ -9,6 +10,7 @@ import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Builder.module.scss';
 
 function Builder(): JSX.Element {
+  const { t } = useTranslation('builder');
   const team = useStore(
     useCallback(
       (state) => (state?.selectedGame?.value ? state.team[state?.selectedGame?.value] : null),
@@ -36,11 +38,7 @@ function Builder(): JSX.Element {
             ) : (
               <div className={styles.placeholder}>
                 <PokeballSVG />
-                {selectedGame ? (
-                  <span>Press + to begin building a team</span>
-                ) : (
-                  <span>Please select a game</span>
-                )}
+                <span>{selectedGame ? t('press_plus') : t('please_select', { ns: 'common' })}</span>
               </div>
             )}
             {selectedGame && (
@@ -60,7 +58,7 @@ function Builder(): JSX.Element {
       ),
     },
     {
-      menuItem: 'Coverage',
+      menuItem: t('coverage'),
       disabled: !team?.length,
       render: () => (
         <Tab.Pane attached={false}>
@@ -70,11 +68,7 @@ function Builder(): JSX.Element {
             <div className={styles.builder}>
               <div className={styles.placeholder}>
                 <PokeballSVG />
-                {selectedGame ? (
-                  <span>Press + to begin building a team</span>
-                ) : (
-                  <span>Please select a game</span>
-                )}
+                <span>{selectedGame ? t('press_plus') : t('please_select', { ns: 'common' })}</span>
               </div>
             </div>
           )}

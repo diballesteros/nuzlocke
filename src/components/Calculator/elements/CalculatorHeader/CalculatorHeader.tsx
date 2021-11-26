@@ -1,6 +1,7 @@
 import { Result } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { Controller, UseFormReturn } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -27,6 +28,7 @@ export function getDesc(result: Result): string {
 }
 
 function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const [expanded, setExpanded] = useState(false);
   const [primary, setPrimary] = useState<[position: 'attacker' | 'defender', index: number]>([
     'attacker',
@@ -52,9 +54,9 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
                 inline
                 onChange={(e, data) => onChange(data.value)}
                 options={GENERATION_SELECT}
-                placeholder="Select..."
+                placeholder={t('select')}
                 selection
-                text="Generation"
+                text={t('generation')}
                 value={value}
               />
             )}
@@ -68,7 +70,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
           onClick={() => form.reset()}
           type="button"
         >
-          Reset
+          {t('reset')}
           <Icon className="icon refresh" />
         </Button>
       </div>
@@ -87,7 +89,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
       </div>
       <div className={`${styles.moreResults} ${expanded ? styles.open : ''}`}>
         <div className={styles.grouped}>
-          <b>Attacker:</b>
+          <b>{t('attacker')}:</b>
           {attackerResults.map((result, i) => {
             return (
               <div
@@ -104,7 +106,7 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
           })}
         </div>
         <div className={styles.grouped}>
-          <b>Defender:</b>
+          <b>{t('defender')}:</b>
           {defenderResults.map((result, i) => {
             return (
               <div

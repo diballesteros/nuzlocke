@@ -1,4 +1,5 @@
 import { ReactText, useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Page } from 'common';
@@ -10,6 +11,7 @@ import styles from './BadgePage.module.scss';
 function BadgePage(): JSX.Element {
   const navigate = useNavigate();
   const { badge, game } = useParams();
+  const { t } = useTranslation('badges');
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const [tab, setTab] = useState(0);
 
@@ -48,7 +50,7 @@ function BadgePage(): JSX.Element {
   };
 
   return (
-    <Page header="Details">
+    <Page header={t('details')}>
       <Tab
         activeIndex={tab}
         className={styles.tabs}

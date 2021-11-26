@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -14,6 +15,7 @@ interface CustomBadgeEditorProps {
 }
 
 function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
+  const { t } = useTranslation('badges');
   const [open, setOpen] = useState(false);
   const badges = useStore(useCallback((state) => state.customBadges, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -52,8 +54,7 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
         )
       }
     >
-      <Modal.Header>Edit Badge Level Caps</Modal.Header>
-      <Modal.Content className={modalStyles.maxModal}>
+      <Modal.Content className={modalStyles.modalMax}>
         {badges[selectedGame.value] &&
           badges[selectedGame.value]?.map((val, i) => {
             return (
@@ -73,11 +74,11 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
             );
           })}
         <Button data-testid="add-cap" icon="plus" onClick={addCustomBadge}>
-          Add level cap <Icon className="icon plus" />
+          {t('add_level_cap')} <Icon className="icon plus" />
         </Button>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Close</Button>
+        <Button onClick={() => setOpen(false)}>{t('cancel', { ns: 'common' })}</Button>
       </Modal.Actions>
     </Modal>
   ) : null;

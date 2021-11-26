@@ -1,0 +1,7 @@
+{
+  "choose_ruleset": "Choose a ruleset",
+  "confirm_deletion": "This will delete the custom ruleset. Are you sure?",
+  "delete_ruleset_success": "Successfully deleted ruleset",
+  "please_ruleset": "Please enter the ruleset name",
+  "ruleset_already": "Ruleset with this name already exists"
+}

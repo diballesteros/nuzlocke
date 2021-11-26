@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -24,6 +25,7 @@ const removeNone = (value: string) => {
 };
 
 function Import(): JSX.Element {
+  const { t } = useTranslation('import');
   const importState = useStore(useCallback((state) => state.importState, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const massImport = useStore(useCallback((state) => state.massImport, []));
@@ -42,12 +44,12 @@ function Import(): JSX.Element {
         const partialState: Partial<AppState> = JSON.parse(event.target.result as string);
         if (!!partialState?.games && !!partialState?.selectedGame && !!partialState?.gamesList) {
           importState(partialState);
-          toast.success('File successfully imported');
+          toast.success(t('file_success'));
         } else {
-          throw Error('Invalid');
+          throw Error(t('invalid'));
         }
       } catch (error) {
-        toast.error('Invalid file');
+        toast.error(t('invalid_file'));
       }
     };
   };
@@ -123,9 +125,9 @@ function Import(): JSX.Element {
         return parsedArr;
       }, []);
       massImport(newEncounters);
-      toast.success('Successfully imported game encounters');
+      toast.success(t('game_success'));
     } catch (e) {
-      toast.error('Invalid text');
+      toast.error(t('invalid_text'));
     }
   };
 
@@ -135,28 +137,30 @@ function Import(): JSX.Element {
   };
 
   return (
-    <Page header="Import">
+    <Page header={t('import')}>
       <div className={styles.container}>
         <Radio
           checked={option === 'all'}
           data-testid="all-import-option"
-          label="Complete Import"
+          label={t('complete_import')}
           onChange={() => setOption('all')}
           value="all"
         />
         <p>
-          This will import and replace the encounters, rules and builder teams for{' '}
+          {t('import_helper_1')}
           <u>
-            <strong>all</strong>
-          </u>{' '}
-          games! This uses the file generated from <strong>export</strong> in the sidebar.
+            <strong>{t('all')}</strong>
+          </u>
+          {t('import_helper_2')}
+          <strong>{t('export')}</strong>
+          {t('import_helper_3')}
         </p>
         <div className={styles.customFile}>
           <div className={styles.fileText}>
-            <span>{file?.name || 'Select a file...'}</span>
+            <span>{file?.name || `${t('select_file')}...`}</span>
           </div>
           <Button color="grey" data-testid="attach-file" type="button">
-            Select a file
+            {t('select_file')}
             <input
               accept=".json, text/json"
               aria-labelledby="import"
@@ -167,20 +171,17 @@ function Import(): JSX.Element {
             />
           </Button>
         </div>
-        <b style={{ color: 'red' }}>
-          IMPORTANT: The following option may not import ALL encounters but should work on the
-          majority and will rewrite encounters if it already exists
-        </b>
-        <b style={{ color: 'red' }}>The status is not imported</b>
+        <b style={{ color: 'red' }}>{t('important_helper')}</b>
+        <b style={{ color: 'red' }}>{t('status_not')}</b>
         <p>
-          Use PKHeX&apos;s (version 21.10.1) Box Data Report to generate to import encounters for
-          the <strong>selected</strong> game: <em>{selectedGame?.text || 'No game selected'}</em>
+          {t('pkhex_helper')} <strong>{t('selected')}</strong> {t('game')}:{' '}
+          <em>{selectedGame?.text || t('no_game')}</em>
         </p>
         <Radio
           checked={option === 'table'}
           data-testid="table-import-option"
           disabled={!selectedGame?.value}
-          label="Import Game by Table [BETA]"
+          label={t('import_game_by')}
           onChange={() => setOption('table')}
           value="table"
         />
@@ -189,13 +190,13 @@ function Import(): JSX.Element {
           rel="noopener noreferrer"
           target="_blank"
         >
-          How To Generate table with PKHeX <Icon name="linkify" />
+          {t('how_to')} <Icon name="linkify" />
         </a>
         <textarea
           className={styles.textarea}
           data-testid="table-import-textarea"
           onChange={(e) => setText(e.target.value)}
-          placeholder="Copy and paste the table data..."
+          placeholder={t('copy_table')}
           rows={5}
           value={text}
         />
@@ -207,7 +208,7 @@ function Import(): JSX.Element {
           primary
           type="button"
         >
-          Apply
+          {t('apply')}
         </Button>
       </div>
     </Page>
