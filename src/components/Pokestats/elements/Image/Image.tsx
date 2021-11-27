@@ -108,7 +108,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
 
   return (
     <div className={`${styles.summary} ${responsive ? styles.responsive : ''}`} ref={forwardedRef}>
-      <div className={styles.header}>
+      <div className={styles.header} data-testid={`image-header-${responsive}`}>
         <span className={styles.headerTitle}>{summary?.title}</span>
         {getStatus()}
         <div className={styles.badges}>

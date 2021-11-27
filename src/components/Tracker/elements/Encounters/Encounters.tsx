@@ -145,7 +145,7 @@ const Encounters = React.memo(function Encounters() {
       )}
       <Confirm
         closeOnDimmerClick
-        content={t('delete_confirm')}
+        content={t('confirm_delete')}
         open={confirm}
         onCancel={() => setConfirm(false)}
         onConfirm={handleDelete}

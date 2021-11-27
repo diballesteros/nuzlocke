@@ -85,7 +85,7 @@ describe('Calculator', () => {
     cy.get('[data-testid=gym-filter]').click();
     cy.get('[data-testid=gym-filter] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
     cy.contains('Gossifleur').should('exist');
     cy.get('[data-testid=filter-button]').click();
@@ -107,7 +107,7 @@ describe('Calculator', () => {
     cy.get('[data-testid=calculator]').click();
     cy.get('[data-testid=show-all-pokemon1] > label').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
     cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=filter-type-FIRE]').click();

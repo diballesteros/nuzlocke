@@ -82,17 +82,17 @@ describe('Options', () => {
     cy.get('[data-testid=tracker]').click();
     cy.get('[data-testid=pokemon-1]').click();
     cy.contains('SUGGESTED').should('exist');
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=game-select]').click();
     cy.get('[data-testid=game-select] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=pokemon-1]').click();
     cy.contains('SUGGESTED').should('exist');
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokemon-1]').click();
     cy.contains('SUGGESTED').should('exist');
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=search-options]').click();
     cy.get('[data-testid=settings-suggestions] > label').click();
     cy.contains('Back').click();
@@ -118,5 +118,15 @@ describe('Options', () => {
       },
     });
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(33, 33, 33)');
+  });
+
+  it('Language', () => {
+    cy.contains('Settings').click();
+    cy.get('[data-testid="settings-language"]').click();
+    cy.contains('Español').click();
+    cy.contains('Ajustes').should('exist');
+    cy.get('[data-testid="settings-language"]').click();
+    cy.contains('Deutsch').click();
+    cy.contains('Optionen').should('exist');
   });
 });

@@ -52,6 +52,7 @@ function Settings(): JSX.Element {
         <span className={styles.label}>{t('language')}:</span>
         <Dropdown
           className={styles.dropdown}
+          data-testid="settings-language"
           onChange={handleLanguageChange}
           options={LANGUAGES}
           selection

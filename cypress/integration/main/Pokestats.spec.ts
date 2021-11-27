@@ -121,7 +121,7 @@ describe('PokéStats', () => {
       cy.contains('Stats').click();
       cy.get('h1').click();
       cy.get('[data-testid=share-image]').click();
-      cy.contains('Generating Image').should('exist');
+      cy.contains('Generating image').should('exist');
       cy.wait(2000);
       cy.contains('Share the image').should('exist');
     });
@@ -134,9 +134,9 @@ describe('PokéStats', () => {
         cy.contains('Stats').click();
         cy.get('h1').click();
         cy.get('[data-testid=share-image]').click();
-        cy.contains('Generating Image').should('exist');
+        cy.contains('Generating image').should('exist');
         cy.wait(2000);
-        cy.contains('Unable to share image').should('exist');
+        cy.contains('Unable to share').should('exist');
       });
 
       it('Share error', () => {

@@ -19,7 +19,7 @@ describe('Import', () => {
     cy.contains('Have fun!').should('exist');
     cy.get('[data-testid=options]').click();
     cy.contains('Stats').click();
-    cy.contains('ONGOING').should('exist');
+    cy.get('[data-testid="image-header-true"] > b').should('have.text', 'Ongoing ');
     cy.get('[data-testid=options]').click();
     cy.contains('Builder').click();
     cy.get('[data-testid=team-poke-Venusaur]').should('exist');

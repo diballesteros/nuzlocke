@@ -15,11 +15,11 @@ describe('Badges', () => {
     cy.get('[title="Grass Badge"]').should('have.text', '20');
     cy.get('[data-testid=edit-badges]').click();
     cy.get('.content > :nth-child(1) > input').type('99');
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[title="Grass Badge"]').should('have.text', '2099');
     cy.get('[data-testid=edit-badges]').click();
     cy.contains('Set default').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[title="Grass Badge"]').should('have.text', '20');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Red, Blue and Yellow').click();
@@ -34,7 +34,6 @@ describe('Badges', () => {
     cy.viewport('iphone-6+');
     cy.get('[data-testid=fab-tracker] > .ui').click();
     cy.get('[data-testid=fab-add-edit-badges] > [data-testid=edit-badges]').click();
-    cy.contains('Edit Badge Level Caps').should('exist');
   });
 
   it('Badge Details', () => {
