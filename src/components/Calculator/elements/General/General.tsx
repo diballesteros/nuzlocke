@@ -1,5 +1,6 @@
 import { ABILITIES, ITEMS } from '@smogon/calc';
 import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { PokeController } from 'components/Calculator/elements';
@@ -16,6 +17,7 @@ interface GeneralProps {
 }
 
 function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const calcGen = useWatch({ control: form.control, name: 'calculatorGen' });
   const increment = () => {
     const currentLevel = form.getValues(`level${pokemon}`);
@@ -71,7 +73,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
             inline
             onChange={(e, data) => onChange(data.value)}
             options={GENDERS}
-            placeholder="Gender..."
+            placeholder={t('gender')}
             selection
             value={value ?? ''}
           />
@@ -93,7 +95,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
                 lazyLoad
                 onChange={(e, data) => onChange(data.value as unknown as string)}
                 options={NATURES}
-                placeholder="Select a nature..."
+                placeholder={t('select_nature')}
                 search
                 selection
                 value={value ?? ''}
@@ -116,7 +118,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
                 options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
                   return { text: smogonAbility, value: smogonAbility };
                 })}
-                placeholder="Select an ability..."
+                placeholder={t('select_ability')}
                 search
                 selection
                 value={value ?? ''}
@@ -142,7 +144,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
               options={[...new Set(ITEMS[8])].map((smogonItem) => {
                 return { text: smogonItem, value: smogonItem };
               })}
-              placeholder="Select a item..."
+              placeholder={t('select_item')}
               search
               selection
               value={value ?? ''}
@@ -164,7 +166,7 @@ function General({ encounters, form, pokemon }: GeneralProps): JSX.Element {
             lazyLoad
             onChange={(e, data) => onChange(data.value as unknown as string)}
             options={STATUS_EFFECTS}
-            placeholder="Select a status..."
+            placeholder={t('select_status')}
             search
             selection
             value={value ?? ''}

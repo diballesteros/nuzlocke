@@ -1,0 +1,9 @@
+{
+  "duplicate_clause": "Duplicate-Klausel (Warnung bei doppeltem Pokémon anzeigen)",
+  "language": "Sprache",
+  "settings": "Optionen",
+  "show_all": "Zeige alle Pokémon in jeder Begegnung",
+  "show_missing": "Nur fehlende Begegnungen anzeigen",
+  "show_nicknames": "Spitznamen anzeigen",
+  "show_suggestions": "Zeige Vorschläge"
+}

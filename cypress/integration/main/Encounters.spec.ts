@@ -26,7 +26,7 @@ describe('Encounters', () => {
 
   it('Edit base encounter', () => {
     cy.get('[data-testid=encounter-0]').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=encounter-0]').click();
     cy.get('.st0Fire').click({ force: true });
     cy.contains('Super effective against').should('exist');
@@ -37,7 +37,7 @@ describe('Encounters', () => {
     cy.contains('Scorbunny').should('exist');
 
     cy.get('[data-testid=edit-encounter-0]').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
@@ -46,13 +46,13 @@ describe('Encounters', () => {
       .type('Died to crit')
       .should('have.value', 'Died to crit');
     cy.get('[data-testid=nature-info]').click();
-    cy.contains('Increased Stat').should('exist');
+    cy.contains('Increased stat').should('exist');
     cy.contains('Hardy').should('exist');
     cy.get('[data-testid=nature-close]').click();
     cy.get('[data-testid=nature-info]').click();
 
     cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
 
     cy.get('[data-testid="evolve-0}"]').click();
     cy.get(':nth-child(3) > .ui > label').click();
@@ -74,7 +74,7 @@ describe('Encounters', () => {
     cy.get('[data-testid=reset-all]').click();
     cy.get('.page').click(1, 1);
     cy.get('[data-testid=reset-all]').click();
-    cy.contains('OK').click();
+    cy.contains('Save').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
   });
 
@@ -139,7 +139,7 @@ describe('Encounters', () => {
       cy.get('[data-testid=encounter-0]').click();
       cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
       cy.get('[data-testid=fab-reset-encounters] > [data-testid=reset-all]').click();
-      cy.contains('OK').click();
+      cy.contains('Save').click();
       cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
     });
   });

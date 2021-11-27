@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -22,6 +23,7 @@ function EncounterSelector({
   handleEncounter,
   limitGen,
 }: EncounterSelectorProps): JSX.Element {
+  const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const filteredEncounters = encounters.filter((p) => {
@@ -90,7 +92,7 @@ function EncounterSelector({
         </FixedSizeList>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
       </Modal.Actions>
     </Modal>
   );

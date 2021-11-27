@@ -1,10 +1,12 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import NATURES from 'constants/natures';
 import styles from './Natures.module.scss';
 
 function Natures(): JSX.Element {
+  const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   return (
     <Modal
@@ -25,9 +27,9 @@ function Natures(): JSX.Element {
           <table>
             <thead>
               <tr>
-                <th>Nature</th>
-                <th>Increased Stat</th>
-                <th>Decreased Stat</th>
+                <th>{t('nature')}</th>
+                <th>{t('increased_stat')}</th>
+                <th>{t('decreased_stat')}</th>
               </tr>
             </thead>
             <tbody>
@@ -46,7 +48,7 @@ function Natures(): JSX.Element {
       </Modal.Content>
       <Modal.Actions>
         <Button data-testid="nature-close" onClick={() => setOpen(false)}>
-          Close
+          {t('cancel')}
         </Button>
       </Modal.Actions>
     </Modal>

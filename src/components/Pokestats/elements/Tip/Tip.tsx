@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import styles from './Tip.module.scss';
 
 interface TipProps {
@@ -5,10 +6,11 @@ interface TipProps {
 }
 
 function Tip({ missing }: TipProps): JSX.Element {
+  const { t } = useTranslation('stats');
   return (
     <div className={styles.container} data-testid="status-tip">
       <p className={styles.missing}>
-        In the Tracker set a pokémon to the <strong>{missing}</strong> status to see it here!
+        {t('tip_1')} <strong>{missing}</strong> {t('tip_2')}
       </p>
     </div>
   );

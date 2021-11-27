@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -8,6 +9,7 @@ import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './AddGame.module.scss';
 
 function AddGame(): JSX.Element {
+  const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const [gameName, setGameName] = useState('');
   const addGame = useStore(useCallback((state) => state.addGame, []));
@@ -41,9 +43,8 @@ function AddGame(): JSX.Element {
         </Button>
       }
     >
-      <Modal.Header>Add Game</Modal.Header>
       <Modal.Content className={modalStyles.modal}>
-        Please enter the game name
+        {t('please_enter')}
         <Input
           data-testid="add-game-input"
           onChange={(e, data) => setGameName(data.value)}
@@ -51,9 +52,9 @@ function AddGame(): JSX.Element {
         />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}>{t('cancel')}</Button>
         <Button disabled={gameName?.length === 0} onClick={handleAdd} primary>
-          Save
+          {t('save')}
         </Button>
       </Modal.Actions>
     </Modal>

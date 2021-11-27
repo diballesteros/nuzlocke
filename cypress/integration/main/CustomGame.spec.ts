@@ -48,13 +48,13 @@ describe('Custom game', () => {
         .should('have.value', 'Emerald Kaizo');
       cy.contains('Save').click();
       cy.get('[data-testid=custom-edit-badges]').click();
-      cy.contains('Close').click();
+      cy.contains('Cancel').click();
       cy.get('[data-testid=custom-edit-badges]').click();
       cy.get('[data-testid=add-cap]').click();
       cy.get('[data-testid=remove-custom-badge-0]').click();
       cy.get('[data-testid=add-cap]').click();
       cy.get('[data-testid=custom-badge-input-0] > input').type('10').should('have.value', '010');
-      cy.contains('Close').click();
+      cy.contains('Cancel').click();
       cy.contains('010').should('exist').click();
       cy.get('[data-testid=add-encounter]').click();
     });
@@ -66,7 +66,7 @@ describe('Custom game', () => {
       cy.contains('Save').click();
       cy.get('[data-testid=fab-tracker] > .ui').click();
       cy.get('[data-testid=fab-add-edit-badges] > [data-testid=custom-edit-badges]').click();
-      cy.contains('Close').click();
+      cy.contains('Cancel').click();
       cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
     });
   });
@@ -79,7 +79,7 @@ describe('Custom game', () => {
     cy.get('[data-testid=add-encounter-input] > input').type('Test');
     cy.contains('Save').click();
     cy.get('[data-testid=reset-all]').click();
-    cy.contains('OK').click();
+    cy.contains('Save').click();
     cy.get('[data-testid=encounters-list]')
       .children()
       .children()

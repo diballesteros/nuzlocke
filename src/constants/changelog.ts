@@ -2,6 +2,34 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.15.0',
+    date: 1638012419619,
+    notes: [
+      {
+        description:
+          'App is now available in german and spanish, can be changed from the settings page',
+        type: 'FEATURE',
+      },
+      {
+        description: 'App is now available for iOS in the App store!',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Trophy Garden to encounter list for Brilliant Diamond and Shining Pearl',
+        type: 'UPDATE',
+      },
+      {
+        description: "Added Pikachu to starter's list for Red, Blue and Yellow",
+        type: 'FIX',
+      },
+      {
+        description: "Changed Norman's second pokemon from Slaking to Vigoroth in Emerald",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.14.2',
     date: 1637597204585,
     notes: [

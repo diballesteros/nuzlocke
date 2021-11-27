@@ -1,0 +1,10 @@
+{
+  "browser": "Navegador",
+  "description": "Descripción",
+  "device": "Dispositivo",
+  "os": "SO",
+  "report_a_bug": "Reportar un bug o sugerir una función",
+  "selected_game": "Juego seleccionado",
+  "send": "Enviar",
+  "type": "Tipo"
+}

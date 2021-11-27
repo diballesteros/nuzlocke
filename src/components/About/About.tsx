@@ -1,99 +1,101 @@
+import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { Page } from 'common';
 import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import google from 'assets/img/google-play-badge.png';
 import kofi from 'assets/img/kofi2.png';
+import apple from 'assets/svg/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
 function About(): JSX.Element {
+  const { t } = useTranslation('about');
   return (
-    <Page header="About">
+    <Page header={t('about')}>
       <div className={styles.about}>
         <p>
-          Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving
-          this app in our free time. If you like the app please rate it in the Microsoft Store,
-          Google Play or the Amazon Appstore. To <b>optionally</b> support the app check out the{' '}
-          <em>Buy me a Coffee link</em> below
+          {t('thank_you_1')}
+          <b>{t('optionally')}</b> {t('thank_you_2')}
+          <em>{t('coffee')}</em> {t('below')}
         </p>
-        <h3>Credits:</h3>
+        <h3>{t('credits')}:</h3>
         <ul className={styles.credits}>
           <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
           <li>
-            Images provided by{' '}
+            {t('images_provided')}
             <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
               Bulbapedia
             </a>
           </li>
           <li>
-            Icons made by{' '}
+            {t('icons_made')}
             <a href="http://www.dariusdan.com" title="Darius Dan">
               Darius Dan
             </a>{' '}
-            from{' '}
+            {t('from')}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
           </li>
           <li>
-            Icons made by{' '}
+            {t('icons_made')}
             <a href="http://www.roundicons.com" title="Roundicons Freebies">
               Roundicons Freebies
             </a>{' '}
-            from{' '}
+            {t('from')}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
           </li>
           <li>
-            Icons made by{' '}
+            {t('icons_made')}
             <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">
               Nikita Golubev
             </a>{' '}
-            from{' '}
+            {t('from')}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
           </li>
           <li>
-            Icons made by{' '}
+            {t('icons_made')}
             <a href="https://www.freepik.com" title="Freepik">
               Freepik
             </a>{' '}
-            from{' '}
+            {t('from')}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
           </li>
           <li>
-            Icons made by{' '}
+            {t('icons_made')}
             <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
               Vectors Market
             </a>{' '}
-            from{' '}
+            {t('from')}
             <a href="https://www.flaticon.com/" title="Flaticon">
               www.flaticon.com
             </a>
           </li>
           <li>
-            Nickname list provided by{' '}
+            {t('nickname_list')}
             <a href="https://www.findnicknames.com/pokemon-nicknames/" title="findnicknames">
               Find Nicknames
             </a>
           </li>
           <li>
-            Favicon provided by{' '}
+            {t('favicon_provided')}
             <a
               href="https://icon-icons.com/users/b1kqPGvWi4JzKkAi8Q0MR/icon-sets/"
               title="findnicknames"
             >
               Mohammad Ali
             </a>{' '}
-            from
+            {t('from')}
             <a href="https://icon-icons.com/" title="icon-icons">
               Icon-icons{' '}
             </a>{' '}
-            under the{' '}
+            {t('under_the')}
             <a href="https://creativecommons.org/licenses/by/4.0/" title="creative commons">
               Creative Commons License
             </a>
@@ -126,6 +128,13 @@ function About(): JSX.Element {
           >
             <img alt="Get it on Amazon appstore" src={amazon} />
           </a>
+          <a
+            href="https://apps.apple.com/us/app/nuzlocke-tracker/id1595977751"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <img alt="Get it on App Store" src={apple} />
+          </a>
         </div>
         <div className={styles.socials}>
           <a
@@ -136,7 +145,7 @@ function About(): JSX.Element {
             target="_blank"
           >
             <Icon name="twitter square" />
-            <span>Follow</span>
+            <span>{t('follow')}</span>
           </a>
           <a
             className={styles.socialButton}
@@ -145,7 +154,7 @@ function About(): JSX.Element {
             target="_blank"
           >
             <Icon name="github" />
-            <span>Source</span>
+            <span>{t('source')}</span>
           </a>
         </div>
       </div>

@@ -1,0 +1,9 @@
+{
+  "duplicate_clause": "Cláusula de duplicados (Mostrar alerta en Pokémon repetidos)",
+  "language": "Idioma",
+  "settings": "Ajustes",
+  "show_all": "Mostrar todos los pokémon en cada encuentro",
+  "show_missing": "Mostrar solo los encuentros perdidos",
+  "show_nicknames": "Mostrar apodos",
+  "show_suggestions": "Mostrar sugerencias"
+}

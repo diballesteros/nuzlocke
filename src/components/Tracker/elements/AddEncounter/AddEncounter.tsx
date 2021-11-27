@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -12,6 +13,7 @@ interface AddEncounterProps {
 }
 
 function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -53,14 +55,14 @@ function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
             inverted={darkMode}
             onClick={() => setOpen(true)}
           >
-            ADD
+            {t('add')}
             <Icon className="icon plus" />
           </Button>
         )
       }
     >
       <Modal.Content className={modalStyles.modal}>
-        Please enter the location name
+        {t('please_location')}
         <Input
           data-testid="add-encounter-input"
           onChange={(e, data) => setLocation(data.value)}
@@ -68,9 +70,9 @@ function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
         />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
         <Button disabled={location?.length === 0} onClick={handleAdd} primary>
-          Save
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>

@@ -1544,7 +1544,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           },
           {
             ability: 'Vital Spirit',
-            id: 289,
+            id: 288,
             level: 27,
             moves: [163, 263, 227, 185],
           },

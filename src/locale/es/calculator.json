@@ -1,0 +1,22 @@
+{
+  "attacker": "Atacador",
+  "defender": "Defensor",
+  "current_hp": "HP actual",
+  "doubles": "Dobles",
+  "field": "Campo",
+  "game_type": "Tipo de juego",
+  "gender": "Género...",
+  "generation": "Generación",
+  "modifier": "Modificador",
+  "reset": "Resetear",
+  "select": "Seleccionar...",
+  "select_ability": "Selecciona una habilidad...",
+  "select_gym": "Seleccione un gym...",
+  "select_item": "Selecciona un item...",
+  "select_nature": "Selecciona una naturaleza...",
+  "select_status": "Seleccionar un estado..",
+  "show_all": "Mostrar todos",
+  "singles": "Individual",
+  "terrain": "Terreno",
+  "weather": "Clima"
+}

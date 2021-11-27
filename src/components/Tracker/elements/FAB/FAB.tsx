@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Share } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
@@ -9,6 +10,7 @@ import useStore from 'store';
 import styles from './FAB.module.scss';
 
 function FAB(): JSX.Element {
+  const { t } = useTranslation('tracker');
   const [open, setOpen] = useState(false);
   const handleClick = () => {
     setOpen((prevState) => !prevState);
@@ -20,7 +22,7 @@ function FAB(): JSX.Element {
       {open && (
         <div className={styles.list}>
           <div className={styles.listItem}>
-            <span className={styles.label}>Share</span>
+            <span className={styles.label}>{t('share', { ns: 'stats' })}</span>
             <Share
               disabled={!selectedGame}
               icon
@@ -37,22 +39,22 @@ function FAB(): JSX.Element {
           </div>
           {selectedGame?.value && Number(selectedGame.value) <= MAX_GAME && (
             <div className={styles.listItem} data-testid="fab-add-edit-badges">
-              <span className={styles.label}>Edit Badges</span>
+              <span className={styles.label}>{t('edit_badges')}</span>
               <BadgeEditor icon />
             </div>
           )}
           {selectedGame?.value && Number(selectedGame.value) > MAX_GAME && (
             <div className={styles.listItem} data-testid="fab-add-edit-badges">
-              <span className={styles.label}>Edit Badges</span>
+              <span className={styles.label}>{t('edit_badges')}</span>
               <CustomBadgeEditor icon />
             </div>
           )}
           <div className={styles.listItem} data-testid="fab-add-encounter">
-            <span className={styles.label}>Add Encounter</span>
+            <span className={styles.label}>{t('add_encounter')}</span>
             <AddEncounter icon />
           </div>
           <div className={styles.listItem} data-testid="fab-reset-encounters">
-            <span className={styles.label}>Reset Encounters</span>
+            <span className={styles.label}>{t('add_encounter', { count: 2 })}</span>
             <ResetEncounters icon />
           </div>
         </div>

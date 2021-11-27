@@ -89,6 +89,7 @@
     .mainContent {
       padding: var(--spacing-3) 0;
       height: calc(100vh - 40px);
+      min-width: 0;
       background-color: var(--bgsecondary);
     }
 
@@ -103,6 +104,9 @@
       }
 
       > a {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: var(--spacing-2);
         font-weight: bold;
         font-size: var(--font-size-7);
         color: var(--contrast);
@@ -131,6 +135,10 @@
     color: var(--contrast);
     font-size: var(--font-size-1);
     text-align: left;
+
+    &.hide {
+      display: none;
+    }
 
     @media (max-width: 90rem) {
       display: none;

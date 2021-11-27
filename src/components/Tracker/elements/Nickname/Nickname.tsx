@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import NICKNAMES from 'constants/nicknames';
@@ -11,6 +12,7 @@ interface NicknameProps {
 }
 
 function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const changeNickname = useStore((state) => state.changeNickname);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [nick, setNick] = useState(nickname ?? '');
@@ -29,7 +31,7 @@ function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
 
   return (
     <label className={styles.label}>
-      <span className={styles.innerLabel}>Nickname:</span>
+      <span className={styles.innerLabel}>{t('nickname')}:</span>
       <Input
         aria-label="nickname"
         className={styles.nicknameInput}
@@ -38,7 +40,7 @@ function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
         id={`nickname-${encounterId}`}
         onBlur={handleBlur}
         onChange={handleChange}
-        placeholder="Enter..."
+        placeholder={`${t('enter')}...`}
         value={nick}
       >
         <input />

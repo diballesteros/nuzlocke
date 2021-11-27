@@ -7,4 +7,12 @@
   :global(.ui.checkbox input:focus ~ label) {
     color: var(--contrast);
   }
+
+  .dropdown {
+    max-width: 200px;
+  }
+
+  .label {
+    color: var(--contrast);
+  }
 }

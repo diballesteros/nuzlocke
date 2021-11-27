@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
@@ -15,6 +16,7 @@ import styles from './App.module.scss';
 
 function App(): JSX.Element {
   const navigate = useNavigate();
+  const { t } = useTranslation('common');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const newVersion = useStore(useCallback((state) => state.newVersion, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
@@ -67,7 +69,7 @@ function App(): JSX.Element {
   const handleDelete = () => {
     deleteGame();
     setConfirm(false);
-    toast.success('Successfully deleted game');
+    toast.success(t('delete_success'));
   };
 
   const handleRoute = (route: string) => {
@@ -98,7 +100,7 @@ function App(): JSX.Element {
             inline
             onChange={handleChange}
             options={gamesList}
-            placeholder="Choose a game"
+            placeholder={t('choose_a_game')}
             selection
             value={selectedGame?.value ?? ''}
           />
@@ -119,7 +121,7 @@ function App(): JSX.Element {
             <CustomBadgeEditor />
             <Confirm
               closeOnDimmerClick
-              content="This will delete the custom game. Are you sure?"
+              content={t('delete_custom')}
               open={confirm}
               onCancel={() => setConfirm(false)}
               onConfirm={handleDelete}
@@ -158,11 +160,11 @@ function App(): JSX.Element {
           </Menu.Item>
           <Menu.Item onClick={() => handleRoute('/rules')}>
             <Icon name="book" />
-            Rules
+            {t('rules', { ns: 'stats' })}
           </Menu.Item>
           <Menu.Item data-testid="stats" onClick={() => handleRoute('/stats')}>
             <Icon name="pie graph" />
-            Stats
+            {t('stats', { ns: 'stats' })}
           </Menu.Item>
           <Menu.Item data-testid="builder" onClick={() => handleRoute('/builder')}>
             <Icon name="gavel" />
@@ -170,19 +172,19 @@ function App(): JSX.Element {
           </Menu.Item>
           <Menu.Item data-testid="calculator" onClick={() => handleRoute('/calculator')}>
             <Icon name="calculator" />
-            Damage Calculator
+            {t('damage_calculator')}
           </Menu.Item>
           <Menu.Item onClick={() => handleRoute('/settings')}>
-            Settings
+            {t('settings', { ns: 'settings' })}
             <Icon name="wrench" />
           </Menu.Item>
           <Export />
           <Menu.Item data-testid="import" onClick={() => handleRoute('/import')}>
             <Icon name="upload" />
-            Import
+            {t('import', { ns: 'import' })}
           </Menu.Item>
           <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
-            Report
+            {t('report')}
             <Icon name="bug" />
           </Menu.Item>
           <Menu.Item data-testid="changelog" onClick={() => handleRoute('/changelog')}>
@@ -193,7 +195,7 @@ function App(): JSX.Element {
             <Icon name="clipboard outline" />
           </Menu.Item>
           <Menu.Item data-testid="about" onClick={() => handleRoute('/about')}>
-            About
+            {t('about', { ns: 'about' })}
             <Icon name="question" />
           </Menu.Item>
         </Sidebar>
@@ -208,14 +210,14 @@ function App(): JSX.Element {
                 end
                 to="/rules"
               >
-                <Icon name="book" /> <span>Rules</span>
+                <Icon name="book" /> <span>{t('rules', { ns: 'stats' })}</span>
               </NavLink>
               <NavLink
                 className={({ isActive }) => (isActive ? styles.activeLink : '')}
                 end
                 to="/stats"
               >
-                <Icon name="pie graph" /> <span>Stats</span>
+                <Icon name="pie graph" /> <span>{t('stats', { ns: 'stats' })}</span>
               </NavLink>
               <NavLink
                 className={({ isActive }) => (isActive ? styles.activeLink : '')}
@@ -229,7 +231,7 @@ function App(): JSX.Element {
                 end
                 to="/calculator"
               >
-                <Icon name="calculator" /> <span>Calculator</span>
+                <Icon name="calculator" /> <span>{t('calculator')}</span>
               </NavLink>
             </nav>
             <div className={styles.mainContent}>
@@ -238,7 +240,7 @@ function App(): JSX.Element {
           </main>
         </Sidebar.Pusher>
       </Sidebar.Pushable>
-      <footer className={styles.footer}>
+      <footer className={`${styles.footer} ${visible ? styles.hide : ''}`}>
         Pokémon © 2002-2021 Pokémon <br />© 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
         <br />® and Pokémon character names are trademarks of Nintendo.
       </footer>

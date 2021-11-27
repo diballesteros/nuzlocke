@@ -375,24 +375,6 @@ export const TYPE_COUNT: { [key in Type]: number } = {
   'FAIRY': 0,
 };
 
-export const SUM_STATUS = [
-  {
-    key: 'ongoing',
-    text: 'ONGOING',
-    value: 0,
-  },
-  {
-    key: 'complete',
-    text: 'COMPLETE',
-    value: 1,
-  },
-  {
-    key: 'FAILED',
-    text: 'FAILED',
-    value: 2,
-  },
-];
-
 export const GENERATIONS = [1, 2, 3, 4, 5, 6, 7, 8];
 
 export const GENERATION_SELECT = [
@@ -427,13 +409,11 @@ export const TYPES: Type[] = [
   'FAIRY',
 ];
 
-export const RULE_ALERTS: { [key: string]: string } = {
-  'DUPE': 'Duplicate pokémon are not allowed',
-  'FORBIDDEN GEN': 'Pokémon from this generation are not allowed',
-  'OVERLEVELED': 'Max level set has been exceeded',
-  'FORBIDDEN TYPE': 'Pokémon of this type are not allowed',
-  'TEAM OVER 6': 'Maximum amount of pokémon per team is 6',
-};
+export const LANGUAGES = [
+  { text: 'English', value: 'en' },
+  { text: 'Español', value: 'es' },
+  { text: 'Deutsch', value: 'de' },
+];
 
 export const getTypeParams = (gameId: string): [types: Type[], genRange: string] => {
   let types = [...TYPES];

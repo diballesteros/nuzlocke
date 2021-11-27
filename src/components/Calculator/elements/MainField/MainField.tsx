@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { ButtonController } from 'components/Calculator/elements';
@@ -12,6 +13,7 @@ interface MainFieldProps {
 }
 
 function MainField({ form }: MainFieldProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const calcGen = useWatch({ control: form.control, name: 'calculatorGen' });
   const { control } = form;
   const [show, setShow] = useState(false);
@@ -25,13 +27,13 @@ function MainField({ form }: MainFieldProps): JSX.Element {
         toggle
         type="button"
       >
-        Field
+        {t('field')}
       </Button>
       {show && (
         <div className={styles.popup}>
           {calcGen > 2 && (
             <div>
-              <label htmlFor="gameType">Game Type:</label>
+              <label htmlFor="gameType">{t('game_type')}:</label>
               <Controller
                 control={control}
                 name="gameType"
@@ -41,7 +43,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                       className={styles.radio}
                       checked={value === 'Singles'}
                       data-testid="gameType-singles"
-                      label="Singles"
+                      label={t('singles')}
                       name="gameType"
                       onChange={(e, data) => onChange(data.value)}
                       value="Singles"
@@ -50,7 +52,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
                       className={styles.radio}
                       checked={value === 'Doubles'}
                       data-testid="gameType-doubles"
-                      label="Doubles"
+                      label={t('doubles')}
                       name="gameType"
                       onChange={(e, data) => onChange(data.value)}
                       value="Doubles"
@@ -62,7 +64,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
           )}
           {calcGen > 5 && (
             <div>
-              <label htmlFor="terrain">Terrain:</label>
+              <label htmlFor="terrain">{t('terrain')}:</label>
               <Controller
                 control={control}
                 name="terrain"
@@ -89,7 +91,7 @@ function MainField({ form }: MainFieldProps): JSX.Element {
           )}
           {calcGen > 1 && (
             <div>
-              <label htmlFor="weather">Weather:</label>
+              <label htmlFor="weather">{t('weather')}:</label>
               <Controller
                 control={control}
                 name="weather"

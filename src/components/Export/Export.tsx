@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 
 function Export(): JSX.Element {
+  const { t } = useTranslation('common');
   const team = useStore(useCallback((state) => state.team, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
@@ -33,7 +35,7 @@ function Export(): JSX.Element {
   return (
     <Menu.Item onClick={handleExport}>
       <Icon name="download" />
-      Export
+      {t('export')}
     </Menu.Item>
   );
 }

@@ -68,7 +68,7 @@ describe('Rules', () => {
       cy.contains('Type').click();
       cy.get('[data-testid=add-rule-type]').click();
       cy.contains('GRASS').click();
-      cy.contains('Add Rule').click();
+      cy.contains('Type').click();
       cy.contains('Save').click();
       cy.contains('Allowed types: GRASS').should('exist');
       cy.get('[data-testid=edit-rule-3]').click();
@@ -76,8 +76,7 @@ describe('Rules', () => {
       cy.get('[data-testid=edit-rule-3]').click();
       cy.get('[data-testid=edit-rule-type]').click();
       cy.contains('ICE').click();
-      cy.contains('Edit Rule').click();
-      cy.contains('Save').click();
+      cy.contains('Save').click({ force: true });
       cy.get('[data-testid=game-select]').click();
       cy.contains('Sword and Shield').click();
       cy.get('[data-testid=options]').click();
@@ -92,14 +91,12 @@ describe('Rules', () => {
       cy.contains('Generation').click();
       cy.get('[data-testid=add-rule-generation]').click();
       cy.get('[data-testid=add-rule-generation]').contains(1).click();
-      cy.contains('Add Rule').click();
-      cy.contains('Save').click();
+      cy.contains('Save').click({ force: true });
       cy.contains('Allowed generations: 1').should('exist');
       cy.get('[data-testid=edit-rule-3]').click();
       cy.get('[data-testid=edit-rule-generation]').click();
       cy.contains('6').click();
-      cy.contains('Edit Rule').click();
-      cy.contains('Save').click();
+      cy.contains('Save').click({ force: true });
       cy.get('[data-testid=game-select]').click();
       cy.contains('Sword and Shield').click();
       cy.get('[data-testid=options]').click();
@@ -146,7 +143,7 @@ describe('Rules', () => {
     cy.get('[data-testid=share-encounters]').click();
     cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
     cy.contains('Copy').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get('[data-testid=share-encounters]').click();
     cy.get('.page').click(1, 1);
   });
@@ -168,7 +165,7 @@ describe('Rules', () => {
       cy.contains('Rules').click();
       cy.get('h1').click();
       cy.get('[data-testid=share-encounters]').click();
-      cy.contains('Sharing now available!').should('exist');
+      cy.contains('Sharing now available').should('exist');
     });
 
     it('Share Rules - WebShare - Error', { browser: '!firefox' }, () => {

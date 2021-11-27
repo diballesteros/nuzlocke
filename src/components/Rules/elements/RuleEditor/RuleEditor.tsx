@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -16,6 +17,7 @@ interface RuleEditorProps {
 }
 
 function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
+  const { t } = useTranslation('rules');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));
   const [open, setOpen] = useState(false);
@@ -67,7 +69,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
             options={Object.keys(TYPE_COUNT).map((key) => {
               return { key, text: key, value: key };
             })}
-            placeholder="Please select a type..."
+            placeholder={t('please_type')}
             selection
             value={types}
           />
@@ -78,7 +80,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
             data-testid="edit-rule-level-input"
             fluid
             onChange={(e, data) => setLevel(data.value)}
-            placeholder="Please enter maximum level"
+            placeholder={t('please_max')}
             type="number"
             value={level}
           />
@@ -93,7 +95,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
             options={GENERATIONS.map((gen) => {
               return { key: gen, text: gen, value: gen };
             })}
-            placeholder="Please select a generation..."
+            placeholder={t('please_generation')}
             selection
             value={gens}
           />
@@ -129,12 +131,11 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
         </Button>
       }
     >
-      <Modal.Header>Edit Rule</Modal.Header>
       <Modal.Content className={modalStyles.modal}>{getInput()}</Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleEditClose}>Cancel</Button>
+        <Button onClick={handleEditClose}>{t('cancel', { ns: 'common' })}</Button>
         <Button disabled={false} onClick={handleEditRule} primary>
-          Save
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>

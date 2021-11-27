@@ -26,7 +26,7 @@ describe('Builder', () => {
     cy.get('[data-testid=team-item-Bulbasaur] > .visible > :nth-child(2)').click();
     cy.contains('Black Belt').should('exist');
     cy.get(':nth-child(4) > b').click();
-    cy.contains('Close').click();
+    cy.contains('Cancel').click();
     cy.get(':nth-child(4) > b').click();
     cy.get('[data-testid=move-Pound]').click();
     cy.get(':nth-child(5) > b').click();
@@ -91,7 +91,7 @@ describe('Builder', () => {
       cy.pokemondetail();
       cy.contains('Export to Builder').click();
       cy.contains('Pokémon successfully exported').should('exist');
-      cy.contains('Close').click({ force: true });
+      cy.contains('Cancel').click({ force: true });
       cy.get('[data-testid=options]').click();
       cy.contains('Builder').click();
       cy.get('[data-testid=team-poke-Scorbunny] > div > .angle').click();

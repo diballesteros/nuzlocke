@@ -1,9 +1,9 @@
 import React, { useCallback, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import shallow from 'zustand/shallow';
 import { PokemonSelector } from 'common';
 import { Evolve } from 'components/Tracker/elements';
-import { RULE_ALERTS } from 'constants/constant';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import { TEncounter } from 'constants/types';
@@ -16,6 +16,7 @@ interface PokemonProps {
 }
 
 const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
+  const { t } = useTranslation('tracker');
   const changePokemon = useStore((state) => state.changePokemon);
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const showAll = useStore(useCallback((state) => state.showAll, []));
@@ -29,6 +30,14 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const foundPokemon = POKEMAP.get(encounter.pokemon);
+
+  const RULE_ALERTS: { [key: string]: string } = {
+    'DUPE': t('alert_dupe'),
+    'FORBIDDEN GEN': t('alert_gen'),
+    'OVERLEVELED': t('alert_overleveled'),
+    'FORBIDDEN TYPE': t('alert_type'),
+    'TEAM OVER 6': t('alert_max'),
+  };
 
   const getAlertText = useCallback(
     (pokemonId) => {

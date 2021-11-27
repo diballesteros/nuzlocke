@@ -1,4 +1,5 @@
 import { Control, useController } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { TCalculatorForm } from 'constants/types';
 import styles from './Modifier.module.scss';
@@ -19,6 +20,7 @@ interface ModifierProps {
 }
 
 function Modifier({ control, name }: ModifierProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const { field } = useController({ control, name });
 
   const decrement = () => {
@@ -35,7 +37,7 @@ function Modifier({ control, name }: ModifierProps): JSX.Element {
 
   return (
     <div className={styles.modifier}>
-      <span>Modifier:</span>
+      <span>{t('modifier')}:</span>
       <Button data-testid={`minus-${name}`} icon="minus" onClick={decrement} type="button" />
       <output data-testid={name}>{field.value}</output>
       <Button data-testid={`plus-${name}`} icon="plus" onClick={increment} type="button" />

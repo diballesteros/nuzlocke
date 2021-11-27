@@ -1,4 +1,5 @@
 import React, { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -18,6 +19,7 @@ interface BadgeEditorProps {
 }
 
 function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
+  const { t } = useTranslation('badges');
   const [open, setOpen] = useState(false);
   const badges = useStore(useCallback((state) => state.badges, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -61,8 +63,7 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
         )
       }
     >
-      <Modal.Header>Edit Badge Level Caps</Modal.Header>
-      <Modal.Content className={modalStyles.maxModal}>
+      <Modal.Content className={modalStyles.modalMax}>
         {selectedGame &&
           badges[selectedGame?.value]?.map((val, i) => {
             return (
@@ -76,19 +77,19 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
           })}
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Close</Button>
+        <Button onClick={() => setOpen(false)}>{t('cancel', { ns: 'common' })}</Button>
         {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
           <Dropdown
             button
             data-testid="badge-multiple-default"
             onChange={handleMultiReset}
             options={LEVEL_CAPS[selectedGame?.value]}
-            text="Set default"
+            text={t('set_default')}
             value={null}
           />
         ) : (
           <Button onClick={() => resetBadges()} primary>
-            Set default
+            {t('set_default')}
           </Button>
         )}
       </Modal.Actions>

@@ -10,6 +10,7 @@ export interface AppState {
   games: Games;
   gamesList: TGame[];
   gens: number[];
+  language: TLanguage;
   missing: boolean;
   newVersion: string;
   nicknames: boolean;
@@ -77,6 +78,7 @@ export interface AppState {
   setDefaultCalculator: () => void;
   setDefaultSummary: () => void;
   setGens: (genId: number) => void;
+  setLanguage: (language: TLanguage) => void;
   setTypes: (typeId: Type) => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
@@ -240,6 +242,8 @@ export type Type =
   | 'DRAGON'
   | 'STEEL'
   | 'FAIRY';
+
+export type TLanguage = 'en' | 'es' | 'de';
 
 type Category = 'Physical' | 'Special' | 'Status' | '???';
 

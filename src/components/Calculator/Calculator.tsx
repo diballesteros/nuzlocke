@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import {
   CalculatorHeader,
   General,
@@ -16,6 +17,7 @@ import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Calculator.module.scss';
 
 function Calculator(): JSX.Element {
+  const { t } = useTranslation('common');
   const [selected, setSelected] = useState<0 | 1>(0);
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
@@ -90,7 +92,7 @@ function Calculator(): JSX.Element {
       ) : (
         <div className={styles.placeholder}>
           <PokeballSVG />
-          <span>Please select a game</span>
+          <span>{t('please_select')}</span>
         </div>
       )}
     </form>

@@ -1,4 +1,5 @@
 import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import shallow from 'zustand/shallow';
@@ -33,6 +34,7 @@ interface ImageProps {
 }
 
 function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
+  const { t } = useTranslation('stats');
   const badges = useStore(useCallback((state) => state.badges, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -85,20 +87,20 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
       case 0:
         return (
           <b style={{ color: '#FBD200' }}>
-            ONGOING <Icon name="refresh" />
+            {t('ongoing')} <Icon name="refresh" />
           </b>
         );
       case 1:
         return (
           <b style={{ color: 'green' }}>
-            COMPLETE <Icon name="check" />
+            {t('complete')} <Icon name="check" />
           </b>
         );
       case 2:
       default:
         return (
           <b style={{ color: 'red' }}>
-            FAILED <Icon name="x" />
+            {t('Failed')} <Icon name="x" />
           </b>
         );
     }
@@ -106,7 +108,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
 
   return (
     <div className={`${styles.summary} ${responsive ? styles.responsive : ''}`} ref={forwardedRef}>
-      <div className={styles.header}>
+      <div className={styles.header} data-testid={`image-header-${responsive}`}>
         <span className={styles.headerTitle}>{summary?.title}</span>
         {getStatus()}
         <div className={styles.badges}>
@@ -126,7 +128,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         </div>
       </div>
       <div className={styles.card}>
-        <span className={styles.title}>TEAM</span>
+        <span className={styles.title}>{t('Team')}</span>
         {teamPokemon?.length > 0 ? (
           <div className={styles.team}>
             {teamPokemon?.map((enc) => {
@@ -141,13 +143,13 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
             })}
           </div>
         ) : (
-          <Tip missing="Team" />
+          <Tip missing={t('Team')} />
         )}
       </div>
       <div className={styles.row}>
         {summary?.encounters && (
           <div className={`${styles.card} ${styles.large}`}>
-            <span className={styles.title}>ENCOUNTERS</span>
+            <span className={styles.title}>{t('encounters')}</span>
             <div className={styles.encounters}>
               <div className={styles.completion}>
                 <svg className={styles.circle} width="150" height="150" viewBox="0 0 150 150">
@@ -168,10 +170,10 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                     {completion ? (completion * 100)?.toFixed(0) : 0}%
                   </text>
                 </svg>
-                <b>COMPLETION</b>
+                <b>{t('completion')}</b>
               </div>
               <div className={styles.byType}>
-                <b>All Encounters by Type</b>
+                <b>{t('all_encounters_by')}</b>
                 <div className={styles.byTypeContainer}>
                   {types.map((type) => {
                     return (
@@ -191,20 +193,20 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         )}
         {summary?.stats && (
           <div className={`${styles.card} ${styles.small}`}>
-            <span className={styles.title}>STATS</span>
+            <span className={styles.title}>{t('stats')}</span>
             <div className={styles.stat}>
               <CaughtSVG className={styles.team} />
-              <b>Caught</b>
+              <b>{t('Caught')}</b>
               <Label>{caughtPokemon?.length || 0}</Label>
             </div>
             <div className={styles.stat}>
               <FailedSVG className={styles.team} />
-              <b>Failed</b>
+              <b>{t('Failed')}</b>
               <Label>{failedPokemon?.length || 0}</Label>
             </div>
             <div className={styles.stat}>
               <FaintedSVG className={styles.team} />
-              <b>Fainted</b>
+              <b>{t('Fainted')}</b>
               <Label>{faintedPokemon?.length || 0}</Label>
             </div>
             <div className={styles.stat}>
@@ -218,7 +220,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
       {boxedPokemon?.length > 0 && summary?.boxed && (
         <div className={styles.row}>
           <div className={`${styles.card} ${styles.medium}`}>
-            <span className={styles.title}>BOXED</span>
+            <span className={styles.title}>{t('boxed')}</span>
             <div className={styles.box}>
               {boxedPokemon.map((box, i) => {
                 const foundPokemon = POKEMAP.get(box.pokemon);
@@ -239,7 +241,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
       {faintedPokemon?.length > 0 && summary?.fainted && (
         <div className={styles.row}>
           <div className={`${styles.card} ${styles.medium}`}>
-            <span className={styles.title}>FAINTED</span>
+            <span className={styles.title}>{t('Fainted')}</span>
             <div className={styles.box}>
               {faintedPokemon.map((faint, i) => {
                 const foundPokemon = POKEMAP.get(faint.pokemon);
@@ -260,7 +262,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
       <div className={styles.row}>
         {summary?.rules && (
           <div className={`${styles.card} ${styles.medium}`}>
-            <span className={styles.title}>RULES</span>
+            <span className={styles.title}>{t('rules')}</span>
             <div className={styles.rules}>
               {rules[selectedRuleset].map((rule, i) => {
                 return <RuleContent hideSmart key={`sumrule-${i + 1}`} i={i} rule={rule} />;
@@ -270,7 +272,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         )}
         {summary?.showDescription && (
           <div className={`${styles.card} ${styles.medium}`}>
-            <span className={styles.title}>DESCRIPTION</span>
+            <span className={styles.title}>{t('description')}</span>
             <p>{summary?.description || ''}</p>
           </div>
         )}

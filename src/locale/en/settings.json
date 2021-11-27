@@ -1,0 +1,9 @@
+{
+  "duplicate_clause": "Duplicate clause (Show alert on duplicate pokémon)",
+  "language": "Language",
+  "settings": "Settings",
+  "show_all": "Show all pokémon in every encounter",
+  "show_missing": "Show only missing encounters",
+  "show_nicknames": "Show nicknames",
+  "show_suggestions": "Show suggestions"
+}

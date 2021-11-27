@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { UseFormReturn, useWatch } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { Modifier, Range } from 'components/Calculator/elements';
 import { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
@@ -26,6 +27,7 @@ const DV = {
 };
 
 function Stats({ form, pokemon }: StatsProps): JSX.Element {
+  const { t } = useTranslation('calculator');
   const { control, register, setValue } = form;
   const calcGen = useWatch({ control, name: 'calculatorGen' });
   const { pokemon1, pokemon2 } = useCalculate(control);
@@ -41,7 +43,7 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
     <section className={styles.container}>
       <div className={styles.currenthpContainer}>
         <label className={styles.label} htmlFor={`currenthp${pokemon}`}>
-          Current Hp:
+          {t('current_hp')}:
         </label>
         <input
           className={styles.currenthp}
