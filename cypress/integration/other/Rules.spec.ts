@@ -138,7 +138,7 @@ describe('Rules', () => {
     cy.contains('TEAM OVER 6').should('exist');
   });
 
-  it.only('Share', { browser: 'firefox' }, () => {
+  it('Share', { browser: 'firefox' }, () => {
     cy.get('h1').click();
     cy.get('[data-testid=share-encounters]').click();
     cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
