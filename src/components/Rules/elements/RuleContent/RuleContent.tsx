@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import { getRuleContent } from 'constants/constant';
 import { TRuleEntry } from 'constants/types';
 import styles from './RuleContent.module.scss';
@@ -9,6 +10,7 @@ interface RuleContentProps {
 }
 
 function RuleContent({ hideSmart, i, rule }: RuleContentProps): JSX.Element {
+  const { t } = useTranslation('rules');
   return (
     <div className={styles.content}>
       {rule.type !== 'TEXT' && !hideSmart && (
@@ -16,7 +18,7 @@ function RuleContent({ hideSmart, i, rule }: RuleContentProps): JSX.Element {
           <b>SMART RULE</b>
           {' - '}
           <em>
-            if broken an alert will appear in the <b>Tracker</b>
+            {t('if_broken')} <b>Tracker</b>
           </em>
         </span>
       )}

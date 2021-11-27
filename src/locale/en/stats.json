@@ -19,7 +19,7 @@
   "ongoing": "Ongoing",
   "rules": "Rules",
   "settings": "SETTINGS",
-  "share": "Share",
+  "share": "SHARE",
   "share_image": "Share the image!",
   "show_boxed": "Show boxed pokémon",
   "show_description": "Show description",
@@ -36,6 +36,6 @@
   "title": "Title",
   "unable_download": "Unable to download image",
   "unable_generate": "Unable to generate image",
-  "unable_share": "Unable to share the image",
+  "unable_share": "Unable to share",
   "validating_share": "Validating sharing options"
 }

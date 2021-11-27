@@ -1,7 +1,22 @@
 {
+  "add_rule": "ADD RULE",
+  "allow_only_types": "Allow only these types",
+  "allow_only_generations": "Allow only these generations",
+  "already_exists": "{{rule}} rule already exists",
   "choose_ruleset": "Choose a ruleset",
   "confirm_deletion": "This will delete the custom ruleset. Are you sure?",
   "delete_ruleset_success": "Successfully deleted ruleset",
+  "generation": "Generation",
+  "if_broken": "if broken an alert will appear in the",
+  "level": "Level",
+  "max_level_allowed": "Maximum level allowed",
+  "please_generation": "Please select a generation...",
+  "please_max": "Please enter maximum level",
+  "please_rule": "Please enter the rule description",
   "please_ruleset": "Please enter the ruleset name",
-  "ruleset_already": "Ruleset with this name already exists"
+  "please_type": "Please select a type...",
+  "rule_description": "Rule Description",
+  "ruleset_already": "Ruleset with this name already exists",
+  "text": "Text",
+  "type": "Type"
 }

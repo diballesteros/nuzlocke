@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -12,6 +13,7 @@ interface ResetEncounterProps {
 }
 
 function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const resetAll = useStore(useCallback((state) => state.resetAll, []));
@@ -20,7 +22,7 @@ function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
   const handleReset = () => {
     resetAll();
     setOpen(false);
-    toast.success('Successfully reset encounters');
+    toast.success(t('reset_success'));
   };
 
   return (
@@ -47,21 +49,17 @@ function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
             inverted={darkMode}
             onClick={() => setOpen(true)}
           >
-            RESET
+            {t('reset')}
             <Icon className="icon close" />
           </Button>
         )
       }
     >
-      <Modal.Header>Reset all encounters</Modal.Header>
-      <Modal.Content className={modalStyles.modal}>
-        This will reset all encounters for the selected game and delete custom encounters. Are you
-        sure?
-      </Modal.Content>
+      <Modal.Content className={modalStyles.modal}>{t('reset_confirm')}</Modal.Content>
       <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>Cancel</Button>
+        <Button onClick={() => setOpen(false)}>{t('cancel', { ns: 'common' })}</Button>
         <Button onClick={handleReset} primary>
-          OK
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>

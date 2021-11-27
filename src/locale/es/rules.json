@@ -1,7 +1,22 @@
 {
+  "add_rule": "AÑADIR REGLA",
+  "allow_only_types": "Permitir solo estos tipos",
+  "allow_only_generations": "Permitir solo estas generaciones",
+  "already_exists": "{{rule}} regla ya existe",
   "choose_ruleset": "Elige un conjunto de reglas",
   "confirm_deletion": "Esto eliminará el conjunto de reglas personalizado. ¿Está seguro?",
   "delete_ruleset_success": "Conjunto de reglas eliminado correctamente",
+  "generation": "Generación",
+  "if_broken": "si se rompe, aparecerá una alerta en el",
+  "level": "Nivel",
+  "max_level_allowed": "Nivel máximo permitido",
+  "please_generation": "Por favor seleccione una generación...",
+  "please_max": "Por favor ingrese el nivel máximo",
+  "please_rule": "Por favor ingrese la descripción de la regla",
   "please_ruleset": "Ingrese el nombre del conjunto de reglas",
-  "ruleset_already": "Un conjunto de reglas con este nombre ya existe"
+  "please_type": "Por favor seleccione un tipo...",
+  "rule_description": "Descripción de la regla",
+  "ruleset_already": "Un conjunto de reglas con este nombre ya existe",
+  "text": "Texto",
+  "type": "Tipo"
 }

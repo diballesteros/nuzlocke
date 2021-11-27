@@ -1,4 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
@@ -14,6 +15,7 @@ import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
 
 const Encounters = React.memo(function Encounters() {
+  const { t } = useTranslation('tracker');
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -138,12 +140,12 @@ const Encounters = React.memo(function Encounters() {
       ) : (
         <div className={styles.noGame}>
           <PokeballSVG />
-          <span>Please select a game</span>
+          <span>{t('please_select', { ns: 'common' })}</span>
         </div>
       )}
       <Confirm
         closeOnDimmerClick
-        content="This will delete the encounter. Are you sure?"
+        content={t('delete_confirm')}
         open={confirm}
         onCancel={() => setConfirm(false)}
         onConfirm={handleDelete}

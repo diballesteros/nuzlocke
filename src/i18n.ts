@@ -10,6 +10,7 @@ import REPORT_DE from 'locale/de/report.json';
 import RULES_DE from 'locale/de/rules.json';
 import SETTINGS_DE from 'locale/de/settings.json';
 import STATS_DE from 'locale/de/stats.json';
+import TRACKER_DE from 'locale/de/tracker.json';
 import ABOUT_EN from 'locale/en/about.json';
 import BADGES_EN from 'locale/en/badges.json';
 import BUILDER_EN from 'locale/en/builder.json';
@@ -20,6 +21,7 @@ import REPORT_EN from 'locale/en/report.json';
 import RULES_EN from 'locale/en/rules.json';
 import SETTINGS_EN from 'locale/en/settings.json';
 import STATS_EN from 'locale/en/stats.json';
+import TRACKER_EN from 'locale/en/tracker.json';
 import ABOUT_ES from 'locale/es/about.json';
 import BADGES_ES from 'locale/es/badges.json';
 import BUILDER_ES from 'locale/es/builder.json';
@@ -30,6 +32,7 @@ import REPORT_ES from 'locale/es/report.json';
 import RULES_ES from 'locale/es/rules.json';
 import SETTINGS_ES from 'locale/es/settings.json';
 import STATS_ES from 'locale/es/stats.json';
+import TRACKER_ES from 'locale/es/tracker.json';
 import store from 'store';
 
 const resources = {
@@ -44,6 +47,7 @@ const resources = {
     rules: RULES_DE,
     settings: SETTINGS_DE,
     stats: STATS_DE,
+    tracker: TRACKER_DE,
   },
   en: {
     about: ABOUT_EN,
@@ -56,6 +60,7 @@ const resources = {
     rules: RULES_EN,
     settings: SETTINGS_EN,
     stats: STATS_EN,
+    tracker: TRACKER_EN,
   },
   es: {
     about: ABOUT_ES,
@@ -68,6 +73,7 @@ const resources = {
     rules: RULES_ES,
     settings: SETTINGS_ES,
     stats: STATS_ES,
+    tracker: TRACKER_ES,
   },
 };
 

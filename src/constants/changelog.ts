@@ -7,7 +7,7 @@ const CHANGELOG: TReleaseNotes = [
     notes: [
       {
         description:
-          'App is now available in german and spanish, can be changed from the options page',
+          'App is now available in german and spanish, can be changed from the settings page',
         type: 'FEATURE',
       },
       {

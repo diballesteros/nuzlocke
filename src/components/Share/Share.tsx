@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -14,6 +15,7 @@ interface ShareProps {
 }
 
 function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
+  const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   const shareRef = useRef<HTMLTextAreaElement>(null);
   const appState = useStore((state) => state);
@@ -27,12 +29,12 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
     try {
       await navigator.share(data);
       toast.promise(navigator.share(data), {
-        pending: 'Validating sharing options',
-        success: 'Sharing now available!',
-        error: 'Unable to share',
+        pending: t('validating_share', { ns: 'stats' }),
+        success: t('share_success'),
+        error: t('unable_share', { ns: 'stats' }),
       });
     } catch (err) {
-      toast.error('Unable to share');
+      toast.error(t('unable_share', { ns: 'stats' }));
     }
   };
 
@@ -40,7 +42,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
     const data = { title: 'Nuzlocke', text };
     if ('share' in navigator && 'canShare' in navigator && navigator.canShare(data)) {
       handleShare(data).catch(() => {
-        toast.error('Unable to share');
+        toast.error(t('unable_share', { ns: 'stats' }));
       });
     } else {
       setShow(true);
@@ -71,7 +73,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
             inverted={appState.darkMode}
             onClick={handleClick}
           >
-            SHARE
+            {t('share', { ns: 'stats' })}
             <Icon name="share" />
           </Button>
         )
@@ -83,7 +85,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
       <Modal.Actions>
         <Button onClick={() => setShow(false)}>Close</Button>
         <Button onClick={handleCopy} primary>
-          Copy
+          {t('copy')}
         </Button>
       </Modal.Actions>
     </Modal>

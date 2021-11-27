@@ -1,7 +1,22 @@
 {
+  "add_rule": "REGEL HINZUFÜGEN",
+  "allow_only_types": "Nur diese Typen zulassen",
+  "allow_only_generations": "Nur diese Generationen zulassen",
+  "already_exists": "{{rule}} Regel existiert bereits",
   "choose_ruleset": "Wählen Sie einen Regelsatz",
   "confirm_deletion": "Dadurch wird der benutzerdefinierte Regelsatz gelöscht. Bist du sicher?",
   "delete_ruleset_success": "Regelsatz erfolgreich gelöscht",
+  "generation": "Generation",
+  "if_broken": "wenn es kaputt ist, erscheint eine Warnung im",
+  "level": "Niveau",
+  "max_level_allowed": "Maximal erlaubte Stufe",
+  "please_generation": "Bitte wählen Sie eine Generation aus...",
+  "please_max": "Bitte maximales Level eingeben",
+  "please_rule": "Bitte geben Sie die Regelbeschreibung ein",
   "please_ruleset": "Bitte geben Sie den Namen des Regelsatzes ein",
-  "ruleset_already": "Regelsatz mit diesem Namen existiert bereits"
+  "please_type": "Bitte wählen Sie einen Typ aus...",
+  "rule_description": "Regelbeschreibung",
+  "ruleset_already": "Regelsatz mit diesem Namen existiert bereits",
+  "text": "Text",
+  "type": "Typ"
 }

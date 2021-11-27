@@ -1,4 +1,5 @@
 import { ReactText, useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
@@ -11,6 +12,7 @@ import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './AddRule.module.scss';
 
 function AddRule(): JSX.Element {
+  const { t } = useTranslation('rules');
   const addRule = useStore(useCallback((state) => state.addRule, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
@@ -27,25 +29,25 @@ function AddRule(): JSX.Element {
 
   const panes = [
     {
-      menuItem: 'Text',
+      menuItem: t('text'),
       render: () => (
         <Tab.Pane>
-          Rule Description:
+          {t('rule_description')}:
           <Input
             data-testid="add-rule-input"
             fluid
             onChange={(e, data) => setRuleText(data.value)}
-            placeholder="Please enter the rule description"
+            placeholder={t('please_rule')}
             value={ruleText}
           />
         </Tab.Pane>
       ),
     },
     {
-      menuItem: 'Type',
+      menuItem: t('type'),
       render: () => (
         <Tab.Pane>
-          Allow only these types:
+          {t('allow_only_types')}:
           <Dropdown
             data-testid="add-rule-type"
             disabled={!!containsType}
@@ -55,19 +57,21 @@ function AddRule(): JSX.Element {
             options={Object.keys(TYPE_COUNT).map((key) => {
               return { key, text: key, value: key };
             })}
-            placeholder="Please select a type..."
+            placeholder={t('please_type')}
             selection
             value={types}
           />
-          {!!containsType && <span style={{ color: 'red' }}>Type rule already exists</span>}
+          {!!containsType && (
+            <span style={{ color: 'red' }}>{t('already_exists', { rule: t('type') })}</span>
+          )}
         </Tab.Pane>
       ),
     },
     {
-      menuItem: 'Generation',
+      menuItem: t('generation'),
       render: () => (
         <Tab.Pane>
-          Allow only these generations:
+          {t('allow_only_generations')}:
           <Dropdown
             data-testid="add-rule-generation"
             fluid
@@ -77,29 +81,33 @@ function AddRule(): JSX.Element {
             options={GENERATIONS.map((gen) => {
               return { key: gen, text: gen, value: gen };
             })}
-            placeholder="Please select a generation..."
+            placeholder={t('please_generation')}
             selection
             value={gens}
           />
-          {!!containsGen && <span style={{ color: 'red' }}>Generation rule already exists</span>}
+          {!!containsGen && (
+            <span style={{ color: 'red' }}>{t('already_exists', { rule: t('generation') })}</span>
+          )}
         </Tab.Pane>
       ),
     },
     {
-      menuItem: 'Level',
+      menuItem: t('level'),
       render: () => (
         <Tab.Pane>
-          Maximum level allowed:
+          {t('max_level_allowed')}:
           <Input
             data-testid="add-rule-level-input"
             disabled={!!containsLevel}
             fluid
             onChange={(e, data) => setLevel(data.value)}
-            placeholder="Please enter maximum level"
+            placeholder={t('please_max')}
             type="number"
             value={level}
           />
-          {!!containsLevel && <span style={{ color: 'red' }}>Level rule already exists</span>}
+          {!!containsLevel && (
+            <span style={{ color: 'red' }}>{t('already_exists', { rule: t('level') })}</span>
+          )}
         </Tab.Pane>
       ),
     },
@@ -164,12 +172,11 @@ function AddRule(): JSX.Element {
           onClick={() => setOpen(true)}
           type="button"
         >
-          ADD RULE
+          {t('add_rule')}
           <Icon name="plus" />
         </Button>
       }
     >
-      <Modal.Header>Add Rule</Modal.Header>
       <Modal.Content className={modalStyles.modal}>
         <Tab
           activeIndex={tab}
@@ -179,9 +186,9 @@ function AddRule(): JSX.Element {
         />
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
         <Button disabled={getDisabled()} onClick={handleAdd} primary>
-          Save
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>

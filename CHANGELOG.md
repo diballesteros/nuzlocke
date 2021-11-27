@@ -14,6 +14,19 @@
 - Added Pikachu to starter's list for Red, Blue and Yellow
 - Changed Norman's second pokemon from Slaking to Vigoroth in Emerald
 
+🏠 Internal
+
+- Added i18next 21.5.3
+- Added react-i18next 11.14.3
+- Bumped immer to 9.0.7
+- Bumped react-hook-form to 7.20.4
+- Bumped @testing-library/jest-dom to 5.15.1
+- Bumped @types/node to 16.11.10
+- Bumped @types/react to 17.0.37
+- Bumped cypress to 9.1.0
+- Bumped prettier to 2.5.0
+- Bumped sass to 1.43.5
+
 ## Version 3.14.2
 
 🐛 Bug Fix

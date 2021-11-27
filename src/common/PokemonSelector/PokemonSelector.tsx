@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -25,6 +26,7 @@ function PokemonSelector({
   limitGen,
   suggestions,
 }: PokemonSelectorProps): JSX.Element {
+  const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
 
@@ -75,7 +77,7 @@ function PokemonSelector({
             (suggestions.includes(pokemon.type) || suggestions.includes(pokemon.dualtype)) && (
               <div className={styles.suggestion}>
                 <Icon name="star" />
-                <span>SUGGESTED</span>
+                <span>{t('suggested')}</span>
               </div>
             )}
           <div className={styles.details}>
@@ -105,7 +107,7 @@ function PokemonSelector({
         </FixedSizeList>
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Close</Button>
+        <Button onClick={handleClose}>{t('cancel')}</Button>
       </Modal.Actions>
     </Modal>
   );

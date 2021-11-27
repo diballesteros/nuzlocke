@@ -5,7 +5,6 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { SUM_STATUS } from 'constants/constant';
 import useStore from 'store';
 import styles from './DisplaySettings.module.scss';
 
@@ -22,6 +21,24 @@ function DisplaySettings(): JSX.Element {
   const toggleSummarySetting = useStore(useCallback((state) => state.toggleSummarySetting, []));
   const changeSummaryDesc = useStore(useCallback((state) => state.changeSummaryDescription, []));
   const [show, setShow] = useState(false);
+
+  const SUM_STATUS = [
+    {
+      key: 'ongoing',
+      text: t('ongoing'),
+      value: 0,
+    },
+    {
+      key: 'complete',
+      text: t('complete'),
+      value: 1,
+    },
+    {
+      key: 'FAILED',
+      text: t('Failed'),
+      value: 2,
+    },
+  ];
 
   return (
     <div className={styles.container}>

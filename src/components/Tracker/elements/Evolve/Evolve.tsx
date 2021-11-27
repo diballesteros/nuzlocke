@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -13,6 +14,7 @@ interface EvolveProps {
 }
 
 function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const changePokemon = useStore((state) => state.changePokemon);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [selected, setSelected] = useState(encounter.pokemon);
@@ -50,7 +52,7 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
         />
       }
     >
-      <Modal.Header>Evolution Chain</Modal.Header>
+      <Modal.Header>{t('evolution_chain')}</Modal.Header>
       <Modal.Content>
         {evolveIds.map((id) => {
           const foundPokemon = POKEMAP.get(id);
@@ -69,9 +71,9 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
         })}
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Cancel</Button>
+        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
         <Button onClick={handleEvolve} primary>
-          Save
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>

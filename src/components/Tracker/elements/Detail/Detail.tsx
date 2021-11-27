@@ -1,5 +1,6 @@
 import { ABILITIES, ITEMS } from '@smogon/calc';
 import { useCallback, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -19,6 +20,7 @@ interface DetailProps {
 }
 
 function Detail({ encounter }: DetailProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
@@ -81,14 +83,14 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       nature,
       moves: [moveOne, moveTwo, moveThree, moveFour],
     });
-    toast.success('Pokémon successfully exported');
+    toast.success(t('pokemon_export'));
   };
 
   const handleGameExport = (game: string) => {
     if (game !== selectedGame?.value) {
       exportToGame(encounter, game, `From ${selectedGame?.text} - ${new Date().toLocaleString()}`);
       handleClose();
-      toast.success('Pokémon successfully exported');
+      toast.success(t('pokemon_export'));
     }
   };
 
@@ -119,18 +121,18 @@ function Detail({ encounter }: DetailProps): JSX.Element {
           <PokemonType pokemon={foundPokemon} />
         </div>
         <details open>
-          <summary data-testid="detail-summary">Details</summary>
+          <summary data-testid="detail-summary">{t('details', { ns: 'badges' })}</summary>
           <div className={styles.expandable}>
             <Input
               data-testid="level"
-              label="Level"
+              label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
               type="number"
               value={level}
             />
             <Input
               data-testid="metlevel"
-              label="Met Level"
+              label={t('met_level')}
               onChange={(e, data) => setMetLevel(Number(data.value))}
               type="number"
               value={metLevel}
@@ -145,7 +147,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               lazyLoad
               onChange={(e, data) => setGender(data.value as unknown as Gender)}
               options={GENDERS}
-              placeholder="Select a gender..."
+              placeholder={t('gender', { ns: 'calculator' })}
               selection
               value={gender ?? ''}
             />
@@ -160,7 +162,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
                 lazyLoad
                 onChange={(e, data) => setNature(data.value as unknown as string)}
                 options={NATURES}
-                placeholder="Select a nature..."
+                placeholder={t('select_nature', { ns: 'calculator' })}
                 search
                 selection
                 value={nature ?? ''}
@@ -179,7 +181,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
                 return { text: smogonAbility, value: smogonAbility };
               })}
-              placeholder="Select an ability..."
+              placeholder={t('select_ability', { ns: 'calculator' })}
               search
               selection
               value={ability ?? ''}
@@ -196,7 +198,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               options={[...new Set(ITEMS[8])].map((smogonItem) => {
                 return { text: smogonItem, value: smogonItem };
               })}
-              placeholder="Select an item..."
+              placeholder={t('select_item', { ns: 'calculator' })}
               search
               selection
               value={item ?? ''}
@@ -238,7 +240,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         </details>
         {encounter?.status?.value === 2 && (
           <label>
-            <div>Cause of Fainting:</div>
+            <div>{t('cause_of_fainting')}:</div>
             <textarea
               className={styles.textarea}
               data-testid="cause of fainting"
@@ -250,18 +252,18 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         )}
       </Modal.Content>
       <Modal.Actions>
-        <Button onClick={handleClose}>Close</Button>
-        <Button onClick={handleExport}>Export to Builder</Button>
+        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
+        <Button onClick={handleExport}>{t('export_to_builder')}</Button>
         <Dropdown
           button
           data-testid="export-to-game"
           onChange={(e, data) => handleGameExport(data.value as string)}
           options={gamesList}
-          text="Export to game and close"
+          text={t('export_to_game')}
           value={selectedGame?.value}
         />
         <Button onClick={handleSave} primary>
-          Save
+          {t('save', { ns: 'common' })}
         </Button>
       </Modal.Actions>
     </Modal>
