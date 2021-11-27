@@ -9,7 +9,7 @@ import useStore from 'store';
 import styles from './Changelog.module.scss';
 
 function Changelog(): JSX.Element {
-  const { t } = useTranslation('common');
+  const { t, i18n } = useTranslation('common');
   const [logs, setLogs] = useState(3);
   const removeNew = useStore((state) => state.removeNew);
   const darkMode = useStore((state) => state.darkMode);
@@ -40,7 +40,15 @@ function Changelog(): JSX.Element {
           return (
             <React.Fragment key={`release-${i + 1}`}>
               <h4>
-                {release.name} <span>{new Date(release.date).toDateString()}</span>
+                {release.name}{' '}
+                <time>
+                  {new Date(release.date).toLocaleDateString(i18n.language, {
+                    weekday: 'short',
+                    month: 'short',
+                    year: 'numeric',
+                    day: 'numeric',
+                  })}
+                </time>
               </h4>
               <ul>
                 {release.notes.map((note) => {

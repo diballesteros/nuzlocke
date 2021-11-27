@@ -1,5 +1,7 @@
 {
   "coverage": "Abdeckung",
   "delete": "LÖSCHEN",
-  "press_plus": "Drücken Sie +, um mit dem Aufbau eines Teams zu beginnen"
+  "number_of_moves": "# Züge stark gegen",
+  "press_plus": "Drücken Sie +, um mit dem Aufbau eines Teams zu beginnen",
+  "weak_against": "Schwach gegenüber"
 }

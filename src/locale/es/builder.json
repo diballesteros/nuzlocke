@@ -1,5 +1,7 @@
 {
   "coverage": "Cobertura",
   "delete": "ELIMINAR",
-  "press_plus": "Presione + para comenzar a construir un equipo"
+  "number_of_moves": "# de movimientos fuertes contra",
+  "press_plus": "Presione + para comenzar a construir un equipo",
+  "weak_against": "Debil contra"
 }
