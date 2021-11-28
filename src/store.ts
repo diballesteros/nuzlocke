@@ -47,6 +47,7 @@ const useStore = create<AppState>(
       badges: BADGES,
       calcs: INITIAL_STATE.calcs,
       customBadges: {},
+      customStatuses: [],
       darkMode: INITIAL_STATE.darkMode,
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
@@ -75,7 +76,10 @@ const useStore = create<AppState>(
             state.customBadges[state.selectedGame?.value] = [0];
           }
         }),
-
+      addCustomStatus: (status: TStatus) =>
+        set((state) => {
+          state.customStatuses.push(status);
+        }),
       addEncounter: (newLocation: string) =>
         set((state) => {
           state.games[state.selectedGame?.value].encounters.push({
@@ -217,6 +221,11 @@ const useStore = create<AppState>(
       deleteCustomBadge: (index: number) =>
         set((state) => {
           state.customBadges[state.selectedGame?.value].splice(index, 1);
+        }),
+      deleteCustomStatus: (index: number) =>
+        set((state) => {
+          // TODO => SHOULD DELETE CUSTOM STATUS FOR ALL ASSOCIATED ENCOUNTERS
+          state.customStatuses.splice(index, 1);
         }),
       deleteEncounter: (encounterId: number) =>
         set((state) => {
@@ -426,7 +435,7 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 4,
+      version: 5,
       migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
         if (version < 1) {
@@ -477,6 +486,16 @@ const useStore = create<AppState>(
           persistedState.summary['13.1'] = INITIAL_STATE.summary['13.1'];
           persistedState.badges['13.1'] = INITIAL_STATE.badges['13.1'];
           persistedState.gamesList.splice(13, 0, INITIAL_STATE.gamesList[13]);
+        }
+
+        if (version < 5) {
+          if (!gameMigration['13.1']) {
+            gameMigration['13.1'] = INITIAL_STATE.games['13.1'];
+            persistedState.calcs['13.1'] = INITIAL_STATE.calcs['13.1'];
+            persistedState.summary['13.1'] = INITIAL_STATE.summary['13.1'];
+            persistedState.badges['13.1'] = INITIAL_STATE.badges['13.1'];
+            persistedState.gamesList.splice(13, 0, INITIAL_STATE.gamesList[13]);
+          }
         }
 
         return {

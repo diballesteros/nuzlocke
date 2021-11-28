@@ -205,6 +205,13 @@ const B_W_2: TEncounter[] = [
     filterKey: 'bw2-30',
   },
   {
+    id: 42,
+    pokemon: null,
+    location: 'Route 14',
+    status: null,
+    filterKey: 'bw2-42',
+  },
+  {
     id: 31,
     pokemon: null,
     location: 'Route 12',

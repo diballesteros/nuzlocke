@@ -35,7 +35,7 @@ function UpdateSW(): JSX.Element {
     }
   };
 
-  return !!waitingServiceWorker ? (
+  return waitingServiceWorker ? (
     <div className={styles.alert}>
       <span>New version available</span>
       <Button color="grey" onClick={updateServiceWorker} type="button">

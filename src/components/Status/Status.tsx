@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import STATUSES from 'constants/status';
@@ -13,7 +13,8 @@ interface StatusProps {
 
 const Status = React.memo(function Status({ encounterId, status }: StatusProps) {
   const { t } = useTranslation('common');
-  const changeStatus = useStore((state) => state.changeStatus);
+  const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
+  const customStatuses = useStore(useCallback((state) => state.customStatuses, []));
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
     const foundStatus = STATUSES.find((stat) => stat.value === data.value);
     changeStatus(encounterId, foundStatus);
@@ -32,7 +33,7 @@ const Status = React.memo(function Status({ encounterId, status }: StatusProps) 
         labeled
         lazyLoad
         onChange={handleChange}
-        options={STATUSES}
+        options={STATUSES.concat(customStatuses)}
         placeholder={`${t('select')}...`}
         selection
         value={status?.value ?? ''}

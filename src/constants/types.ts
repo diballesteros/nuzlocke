@@ -5,6 +5,7 @@ export interface AppState {
   badges: TBadgeDictionary;
   calcs: TCalcDictionary;
   customBadges: TCustomBadgeDictionary;
+  customStatuses: TStatus[];
   darkMode: boolean;
   duplicates: boolean;
   games: Games;
@@ -25,6 +26,7 @@ export interface AppState {
   typeModal: Type;
   types: Type[];
   addCustomBadge: () => void;
+  addCustomStatus: (status: TStatus) => void;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
@@ -56,6 +58,7 @@ export interface AppState {
   clearEncounter: (encounterId: number) => void;
   closeTypeModal: () => void;
   deleteCustomBadge: (index: number) => void;
+  deleteCustomStatus: (index: number) => void;
   deleteGame: () => void;
   deleteEncounter: (encounterId: number) => void;
   deleteRule: (ruleIndex: number) => void;
