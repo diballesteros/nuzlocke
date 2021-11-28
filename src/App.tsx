@@ -10,6 +10,7 @@ import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
 import { AddGame, Effectiveness, Export } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
+import { MAX_GAME } from 'constants/constant';
 import AppRouter from 'routes/AppRouter';
 import useStore from 'store';
 import styles from './App.module.scss';
@@ -106,7 +107,7 @@ function App(): JSX.Element {
           />
           <Menu.Menu position="left">
             <AddGame />
-            {selectedGame?.value && Number(selectedGame.value) > 13 ? (
+            {selectedGame?.value && Number(selectedGame.value) > MAX_GAME ? (
               <Button
                 aria-label="deletegame"
                 className={`${styles.button} ${styles.delete}`}

@@ -77,6 +77,10 @@ const resources = {
   },
 };
 
+const NOTHING = () => {
+  // do nothing
+};
+
 const languageDetector = {
   type: 'languageDetector',
   async: true,
@@ -85,8 +89,8 @@ const languageDetector = {
     callback(lang);
     return lang;
   },
-  init: () => {},
-  cacheUserLanguage: () => {},
+  init: NOTHING,
+  cacheUserLanguage: NOTHING,
 };
 
 i18n

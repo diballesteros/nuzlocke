@@ -1,3 +1,16 @@
+## Version 3.15.1
+
+💅 Enhancement
+
+- Added Route 14 to Black and White 2
+
+🐛 Bug Fix
+
+- Fixed the ability to delete Brilliant Diamond and Shining Pearl. If you happened to delete the game it should reappear now.
+- Added fossil encounters to Rustboro City for Ruby, Sapphire, and Emerald
+- Added underwater encounters to Route 124/126 for Ruby, Sapphire, and Emerald
+- Fixed Tangela evolution line
+
 ## Version 3.15.0
 
 🚀 New features

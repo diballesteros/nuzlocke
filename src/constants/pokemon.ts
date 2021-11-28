@@ -2139,7 +2139,7 @@ const POKEMON: TPokemon[] = [
     text: 'Tangela',
     image: tangela,
     type: 'GRASS',
-    evolve: [114, 463],
+    evolve: [114, 465],
     generation: 1,
   },
   {
@@ -5131,7 +5131,7 @@ const POKEMON: TPokemon[] = [
     text: 'Tangrowth',
     image: tangrowth,
     type: 'GRASS',
-    evolve: [114, 463],
+    evolve: [114, 465],
     generation: 4,
   },
   {
