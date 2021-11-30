@@ -156,6 +156,29 @@ const useStore = create<AppState>(
         set((state) => {
           state.duplicates = !state.duplicates;
         }),
+      changeLevel: (encounterId: number, increase: boolean) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1) {
+            const hasDetails = state.games[state.selectedGame?.value].encounters[index].details;
+            const level = state.games[state.selectedGame?.value].encounters[index].details?.level;
+            if (!hasDetails) {
+              state.games[state.selectedGame?.value].encounters[index].details = {
+                id: state.games[state.selectedGame?.value].encounters[index].pokemon,
+                level: 1,
+                moves: [],
+              };
+            } else if (!level) {
+              state.games[state.selectedGame?.value].encounters[index].details.level = 1;
+            } else if (increase) {
+              state.games[state.selectedGame?.value].encounters[index].details.level = level + 1;
+            } else {
+              state.games[state.selectedGame?.value].encounters[index].details.level = level - 1;
+            }
+          }
+        }),
       changeNickname: (encounterId: number, nickname: string) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -300,9 +323,17 @@ const useStore = create<AppState>(
           state.games = newAppState.games;
           state.selectedGame = newAppState.selectedGame;
           state.gamesList = newAppState.gamesList;
+          state.darkMode = !!newAppState.darkMode;
+          state.duplicates = !!newAppState.duplicates;
+          state.missing = !!newAppState.missing;
+          state.nicknames = !!newAppState.nicknames;
+          state.showAll = !!newAppState.showAll;
+          state.suggestions = !!newAppState.suggestions;
           if (newAppState.badges) state.badges = newAppState.badges;
           if (newAppState.rules) state.rules = newAppState.rules;
           if (newAppState.team) state.team = newAppState.team;
+          if (newAppState.customBadges) state.customBadges = newAppState.customBadges;
+          if (newAppState.customStatuses) state.customStatuses = newAppState.customStatuses;
         }),
       massImport: (newEncounters: TEncounter[]) =>
         set((state) => {

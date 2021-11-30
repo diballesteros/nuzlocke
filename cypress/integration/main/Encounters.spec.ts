@@ -61,7 +61,8 @@ describe('Encounters', () => {
     cy.get(':nth-child(2) > .ui > label').click();
     cy.contains('Save').click();
     cy.contains('Raboot').should('exist');
-    cy.get('[data-testid=encounter-0] .repeat').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="reset-encounter-0"]').click();
     cy.get('[data-testid=encounter-empty-0]').should('exist');
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
   });
@@ -79,9 +80,11 @@ describe('Encounters', () => {
   });
 
   it('Delete encounter', () => {
-    cy.get('[data-testid=encounter-0] .trash').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="delete-encounter-0"]').click();
     cy.contains('Cancel').click();
-    cy.get('[data-testid=encounter-0] .trash').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="delete-encounter-0"]').click();
     cy.contains('OK').click();
     cy.get('[data-testid=filter] > input').type('Starter');
     cy.get('[data-testid=encounters-list]')
@@ -115,6 +118,26 @@ describe('Encounters', () => {
     cy.contains('Gold, Silver and Crystal').click();
     cy.contains('From Sword and Shield').should('exist');
     cy.contains('Scorbunny').should('exist');
+  });
+
+  it('Direct leveling', () => {
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="level-up-0"]').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="level-up-0"]').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="level-down-0"]').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="reset-encounter-0"]').click();
+    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
+    cy.contains('Save').click();
+    cy.get('[data-testid="encounter-options-0"]').click();
+    cy.get('[data-testid="level-up-0"]').click();
   });
 
   context('Small screens', () => {
