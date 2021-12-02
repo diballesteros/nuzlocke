@@ -1247,7 +1247,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Pupitar',
   ],
   'rse-0': ['Treecko', 'Mudkip', 'Torchic'],
-  'rse-1': ['Treecko', 'Mudkip', 'Torchic'],
+  'rse-1': ['Treecko', 'Mudkip', 'Torchic', 'Chikorita', 'Cyndaquil', 'Totodile'],
   'rse-2': ['Treecko', 'Torchic', 'Mudkip', 'Poochyena', 'Zigzagoon', 'Wurmple'],
   'rse-3': [
     'Goldeen',

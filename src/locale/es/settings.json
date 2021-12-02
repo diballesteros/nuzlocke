@@ -1,5 +1,7 @@
 {
+  "custom_status": "Estado personalizado",
   "duplicate_clause": "Cláusula de duplicados (Mostrar alerta en Pokémon repetidos)",
+  "edit_custom_status": "Editar estados personalizados",
   "language": "Idioma",
   "settings": "Ajustes",
   "show_all": "Mostrar todos los pokémon en cada encuentro",

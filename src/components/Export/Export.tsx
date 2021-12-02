@@ -19,7 +19,7 @@ function Export(): JSX.Element {
   const missing = useStore(useCallback((state) => state.missing, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const showAll = useStore(useCallback((state) => state.showAll, []));
-  const suggestions = useStore(useCallback((state) => state.showAll, []));
+  const suggestions = useStore(useCallback((state) => state.suggestions, []));
 
   const handleExport = () => {
     const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(

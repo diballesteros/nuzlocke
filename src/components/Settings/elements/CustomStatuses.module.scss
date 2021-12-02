@@ -1,0 +1,18 @@
+.button {
+  max-width: fit-content;
+}
+
+.customStatus {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--spacing-2) var(--spacing-1);
+  font-size: var(--font-size-4);
+  border-bottom: 1px solid var(--contrast);
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+}

@@ -1,21 +1,26 @@
 import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
-  // {
-  //   name: 'Version 3.16.0',
-  //   date: 1638012419619,
-  //   notes: [
-  //     {
-  //       description: 'Can now create custom statuses from the settings page',
-  //       type: 'FEATURE',
-  //     },
-  //     {
-  //       description:
-  //         'Can now enter pokemon EVs/IVs from the pokemon details (this will transfer over to the calculator)',
-  //       type: 'FEATURE',
-  //     },
-  //   ],
-  // },
+  {
+    name: 'Version 3.16.0',
+    date: 1638404552987,
+    notes: [
+      {
+        description: 'Can now create custom statuses from the settings page',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Encounters now have a button with a popup with most former options and now two items to increase and decrease level',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Added Gen 2 starters to Littleroot Town encounter in Ruby, Sapphire, and Emerald',
+        type: 'FIX',
+      },
+    ],
+  },
   {
     name: 'Version 3.15.1',
     date: 1638074012441,

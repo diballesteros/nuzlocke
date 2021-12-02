@@ -76,9 +76,14 @@ const useStore = create<AppState>(
             state.customBadges[state.selectedGame?.value] = [0];
           }
         }),
-      addCustomStatus: (status: TStatus) =>
+      addCustomStatus: (status: string) =>
         set((state) => {
-          state.customStatuses.push(status);
+          state.customStatuses.push({
+            icon: null,
+            key: status,
+            value: new Date().getTime(),
+            text: status,
+          });
         }),
       addEncounter: (newLocation: string) =>
         set((state) => {
@@ -247,7 +252,14 @@ const useStore = create<AppState>(
         }),
       deleteCustomStatus: (index: number) =>
         set((state) => {
-          // TODO => SHOULD DELETE CUSTOM STATUS FOR ALL ASSOCIATED ENCOUNTERS
+          const customStatusValue = state.customStatuses[index];
+          Object.keys(state.games).forEach((key) => {
+            state.games[key].encounters.forEach((enc) => {
+              if (customStatusValue.value === enc.status?.value) {
+                enc.status = null;
+              }
+            });
+          });
           state.customStatuses.splice(index, 1);
         }),
       deleteEncounter: (encounterId: number) =>

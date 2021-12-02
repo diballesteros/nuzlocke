@@ -26,7 +26,7 @@ export interface AppState {
   typeModal: Type;
   types: Type[];
   addCustomBadge: () => void;
-  addCustomStatus: (status: TStatus) => void;
+  addCustomStatus: (status: string) => void;
   addEncounter: (newLocation: string) => void;
   addGame: (newGame: string) => void;
   addRule: (entry: TRuleEntry) => void;
