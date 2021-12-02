@@ -19,9 +19,11 @@ describe('Custom game', () => {
       cy.contains('Bulbasaur').should('exist');
       cy.contains('Select...').click();
       cy.contains('Fainted').click({ force: true });
-      cy.get('[data-testid=encounter-0] .repeat').click();
+      cy.get('[data-testid="encounter-options-0"]').click();
+      cy.get('[data-testid="reset-encounter-0"]').click();
       cy.contains('Select...').should('exist');
-      cy.get('[data-testid=encounter-0] .trash').click();
+      cy.get('[data-testid="encounter-options-0"]').click();
+      cy.get('[data-testid="delete-encounter-0"]').click();
       cy.contains('OK').click();
       cy.get('[data-testid=encounters-list]')
         .children()

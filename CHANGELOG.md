@@ -1,3 +1,24 @@
+## Version 3.16.0
+
+🚀 New features
+
+- Can now create custom statuses from the settings page
+- Encounters now have a button with a popup with most former options and now two items to increase and decrease level
+
+🐛 Bug Fix
+
+- Added Gen 2 starters to Littleroot Town encounter in Ruby, Sapphire, and Emerald
+
+🏠 Internal
+
+- Bumped i18next to 21.5.4
+- Bumped react-hook-form to 7.20.5
+- Bumped @types/node to 16.11.11
+- Bumped @typescript-eslint/eslint-plugin to 5.5.0
+- Bumped @typescript-eslint/parser to 5.5.0
+- Bumped @cypress/code-coverage to 3.9.12
+- Bumped sass to 1.44.0
+
 ## Version 3.15.1
 
 💅 Enhancement

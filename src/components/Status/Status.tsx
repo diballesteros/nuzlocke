@@ -15,8 +15,9 @@ const Status = React.memo(function Status({ encounterId, status }: StatusProps) 
   const { t } = useTranslation('common');
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
   const customStatuses = useStore(useCallback((state) => state.customStatuses, []));
+  const allStatuses = STATUSES.concat(customStatuses);
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {
-    const foundStatus = STATUSES.find((stat) => stat.value === data.value);
+    const foundStatus = allStatuses.find((stat) => stat.value === data.value);
     changeStatus(encounterId, foundStatus);
   };
 
@@ -33,7 +34,7 @@ const Status = React.memo(function Status({ encounterId, status }: StatusProps) 
         labeled
         lazyLoad
         onChange={handleChange}
-        options={STATUSES.concat(customStatuses)}
+        options={allStatuses}
         placeholder={`${t('select')}...`}
         selection
         value={status?.value ?? ''}

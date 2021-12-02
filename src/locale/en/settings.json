@@ -1,5 +1,7 @@
 {
+  "custom_status": "Custom status",
   "duplicate_clause": "Duplicate clause (Show alert on duplicate pokémon)",
+  "edit_custom_status": "Edit custom statuses",
   "language": "Language",
   "settings": "Settings",
   "show_all": "Show all pokémon in every encounter",

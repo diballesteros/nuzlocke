@@ -83,3 +83,31 @@
     }
   }
 }
+
+.editOptions {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+
+  > li {
+    display: flex;
+    gap: 5px;
+    padding: var(--spacing-2) var(--spacing-1);
+    font-size: var(--font-size-3);
+    border-bottom: 1px solid var(--contrast);
+    cursor: pointer;
+
+    &:hover {
+      background-color: grey;
+    }
+
+    > i {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+}

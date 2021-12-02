@@ -129,4 +129,31 @@ describe('Options', () => {
     cy.contains('Deutsch').click();
     cy.contains('Optionen').should('exist');
   });
+
+  it('Custom Status', { scrollBehavior: 'center', viewportWidth: 550 }, () => {
+    cy.contains('Settings').click();
+    cy.get('[data-testid="edit-custom-statuses"]').click();
+    cy.get('[data-testid="custom-status-input"] > input')
+      .type('Foobar')
+      .should('have.value', 'Foobar');
+    cy.get('[data-testid="add-status"]').click();
+    cy.contains('Foobar').should('exist');
+    cy.contains('Cancel').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid="tracker"]').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid="status-0"]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(8)').click();
+    cy.contains('Foobar').should('exist');
+    cy.get('[data-testid=options]').click();
+    cy.contains('Settings').click();
+    cy.get('[data-testid="edit-custom-statuses"]').click();
+    cy.get('[data-testid="remove-custom-status-0"]').click();
+    cy.contains('Cancel').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid="tracker"]').click();
+    cy.contains('Foobar').should('not.exist');
+  });
 });

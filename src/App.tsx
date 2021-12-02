@@ -146,14 +146,14 @@ function App(): JSX.Element {
       </header>
       <Sidebar.Pushable>
         <Sidebar
-          as={Menu}
-          visible={visible}
-          vertical
-          inverted={darkMode}
           animation="overlay"
+          aria-label="sidebar-options"
+          as={Menu}
+          inverted={darkMode}
           onHide={() => setVisible(false)}
+          vertical
+          visible={visible}
           width="thin"
-          aria-label="options"
         >
           <Menu.Item data-testid="tracker" onClick={() => handleRoute('/')}>
             Tracker

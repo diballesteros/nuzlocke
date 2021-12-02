@@ -2,6 +2,7 @@ import { useTranslation } from 'react-i18next';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { Page } from 'common';
+import CustomStasuses from 'components/Settings/elements/CustomStatuses';
 import { LANGUAGES } from 'constants/constant';
 import { TLanguage } from 'constants/types';
 import useStore from 'store';
@@ -58,6 +59,7 @@ function Settings(): JSX.Element {
           selection
           value={i18n.language}
         />
+        <CustomStasuses />
       </div>
     </Page>
   );

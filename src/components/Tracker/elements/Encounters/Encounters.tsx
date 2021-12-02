@@ -5,6 +5,7 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { Status } from 'components';
 import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
@@ -33,6 +34,10 @@ const Encounters = React.memo(function Encounters() {
   );
   const deleteEncounter = useStore(
     useCallback((state) => state.deleteEncounter, []),
+    shallow
+  );
+  const changeLevel = useStore(
+    useCallback((state) => state.changeLevel, []),
     shallow
   );
   const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
@@ -91,29 +96,65 @@ const Encounters = React.memo(function Encounters() {
             <span className={styles.location}>{encounter.location}</span>
             <div className={styles.buttons}>
               {!!encounter.pokemon && <Detail encounter={encounter} />}
-              <Button
-                aria-label="reset encounter"
-                basic
-                compact
-                icon
+              <Popup
                 inverted={darkMode}
-                onClick={() => handleClear(encounter.id)}
-                type="button"
+                on="click"
+                trigger={
+                  <Button
+                    aria-label="encounter-options"
+                    basic
+                    compact
+                    data-testid={`encounter-options-${index}`}
+                    icon
+                    inverted={darkMode}
+                    type="button"
+                  >
+                    <Icon name="ellipsis vertical" />
+                  </Button>
+                }
               >
-                <Icon name="repeat" />
-              </Button>
-              <Button
-                aria-label="delete encounter"
-                basic
-                className={styles.delete}
-                compact
-                icon
-                inverted={darkMode}
-                onClick={() => handleConfirm(encounter.id)}
-                type="button"
-              >
-                <Icon name="trash" />
-              </Button>
+                <ul className={styles.editOptions} role="menu">
+                  {!!encounter.pokemon && (
+                    <>
+                      <li
+                        aria-label="level up encounter"
+                        data-testid={`level-up-${index}`}
+                        onClick={() => changeLevel(encounter.id, true)}
+                        role="presentation"
+                      >
+                        {t('level_up')} ({encounter?.details?.level ?? 0}) <Icon name="arrow up" />
+                      </li>
+                      {encounter?.details?.level > 1 && (
+                        <li
+                          aria-label="level down encounter"
+                          data-testid={`level-down-${index}`}
+                          onClick={() => changeLevel(encounter.id, false)}
+                          role="presentation"
+                        >
+                          {t('level_down')} ({encounter?.details?.level ?? 0}){' '}
+                          <Icon name="arrow down" />
+                        </li>
+                      )}
+                    </>
+                  )}
+                  <li
+                    aria-label="reset encounter"
+                    data-testid={`reset-encounter-${index}`}
+                    onClick={() => handleClear(encounter.id)}
+                    role="presentation"
+                  >
+                    {t('reset_2')} <Icon name="repeat" />
+                  </li>
+                  <li
+                    aria-label="delete encounter"
+                    data-testid={`delete-encounter-${index}`}
+                    onClick={() => handleConfirm(encounter.id)}
+                    role="presentation"
+                  >
+                    {t('delete')} <Icon name="trash" />
+                  </li>
+                </ul>
+              </Popup>
             </div>
           </div>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}

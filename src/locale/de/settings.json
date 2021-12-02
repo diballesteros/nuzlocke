@@ -1,5 +1,7 @@
 {
+  "custom_status": "Benutzerdefinierter Status",
   "duplicate_clause": "Duplicate-Klausel (Warnung bei doppeltem Pokémon anzeigen)",
+  "edit_custom_status": "Benutzerdefinierte Status bearbeiten",
   "language": "Sprache",
   "settings": "Optionen",
   "show_all": "Zeige alle Pokémon in jeder Begegnung",
