@@ -14,6 +14,7 @@
   "Immune to": "Immun gegen",
   "increased_stat": "Erhöhte statistik",
   "nature": "Natur",
+  "None": "Keiner",
   "Not very effective against": "Nicht sehr wirksam gegen",
   "please_enter": "Bitte geben Sie den Spielnamen ein",
   "please_select": "Bitte wählen Sie ein Spiel aus",
@@ -28,6 +29,7 @@
   "status": "Status",
   "suggested": "EMPFOHLEN",
   "Super effective against": "Super effektiv gegen",
+  "template_hint": "Beachten Sie, dass dadurch nur die möglichen Begegnungen und Level-Cap-Nummern kopiert werden, nicht jedoch die gym-Informationen",
   "tracker": "Tracker",
   "types": "Typen",
   "Weak against": "Schwach gegenüber"

@@ -28,7 +28,7 @@ export interface AppState {
   addCustomBadge: () => void;
   addCustomStatus: (status: string) => void;
   addEncounter: (newLocation: string) => void;
-  addGame: (newGame: string) => void;
+  addGame: (newGame: string, templateKey?: string) => void;
   addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
   addTeamMember: (pokemonId: number) => void;
