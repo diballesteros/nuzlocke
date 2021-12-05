@@ -1,7 +1,7 @@
 import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
 import { useMemo } from 'react';
 import { Control, useWatch } from 'react-hook-form';
-import { GenderCalc } from 'constants/calculator';
+import { FORBIDDEN_ITEMS, GenderCalc } from 'constants/calculator';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import { TCalculatorForm } from 'constants/types';
@@ -50,6 +50,13 @@ function useCalculate(control: Control<TCalculatorForm>): {
         return all.calculatorGen > 2 ? iv : dv * 2 + 1;
       };
 
+      const getItem = (item: string) => {
+        if (all.calculatorGen < 6 && FORBIDDEN_ITEMS.includes(item)) {
+          return undefined;
+        }
+        return item;
+      };
+
       return new Pokemon(all.calculatorGen, getSmogonName(POKEMAP.get(all.pokemon1)?.text), {
         ability: all.ability1,
         abilityOn: true,
@@ -78,7 +85,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
         },
         curHP: all.currenthp1,
         isDynamaxed: all.isDynamaxed1,
-        item: all.item1,
+        item: getItem(all.item1),
         gender: GenderCalc[all.gender1],
         level: all.level1,
         nature: all.nature1,
@@ -92,6 +99,13 @@ function useCalculate(control: Control<TCalculatorForm>): {
     if (all.calculatorGen && all.pokemon2) {
       const getDVorIV = (iv: number, dv: number) => {
         return all.calculatorGen > 2 ? iv : dv * 2 + 1;
+      };
+
+      const getItem = (item: string) => {
+        if (all.calculatorGen < 6 && FORBIDDEN_ITEMS.includes(item)) {
+          return undefined;
+        }
+        return item;
       };
 
       return new Pokemon(all.calculatorGen, getSmogonName(POKEMAP.get(all.pokemon2)?.text), {
@@ -123,7 +137,7 @@ function useCalculate(control: Control<TCalculatorForm>): {
           spe: getDVorIV(all.ivspeed2, all.dvspeed2) ?? undefined,
         },
         isDynamaxed: all.isDynamaxed1,
-        item: all.item2,
+        item: getItem(all.item2),
         level: all.level2,
         nature: all.nature2,
         status: all.status2 === 'none' ? undefined : all.status2,

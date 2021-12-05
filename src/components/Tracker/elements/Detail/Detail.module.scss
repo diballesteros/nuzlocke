@@ -67,6 +67,10 @@
   .natureContainer {
     display: flex;
     gap: var(--spacing-1);
+
+    input {
+      box-sizing: border-box;
+    }
   }
 
   .dropdown {

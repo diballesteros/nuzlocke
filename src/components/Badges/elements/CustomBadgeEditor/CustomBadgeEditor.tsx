@@ -46,11 +46,9 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
             aria-label="editgame"
             className={styles.button}
             data-testid="custom-edit-badges"
-            icon
+            icon="pencil"
             onClick={() => setOpen(true)}
-          >
-            <Icon name="pencil" />
-          </Button>
+          />
         )
       }
     >
@@ -73,7 +71,7 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
               </div>
             );
           })}
-        <Button data-testid="add-cap" icon="plus" onClick={addCustomBadge}>
+        <Button data-testid="add-cap" onClick={addCustomBadge}>
           {t('add_level_cap')} <Icon className="icon plus" />
         </Button>
       </Modal.Content>

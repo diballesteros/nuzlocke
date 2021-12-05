@@ -1,4 +1,3 @@
-import { ExtendedNavigator } from '../../support/commands';
 import path = require('path');
 
 describe('PokéStats', () => {
@@ -106,12 +105,12 @@ describe('PokéStats', () => {
     it('Success', { browser: '!firefox' }, () => {
       cy.visit('/', {
         onBeforeLoad(win) {
-          (win.navigator as ExtendedNavigator).canShare = () => {
+          win.navigator.canShare = () => {
             return true;
           };
           delete win.navigator.share;
-          delete (win.navigator as ExtendedNavigator).canShare;
-          (win.navigator as ExtendedNavigator).canShare = cy.stub().resolves(true);
+          delete win.navigator.canShare;
+          win.navigator.canShare = cy.stub().resolves(true);
           win.navigator.share = cy.stub().resolves(true);
         },
       });
@@ -143,8 +142,8 @@ describe('PokéStats', () => {
         cy.visit('/', {
           onBeforeLoad(win) {
             delete win.navigator.share;
-            delete (win.navigator as ExtendedNavigator).canShare;
-            (win.navigator as ExtendedNavigator).canShare = () => true;
+            delete win.navigator.canShare;
+            win.navigator.canShare = () => true;
             win.navigator.share = cy.stub().rejects(Error('test'));
           },
         });
@@ -154,8 +153,8 @@ describe('PokéStats', () => {
         cy.visit('/', {
           onBeforeLoad(win) {
             delete win.navigator.share;
-            delete (win.navigator as ExtendedNavigator).canShare;
-            (win.navigator as ExtendedNavigator).canShare = () => false;
+            delete win.navigator.canShare;
+            win.navigator.canShare = () => false;
             win.navigator.share = cy.stub().rejects(Error('test'));
           },
         });

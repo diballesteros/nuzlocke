@@ -1,7 +1,7 @@
 import produce from 'immer';
 import create, { State, StateCreator } from 'zustand';
 import { persist } from 'zustand/middleware';
-import BADGES, { GAME_CAP_DICTIONARY } from 'constants/badges';
+import BADGES, { GAME_CAP_DICTIONARY, LEVEL_CAPS } from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import {
   DEFAULT_RULES,
@@ -94,10 +94,13 @@ const useStore = create<AppState>(
             status: null,
           });
         }),
-      addGame: (newGame: string) =>
+      addGame: (newGame: string, templateKey?: string) =>
         set((state) => {
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
-          state.games[newKey.toString()] = { badge: null, encounters: [] };
+          state.games[newKey.toString()] = {
+            badge: null,
+            encounters: templateKey ? [...INITIAL_STATE.games[templateKey].encounters] : [],
+          };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
           state.calcs[newKey.toString()] = {
             form: { ...DEFAULT_VALUES, calculatorGen: 8, pokemon1: 1, pokemon2: 1 },
@@ -107,6 +110,10 @@ const useStore = create<AppState>(
             text: newGame,
             key: `custom-game-${newGame}-${new Date()}`,
           };
+          if (templateKey) {
+            const gameCapKey = LEVEL_CAPS[templateKey][0].value;
+            state.customBadges[newKey.toString()] = [...GAME_CAP_DICTIONARY[gameCapKey]];
+          }
           state.gamesList.push(newGameObj);
           state.selectedGame = newGameObj;
         }),

@@ -1,3 +1,20 @@
+## Version 3.17.0
+
+🚀 New features
+
+- When you create a game you can now select a base game to copy over the same encounters
+
+🐛 Bug Fix
+
+- Fixed the bug that would cause the app to crash when using mega evolution stones in the calculator in some cases
+
+🏠 Internal
+
+- Bumped zustand to 3.6.6
+- Bumped @testing-library/jest-dom to 5.16.0
+- Bumped cypress to 9.1.1
+- Bumped prettier to 2.5.1
+
 ## Version 3.16.0
 
 🚀 New features

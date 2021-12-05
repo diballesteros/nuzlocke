@@ -966,14 +966,43 @@ const BADGES: TBadgeDictionary = {
 
 export const GAME_CAP_DICTIONARY: TLevelCapDictionary = {
   'REDANDBLUE': ['14', '21', '24', '29', '43', '43', '47', '50', '65'],
+  'GOLDSILVERCRYSTAL': ['9', '16', '20', '30', '31', '35', '40', '50', '58', '81'],
   'YELLOW': ['12', '21', '28', '32', '50', '50', '54', '55', '65'],
   'RUBYANDSAPPHIRE': ['15', '18', '23', '28', '31', '33', '42', '43', '58'],
   'EMERALD': ['15', '19', '24', '29', '31', '33', '42', '46', '58'],
+  'FRLG': ['14', '21', '24', '29', '43', '43', '47', '50', '63'],
   'PLATINUM': ['14', '22', '26', '32', '37', '41', '44', '50', '62'],
   'DIAMONDANDPEARL': ['14', '22', '32', '32', '36', '41', '42', '49', '66'],
+  'HGSS': [
+    '13',
+    '17',
+    '19',
+    '25',
+    '31',
+    '34',
+    '35',
+    '41',
+    '50',
+    '53',
+    '55',
+    '55',
+    '56',
+    '56',
+    '56',
+    '59',
+    '60',
+    '88',
+  ],
+  'BW': ['14', '20', '23', '27', '31', '35', '39', '43', '54'],
   'BW2NORMALMODE': ['13', '18', '24', '30', '33', '39', '48', '51', '59'],
   'BW2EASYMODE': ['12', '17', '22', '28', '30', '36', '44', '47', '55'],
   'BW2CHALLENGEMODE': ['14', '19', '26', '32', '36', '42', '52', '55', '63'],
+  'XY': ['12', '25', '32', '34', '37', '42', '48', '59', '65'],
+  'ORAS': ['14', '16', '21', '28', '30', '35', '45', '46', '59'],
+  'SM': ['12', '15', '20', '22', '24', '26', '29', '33', '39', '48', '58'],
+  'USUM': ['12', '16', '20', '22', '24', '28', '33', '35', '44', '49', '55', '55', '60'],
+  'SWSH': ['20', '24', '27', '36', '38', '42', '46', '48', '65'],
+  'BDSP': ['14', '22', '30', '30', '36', '39', '42', '49', '66'],
 };
 
 export const LEVEL_CAPS: TLevelCaps = {
@@ -989,6 +1018,13 @@ export const LEVEL_CAPS: TLevelCaps = {
       value: 'YELLOW',
     },
   ],
+  '2': [
+    {
+      key: 'Gold, Silver, Crystal',
+      text: 'Gold, Silver, Crystal',
+      value: 'GOLDSILVERCRYSTAL',
+    },
+  ],
   '3': [
     {
       key: 'Ruby and Sapphire',
@@ -1001,6 +1037,13 @@ export const LEVEL_CAPS: TLevelCaps = {
       value: 'EMERALD',
     },
   ],
+  '4': [
+    {
+      key: 'FireRed and LeafGreen',
+      text: 'FireRed and LeafGreen',
+      value: 'FRLG',
+    },
+  ],
   '5': [
     {
       key: 'Platinum',
@@ -1011,6 +1054,20 @@ export const LEVEL_CAPS: TLevelCaps = {
       key: 'Diamond and Pearl',
       text: 'Diamond and Pearl',
       value: 'DIAMONDANDPEARL',
+    },
+  ],
+  '6': [
+    {
+      key: 'HeartGold and SoulSilver',
+      text: 'HeartGold and SoulSilver',
+      value: 'HGSS',
+    },
+  ],
+  '7': [
+    {
+      key: 'Black and White',
+      text: 'Black and White',
+      value: 'BW',
     },
   ],
   '8': [
@@ -1028,6 +1085,48 @@ export const LEVEL_CAPS: TLevelCaps = {
       key: 'Challenge mode',
       text: 'Challenge mode',
       value: 'BW2CHALLENGEMODE',
+    },
+  ],
+  '9': [
+    {
+      key: 'X and Y',
+      text: 'X and Y',
+      value: 'XY',
+    },
+  ],
+  '10': [
+    {
+      key: 'Omega Ruby and Alpha Sapphire',
+      text: 'Omega Ruby and Alpha Sapphire',
+      value: 'ORAS',
+    },
+  ],
+  '11': [
+    {
+      key: 'Sun and Moon',
+      text: 'Sun and Moon',
+      value: 'SM',
+    },
+  ],
+  '12': [
+    {
+      key: 'Ultra Sun and Ultra Moon',
+      text: 'Ultra Sun and Ultra Moon',
+      value: 'USUM',
+    },
+  ],
+  '13': [
+    {
+      key: 'Sword and Shield',
+      text: 'Sword and Shield',
+      value: 'SWSH',
+    },
+  ],
+  '13.1': [
+    {
+      key: 'Brilliant Diamond and Shining Pearl',
+      text: 'Brilliant Diamond and Shining Pearl',
+      value: 'BDSP',
     },
   ],
 };

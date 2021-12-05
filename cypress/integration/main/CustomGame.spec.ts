@@ -76,7 +76,10 @@ describe('Custom game', () => {
   it('Reset custom game encounters', () => {
     cy.get('[data-testid=add-game]').click();
     cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
+    cy.get('[data-testid="encounter-template"]').click();
+    cy.get('[data-testid="encounter-template"] > .visible > :nth-child(2)').click();
     cy.contains('Save').click();
+    cy.contains('14').should('exist');
     cy.get('[data-testid=add-encounter]').click();
     cy.get('[data-testid=add-encounter-input] > input').type('Test');
     cy.contains('Save').click();

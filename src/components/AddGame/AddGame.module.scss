@@ -7,3 +7,10 @@
     color: var(--contrast) !important;
   }
 }
+
+.template {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--spacing-2);
+  margin-top: var(--spacing-4);
+}
