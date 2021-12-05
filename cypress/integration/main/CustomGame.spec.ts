@@ -73,7 +73,7 @@ describe('Custom game', () => {
     });
   });
 
-  it.only('Reset custom game encounters', () => {
+  it('Reset custom game encounters', () => {
     cy.get('[data-testid=add-game]').click();
     cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
     cy.get('[data-testid="encounter-template"]').click();
