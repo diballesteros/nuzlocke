@@ -2,6 +2,22 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.0',
+    date: 1638717629294,
+    notes: [
+      {
+        description:
+          'When you create a game you can now select a base game to copy over the same encounters',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Fixed the bug that would cause the app to crash when using mega evolution stones in the calculator in some cases',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.16.0',
     date: 1638404552987,
     notes: [
