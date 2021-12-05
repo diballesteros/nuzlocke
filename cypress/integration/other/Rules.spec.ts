@@ -1,5 +1,3 @@
-import { ExtendedNavigator } from '../../support/commands';
-
 describe('Rules', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -152,12 +150,12 @@ describe('Rules', () => {
     it('Share Rules - WebShare', { browser: '!firefox' }, () => {
       cy.visit('/', {
         onBeforeLoad(win) {
-          (win.navigator as ExtendedNavigator).canShare = () => {
+          win.navigator.canShare = () => {
             return true;
           };
           delete win.navigator.share;
-          delete (win.navigator as ExtendedNavigator).canShare;
-          (win.navigator as ExtendedNavigator).canShare = cy.stub().resolves(true);
+          delete win.navigator.canShare;
+          win.navigator.canShare = cy.stub().resolves(true);
           win.navigator.share = cy.stub().resolves(true);
         },
       });
@@ -172,8 +170,8 @@ describe('Rules', () => {
       cy.visit('/', {
         onBeforeLoad(win) {
           delete win.navigator.share;
-          delete (win.navigator as ExtendedNavigator).canShare;
-          (win.navigator as ExtendedNavigator).canShare = () => true;
+          delete win.navigator.canShare;
+          win.navigator.canShare = () => true;
           win.navigator.share = cy.stub().rejects(Error('test'));
         },
       });

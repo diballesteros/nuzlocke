@@ -23,9 +23,6 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
-export interface ExtendedNavigator extends Navigator {
-  canShare: (stuff: unknown) => boolean;
-}
 
 import 'cypress-file-upload';
 import 'cypress-localstorage-commands';
