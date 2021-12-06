@@ -47,6 +47,7 @@
 
   .offscreen {
     position: absolute;
+    width: $screen-lg;
     max-width: $screen-lg;
     bottom: -100000px;
     right: -100000px;
