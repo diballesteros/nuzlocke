@@ -1,3 +1,10 @@
+## Version 3.17.1
+
+🐛 Bug Fix
+
+- Fixed how moves would appear in the Stats page if it had a lot of letters
+- Fixed moveset for Roark's geodude
+
 ## Version 3.17.0
 
 🚀 New features
