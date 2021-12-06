@@ -1,7 +1,5 @@
 .moves {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  column-gap: var(--spacing-1);
-  row-gap: var(--spacing-1);
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--spacing-1);
 }
