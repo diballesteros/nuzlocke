@@ -2,6 +2,20 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.1',
+    date: 1638754449199,
+    notes: [
+      {
+        description: 'Fixed how moves would appear in the Stats page if it had a lot of letters',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed moveset for Roark's geodude",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.0',
     date: 1638717629294,
     notes: [
