@@ -77,7 +77,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
 
   const detailsToOptions = useMemo(() => {
     if (selectedGame && DETAILS[selectedGame?.value]) {
-      return DETAILS[selectedGame.value].flat().map((gym, i) => {
+      return DETAILS[selectedGame.value]?.flat().map((gym, i) => {
         return {
           value: i,
           text: `${gym.name}${gym.name !== gym.game ? ` - ${gym.game}` : ''}`,
@@ -89,7 +89,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
 
   const details = useMemo(() => {
     if (selectedGame && DETAILS[selectedGame?.value]) {
-      return DETAILS[selectedGame.value].flat();
+      return DETAILS[selectedGame.value]?.flat();
     }
     return [];
   }, [selectedGame]);

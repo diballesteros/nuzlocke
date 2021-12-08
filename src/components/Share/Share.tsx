@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -17,12 +17,20 @@ interface ShareProps {
 function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
   const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
-  const shareRef = useRef<HTMLTextAreaElement>(null);
   const appState = useStore((state) => state);
 
-  const handleCopy = () => {
-    shareRef.current.select();
-    document.execCommand('copy');
+  const handleCopy = async () => {
+    if (!navigator?.clipboard) {
+      toast.error(t('unable_share', { ns: 'stats' }));
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(text);
+      toast.success(t('copied'));
+    } catch {
+      toast.error(t('unable_share', { ns: 'stats' }));
+    }
   };
 
   const handleShare = async (data: ShareData) => {
@@ -41,9 +49,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
   const handleClick = () => {
     const data = { title: 'Nuzlocke', text };
     if ('share' in navigator && 'canShare' in navigator && navigator.canShare(data)) {
-      handleShare(data).catch(() => {
-        toast.error(t('unable_share', { ns: 'stats' }));
-      });
+      handleShare(data);
     } else {
       setShow(true);
     }
@@ -80,7 +86,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
       }
     >
       <Modal.Content className={modalStyles.modalMax}>
-        <textarea data-testid="share-textarea" defaultValue={text} ref={shareRef} rows={5} />
+        <textarea data-testid="share-textarea" defaultValue={text} rows={5} />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setShow(false)}>{t('cancel', { ns: 'common' })}</Button>

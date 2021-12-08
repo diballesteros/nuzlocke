@@ -75,6 +75,10 @@ describe('Rules', () => {
       cy.get('[data-testid=edit-rule-type]').click();
       cy.contains('ICE').click();
       cy.contains('Save').click({ force: true });
+      cy.get('[data-testid=add-rule]').click();
+      cy.contains('Type').click();
+      cy.contains('Type rule already exists').should('exist');
+      cy.contains('Cancel').click();
       cy.get('[data-testid=game-select]').click();
       cy.contains('Sword and Shield').click();
       cy.get('[data-testid=options]').click();
@@ -95,6 +99,10 @@ describe('Rules', () => {
       cy.get('[data-testid=edit-rule-generation]').click();
       cy.contains('6').click();
       cy.contains('Save').click({ force: true });
+      cy.get('[data-testid=add-rule]').click();
+      cy.contains('Generation').click();
+      cy.contains('Generation rule already exists').should('exist');
+      cy.contains('Cancel').click();
       cy.get('[data-testid=game-select]').click();
       cy.contains('Sword and Shield').click();
       cy.get('[data-testid=options]').click();
@@ -113,6 +121,10 @@ describe('Rules', () => {
       cy.get('[data-testid=edit-rule-3]').click();
       cy.get('[data-testid=edit-rule-level-input] > input').clear().type('2');
       cy.contains('Save').click();
+      cy.get('[data-testid=add-rule]').click();
+      cy.contains('Level').click();
+      cy.contains('Level rule already exists').should('exist');
+      cy.contains('Cancel').click();
       cy.get('[data-testid=game-select]').click();
       cy.contains('Sword and Shield').click();
       cy.get('[data-testid=options]').click();
@@ -136,14 +148,60 @@ describe('Rules', () => {
     cy.contains('TEAM OVER 6').should('exist');
   });
 
-  it('Share', { browser: 'firefox' }, () => {
-    cy.get('h1').click();
-    cy.get('[data-testid=share-encounters]').click();
-    cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
-    cy.contains('Copy').click();
-    cy.contains('Cancel').click();
-    cy.get('[data-testid=share-encounters]').click();
-    cy.get('.page').click(1, 1);
+  context('Share text', { browser: 'firefox' }, () => {
+    it('Share Error', () => {
+      cy.get('h1').click();
+      cy.get('[data-testid=share-encounters]').click();
+      cy.get('[data-testid=share-textarea]').should('exist').clear().type('Test');
+      cy.contains('Copy').click();
+      cy.contains('Unable to share').should('exist');
+      cy.contains('Cancel').click();
+      cy.get('[data-testid=share-encounters]').click();
+      cy.get('.page').click(1, 1);
+    });
+
+    it('Share Clipboard Error', () => {
+      cy.visit('/rules', {
+        onBeforeLoad(win) {
+          // @ts-expect-error - we need to override the clipboard
+          delete win.navigator.clipboard;
+          // @ts-expect-error - we need to override the clipboard
+          win.navigator.clipboard = () => {
+            return true;
+          };
+          // @ts-expect-error - we need to override the clipboard
+          win.navigator.clipboard = cy.stub().resolves(true);
+        },
+      });
+      cy.get('h1').click();
+      cy.get('[data-testid=share-encounters]').click();
+      cy.contains('Copy').click();
+      cy.contains('Unable to share').should('exist');
+    });
+
+    it('Share Success', () => {
+      cy.visit('/rules', {
+        onBeforeLoad(win) {
+          // @ts-expect-error - we need to override the clipboard
+          delete win.navigator.clipboard;
+          // @ts-expect-error - we need to override the clipboard
+          win.navigator.clipboard = () => {
+            return true;
+          };
+          // @ts-expect-error - we need to override the clipboard
+          win.navigator.clipboard.writeText = () => {
+            return true;
+          };
+          // @ts-expect-error - we need to override the clipboard
+          win.navigator.clipboard = cy.stub().resolves(true);
+          win.navigator.clipboard.writeText = cy.stub().resolves(true);
+        },
+      });
+      cy.get('h1').click();
+      cy.get('[data-testid=share-encounters]').click();
+      cy.contains('Copy').click();
+      cy.contains('Copied').should('exist');
+    });
   });
 
   context('Webshare', () => {
