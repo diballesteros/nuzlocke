@@ -1,3 +1,26 @@
+## Version 3.17.2
+
+💅 Enhancement
+
+- Updated the way copying text works when sharing rules or encounters
+
+🐛 Bug Fix
+
+- Added Onix to Wayward Cave encounter in Platinum
+
+🏠 Internal
+
+- Bumped zustand to 3.6.7
+- Bumped @sentry/react to 6.16.0
+- Bumped @sentry/tracing to 6.16.0
+- Bumped i18next to 21.6.0
+- Bumped react-hook-form to 7.21.0
+- Bumped @testing-library/jest-dom to 5.16.1
+- Bumped @types/node to 16.11.12
+- Bumped @typescript-eslint/eslint-plugin to 5.6.0
+- Bumped @typescript-eslint/parser to 5.6.0
+- Bumped sass'loader to 12.4.0
+
 ## Version 3.17.1
 
 🐛 Bug Fix

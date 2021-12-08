@@ -2,6 +2,20 @@ import { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.2',
+    date: 1638997697782,
+    notes: [
+      {
+        description: 'Updated the way copying text works when sharing rules or encounters',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added Onix to Wayward Cave encounter in Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.1',
     date: 1638754449199,
     notes: [
