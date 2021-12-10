@@ -136,7 +136,9 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
             </div>
           ) : (
             <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
-              <span data-testid={`encounter-empty-${encounter.id}`}>Select...</span>
+              <span data-testid={`encounter-empty-${encounter.id}`}>
+                {t('select', { ns: 'common' })}...
+              </span>
             </div>
           )}
         </PokemonSelector>

@@ -2168,6 +2168,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Stunky',
     'Bronzor',
     'Gible',
+    'Onix',
   ],
   'dpp-22': [
     'Zubat',
