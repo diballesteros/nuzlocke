@@ -1,5 +1,15 @@
 ## Version 3.17.2
 
+🐛 Bug Fix
+
+- Fixed Fuego Ironworks encounters in Diamond, Pearl, and Platinum
+
+🏠 Internal
+
+- Changed type import syntax
+
+## Version 3.17.2
+
 💅 Enhancement
 
 - Updated the way copying text works when sharing rules or encounters

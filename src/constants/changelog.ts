@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.3',
+    date: 1639168419855,
+    notes: [
+      {
+        description: 'Fixed Fuego Ironworks encounters in Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.2',
     date: 1638997697782,
     notes: [
