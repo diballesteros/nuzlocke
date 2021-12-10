@@ -6,7 +6,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
-import { TRule, TRuleContent } from 'constants/types';
+import type { TRule, TRuleContent } from 'constants/types';
 import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
 

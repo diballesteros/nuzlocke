@@ -4,7 +4,7 @@ import { Control, useWatch } from 'react-hook-form';
 import { FORBIDDEN_ITEMS, GenderCalc } from 'constants/calculator';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 
 export function assertResult(val: unknown[]): asserts val is [Result, Result, Result, Result] {
   if (val.length !== 4) {

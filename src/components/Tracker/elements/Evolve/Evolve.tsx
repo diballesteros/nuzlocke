@@ -4,7 +4,7 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { POKEMAP } from 'constants/pokemon';
-import { TEncounter } from 'constants/types';
+import type { TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Evolve.module.scss';
 

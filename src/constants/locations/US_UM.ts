@@ -1,4 +1,4 @@
-import { TEncounter } from 'constants/types';
+import type { TEncounter } from 'constants/types';
 
 const US_UM: TEncounter[] = [
   {

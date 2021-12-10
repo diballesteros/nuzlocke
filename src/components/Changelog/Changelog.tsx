@@ -4,7 +4,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { Page } from 'common';
 import CHANGELOG from 'constants/changelog';
-import { TReleaseGroup } from 'constants/types';
+import type { TReleaseGroup } from 'constants/types';
 import useStore from 'store';
 import styles from './Changelog.module.scss';
 

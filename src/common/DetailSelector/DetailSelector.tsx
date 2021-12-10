@@ -6,7 +6,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { Filter, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
-import { PokemonDetail } from 'constants/types';
+import type { PokemonDetail } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import styles from 'assets/styles/Selector.module.scss';
 

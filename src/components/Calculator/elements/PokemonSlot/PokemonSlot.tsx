@@ -1,6 +1,6 @@
 import { PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import { TPokemon } from 'constants/types';
+import type { TPokemon } from 'constants/types';
 import styles from './PokemonSlot.module.scss';
 
 interface PokemonSlotProps {

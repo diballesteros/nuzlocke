@@ -49,7 +49,7 @@ function Export(): JSX.Element {
   };
 
   return (
-    <Menu.Item onClick={handleExport}>
+    <Menu.Item as="div" onClick={handleExport}>
       <Icon name="download" />
       {t('export')}
     </Menu.Item>

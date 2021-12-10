@@ -149,53 +149,54 @@ function App(): JSX.Element {
           animation="overlay"
           aria-label="sidebar-options"
           as={Menu}
+          className={styles.sidebar}
           inverted={darkMode}
           onHide={() => setVisible(false)}
           vertical
           visible={visible}
           width="thin"
         >
-          <Menu.Item data-testid="tracker" onClick={() => handleRoute('/')}>
+          <Menu.Item as="div" data-testid="tracker" onClick={() => handleRoute('/')}>
             Tracker
             <Icon name="map" />
           </Menu.Item>
-          <Menu.Item onClick={() => handleRoute('/rules')}>
+          <Menu.Item as="div" onClick={() => handleRoute('/rules')}>
             <Icon name="book" />
             {t('rules', { ns: 'stats' })}
           </Menu.Item>
-          <Menu.Item data-testid="stats" onClick={() => handleRoute('/stats')}>
+          <Menu.Item as="div" data-testid="stats" onClick={() => handleRoute('/stats')}>
             <Icon name="pie graph" />
             {t('stats', { ns: 'stats' })}
           </Menu.Item>
-          <Menu.Item data-testid="builder" onClick={() => handleRoute('/builder')}>
+          <Menu.Item as="div" data-testid="builder" onClick={() => handleRoute('/builder')}>
             <Icon name="gavel" />
             Builder
           </Menu.Item>
-          <Menu.Item data-testid="calculator" onClick={() => handleRoute('/calculator')}>
+          <Menu.Item as="div" data-testid="calculator" onClick={() => handleRoute('/calculator')}>
             <Icon name="calculator" />
             {t('damage_calculator')}
           </Menu.Item>
-          <Menu.Item onClick={() => handleRoute('/settings')}>
+          <Menu.Item as="div" onClick={() => handleRoute('/settings')}>
             {t('settings', { ns: 'settings' })}
             <Icon name="wrench" />
           </Menu.Item>
           <Export />
-          <Menu.Item data-testid="import" onClick={() => handleRoute('/import')}>
+          <Menu.Item as="div" data-testid="import" onClick={() => handleRoute('/import')}>
             <Icon name="upload" />
             {t('import', { ns: 'import' })}
           </Menu.Item>
-          <Menu.Item data-testid="report" onClick={() => handleRoute('/report')}>
+          <Menu.Item as="div" data-testid="report" onClick={() => handleRoute('/report')}>
             {t('report')}
             <Icon name="bug" />
           </Menu.Item>
-          <Menu.Item data-testid="changelog" onClick={() => handleRoute('/changelog')}>
+          <Menu.Item as="div" data-testid="changelog" onClick={() => handleRoute('/changelog')}>
             Changelog
             {newVersion !== process.env.REACT_APP_VERSION && (
               <span className={styles.exclamation}>!</span>
             )}
             <Icon name="clipboard outline" />
           </Menu.Item>
-          <Menu.Item data-testid="about" onClick={() => handleRoute('/about')}>
+          <Menu.Item as="div" data-testid="about" onClick={() => handleRoute('/about')}>
             {t('about', { ns: 'about' })}
             <Icon name="question" />
           </Menu.Item>

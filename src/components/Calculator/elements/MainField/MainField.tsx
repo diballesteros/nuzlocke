@@ -5,7 +5,7 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { ButtonController } from 'components/Calculator/elements';
 import { TERRAIN, WEATHER, WEATHER_EXCLUSIONS } from 'constants/calculator';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import styles from './MainField.module.scss';
 
 interface MainFieldProps {

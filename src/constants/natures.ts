@@ -1,4 +1,4 @@
-import { TNature } from 'constants/types';
+import type { TNature } from 'constants/types';
 
 const NATURES: TNature[] = [
   {

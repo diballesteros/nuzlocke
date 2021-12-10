@@ -9,7 +9,7 @@ import { RuleContent } from 'components/Rules/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
-import { Type } from 'constants/types';
+import type { Type } from 'constants/types';
 import {
   selectBoxed,
   selectCaught,

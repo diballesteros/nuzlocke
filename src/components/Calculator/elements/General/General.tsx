@@ -7,7 +7,7 @@ import { PokeController } from 'components/Calculator/elements';
 import { STATUS_EFFECTS } from 'constants/calculator';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
-import { TCalculatorForm, TEncounter } from 'constants/types';
+import type { TCalculatorForm, TEncounter } from 'constants/types';
 import styles from './General.module.scss';
 
 interface GeneralProps {

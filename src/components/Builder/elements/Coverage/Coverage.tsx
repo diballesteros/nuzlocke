@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { TYPE_COLOR } from 'constants/colors';
-import { Type } from 'constants/types';
+import type { Type } from 'constants/types';
 import { selectBuilderStrong, selectBuilderWeak } from 'selectors';
 import useStore from 'store';
 import styles from './Coverage.module.scss';

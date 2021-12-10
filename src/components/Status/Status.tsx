@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import STATUSES from 'constants/status';
-import { TStatus } from 'constants/types';
+import type { TStatus } from 'constants/types';
 import useStore from 'store';
 import styles from './Status.module.scss';
 

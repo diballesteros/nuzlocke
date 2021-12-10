@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { UseFormReturn, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Modifier, Range } from 'components/Calculator/elements';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
 import styles from './Stats.module.scss';
 

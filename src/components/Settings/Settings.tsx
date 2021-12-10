@@ -4,7 +4,7 @@ import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules
 import { Page } from 'common';
 import CustomStasuses from 'components/Settings/elements/CustomStatuses';
 import { LANGUAGES } from 'constants/constant';
-import { TLanguage } from 'constants/types';
+import type { TLanguage } from 'constants/types';
 import useStore from 'store';
 import styles from './Settings.module.scss';
 

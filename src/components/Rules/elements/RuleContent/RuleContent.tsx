@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { getRuleContent } from 'constants/constant';
-import { TRuleEntry } from 'constants/types';
+import type { TRuleEntry } from 'constants/types';
 import styles from './RuleContent.module.scss';
 
 interface RuleContentProps {

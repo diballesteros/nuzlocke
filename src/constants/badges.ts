@@ -1,4 +1,4 @@
-import { TBadgeDictionary, TLevelCapDictionary, TLevelCaps } from 'constants/types';
+import type { TBadgeDictionary, TLevelCapDictionary, TLevelCaps } from 'constants/types';
 import akala from 'assets/img/badges/akala.png';
 import balance from 'assets/img/badges/balance.png';
 import basic from 'assets/img/badges/basic.png';

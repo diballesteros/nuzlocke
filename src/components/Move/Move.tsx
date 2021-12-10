@@ -1,6 +1,6 @@
 import { Type } from 'components';
 import { CATEGORY_COLOR, TYPE_COLOR } from 'constants/colors';
-import { TMove } from 'constants/types';
+import type { TMove } from 'constants/types';
 import styles from './Move.module.scss';
 
 interface MoveProps {

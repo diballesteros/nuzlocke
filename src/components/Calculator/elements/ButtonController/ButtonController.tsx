@@ -1,6 +1,6 @@
 import { Control, useController } from 'react-hook-form';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 
 interface ButtonControllerProps {
   control: Control<TCalculatorForm>;

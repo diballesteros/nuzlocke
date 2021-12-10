@@ -3,7 +3,7 @@ import { getTypeCountParams, getTypeParams } from 'constants/constant';
 import EFFECTIVENESS from 'constants/effectiveness';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
-import { AppState, TEncounter, Type } from 'constants/types';
+import type { AppState, TEncounter, Type } from 'constants/types';
 
 export const selectTeam = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {

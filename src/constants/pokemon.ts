@@ -1,4 +1,4 @@
-import { TPokemon } from 'constants/types';
+import type { TPokemon } from 'constants/types';
 import abomasnow from 'assets/img/pokemon/abomasnow.png';
 import abra from 'assets/img/pokemon/abra.png';
 import absol from 'assets/img/pokemon/absol.png';
@@ -3593,7 +3593,7 @@ const POKEMON: TPokemon[] = [
     image: ralts,
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
-    evolve: [280, 281, 282],
+    evolve: [280, 281, 282, 475],
     generation: 3,
   },
   {
@@ -3602,7 +3602,7 @@ const POKEMON: TPokemon[] = [
     image: kirlia,
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
-    evolve: [280, 281, 282],
+    evolve: [280, 281, 282, 475],
     generation: 3,
   },
   {
@@ -3611,7 +3611,7 @@ const POKEMON: TPokemon[] = [
     image: gardevoir,
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
-    evolve: [280, 281, 282],
+    evolve: [280, 281, 282, 475],
     generation: 3,
   },
   {
@@ -5216,6 +5216,7 @@ const POKEMON: TPokemon[] = [
     image: gallade,
     type: 'PSYCHIC',
     dualtype: 'FIGHTING',
+    evolve: [280, 281, 282, 475],
     generation: 4,
   },
   {

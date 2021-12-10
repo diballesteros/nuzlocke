@@ -1,7 +1,7 @@
 import { Control, useController, useWatch } from 'react-hook-form';
 import { MoveSelector } from 'components';
 import { ButtonController } from 'components/Calculator/elements';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import styles from './MoveController.module.scss';
 
 interface MoveControllerProps {

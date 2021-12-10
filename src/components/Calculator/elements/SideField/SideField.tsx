@@ -2,7 +2,7 @@ import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { ButtonController } from 'components/Calculator/elements';
 import { FIELD_EXCLUSIONS, SIDE_FIELD } from 'constants/calculator';
-import { TCalculatorFields, TCalculatorForm } from 'constants/types';
+import type { TCalculatorFields, TCalculatorForm } from 'constants/types';
 import styles from './SideField.module.scss';
 
 interface SideFieldProps {

@@ -1,4 +1,4 @@
-import { TMove } from 'constants/types';
+import type { TMove } from 'constants/types';
 
 const MOVES: TMove[] = [
   {

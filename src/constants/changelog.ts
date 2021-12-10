@@ -1,4 +1,4 @@
-import { TReleaseNotes } from 'constants/types';
+import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {

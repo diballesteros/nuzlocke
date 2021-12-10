@@ -11,7 +11,7 @@ import { MoveSelector, Natures, PokemonType } from 'components';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
-import { Gender, TEncounter } from 'constants/types';
+import type { Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Detail.module.scss';
 

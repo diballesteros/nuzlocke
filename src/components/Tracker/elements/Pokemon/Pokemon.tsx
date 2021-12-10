@@ -6,7 +6,7 @@ import { PokemonSelector } from 'common';
 import { Evolve } from 'components/Tracker/elements';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
-import { TEncounter } from 'constants/types';
+import type { TEncounter } from 'constants/types';
 import { selectSuggestion } from 'selectors';
 import useStore from 'store';
 import styles from './Pokemon.module.scss';

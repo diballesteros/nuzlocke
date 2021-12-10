@@ -1,4 +1,4 @@
-import { TStatus } from 'constants/types';
+import type { TStatus } from 'constants/types';
 
 const STATUSES: TStatus[] = [
   {

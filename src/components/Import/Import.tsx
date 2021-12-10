@@ -7,7 +7,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { Page } from 'common';
 import MOVES from 'constants/moves';
 import POKEMON from 'constants/pokemon';
-import { AppState, Gender, TEncounter } from 'constants/types';
+import type { AppState, Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './Import.module.scss';
 

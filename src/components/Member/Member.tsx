@@ -8,7 +8,7 @@ import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
-import { PokemonDetail } from 'constants/types';
+import type { PokemonDetail } from 'constants/types';
 import useStore from 'store';
 import styles from './Member.module.scss';
 

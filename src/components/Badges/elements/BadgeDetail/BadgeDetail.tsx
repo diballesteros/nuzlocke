@@ -4,7 +4,7 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
-import { TDetail } from 'constants/types';
+import type { TDetail } from 'constants/types';
 import styles from './BadgeDetail.module.scss';
 
 interface BadgeDetailProps {

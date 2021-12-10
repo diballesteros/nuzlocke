@@ -11,7 +11,7 @@ import {
   INITIAL_STATE,
   INITIAL_SUMMARY,
 } from 'constants/constant';
-import {
+import type {
   AppState,
   Gender,
   PokemonDetail,

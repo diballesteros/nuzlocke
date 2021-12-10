@@ -1,5 +1,5 @@
 import { Type } from 'components';
-import { TPokemon } from 'constants/types';
+import type { TPokemon } from 'constants/types';
 import styles from './PokemonType.module.scss';
 
 interface PokemonTypeProps {

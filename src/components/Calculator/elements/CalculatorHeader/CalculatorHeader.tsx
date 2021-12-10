@@ -7,7 +7,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { MainField } from 'components/Calculator/elements';
 import { GENERATION_SELECT, MAX_GAME } from 'constants/constant';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
 import styles from './CalculatorHeader.module.scss';

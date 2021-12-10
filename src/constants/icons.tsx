@@ -1,4 +1,4 @@
-import { TypeIcon } from 'constants/types';
+import type { TypeIcon } from 'constants/types';
 import { ReactComponent as BugSVG } from 'assets/svg/bug.svg';
 import { ReactComponent as DarkSVG } from 'assets/svg/dark.svg';
 import { ReactComponent as DragonSVG } from 'assets/svg/dragon.svg';

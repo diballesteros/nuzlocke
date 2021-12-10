@@ -1,4 +1,9 @@
-import { TCalculatorFields, TCalculatorForm, TFirstSplit, TSecondSplit } from 'constants/types';
+import type {
+  TCalculatorFields,
+  TCalculatorForm,
+  TFirstSplit,
+  TSecondSplit,
+} from 'constants/types';
 
 export const DEFAULT_POKEMON_1: Omit<TFirstSplit, 'pokemon1' | 'currenthp1'> = {
   level1: 100,

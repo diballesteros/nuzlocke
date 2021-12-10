@@ -1,7 +1,7 @@
 import { Control, useController } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import styles from './Modifier.module.scss';
 
 interface ModifierProps {

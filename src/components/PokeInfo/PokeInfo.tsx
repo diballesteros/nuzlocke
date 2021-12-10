@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import { TEncounter, TPokemon } from 'constants/types';
+import type { TEncounter, TPokemon } from 'constants/types';
 import styles from './PokeInfo.module.scss';
 
 interface PokeInfoProps {

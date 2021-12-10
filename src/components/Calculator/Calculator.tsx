@@ -9,7 +9,7 @@ import {
   Stats,
 } from 'components/Calculator/elements';
 import { DEFAULT_VALUES } from 'constants/calculator';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import useWindowSize from 'hooks/useWindowSize';
 import { selectCaught } from 'selectors';
 import useStore from 'store';

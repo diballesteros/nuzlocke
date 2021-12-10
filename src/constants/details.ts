@@ -1,4 +1,4 @@
-import { TDetail } from 'constants/types';
+import type { TDetail } from 'constants/types';
 
 const DETAILS: { [key: string]: TDetail[][] } = {
   '1': [

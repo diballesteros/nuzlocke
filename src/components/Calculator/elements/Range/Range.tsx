@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { Control, UseFormRegister, useWatch } from 'react-hook-form';
-import { TCalculatorForm } from 'constants/types';
+import type { TCalculatorForm } from 'constants/types';
 import styles from './Range.module.scss';
 
 interface RangeProps {

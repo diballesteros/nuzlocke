@@ -7,7 +7,7 @@ import { PokemonSlot } from 'components/Calculator/elements';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
 import DETAILS from 'constants/details';
 import { POKEMAP } from 'constants/pokemon';
-import { PokemonDetail, TCalculatorForm, TEncounter } from 'constants/types';
+import type { PokemonDetail, TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
 import styles from './PokeController.module.scss';
 

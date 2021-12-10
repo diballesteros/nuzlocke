@@ -1,4 +1,4 @@
-import { TGenerationEffects } from 'constants/types';
+import type { TGenerationEffects } from 'constants/types';
 
 const EFFECTIVENESS: TGenerationEffects = {
   'Gen 1': {

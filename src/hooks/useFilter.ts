@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Type } from 'constants/types';
+import type { Type } from 'constants/types';
 
 export type TFilter = {
   reset?: () => void;

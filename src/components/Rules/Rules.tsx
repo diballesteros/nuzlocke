@@ -10,7 +10,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { Share } from 'components';
 import { AddRule, RuleContent, RuleEditor } from 'components/Rules/elements';
 import { DEFAULT_RULESET_NAMES, getRuleContent } from 'constants/constant';
-import { TRuleEntry } from 'constants/types';
+import type { TRuleEntry } from 'constants/types';
 import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './Rules.module.scss';
