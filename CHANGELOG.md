@@ -1,4 +1,20 @@
-## Version 3.17.2
+## Version 3.17.4
+
+🐛 Bug Fix
+
+- Fixed Route 222 and Sunyshore City encounters for Diamond, Pearl, and Platinum
+
+🏠 Internal
+
+- Bumped react-router-dom to 6.1.1
+- Bumped @sentry/react to 6.16.1
+- Bumped @sentry/tracing to 6.16.1
+- Bumped react-hook-form to 7.21.2
+- Bumped react-i18next to 11.15.0
+- Bumped @types/lodash to 4.14.178
+- Bumped typescript to 4.5.3
+
+## Version 3.17.3
 
 🐛 Bug Fix
 
