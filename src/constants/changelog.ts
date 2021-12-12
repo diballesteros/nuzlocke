@@ -2,6 +2,17 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.4',
+    date: 1639343700325,
+    notes: [
+      {
+        description:
+          'Fixed Route 222 and Sunyshore City encounters for Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.3',
     date: 1639168419855,
     notes: [
