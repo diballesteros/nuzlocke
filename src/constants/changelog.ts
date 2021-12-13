@@ -2,6 +2,25 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 3.17.5',
+    date: 1639427729954,
+    notes: [
+      {
+        description:
+          'Added Wild Area Station to possible encounters for Sword and Shield (This requires a "reset to all encounters" to see)',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fixed Route 205 encounters for Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Union Cave encounters for Heart Gold and Soul Silver',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.4',
     date: 1639343700325,
     notes: [

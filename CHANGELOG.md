@@ -1,3 +1,11 @@
+## Version 3.17.5
+
+🐛 Bug Fix
+
+- Fixed Route 205 encounters for Diamond, Pearl, and Platinum
+- Added Wild Area Station to possible encounters for Sword and Shield (This requires a reset to all encounters to see)
+- Fixed Union Cave encounters for Heart Gold and Soul Silver
+
 ## Version 3.17.4
 
 🐛 Bug Fix
