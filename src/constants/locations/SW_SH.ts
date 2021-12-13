@@ -37,6 +37,13 @@ const SW_SH: TEncounter[] = [
     filterKey: 'swsh-4',
   },
   {
+    id: 39,
+    pokemon: null,
+    location: 'Wild Area Station',
+    status: null,
+    filterKey: 'swsh-39',
+  },
+  {
     id: 5,
     pokemon: null,
     location: 'Wild Area: Rolling Fields',
