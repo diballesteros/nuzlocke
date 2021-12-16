@@ -15,7 +15,7 @@ describe('Calculator function tests', () => {
     );
   });
 
-  test('Test invalid calculation', () => {
+  test('Invalid calculation', () => {
     const result = {
       fullDesc: function fullDesc() {
         throw Error('Invalid');

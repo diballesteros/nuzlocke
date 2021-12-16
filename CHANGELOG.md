@@ -1,3 +1,23 @@
+## Version 4.0.0
+
+💅 Enhancement
+
+- Lots of under the hood improvements
+- Changed the way the calculator works so not fields don't get cleared when you change the pokemon
+
+🏠 Internal
+
+- Bumped i18next to 21.6.2
+- Bumped react-i18next to 11.15.1
+- Bumped react-scripts to 5.0.0
+- Bumped @types/node to 7.0.0
+- Bumped eslint to 8.4.1
+- Bumped @typescript-eslint/eslint-plugin to 5.7.0
+- Bumped @typescript-eslint/parser to 5.7.0
+- Bumped sass to 1.45.0
+- Bumped typescript to 4.5.4
+- Removed react-hook-form
+
 ## Version 3.17.5
 
 🐛 Bug Fix

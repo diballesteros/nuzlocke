@@ -1,18 +1,18 @@
 import { useCallback } from 'react';
-import { Control, UseFormRegister, useWatch } from 'react-hook-form';
 import type { TCalculatorForm } from 'constants/types';
+import useStore from 'store';
 import styles from './Range.module.scss';
 
 interface RangeProps {
-  control: Control<TCalculatorForm>;
   label: string;
   name: keyof TCalculatorForm;
   max: number;
-  register: UseFormRegister<TCalculatorForm>;
 }
 
-function Range({ control, label, name, max, register }: RangeProps): JSX.Element {
-  const fieldValue = useWatch({ control, name });
+function Range({ label, name, max }: RangeProps): JSX.Element {
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
+  const fieldValue = form[name] as number;
 
   const getBarFill = useCallback(() => {
     return { backgroundSize: `${((fieldValue as number) * 100) / max || 0}% 100%` };
@@ -31,7 +31,10 @@ function Range({ control, label, name, max, register }: RangeProps): JSX.Element
         type="range"
         min="0"
         max={max}
-        {...register(name, { valueAsNumber: true })}
+        onChange={(e) => {
+          update({ [name]: Number(e.target.value) });
+        }}
+        value={fieldValue}
       />
       <output className={styles.output}>{fieldValue}</output>
     </>

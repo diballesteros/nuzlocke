@@ -1,5 +1,4 @@
 import { useCallback, useMemo, useState } from 'react';
-import { Control, useController, UseFormReset, useWatch } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { Checkbox, Dropdown } from 'semantic-ui-react';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
@@ -12,22 +11,18 @@ import useStore from 'store';
 import styles from './PokeController.module.scss';
 
 interface PokeControllerProps {
-  control: Control<TCalculatorForm>;
   encounters?: TEncounter[];
   name: 'pokemon1' | 'pokemon2';
-  reset: UseFormReset<TCalculatorForm>;
 }
 
-function PokeController({ control, encounters, name, reset }: PokeControllerProps): JSX.Element {
+function PokeController({ encounters, name }: PokeControllerProps): JSX.Element {
   const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState(undefined);
-  const updateDefaultValues = useStore(useCallback((state) => state.updateDefaultValues, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const calc = useStore(useCallback((state) => state.calcs[state.selectedGame?.value], []));
-  const calcGen = useWatch({ control, name: 'calculatorGen' });
-  const { field } = useController({ control, name });
-  const foundPokemon = POKEMAP.get(field.value);
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
+  const foundPokemon = POKEMAP.get(form[name]);
 
   const handleEncounter = (enc: TEncounter) => {
     const partialCalc: Partial<TCalculatorForm> = {
@@ -42,19 +37,15 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       ...(enc.details?.moves && { move4_1: enc.details?.moves[3] }),
       pokemon1: enc.pokemon,
     };
-    field.onChange(enc.pokemon);
-    updateDefaultValues({ ...DEFAULT_POKEMON_1, ...partialCalc });
-    reset({ ...calc.form, ...DEFAULT_POKEMON_1, ...partialCalc });
+    update({ ...DEFAULT_POKEMON_1, ...partialCalc });
   };
 
   const handlePokemon = (pokemonId: number) => {
     const partialCalc: Partial<TCalculatorForm> = {
       [name]: pokemonId,
     };
-    field.onChange(pokemonId);
     const DEFAULT = name === 'pokemon1' ? DEFAULT_POKEMON_1 : DEFAULT_POKEMON_2;
-    updateDefaultValues({ ...DEFAULT, ...partialCalc });
-    reset({ ...calc.form, ...DEFAULT, ...partialCalc });
+    update({ ...DEFAULT, ...partialCalc });
   };
 
   const handleDetail = (detail: PokemonDetail) => {
@@ -70,9 +61,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
       ...(detail?.moves && { move4_2: detail?.moves[3] }),
       pokemon2: detail.id,
     };
-    field.onChange(detail.id);
-    updateDefaultValues({ ...DEFAULT_POKEMON_2, ...partialCalc });
-    reset({ ...calc.form, ...DEFAULT_POKEMON_2, ...partialCalc });
+    update({ ...DEFAULT_POKEMON_2, ...partialCalc });
   };
 
   const detailsToOptions = useMemo(() => {
@@ -99,14 +88,14 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
   return (
     <div className={styles.wrapper} data-testid={`pokecontroller-${name}`}>
       {showAll ? (
-        <PokemonSelector handlePokemon={handlePokemon} limitGen={calcGen}>
+        <PokemonSelector handlePokemon={handlePokemon} limitGen={form.calculatorGen}>
           <PokemonSlot pokemon={foundPokemon} />
         </PokemonSelector>
       ) : name === 'pokemon1' ? (
         <EncounterSelector
           encounters={encounters}
           handleEncounter={handleEncounter}
-          limitGen={calcGen}
+          limitGen={form.calculatorGen}
         >
           <PokemonSlot pokemon={foundPokemon} />
         </EncounterSelector>
@@ -114,7 +103,7 @@ function PokeController({ control, encounters, name, reset }: PokeControllerProp
         <DetailSelector
           details={details[selectedDetail]?.content}
           handleDetail={handleDetail}
-          limitGen={calcGen}
+          limitGen={form.calculatorGen}
         >
           <PokemonSlot pokemon={foundPokemon} />
         </DetailSelector>

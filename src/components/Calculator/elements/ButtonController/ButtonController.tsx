@@ -1,22 +1,23 @@
-import { Control, useController } from 'react-hook-form';
+import { useCallback } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import type { TCalculatorForm } from 'constants/types';
+import useStore from 'store';
 
 interface ButtonControllerProps {
-  control: Control<TCalculatorForm>;
   label: string;
   name: keyof TCalculatorForm;
 }
 
-function ButtonController({ control, label, name }: ButtonControllerProps): JSX.Element {
-  const { field } = useController({ control, name });
+function ButtonController({ label, name }: ButtonControllerProps): JSX.Element {
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
 
   const toggle = () => {
-    field.onChange(!field.value);
+    update({ [name]: !form[name] });
   };
 
   return (
-    <Button active={!!field.value} data-testid={name} onClick={toggle} toggle type="button">
+    <Button active={!!form[name]} data-testid={name} onClick={toggle} toggle type="button">
       {label}
     </Button>
   );

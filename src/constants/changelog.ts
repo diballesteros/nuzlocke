@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.0.0',
+    date: 1639692576105,
+    notes: [
+      {
+        description: 'Lots of under the hood improvements',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          "Changed the way the calculator works so not fields don't get cleared when you change the pokemon",
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.5',
     date: 1639427729954,
     notes: [

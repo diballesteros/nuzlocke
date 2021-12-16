@@ -1,20 +1,15 @@
-import { Result } from '@smogon/calc';
+import { GenerationNum, Result } from '@smogon/calc';
 import { useCallback, useState } from 'react';
-import { Controller, UseFormReturn } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { MainField } from 'components/Calculator/elements';
+import { DEFAULT_VALUES } from 'constants/calculator';
 import { GENERATION_SELECT, MAX_GAME } from 'constants/constant';
-import type { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
 import styles from './CalculatorHeader.module.scss';
-
-interface CalculatorHeaderProps {
-  form: UseFormReturn<TCalculatorForm, object>;
-}
 
 export function getDesc(result: Result): string {
   try {
@@ -27,7 +22,7 @@ export function getDesc(result: Result): string {
   }
 }
 
-function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
+function CalculatorHeader(): JSX.Element {
   const { t } = useTranslation('calculator');
   const [expanded, setExpanded] = useState(false);
   const [primary, setPrimary] = useState<[position: 'attacker' | 'defender', index: number]>([
@@ -36,38 +31,36 @@ function CalculatorHeader({ form }: CalculatorHeaderProps): JSX.Element {
   ]);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const { attackerResults, defenderResults } = useCalculate(form.control);
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
+  const { attackerResults, defenderResults } = useCalculate();
 
   return (
     <div className={styles.header}>
       <div className={styles.options}>
         {selectedGame?.value && Number(selectedGame.value) > MAX_GAME && (
-          <Controller
-            control={form.control}
-            name="calculatorGen"
-            render={({ field: { onChange, value } }) => (
-              <Dropdown
-                aria-label="generation-selector"
-                className={styles.genSelector}
-                data-testid="gen-selector"
-                labeled
-                inline
-                onChange={(e, data) => onChange(data.value)}
-                options={GENERATION_SELECT}
-                placeholder={t('select')}
-                selection
-                text={t('generation')}
-                value={value}
-              />
-            )}
+          <Dropdown
+            aria-label="generation-selector"
+            className={styles.genSelector}
+            data-testid="gen-selector"
+            labeled
+            inline
+            onChange={(e, data) => update({ calculatorGen: data.value as GenerationNum })}
+            options={GENERATION_SELECT}
+            placeholder={t('select')}
+            selection
+            text={t('generation')}
+            value={form?.calculatorGen ?? ''}
           />
         )}
-        <MainField form={form} />
+        <MainField />
         <Button
           className={styles.button}
           data-testid="reset-calculator"
           inverted={darkMode}
-          onClick={() => form.reset()}
+          onClick={() => {
+            update({ ...DEFAULT_VALUES });
+          }}
           type="button"
         >
           {t('reset')}

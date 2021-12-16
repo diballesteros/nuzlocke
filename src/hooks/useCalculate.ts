@@ -1,10 +1,9 @@
 import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
-import { useMemo } from 'react';
-import { Control, useWatch } from 'react-hook-form';
+import { useCallback, useMemo } from 'react';
 import { FORBIDDEN_ITEMS, GenderCalc } from 'constants/calculator';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
-import type { TCalculatorForm } from 'constants/types';
+import useStore from 'store';
 
 export function assertResult(val: unknown[]): asserts val is [Result, Result, Result, Result] {
   if (val.length !== 4) {
@@ -36,13 +35,13 @@ const getSmogonName = (pokemonName: string): string => {
   return pokemonName;
 };
 
-function useCalculate(control: Control<TCalculatorForm>): {
+function useCalculate(): {
   pokemon1: Pokemon;
   pokemon2: Pokemon;
   attackerResults: [Result, Result, Result, Result];
   defenderResults: [Result, Result, Result, Result];
 } {
-  const all = useWatch({ control });
+  const all = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
 
   const pokemon1 = useMemo(() => {
     if (all.calculatorGen && all.pokemon1) {

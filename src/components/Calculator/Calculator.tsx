@@ -1,5 +1,4 @@
 import { useCallback, useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import {
   CalculatorHeader,
@@ -8,8 +7,6 @@ import {
   SideField,
   Stats,
 } from 'components/Calculator/elements';
-import { DEFAULT_VALUES } from 'constants/calculator';
-import type { TCalculatorForm } from 'constants/types';
 import useWindowSize from 'hooks/useWindowSize';
 import { selectCaught } from 'selectors';
 import useStore from 'store';
@@ -24,10 +21,6 @@ function Calculator(): JSX.Element {
   const setDefaultCalculator = useStore(useCallback((state) => state.setDefaultCalculator, []));
   const caught = useStore(selectCaught);
   const size = useWindowSize();
-  const form = useForm<TCalculatorForm>({
-    defaultValues: selectedGame && !!calc?.form ? { ...calc.form } : { ...DEFAULT_VALUES },
-  });
-  const { reset } = form;
 
   useEffect(() => {
     if (selectedGame?.value && !calc?.form) {
@@ -35,40 +28,34 @@ function Calculator(): JSX.Element {
     }
   }, [calc, selectedGame, setDefaultCalculator]);
 
-  useEffect(() => {
-    if (selectedGame && !!calc?.form) {
-      reset({ ...calc.form });
-    }
-  }, [calc, reset, selectedGame]);
-
   return (
     <form className={styles.container} id="calculator">
       {selectedGame ? (
         <>
-          <CalculatorHeader form={form} />
+          <CalculatorHeader />
           <fieldset
             className={styles.fieldset}
             style={{ display: selected === 0 || size?.width >= 750 ? 'flex' : 'none' }}
           >
-            <General encounters={caught} form={form} pokemon="1" />
-            <MoveController control={form.control} move="1" pokemon="1" />
-            <MoveController control={form.control} move="2" pokemon="1" />
-            <MoveController control={form.control} move="3" pokemon="1" />
-            <MoveController control={form.control} move="4" pokemon="1" />
-            <Stats form={form} pokemon="1" />
-            <SideField form={form} pokemon="1" />
+            <General encounters={caught} pokemon="1" />
+            <MoveController move="1" pokemon="1" />
+            <MoveController move="2" pokemon="1" />
+            <MoveController move="3" pokemon="1" />
+            <MoveController move="4" pokemon="1" />
+            <Stats pokemon="1" />
+            <SideField pokemon="1" />
           </fieldset>
           <fieldset
             className={styles.fieldset}
             style={{ display: selected === 1 || size?.width >= 750 ? 'flex' : 'none' }}
           >
-            <General form={form} pokemon="2" />
-            <MoveController control={form.control} move="1" pokemon="2" />
-            <MoveController control={form.control} move="2" pokemon="2" />
-            <MoveController control={form.control} move="3" pokemon="2" />
-            <MoveController control={form.control} move="4" pokemon="2" />
-            <Stats form={form} pokemon="2" />
-            <SideField form={form} pokemon="2" />
+            <General pokemon="2" />
+            <MoveController move="1" pokemon="2" />
+            <MoveController move="2" pokemon="2" />
+            <MoveController move="3" pokemon="2" />
+            <MoveController move="4" pokemon="2" />
+            <Stats pokemon="2" />
+            <SideField pokemon="2" />
           </fieldset>
           <ul className={styles.tabs}>
             <li
