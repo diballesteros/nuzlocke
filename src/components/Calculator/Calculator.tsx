@@ -30,7 +30,7 @@ function Calculator(): JSX.Element {
 
   return (
     <form className={styles.container} id="calculator">
-      {selectedGame ? (
+      {selectedGame && calc?.form ? (
         <>
           <CalculatorHeader />
           <fieldset
