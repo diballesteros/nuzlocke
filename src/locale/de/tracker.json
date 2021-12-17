@@ -1,5 +1,6 @@
 {
   "add": "HINZUFÜGEN",
+  "box": "Box",
   "add_encounter": "Begegnung hinzufügen",
   "add_encounter_other": "Begegnungen hinzufügen",
   "alert_dupe": "Doppelte Pokémon sind nicht erlaubt",
@@ -16,6 +17,7 @@
   "evolution_chain": "Evolutionskette",
   "export_to_builder": "In Builder exportieren",
   "export_to_game": "Ins Spiel exportieren und schließen",
+  "go_to": "Gehe zu",
   "level_down": "Einebnen",
   "level_up": "Aufleveln",
   "met_level": "Level gefunden",

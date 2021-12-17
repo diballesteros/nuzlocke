@@ -96,7 +96,7 @@ describe('Calculator', () => {
     cy.contains('Regenerator').should('exist');
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(1)').click();

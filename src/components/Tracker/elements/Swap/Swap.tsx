@@ -1,9 +1,11 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { EncounterSelector } from 'common';
 import STATUSES from 'constants/status';
 import type { TEncounter } from 'constants/types';
-import { selectCaught, selectTeam } from 'selectors';
+import { selectTeam } from 'selectors';
 import useStore from 'store';
 import styles from './Swap.module.scss';
 
@@ -12,10 +14,12 @@ interface SwapProps {
 }
 
 function Swap({ encounter }: SwapProps): JSX.Element {
+  const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
   const team = useStore(selectTeam);
-  const caught = useStore(selectCaught);
+
+  const text = encounter?.status?.value !== 7 ? t('Team', { ns: 'stats' }) : t('Box');
 
   const handleSwap = () => {
     if (encounter?.status?.value === 7) {
@@ -35,16 +39,18 @@ function Swap({ encounter }: SwapProps): JSX.Element {
   };
 
   return encounter?.status?.value !== 7 && team?.length > 5 ? (
-    <EncounterSelector encounters={caught} handleEncounter={handleTeamSwap}>
+    <EncounterSelector encounters={team} handleEncounter={handleTeamSwap}>
       <Button
         aria-label="swap"
         className={styles.button}
         data-testid={`swap-${encounter.id}`}
-        icon="chess king"
         inverted={darkMode}
-        title={`Swap to ${encounter?.status?.value !== 7 ? 'Team' : 'Box'}`}
+        title={text}
         type="button"
-      />
+      >
+        {text}
+        <Icon name="chess king" />
+      </Button>
     </EncounterSelector>
   ) : (
     <Button
@@ -54,9 +60,12 @@ function Swap({ encounter }: SwapProps): JSX.Element {
       icon={encounter?.status?.value === 7 ? 'computer' : 'chess king'}
       inverted={darkMode}
       onClick={handleSwap}
-      title={`Swap to ${encounter?.status?.value !== 7 ? 'Team' : 'Box'}`}
+      title={text}
       type="button"
-    />
+    >
+      {text}
+      <Icon name={encounter?.status?.value === 7 ? 'computer' : 'chess king'} />
+    </Button>
   );
 }
 

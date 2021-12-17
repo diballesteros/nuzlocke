@@ -194,10 +194,11 @@ const Encounters = React.memo(function Encounters() {
           {lastEncounter > -1 && (
             <button
               className={styles.scrollerButton}
+              data-testid={`scroll-to-last-encounter-${lastEncounter}`}
               onClick={() => listRef.current.scrollToItem(lastEncounter + 1, 'center')}
               type="button"
             >
-              Go to {filteredEncounters[lastEncounter].location} <Icon name="arrow right" />
+              {t('go_to')} {filteredEncounters[lastEncounter].location} <Icon name="arrow right" />
             </button>
           )}
         </>

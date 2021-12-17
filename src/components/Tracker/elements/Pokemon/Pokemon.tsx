@@ -147,7 +147,13 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
         <Popup
           content={<b>{alertText}</b>}
           inverted={darkMode}
-          trigger={<Icon className={styles.alert} name="warning sign" />}
+          trigger={
+            <Icon
+              className={styles.alert}
+              data-testid={`alert-${encounter.id}`}
+              name="warning sign"
+            />
+          }
         />
       )}
     </div>

@@ -1,5 +1,6 @@
 {
   "add": "ADD",
+  "box": "Box",
   "add_encounter": "Add Encounter",
   "add_encounter_other": "Add Encounters",
   "alert_dupe": "Duplicate pokémon are not allowed",
@@ -16,6 +17,7 @@
   "evolution_chain": "Evolution Chain",
   "export_to_builder": "Export to Builder",
   "export_to_game": "Export to game and close",
+  "go_to": "Go to",
   "level_down": "Level down",
   "level_up": "Level up",
   "met_level": "Met Level",

@@ -25,9 +25,9 @@ describe('Encounters', () => {
   });
 
   it('Edit base encounter', () => {
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.contains('Cancel').click();
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('.st0Fire').click({ force: true });
     cy.contains('Super effective against').should('exist');
     cy.get('.tabular > :nth-child(3)').click();
@@ -64,11 +64,11 @@ describe('Encounters', () => {
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="reset-encounter-0"]').click();
     cy.get('[data-testid=encounter-empty-0]').should('exist');
-    cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
+    cy.get('[data-testid=status-0] > .divider').should('have.text', 'Status...');
   });
 
   it('Reset all encounters', () => {
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=reset-all]').click();
     cy.contains('Cancel').click();
@@ -76,7 +76,7 @@ describe('Encounters', () => {
     cy.get('.page').click(1, 1);
     cy.get('[data-testid=reset-all]').click();
     cy.contains('Save').click();
-    cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
+    cy.get('[data-testid=status-0] > .divider').should('have.text', 'Status...');
   });
 
   it('Delete encounter', () => {
@@ -109,7 +109,7 @@ describe('Encounters', () => {
   });
 
   it('Export to another game', () => {
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.get('[data-testid=export-to-game]').click();
@@ -121,7 +121,7 @@ describe('Encounters', () => {
   });
 
   it('Direct leveling', () => {
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="level-up-0"]').click();
@@ -131,13 +131,33 @@ describe('Encounters', () => {
     cy.get('[data-testid="level-down-0"]').click();
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="reset-encounter-0"]').click();
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
     cy.contains('Save').click();
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="level-up-0"]').click();
+  });
+
+  it('Swap', () => {
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=import]').click();
+    cy.get('[data-testid=import-file-input]').attachFile('over6.json', { force: true });
+    cy.get('[data-testid=apply-import]').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid="scroll-to-last-encounter-7"]').click();
+    cy.get('[data-testid="pokemon-7"]').should('exist').click();
+    cy.contains('dupe').should('exist');
+    cy.get('[data-testid="poke-Growlithe"]').click({ force: true });
+    cy.get('[data-testid="status-7"]').click();
+    cy.get('[data-testid="status-7"] > .visible > :nth-child(3)').click();
+    cy.get('[data-testid="swap-7"]').click();
+    cy.get('[data-testid="poke-Magikarp"]').click({ force: true });
+    cy.get('[data-testid="swap-7"]').click();
+    cy.get('[data-testid="swap-6"]').click();
+    cy.get('[data-testid="swap-6"]').click();
   });
 
   context('Small screens', () => {
@@ -159,11 +179,11 @@ describe('Encounters', () => {
     });
 
     it('Reset all encounters', () => {
-      cy.get('[data-testid=encounter-0]').click();
+      cy.get('[data-testid="pokemon-0"]').click();
       cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
       cy.get('[data-testid=fab-reset-encounters] > [data-testid=reset-all]').click();
       cy.contains('Save').click();
-      cy.get('[data-testid=status-0] > .divider').should('have.text', 'Select...');
+      cy.get('[data-testid=status-0] > .divider').should('have.text', 'Status...');
     });
   });
 });

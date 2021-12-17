@@ -24,6 +24,7 @@ describe('Options', () => {
     cy.get('[data-testid=filter] > input').click();
     cy.get('[data-testid=pokemon-1]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
+    cy.get('[data-testid="alert-0"]').click();
     cy.contains('DUPE').should('exist');
     cy.contains('Duplicate pokémon are not allowed').should('exist');
     cy.contains('Starter').should('exist');
@@ -143,6 +144,8 @@ describe('Options', () => {
     cy.get('[data-testid="tracker"]').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
+    cy.get('[data-testid="pokemon-0"]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid="status-0"]').click();
     cy.get('.visible.menu.transition').scrollTo('bottom');
     cy.get('.visible > :nth-child(8)').click();

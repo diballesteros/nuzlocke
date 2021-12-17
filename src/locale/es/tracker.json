@@ -1,5 +1,6 @@
 {
   "add": "AÑADIR",
+  "box": "Box",
   "add_encounter": "Agregar encuentro",
   "add_encounter_other": "Agregar encuentros",
   "alert_dupe": "No se permiten pokémon repetidos",
@@ -16,6 +17,7 @@
   "evolution_chain": "Cadena de evolución",
   "export_to_builder": "Exportar a Builder",
   "export_to_game": "Exportar al juego y cerrar",
+  "go_to": "Ir a",
   "level_down": "Bajar nivel",
   "level_up": "Subir nivel",
   "met_level": "Nivel encontrado",

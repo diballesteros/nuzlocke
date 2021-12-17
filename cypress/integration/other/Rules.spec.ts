@@ -85,6 +85,7 @@ describe('Rules', () => {
       cy.get('.vertical > :nth-child(1)').click();
       cy.get('[data-testid=pokemon-0]').click();
       cy.contains('Scorbunny').click();
+      cy.get('[data-testid="alert-0"]').click();
       cy.contains('FORBIDDEN TYPE').should('exist');
     });
 
@@ -109,6 +110,7 @@ describe('Rules', () => {
       cy.get('.vertical > :nth-child(1)').click();
       cy.get('[data-testid=pokemon-0]').click();
       cy.contains('Scorbunny').click();
+      cy.get('[data-testid="alert-0"]').click();
       cy.contains('FORBIDDEN GEN').should('exist');
     });
 
@@ -134,6 +136,7 @@ describe('Rules', () => {
       cy.get('[data-testid=edit-encounter-0]').click();
       cy.get('[data-testid=level] > input').type('5');
       cy.contains('Save').click();
+      cy.get('[data-testid="alert-0"]').click();
       cy.contains('OVERLEVELED').should('exist');
     });
   });
@@ -145,6 +148,7 @@ describe('Rules', () => {
     cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid="alert-0"]').click();
     cy.contains('TEAM OVER 6').should('exist');
   });
 
