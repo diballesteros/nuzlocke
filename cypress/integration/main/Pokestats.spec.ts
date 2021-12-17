@@ -26,6 +26,10 @@ describe('PokéStats', () => {
     cy.get('[data-testid=import-file-input]').attachFile('Team.json', { force: true });
     cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
+    cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
+    cy.get('[data-testid=options]').click();
     cy.get('[data-testid=stats]').click();
 
     cy.contains('18%').should('exist');

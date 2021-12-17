@@ -5,12 +5,14 @@
 - New button on every encounter to quickly swap a pokemon in and out of the team
 - New button at the bottom of the tracker to quickly scroll down to the last missing encounter
 - Duplicate pokemon are now highlighted in the selector
+- Base stats are now viewable in the details for every gym battle
+- New Button at the bottom of the tracker to scroll to any encounter as well as some quick stats
 
 💅 Enhancement
 
+- Revamped the look of encounters in the Tracker!
 - Status is now disabled until a pokemon is selected
 - Broken rule alerts on the tracker now appear in the top right corner of the pokemon
-- Revamped the look of encounters in the Tracker!
 - Changed the way the calculator works so not fields don't get cleared when you change the pokemon
 
 🏠 Internal

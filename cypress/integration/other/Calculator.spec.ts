@@ -159,7 +159,7 @@ describe('Calculator', () => {
     ).should('exist');
   });
 
-  it('Smogon names', () => {
+  it('Smogon names & Forbidden items', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
@@ -178,5 +178,11 @@ describe('Calculator', () => {
     cy.get('[data-testid="poke-Nidoran♂"]').click({ force: true });
     cy.contains('Nidoran♀').should('exist');
     cy.contains('Nidoran♂').should('exist');
+    cy.get('[data-testid="game-select"]').click();
+    cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.get('[data-testid="item1"] > .search').click().type('Charizard');
+    cy.get('[data-testid=item1] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid="item2"] > .search').click().type('Charizard');
+    cy.get('[data-testid=item2] > .visible > :nth-child(1)').click();
   });
 });

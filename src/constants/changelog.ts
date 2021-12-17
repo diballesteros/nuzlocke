@@ -20,6 +20,15 @@ const CHANGELOG: TReleaseNotes = [
         type: 'FEATURE',
       },
       {
+        description: 'Base stats are now viewable in the details for every gym battle',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'New Button at the bottom of the tracker to scroll to any encounter as well as some quick stats',
+        type: 'FEATURE',
+      },
+      {
         description: 'Status is now disabled until a pokemon is selected',
         type: 'UPDATE',
       },
