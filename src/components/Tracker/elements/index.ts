@@ -7,3 +7,4 @@ export { default as Nickname } from './Nickname/Nickname';
 export { default as Options } from './Options/Options';
 export { default as Pokemon } from './Pokemon/Pokemon';
 export { default as ResetEncounters } from './ResetEncounters/ResetEncounters';
+export { default as Swap } from './Swap/Swap';

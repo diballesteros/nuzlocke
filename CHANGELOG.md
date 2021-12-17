@@ -1,8 +1,16 @@
 ## Version 4.0.0
 
+🚀 New features
+
+- New button on every encounter to quickly swap a pokemon in and out of the team
+- New button at the bottom of the tracker to quickly scroll down to the last missing encounter
+- Duplicate pokemon are now highlighted in the selector
+
 💅 Enhancement
 
-- Lots of under the hood improvements
+- Status is now disabled until a pokemon is selected
+- Broken rule alerts on the tracker now appear in the top right corner of the pokemon
+- Revamped the look of encounters in the Tracker!
 - Changed the way the calculator works so not fields don't get cleared when you change the pokemon
 
 🏠 Internal

@@ -17,6 +17,10 @@
       border-radius: 4px;
       cursor: pointer;
 
+      &.dupe {
+        filter: grayscale(100%);
+      }
+
       &:hover {
         transform: scale(1.01);
       }

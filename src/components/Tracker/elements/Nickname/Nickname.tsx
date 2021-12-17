@@ -30,30 +30,27 @@ function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
   };
 
   return (
-    <label className={styles.label}>
-      <span className={styles.innerLabel}>{t('nickname')}:</span>
-      <Input
-        aria-label="nickname"
-        className={styles.nicknameInput}
-        data-testid={`nickname-${encounterId}`}
-        fluid
-        id={`nickname-${encounterId}`}
-        onBlur={handleBlur}
-        onChange={handleChange}
-        placeholder={`${t('enter')}...`}
-        value={nick}
-      >
-        <input />
-        <Button
-          aria-label="randomize"
-          icon="random"
-          inverted={darkMode}
-          onClick={handleRandomize}
-          title="Randomize"
-          type="button"
-        />
-      </Input>
-    </label>
+    <Input
+      aria-label="nickname"
+      className={styles.nicknameInput}
+      data-testid={`nickname-${encounterId}`}
+      fluid
+      id={`nickname-${encounterId}`}
+      onBlur={handleBlur}
+      onChange={handleChange}
+      placeholder={`${t('nickname')}...`}
+      value={nick}
+    >
+      <input />
+      <Button
+        aria-label="randomize"
+        icon="random"
+        inverted={darkMode}
+        onClick={handleRandomize}
+        title="Randomize"
+        type="button"
+      />
+    </Input>
   );
 }
 

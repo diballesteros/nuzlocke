@@ -2,9 +2,14 @@
 
 .statusSelect {
   width: 100%;
+  align-self: flex-start;
   background-color: transparent !important;
-  border-color: var(--contrast) !important;
+  border-color: var(--contrast-border) !important;
   min-height: unset;
+
+  &:hover {
+    border-color: var(--contrast) !important;
+  }
 
   > div {
     color: var(--contrast) !important;
@@ -16,15 +21,5 @@
 
   @media (max-width: $screen-sm) {
     font-size: var(--font-size-2);
-  }
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  font-weight: bold;
-
-  .innerLabel {
-    min-width: 5.143rem;
   }
 }

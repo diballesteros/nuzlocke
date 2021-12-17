@@ -6,7 +6,26 @@ const CHANGELOG: TReleaseNotes = [
     date: 1639692576105,
     notes: [
       {
-        description: 'Lots of under the hood improvements',
+        description:
+          'New button on every encounter to quickly swap a pokemon in and out of the team',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'New button at the bottom of the tracker to quickly scroll down to the last missing encounter',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Duplicate pokemon are now highlighted in the selector',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Status is now disabled until a pokemon is selected',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Broken rule alerts on the tracker now appear in the top right corner of the pokemon',
         type: 'UPDATE',
       },
       {

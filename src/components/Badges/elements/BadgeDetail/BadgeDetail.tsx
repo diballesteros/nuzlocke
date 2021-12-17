@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
+import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import type { TDetail } from 'constants/types';
+import useStore from 'store';
 import styles from './BadgeDetail.module.scss';
 
 interface BadgeDetailProps {
@@ -14,6 +16,8 @@ interface BadgeDetailProps {
 function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
   const { t } = useTranslation('badges');
   const [view, setView] = useState(0);
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
 
   const getContent = () => {
     if (!!selectedDetail?.rematch && view === 1) {
@@ -78,7 +82,7 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                   )}
                 </div>
               </div>
-              <Moves moves={pokemon?.moves} />
+              <Moves moves={pokemon?.moves} showStatus={isSplit} />
             </div>
           );
         })}

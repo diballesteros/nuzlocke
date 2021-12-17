@@ -1,15 +1,19 @@
+@import 'src/assets/styles/variables';
+
 .table {
   display: flex;
   flex-flow: column nowrap;
+  gap: var(--spacing-2);
   flex: 1;
   min-height: 0;
 
   .row {
     display: grid;
     align-items: center;
-    grid-template-columns: 100%;
-    grid-template-rows: repeat(4, auto);
-    row-gap: var(--spacing-1);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto minmax(2.286rem, auto) minmax(3.857rem, auto);
+    column-gap: var(--spacing-2);
+    row-gap: var(--spacing-2);
     height: fit-content;
     margin: var(--spacing-0) var(--spacing-1) var(--spacing-3) var(--spacing-0);
     padding: var(--spacing-3);
@@ -27,6 +31,7 @@
     .header {
       display: flex;
       justify-content: space-between;
+      grid-column: span 2;
 
       .location {
         display: block;
@@ -47,6 +52,13 @@
         }
       }
     }
+
+    .moreOptions {
+      display: flex;
+      gap: var(--spacing-2);
+      align-self: center;
+      align-items: center;
+    }
   }
 
   .list {
@@ -55,6 +67,27 @@
     flex: 1;
     height: 100%;
     overflow: hidden;
+  }
+
+  .scrollerButton {
+    border: none;
+    font-size: var(--font-size-7);
+    border-radius: 4px;
+    color: var(--contrast);
+    background: transparent;
+    text-align: start;
+    width: fit-content;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: $screen-md) {
+      font-size: var(--font-size-3);
+      border: none;
+      padding: 0 0 0 var(--spacing-1);
+    }
   }
 
   .noGame {
@@ -91,7 +124,7 @@
 
   > li {
     display: flex;
-    gap: 5px;
+    gap: var(--spacing-2);
     padding: var(--spacing-2) var(--spacing-1);
     font-size: var(--font-size-3);
     border-bottom: 1px solid var(--contrast);
