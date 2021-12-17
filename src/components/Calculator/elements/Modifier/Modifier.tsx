@@ -1,11 +1,10 @@
-import { Control, useController } from 'react-hook-form';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import type { TCalculatorForm } from 'constants/types';
+import useStore from 'store';
 import styles from './Modifier.module.scss';
 
 interface ModifierProps {
-  control: Control<TCalculatorForm>;
   name:
     | 'modatk1'
     | 'modatk2'
@@ -19,19 +18,20 @@ interface ModifierProps {
     | 'modspeed2';
 }
 
-function Modifier({ control, name }: ModifierProps): JSX.Element {
+function Modifier({ name }: ModifierProps): JSX.Element {
   const { t } = useTranslation('calculator');
-  const { field } = useController({ control, name });
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
 
   const decrement = () => {
-    if (field.value > -6) {
-      field.onChange(Number(field.value) - 1);
+    if (form[name] > -6) {
+      update({ [name]: Number(form[name]) - 1 });
     }
   };
 
   const increment = () => {
-    if (field.value < 6) {
-      field.onChange(Number(field.value) + 1);
+    if (form[name] < 6) {
+      update({ [name]: Number(form[name]) + 1 });
     }
   };
 
@@ -39,7 +39,7 @@ function Modifier({ control, name }: ModifierProps): JSX.Element {
     <div className={styles.modifier}>
       <span>{t('modifier')}:</span>
       <Button data-testid={`minus-${name}`} icon="minus" onClick={decrement} type="button" />
-      <output data-testid={name}>{field.value}</output>
+      <output data-testid={name}>{form[name]}</output>
       <Button data-testid={`plus-${name}`} icon="plus" onClick={increment} type="button" />
     </div>
   );

@@ -446,3 +446,21 @@ export const getTypeCountParams = (
   }
   return [types, genRange];
 };
+
+export const D_STAT_COLOR: Record<string, string[]> = {
+  'hp': ['#ffadad', '#A60000'],
+  'atk': ['#ffb179', '#9C531F'],
+  'def': ['#FAE078', '1px solid #A1871F'],
+  'spa': ['#a8c2ff', '445E9C'],
+  'spd': ['#81d756', '#4E8234'],
+  'spe': ['#ffaac4', '#A13959'],
+};
+
+export const STAT_COLOR: Record<string, string[]> = {
+  'hp': ['#940000', '#ffadad'],
+  'atk': ['#6d3a16', '#ffb179'],
+  'def': ['#4f4726', '#FAE078'],
+  'spa': ['#334675', '445E9C'],
+  'spd': ['#304f20', '#81d756'],
+  'spe': ['#7a2b43', '#ffaac4'],
+};

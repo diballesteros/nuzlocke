@@ -403,7 +403,7 @@ export type TSecondSplit = {
   [Property in keyof TCalculatorStats as `${Property & string}2`]: TCalculatorStats[Property];
 };
 
-type TCalculatorMain = {
+export type TCalculatorMain = {
   calculatorGen: GenerationNum;
   gameType: 'Singles' | 'Doubles';
   isGravity: boolean;

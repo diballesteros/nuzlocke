@@ -18,7 +18,8 @@
     "es2020": true
   },
   "extends": [
-    "airbnb",
+    "react-app",
+    "react-app/jest",
     "airbnb-typescript",
     "airbnb/hooks",
     "plugin:@typescript-eslint/recommended",
@@ -34,8 +35,8 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": ["react", "@typescript-eslint"],
-  "ignorePatterns": ["cypress/*"],
+  "plugins": ["@typescript-eslint"],
+  "ignorePatterns": ["cypress/*, src/constants/locations/*"],
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",

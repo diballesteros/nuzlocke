@@ -1,0 +1,10 @@
+.button {
+  margin-right: 0 !important;
+  padding-left: var(--spacing-2) !important;
+  padding-right: var(--spacing-2) !important;
+
+  > i {
+    margin-left: var(--spacing-2) !important;
+    margin-right: 0 !important;
+  }
+}

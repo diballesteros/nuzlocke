@@ -1,3 +1,15 @@
+const stepTo = ($el, target) => {
+  const step = $el[0].getAttribute('step') || 1;
+  const current = $el[0].value;
+  const diff = target - current;
+  const steps = Math.abs(diff * step);
+  if (diff > 0) {
+    $el[0].stepUp(steps);
+  } else {
+    $el[0].stepDown(steps);
+  }
+};
+
 describe('Calculator', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -13,7 +25,7 @@ describe('Calculator', () => {
     cy.get('[data-testid=level-input1]').should('have.value', '99');
     cy.get('[data-testid=plus-level1]').click();
     cy.get('[data-testid=level-input1]').should('have.value', '100');
-    cy.get('[data-testid=level-input1]').clear().type('10').should('have.value', '10');
+    cy.get('[data-testid=level-input1]').clear().type('1').should('have.value', '10');
     cy.get('[data-testid=gender1]').click();
     cy.get('[data-testid=gender1] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=nature1] > .search').type('Bold');
@@ -39,6 +51,13 @@ describe('Calculator', () => {
     cy.get('[data-testid="move-Razor Leaf"]').click();
     cy.get('[data-testid=move2_z1]').click();
     cy.get('[data-testid=hp1-detail]').click();
+    cy.get('[data-testid="evhp1"]')
+      .then(($el) => stepTo($el, 65))
+      .trigger('change');
+    cy.get('[data-testid="evhp1"]').should('have.value', 65);
+    cy.get('[data-testid="evhp1"]')
+      .then(($el) => stepTo($el, 0))
+      .trigger('change');
     cy.get('[data-testid=currenthp1]').clear().type('50');
     cy.get('[data-testid=atk1-detail]').click();
     cy.get('[data-testid=minus-modatk1]').click();
@@ -47,14 +66,14 @@ describe('Calculator', () => {
     cy.get('[data-testid=modatk1]').should('contain.text', '0');
     cy.get('[data-testid=isDynamaxed1]').click();
     cy.contains(
-      'Lvl 10 0- Atk burned Bulbasaur Max Strike vs. 0 HP / 0 Def Dynamax Bulbasaur on a critical hit: 1-2 (0.2 - 0.4%)'
+      'Lvl 10 0- Atk burned Bulbasaur Max Strike vs. 0 HP / 0 Def Bulbasaur on a critical hit: 1-2 (0.4 - 0.8%)'
     ).should('exist');
     cy.get('[data-testid=spike-3-1] > label').click();
     cy.get('[data-testid=expand-moves]').click();
     cy.get('[data-testid=attacker-result-2]').click();
     cy.get('[data-testid=primary-damage]').should(
       'have.text',
-      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth vs. 0 HP / 0 Def Dynamax Bulbasaur: 1-1 (0.2 - 0.2%)'
+      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth vs. 0 HP / 0 Def Bulbasaur: 1-1 (0.4 - 0.4%)'
     );
     cy.get('[data-testid=defender-result-1]').click();
     cy.get('[data-testid=primary-damage]').should(
@@ -96,7 +115,7 @@ describe('Calculator', () => {
     cy.contains('Regenerator').should('exist');
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
-    cy.get('[data-testid=encounter-0]').click();
+    cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.get('[data-testid=status-0]').click();
     cy.get('[data-testid=status-0] > .visible > :nth-child(1)').click();
@@ -140,7 +159,7 @@ describe('Calculator', () => {
     ).should('exist');
   });
 
-  it('Smogon names', () => {
+  it('Smogon names & Forbidden items', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon1]').click();
@@ -159,5 +178,11 @@ describe('Calculator', () => {
     cy.get('[data-testid="poke-Nidoran♂"]').click({ force: true });
     cy.contains('Nidoran♀').should('exist');
     cy.contains('Nidoran♂').should('exist');
+    cy.get('[data-testid="game-select"]').click();
+    cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.get('[data-testid="item1"] > .search').click().type('Charizard');
+    cy.get('[data-testid=item1] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid="item2"] > .search').click().type('Charizard');
+    cy.get('[data-testid=item2] > .visible > :nth-child(1)').click();
   });
 });

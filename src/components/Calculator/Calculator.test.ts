@@ -1,5 +1,5 @@
 import { Result } from '@smogon/calc';
-import { assertIndex, assertResult } from 'hooks/useCalculate';
+import { assertIndex, assertResult, getPokemon, getResults } from 'hooks/useCalculate';
 import { getDesc } from './elements/CalculatorHeader/CalculatorHeader';
 
 describe('Calculator function tests', () => {
@@ -15,7 +15,7 @@ describe('Calculator function tests', () => {
     );
   });
 
-  test('Test invalid calculation', () => {
+  test('Invalid calculation', () => {
     const result = {
       fullDesc: function fullDesc() {
         throw Error('Invalid');
@@ -23,5 +23,15 @@ describe('Calculator function tests', () => {
     };
     const value = getDesc(result as unknown as Result);
     expect(value).toEqual('Invalid calculation');
+  });
+
+  test('Invalid pokemon', () => {
+    const value = getPokemon(null, 1);
+    expect(value).toStrictEqual(null);
+  });
+
+  test('Invalid results', () => {
+    const value = getResults(null, null, null, null, 1);
+    expect(value).toStrictEqual([null, null, null, null]);
   });
 });

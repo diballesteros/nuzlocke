@@ -1,24 +1,28 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { PokemonSelector } from 'common';
-import { Evolve } from 'components/Tracker/elements';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
-import type { TEncounter } from 'constants/types';
-import { selectSuggestion } from 'selectors';
+import type { TEncounter, TPokemon } from 'constants/types';
+import { selectCaught, selectSuggestion } from 'selectors';
 import useStore from 'store';
 import styles from './Pokemon.module.scss';
 
 interface PokemonProps {
   encounter: TEncounter;
+  foundPokemon: TPokemon;
 }
 
-const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
+const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: PokemonProps) {
   const { t } = useTranslation('tracker');
   const changePokemon = useStore((state) => state.changePokemon);
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
+  const caught = useStore(selectCaught);
   const showAll = useStore(useCallback((state) => state.showAll, []));
   const suggestionsSettings = useStore(useCallback((state) => state.suggestions, []));
   const games = useStore(useCallback((state) => state.games, []));
@@ -29,7 +33,6 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
   );
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
-  const foundPokemon = POKEMAP.get(encounter.pokemon);
 
   const RULE_ALERTS: { [key: string]: string } = {
     'DUPE': t('alert_dupe'),
@@ -117,9 +120,9 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
 
   return (
     <div className={styles.pokemonSelect}>
-      <div className={styles.innerLabel}>Pokémon: {!!alertText && <span>{alertText}</span>}</div>
       <div aria-label="Pokémon selector" className={styles.container}>
         <PokemonSelector
+          dupes={caught?.map((c) => c.pokemon)}
           filter={filter}
           handlePokemon={onChange}
           suggestions={
@@ -127,25 +130,32 @@ const Pokemon = React.memo(function Pokemon({ encounter }: PokemonProps) {
           }
         >
           {encounter?.pokemon ? (
-            <div
-              className={`${styles.selector} ${foundPokemon?.evolve ? styles.evolve : ''}`}
-              data-testid={`pokemon-${encounter.id}`}
-            >
+            <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
               <img alt={foundPokemon.text} src={foundPokemon.image} />
-              <span>{foundPokemon.text}</span>
+              <span className={styles.name}>{foundPokemon.text}</span>
             </div>
           ) : (
             <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
-              <span data-testid={`encounter-empty-${encounter.id}`}>
-                {t('select', { ns: 'common' })}...
+              <span data-testid={`encounter-empty-${encounter.id}`} className={styles.placeholder}>
+                Pokémon...
               </span>
             </div>
           )}
         </PokemonSelector>
-        {!!foundPokemon?.evolve && (
-          <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
-        )}
       </div>
+      {!!alertText && (
+        <Popup
+          content={<b>{alertText}</b>}
+          inverted={darkMode}
+          trigger={
+            <Icon
+              className={styles.alert}
+              data-testid={`alert-${encounter.id}`}
+              name="warning sign"
+            />
+          }
+        />
+      )}
     </div>
   );
 });

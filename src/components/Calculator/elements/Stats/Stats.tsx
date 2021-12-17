@@ -1,13 +1,11 @@
-import { useEffect } from 'react';
-import { UseFormReturn, useWatch } from 'react-hook-form';
+import { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Modifier, Range } from 'components/Calculator/elements';
-import type { TCalculatorForm } from 'constants/types';
 import useCalculate from 'hooks/useCalculate';
+import useStore from 'store';
 import styles from './Stats.module.scss';
 
 interface StatsProps {
-  form: UseFormReturn<TCalculatorForm, object>;
   pokemon: '1' | '2';
 }
 
@@ -26,18 +24,19 @@ const DV = {
   max: 15,
 };
 
-function Stats({ form, pokemon }: StatsProps): JSX.Element {
+function Stats({ pokemon }: StatsProps): JSX.Element {
   const { t } = useTranslation('calculator');
-  const { control, register, setValue } = form;
-  const calcGen = useWatch({ control, name: 'calculatorGen' });
-  const { pokemon1, pokemon2 } = useCalculate(control);
-  const values = useWatch({ control, name: ['pokemon1', 'pokemon2'] });
+  const { pokemon1, pokemon2 } = useCalculate();
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const currentPokemon = pokemon === '1' ? pokemon1 : pokemon2;
+  const pokemonOneValue = form.pokemon1;
+  const pokemonTwoValue = form.pokemon2;
   const totalHp = currentPokemon?.stats?.hp;
 
   useEffect(() => {
-    setValue(`currenthp${pokemon}`, totalHp);
-  }, [pokemon, values, setValue, totalHp]);
+    update({ [`currenthp${pokemon}`]: totalHp });
+  }, [pokemon, pokemonOneValue, pokemonTwoValue, update, totalHp]);
 
   return (
     <section className={styles.container}>
@@ -50,7 +49,10 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
           data-testid={`currenthp${pokemon}`}
           id={`currenthp${pokemon}`}
           type="number"
-          {...register(`currenthp${pokemon}`, { valueAsNumber: true })}
+          onChange={(e) => {
+            update({ [`currenthp${pokemon}`]: Number(e.target.value) });
+          }}
+          value={form[`currenthp${pokemon}`]}
         />
         <output>/{totalHp}</output>
       </div>
@@ -58,10 +60,10 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
         <summary data-testid={`hp${pokemon}-detail`}>
           HP <output>{totalHp}</output>
         </summary>
-        {calcGen > 2 && (
+        {form.calculatorGen > 2 && (
           <fieldset className={styles.fieldset}>
-            <Range control={control} name={`ivhp${pokemon}`} register={register} {...IV} />
-            <Range control={control} name={`evhp${pokemon}`} register={register} {...EV} />
+            <Range name={`ivhp${pokemon}`} {...IV} />
+            <Range name={`evhp${pokemon}`} {...EV} />
           </fieldset>
         )}
       </details>
@@ -70,15 +72,15 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
           ATK <output>{currentPokemon?.stats?.atk ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
-          {calcGen > 2 ? (
+          {form.calculatorGen > 2 ? (
             <>
-              <Range control={control} name={`ivatk${pokemon}`} register={register} {...IV} />
-              <Range control={control} name={`evatk${pokemon}`} register={register} {...EV} />
+              <Range name={`ivatk${pokemon}`} {...IV} />
+              <Range name={`evatk${pokemon}`} {...EV} />
             </>
           ) : (
-            <Range control={control} name={`dvatk${pokemon}`} register={register} {...DV} />
+            <Range name={`dvatk${pokemon}`} {...DV} />
           )}
-          <Modifier control={control} name={`modatk${pokemon}`} />
+          <Modifier name={`modatk${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
@@ -86,42 +88,43 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
           DEF <output>{currentPokemon?.stats?.def ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
-          {calcGen > 2 ? (
+          {form.calculatorGen > 2 ? (
             <>
-              <Range control={control} name={`ivdef${pokemon}`} register={register} {...IV} />
-              <Range control={control} name={`evdef${pokemon}`} register={register} {...EV} />
+              <Range name={`ivdef${pokemon}`} {...IV} />
+              <Range name={`evdef${pokemon}`} {...EV} />
             </>
           ) : (
-            <Range control={control} name={`dvdef${pokemon}`} register={register} {...DV} />
+            <Range name={`dvdef${pokemon}`} {...DV} />
           )}
-          <Modifier control={control} name={`moddef${pokemon}`} />
+          <Modifier name={`moddef${pokemon}`} />
         </fieldset>
       </details>
       <details open={false}>
         <summary data-testid={`spatk${pokemon}-detail`}>
-          {calcGen > 2 ? 'SP. ATK' : 'SPECIAL'} <output>{currentPokemon?.stats?.spa ?? 0}</output>
+          {form.calculatorGen > 2 ? 'SP. ATK' : 'SPECIAL'}{' '}
+          <output>{currentPokemon?.stats?.spa ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
-          {calcGen > 2 ? (
+          {form.calculatorGen > 2 ? (
             <>
-              <Range control={control} name={`ivspatk${pokemon}`} register={register} {...IV} />
-              <Range control={control} name={`evspatk${pokemon}`} register={register} {...EV} />
+              <Range name={`ivspatk${pokemon}`} {...IV} />
+              <Range name={`evspatk${pokemon}`} {...EV} />
             </>
           ) : (
-            <Range control={control} name={`dvspc${pokemon}`} register={register} {...DV} />
+            <Range name={`dvspc${pokemon}`} {...DV} />
           )}
-          <Modifier control={control} name={`modspatk${pokemon}`} />
+          <Modifier name={`modspatk${pokemon}`} />
         </fieldset>
       </details>
-      {calcGen > 2 && (
+      {form.calculatorGen > 2 && (
         <details open={false}>
           <summary data-testid={`spdef${pokemon}-detail`}>
             SP. DEF <output>{currentPokemon?.stats?.spd ?? 0}</output>
           </summary>
           <fieldset className={styles.fieldset}>
-            <Range control={control} name={`ivspdef${pokemon}`} register={register} {...IV} />
-            <Range control={control} name={`evspdef${pokemon}`} register={register} {...EV} />
-            <Modifier control={control} name={`modspdef${pokemon}`} />
+            <Range name={`ivspdef${pokemon}`} {...IV} />
+            <Range name={`evspdef${pokemon}`} {...EV} />
+            <Modifier name={`modspdef${pokemon}`} />
           </fieldset>
         </details>
       )}
@@ -130,15 +133,15 @@ function Stats({ form, pokemon }: StatsProps): JSX.Element {
           SPEED <output>{currentPokemon?.stats?.spe ?? 0}</output>
         </summary>
         <fieldset className={styles.fieldset}>
-          {calcGen > 2 ? (
+          {form.calculatorGen > 2 ? (
             <>
-              <Range control={control} name={`ivspeed${pokemon}`} register={register} {...IV} />
-              <Range control={control} name={`evspeed${pokemon}`} register={register} {...EV} />
+              <Range name={`ivspeed${pokemon}`} {...IV} />
+              <Range name={`evspeed${pokemon}`} {...EV} />
             </>
           ) : (
-            <Range control={control} name={`dvspeed${pokemon}`} register={register} {...DV} />
+            <Range name={`dvspeed${pokemon}`} {...DV} />
           )}
-          <Modifier control={control} name={`modspeed${pokemon}`} />
+          <Modifier name={`modspeed${pokemon}`} />
         </fieldset>
       </details>
     </section>

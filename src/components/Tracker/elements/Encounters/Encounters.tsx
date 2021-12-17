@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
@@ -8,7 +8,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { Status } from 'components';
-import { Detail, Nickname, Pokemon } from 'components/Tracker/elements';
+import { Detail, Evolve, Nickname, Pokemon, ScrollList, Swap } from 'components/Tracker/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
@@ -17,6 +17,7 @@ import styles from './Encounters.module.scss';
 
 const Encounters = React.memo(function Encounters() {
   const { t } = useTranslation('tracker');
+  const listRef = useRef(null);
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -74,6 +75,10 @@ const Encounters = React.memo(function Encounters() {
     setConfirm(false);
     setEncounterToDelete(null);
     toast.success('Successfully deleted encounter');
+  };
+
+  const handleScroll = (index: number) => {
+    listRef.current?.scrollToItem(index + 1, 'center');
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
@@ -158,8 +163,16 @@ const Encounters = React.memo(function Encounters() {
             </div>
           </div>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
-          <Pokemon encounter={encounter} />
-          <Status encounterId={encounter.id} status={encounter.status} />
+          <Pokemon encounter={encounter} foundPokemon={foundPokemon} />
+          <Status encounter={encounter} />
+          <div className={styles.moreOptions}>
+            {!!foundPokemon?.evolve && (
+              <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
+            )}
+            {!!foundPokemon && [1, 3, 4, 6, 7].includes(encounter.status?.value) && (
+              <Swap encounter={encounter} />
+            )}
+          </div>
         </div>
       </div>
     );
@@ -168,16 +181,20 @@ const Encounters = React.memo(function Encounters() {
   return (
     <div className={styles.table}>
       {selectedGame ? (
-        <div className={styles.list} data-testid="encounters-list">
-          <FixedSizeList
-            height={690}
-            itemCount={filteredEncounters?.length}
-            itemSize={nicknames ? 190 : 152}
-            width="100%"
-          >
-            {renderRow}
-          </FixedSizeList>
-        </div>
+        <>
+          <div className={styles.list} data-testid="encounters-list">
+            <FixedSizeList
+              height={690}
+              itemCount={filteredEncounters?.length}
+              itemSize={nicknames ? 220 : 180}
+              ref={listRef}
+              width="100%"
+            >
+              {renderRow}
+            </FixedSizeList>
+          </div>
+          <ScrollList encounters={filteredEncounters} scrollTo={handleScroll} />
+        </>
       ) : (
         <div className={styles.noGame}>
           <PokeballSVG />

@@ -14,14 +14,14 @@ describe('Custom game', () => {
         .children()
         .children()
         .should('have.length', 1);
-      cy.get('[data-testid=encounter-0]').click();
+      cy.contains('Pokémon...').click();
       cy.get('[data-testid=poke-Bulbasaur]').click();
       cy.contains('Bulbasaur').should('exist');
-      cy.contains('Select...').click();
+      cy.contains('Status...').click();
       cy.contains('Fainted').click({ force: true });
       cy.get('[data-testid="encounter-options-0"]').click();
       cy.get('[data-testid="reset-encounter-0"]').click();
-      cy.contains('Select...').should('exist');
+      cy.contains('Status...').should('exist');
       cy.get('[data-testid="encounter-options-0"]').click();
       cy.get('[data-testid="delete-encounter-0"]').click();
       cy.contains('OK').click();

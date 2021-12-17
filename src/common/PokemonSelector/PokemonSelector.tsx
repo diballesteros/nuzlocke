@@ -13,6 +13,7 @@ import styles from 'assets/styles/Selector.module.scss';
 
 interface PokemonSelectorProps {
   children: React.ReactNode;
+  dupes?: number[];
   filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
   limitGen?: number;
@@ -21,6 +22,7 @@ interface PokemonSelectorProps {
 
 function PokemonSelector({
   children,
+  dupes,
   filter = false,
   handlePokemon,
   limitGen,
@@ -64,22 +66,25 @@ function PokemonSelector({
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const pokemon = filteredPokemon[index];
+    const dupe = dupes?.includes(pokemon?.value);
     return (
       <div className={styles.rowContainer} style={style}>
         <div
-          className={styles.row}
+          className={`${styles.row} ${dupe ? styles.dupe : ''}`}
           data-testid={`poke-${pokemon.text}`}
           onClick={() => handleClick(pokemon.value)}
           role="presentation"
           style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
         >
           {suggestions &&
+            !dupe &&
             (suggestions.includes(pokemon.type) || suggestions.includes(pokemon.dualtype)) && (
               <div className={styles.suggestion}>
                 <Icon name="star" />
                 <span>{t('suggested')}</span>
               </div>
             )}
+          {dupe && <span className={styles.suggestion}>dupe</span>}
           <div className={styles.details}>
             <img alt={pokemon.text} src={pokemon.image} />
             <b>{pokemon.text}</b>

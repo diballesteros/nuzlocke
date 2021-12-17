@@ -1,28 +1,24 @@
-import { useState } from 'react';
-import { Controller, UseFormReturn, useWatch } from 'react-hook-form';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { ButtonController } from 'components/Calculator/elements';
 import { TERRAIN, WEATHER, WEATHER_EXCLUSIONS } from 'constants/calculator';
-import type { TCalculatorForm } from 'constants/types';
+import type { TCalculatorMain } from 'constants/types';
+import useStore from 'store';
 import styles from './MainField.module.scss';
 
-interface MainFieldProps {
-  form: UseFormReturn<TCalculatorForm, object>;
-}
-
-function MainField({ form }: MainFieldProps): JSX.Element {
+function MainField(): JSX.Element {
   const { t } = useTranslation('calculator');
-  const calcGen = useWatch({ control: form.control, name: 'calculatorGen' });
-  const { control } = form;
+  const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
+  const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const [show, setShow] = useState(false);
   return (
     <div className={styles.container}>
       <Button
         color="grey"
         data-testid="field-settings"
-        disabled={calcGen <= 2}
+        disabled={form.calculatorGen <= 2}
         onClick={() => setShow((prevState) => !prevState)}
         toggle
         type="button"
@@ -31,95 +27,75 @@ function MainField({ form }: MainFieldProps): JSX.Element {
       </Button>
       {show && (
         <div className={styles.popup}>
-          {calcGen > 2 && (
+          {form.calculatorGen > 2 && (
             <div>
               <label htmlFor="gameType">{t('game_type')}:</label>
-              <Controller
-                control={control}
+              <Radio
+                className={styles.radio}
+                checked={form.gameType === 'Singles'}
+                data-testid="gameType-singles"
+                label={t('singles')}
                 name="gameType"
-                render={({ field: { onChange, value } }) => (
-                  <>
-                    <Radio
-                      className={styles.radio}
-                      checked={value === 'Singles'}
-                      data-testid="gameType-singles"
-                      label={t('singles')}
-                      name="gameType"
-                      onChange={(e, data) => onChange(data.value)}
-                      value="Singles"
-                    />
-                    <Radio
-                      className={styles.radio}
-                      checked={value === 'Doubles'}
-                      data-testid="gameType-doubles"
-                      label={t('doubles')}
-                      name="gameType"
-                      onChange={(e, data) => onChange(data.value)}
-                      value="Doubles"
-                    />
-                  </>
-                )}
+                onChange={(e, data) => update({ gameType: data.value as 'Singles' })}
+                value="Singles"
+              />
+              <Radio
+                className={styles.radio}
+                checked={form.gameType === 'Doubles'}
+                data-testid="gameType-doubles"
+                label={t('doubles')}
+                name="gameType"
+                onChange={(e, data) => update({ gameType: data.value as 'Doubles' })}
+                value="Doubles"
               />
             </div>
           )}
-          {calcGen > 5 && (
+          {form.calculatorGen > 5 && (
             <div>
               <label htmlFor="terrain">{t('terrain')}:</label>
-              <Controller
-                control={control}
-                name="terrain"
-                render={({ field: { onChange, value } }) => (
-                  <>
-                    {TERRAIN.map((tera) => {
-                      return (
-                        <Radio
-                          className={styles.radio}
-                          checked={tera === value}
-                          data-testid={`terrain-${tera}`}
-                          key={`terrain-${tera}`}
-                          label={tera}
-                          name="terrain"
-                          onChange={(e, data) => onChange(data.value)}
-                          value={tera}
-                        />
-                      );
-                    })}
-                  </>
-                )}
-              />
+              {TERRAIN.map((tera) => {
+                return (
+                  <Radio
+                    className={styles.radio}
+                    checked={tera === form.terrain}
+                    data-testid={`terrain-${tera}`}
+                    key={`terrain-${tera}`}
+                    label={tera}
+                    name="terrain"
+                    onChange={(e, data) =>
+                      update({ terrain: data.value as TCalculatorMain['terrain'] })
+                    }
+                    value={tera}
+                  />
+                );
+              })}
             </div>
           )}
-          {calcGen > 1 && (
+          {form.calculatorGen > 1 && (
             <div>
               <label htmlFor="weather">{t('weather')}:</label>
-              <Controller
-                control={control}
-                name="weather"
-                render={({ field: { onChange, value } }) => (
-                  <>
-                    {WEATHER.reduce((weathers, type) => {
-                      if (!WEATHER_EXCLUSIONS[String(calcGen)].includes(type)) {
-                        weathers.push(
-                          <Radio
-                            className={styles.radio}
-                            checked={type === value}
-                            data-testid={`weather-${type}`}
-                            key={`weather-${type}`}
-                            label={type}
-                            name="weather"
-                            onChange={(e, data) => onChange(data.value)}
-                            value={type}
-                          />
-                        );
+              {WEATHER.reduce((weathers, type) => {
+                if (!WEATHER_EXCLUSIONS[String(form.calculatorGen)].includes(type)) {
+                  weathers.push(
+                    <Radio
+                      className={styles.radio}
+                      checked={type === form.weather}
+                      data-testid={`weather-${type}`}
+                      key={`weather-${type}`}
+                      label={type}
+                      name="weather"
+                      onChange={(e, data) =>
+                        update({ weather: data.value as TCalculatorMain['weather'] })
                       }
-                      return weathers;
-                    }, [])}
-                  </>
-                )}
-              />
+                      value={type}
+                    />
+                  );
+                }
+                return weathers;
+              }, [])}
             </div>
           )}
-          {calcGen > 3 && <ButtonController control={control} label="Gravity" name="isGravity" />}
+          {form.calculatorGen > 3 && <ButtonController label="Gravity" name="isGravity" />}
         </div>
       )}
     </div>

@@ -1,3 +1,37 @@
+## Version 4.0.0
+
+🚀 New features
+
+- New button on every encounter to quickly swap a pokemon in and out of the team
+- New button at the bottom of the tracker to quickly scroll down to the last missing encounter
+- Duplicate pokemon are now highlighted in the selector
+- Base stats are now viewable in the details for every gym battle
+- New Button at the bottom of the tracker to scroll to any encounter as well as some quick stats
+
+💅 Enhancement
+
+- Revamped the look of encounters in the Tracker!
+- Status is now disabled until a pokemon is selected
+- Broken rule alerts on the tracker now appear in the top right corner of the pokemon
+- Changed the way the calculator works so not fields don't get cleared when you change the pokemon
+
+🐛 Bug Fix
+
+- Fixed a bug in the damage calculator where dynamaxing the attacker would apply to the defender as well and it was not possible to dynamax the defender
+
+🏠 Internal
+
+- Bumped i18next to 21.6.2
+- Bumped react-i18next to 11.15.1
+- Bumped react-scripts to 5.0.0
+- Bumped @types/node to 7.0.0
+- Bumped eslint to 8.4.1
+- Bumped @typescript-eslint/eslint-plugin to 5.7.0
+- Bumped @typescript-eslint/parser to 5.7.0
+- Bumped sass to 1.45.0
+- Bumped typescript to 4.5.4
+- Removed react-hook-form
+
 ## Version 3.17.5
 
 🐛 Bug Fix

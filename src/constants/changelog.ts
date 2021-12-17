@@ -2,6 +2,54 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.0.0',
+    date: 1639779207340,
+    notes: [
+      {
+        description:
+          'New button on every encounter to quickly swap a pokemon in and out of the team',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'New button at the bottom of the tracker to quickly scroll down to the last missing encounter',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Duplicate pokemon are now highlighted in the selector',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Base stats are now viewable in the details for every gym battle',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'New Button at the bottom of the tracker to scroll to any encounter as well as some quick stats',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Status is now disabled until a pokemon is selected',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Broken rule alerts on the tracker now appear in the top right corner of the pokemon',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          "Changed the way the calculator works so not fields don't get cleared when you change the pokemon",
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Fixed a bug in the damage calculator where dynamaxing the attacker would apply to the defender as well and it was not possible to dynamax the defender',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 3.17.5',
     date: 1639427729954,
     notes: [

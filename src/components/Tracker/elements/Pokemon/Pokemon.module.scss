@@ -1,25 +1,18 @@
-@import 'styles/variables';
+@import 'src/assets/styles/variables';
 
 .pokemonSelect {
+  grid-row: span 2;
   display: flex;
-  align-items: center;
+  flex-flow: column nowrap;
+  gap: var(--spacing-1);
   font-weight: bold;
-
-  .innerLabel {
-    display: flex;
-    flex-flow: column nowrap;
-    min-width: 5.143rem;
-
-    > span {
-      font-size: var(--font-size-1);
-      color: red;
-      line-height: 1;
-    }
-  }
+  height: 100%;
+  min-height: 7rem;
+  position: relative;
 
   .container {
     display: flex;
-    width: 100%;
+    flex: 1;
 
     > div {
       flex: 1;
@@ -27,32 +20,49 @@
 
     .selector {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
       gap: var(--spacing-2);
       padding-left: var(--spacing-3);
-      align-items: center;
-      height: 2.571rem;
+      height: 100%;
       width: calc(100% - var(--spacing-3));
       color: var(--contrast);
       box-sizing: unset;
       border-radius: 4px;
-      border: 1px solid var(--contrast);
+      border: 1px solid var(--contrast-border);
       cursor: pointer;
+
+      &:hover {
+        border-color: var(--contrast);
+      }
 
       @media (max-width: $screen-sm) {
         font-size: var(--font-size-2);
       }
 
-      &.evolve {
-        border-top-right-radius: unset;
-        border-bottom-right-radius: unset;
-      }
-
       > img {
-        width: 2.464rem;
-        height: 2.143rem;
+        width: 4.8rem;
+        height: 3.5rem;
+        margin-top: var(--spacing-2);
         object-fit: cover;
       }
+      .placeholder {
+        color: var(--placeholder);
+        margin: auto;
+      }
+
+      .name {
+        margin-top: auto;
+        margin-bottom: var(--spacing-2);
+      }
     }
+  }
+
+  > .alert {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: var(--font-size-2);
+    color: red;
+    margin-left: var(--spacing-1);
   }
 }

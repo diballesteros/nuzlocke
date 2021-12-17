@@ -1,5 +1,6 @@
 {
   "add": "ADD",
+  "box": "Box",
   "add_encounter": "Add Encounter",
   "add_encounter_other": "Add Encounters",
   "alert_dupe": "Duplicate pokémon are not allowed",
@@ -7,6 +8,7 @@
   "alert_max": "Maximum amount of pokémon per team is 6",
   "alert_overleveled": "Max level set has been exceeded",
   "alert_type": "Pokémon of this type are not allowed",
+  "click_on_any_location": "Click on any location to scroll to it",
   "cause_of_fainting": "Cause of Fainting",
   "confirm_delete": "This will delete the encounter. Are you sure?",
   "delete": "Delete",
@@ -16,6 +18,7 @@
   "evolution_chain": "Evolution Chain",
   "export_to_builder": "Export to Builder",
   "export_to_game": "Export to game and close",
+  "go_to": "Go to",
   "level_down": "Level down",
   "level_up": "Level up",
   "met_level": "Met Level",

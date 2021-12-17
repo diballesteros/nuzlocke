@@ -1,5 +1,6 @@
 {
   "add": "HINZUFÜGEN",
+  "box": "Box",
   "add_encounter": "Begegnung hinzufügen",
   "add_encounter_other": "Begegnungen hinzufügen",
   "alert_dupe": "Doppelte Pokémon sind nicht erlaubt",
@@ -7,6 +8,7 @@
   "alert_max": "Maximale Anzahl an Pokémon pro Team beträgt 6",
   "alert_overleveled": "Das eingestellte Höchstniveau wurde überschritten",
   "alert_type": "Pokémon dieses Typs sind nicht erlaubt",
+  "click_on_any_location": "Klicken Sie auf einen beliebigen Ort, um dorthin zu scrollen",
   "cause_of_fainting": "Ursache der Ohnmacht",
   "confirm_delete": "Dadurch wird die Begegnung gelöscht. Bist du sicher?",
   "delete": "Löschen",
@@ -16,6 +18,7 @@
   "evolution_chain": "Evolutionskette",
   "export_to_builder": "In Builder exportieren",
   "export_to_game": "Ins Spiel exportieren und schließen",
+  "go_to": "Gehe zu",
   "level_down": "Einebnen",
   "level_up": "Aufleveln",
   "met_level": "Level gefunden",

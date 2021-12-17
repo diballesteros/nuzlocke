@@ -57,6 +57,7 @@ describe('Badges', () => {
     cy.contains('Rematch').click();
     cy.get('[data-testid=badge-details-tabs] > .menu > :nth-child(5)').click();
     cy.contains('Salamence').should('exist');
+    cy.contains('241').should('exist');
   });
 
   it('Badge detail incorrect parameters', () => {

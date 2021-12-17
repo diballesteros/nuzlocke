@@ -50,6 +50,8 @@ function App(): JSX.Element {
       document.documentElement.style.setProperty('--bgprimary', '#212121');
       document.documentElement.style.setProperty('--bgsecondary', '#333333');
       document.documentElement.style.setProperty('--contrast', '#FFFFFF');
+      document.documentElement.style.setProperty('--placeholder', '#d9d9d9');
+      document.documentElement.style.setProperty('--contrast-border', '#525252');
     } else {
       document.documentElement.style.setProperty('--header', '#ffffff');
       document.documentElement.style.setProperty('--card', '#ffffff');
@@ -59,6 +61,7 @@ function App(): JSX.Element {
       document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
       document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
       document.documentElement.style.setProperty('--contrast', '#333333');
+      document.documentElement.style.setProperty('--contrast-border', '#e5e5e5');
     }
   }, [darkMode]);
 

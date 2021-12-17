@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -23,18 +19,20 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
+  "include": ["src"],
   "exclude": [
     "node_modules",
     "cypress",
     "*.spec.ts",
     "src/constants/locations/*.ts",
-    "src/constants/nicknames.ts",
+    "src/constants/badges.ts",
+    "src/constants/changelog.ts",
+    "src/constants/colors.ts",
+    "src/constants/effectiveness.ts",
     "src/constants/filters.ts",
     "src/constants/moves.ts",
     "src/constants/pokemon.ts",
+    "src/constants/nickname.ts",
     "src/constants/details.ts"
-  ],
-  "include": [
-    "src"
   ]
 }

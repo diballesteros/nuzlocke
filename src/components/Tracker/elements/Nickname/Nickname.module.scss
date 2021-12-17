@@ -1,6 +1,7 @@
-@import 'styles/variables';
+@import 'src/assets/styles/variables';
 
 .nicknameInput {
+  grid-column: span 2;
   width: 100%;
 
   > input {
@@ -19,15 +20,5 @@
     @media (max-width: $screen-sm) {
       padding: var(--spacing-2) !important;
     }
-  }
-}
-
-.label {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-0);
-  font-weight: bold;
-  .innerLabel {
-    min-width: 5.143rem;
   }
 }
