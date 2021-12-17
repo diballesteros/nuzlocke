@@ -57,7 +57,6 @@ function Swap({ encounter }: SwapProps): JSX.Element {
       aria-label="swap"
       className={styles.button}
       data-testid={`swap-${encounter.id}`}
-      icon={encounter?.status?.value === 7 ? 'computer' : 'chess king'}
       inverted={darkMode}
       onClick={handleSwap}
       title={text}

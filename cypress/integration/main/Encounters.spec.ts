@@ -22,6 +22,8 @@ describe('Encounters', () => {
       .children()
       .children()
       .should('have.length', 1);
+    cy.get('[data-testid="filter"] > .ui > .question').click({ force: true });
+    cy.contains('Search by Pokémon, location, or status').should('be.visible');
   });
 
   it('Edit base encounter', () => {
@@ -140,7 +142,7 @@ describe('Encounters', () => {
     cy.get('[data-testid="level-up-0"]').click();
   });
 
-  it('Swap', () => {
+  it('Swap & Scroll', () => {
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=import]').click();
     cy.get('[data-testid=import-file-input]').attachFile('over6.json', { force: true });
@@ -158,6 +160,11 @@ describe('Encounters', () => {
     cy.get('[data-testid="swap-7"]').click();
     cy.get('[data-testid="swap-6"]').click();
     cy.get('[data-testid="swap-6"]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
+    cy.get('[data-testid="close-scroll-list"]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
+    cy.get('[data-testid="scroll-to-encounter-0"] > span').click();
+    cy.contains('Starter').should('be.visible');
   });
 
   context('Small screens', () => {

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import { TYPE_COLOR } from 'constants/colors';
 import { GENERATIONS, TYPES } from 'constants/constant';
 import { TFilter } from 'hooks/useFilter';
@@ -24,15 +25,23 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
         className={styles.search}
         data-testid="filter"
         fluid
-        icon
+        icon="search"
+        iconPosition="left"
+        label={{
+          content: (
+            <Popup
+              content={<b>{t('search_help')}</b>}
+              inverted={darkMode}
+              trigger={<Icon name="question circle" style={{ cursor: 'help' }} />}
+            />
+          ),
+        }}
+        labelPosition="right corner"
         onChange={(e, data) => values.setSearch(data.value)}
         placeholder={`${t('search')}...`}
         type="search"
         value={values.search}
-      >
-        <input />
-        <Icon name="search" />
-      </Input>
+      />
       <Button
         active={show}
         aria-label="search-filter"

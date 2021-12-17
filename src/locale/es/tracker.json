@@ -8,6 +8,7 @@
   "alert_max": "La cantidad máxima de pokémon por equipo es 6",
   "alert_overleveled": "Se superó el nivel máximo establecido",
   "alert_type": "No se permiten Pokémon de este tipo.",
+  "click_on_any_location": "Haga clic en cualquier ubicación para desplazarse hasta ella",
   "cause_of_fainting": "Causa de desmayo",
   "confirm_delete": "Esto eliminará el encuentro. ¿Está seguro?",
   "delete": "Eliminar",

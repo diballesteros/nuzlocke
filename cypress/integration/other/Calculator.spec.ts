@@ -1,3 +1,15 @@
+const stepTo = ($el, target) => {
+  const step = $el[0].getAttribute('step') || 1;
+  const current = $el[0].value;
+  const diff = target - current;
+  const steps = Math.abs(diff * step);
+  if (diff > 0) {
+    $el[0].stepUp(steps);
+  } else {
+    $el[0].stepDown(steps);
+  }
+};
+
 describe('Calculator', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -39,6 +51,13 @@ describe('Calculator', () => {
     cy.get('[data-testid="move-Razor Leaf"]').click();
     cy.get('[data-testid=move2_z1]').click();
     cy.get('[data-testid=hp1-detail]').click();
+    cy.get('[data-testid="evhp1"]')
+      .then(($el) => stepTo($el, 65))
+      .trigger('change');
+    cy.get('[data-testid="evhp1"]').should('have.value', 65);
+    cy.get('[data-testid="evhp1"]')
+      .then(($el) => stepTo($el, 0))
+      .trigger('change');
     cy.get('[data-testid=currenthp1]').clear().type('50');
     cy.get('[data-testid=atk1-detail]').click();
     cy.get('[data-testid=minus-modatk1]').click();

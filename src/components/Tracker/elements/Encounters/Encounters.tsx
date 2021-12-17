@@ -8,7 +8,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { Status } from 'components';
-import { Detail, Evolve, Nickname, Pokemon, Swap } from 'components/Tracker/elements';
+import { Detail, Evolve, Nickname, Pokemon, ScrollList, Swap } from 'components/Tracker/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
@@ -75,6 +75,10 @@ const Encounters = React.memo(function Encounters() {
     setConfirm(false);
     setEncounterToDelete(null);
     toast.success('Successfully deleted encounter');
+  };
+
+  const handleScroll = (index: number) => {
+    listRef.current?.scrollToItem(index + 1, 'center');
   };
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
@@ -174,8 +178,6 @@ const Encounters = React.memo(function Encounters() {
     );
   };
 
-  const lastEncounter = filteredEncounters?.findIndex((enc) => !enc.pokemon);
-
   return (
     <div className={styles.table}>
       {selectedGame ? (
@@ -191,16 +193,7 @@ const Encounters = React.memo(function Encounters() {
               {renderRow}
             </FixedSizeList>
           </div>
-          {lastEncounter > -1 && (
-            <button
-              className={styles.scrollerButton}
-              data-testid={`scroll-to-last-encounter-${lastEncounter}`}
-              onClick={() => listRef.current.scrollToItem(lastEncounter + 1, 'center')}
-              type="button"
-            >
-              {t('go_to')} {filteredEncounters[lastEncounter].location} <Icon name="arrow right" />
-            </button>
-          )}
+          <ScrollList encounters={filteredEncounters} scrollTo={handleScroll} />
         </>
       ) : (
         <div className={styles.noGame}>

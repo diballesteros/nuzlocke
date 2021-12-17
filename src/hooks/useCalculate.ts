@@ -17,7 +17,7 @@ export function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
   }
 }
 
-const getSmogonName = (pokemonName: string): string => {
+export const getSmogonName = (pokemonName: string): string => {
   if (pokemonName?.includes('(Galarian)')) {
     const split = pokemonName.split(' ');
     return `${split[0]}-Galar`;

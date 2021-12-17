@@ -1,11 +1,13 @@
-import { useCallback, useState } from 'react';
+import { Pokemon } from '@smogon/calc';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import { PHYS_SPEC_SPLIT } from 'constants/constant';
+import { D_STAT_COLOR, GAME_GENERATION, PHYS_SPEC_SPLIT, STAT_COLOR } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import type { TDetail } from 'constants/types';
+import { getSmogonName } from 'hooks/useCalculate';
 import useStore from 'store';
 import styles from './BadgeDetail.module.scss';
 
@@ -17,7 +19,9 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
   const { t } = useTranslation('badges');
   const [view, setView] = useState(0);
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
+  const colors = darkMode ? D_STAT_COLOR : STAT_COLOR;
 
   const getContent = () => {
     if (!!selectedDetail?.rematch && view === 1) {
@@ -47,6 +51,15 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
       <div className={styles.gymPokemon}>
         {getContent()?.map((pokemon, ind) => {
           const poke = POKEMAP.get(pokemon.id);
+          let stats = undefined;
+          try {
+            stats = new Pokemon(GAME_GENERATION[selectedGame?.value], getSmogonName(poke.text), {
+              level: pokemon?.level,
+            });
+          } catch {
+            // do nothing
+          }
+
           return (
             <div
               className={styles.pokemon}
@@ -82,7 +95,27 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                   )}
                 </div>
               </div>
-              <Moves moves={pokemon?.moves} showStatus={isSplit} />
+              <div className={styles.extendedDetails}>
+                {stats?.stats && (
+                  <div className={styles.stats}>
+                    {Object.entries(stats.stats).map(([key, value]) => (
+                      <React.Fragment key={`${key}-${value}`}>
+                        <span className={styles.statLabel}>{t(key)}:</span>
+                        <span style={{ color: colors[key][0] }}>{value}</span>
+                        <div
+                          className={styles.statBar}
+                          style={{
+                            width: `${(value / 450) * 100}%`,
+                            backgroundColor: colors[key][0],
+                            border: `1px solid ${colors[key][1]}`,
+                          }}
+                        />
+                      </React.Fragment>
+                    ))}
+                  </div>
+                )}
+                <Moves moves={pokemon?.moves} showStatus={isSplit} />
+              </div>
             </div>
           );
         })}

@@ -8,6 +8,10 @@
   .search {
     flex: 1;
     width: 100%;
+
+    > input::-webkit-input-placeholder {
+      color: #3f3f3fde;
+    }
   }
 
   .popup {
