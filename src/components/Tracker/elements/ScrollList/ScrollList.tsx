@@ -59,7 +59,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   return (
     <>
       {open && (
-        <nav className={styles.container} role="menu">
+        <nav className={styles.container}>
           <div className={styles.header}>
             <div className={styles.options}>
               <p>{t('click_on_any_location')}</p>

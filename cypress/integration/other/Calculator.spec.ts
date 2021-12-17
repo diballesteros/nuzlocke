@@ -66,14 +66,14 @@ describe('Calculator', () => {
     cy.get('[data-testid=modatk1]').should('contain.text', '0');
     cy.get('[data-testid=isDynamaxed1]').click();
     cy.contains(
-      'Lvl 10 0- Atk burned Bulbasaur Max Strike vs. 0 HP / 0 Def Dynamax Bulbasaur on a critical hit: 1-2 (0.2 - 0.4%)'
+      'Lvl 10 0- Atk burned Bulbasaur Max Strike vs. 0 HP / 0 Def Bulbasaur on a critical hit: 1-2 (0.4 - 0.8%)'
     ).should('exist');
     cy.get('[data-testid=spike-3-1] > label').click();
     cy.get('[data-testid=expand-moves]').click();
     cy.get('[data-testid=attacker-result-2]').click();
     cy.get('[data-testid=primary-damage]').should(
       'have.text',
-      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth vs. 0 HP / 0 Def Dynamax Bulbasaur: 1-1 (0.2 - 0.2%)'
+      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth vs. 0 HP / 0 Def Bulbasaur: 1-1 (0.4 - 0.4%)'
     );
     cy.get('[data-testid=defender-result-1]').click();
     cy.get('[data-testid=primary-damage]').should(

@@ -15,6 +15,10 @@
 - Broken rule alerts on the tracker now appear in the top right corner of the pokemon
 - Changed the way the calculator works so not fields don't get cleared when you change the pokemon
 
+🐛 Bug Fix
+
+- Fixed a bug in the damage calculator where dynamaxing the attacker would apply to the defender as well and it was not possible to dynamax the defender
+
 🏠 Internal
 
 - Bumped i18next to 21.6.2

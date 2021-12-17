@@ -42,6 +42,11 @@ const CHANGELOG: TReleaseNotes = [
           "Changed the way the calculator works so not fields don't get cleared when you change the pokemon",
         type: 'UPDATE',
       },
+      {
+        description:
+          'Fixed a bug in the damage calculator where dynamaxing the attacker would apply to the defender as well and it was not possible to dynamax the defender',
+        type: 'FIX',
+      },
     ],
   },
   {

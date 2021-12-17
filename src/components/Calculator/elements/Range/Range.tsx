@@ -15,7 +15,7 @@ function Range({ label, name, max }: RangeProps): JSX.Element {
   const fieldValue = form[name] as number;
 
   const getBarFill = useCallback(() => {
-    return { backgroundSize: `${((fieldValue as number) * 100) / max || 0}% 100%` };
+    return { backgroundSize: `${(fieldValue * 100) / max || 0}% 100%` };
   }, [fieldValue, max]);
 
   return (
