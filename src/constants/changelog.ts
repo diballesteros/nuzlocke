@@ -39,7 +39,7 @@ const CHANGELOG: TReleaseNotes = [
       },
       {
         description:
-          "Changed the way the calculator works so not fields don't get cleared when you change the pokemon",
+          "Changed the way the calculator works so now fields don't get cleared when you change the pokemon",
         type: 'UPDATE',
       },
       {
