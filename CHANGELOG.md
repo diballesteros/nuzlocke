@@ -13,7 +13,7 @@
 - Revamped the look of encounters in the Tracker!
 - Status is now disabled until a pokemon is selected
 - Broken rule alerts on the tracker now appear in the top right corner of the pokemon
-- Changed the way the calculator works so not fields don't get cleared when you change the pokemon
+- Changed the way the calculator works so now fields don't get cleared when you change the pokemon
 
 🐛 Bug Fix
 

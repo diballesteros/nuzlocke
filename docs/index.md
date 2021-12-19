@@ -17,7 +17,6 @@
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
 - [Contact](#contact)
-- [Other](#other)
 
 ## About
 
@@ -47,20 +46,21 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Download a summary image
 - Build an ideal team with the Team Builder!
 - Quick access to details on type effectiveness and natures
+- Encounter suggestions
 
 ### ✨ How it works
 
 - Adding Encounter:
 
-![til](https://media.giphy.com/media/FMh9lSkFUKElUYFMew/giphy.gif?cid=790b761168ce308166c7a32020f6daf149969e8cf84c65af&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/ncqqOirC9cs0ivsM0n/giphy.gif)
 
 - Editing Encounter:
 
-![til](https://media.giphy.com/media/fyq5z58gUVWO2U3aSY/giphy.gif?cid=790b7611d728375309bfe8d1e1573526a5fbf0c20669d975&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/Z4AY4mygCoZZXakPCj/giphy.gif)
 
 - Badges:
 
-![til](https://media.giphy.com/media/1hGkVwGIIuOFdCeWh4/giphy.gif)
+![til](https://media.giphy.com/media/goQZ8dBGVL8ELDdaER/giphy.gif)
 
 - Team Builder:
 
@@ -72,7 +72,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 - Summary Image:
 
-![Imgur Image](https://imgur.com/y5uiriQ.jpg)
+![Imgur Image](https://i.imgur.com/viBwwxQ.png)
 
 ## Getting started
 
@@ -159,9 +159,3 @@ Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK 
 ## Contact
 
 Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
-
-## Other
-
-<a href='//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge'><img src='https://developer.microsoft.com/store/badges/images/English_get-it-from-MS.png' alt='English badge' style='width: 284px; height: 104px;'/></a>
-
-<a href='https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png'/></a>

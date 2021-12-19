@@ -52,15 +52,15 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 - Adding Encounter:
 
-![til](https://media.giphy.com/media/FMh9lSkFUKElUYFMew/giphy.gif?cid=790b761168ce308166c7a32020f6daf149969e8cf84c65af&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/ncqqOirC9cs0ivsM0n/giphy.gif)
 
 - Editing Encounter:
 
-![til](https://media.giphy.com/media/fyq5z58gUVWO2U3aSY/giphy.gif?cid=790b7611d728375309bfe8d1e1573526a5fbf0c20669d975&rid=giphy.gif&ct=g)
+![til](https://media.giphy.com/media/Z4AY4mygCoZZXakPCj/giphy.gif)
 
 - Badges:
 
-![til](https://media.giphy.com/media/1hGkVwGIIuOFdCeWh4/giphy.gif)
+![til](https://media.giphy.com/media/goQZ8dBGVL8ELDdaER/giphy.gif)
 
 - Team Builder:
 
@@ -72,7 +72,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 - Summary Image:
 
-![Imgur Image](https://imgur.com/y5uiriQ.jpg)
+![Imgur Image](https://i.imgur.com/viBwwxQ.png)
 
 ## Getting started
 
