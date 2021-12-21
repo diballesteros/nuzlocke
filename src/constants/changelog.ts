@@ -22,6 +22,10 @@ const CHANGELOG: TReleaseNotes = [
         description: 'App no longer crashes when using Mr. Mime (Galarian) in the calculator',
         type: 'FIX',
       },
+      {
+        description: 'Back button now displayed correctly on smaller screens - Thanks @Yondiame',
+        type: 'FIX',
+      },
     ],
   },
   {

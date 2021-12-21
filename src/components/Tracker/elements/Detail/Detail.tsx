@@ -121,7 +121,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <div className={styles.image}>
-              <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />
+              <PkmImage name={foundPokemon?.text} shiny={shiny} />
             </div>
             <span className={styles.name}>{foundPokemon.text}</span>
           </div>
