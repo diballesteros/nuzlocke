@@ -1,0 +1,23 @@
+@import 'src/assets/styles/variables';
+
+.button {
+  min-width: fit-content;
+  height: fit-content;
+  @media (max-width: $screen-sm) {
+    .text {
+      font-size: var(--font-size-2);
+    }
+    .icon {
+      font-size: var(--font-size-2);
+    }
+  }
+
+  @media (max-width: $screen-xxs) {
+    .text {
+      font-size: var(--font-size-1);
+    }
+    .icon {
+      font-size: var(--font-size-1);
+    }
+  }
+}
