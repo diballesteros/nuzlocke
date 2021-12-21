@@ -16,13 +16,7 @@ function Back(): JSX.Element {
   };
 
   return (
-    <Button
-      className={styles.button}
-      onClick={handleBack}
-      // style={{ height: 36 }}
-      inverted={darkMode}
-      type="button"
-    >
+    <Button className={styles.button} onClick={handleBack} inverted={darkMode} type="button">
       <Icon className={styles.icon} name="arrow left" />
       <span className={styles.text}>{t('back')}</span>
     </Button>
