@@ -4,6 +4,7 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
+import { PkmImage } from 'common';
 import { PokeInfo } from 'components';
 import { Summary, Tip } from 'components/Pokestats/elements';
 import { POKEMAP } from 'constants/pokemon';
@@ -61,11 +62,9 @@ function Pokestats(): JSX.Element {
                     position="top center"
                     trigger={
                       <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
-                        <img
-                          alt={foundPokemon?.text}
-                          className={styles.pokemon}
-                          src={foundPokemon?.image}
-                        />
+                        <div className={styles.image}>
+                          <PkmImage name={foundPokemon?.text} />
+                        </div>
                         <div className={styles.center} />
                       </div>
                     }
@@ -108,11 +107,9 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <img
-                      alt={foundPokemon?.text}
-                      className={styles.pokemon}
-                      src={foundPokemon?.image}
-                    />
+                    <div className={styles.pokemon}>
+                      <PkmImage name={foundPokemon?.text} />
+                    </div>
                   }
                 >
                   <PokeInfo encounter={enc} pokemon={foundPokemon} />
@@ -146,11 +143,9 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <img
-                      alt={foundPokemon?.text}
-                      className={styles.pokemon}
-                      src={foundPokemon?.image}
-                    />
+                    <div className={styles.pokemon}>
+                      <PkmImage name={foundPokemon?.text} />
+                    </div>
                   }
                 >
                   <PokeInfo encounter={enc} pokemon={foundPokemon} />
@@ -184,11 +179,9 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <img
-                      alt={foundPokemon?.text}
-                      className={styles.pokemon}
-                      src={foundPokemon?.image}
-                    />
+                    <div className={styles.pokemon}>
+                      <PkmImage name={foundPokemon?.text} />
+                    </div>
                   }
                 >
                   <PokeInfo encounter={enc} pokemon={foundPokemon} />

@@ -7,6 +7,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
@@ -115,7 +116,9 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       <Modal.Content className={styles.content}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <img src={foundPokemon?.image} alt={foundPokemon?.text} />
+            <div className={styles.image}>
+              <PkmImage name={foundPokemon?.text} />
+            </div>
             <span className={styles.name}>{foundPokemon.text}</span>
           </div>
           <PokemonType pokemon={foundPokemon} />
@@ -124,6 +127,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
           <summary data-testid="detail-summary">{t('details', { ns: 'badges' })}</summary>
           <div className={styles.expandable}>
             <Input
+              className={styles.input}
               data-testid="level"
               label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
@@ -131,6 +135,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               value={level}
             />
             <Input
+              className={styles.input}
               data-testid="metlevel"
               label={t('met_level')}
               onChange={(e, data) => setMetLevel(Number(data.value))}
@@ -139,11 +144,10 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             />
             <Dropdown
               aria-label="gender-selector"
-              basic
               className={styles.dropdown}
+              clearable
               data-testid="gender"
               inline
-              labeled
               lazyLoad
               onChange={(e, data) => setGender(data.value as unknown as Gender)}
               options={GENDERS}
@@ -154,7 +158,6 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <div className={styles.natureContainer}>
               <Dropdown
                 aria-label="nature-selector"
-                basic
                 className={styles.dropdown}
                 clearable
                 data-testid="nature"
@@ -171,7 +174,6 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             </div>
             <Dropdown
               aria-label="ability"
-              basic
               className={styles.dropdown}
               clearable
               data-testid="ability"
@@ -188,7 +190,6 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             />
             <Dropdown
               aria-label="item"
-              basic
               className={styles.dropdown}
               clearable
               data-testid="item"

@@ -2,6 +2,7 @@ import { Pokemon } from '@smogon/calc';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
+import { PkmImage } from 'common';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import { D_STAT_COLOR, GAME_GENERATION, PHYS_SPEC_SPLIT, STAT_COLOR } from 'constants/constant';
@@ -75,7 +76,9 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                     ind === (selectedDetail?.content?.length ?? 0) - 1 && (
                       <span className={styles.totem}>DYNAMAX</span>
                     )}
-                  <img src={poke?.image} alt={poke?.text} />
+                  <div className={styles.pokemonImage}>
+                    <PkmImage name={poke?.text} />
+                  </div>
                   <span>{poke?.text}</span>
                   <span>Lv. {pokemon?.level}</span>
                 </div>

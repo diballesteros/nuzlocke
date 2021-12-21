@@ -4,6 +4,17 @@
   margin-right: 0 !important;
 }
 
-.radio > label {
-  color: var(--contrast) !important;
+.option {
+  display: flex;
+  align-items: center;
+  margin-top: var(--spacing-2);
+
+  .image {
+    height: 3.5rem;
+    width: 4.8rem;
+  }
+
+  .radio > label {
+    color: var(--contrast) !important;
+  }
 }

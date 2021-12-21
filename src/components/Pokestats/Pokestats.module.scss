@@ -93,8 +93,16 @@
           border: 5px solid #333;
           background-image: linear-gradient(#b24000 5%, #b24000 49%, black 5%, white 49%, #b2b8c9);
 
-          > img {
+          > .image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 4.5rem;
+            width: 4.5rem;
             z-index: 2;
+            > div {
+              z-index: 2;
+            }
           }
           .center {
             position: absolute;
@@ -136,10 +144,12 @@
     }
 
     .pokemon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       height: 5.143rem;
       width: 5.143rem;
-      margin: 0.357rem;
-      object-fit: contain;
+      margin: var(--spacing-3);
       cursor: pointer;
       position: relative;
 

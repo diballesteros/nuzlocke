@@ -12,7 +12,10 @@
       display: flex;
       flex-flow: column nowrap;
 
-      > img {
+      .image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
         height: 5.714rem;
         width: 7.143rem;
         align-self: center;
@@ -73,11 +76,23 @@
     }
   }
 
+  .input > input {
+    color: var(--contrast) !important;
+    background-color: transparent !important;
+    border: 1px solid var(--contrast);
+  }
+
   .dropdown {
     min-height: unset !important;
-    color: black !important;
+    background-color: transparent !important;
+    color: var(--contrast) !important;
+    border: 1px solid var(--contrast) !important;
     > i {
       top: 0 !important;
+    }
+
+    > input {
+      color: var(--contrast) !important;
     }
   }
 

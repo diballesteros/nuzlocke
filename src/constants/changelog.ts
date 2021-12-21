@@ -2,6 +2,29 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.1.0',
+    date: 1640042504211,
+    notes: [
+      {
+        description:
+          'Shiny is no longer a status and now appears as a toggleable status in the details. This now changes the sprite of the pokemon!',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Items now have a sprite in the dropdown',
+        type: 'UPDATE',
+      },
+      {
+        description: 'The inputs and dropdowns in the details now change according to dark mode',
+        type: 'UPDATE',
+      },
+      {
+        description: 'App no longer crashes when using Mr. Mime (Galarian) in the calculator',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.0.0',
     date: 1639779207340,
     notes: [

@@ -58,6 +58,14 @@
         }
       }
 
+      .pokemonImage {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 3.5rem;
+        width: 4.5rem;
+      }
+
       .pokemonDetails {
         display: flex;
         flex-flow: column nowrap;

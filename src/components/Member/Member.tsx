@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import { PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
@@ -33,7 +34,9 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
         style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
       >
         <div className={styles.info}>
-          <img alt={pokemon.text} src={pokemon.image} />
+          <div className={styles.pokemonImage}>
+            <PkmImage name={pokemon?.text} />
+          </div>
           <b>{pokemon.text}</b>
         </div>
         <div className={styles.other}>

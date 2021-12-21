@@ -4,6 +4,7 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { PkmImage } from 'common';
 import { Filter, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
@@ -84,9 +85,11 @@ function PokemonSelector({
                 <span>{t('suggested')}</span>
               </div>
             )}
-          {dupe && <span className={styles.suggestion}>dupe</span>}
+          {dupe && <span className={styles.suggestion}>DUPE</span>}
           <div className={styles.details}>
-            <img alt={pokemon.text} src={pokemon.image} />
+            <div className={styles.image}>
+              <PkmImage name={pokemon?.text} />
+            </div>
             <b>{pokemon.text}</b>
           </div>
           <PokemonType pokemon={pokemon} />

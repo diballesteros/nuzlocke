@@ -2,6 +2,7 @@ import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
 import type { StatusName } from '@smogon/calc/dist/data/interface';
 import { useCallback, useMemo } from 'react';
 import { FORBIDDEN_ITEMS, GenderCalc } from 'constants/calculator';
+import { SMOGON_NAMES } from 'constants/constant';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import type { TCalculatorForm } from 'constants/types';
@@ -20,19 +21,8 @@ export function assertIndex(val: number): asserts val is 1 | 2 | 3 | 4 {
 }
 
 export const getSmogonName = (pokemonName: string): string => {
-  if (pokemonName?.includes('(Galarian)')) {
-    const split = pokemonName.split(' ');
-    return `${split[0]}-Galar`;
-  }
-  if (pokemonName?.includes('(Alolan)')) {
-    const split = pokemonName.split(' ');
-    return `${split[0]}-Alola`;
-  }
-  if (pokemonName === 'Nidoran♀') {
-    return 'Nidoran-F';
-  }
-  if (pokemonName === 'Nidoran♂') {
-    return 'Nidoran-M';
+  if (SMOGON_NAMES[pokemonName]) {
+    return SMOGON_NAMES[pokemonName];
   }
   return pokemonName;
 };

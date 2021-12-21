@@ -167,7 +167,6 @@ export interface TPokemon {
   evolve?: number[];
   generation: number;
   key?: string;
-  image: string;
   text: string;
   type: Type;
   value: number;
