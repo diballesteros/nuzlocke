@@ -111,12 +111,7 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
 
 export const selectBoxed = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
-    return (
-      enc?.status?.value === 1 ||
-      enc?.status?.value === 3 ||
-      enc?.status?.value === 4 ||
-      enc?.status?.value === 6
-    );
+    return enc?.status?.value === 1 || enc?.status?.value === 3 || enc?.status?.value === 4;
   });
 };
 
@@ -132,7 +127,6 @@ export const selectCaught = (state: AppState): TEncounter[] => {
       enc?.status?.value === 1 ||
       enc?.status?.value === 3 ||
       enc?.status?.value === 4 ||
-      enc?.status?.value === 6 ||
       enc?.status?.value === 7
     );
   });
@@ -155,6 +149,6 @@ export const selectFailed = (state: AppState): TEncounter[] => {
 
 export const selectShiny = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
-    return enc?.status?.value === 6;
+    return enc?.details?.shiny;
   });
 };
