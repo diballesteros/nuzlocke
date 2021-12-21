@@ -132,7 +132,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
           {encounter?.pokemon ? (
             <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
               <div className={styles.image}>
-                <PkmImage name={foundPokemon.text} />
+                <PkmImage name={foundPokemon.text} shiny={encounter?.details?.shiny} />
               </div>
               <span className={styles.name}>{foundPokemon.text}</span>
             </div>

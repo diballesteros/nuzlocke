@@ -63,7 +63,7 @@ function Pokestats(): JSX.Element {
                     trigger={
                       <div className={styles.pokeball} data-testid={`team-${enc.id}`}>
                         <div className={styles.image}>
-                          <PkmImage name={foundPokemon?.text} />
+                          <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                         </div>
                         <div className={styles.center} />
                       </div>
@@ -108,7 +108,7 @@ function Pokestats(): JSX.Element {
                   position="top center"
                   trigger={
                     <div className={styles.pokemon}>
-                      <PkmImage name={foundPokemon?.text} />
+                      <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }
                 >
@@ -144,7 +144,7 @@ function Pokestats(): JSX.Element {
                   position="top center"
                   trigger={
                     <div className={styles.pokemon}>
-                      <PkmImage name={foundPokemon?.text} />
+                      <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }
                 >
@@ -180,7 +180,7 @@ function Pokestats(): JSX.Element {
                   position="top center"
                   trigger={
                     <div className={styles.pokemon}>
-                      <PkmImage name={foundPokemon?.text} />
+                      <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }
                 >

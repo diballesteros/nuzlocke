@@ -169,7 +169,7 @@ const Encounters = React.memo(function Encounters() {
             {!!foundPokemon?.evolve && (
               <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
             )}
-            {!!foundPokemon && [1, 3, 4, 6, 7].includes(encounter.status?.value) && (
+            {!!foundPokemon && [1, 3, 4, 7].includes(encounter.status?.value) && (
               <Swap encounter={encounter} />
             )}
           </div>

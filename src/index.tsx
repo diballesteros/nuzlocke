@@ -25,6 +25,7 @@ import { BrowserRouter } from 'react-router-dom';
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
+import 'assets/styles/pokemon.css';
 import App from './App';
 import './i18n';
 

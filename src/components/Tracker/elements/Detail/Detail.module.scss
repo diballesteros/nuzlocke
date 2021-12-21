@@ -96,6 +96,10 @@
     }
   }
 
+  :global(.ui.checkbox) > label {
+    color: var(--contrast) !important;
+  }
+
   .textarea {
     width: 100%;
     resize: none;

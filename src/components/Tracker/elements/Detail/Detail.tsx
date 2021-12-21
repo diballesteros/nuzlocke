@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { PkmImage } from 'common';
@@ -41,6 +42,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const [moveTwo, setMoveTwo] = useState(encounter?.details?.moves[1]);
   const [moveThree, setMoveThree] = useState(encounter?.details?.moves[2]);
   const [moveFour, setMoveFour] = useState(encounter?.details?.moves[3]);
+  const [shiny, setShiny] = useState(encounter?.details?.shiny);
 
   const handleClose = () => {
     setShow(false);
@@ -55,6 +57,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
     setMoveTwo(encounter?.details?.moves[1]);
     setMoveThree(encounter?.details?.moves[2]);
     setMoveFour(encounter?.details?.moves[3]);
+    setShiny(encounter?.details?.shiny);
   };
 
   const handleSave = () => {
@@ -70,7 +73,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       moveOne,
       moveTwo,
       moveThree,
-      moveFour
+      moveFour,
+      shiny
     );
     setShow(false);
   };
@@ -117,7 +121,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <div className={styles.image}>
-              <PkmImage name={foundPokemon?.text} />
+              <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />
             </div>
             <span className={styles.name}>{foundPokemon.text}</span>
           </div>
@@ -203,6 +207,13 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               search
               selection
               value={item ?? ''}
+            />
+            <Checkbox
+              checked={shiny}
+              className={styles.checkbox}
+              data-testid="shiny"
+              label="Shiny"
+              onChange={(e, data) => setShiny(data.checked)}
             />
           </div>
         </details>

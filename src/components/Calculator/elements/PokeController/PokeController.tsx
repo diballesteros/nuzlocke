@@ -1,6 +1,7 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Checkbox, Dropdown } from 'semantic-ui-react';
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
+import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';

@@ -60,7 +60,7 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
           return (
             <div className={styles.option} key={`evolve-${id}`}>
               <div className={styles.image}>
-                <PkmImage name={foundPokemon?.text} />{' '}
+                <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />{' '}
               </div>
               <Radio
                 className={styles.radio}

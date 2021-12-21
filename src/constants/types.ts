@@ -44,7 +44,8 @@ export interface AppState {
     moveOne: number,
     moveTwo: number,
     moveThree: number,
-    moveFour: number
+    moveFour: number,
+    shiny: boolean
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
@@ -295,6 +296,7 @@ export interface PokemonDetail {
   metLevel?: number;
   moves: number[];
   nature?: string;
+  shiny?: boolean;
 }
 
 export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];
