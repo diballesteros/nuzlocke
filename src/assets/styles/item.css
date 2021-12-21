@@ -1,0 +1,2111 @@
+.pkitem-wrapper {
+  width: 32px;
+  height: 30px;
+  line-height: 28px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 1px;
+}
+
+.pkitem {
+  background-image: url(../img/items.png);
+
+  display: inline-block;
+  vertical-align: middle;
+  image-rendering: crisp-edges;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -webkit-crisp-edges;
+  image-rendering: pixelated;
+}
+
+.pkitem-eviolite {
+  width: 13px;
+  height: 13px;
+  background-position: -326px -13px;
+}
+.pkitem-prism-scale {
+  width: 13px;
+  height: 13px;
+  background-position: -385px -13px;
+}
+.pkitem-snowball {
+  width: 13px;
+  height: 13px;
+  background-position: -445px -13px;
+}
+.pkitem-abomasite {
+  width: 14px;
+  height: 14px;
+  background-position: 0px -30px;
+}
+.pkitem-absolite {
+  width: 14px;
+  height: 14px;
+  background-position: -16px -30px;
+}
+.pkitem-aerodactylite {
+  width: 14px;
+  height: 14px;
+  background-position: -32px -30px;
+}
+.pkitem-aggronite {
+  width: 14px;
+  height: 14px;
+  background-position: -48px -30px;
+}
+.pkitem-alakazite {
+  width: 14px;
+  height: 14px;
+  background-position: -64px -30px;
+}
+.pkitem-altarianite {
+  width: 14px;
+  height: 14px;
+  background-position: -80px -30px;
+}
+.pkitem-ampharosite {
+  width: 14px;
+  height: 14px;
+  background-position: -96px -30px;
+}
+.pkitem-audinite {
+  width: 14px;
+  height: 14px;
+  background-position: -112px -30px;
+}
+.pkitem-banettite {
+  width: 14px;
+  height: 14px;
+  background-position: -128px -30px;
+}
+.pkitem-beedrillite {
+  width: 14px;
+  height: 14px;
+  background-position: -144px -30px;
+}
+.pkitem-blastoisinite {
+  width: 14px;
+  height: 14px;
+  background-position: -160px -30px;
+}
+.pkitem-blazikenite {
+  width: 14px;
+  height: 14px;
+  background-position: -176px -30px;
+}
+.pkitem-bottle-cap {
+  width: 15px;
+  height: 14px;
+  background-position: -208px -30px;
+}
+.pkitem-cameruptite {
+  width: 14px;
+  height: 14px;
+  background-position: -225px -30px;
+}
+.pkitem-cell-battery {
+  width: 8px;
+  height: 21px;
+  background-position: -241px -30px;
+}
+.pkitem-charizardite-x {
+  width: 14px;
+  height: 14px;
+  background-position: -251px -30px;
+}
+.pkitem-charizardite-y {
+  width: 14px;
+  height: 14px;
+  background-position: -267px -30px;
+}
+.pkitem-diancite {
+  width: 14px;
+  height: 14px;
+  background-position: -283px -30px;
+}
+.pkitem-float-stone {
+  width: 16px;
+  height: 13px;
+  background-position: -315px -30px;
+}
+.pkitem-galladite {
+  width: 14px;
+  height: 14px;
+  background-position: -333px -30px;
+}
+.pkitem-garchompite {
+  width: 14px;
+  height: 14px;
+  background-position: -349px -30px;
+}
+.pkitem-gardevoirite {
+  width: 14px;
+  height: 14px;
+  background-position: -365px -30px;
+}
+.pkitem-gengarite {
+  width: 14px;
+  height: 14px;
+  background-position: -381px -30px;
+}
+.pkitem-glalitite {
+  width: 14px;
+  height: 14px;
+  background-position: -397px -30px;
+}
+.pkitem-gold-bottle-cap {
+  width: 15px;
+  height: 14px;
+  background-position: -413px -30px;
+}
+.pkitem-gyaradosite {
+  width: 14px;
+  height: 14px;
+  background-position: -446px -30px;
+}
+.pkitem-heracronite {
+  width: 14px;
+  height: 14px;
+  background-position: -462px -30px;
+}
+.pkitem-houndoominite {
+  width: 14px;
+  height: 14px;
+  background-position: 0px -53px;
+}
+.pkitem-kangaskhanite {
+  width: 14px;
+  height: 14px;
+  background-position: -48px -53px;
+}
+.pkitem-latiasite {
+  width: 14px;
+  height: 14px;
+  background-position: -80px -53px;
+}
+.pkitem-latiosite {
+  width: 14px;
+  height: 14px;
+  background-position: -96px -53px;
+}
+.pkitem-lopunnite {
+  width: 14px;
+  height: 14px;
+  background-position: -112px -53px;
+}
+.pkitem-lucarionite {
+  width: 14px;
+  height: 14px;
+  background-position: -128px -53px;
+}
+.pkitem-manectite {
+  width: 14px;
+  height: 14px;
+  background-position: -144px -53px;
+}
+.pkitem-marble {
+  width: 14px;
+  height: 14px;
+  background-position: -160px -53px;
+}
+.pkitem-mawilite {
+  width: 14px;
+  height: 14px;
+  background-position: -176px -53px;
+}
+.pkitem-medichamite {
+  width: 14px;
+  height: 14px;
+  background-position: -192px -53px;
+}
+.pkitem-metagrossite {
+  width: 14px;
+  height: 14px;
+  background-position: -208px -53px;
+}
+.pkitem-mewtwonite-x {
+  width: 14px;
+  height: 14px;
+  background-position: -224px -53px;
+}
+.pkitem-mewtwonite-y {
+  width: 14px;
+  height: 14px;
+  background-position: -240px -53px;
+}
+.pkitem-nugget {
+  width: 14px;
+  height: 14px;
+  background-position: -256px -53px;
+}
+.pkitem-pidgeotite {
+  width: 14px;
+  height: 14px;
+  background-position: -272px -53px;
+}
+.pkitem-pinsirite {
+  width: 14px;
+  height: 14px;
+  background-position: -288px -53px;
+}
+.pkitem-sablenite {
+  width: 14px;
+  height: 14px;
+  background-position: -353px -53px;
+}
+.pkitem-salamencite {
+  width: 14px;
+  height: 14px;
+  background-position: -369px -53px;
+}
+.pkitem-sceptilite {
+  width: 14px;
+  height: 14px;
+  background-position: -385px -53px;
+}
+.pkitem-scizorite {
+  width: 14px;
+  height: 14px;
+  background-position: -401px -53px;
+}
+.pkitem-sharpedonite {
+  width: 14px;
+  height: 14px;
+  background-position: -417px -53px;
+}
+.pkitem-slowbronite {
+  width: 14px;
+  height: 14px;
+  background-position: -433px -53px;
+}
+.pkitem-soul-dew {
+  width: 14px;
+  height: 14px;
+  background-position: -449px -53px;
+}
+.pkitem-steelixite {
+  width: 14px;
+  height: 14px;
+  background-position: -465px -53px;
+}
+.pkitem-strawberry-sweet {
+  width: 14px;
+  height: 14px;
+  background-position: 0px -69px;
+}
+.pkitem-swampertite {
+  width: 14px;
+  height: 14px;
+  background-position: -16px -69px;
+}
+.pkitem-sweet-heart {
+  width: 15px;
+  height: 13px;
+  background-position: -32px -69px;
+}
+.pkitem-tyranitarite {
+  width: 14px;
+  height: 14px;
+  background-position: -49px -69px;
+}
+.pkitem-venusaurite {
+  width: 14px;
+  height: 14px;
+  background-position: -65px -69px;
+}
+.pkitem-berry-sweet {
+  width: 16px;
+  height: 15px;
+  background-position: -103px -69px;
+}
+.pkitem-ring-target {
+  width: 14px;
+  height: 17px;
+  background-position: -473px -69px;
+}
+.pkitem-zygarde-cube {
+  width: 15px;
+  height: 15px;
+  background-position: -59px -88px;
+}
+.pkitem-bug-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -203px -88px;
+}
+.pkitem-chalky-stone {
+  width: 19px;
+  height: 13px;
+  background-position: -223px -88px;
+}
+.pkitem-dark-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -280px -88px;
+}
+.pkitem-dark-stone {
+  width: 16px;
+  height: 16px;
+  background-position: -300px -88px;
+}
+.pkitem-dragon-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -318px -88px;
+}
+.pkitem-electric-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -338px -88px;
+}
+.pkitem-fairy-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -378px -88px;
+}
+.pkitem-fighting-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -398px -88px;
+}
+.pkitem-fire-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -418px -88px;
+}
+.pkitem-flame-orb {
+  width: 16px;
+  height: 16px;
+  background-position: -438px -88px;
+}
+.pkitem-flower-sweet {
+  width: 17px;
+  height: 16px;
+  background-position: -456px -88px;
+}
+.pkitem-flying-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -475px -88px;
+}
+.pkitem-ghost-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -513px -88px;
+}
+.pkitem-grass-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -551px -88px;
+}
+.pkitem-ground-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -36px -107px;
+}
+.pkitem-ice-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -112px -107px;
+}
+.pkitem-iron-ball {
+  width: 16px;
+  height: 16px;
+  background-position: -132px -107px;
+}
+.pkitem-leftovers {
+  width: 13px;
+  height: 20px;
+  background-position: -150px -107px;
+}
+.pkitem-life-orb {
+  width: 16px;
+  height: 16px;
+  background-position: -165px -107px;
+}
+.pkitem-light-ball {
+  width: 16px;
+  height: 16px;
+  background-position: -183px -107px;
+}
+.pkitem-light-stone {
+  width: 16px;
+  height: 16px;
+  background-position: -201px -107px;
+}
+.pkitem-normal-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -292px -107px;
+}
+.pkitem-oval-stone {
+  width: 16px;
+  height: 17px;
+  background-position: -312px -107px;
+}
+.pkitem-poison-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -390px -107px;
+}
+.pkitem-psychic-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -428px -107px;
+}
+.pkitem-red-card {
+  width: 15px;
+  height: 17px;
+  background-position: -516px -107px;
+}
+.pkitem-rock-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -54px -130px;
+}
+.pkitem-steel-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -323px -130px;
+}
+.pkitem-sticky-barb {
+  width: 16px;
+  height: 16px;
+  background-position: -343px -130px;
+}
+.pkitem-toxic-orb {
+  width: 16px;
+  height: 16px;
+  background-position: -397px -130px;
+}
+.pkitem-water-gem {
+  width: 18px;
+  height: 15px;
+  background-position: -415px -130px;
+}
+.pkitem-apicot-berry {
+  width: 17px;
+  height: 18px;
+  background-position: 0px -154px;
+}
+.pkitem-charti-berry {
+  width: 17px;
+  height: 17px;
+  background-position: -85px -154px;
+}
+.pkitem-clover-sweet {
+  width: 17px;
+  height: 17px;
+  background-position: -104px -154px;
+}
+.pkitem-energy-powder {
+  width: 22px;
+  height: 13px;
+  background-position: -140px -154px;
+}
+.pkitem-hard-stone {
+  width: 17px;
+  height: 18px;
+  background-position: -195px -154px;
+}
+.pkitem-light-clay {
+  width: 19px;
+  height: 16px;
+  background-position: -311px -154px;
+}
+.pkitem-love-sweet {
+  width: 17px;
+  height: 17px;
+  background-position: -364px -154px;
+}
+.pkitem-lum-berry {
+  width: 18px;
+  height: 17px;
+  background-position: -383px -154px;
+}
+.pkitem-luminous-moss {
+  width: 15px;
+  height: 20px;
+  background-position: -403px -154px;
+}
+.pkitem-metronome {
+  width: 15px;
+  height: 20px;
+  background-position: -439px -154px;
+}
+.pkitem-miracle-seed {
+  width: 17px;
+  height: 17px;
+  background-position: -456px -154px;
+}
+.pkitem-occa-berry {
+  width: 17px;
+  height: 17px;
+  background-position: -475px -154px;
+}
+.pkitem-razor-claw {
+  width: 18px;
+  height: 17px;
+  background-position: 0px -178px;
+}
+.pkitem-razor-fang {
+  width: 16px;
+  height: 18px;
+  background-position: -20px -178px;
+}
+.pkitem-silver-powder {
+  width: 22px;
+  height: 13px;
+  background-position: -80px -178px;
+}
+.pkitem-star-sweet {
+  width: 18px;
+  height: 17px;
+  background-position: -121px -178px;
+}
+.pkitem-absorb-bulb {
+  width: 16px;
+  height: 20px;
+  background-position: -500px -200px;
+}
+.pkitem-aloraichium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -518px -200px;
+}
+.pkitem-black-glasses {
+  width: 21px;
+  height: 15px;
+  background-position: -64px -222px;
+}
+.pkitem-black-sludge {
+  width: 20px;
+  height: 17px;
+  background-position: -87px -222px;
+}
+.pkitem-blue-orb {
+  width: 18px;
+  height: 18px;
+  background-position: -151px -222px;
+}
+.pkitem-blunder-policy {
+  width: 20px;
+  height: 17px;
+  background-position: -171px -222px;
+}
+.pkitem-buginium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -213px -222px;
+}
+.pkitem-burn-drive {
+  width: 21px;
+  height: 15px;
+  background-position: -239px -222px;
+}
+.pkitem-cherish-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -316px -222px;
+}
+.pkitem-chesto-berry {
+  width: 18px;
+  height: 19px;
+  background-position: -336px -222px;
+}
+.pkitem-chill-drive {
+  width: 21px;
+  height: 15px;
+  background-position: -356px -222px;
+}
+.pkitem-cleanse-tag {
+  width: 17px;
+  height: 19px;
+  background-position: -379px -222px;
+}
+.pkitem-darkinium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -436px -222px;
+}
+.pkitem-dawn-stone {
+  width: 18px;
+  height: 19px;
+  background-position: -484px -222px;
+}
+.pkitem-decidium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -504px -222px;
+}
+.pkitem-dive-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -530px -222px;
+}
+.pkitem-douse-drive {
+  width: 21px;
+  height: 15px;
+  background-position: -550px -222px;
+}
+.pkitem-dragonium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -573px -222px;
+}
+.pkitem-dream-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -599px -222px;
+}
+.pkitem-dubious-disc {
+  width: 20px;
+  height: 17px;
+  background-position: -619px -222px;
+}
+.pkitem-dusk-ball {
+  width: 18px;
+  height: 18px;
+  background-position: 0px -246px;
+}
+.pkitem-eevium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -20px -246px;
+}
+.pkitem-electrium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -46px -246px;
+}
+.pkitem-fairium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -72px -246px;
+}
+.pkitem-fast-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -98px -246px;
+}
+.pkitem-fightinium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -118px -246px;
+}
+.pkitem-firium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -144px -246px;
+}
+.pkitem-flyinium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -170px -246px;
+}
+.pkitem-friend-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -196px -246px;
+}
+.pkitem-ghostium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -216px -246px;
+}
+.pkitem-gigantamix {
+  width: 14px;
+  height: 23px;
+  background-position: -242px -246px;
+}
+.pkitem-grassium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -278px -246px;
+}
+.pkitem-great-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -304px -246px;
+}
+.pkitem-groundium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -344px -246px;
+}
+.pkitem-grubby-hanky {
+  width: 18px;
+  height: 18px;
+  background-position: -390px -246px;
+}
+.pkitem-heal-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -410px -246px;
+}
+.pkitem-honor-of-kalos {
+  width: 13px;
+  height: 24px;
+  background-position: -430px -246px;
+}
+.pkitem-icium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -478px -246px;
+}
+.pkitem-incinium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -504px -246px;
+}
+.pkitem-level-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -567px -246px;
+}
+.pkitem-love-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -606px -246px;
+}
+.pkitem-lure-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -626px -246px;
+}
+.pkitem-luxury-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -17px -272px;
+}
+.pkitem-magnet {
+  width: 18px;
+  height: 18px;
+  background-position: -37px -272px;
+}
+.pkitem-mago-berry {
+  width: 18px;
+  height: 19px;
+  background-position: -57px -272px;
+}
+.pkitem-magost-berry {
+  width: 18px;
+  height: 19px;
+  background-position: -77px -272px;
+}
+.pkitem-marshadium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -97px -272px;
+}
+.pkitem-master-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -123px -272px;
+}
+.pkitem-max-lure {
+  width: 15px;
+  height: 22px;
+  background-position: -143px -272px;
+}
+.pkitem-mental-herb {
+  width: 19px;
+  height: 17px;
+  background-position: -176px -272px;
+}
+.pkitem-metal-coat {
+  width: 17px;
+  height: 20px;
+  background-position: -197px -272px;
+}
+.pkitem-mewnium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -236px -272px;
+}
+.pkitem-micle-berry {
+  width: 18px;
+  height: 18px;
+  background-position: -262px -272px;
+}
+.pkitem-moon-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -298px -272px;
+}
+.pkitem-nest-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -318px -272px;
+}
+.pkitem-net-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -338px -272px;
+}
+.pkitem-normalium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -358px -272px;
+}
+.pkitem-oran-berry {
+  width: 19px;
+  height: 18px;
+  background-position: -384px -272px;
+}
+.pkitem-park-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -405px -272px;
+}
+.pkitem-pikanium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -447px -272px;
+}
+.pkitem-pikashunium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -473px -272px;
+}
+.pkitem-plume-fossil {
+  width: 19px;
+  height: 18px;
+  background-position: -519px -272px;
+}
+.pkitem-poisonium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -540px -272px;
+}
+.pkitem-poke-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -566px -272px;
+}
+.pkitem-power-herb {
+  width: 19px;
+  height: 17px;
+  background-position: 0px -297px;
+}
+.pkitem-premier-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -53px -297px;
+}
+.pkitem-primarium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -73px -297px;
+}
+.pkitem-psychium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -136px -297px;
+}
+.pkitem-quick-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -162px -297px;
+}
+.pkitem-quick-claw {
+  width: 17px;
+  height: 19px;
+  background-position: -182px -297px;
+}
+.pkitem-repeat-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -261px -297px;
+}
+.pkitem-ribbon-sweet {
+  width: 20px;
+  height: 16px;
+  background-position: -297px -297px;
+}
+.pkitem-rockium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -339px -297px;
+}
+.pkitem-sachet {
+  width: 16px;
+  height: 21px;
+  background-position: -365px -297px;
+}
+.pkitem-safari-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -383px -297px;
+}
+.pkitem-shock-drive {
+  width: 21px;
+  height: 15px;
+  background-position: -403px -297px;
+}
+.pkitem-snorlium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -426px -297px;
+}
+.pkitem-spell-tag {
+  width: 17px;
+  height: 19px;
+  background-position: -452px -297px;
+}
+.pkitem-spice-mix {
+  width: 14px;
+  height: 23px;
+  background-position: -471px -297px;
+}
+.pkitem-sport-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -487px -297px;
+}
+.pkitem-steelium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -527px -297px;
+}
+.pkitem-tapunium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -20px -322px;
+}
+.pkitem-timer-ball {
+  width: 18px;
+  height: 19px;
+  background-position: -46px -322px;
+}
+.pkitem-ultra-ball {
+  width: 18px;
+  height: 18px;
+  background-position: -83px -322px;
+}
+.pkitem-up-grade {
+  width: 20px;
+  height: 17px;
+  background-position: -139px -322px;
+}
+.pkitem-waterium-z {
+  width: 24px;
+  height: 13px;
+  background-position: -183px -322px;
+}
+.pkitem-weakness-policy {
+  width: 20px;
+  height: 17px;
+  background-position: -209px -322px;
+}
+.pkitem-white-herb {
+  width: 19px;
+  height: 17px;
+  background-position: -251px -322px;
+}
+.pkitem-wise-glasses {
+  width: 21px;
+  height: 15px;
+  background-position: -272px -322px;
+}
+.pkitem-adrenaline-orb {
+  width: 17px;
+  height: 21px;
+  background-position: -331px -322px;
+}
+.pkitem-assault-vest {
+  width: 21px;
+  height: 18px;
+  background-position: -350px -322px;
+}
+.pkitem-babiri-berry {
+  width: 19px;
+  height: 19px;
+  background-position: -396px -322px;
+}
+.pkitem-beast-ball {
+  width: 20px;
+  height: 19px;
+  background-position: -482px -322px;
+}
+.pkitem-berry-juice {
+  width: 20px;
+  height: 19px;
+  background-position: -504px -322px;
+}
+.pkitem-binding-band {
+  width: 21px;
+  height: 18px;
+  background-position: -549px -322px;
+}
+.pkitem-chilan-berry {
+  width: 19px;
+  height: 20px;
+  background-position: -614px -322px;
+}
+.pkitem-choice-specs {
+  width: 22px;
+  height: 16px;
+  background-position: 0px -346px;
+}
+.pkitem-chople-berry {
+  width: 19px;
+  height: 20px;
+  background-position: -24px -346px;
+}
+.pkitem-coba-berry {
+  width: 19px;
+  height: 19px;
+  background-position: -45px -346px;
+}
+.pkitem-deep-sea-scale {
+  width: 20px;
+  height: 18px;
+  background-position: -158px -346px;
+}
+.pkitem-deep-sea-tooth {
+  width: 20px;
+  height: 19px;
+  background-position: -180px -346px;
+}
+.pkitem-dragon-scale {
+  width: 22px;
+  height: 16px;
+  background-position: -251px -346px;
+}
+.pkitem-dusk-stone {
+  width: 19px;
+  height: 19px;
+  background-position: -296px -346px;
+}
+.pkitem-eject-button {
+  width: 20px;
+  height: 18px;
+  background-position: -341px -346px;
+}
+.pkitem-enigma-stone {
+  width: 20px;
+  height: 19px;
+  background-position: -381px -346px;
+}
+.pkitem-full-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -514px -346px;
+}
+.pkitem-heavy-ball {
+  width: 20px;
+  height: 18px;
+  background-position: -642px -346px;
+}
+.pkitem-kebia-berry {
+  width: 19px;
+  height: 19px;
+  background-position: -20px -370px;
+}
+.pkitem-lax-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -41px -370px;
+}
+.pkitem-liechi-berry {
+  width: 20px;
+  height: 19px;
+  background-position: -86px -370px;
+}
+.pkitem-luck-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -172px -370px;
+}
+.pkitem-mystic-water {
+  width: 18px;
+  height: 21px;
+  background-position: -401px -370px;
+}
+.pkitem-odd-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -466px -370px;
+}
+.pkitem-old-amber {
+  width: 20px;
+  height: 19px;
+  background-position: -532px -370px;
+}
+.pkitem-passho-berry {
+  width: 20px;
+  height: 18px;
+  background-position: 0px -394px;
+}
+.pkitem-poison-barb {
+  width: 19px;
+  height: 19px;
+  background-position: -91px -394px;
+}
+.pkitem-pure-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -135px -394px;
+}
+.pkitem-qualot-berry {
+  width: 19px;
+  height: 19px;
+  background-position: -157px -394px;
+}
+.pkitem-rindo-berry {
+  width: 19px;
+  height: 20px;
+  background-position: -223px -394px;
+}
+.pkitem-rock-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -244px -394px;
+}
+.pkitem-rocky-helmet {
+  width: 20px;
+  height: 18px;
+  background-position: -266px -394px;
+}
+.pkitem-rose-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -288px -394px;
+}
+.pkitem-roseli-berry {
+  width: 19px;
+  height: 19px;
+  background-position: -310px -394px;
+}
+.pkitem-safety-goggles {
+  width: 23px;
+  height: 16px;
+  background-position: -353px -394px;
+}
+.pkitem-sea-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -442px -394px;
+}
+.pkitem-shell-bell {
+  width: 21px;
+  height: 18px;
+  background-position: -508px -394px;
+}
+.pkitem-shiny-stone {
+  width: 19px;
+  height: 19px;
+  background-position: -531px -394px;
+}
+.pkitem-shuca-berry {
+  width: 19px;
+  height: 20px;
+  background-position: -552px -394px;
+}
+.pkitem-sitrus-berry {
+  width: 18px;
+  height: 20px;
+  background-position: -593px -394px;
+}
+.pkitem-sweet-apple {
+  width: 20px;
+  height: 19px;
+  background-position: -93px -417px;
+}
+.pkitem-tart-apple {
+  width: 20px;
+  height: 19px;
+  background-position: -115px -417px;
+}
+.pkitem-throat-spray {
+  width: 18px;
+  height: 21px;
+  background-position: -137px -417px;
+}
+.pkitem-wacan-berry {
+  width: 20px;
+  height: 19px;
+  background-position: -180px -417px;
+}
+.pkitem-wave-incense {
+  width: 20px;
+  height: 19px;
+  background-position: -202px -417px;
+}
+.pkitem-zoom-lens {
+  width: 19px;
+  height: 19px;
+  background-position: -224px -417px;
+}
+.pkitem-aguav-berry {
+  width: 19px;
+  height: 22px;
+  background-position: -245px -417px;
+}
+.pkitem-air-balloon {
+  width: 18px;
+  height: 22px;
+  background-position: -266px -417px;
+}
+.pkitem-amulet-coin {
+  width: 21px;
+  height: 19px;
+  background-position: -286px -417px;
+}
+.pkitem-aspear-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -329px -417px;
+}
+.pkitem-black-belt {
+  width: 20px;
+  height: 21px;
+  background-position: -400px -417px;
+}
+.pkitem-bluk-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -422px -417px;
+}
+.pkitem-bright-powder {
+  width: 22px;
+  height: 18px;
+  background-position: -463px -417px;
+}
+.pkitem-bug-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -487px -417px;
+}
+.pkitem-charcoal {
+  width: 20px;
+  height: 20px;
+  background-position: -574px -417px;
+}
+.pkitem-claw-fossil {
+  width: 21px;
+  height: 19px;
+  background-position: -596px -417px;
+}
+.pkitem-colbur-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -643px -417px;
+}
+.pkitem-cover-fossil {
+  width: 21px;
+  height: 20px;
+  background-position: -21px -443px;
+}
+.pkitem-custap-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -44px -443px;
+}
+.pkitem-dark-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -66px -443px;
+}
+.pkitem-dome-fossil {
+  width: 20px;
+  height: 21px;
+  background-position: -218px -443px;
+}
+.pkitem-dragon-fang {
+  width: 19px;
+  height: 21px;
+  background-position: -240px -443px;
+}
+.pkitem-dragon-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -261px -443px;
+}
+.pkitem-electirizer {
+  width: 20px;
+  height: 20px;
+  background-position: -412px -443px;
+}
+.pkitem-electric-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -434px -443px;
+}
+.pkitem-electric-seed {
+  width: 25px;
+  height: 15px;
+  background-position: -456px -443px;
+}
+.pkitem-enigma-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -527px -443px;
+}
+.pkitem-fairy-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -596px -443px;
+}
+.pkitem-fighting-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -22px -467px;
+}
+.pkitem-fire-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -88px -467px;
+}
+.pkitem-fire-stone {
+  width: 20px;
+  height: 21px;
+  background-position: -110px -467px;
+}
+.pkitem-flying-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -198px -467px;
+}
+.pkitem-focus-sash {
+  width: 20px;
+  height: 21px;
+  background-position: -264px -467px;
+}
+.pkitem-ganlon-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -335px -467px;
+}
+.pkitem-ghost-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -357px -467px;
+}
+.pkitem-grass-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -516px -467px;
+}
+.pkitem-grassy-seed {
+  width: 25px;
+  height: 15px;
+  background-position: -582px -467px;
+}
+.pkitem-grepa-berry {
+  width: 21px;
+  height: 20px;
+  background-position: -609px -467px;
+}
+.pkitem-ground-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -632px -467px;
+}
+.pkitem-haban-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -44px -490px;
+}
+.pkitem-helix-fossil {
+  width: 20px;
+  height: 21px;
+  background-position: -66px -490px;
+}
+.pkitem-hondew-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -115px -490px;
+}
+.pkitem-ice-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -159px -490px;
+}
+.pkitem-ice-stone {
+  width: 20px;
+  height: 20px;
+  background-position: -181px -490px;
+}
+.pkitem-jaboca-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -247px -490px;
+}
+.pkitem-kommonium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -381px -490px;
+}
+.pkitem-lansat-berry {
+  width: 19px;
+  height: 21px;
+  background-position: -411px -490px;
+}
+.pkitem-leaf-stone {
+  width: 19px;
+  height: 21px;
+  background-position: -432px -490px;
+}
+.pkitem-lunalium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -477px -490px;
+}
+.pkitem-lycanium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -530px -490px;
+}
+.pkitem-magmarizer {
+  width: 20px;
+  height: 20px;
+  background-position: -560px -490px;
+}
+.pkitem-metal-powder {
+  width: 22px;
+  height: 18px;
+  background-position: -652px -490px;
+}
+.pkitem-mimikium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -676px -490px;
+}
+.pkitem-misty-seed {
+  width: 25px;
+  height: 15px;
+  background-position: 0px -514px;
+}
+.pkitem-moon-stone {
+  width: 21px;
+  height: 19px;
+  background-position: -49px -514px;
+}
+.pkitem-never-melt-ice {
+  width: 20px;
+  height: 21px;
+  background-position: -118px -514px;
+}
+.pkitem-nomel-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -140px -514px;
+}
+.pkitem-pecha-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -316px -514px;
+}
+.pkitem-persim-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -338px -514px;
+}
+.pkitem-petaya-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -360px -514px;
+}
+.pkitem-poison-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -382px -514px;
+}
+.pkitem-pomeg-berry {
+  width: 19px;
+  height: 21px;
+  background-position: -468px -514px;
+}
+.pkitem-protector {
+  width: 20px;
+  height: 20px;
+  background-position: -513px -514px;
+}
+.pkitem-psychic-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -535px -514px;
+}
+.pkitem-psychic-seed {
+  width: 25px;
+  height: 15px;
+  background-position: -557px -514px;
+}
+.pkitem-quick-powder {
+  width: 22px;
+  height: 18px;
+  background-position: -650px -514px;
+}
+.pkitem-rare-bone {
+  width: 20px;
+  height: 20px;
+  background-position: 0px -538px;
+}
+.pkitem-rawst-berry {
+  width: 21px;
+  height: 20px;
+  background-position: -22px -538px;
+}
+.pkitem-razz-berry {
+  width: 19px;
+  height: 21px;
+  background-position: -45px -538px;
+}
+.pkitem-reaper-cloth {
+  width: 20px;
+  height: 21px;
+  background-position: -88px -538px;
+}
+.pkitem-red-orb {
+  width: 18px;
+  height: 22px;
+  background-position: -110px -538px;
+}
+.pkitem-rock-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -222px -538px;
+}
+.pkitem-rusted-shield {
+  width: 22px;
+  height: 18px;
+  background-position: -288px -538px;
+}
+.pkitem-rusted-sword {
+  width: 21px;
+  height: 20px;
+  background-position: -312px -538px;
+}
+.pkitem-sharp-beak {
+  width: 19px;
+  height: 21px;
+  background-position: -403px -538px;
+}
+.pkitem-shed-shell {
+  width: 20px;
+  height: 20px;
+  background-position: -424px -538px;
+}
+.pkitem-soft-sand {
+  width: 22px;
+  height: 18px;
+  background-position: -534px -538px;
+}
+.pkitem-solganium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -558px -538px;
+}
+.pkitem-spelon-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -630px -538px;
+}
+.pkitem-starf-berry {
+  width: 20px;
+  height: 20px;
+  background-position: 0px -562px;
+}
+.pkitem-steel-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -22px -562px;
+}
+.pkitem-tamato-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -173px -562px;
+}
+.pkitem-tanga-berry {
+  width: 20px;
+  height: 20px;
+  background-position: -195px -562px;
+}
+.pkitem-thick-club {
+  width: 20px;
+  height: 20px;
+  background-position: -217px -562px;
+}
+.pkitem-thunder-stone {
+  width: 20px;
+  height: 20px;
+  background-position: -239px -562px;
+}
+.pkitem-ultranecrozium-z {
+  width: 28px;
+  height: 13px;
+  background-position: -332px -562px;
+}
+.pkitem-water-memory {
+  width: 20px;
+  height: 20px;
+  background-position: -408px -562px;
+}
+.pkitem-water-stone {
+  width: 20px;
+  height: 20px;
+  background-position: -430px -562px;
+}
+.pkitem-whipped-dream {
+  width: 19px;
+  height: 21px;
+  background-position: -496px -562px;
+}
+.pkitem-wide-lens {
+  width: 20px;
+  height: 21px;
+  background-position: -517px -562px;
+}
+.pkitem-yache-berry {
+  width: 20px;
+  height: 21px;
+  background-position: -84px -586px;
+}
+.pkitem-belue-berry {
+  width: 21px;
+  height: 21px;
+  background-position: -154px -586px;
+}
+.pkitem-big-root {
+  width: 21px;
+  height: 22px;
+  background-position: -223px -586px;
+}
+.pkitem-chipped-pot {
+  width: 24px;
+  height: 18px;
+  background-position: -316px -586px;
+}
+.pkitem-cornn-berry {
+  width: 22px;
+  height: 21px;
+  background-position: -395px -586px;
+}
+.pkitem-cracked-pot {
+  width: 24px;
+  height: 18px;
+  background-position: -419px -586px;
+}
+.pkitem-destiny-knot {
+  width: 20px;
+  height: 22px;
+  background-position: -445px -586px;
+}
+.pkitem-durin-berry {
+  width: 21px;
+  height: 22px;
+  background-position: -489px -586px;
+}
+.pkitem-dynamax-band {
+  width: 21px;
+  height: 21px;
+  background-position: -512px -586px;
+}
+.pkitem-expert-belt {
+  width: 22px;
+  height: 21px;
+  background-position: -629px -586px;
+}
+.pkitem-figy-berry {
+  width: 20px;
+  height: 22px;
+  background-position: -24px -610px;
+}
+.pkitem-griseous-orb {
+  width: 20px;
+  height: 22px;
+  background-position: -119px -610px;
+}
+.pkitem-heat-rock {
+  width: 22px;
+  height: 21px;
+  background-position: -141px -610px;
+}
+.pkitem-iapapa-berry {
+  width: 21px;
+  height: 22px;
+  background-position: -165px -610px;
+}
+.pkitem-kee-berry {
+  width: 22px;
+  height: 21px;
+  background-position: -188px -610px;
+}
+.pkitem-kelpsy-berry {
+  width: 21px;
+  height: 22px;
+  background-position: -212px -610px;
+}
+.pkitem-kings-rock {
+  width: 21px;
+  height: 22px;
+  background-position: -235px -610px;
+}
+.pkitem-lagging-tail {
+  width: 22px;
+  height: 21px;
+  background-position: -258px -610px;
+}
+.pkitem-stick {
+  width: 21px;
+  height: 21px;
+  background-position: -282px -610px;
+}
+.pkitem-leek {
+  width: 21px;
+  height: 21px;
+  background-position: -282px -610px;
+}
+.pkitem-leppa-berry {
+  width: 22px;
+  height: 21px;
+  background-position: -305px -610px;
+}
+.pkitem-macho-brace {
+  width: 21px;
+  height: 21px;
+  background-position: -353px -610px;
+}
+.pkitem-maranga-berry {
+  width: 21px;
+  height: 22px;
+  background-position: -400px -610px;
+}
+.pkitem-pamtre-berry {
+  width: 20px;
+  height: 22px;
+  background-position: -516px -610px;
+}
+.pkitem-pinap-berry {
+  width: 21px;
+  height: 22px;
+  background-position: -538px -610px;
+}
+.pkitem-power-anklet {
+  width: 22px;
+  height: 21px;
+  background-position: -676px -610px;
+}
+.pkitem-power-band {
+  width: 22px;
+  height: 21px;
+  background-position: 0px -636px;
+}
+.pkitem-power-belt {
+  width: 22px;
+  height: 21px;
+  background-position: -24px -636px;
+}
+.pkitem-power-bracer {
+  width: 22px;
+  height: 21px;
+  background-position: -48px -636px;
+}
+.pkitem-power-weight {
+  width: 22px;
+  height: 21px;
+  background-position: -72px -636px;
+}
+.pkitem-protective-pads {
+  width: 20px;
+  height: 22px;
+  background-position: -136px -636px;
+}
+.pkitem-root-fossil {
+  width: 21px;
+  height: 21px;
+  background-position: -320px -636px;
+}
+.pkitem-rowap-berry {
+  width: 21px;
+  height: 21px;
+  background-position: -369px -636px;
+}
+.pkitem-scope-lens {
+  width: 22px;
+  height: 21px;
+  background-position: -416px -636px;
+}
+.pkitem-skull-fossil {
+  width: 22px;
+  height: 21px;
+  background-position: -463px -636px;
+}
+.pkitem-terrain-extender {
+  width: 19px;
+  height: 23px;
+  background-position: -551px -636px;
+}
+.pkitem-twisted-spoon {
+  width: 22px;
+  height: 21px;
+  background-position: -594px -636px;
+}
+.pkitem-wepear-berry {
+  width: 20px;
+  height: 22px;
+  background-position: -642px -636px;
+}
+.pkitem-wiki-berry {
+  width: 21px;
+  height: 22px;
+  background-position: 0px -666px;
+}
+.pkitem-adamant-orb {
+  width: 22px;
+  height: 22px;
+  background-position: -140px -666px;
+}
+.pkitem-armor-fossil {
+  width: 22px;
+  height: 22px;
+  background-position: -236px -666px;
+}
+.pkitem-cheri-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -576px -666px;
+}
+.pkitem-choice-band {
+  width: 22px;
+  height: 22px;
+  background-position: -600px -666px;
+}
+.pkitem-choice-scarf {
+  width: 22px;
+  height: 22px;
+  background-position: -624px -666px;
+}
+.pkitem-damp-rock {
+  width: 22px;
+  height: 22px;
+  background-position: -648px -666px;
+}
+.pkitem-draco-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -24px -691px;
+}
+.pkitem-dread-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -48px -691px;
+}
+.pkitem-earth-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -96px -691px;
+}
+.pkitem-eject-pack {
+  width: 23px;
+  height: 22px;
+  background-position: -120px -691px;
+}
+.pkitem-fist-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -210px -691px;
+}
+.pkitem-flame-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -258px -691px;
+}
+.pkitem-focus-band {
+  width: 22px;
+  height: 22px;
+  background-position: -306px -691px;
+}
+.pkitem-fossilized-drake {
+  width: 22px;
+  height: 23px;
+  background-position: -350px -691px;
+}
+.pkitem-grip-claw {
+  width: 22px;
+  height: 22px;
+  background-position: -518px -691px;
+}
+.pkitem-heavy-duty-boots {
+  width: 24px;
+  height: 21px;
+  background-position: -590px -691px;
+}
+.pkitem-icicle-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -616px -691px;
+}
+.pkitem-icy-rock {
+  width: 22px;
+  height: 22px;
+  background-position: -640px -691px;
+}
+.pkitem-insect-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -688px -691px;
+}
+.pkitem-iron-plate {
+  width: 22px;
+  height: 22px;
+  background-position: 0px -722px;
+}
+.pkitem-kasib-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -48px -722px;
+}
+.pkitem-lucky-punch {
+  width: 22px;
+  height: 22px;
+  background-position: -148px -722px;
+}
+.pkitem-lustrous-orb {
+  width: 22px;
+  height: 22px;
+  background-position: -172px -722px;
+}
+.pkitem-mail {
+  width: 22px;
+  height: 22px;
+  background-position: -196px -722px;
+}
+.pkitem-meadow-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -220px -722px;
+}
+.pkitem-mind-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -268px -722px;
+}
+.pkitem-muscle-band {
+  width: 22px;
+  height: 22px;
+  background-position: -340px -722px;
+}
+.pkitem-payapa-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -464px -722px;
+}
+.pkitem-pixie-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -536px -722px;
+}
+.pkitem-power-lens {
+  width: 22px;
+  height: 22px;
+  background-position: -584px -722px;
+}
+.pkitem-rabuta-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -631px -722px;
+}
+.pkitem-salac-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -47px -747px;
+}
+.pkitem-silk-scarf {
+  width: 22px;
+  height: 22px;
+  background-position: -143px -747px;
+}
+.pkitem-sky-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -196px -747px;
+}
+.pkitem-smooth-rock {
+  width: 22px;
+  height: 22px;
+  background-position: -220px -747px;
+}
+.pkitem-splash-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -376px -747px;
+}
+.pkitem-spooky-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -400px -747px;
+}
+.pkitem-stone-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -472px -747px;
+}
+.pkitem-sun-stone {
+  width: 22px;
+  height: 22px;
+  background-position: -496px -747px;
+}
+.pkitem-toxic-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -624px -747px;
+}
+.pkitem-watmel-berry {
+  width: 22px;
+  height: 22px;
+  background-position: -696px -747px;
+}
+.pkitem-zap-plate {
+  width: 22px;
+  height: 22px;
+  background-position: -91px -772px;
+}
+.pkitem-fossilized-bird {
+  width: 23px;
+  height: 23px;
+  background-position: -229px -772px;
+}
+.pkitem-fossilized-dino {
+  width: 23px;
+  height: 23px;
+  background-position: -254px -772px;
+}
+.pkitem-room-service {
+  width: 22px;
+  height: 25px;
+  background-position: -416px -772px;
+}
+.pkitem-fossilized-fish {
+  width: 24px;
+  height: 24px;
+  background-position: -619px -772px;
+}
+.pkitem-jaw-fossil {
+  width: 24px;
+  height: 25px;
+  background-position: -671px -772px;
+}
+.pkitem-nanab-berry {
+  width: 24px;
+  height: 24px;
+  background-position: -723px -772px;
+}
+.pkitem-sail-fossil {
+  width: 25px;
+  height: 24px;
+  background-position: -749px -772px;
+}
+.pkitem-utility-umbrella {
+  width: 24px;
+  height: 24px;
+  background-position: -55px -802px;
+}
+.pkitem-galarica-cuff {
+  width: 27px;
+  height: 28px;
+  background-position: -589px -802px;
+}

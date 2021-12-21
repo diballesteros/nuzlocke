@@ -71,16 +71,15 @@ describe('PokéStats', () => {
     cy.contains('Summary description').should('exist');
     cy.get('.secondary > :nth-child(5) > .ui').click().should('have.text', '1');
     cy.get('.secondary > :nth-child(4) > .ui').click().should('have.text', '1');
-    cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '5');
+    cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '4');
 
-    cy.get('[alt="Scorbunny"]').should('exist').click();
-    cy.get('[alt="Magikarp"]').should('exist').click();
-    cy.get('[alt="Caterpie"]').should('exist');
-    cy.get('[alt="Slowpoke (Galarian)"]').should('exist');
+    cy.get('[data-testid="caught-0"]').should('exist');
+    cy.get('[data-testid="caught-1"]').should('exist');
+    cy.get('[data-testid="caught-2"]').should('exist');
     cy.get('.secondary > :nth-child(4)').click();
-    cy.get('[alt="Butterfree"]').should('exist');
+    cy.get('[data-testid="failed-5"]').should('exist');
     cy.get('.secondary > :nth-child(5)').click();
-    cy.get('[alt="Lapras"]').should('exist').click();
+    cy.get('[data-testid="fainted-4"]').should('exist').click();
     cy.contains('Lv. 15').should('exist');
     cy.contains('Met at: Route 2, at lv. 5').should('exist');
     cy.contains('Bold nature').should('exist');

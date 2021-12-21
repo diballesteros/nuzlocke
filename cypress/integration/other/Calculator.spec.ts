@@ -32,8 +32,8 @@ describe('Calculator', () => {
     cy.get('[data-testid=nature1] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=ability1] > .search').click().type('Overgrow');
     cy.get('[data-testid=ability1] > .visible > :nth-child(1)').click();
-    cy.get('[data-testid=item1] > .search').type('Miracle Seed');
-    cy.get('[data-testid=item1] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid="item1"] > .search').type('Miracle Seed', { force: true });
+    cy.get('[data-testid="item1"] > .visible > :nth-child(1)').click();
     cy.contains(
       'Lvl 10 0- Atk Bulbasaur Pound vs. 0 HP / 0 Def Bulbasaur: 1-2 (0.4 - 0.8%)'
     ).should('exist');
@@ -180,9 +180,9 @@ describe('Calculator', () => {
     cy.contains('Nidoran♂').should('exist');
     cy.get('[data-testid="game-select"]').click();
     cy.contains('Ruby, Sapphire and Emerald').click();
-    cy.get('[data-testid="item1"] > .search').click().type('Charizard');
+    cy.get('[data-testid="item1"] > .search').type('Charizard', { force: true });
     cy.get('[data-testid=item1] > .visible > :nth-child(1)').click();
-    cy.get('[data-testid="item2"] > .search').click().type('Charizard');
+    cy.get('[data-testid="item2"] > .search').type('Charizard', { force: true });
     cy.get('[data-testid=item2] > .visible > :nth-child(1)').click();
   });
 });

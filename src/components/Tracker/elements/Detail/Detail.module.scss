@@ -79,25 +79,14 @@
   .input > input {
     color: var(--contrast) !important;
     background-color: transparent !important;
-    border: 1px solid var(--contrast);
+    border: 1px solid var(--contrast-border);
   }
 
-  .dropdown {
-    min-height: unset !important;
-    background-color: transparent !important;
-    color: var(--contrast) !important;
-    border: 1px solid var(--contrast) !important;
-    > i {
-      top: 0 !important;
-    }
-
-    > input {
+  :global(.ui.checkbox) {
+    width: fit-content;
+    > label {
       color: var(--contrast) !important;
     }
-  }
-
-  :global(.ui.checkbox) > label {
-    color: var(--contrast) !important;
   }
 
   .textarea {

@@ -26,6 +26,7 @@ import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
 import 'assets/styles/pokemon.css';
+import 'assets/styles/item.css';
 import App from './App';
 import './i18n';
 

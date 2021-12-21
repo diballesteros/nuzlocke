@@ -1,4 +1,4 @@
-import { GenerationNum } from '@smogon/calc';
+import { GenerationNum, ITEMS } from '@smogon/calc';
 import BADGES from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';
@@ -558,4 +558,15 @@ export const SMOGON_NAMES: Record<string, string> = {
   'Darumaka (Galarian)': 'Darumaka-Galar',
   'Darmanitan (Galarian)': 'Darmanitan-Galar',
   'Stunfisk (Galarian)': 'Stunfisk-Galar',
+};
+
+export const MY_ITEMS = [...new Set(ITEMS[8])].filter(
+  (smogonItem) => smogonItem.substring(0, 2) !== 'TR'
+);
+
+export const getSmogonItemName = (item: string) => {
+  if (item === "King's Rock") {
+    return 'kings-rock';
+  }
+  return item.toLowerCase().replaceAll(' ', '-');
 };

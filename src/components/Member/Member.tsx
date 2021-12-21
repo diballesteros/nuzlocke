@@ -1,16 +1,17 @@
-import { ABILITIES, ITEMS } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import { PkmImage } from 'common';
+import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail } from 'constants/types';
 import useStore from 'store';
+import dropdownStyles from 'assets/styles/Dropdown.module.scss';
 import styles from './Member.module.scss';
 
 interface MemberProps {
@@ -54,7 +55,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
           <Dropdown
             aria-label="nature-selector"
             basic
-            className={`${styles.dropdown} ${styles.nature}`}
+            className={`${dropdownStyles.dropdown} ${styles.nature}`}
             data-testid={`team-nature-${pokemon?.text}`}
             inline
             lazyLoad
@@ -72,7 +73,7 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
         <Dropdown
           aria-label="ability"
           basic
-          className={styles.dropdown}
+          className={dropdownStyles.dropdown}
           data-testid={`team-ability-${pokemon?.text}`}
           inline
           lazyLoad
@@ -87,23 +88,10 @@ function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
           selection
           value={pokemonDetail.ability ?? ''}
         />
-        <Dropdown
-          aria-label="item"
-          basic
-          className={styles.dropdown}
-          data-testid={`team-item-${pokemon?.text}`}
-          inline
-          lazyLoad
-          onChange={(e, data) =>
-            changeTeamMember(index, { ...pokemonDetail, item: data.value as string })
-          }
-          options={[...new Set(ITEMS[8])].map((smogonItem) => {
-            return { text: smogonItem, value: smogonItem };
-          })}
-          placeholder={t('select_item', { ns: 'calculator' })}
-          search
-          selection
-          value={pokemonDetail.item ?? ''}
+        <ItemSelector
+          dataTestId={`team-item-${pokemon?.text}`}
+          item={pokemonDetail.item}
+          onChange={(newItem) => changeTeamMember(index, { ...pokemonDetail, item: newItem })}
         />
         <MoveSelector
           currentMoveId={pokemonDetail?.moves?.length > 0 ? pokemonDetail.moves[0] : null}

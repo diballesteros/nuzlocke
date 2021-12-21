@@ -5,7 +5,13 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import { PkmImage } from 'common';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import { D_STAT_COLOR, GAME_GENERATION, PHYS_SPEC_SPLIT, STAT_COLOR } from 'constants/constant';
+import {
+  D_STAT_COLOR,
+  GAME_GENERATION,
+  getSmogonItemName,
+  PHYS_SPEC_SPLIT,
+  STAT_COLOR,
+} from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import type { TDetail } from 'constants/types';
 import { getSmogonName } from 'hooks/useCalculate';
@@ -93,7 +99,12 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                   {!!pokemon?.item && (
                     <div className={styles.pokemonLabel}>
                       <span>{t('item')}:</span>
-                      <span className={styles.value}>{pokemon?.item}</span>
+                      <div className={styles.item}>
+                        <span className={styles.value}>{pokemon?.item}</span>
+                        <div className="pkitem-wrapper">
+                          <div className={`pkitem pkitem-${getSmogonItemName(pokemon?.item)}`} />
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>

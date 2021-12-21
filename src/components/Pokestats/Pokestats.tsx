@@ -107,7 +107,7 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <div className={styles.pokemon}>
+                    <div className={styles.pokemon} data-testid={`caught-${enc.id}`}>
                       <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }
@@ -143,7 +143,7 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <div className={styles.pokemon}>
+                    <div className={styles.pokemon} data-testid={`failed-${enc.id}`}>
                       <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }
@@ -179,7 +179,7 @@ function Pokestats(): JSX.Element {
                   pinned
                   position="top center"
                   trigger={
-                    <div className={styles.pokemon}>
+                    <div className={styles.pokemon} data-testid={`fainted-${enc.id}`}>
                       <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
                     </div>
                   }

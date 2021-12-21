@@ -1,4 +1,4 @@
-import { ABILITIES, ITEMS } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -8,13 +8,14 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { PkmImage } from 'common';
+import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
+import dropdownStyles from 'assets/styles/Dropdown.module.scss';
 import styles from './Detail.module.scss';
 
 interface DetailProps {
@@ -148,7 +149,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             />
             <Dropdown
               aria-label="gender-selector"
-              className={styles.dropdown}
+              className={dropdownStyles.dropdown}
               clearable
               data-testid="gender"
               inline
@@ -162,7 +163,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <div className={styles.natureContainer}>
               <Dropdown
                 aria-label="nature-selector"
-                className={styles.dropdown}
+                className={dropdownStyles.dropdown}
                 clearable
                 data-testid="nature"
                 inline
@@ -178,7 +179,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             </div>
             <Dropdown
               aria-label="ability"
-              className={styles.dropdown}
+              className={dropdownStyles.dropdown}
               clearable
               data-testid="ability"
               inline
@@ -192,22 +193,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               selection
               value={ability ?? ''}
             />
-            <Dropdown
-              aria-label="item"
-              className={styles.dropdown}
-              clearable
-              data-testid="item"
-              inline
-              lazyLoad
-              onChange={(e, data) => setItem(data.value as unknown as string)}
-              options={[...new Set(ITEMS[8])].map((smogonItem) => {
-                return { text: smogonItem, value: smogonItem };
-              })}
-              placeholder={t('select_item', { ns: 'calculator' })}
-              search
-              selection
-              value={item ?? ''}
-            />
+            <ItemSelector item={item} onChange={(newItem) => setItem(newItem)} />
             <Checkbox
               checked={shiny}
               className={styles.checkbox}

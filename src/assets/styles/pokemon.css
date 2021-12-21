@@ -5709,11 +5709,6 @@
   height: 35px;
   background-position: -979px -1118px;
 }
-.pkm-appletun-gmax {
-  width: 27px;
-  height: 44px;
-  background-position: -1017px -1118px;
-}
 .pkm-beartic {
   width: 40px;
   height: 31px;
@@ -5728,11 +5723,6 @@
   width: 37px;
   height: 33px;
   background-position: 0px -1164px;
-}
-.pkm-flapple-gmax {
-  width: 27px;
-  height: 44px;
-  background-position: -39px -1164px;
 }
 .pkm-flygon {
   width: 37px;
@@ -5879,11 +5869,6 @@
   height: 34px;
   background-position: 0px -1210px;
 }
-.pkm-eevee-gmax {
-  width: 34px;
-  height: 38px;
-  background-position: -41px -1210px;
-}
 .pkm-garbodor {
   width: 42px;
   height: 30px;
@@ -5943,91 +5928,6 @@
   width: 36px;
   height: 37px;
   background-position: -530px -1210px;
-}
-.pkm-silvally-bug {
-  width: 31px;
-  height: 42px;
-  background-position: -568px -1210px;
-}
-.pkm-silvally-dark {
-  width: 31px;
-  height: 42px;
-  background-position: -601px -1210px;
-}
-.pkm-silvally-dragon {
-  width: 31px;
-  height: 42px;
-  background-position: -634px -1210px;
-}
-.pkm-silvally-electric {
-  width: 31px;
-  height: 42px;
-  background-position: -667px -1210px;
-}
-.pkm-silvally-fairy {
-  width: 31px;
-  height: 42px;
-  background-position: -700px -1210px;
-}
-.pkm-silvally-fighting {
-  width: 31px;
-  height: 42px;
-  background-position: -733px -1210px;
-}
-.pkm-silvally-fire {
-  width: 31px;
-  height: 42px;
-  background-position: -766px -1210px;
-}
-.pkm-silvally-flying {
-  width: 31px;
-  height: 42px;
-  background-position: -799px -1210px;
-}
-.pkm-silvally-ghost {
-  width: 31px;
-  height: 42px;
-  background-position: -832px -1210px;
-}
-.pkm-silvally-grass {
-  width: 31px;
-  height: 42px;
-  background-position: -865px -1210px;
-}
-.pkm-silvally-ground {
-  width: 31px;
-  height: 42px;
-  background-position: -898px -1210px;
-}
-.pkm-silvally-ice {
-  width: 31px;
-  height: 42px;
-  background-position: -931px -1210px;
-}
-.pkm-silvally-poison {
-  width: 31px;
-  height: 42px;
-  background-position: -964px -1210px;
-}
-.pkm-silvally-psychic {
-  width: 31px;
-  height: 42px;
-  background-position: -997px -1210px;
-}
-.pkm-silvally-rock {
-  width: 31px;
-  height: 42px;
-  background-position: -1030px -1210px;
-}
-.pkm-silvally-steel {
-  width: 31px;
-  height: 42px;
-  background-position: -1063px -1210px;
-}
-.pkm-silvally-water {
-  width: 31px;
-  height: 42px;
-  background-position: 0px -1257px;
 }
 .pkm-silvally {
   width: 31px;
@@ -6104,11 +6004,6 @@
   height: 39px;
   background-position: -597px -1257px;
 }
-.pkm-meowth-gmax {
-  width: 30px;
-  height: 45px;
-  background-position: -634px -1257px;
-}
 .pkm-mewtwo {
   width: 32px;
   height: 42px;
@@ -6178,11 +6073,6 @@
   width: 41px;
   height: 35px;
   background-position: 0px -1304px;
-}
-.pkm-keldeo-resolute {
-  width: 42px;
-  height: 34px;
-  background-position: -43px -1304px;
 }
 .pkm-machamp {
   width: 40px;
@@ -6304,11 +6194,6 @@
   height: 40px;
   background-position: -1115px -1304px;
 }
-.pkm-alcremie-gmax {
-  width: 32px;
-  height: 50px;
-  background-position: -1158px -1304px;
-}
 .pkm-charizard {
   width: 44px;
   height: 39px;
@@ -6318,16 +6203,6 @@
   width: 50px;
   height: 32px;
   background-position: -1238px -1304px;
-}
-.pkm-duraludon-gmax {
-  width: 35px;
-  height: 48px;
-  background-position: -1290px -1304px;
-}
-.pkm-hatterene-gmax {
-  width: 39px;
-  height: 43px;
-  background-position: 0px -1356px;
 }
 .pkm-kingler {
   width: 44px;
@@ -6343,11 +6218,6 @@
   width: 44px;
   height: 38px;
   background-position: -130px -1356px;
-}
-.pkm-urshifu-rapid-strike-gmax {
-  width: 39px;
-  height: 43px;
-  background-position: -176px -1356px;
 }
 .pkm-venusaur {
   width: 43px;
@@ -6374,50 +6244,15 @@
   height: 33px;
   background-position: -408px -1356px;
 }
-.pkm-calyrex-ice {
-  width: 37px;
-  height: 49px;
-  background-position: -461px -1356px;
-}
-.pkm-calyrex-shadow {
-  width: 36px;
-  height: 50px;
-  background-position: -500px -1356px;
-}
 .pkm-dragapult {
   width: 47px;
   height: 39px;
   background-position: -538px -1356px;
 }
-.pkm-gengar-gmax {
-  width: 46px;
-  height: 41px;
-  background-position: -587px -1356px;
-}
-.pkm-grimmsnarl-gmax {
-  width: 39px;
-  height: 48px;
-  background-position: -635px -1356px;
-}
-.pkm-lapras-gmax {
-  width: 46px;
-  height: 41px;
-  background-position: -676px -1356px;
-}
 .pkm-moltres {
   width: 42px;
   height: 44px;
   background-position: -724px -1356px;
-}
-.pkm-pikachu-gmax {
-  width: 35px;
-  height: 52px;
-  background-position: -768px -1356px;
-}
-.pkm-sandaconda-gmax {
-  width: 44px;
-  height: 42px;
-  background-position: -805px -1356px;
 }
 .pkm-solgaleo {
   width: 48px;
@@ -6429,90 +6264,25 @@
   height: 39px;
   background-position: -901px -1356px;
 }
-.pkm-urshifu-gmax {
-  width: 39px;
-  height: 48px;
-  background-position: -950px -1356px;
-}
-.pkm-venusaur-gmax {
-  width: 46px;
-  height: 41px;
-  background-position: -991px -1356px;
-}
-.pkm-zamazenta-crowned {
-  width: 47px;
-  height: 40px;
-  background-position: -1039px -1356px;
-}
 .pkm-zapdos {
   width: 44px;
   height: 43px;
   background-position: -1088px -1356px;
-}
-.pkm-copperajah-gmax {
-  width: 42px;
-  height: 47px;
-  background-position: -1134px -1356px;
-}
-.pkm-kingler-gmax {
-  width: 49px;
-  height: 39px;
-  background-position: -1178px -1356px;
-}
-.pkm-melmetal-gmax {
-  width: 47px;
-  height: 42px;
-  background-position: -1229px -1356px;
-}
-.pkm-necrozma-dawn-wings {
-  width: 46px;
-  height: 43px;
-  background-position: -1278px -1356px;
 }
 .pkm-sirfetchd {
   width: 37px;
   height: 52px;
   background-position: -1326px -1356px;
 }
-.pkm-toxtricity-gmax {
-  width: 42px;
-  height: 47px;
-  background-position: 0px -1410px;
-}
-.pkm-toxtricity-low-key-gmax {
-  width: 42px;
-  height: 47px;
-  background-position: -44px -1410px;
-}
 .pkm-weezing-galar {
   width: 42px;
   height: 46px;
   background-position: -88px -1410px;
 }
-.pkm-butterfree-gmax {
-  width: 46px;
-  height: 44px;
-  background-position: -132px -1410px;
-}
-.pkm-charizard-gmax {
-  width: 41px;
-  height: 50px;
-  background-position: -180px -1410px;
-}
 .pkm-exeggutor-alola {
   width: 37px;
   height: 54px;
   background-position: -223px -1410px;
-}
-.pkm-garbodor-gmax {
-  width: 51px;
-  height: 40px;
-  background-position: -262px -1410px;
-}
-.pkm-machamp-gmax {
-  width: 44px;
-  height: 46px;
-  background-position: -315px -1410px;
 }
 .pkm-weezing {
   width: 47px;
@@ -6529,78 +6299,18 @@
   height: 48px;
   background-position: -457px -1410px;
 }
-.pkm-blastoise-gmax {
-  width: 49px;
-  height: 44px;
-  background-position: -504px -1410px;
-}
-.pkm-coalossal-gmax {
-  width: 42px;
-  height: 50px;
-  background-position: -555px -1410px;
-}
-.pkm-corviknight-gmax {
-  width: 48px;
-  height: 44px;
-  background-position: -599px -1410px;
-}
 .pkm-kyurem-white {
   width: 52px;
   height: 41px;
   background-position: -649px -1410px;
-}
-.pkm-orbeetle-gmax {
-  width: 52px;
-  height: 40px;
-  background-position: -703px -1410px;
 }
 .pkm-reshiram {
   width: 52px;
   height: 41px;
   background-position: -757px -1410px;
 }
-.pkm-drednaw-gmax {
-  width: 51px;
-  height: 46px;
-  background-position: -811px -1410px;
-}
-.pkm-centiskorch-gmax {
-  width: 54px;
-  height: 45px;
-  background-position: -864px -1410px;
-}
-.pkm-necrozma-dusk-mane {
-  width: 53px;
-  height: 46px;
-  background-position: -920px -1410px;
-}
-.pkm-inteleon-gmax {
-  width: 50px;
-  height: 50px;
-  background-position: -975px -1410px;
-}
-.pkm-cinderace-gmax {
-  width: 53px;
-  height: 50px;
-  background-position: -1027px -1410px;
-}
-.pkm-snorlax-gmax {
-  width: 52px;
-  height: 50px;
-  background-position: -1082px -1410px;
-}
 .pkm-eternatus {
   width: 58px;
   height: 49px;
   background-position: -1136px -1410px;
-}
-.pkm-rillaboom-gmax {
-  width: 62px;
-  height: 50px;
-  background-position: -1196px -1410px;
-}
-.pkm-eternatus-eternamax {
-  width: 67px;
-  height: 56px;
-  background-position: -1260px -1410px;
 }
