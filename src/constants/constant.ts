@@ -173,12 +173,41 @@ const GENERATION_RULESET: TRuleEntry[] = [
   },
 ];
 
+export const SOULLINK_RULESET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
+  {
+    content:
+      "Pokémon captured in one player's game are linked to another player's Pokémon. This means that each players' Pokémon are Soul Linked. For example, starter Pokémon are considered linked, and both players' encounter in each area is considered linked.",
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      "Once a Pokémon faints, the Soul Link Pokémon in the other player's game is also considered fainted and cannot be used.",
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      'If one player is unsuccessful in capturing a Pokémon on a specific route, the linked player must release a Pokémon captured on that route or not catch one.',
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      "If a Pokémon is placed in the PC, the linked Pokémon in the other player's game must also be placed in the PC.",
+    default: true,
+    type: 'TEXT',
+  },
+];
+
 export const DEFAULT_RULES: TRulesetDictionary = {
   'Nuzlocke': DEFAULT_RULESET,
   'Hardcore': HARDCORE_RULESET,
   'Egglocke': EGGLOCKE_RULESET,
   'Wonderlocke': WONDERLOCKE_RULESET,
   'Genlocke': GENERATION_RULESET,
+  'Soulocke': SOULLINK_RULESET,
 };
 
 export const INITIAL_SUMMARY = {
@@ -315,6 +344,7 @@ export const DEFAULT_RULESET_NAMES = [
   'Wonderlocke',
   'Genlocke',
   'Hardcore Nuzlocke',
+  'Soulocke',
 ];
 
 export const getRuleContent = (content: TRuleContent, type: TRule): string => {

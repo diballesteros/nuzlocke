@@ -125,6 +125,10 @@ export type TBadgeDictionary = {
   [key: string]: TBadge[];
 };
 
+export type TBadgeImages = {
+  [key: string]: { src: string }[];
+};
+
 export type TCustomBadgeDictionary = {
   [key: string]: (number | string)[];
 };
@@ -149,7 +153,6 @@ export type TBadge = {
   id: number;
   levelCap: number | string;
   name: string;
-  src: string;
 };
 
 export type TEncounter = {

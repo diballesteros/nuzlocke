@@ -1,6 +1,7 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { BADGE_IMAGES } from 'constants/badges';
 import useStore from 'store';
 import styles from './Badges.module.scss';
 
@@ -35,7 +36,7 @@ function Badges(): JSX.Element {
               title={badge.name}
               type="button"
             >
-              <img src={badge.src} alt={badge.name} />
+              <img src={BADGE_IMAGES[selectedGame?.value][index].src} alt={badge.name} />
               <span className={styles.levelCap}>{badge.levelCap}</span>
               <div
                 className={styles.question}

@@ -7,6 +7,7 @@ import { PkmImage } from 'common';
 import { Moves, PokeInfo } from 'components';
 import { Tip } from 'components/Pokestats/elements';
 import { RuleContent } from 'components/Rules/elements';
+import { BADGE_IMAGES } from 'constants/badges';
 import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
@@ -122,7 +123,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                     index <= games[selectedGame?.value]?.badge ? styles.active : ''
                   }`}
                   key={`${badge.name}-${badge.id}`}
-                  src={badge.src}
+                  src={BADGE_IMAGES[selectedGame?.value][index].src}
                 />
               );
             })}

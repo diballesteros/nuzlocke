@@ -3,19 +3,34 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 4.1.0',
-    date: 1640042504211,
+    date: 1640211458740,
     notes: [
+      {
+        description: 'Added Soulocke/Soul link ruleset to the rules options',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Badge level caps for the default games have been reset for everyone. Sorry for the inconvenience but this is crucial for a future update. As a result the exported file size is now about 90% smaller!',
+        type: 'UPDATE',
+      },
       {
         description:
           'Shiny is no longer a status and now appears as a toggleable status in the details. This now changes the sprite of the pokemon!',
         type: 'UPDATE',
       },
       {
-        description: 'Items now have a sprite in the dropdown',
+        description:
+          'Items now have a sprite in the item dropdown in the calculator, builder and details',
         type: 'UPDATE',
       },
       {
-        description: 'The inputs and dropdowns in the details now change according to dark mode',
+        description:
+          'The inputs and dropdowns in the details, calculator and team builder now change according to dark mode',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added item sprite to details page for every battle (where applicable)',
         type: 'UPDATE',
       },
       {
@@ -23,7 +38,18 @@ const CHANGELOG: TReleaseNotes = [
         type: 'FIX',
       },
       {
-        description: 'Back button now displayed correctly on smaller screens - Thanks @Yondiame',
+        description:
+          'Back button now displayed correctly on smaller screens in the Report Page - Thanks @Yondiame',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Berry Fields encounter to Ultra Sun and Ultra Moon (with Crabrawler as the encounter)',
+        type: 'FIX',
+      },
+      {
+        description:
+          "Added Farfetch'd as an encounter in Vermillion City in FireRed and LeafGreen and Red, Blue and Yellow",
         type: 'FIX',
       },
     ],

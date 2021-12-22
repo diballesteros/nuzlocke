@@ -105,6 +105,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Horsea',
     'Goldeen',
     'Magikarp',
+    "Farfetch'd",
   ],
   'rby-17': ['Poliwag', 'Tentacool', 'Shellder', 'Krabby', 'Goldeen', 'Staryu', 'Magikarp'],
   'rby-18': [
@@ -1669,6 +1670,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Staryu',
     'Magikarp',
     'Gyarados',
+    "Farfetch'd",
   ],
   'frlg-17': ['Gyarados', 'Horsea', 'Krabby', 'Magikarp', 'Psyduck', 'Shellder', 'Tentacool'],
   'frlg-18': [

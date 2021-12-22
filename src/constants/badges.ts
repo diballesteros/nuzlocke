@@ -1,4 +1,9 @@
-import type { TBadgeDictionary, TLevelCapDictionary, TLevelCaps } from 'constants/types';
+import type {
+  TBadgeDictionary,
+  TBadgeImages,
+  TLevelCapDictionary,
+  TLevelCaps,
+} from 'constants/types';
 import akala from 'assets/img/badges/akala.png';
 import balance from 'assets/img/badges/balance.png';
 import basic from 'assets/img/badges/basic.png';
@@ -81,55 +86,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: '14',
       name: 'Boulder Badge',
-      src: boulder,
     },
     {
       id: 2,
       levelCap: 21,
       name: 'Cascade Badge',
-      src: cascade,
     },
     {
       id: 3,
       levelCap: '24',
       name: 'Thunder Badge',
-      src: thunder,
     },
     {
       id: 4,
       levelCap: '29',
       name: 'Rainbow Badge',
-      src: rainbow,
     },
     {
       id: 5,
       levelCap: '43',
       name: 'Soul Badge',
-      src: soul,
     },
     {
       id: 6,
       levelCap: '43',
       name: 'Marsh Badge',
-      src: marsh,
     },
     {
       id: 7,
       levelCap: '47',
       name: 'Volcano Badge',
-      src: volcano,
     },
     {
       id: 8,
       levelCap: '50',
       name: 'Earth Badge',
-      src: earth,
     },
     {
       id: 9,
       levelCap: 65,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '2': [
@@ -137,67 +133,56 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 9,
       name: 'Zephyr Badge',
-      src: zephyr,
     },
     {
       id: 2,
       levelCap: 16,
       name: 'Hive Badge',
-      src: hive,
     },
     {
       id: 3,
       levelCap: 20,
       name: 'Plain Badge',
-      src: plain,
     },
     {
       id: 4,
       levelCap: 25,
       name: 'Fog Badge',
-      src: fog,
     },
     {
       id: 5,
       levelCap: 30,
       name: 'Storm Badge',
-      src: storm,
     },
     {
       id: 6,
       levelCap: 31,
       name: 'Glacier Badge',
-      src: glacier,
     },
     {
       id: 7,
       levelCap: 35,
       name: 'Mineral Badge',
-      src: mineral,
     },
     {
       id: 8,
       levelCap: 40,
       name: 'Rising Badge',
-      src: rising,
     },
     {
       id: 9,
       levelCap: 50,
       name: 'Elite 4',
-      src: champion,
     },
     {
       id: 10,
       levelCap: 58,
       name: 'Kanto Badges',
-      src: earth,
     },
     {
       id: 11,
       levelCap: 81,
       name: 'Red',
-      src: red_gsc,
     },
   ],
   '3': [
@@ -205,55 +190,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 15,
       name: 'Stone Badge',
-      src: stone,
     },
     {
       id: 2,
       levelCap: 18,
       name: 'Knuckle Badge',
-      src: knuckle,
     },
     {
       id: 3,
       levelCap: 23,
       name: 'Dynamo Badge',
-      src: dynamo,
     },
     {
       id: 4,
       levelCap: 28,
       name: 'Heat Badge',
-      src: heat,
     },
     {
       id: 5,
       levelCap: 31,
       name: 'Balance Badge',
-      src: balance,
     },
     {
       id: 6,
       levelCap: 33,
       name: 'Feather Badge',
-      src: feather,
     },
     {
       id: 7,
       levelCap: 42,
       name: 'Mind Badge',
-      src: mind,
     },
     {
       id: 8,
       levelCap: 43,
       name: 'Rain Badge',
-      src: rain,
     },
     {
       id: 9,
       levelCap: 58,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '4': [
@@ -261,55 +237,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 14,
       name: 'Boulder Badge',
-      src: boulder,
     },
     {
       id: 2,
       levelCap: 21,
       name: 'Cascade Badge',
-      src: cascade,
     },
     {
       id: 3,
       levelCap: 24,
       name: 'Thunder Badge',
-      src: thunder,
     },
     {
       id: 4,
       levelCap: 29,
       name: 'Rainbow Badge',
-      src: rainbow,
     },
     {
       id: 5,
       levelCap: 43,
       name: 'Soul Badge',
-      src: soul,
     },
     {
       id: 6,
       levelCap: 43,
       name: 'Marsh Badge',
-      src: marsh,
     },
     {
       id: 7,
       levelCap: 47,
       name: 'Volcano Badge',
-      src: volcano,
     },
     {
       id: 8,
       levelCap: 50,
       name: 'Earth Badge',
-      src: earth,
     },
     {
       id: 9,
       levelCap: 63,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '5': [
@@ -317,55 +284,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 14,
       name: 'Coal Badge',
-      src: coal,
     },
     {
       id: 2,
       levelCap: 22,
       name: 'Forest Badge',
-      src: forest,
     },
     {
       id: 3,
       levelCap: 26,
       name: 'Relic Badge',
-      src: relic,
     },
     {
       id: 4,
       levelCap: 32,
       name: 'Cobble Badge',
-      src: cobble,
     },
     {
       id: 5,
       levelCap: 37,
       name: 'Fen Badge',
-      src: fen,
     },
     {
       id: 6,
       levelCap: 41,
       name: 'Mine Badge',
-      src: mine,
     },
     {
       id: 7,
       levelCap: 44,
       name: 'Icicle Badge',
-      src: icicle,
     },
     {
       id: 8,
       levelCap: 50,
       name: 'Beacon Badge',
-      src: beacon,
     },
     {
       id: 9,
       levelCap: 62,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '6': [
@@ -373,109 +331,91 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 13,
       name: 'Zephyr Badge',
-      src: zephyr,
     },
     {
       id: 2,
       levelCap: 17,
       name: 'Hive Badge',
-      src: hive,
     },
     {
       id: 3,
       levelCap: 19,
       name: 'Plain Badge',
-      src: plain,
     },
     {
       id: 4,
       levelCap: 25,
       name: 'Fog Badge',
-      src: fog,
     },
     {
       id: 5,
       levelCap: 31,
       name: 'Storm Badge',
-      src: storm,
     },
     {
       id: 6,
       levelCap: 34,
       name: 'Glacier Badge',
-      src: glacier,
     },
     {
       id: 7,
       levelCap: 35,
       name: 'Mineral Badge',
-      src: mineral,
     },
     {
       id: 8,
       levelCap: 41,
       name: 'Rising Badge',
-      src: rising,
     },
     {
       id: 9,
       levelCap: 50,
       name: 'Elite 4',
-      src: champion,
     },
     {
       id: 10,
       levelCap: 53,
       name: 'Thunder Badge',
-      src: thunder,
     },
     {
       id: 11,
       levelCap: 55,
       name: 'Marsh Badge',
-      src: marsh,
     },
     {
       id: 12,
       levelCap: 55,
       name: 'Cascade Badge',
-      src: cascade,
     },
     {
       id: 13,
       levelCap: 56,
       name: 'Rainbow Badge',
-      src: rainbow,
     },
     {
       id: 14,
       levelCap: 56,
       name: 'Soul Badge',
-      src: soul,
     },
     {
       id: 15,
       levelCap: 56,
       name: 'Boulder Badge',
-      src: boulder,
     },
     {
       id: 16,
       levelCap: 59,
       name: 'Volcano Badge',
-      src: volcano,
     },
     {
       id: 17,
       levelCap: 60,
       name: 'Earth Badge',
-      src: earth,
     },
     {
       id: 18,
       levelCap: 88,
       name: 'Red',
-      src: red_gsc,
     },
   ],
   '7': [
@@ -483,55 +423,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 14,
       name: 'Trio Badge',
-      src: trio,
     },
     {
       id: 2,
       levelCap: 20,
       name: 'Basic Badge',
-      src: basic,
     },
     {
       id: 3,
       levelCap: 23,
       name: 'Insect Badge',
-      src: insect,
     },
     {
       id: 4,
       levelCap: 27,
       name: 'Bolt Badge',
-      src: bolt,
     },
     {
       id: 5,
       levelCap: 31,
       name: 'Quake Badge',
-      src: quake,
     },
     {
       id: 6,
       levelCap: 35,
       name: 'Jet Badge',
-      src: jet,
     },
     {
       id: 7,
       levelCap: 39,
       name: 'Freeze Badge',
-      src: freeze,
     },
     {
       id: 8,
       levelCap: 43,
       name: 'Legend Badge',
-      src: legend,
     },
     {
       id: 8,
       levelCap: 54,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '8': [
@@ -539,55 +470,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: '13',
       name: 'Basic Badge',
-      src: basic,
     },
     {
       id: 2,
       levelCap: '18',
       name: 'Toxic Badge',
-      src: toxic,
     },
     {
       id: 3,
       levelCap: '24',
       name: 'Insect Badge',
-      src: insect,
     },
     {
       id: 4,
       levelCap: '30',
       name: 'Bolt Badge',
-      src: bolt,
     },
     {
       id: 5,
       levelCap: '33',
       name: 'Quake Badge',
-      src: quake,
     },
     {
       id: 6,
       levelCap: '39',
       name: 'Jet Badge',
-      src: jet,
     },
     {
       id: 7,
       levelCap: '48',
       name: 'Legend Badge',
-      src: legend,
     },
     {
       id: 8,
       levelCap: '51',
       name: 'Wave Badge',
-      src: wave,
     },
     {
       id: 9,
       levelCap: '59',
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '9': [
@@ -595,55 +517,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 12,
       name: 'Bug Badge',
-      src: bug,
     },
     {
       id: 2,
       levelCap: 25,
       name: 'Cliff Badge',
-      src: cliff,
     },
     {
       id: 3,
       levelCap: 32,
       name: 'Rumble Badge',
-      src: rumble,
     },
     {
       id: 4,
       levelCap: 34,
       name: 'Plant Badge',
-      src: plant,
     },
     {
       id: 5,
       levelCap: 37,
       name: 'Voltage Badge',
-      src: voltage,
     },
     {
       id: 6,
       levelCap: 42,
       name: 'Fairy Badge',
-      src: fairy,
     },
     {
       id: 7,
       levelCap: 48,
       name: 'Psychic Badge',
-      src: psychic,
     },
     {
       id: 8,
       levelCap: 59,
       name: 'Iceberg Badge',
-      src: iceberg,
     },
     {
       id: 9,
       levelCap: 68,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '10': [
@@ -651,55 +564,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 14,
       name: 'Stone Badge',
-      src: stone,
     },
     {
       id: 2,
       levelCap: 16,
       name: 'Knuckle Badge',
-      src: knuckle,
     },
     {
       id: 3,
       levelCap: 21,
       name: 'Dynamo Badge',
-      src: dynamo,
     },
     {
       id: 4,
       levelCap: 28,
       name: 'Heat Badge',
-      src: heat,
     },
     {
       id: 5,
       levelCap: 30,
       name: 'Balance Badge',
-      src: balance,
     },
     {
       id: 6,
       levelCap: 35,
       name: 'Feather Badge',
-      src: feather,
     },
     {
       id: 7,
       levelCap: 45,
       name: 'Mind Badge',
-      src: mind,
     },
     {
       id: 8,
       levelCap: 46,
       name: 'Rain Badge',
-      src: rain,
     },
     {
       id: 8,
       levelCap: 59,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '11': [
@@ -707,67 +611,56 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 12,
       name: 'Totem #1',
-      src: totem1,
     },
     {
       id: 2,
       levelCap: 15,
       name: 'Kahuna #1',
-      src: melemele,
     },
     {
       id: 3,
       levelCap: 20,
       name: 'Totem #2',
-      src: totem2,
     },
     {
       id: 4,
       levelCap: 22,
       name: 'Totem #3',
-      src: totem3,
     },
     {
       id: 5,
       levelCap: 24,
       name: 'Totem #4',
-      src: totem4,
     },
     {
       id: 6,
       levelCap: 26,
       name: 'Kahuna #2',
-      src: akala,
     },
     {
       id: 7,
       levelCap: 29,
       name: 'Totem #5',
-      src: totem5,
     },
     {
       id: 8,
       levelCap: 33,
       name: 'Totem #6',
-      src: totem6,
     },
     {
       id: 9,
       levelCap: 39,
       name: 'Kahuna #3',
-      src: ulaula,
     },
     {
       id: 10,
       levelCap: 48,
       name: 'Kahuna #4',
-      src: poni,
     },
     {
       id: 11,
       levelCap: 58,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '12': [
@@ -775,79 +668,66 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 12,
       name: 'Totem #1',
-      src: totem1,
     },
     {
       id: 2,
       levelCap: 16,
       name: 'Kahuna #1',
-      src: melemele,
     },
     {
       id: 3,
       levelCap: 20,
       name: 'Totem #2',
-      src: usumtotem2,
     },
     {
       id: 4,
       levelCap: 22,
       name: 'Totem #3',
-      src: usumtotem3,
     },
     {
       id: 5,
       levelCap: 24,
       name: 'Totem #4',
-      src: totem4,
     },
     {
       id: 6,
       levelCap: 28,
       name: 'Kahuna #2',
-      src: akala,
     },
     {
       id: 7,
       levelCap: 33,
       name: 'Totem #5',
-      src: usumtotem5,
     },
     {
       id: 8,
       levelCap: 35,
       name: 'Totem #6',
-      src: totem6,
     },
     {
       id: 9,
       levelCap: 44,
       name: 'Kahuna #3',
-      src: ulaula,
     },
     {
       id: 10,
       levelCap: 49,
       name: 'Totem #7',
-      src: totem7,
     },
     {
       id: 10,
       levelCap: 55,
       name: 'Totem #8',
-      src: totem8,
     },
     {
       id: 11,
       levelCap: 55,
       name: 'Kahuna #4',
-      src: poni,
     },
     {
       id: 12,
       levelCap: 60,
       name: 'Elite 4',
-      src: champion,
     },
   ],
   '13': [
@@ -855,55 +735,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 20,
       name: 'Grass Badge',
-      src: grass,
     },
     {
       id: 2,
       levelCap: 24,
       name: 'Water Badge',
-      src: water,
     },
     {
       id: 3,
       levelCap: 27,
       name: 'Fire Badge',
-      src: fire,
     },
     {
       id: 4,
       levelCap: 36,
       name: 'Fighting/Ghost Badge',
-      src: fighting,
     },
     {
       id: 5,
       levelCap: 38,
       name: 'Fairy Badge',
-      src: fairy2,
     },
     {
       id: 6,
       levelCap: 42,
       name: 'Rock/Ice Badge',
-      src: rock,
     },
     {
       id: 7,
       levelCap: 46,
       name: 'Dark Badge',
-      src: dark,
     },
     {
       id: 8,
       levelCap: 48,
       name: 'Dragon Badge',
-      src: dragon,
     },
     {
       id: 9,
       levelCap: 65,
       name: 'Champion Cup',
-      src: champion,
     },
   ],
   '13.1': [
@@ -911,55 +782,46 @@ const BADGES: TBadgeDictionary = {
       id: 1,
       levelCap: 14,
       name: 'Coal Badge',
-      src: coal,
     },
     {
       id: 2,
       levelCap: 22,
       name: 'Forest Badge',
-      src: forest,
     },
     {
       id: 3,
       levelCap: 30,
       name: 'Cobble Badge',
-      src: cobble,
     },
     {
       id: 4,
       levelCap: 30,
       name: 'Fen Badge',
-      src: fen,
     },
     {
       id: 5,
       levelCap: 36,
       name: 'Relic Badge',
-      src: relic,
     },
     {
       id: 6,
       levelCap: 39,
       name: 'Mine Badge',
-      src: mine,
     },
     {
       id: 7,
       levelCap: 42,
       name: 'Icicle Badge',
-      src: icicle,
     },
     {
       id: 8,
       levelCap: 49,
       name: 'Beacon Badge',
-      src: beacon,
     },
     {
       id: 9,
       levelCap: 66,
       name: 'Elite 4',
-      src: champion,
     },
   ],
 };
@@ -1127,6 +989,466 @@ export const LEVEL_CAPS: TLevelCaps = {
       key: 'Brilliant Diamond and Shining Pearl',
       text: 'Brilliant Diamond and Shining Pearl',
       value: 'BDSP',
+    },
+  ],
+};
+
+export const BADGE_IMAGES: TBadgeImages = {
+  '1': [
+    {
+      src: boulder,
+    },
+    {
+      src: cascade,
+    },
+    {
+      src: thunder,
+    },
+    {
+      src: rainbow,
+    },
+    {
+      src: soul,
+    },
+    {
+      src: marsh,
+    },
+    {
+      src: volcano,
+    },
+    {
+      src: earth,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '2': [
+    {
+      src: zephyr,
+    },
+    {
+      src: hive,
+    },
+    {
+      src: plain,
+    },
+    {
+      src: fog,
+    },
+    {
+      src: storm,
+    },
+    {
+      src: glacier,
+    },
+    {
+      src: mineral,
+    },
+    {
+      src: rising,
+    },
+    {
+      src: champion,
+    },
+    {
+      src: earth,
+    },
+    {
+      src: red_gsc,
+    },
+  ],
+  '3': [
+    {
+      src: stone,
+    },
+    {
+      src: knuckle,
+    },
+    {
+      src: dynamo,
+    },
+    {
+      src: heat,
+    },
+    {
+      src: balance,
+    },
+    {
+      src: feather,
+    },
+    {
+      src: mind,
+    },
+    {
+      src: rain,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '4': [
+    {
+      src: boulder,
+    },
+    {
+      src: cascade,
+    },
+    {
+      src: thunder,
+    },
+    {
+      src: rainbow,
+    },
+    {
+      src: soul,
+    },
+    {
+      src: marsh,
+    },
+    {
+      src: volcano,
+    },
+    {
+      src: earth,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '5': [
+    {
+      src: coal,
+    },
+    {
+      src: forest,
+    },
+    {
+      src: relic,
+    },
+    {
+      src: cobble,
+    },
+    {
+      src: fen,
+    },
+    {
+      src: mine,
+    },
+    {
+      src: icicle,
+    },
+    {
+      src: beacon,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '6': [
+    {
+      src: zephyr,
+    },
+    {
+      src: hive,
+    },
+    {
+      src: plain,
+    },
+    {
+      src: fog,
+    },
+    {
+      src: storm,
+    },
+    {
+      src: glacier,
+    },
+    {
+      src: mineral,
+    },
+    {
+      src: rising,
+    },
+    {
+      src: champion,
+    },
+    {
+      src: thunder,
+    },
+    {
+      src: marsh,
+    },
+    {
+      src: cascade,
+    },
+    {
+      src: rainbow,
+    },
+    {
+      src: soul,
+    },
+    {
+      src: boulder,
+    },
+    {
+      src: volcano,
+    },
+    {
+      src: earth,
+    },
+    {
+      src: red_gsc,
+    },
+  ],
+  '7': [
+    {
+      src: trio,
+    },
+    {
+      src: basic,
+    },
+    {
+      src: insect,
+    },
+    {
+      src: bolt,
+    },
+    {
+      src: quake,
+    },
+    {
+      src: jet,
+    },
+    {
+      src: freeze,
+    },
+    {
+      src: legend,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '8': [
+    {
+      src: basic,
+    },
+    {
+      src: toxic,
+    },
+    {
+      src: insect,
+    },
+    {
+      src: bolt,
+    },
+    {
+      src: quake,
+    },
+    {
+      src: jet,
+    },
+    {
+      src: legend,
+    },
+    {
+      src: wave,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '9': [
+    {
+      src: bug,
+    },
+    {
+      src: cliff,
+    },
+    {
+      src: rumble,
+    },
+    {
+      src: plant,
+    },
+    {
+      src: voltage,
+    },
+    {
+      src: fairy,
+    },
+    {
+      src: psychic,
+    },
+    {
+      src: iceberg,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '10': [
+    {
+      src: stone,
+    },
+    {
+      src: knuckle,
+    },
+    {
+      src: dynamo,
+    },
+    {
+      src: heat,
+    },
+    {
+      src: balance,
+    },
+    {
+      src: feather,
+    },
+    {
+      src: mind,
+    },
+    {
+      src: rain,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '11': [
+    {
+      src: totem1,
+    },
+    {
+      src: melemele,
+    },
+    {
+      src: totem2,
+    },
+    {
+      src: totem3,
+    },
+    {
+      src: totem4,
+    },
+    {
+      src: akala,
+    },
+    {
+      src: totem5,
+    },
+    {
+      src: totem6,
+    },
+    {
+      src: ulaula,
+    },
+    {
+      src: poni,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '12': [
+    {
+      src: totem1,
+    },
+    {
+      src: melemele,
+    },
+    {
+      src: usumtotem2,
+    },
+    {
+      src: usumtotem3,
+    },
+    {
+      src: totem4,
+    },
+    {
+      src: akala,
+    },
+    {
+      src: usumtotem5,
+    },
+    {
+      src: totem6,
+    },
+    {
+      src: ulaula,
+    },
+    {
+      src: totem7,
+    },
+    {
+      src: totem8,
+    },
+    {
+      src: poni,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '13': [
+    {
+      src: grass,
+    },
+    {
+      src: water,
+    },
+    {
+      src: fire,
+    },
+    {
+      src: fighting,
+    },
+    {
+      src: fairy2,
+    },
+    {
+      src: rock,
+    },
+    {
+      src: dark,
+    },
+    {
+      src: dragon,
+    },
+    {
+      src: champion,
+    },
+  ],
+  '13.1': [
+    {
+      src: coal,
+    },
+    {
+      src: forest,
+    },
+    {
+      src: cobble,
+    },
+    {
+      src: fen,
+    },
+    {
+      src: relic,
+    },
+    {
+      src: mine,
+    },
+    {
+      src: icicle,
+    },
+    {
+      src: beacon,
+    },
+    {
+      src: champion,
     },
   ],
 };
