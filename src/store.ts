@@ -10,7 +10,9 @@ import {
   GAMES,
   INITIAL_STATE,
   INITIAL_SUMMARY,
+  SOULLINK_RULESET,
 } from 'constants/constant';
+import STATUSES from 'constants/status';
 import type {
   AppState,
   Gender,
@@ -145,7 +147,8 @@ const useStore = create<AppState>(
         moveOne: number,
         moveTwo: number,
         moveThree: number,
-        moveFour: number
+        moveFour: number,
+        shiny: boolean
       ) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -162,6 +165,7 @@ const useStore = create<AppState>(
               item,
               faint,
               moves: [moveOne, moveTwo, moveThree, moveFour],
+              shiny,
             };
         }),
       changeDupe: () =>
@@ -485,7 +489,7 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 5,
+      version: 6,
       migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
         if (version < 1) {
@@ -545,6 +549,24 @@ const useStore = create<AppState>(
             persistedState.summary['13.1'] = INITIAL_STATE.summary['13.1'];
             persistedState.badges['13.1'] = INITIAL_STATE.badges['13.1'];
             persistedState.gamesList.splice(13, 0, INITIAL_STATE.gamesList[13]);
+          }
+        }
+
+        if (version < 6) {
+          persistedState.badges = INITIAL_STATE.badges;
+          Object.keys(GAME_KEY_DICTIONARY).forEach((key) => {
+            gameMigration[key].encounters.forEach((enc) => {
+              if (enc?.status?.value === 6) {
+                enc.status = STATUSES[1];
+                if (enc?.details) {
+                  enc.details.shiny = true;
+                }
+              }
+            });
+          });
+
+          if (!persistedState.rules.Soulocke) {
+            persistedState.rules.Soulocke = SOULLINK_RULESET;
           }
         }
 

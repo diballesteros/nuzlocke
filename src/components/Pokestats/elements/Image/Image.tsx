@@ -3,9 +3,11 @@ import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import shallow from 'zustand/shallow';
+import { PkmImage } from 'common';
 import { Moves, PokeInfo } from 'components';
 import { Tip } from 'components/Pokestats/elements';
 import { RuleContent } from 'components/Rules/elements';
+import { BADGE_IMAGES } from 'constants/badges';
 import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
@@ -121,7 +123,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                     index <= games[selectedGame?.value]?.badge ? styles.active : ''
                   }`}
                   key={`${badge.name}-${badge.id}`}
-                  src={badge.src}
+                  src={BADGE_IMAGES[selectedGame?.value][index].src}
                 />
               );
             })}
@@ -135,7 +137,9 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <div className={styles.pokemon} key={`team-${enc.id}`}>
-                  <img src={foundPokemon?.image} alt={foundPokemon?.text} />
+                  <div className={styles.image}>
+                    <PkmImage name={foundPokemon?.text} shiny={enc?.details?.shiny} />
+                  </div>
                   <PokeInfo encounter={enc} pokemon={foundPokemon} />
                   <Moves moves={enc?.details?.moves} />
                 </div>
@@ -225,13 +229,13 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
               {boxedPokemon.map((box, i) => {
                 const foundPokemon = POKEMAP.get(box.pokemon);
                 return (
-                  <img
-                    alt={foundPokemon?.text}
-                    className={styles.pokeImg}
+                  <div
                     data-testid={`image-box-${i}-${responsive}`}
+                    className={styles.pokeImg}
                     key={`boxed-${i + 1}`}
-                    src={foundPokemon?.image}
-                  />
+                  >
+                    <PkmImage name={foundPokemon?.text} shiny={box?.details?.shiny} />
+                  </div>
                 );
               })}
             </div>
@@ -246,13 +250,13 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
               {faintedPokemon.map((faint, i) => {
                 const foundPokemon = POKEMAP.get(faint.pokemon);
                 return (
-                  <img
-                    alt={foundPokemon?.text}
-                    className={styles.pokeImg}
+                  <div
                     data-testid={`image-fainted-${i}-${responsive}`}
-                    key={`fainted-${i + 1}`}
-                    src={foundPokemon?.image}
-                  />
+                    className={styles.pokeImg}
+                    key={`boxed-${i + 1}`}
+                  >
+                    <PkmImage name={foundPokemon?.text} shiny={faint?.details?.shiny} />
+                  </div>
                 );
               })}
             </div>

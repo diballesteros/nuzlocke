@@ -1,14 +1,16 @@
-import { ABILITIES, ITEMS } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import { ItemSelector } from 'common';
 import { PokeController } from 'components/Calculator/elements';
 import { STATUS_EFFECTS } from 'constants/calculator';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
+import dropdownStyles from 'assets/styles/Dropdown.module.scss';
 import styles from './General.module.scss';
 
 interface GeneralProps {
@@ -63,7 +65,7 @@ function General({ encounters, pokemon }: GeneralProps): JSX.Element {
       </div>
       <Dropdown
         aria-label="gender-selector"
-        className={`${styles.dropdown} ${styles.gender}`}
+        className={`${dropdownStyles.dropdown} ${styles.gender}`}
         data-testid={`gender${pokemon}`}
         inline
         onChange={(e, data) => update({ [`gender${pokemon}`]: data.value })}
@@ -72,12 +74,13 @@ function General({ encounters, pokemon }: GeneralProps): JSX.Element {
         selection
         value={form[`gender${pokemon}`] ?? ''}
       />
+
       {form.calculatorGen > 2 && (
         <>
           <Dropdown
             aria-label="nature-selector"
             basic
-            className={`${styles.dropdown} ${styles.fullColumn}`}
+            className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
             clearable
             data-testid={`nature${pokemon}`}
             inline
@@ -92,7 +95,7 @@ function General({ encounters, pokemon }: GeneralProps): JSX.Element {
           <Dropdown
             aria-label="ability"
             basic
-            className={`${styles.dropdown} ${styles.fullColumn}`}
+            className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
             clearable
             data-testid={`ability${pokemon}`}
             inline
@@ -109,28 +112,16 @@ function General({ encounters, pokemon }: GeneralProps): JSX.Element {
         </>
       )}
       {form.calculatorGen > 1 && (
-        <Dropdown
-          aria-label="item"
-          basic
-          className={`${styles.dropdown} ${styles.fullColumn}`}
-          clearable
-          data-testid={`item${pokemon}`}
-          inline
-          lazyLoad
-          onChange={(e, data) => update({ [`item${pokemon}`]: data.value })}
-          options={[...new Set(ITEMS[8])].map((smogonItem) => {
-            return { text: smogonItem, value: smogonItem };
-          })}
-          placeholder={t('select_item')}
-          search
-          selection
-          value={form[`item${pokemon}`] ?? ''}
+        <ItemSelector
+          dataTestId={`item${pokemon}`}
+          item={form[`item${pokemon}`] ?? ''}
+          onChange={(newItem) => update({ [`item${pokemon}`]: newItem })}
         />
       )}
       <Dropdown
         aria-label="status"
         basic
-        className={`${styles.dropdown} ${styles.fullColumn}`}
+        className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
         clearable
         data-testid={`status${pokemon}`}
         inline

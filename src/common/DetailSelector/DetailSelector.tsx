@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { PkmImage } from 'common';
 import { Filter, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
@@ -62,7 +63,9 @@ function DetailSelector({
           style={{ backgroundColor: `${TYPE_COLOR[foundPokemon.type]}50` }}
         >
           <div className={styles.details}>
-            <img alt={foundPokemon.text} src={foundPokemon.image} />
+            <div className={styles.image}>
+              <PkmImage name={foundPokemon?.text} shiny={detail?.shiny} />
+            </div>
             <b>{foundPokemon.text}</b>
           </div>
           <PokemonType pokemon={foundPokemon} />

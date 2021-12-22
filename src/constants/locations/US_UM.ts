@@ -65,6 +65,13 @@ const US_UM: TEncounter[] = [
     filterKey: 'usum-9',
   },
   {
+    id: 59,
+    pokemon: null,
+    location: 'Berry Fields',
+    status: null,
+    filterKey: 'usum-59',
+  },
+  {
     id: 10,
     pokemon: null,
     location: 'Route 3',

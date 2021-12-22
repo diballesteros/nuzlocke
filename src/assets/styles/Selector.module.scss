@@ -30,12 +30,21 @@
         gap: var(--spacing-1);
         align-items: center;
         position: absolute;
+        font-size: var(--font-size-4);
         top: var(--spacing-0);
         left: var(--spacing-2);
+        width: fit-content;
+        padding: var(--spacing-0);
+        background-color: #80c0d690;
+        border-radius: 4px;
+        font-weight: bold;
+        color: black;
+        z-index: 1;
 
         > i {
           height: 100%;
           margin: 0;
+          color: gold;
         }
       }
 
@@ -43,6 +52,14 @@
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
+
+        .image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 3.5rem;
+          width: 4.5rem;
+        }
       }
 
       > div:last-child {

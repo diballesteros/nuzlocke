@@ -33,7 +33,6 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
       case 1:
       case 3:
       case 4:
-      case 6:
         return <CaughtSVG />;
       case 2:
         return <FaintedSVG />;

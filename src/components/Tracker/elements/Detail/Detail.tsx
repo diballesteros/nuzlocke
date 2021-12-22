@@ -1,18 +1,21 @@
-import { ABILITIES, ITEMS } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
+import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
+import dropdownStyles from 'assets/styles/Dropdown.module.scss';
 import styles from './Detail.module.scss';
 
 interface DetailProps {
@@ -40,6 +43,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const [moveTwo, setMoveTwo] = useState(encounter?.details?.moves[1]);
   const [moveThree, setMoveThree] = useState(encounter?.details?.moves[2]);
   const [moveFour, setMoveFour] = useState(encounter?.details?.moves[3]);
+  const [shiny, setShiny] = useState(encounter?.details?.shiny);
 
   const handleClose = () => {
     setShow(false);
@@ -54,6 +58,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
     setMoveTwo(encounter?.details?.moves[1]);
     setMoveThree(encounter?.details?.moves[2]);
     setMoveFour(encounter?.details?.moves[3]);
+    setShiny(encounter?.details?.shiny);
   };
 
   const handleSave = () => {
@@ -69,7 +74,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       moveOne,
       moveTwo,
       moveThree,
-      moveFour
+      moveFour,
+      shiny
     );
     setShow(false);
   };
@@ -115,7 +121,9 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       <Modal.Content className={styles.content}>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
-            <img src={foundPokemon?.image} alt={foundPokemon?.text} />
+            <div className={styles.image}>
+              <PkmImage name={foundPokemon?.text} shiny={shiny} />
+            </div>
             <span className={styles.name}>{foundPokemon.text}</span>
           </div>
           <PokemonType pokemon={foundPokemon} />
@@ -124,6 +132,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
           <summary data-testid="detail-summary">{t('details', { ns: 'badges' })}</summary>
           <div className={styles.expandable}>
             <Input
+              className={styles.input}
               data-testid="level"
               label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
@@ -131,6 +140,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               value={level}
             />
             <Input
+              className={styles.input}
               data-testid="metlevel"
               label={t('met_level')}
               onChange={(e, data) => setMetLevel(Number(data.value))}
@@ -139,11 +149,10 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             />
             <Dropdown
               aria-label="gender-selector"
-              basic
-              className={styles.dropdown}
+              className={dropdownStyles.dropdown}
+              clearable
               data-testid="gender"
               inline
-              labeled
               lazyLoad
               onChange={(e, data) => setGender(data.value as unknown as Gender)}
               options={GENDERS}
@@ -154,8 +163,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <div className={styles.natureContainer}>
               <Dropdown
                 aria-label="nature-selector"
-                basic
-                className={styles.dropdown}
+                className={dropdownStyles.dropdown}
                 clearable
                 data-testid="nature"
                 inline
@@ -171,8 +179,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             </div>
             <Dropdown
               aria-label="ability"
-              basic
-              className={styles.dropdown}
+              className={dropdownStyles.dropdown}
               clearable
               data-testid="ability"
               inline
@@ -186,22 +193,13 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               selection
               value={ability ?? ''}
             />
-            <Dropdown
-              aria-label="item"
-              basic
-              className={styles.dropdown}
-              clearable
-              data-testid="item"
-              inline
-              lazyLoad
-              onChange={(e, data) => setItem(data.value as unknown as string)}
-              options={[...new Set(ITEMS[8])].map((smogonItem) => {
-                return { text: smogonItem, value: smogonItem };
-              })}
-              placeholder={t('select_item', { ns: 'calculator' })}
-              search
-              selection
-              value={item ?? ''}
+            <ItemSelector item={item} onChange={(newItem) => setItem(newItem)} />
+            <Checkbox
+              checked={shiny}
+              className={styles.checkbox}
+              data-testid="shiny"
+              label="Shiny"
+              onChange={(e, data) => setShiny(data.checked)}
             />
           </div>
         </details>

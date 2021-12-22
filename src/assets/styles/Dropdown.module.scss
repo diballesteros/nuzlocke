@@ -1,0 +1,23 @@
+.dropdown {
+  min-height: unset !important;
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+  border: 1px solid var(--contrast-border) !important;
+  border-radius: 4px;
+
+  &:hover {
+    border-color: var(--contrast) !important;
+  }
+
+  > i {
+    top: 0 !important;
+  }
+
+  > input {
+    color: var(--contrast) !important;
+
+    &:hover {
+      border-color: var(--contrast) !important;
+    }
+  }
+}

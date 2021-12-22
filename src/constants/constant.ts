@@ -1,4 +1,4 @@
-import { GenerationNum } from '@smogon/calc';
+import { GenerationNum, ITEMS } from '@smogon/calc';
 import BADGES from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';
@@ -173,12 +173,41 @@ const GENERATION_RULESET: TRuleEntry[] = [
   },
 ];
 
+export const SOULLINK_RULESET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
+  {
+    content:
+      "Pokémon captured in one player's game are linked to another player's Pokémon. This means that each players' Pokémon are Soul Linked. For example, starter Pokémon are considered linked, and both players' encounter in each area is considered linked.",
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      "Once a Pokémon faints, the Soul Link Pokémon in the other player's game is also considered fainted and cannot be used.",
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      'If one player is unsuccessful in capturing a Pokémon on a specific route, the linked player must release a Pokémon captured on that route or not catch one.',
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      "If a Pokémon is placed in the PC, the linked Pokémon in the other player's game must also be placed in the PC.",
+    default: true,
+    type: 'TEXT',
+  },
+];
+
 export const DEFAULT_RULES: TRulesetDictionary = {
   'Nuzlocke': DEFAULT_RULESET,
   'Hardcore': HARDCORE_RULESET,
   'Egglocke': EGGLOCKE_RULESET,
   'Wonderlocke': WONDERLOCKE_RULESET,
   'Genlocke': GENERATION_RULESET,
+  'Soulocke': SOULLINK_RULESET,
 };
 
 export const INITIAL_SUMMARY = {
@@ -315,6 +344,7 @@ export const DEFAULT_RULESET_NAMES = [
   'Wonderlocke',
   'Genlocke',
   'Hardcore Nuzlocke',
+  'Soulocke',
 ];
 
 export const getRuleContent = (content: TRuleContent, type: TRule): string => {
@@ -463,4 +493,110 @@ export const STAT_COLOR: Record<string, string[]> = {
   'spa': ['#334675', '445E9C'],
   'spd': ['#304f20', '#81d756'],
   'spe': ['#7a2b43', '#ffaac4'],
+};
+
+export const SPECIAL_NAMES: Record<string, string> = {
+  'Nidoran♀': 'nidoran-f',
+  'Nidoran♂': 'nidoran-m',
+  "Farfetch'd": 'farfetchd',
+  'Mr. Mime': 'mr-mime',
+  'Mime Jr.': 'mime-jr',
+  "Sirfetch'd": 'sirfetchd',
+  'Mr. Rime': 'mr-rime',
+  'Flabébé': 'flabebe',
+  'Type: Null': 'type-null',
+  'Tapu Koko': 'tapu-koko',
+  'Tapu Lele': 'tapu-lele',
+  'Tapu Bulu': 'tapu-bulu',
+  'Tapu Fini': 'tapu-fini',
+  'Rattata (Alolan)': 'rattata-alola',
+  'Raticate (Alolan)': 'raticate-alola',
+  'Raichu (Alolan)': 'raichu-alola',
+  'Sandshrew (Alolan)': 'sandshrew-alola',
+  'Sandslash (Alolan)': 'sandslash-alola',
+  'Vulpix (Alolan)': 'vulpix-alola',
+  'Ninetales (Alolan)': 'ninetales-alola',
+  'Diglett (Alolan)': 'diglett-alola',
+  'Dugtrio (Alolan)': 'dugtrio-alola',
+  'Meowth (Alolan)': 'meowth-alola',
+  'Persian (Alolan)': 'persian-alola',
+  'Geodude (Alolan)': 'geodude-alola',
+  'Graveler (Alolan)': 'graveler-alola',
+  'Golem (Alolan)': 'golem-alola',
+  'Grimer (Alolan)': 'grimer-alola',
+  'Muk (Alolan)': 'muk-alola',
+  'Marowak (Alolan)': 'marowak-alola',
+  'Exeggutor (Alolan)': 'exeggutor-alola',
+  'Meowth (Galarian)': 'meowth-galar',
+  'Persian (Galarian)': 'persian-galar',
+  'Ponyta (Galarian)': 'ponyta-galar',
+  'Rapidash (Galarian)': 'rapidash-galar',
+  'Slowpoke (Galarian)': 'slowpoke-galar',
+  'Slowbro (Galarian)': 'slowbro-galar',
+  "Farfetch'd (Galarian)": 'farfetchd-galar',
+  'Weezing (Galarian)': 'weezing-galar',
+  'Mr. Mime (Galarian)': 'mr-mime-galar',
+  'Articuno (Galarian)': 'articuno-galar',
+  'Zapdos (Galarian)': 'zapdos-galar',
+  'Moltres (Galarian)': 'moltres-galar',
+  'Slowking (Galarian)': 'slowking-galar',
+  'Corsola (Galarian)': 'corsola-galar',
+  'Zigzagoon (Galarian)': 'zigzagoon-galar',
+  'Linoone (Galarian)': 'linoone-galar',
+  'Darumaka (Galarian)': 'darumaka-galar',
+  'Darmanitan (Galarian)': 'darmanitan-galar',
+  'Stunfisk (Galarian)': 'stunfisk-galar',
+};
+
+export const SMOGON_NAMES: Record<string, string> = {
+  'Nidoran♀': 'Nidoran-F',
+  'Nidoran♂': 'Nidoran-M',
+  'Rattata (Alolan)': 'Rattata-Alola',
+  'Raticate (Alolan)': 'Raticate-Alola',
+  'Raichu (Alolan)': 'Raichu-Alola',
+  'Sandshrew (Alolan)': 'Sandshrew-Alola',
+  'Sandslash (Alolan)': 'Aandslash-Alola',
+  'Vulpix (Alolan)': 'Vulpix-Alola',
+  'Ninetales (Alolan)': 'Ninetales-Alola',
+  'Diglett (Alolan)': 'Diglett-Alola',
+  'Dugtrio (Alolan)': 'Dugtrio-Alola',
+  'Meowth (Alolan)': 'Meowth-Alola',
+  'Persian (Alolan)': 'Persian-Alola',
+  'Geodude (Alolan)': 'geodude-Alola',
+  'Graveler (Alolan)': 'Graveler-Alola',
+  'Golem (Alolan)': 'Golem-Alola',
+  'Grimer (Alolan)': 'Grimer-Alola',
+  'Muk (Alolan)': 'Muk-Alola',
+  'Marowak (Alolan)': 'Marowak-Alola',
+  'Exeggutor (Alolan)': 'Exeggutor-Alola',
+  'Meowth (Galarian)': 'Meowth-Galar',
+  'Persian (Galarian)': 'Persian-Galar',
+  'Ponyta (Galarian)': 'Ponyta-Galar',
+  'Rapidash (Galarian)': 'Rapidash-Galar',
+  'Slowpoke (Galarian)': 'Slowpoke-Galar',
+  'Slowbro (Galarian)': 'Slowbro-Galar',
+  "Farfetch'd (Galarian)": "Farfetch'd-Galar",
+  'Weezing (Galarian)': 'Weezing-Galar',
+  'Mr. Mime (Galarian)': 'Mr. Mime-Galar',
+  'Articuno (Galarian)': 'Articuno-Galar',
+  'Zapdos (Galarian)': 'Zapdos-Galar',
+  'Moltres (Galarian)': 'Moltres-Galar',
+  'Slowking (Galarian)': 'Slowking-Galar',
+  'Corsola (Galarian)': 'Corsola-Galar',
+  'Zigzagoon (Galarian)': 'Zigzagoon-Galar',
+  'Linoone (Galarian)': 'Linoone-Galar',
+  'Darumaka (Galarian)': 'Darumaka-Galar',
+  'Darmanitan (Galarian)': 'Darmanitan-Galar',
+  'Stunfisk (Galarian)': 'Stunfisk-Galar',
+};
+
+export const MY_ITEMS = [...new Set(ITEMS[8])].filter(
+  (smogonItem) => smogonItem.substring(0, 2) !== 'TR'
+);
+
+export const getSmogonItemName = (item: string) => {
+  if (item === "King's Rock") {
+    return 'kings-rock';
+  }
+  return item.toLowerCase().replaceAll(' ', '-');
 };

@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { PkmImage } from 'common';
 import { POKEMAP } from 'constants/pokemon';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
@@ -57,8 +58,10 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
         {evolveIds.map((id) => {
           const foundPokemon = POKEMAP.get(id);
           return (
-            <div key={`evolve-${id}`}>
-              <img src={foundPokemon?.image} alt={foundPokemon?.text} />{' '}
+            <div className={styles.option} key={`evolve-${id}`}>
+              <div className={styles.image}>
+                <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />{' '}
+              </div>
               <Radio
                 className={styles.radio}
                 checked={id === selected}

@@ -1,3 +1,30 @@
+## Version 4.1.0
+
+💅 Enhancement
+
+- Added Soulocke/Soul link ruleset to the rules options
+- Badge level caps for the default games have been reset for everyone. Sorry for the inconvenience but this is crucial for a future update. As a result the exported file size is now about 90% smaller!
+- Shiny is no longer a status and now appears as a toggleable option in the details of every pokemon. This now changes the sprite as well!
+- Items now have a sprite in the dropdown
+- The inputs and dropdowns in the details, calculator and team builder now change according to dark mode
+- Added item sprite to details page for every battle (where applicable)
+
+🐛 Bug Fix
+
+- App no longer crashes when using Mr. Mime (Galarian) in the calculator
+- Back button now displayed correctly on smaller screens in the Report page - Thanks @Yondiame
+- Added Berry Fields encounter to Ultra Sun and Ultra Moon (with Crabrawler as the encounter)
+- Added Farfetch'd as an encounter in Vermillion City in FireRed and LeafGreen and Red, Blue and Yellow
+
+🏠 Internal
+
+- Bumped i18next to 21.6.3
+- Bumped react-router-dom to 6.2.1
+- Bumped @types/node to 7.0.2
+- Bumped cypress to 9.2.0
+- Bumped eslint to 8.4.1
+- Bumped sass to 1.45.1
+
 ## Version 4.0.0
 
 🚀 New features

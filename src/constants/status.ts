@@ -32,12 +32,6 @@ const STATUSES: TStatus[] = [
     text: 'Failed',
   },
   {
-    icon: 'diamond',
-    key: 'Shiny',
-    value: 6,
-    text: 'Shiny',
-  },
-  {
     icon: 'chess king',
     key: 'Team',
     value: 7,

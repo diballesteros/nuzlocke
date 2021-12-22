@@ -37,6 +37,7 @@ Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid=gender]').click();
   cy.get('[data-testid=gender] > .visible > :nth-child(2)').click();
   cy.get('[data-testid=nature]').type('Bold');
+  cy.get('[data-testid=shiny]').click();
   cy.get('[data-testid=move-summary]').click();
   cy.get('[data-testid=move-1] > div').click();
   cy.get('[data-testid=move-Pound]').click();

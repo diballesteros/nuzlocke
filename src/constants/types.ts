@@ -44,7 +44,8 @@ export interface AppState {
     moveOne: number,
     moveTwo: number,
     moveThree: number,
-    moveFour: number
+    moveFour: number,
+    shiny: boolean
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
@@ -124,6 +125,10 @@ export type TBadgeDictionary = {
   [key: string]: TBadge[];
 };
 
+export type TBadgeImages = {
+  [key: string]: { src: string }[];
+};
+
 export type TCustomBadgeDictionary = {
   [key: string]: (number | string)[];
 };
@@ -148,7 +153,6 @@ export type TBadge = {
   id: number;
   levelCap: number | string;
   name: string;
-  src: string;
 };
 
 export type TEncounter = {
@@ -167,7 +171,6 @@ export interface TPokemon {
   evolve?: number[];
   generation: number;
   key?: string;
-  image: string;
   text: string;
   type: Type;
   value: number;
@@ -296,6 +299,7 @@ export interface PokemonDetail {
   metLevel?: number;
   moves: number[];
   nature?: string;
+  shiny?: boolean;
 }
 
 export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];

@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
-import { PokemonSelector } from 'common';
+import { PkmImage, PokemonSelector } from 'common';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
@@ -131,7 +131,9 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
         >
           {encounter?.pokemon ? (
             <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
-              <img alt={foundPokemon.text} src={foundPokemon.image} />
+              <div className={styles.image}>
+                <PkmImage name={foundPokemon.text} shiny={encounter?.details?.shiny} />
+              </div>
               <span className={styles.name}>{foundPokemon.text}</span>
             </div>
           ) : (

@@ -10,6 +10,14 @@
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
+
+    .image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 3.5rem;
+      width: 4.5rem;
+    }
   }
 
   > div:last-child {

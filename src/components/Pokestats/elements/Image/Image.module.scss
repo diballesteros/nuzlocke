@@ -87,10 +87,12 @@
         margin-bottom: var(--spacing-2);
         border-bottom: 1px solid var(--contrast);
 
-        > img {
+        > .image {
+          display: flex;
+          align-items: center;
+          justify-content: center;
           height: 5.714rem;
           width: 5.714rem;
-          object-fit: cover;
           align-self: center;
         }
       }
@@ -125,12 +127,11 @@
     .box {
       display: flex;
       flex-flow: row wrap;
-      gap: var(--spacing-3);
+      gap: var(--spacing-5);
 
       .pokeImg {
         height: 3.429rem;
         width: 3.429rem;
-        object-fit: cover;
       }
     }
 

@@ -80,6 +80,7 @@ function Import(): JSX.Element {
             getMoveByName(data[arrPositions.get('Move4')]),
           ],
           nature: removeNone(data[arrPositions.get('Nature')]),
+          shiny: data[arrPositions.get('IsShiny')] === 'True',
         },
         id: foundEnc.id,
         location: foundEnc.location,

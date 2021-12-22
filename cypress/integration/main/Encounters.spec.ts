@@ -151,7 +151,7 @@ describe('Encounters', () => {
     cy.get('[data-testid=tracker]').click();
     cy.get('[data-testid="scroll-to-last-encounter-7"]').click();
     cy.get('[data-testid="pokemon-7"]').should('exist').click();
-    cy.contains('dupe').should('exist');
+    cy.contains('DUPE').should('exist');
     cy.get('[data-testid="poke-Growlithe"]').click({ force: true });
     cy.get('[data-testid="status-7"]').click();
     cy.get('[data-testid="status-7"] > .visible > :nth-child(3)').click();
