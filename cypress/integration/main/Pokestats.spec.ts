@@ -73,9 +73,9 @@ describe('PokéStats', () => {
     cy.get('.secondary > :nth-child(4) > .ui').click().should('have.text', '1');
     cy.get('.secondary > :nth-child(3) > .ui').click().should('have.text', '4');
 
-    cy.get('[data-testid="caught-0"]').should('exist');
-    cy.get('[data-testid="caught-1"]').should('exist');
-    cy.get('[data-testid="caught-2"]').should('exist');
+    cy.get('[data-testid="caught-0"]').should('exist').click();
+    cy.get('[data-testid="caught-1"]').should('exist').click();
+    cy.get('[data-testid="caught-2"]').should('exist').click();
     cy.get('.secondary > :nth-child(4)').click();
     cy.get('[data-testid="failed-5"]').should('exist');
     cy.get('.secondary > :nth-child(5)').click();
