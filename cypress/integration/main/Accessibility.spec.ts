@@ -15,5 +15,8 @@ describe('Accesibility', () => {
     cy.get('[data-testid="expand-moves"]').focus().type('{Enter}');
     cy.get('[data-testid="attacker-result-2"]').focus().type('{Enter}');
     cy.get('[data-testid="defender-result-3"]').focus().type('{Enter}');
+    cy.viewport('iphone-6+');
+    cy.get('[data-testid="pokemon2-tab"').focus().type('{Enter}');
+    cy.get('[data-testid="pokemon1-tab"').focus().type('{Enter}');
   });
 });
