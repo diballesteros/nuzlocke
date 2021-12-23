@@ -155,7 +155,7 @@ function Rules(): JSX.Element {
       <div className={styles.rules} data-testid="ruleslist">
         {rules[selectedRuleset]?.map((rule, i) => {
           return (
-            <div className={styles.rule} key={`rule-${i}`}>
+            <div className={styles.rule} key={`rule-${Number(i) + 1}`}>
               <div className={styles.reorder}>
                 {i !== 0 && (
                   <Button

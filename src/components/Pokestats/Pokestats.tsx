@@ -53,7 +53,7 @@ function Pokestats(): JSX.Element {
             teamPokemon?.map((enc, i) => {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
-                <div className={styles.member} key={`team-${enc.id}-${i}`}>
+                <div className={styles.member} key={`team-${enc.id}-${Number(i) + 1}`}>
                   <Popup
                     key={`team-${enc.id}-${i + 1}`}
                     inverted={darkMode}
@@ -101,7 +101,7 @@ function Pokestats(): JSX.Element {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
-                  key={`caught-${enc.id}-${i}`}
+                  key={`caught-${enc.id}-${Number(i) + 1}`}
                   inverted={darkMode}
                   on="click"
                   pinned
@@ -137,7 +137,7 @@ function Pokestats(): JSX.Element {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
-                  key={`failed-${enc.id}-${i}`}
+                  key={`failed-${enc.id}-${Number(i) + 1}`}
                   inverted={darkMode}
                   on="click"
                   pinned
@@ -173,7 +173,7 @@ function Pokestats(): JSX.Element {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return (
                 <Popup
-                  key={`fainted-${enc.id}-${i}`}
+                  key={`fainted-${enc.id}-${Number(i) + 1}`}
                   inverted={darkMode}
                   on="click"
                   pinned

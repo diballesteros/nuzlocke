@@ -65,7 +65,7 @@ function Badges(): JSX.Element {
               className={`${styles.badge} ${
                 index <= games[selectedGame?.value]?.badge ? styles.active : ''
               }`}
-              key={`${badge}-${index}`}
+              key={`${badge}-${Number(index) + 1}`}
               onClick={() => handleClick(index)}
               type="button"
             >
