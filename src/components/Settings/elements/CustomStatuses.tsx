@@ -38,7 +38,7 @@ function CustomStatuses(): JSX.Element {
         </Button>
       }
     >
-      <Modal.Content className={modalStyles.modalMax}>
+      <Modal.Content className={modalStyles.modal} scrolling>
         {statuses?.map((status, i) => {
           return (
             <div className={styles.customStatus} key={`custom-status-${status}`}>

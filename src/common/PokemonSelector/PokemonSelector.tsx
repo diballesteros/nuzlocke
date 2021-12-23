@@ -60,6 +60,10 @@ function PokemonSelector({
     setOpen(false);
   };
 
+  const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') setOpen(true);
+  };
+
   const handleClose = () => {
     values.reset();
     setOpen(false);
@@ -74,7 +78,6 @@ function PokemonSelector({
           className={`${styles.row} ${dupe ? styles.dupe : ''}`}
           data-testid={`poke-${pokemon.text}`}
           onClick={() => handleClick(pokemon.value)}
-          role="presentation"
           style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
         >
           {suggestions &&
@@ -85,7 +88,11 @@ function PokemonSelector({
                 <span>{t('suggested')}</span>
               </div>
             )}
-          {dupe && <span className={styles.suggestion}>DUPE</span>}
+          {dupe && (
+            <span className={styles.suggestion} title={t('dupe_description')}>
+              DUPE
+            </span>
+          )}
           <div className={styles.details}>
             <div className={styles.image}>
               <PkmImage name={pokemon?.text} />
@@ -103,7 +110,7 @@ function PokemonSelector({
       closeOnDimmerClick
       open={open}
       trigger={
-        <div onClick={() => setOpen(true)} role="presentation">
+        <div onClick={() => setOpen(true)} onKeyPress={onKeyPress} role="button" tabIndex={0}>
           {children}
         </div>
       }

@@ -131,7 +131,7 @@ const Encounters = React.memo(function Encounters() {
                       </li>
                       {encounter?.details?.level > 1 && (
                         <li
-                          aria-label="level down encounter"
+                          aria-label="decrease encounter level"
                           data-testid={`level-down-${index}`}
                           onClick={() => changeLevel(encounter.id, false)}
                           role="presentation"

@@ -1,5 +1,5 @@
 import { GenerationNum, Result } from '@smogon/calc';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -34,6 +34,21 @@ function CalculatorHeader(): JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const { attackerResults, defenderResults } = useCalculate();
+
+  const handleKeyPress = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    change: [position: 'attacker' | 'defender', index: number]
+  ) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setPrimary(change);
+    }
+  };
+
+  const handleMainKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setExpanded((prevState) => !prevState);
+    }
+  };
 
   return (
     <div className={styles.header}>
@@ -77,7 +92,10 @@ function CalculatorHeader(): JSX.Element {
           data-testid="expand-moves"
           name="angle right"
           onClick={() => setExpanded((prevState) => !prevState)}
+          onKeyPress={handleMainKeyPress}
+          role="button"
           style={{ transform: expanded ? 'rotate(90deg)' : undefined }}
+          tabIndex={0}
         />
       </div>
       <div className={`${styles.moreResults} ${expanded ? styles.open : ''}`}>
@@ -90,7 +108,9 @@ function CalculatorHeader(): JSX.Element {
                 data-testid={`attacker-result-${i + 1}`}
                 key={`attacker-result-${i + 1}`}
                 onClick={() => setPrimary(['attacker', i])}
-                role="presentation"
+                onKeyPress={(e) => handleKeyPress(e, ['attacker', i])}
+                role="button"
+                tabIndex={0}
               >
                 <Icon name="pin" />
                 {getDesc(result)}
@@ -107,7 +127,9 @@ function CalculatorHeader(): JSX.Element {
                 data-testid={`defender-result-${i + 1}`}
                 key={`defender-result-${i + 1}`}
                 onClick={() => setPrimary(['defender', i])}
-                role="presentation"
+                onKeyPress={(e) => handleKeyPress(e, ['defender', i])}
+                role="button"
+                tabIndex={0}
               >
                 <Icon name="pin" />
                 {getDesc(result)}

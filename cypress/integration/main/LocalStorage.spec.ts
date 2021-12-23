@@ -12,7 +12,8 @@ describe('Local Storage', () => {
         '"typeModal":null,"rulesets":[{"text": "Nuzlocke", "value":"Nuzlocke"}, {"text":"Test","value":"Test"}]'
       );
       const addFilter = addRuleset.replace('"pokemon":null', '"pokemon":null,"filter":["Test"]');
-      const changeVersion = addFilter.replace('"version":6', '"version":0');
+      const replaceSoulocke = addFilter.replace('Soulocke', 'SomethingElse');
+      const changeVersion = replaceSoulocke.replace('"version":6', '"version":0');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
   });

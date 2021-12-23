@@ -118,7 +118,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         </Button>
       }
     >
-      <Modal.Content className={styles.content}>
+      <Modal.Content className={styles.content} scrolling>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <div className={styles.image}>

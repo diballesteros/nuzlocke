@@ -594,7 +594,7 @@ export const MY_ITEMS = [...new Set(ITEMS[8])].filter(
   (smogonItem) => smogonItem.substring(0, 2) !== 'TR'
 );
 
-export const getSmogonItemName = (item: string) => {
+export const getSmogonItemName = (item: string): string => {
   if (item === "King's Rock") {
     return 'kings-rock';
   }

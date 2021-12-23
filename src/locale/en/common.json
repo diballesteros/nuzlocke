@@ -9,6 +9,7 @@
   "decreased_stat": "Decreased stat",
   "delete_custom": "This will delete the custom game. Are you sure?",
   "delete_success": "Successfully deleted game",
+  "dupe_description": "A dupe is a pokémon that has already been captured",
   "encounter_template": "Encounter Template",
   "export": "Export",
   "generations": "Generations",

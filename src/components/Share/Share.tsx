@@ -85,7 +85,7 @@ function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
         )
       }
     >
-      <Modal.Content className={modalStyles.modalMax}>
+      <Modal.Content className={modalStyles.modal} scrolling>
         <textarea data-testid="share-textarea" defaultValue={text} rows={5} />
       </Modal.Content>
       <Modal.Actions>

@@ -63,7 +63,7 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
         )
       }
     >
-      <Modal.Content className={modalStyles.modalMax}>
+      <Modal.Content className={modalStyles.modal} scrolling>
         {selectedGame &&
           badges[selectedGame?.value]?.map((val, i) => {
             return (
