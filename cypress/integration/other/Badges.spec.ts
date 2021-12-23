@@ -14,9 +14,9 @@ describe('Badges', () => {
   it('Edit badges', () => {
     cy.get('[title="Grass Badge"]').should('have.text', '20');
     cy.get('[data-testid=edit-badges]').click();
-    cy.get('.content > :nth-child(1) > input').type('99');
+    cy.get('.content > :nth-child(1) > input').type('9');
     cy.contains('Cancel').click();
-    cy.get('[title="Grass Badge"]').should('have.text', '2099');
+    cy.get('[title="Grass Badge"]').should('have.text', '209');
     cy.get('[data-testid=edit-badges]').click();
     cy.contains('Set default').click();
     cy.contains('Cancel').click();

@@ -133,6 +133,7 @@ function DisplaySettings(): JSX.Element {
               <textarea
                 className={styles.textarea}
                 data-testid="summary-description"
+                maxLength={1000}
                 onChange={(e) => changeSummaryDesc(e.target.value)}
                 rows={5}
                 value={summary?.description}

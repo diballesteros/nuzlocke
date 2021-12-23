@@ -242,6 +242,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <textarea
               className={styles.textarea}
               data-testid="cause of fainting"
+              maxLength={250}
               onChange={(e) => setFaint(e.target.value)}
               rows={5}
               value={faint}
