@@ -28,7 +28,7 @@ function Calculator(): JSX.Element {
     }
   }, [calc, selectedGame, setDefaultCalculator]);
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLLIElement>, index: 0 | 1) => {
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>, index: 0 | 1) => {
     if (e.key === 'Enter' || e.key === ' ') {
       setSelected(index);
     }
@@ -63,8 +63,8 @@ function Calculator(): JSX.Element {
             <Stats pokemon="2" />
             <SideField pokemon="2" />
           </fieldset>
-          <ul className={styles.tabs}>
-            <li
+          <div className={styles.tabs}>
+            <div
               className={`${styles.tab} ${selected === 0 ? styles.active : ''}`}
               data-testid="pokemon1-tab"
               onClick={() => setSelected(0)}
@@ -73,8 +73,8 @@ function Calculator(): JSX.Element {
               onKeyPress={(e) => handleKeyPress(e, 0)}
             >
               Pokémon 1
-            </li>
-            <li
+            </div>
+            <div
               className={`${styles.tab} ${selected === 1 ? styles.active : ''}`}
               data-testid="pokemon2-tab"
               onClick={() => setSelected(1)}
@@ -83,8 +83,8 @@ function Calculator(): JSX.Element {
               onKeyPress={(e) => handleKeyPress(e, 1)}
             >
               Pokémon 2
-            </li>
-          </ul>
+            </div>
+          </div>
         </>
       ) : (
         <div className={styles.placeholder}>

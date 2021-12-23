@@ -78,6 +78,7 @@ function PokemonSelector({
           className={`${styles.row} ${dupe ? styles.dupe : ''}`}
           data-testid={`poke-${pokemon.text}`}
           onClick={() => handleClick(pokemon.value)}
+          role="presentation"
           style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
         >
           {suggestions &&
