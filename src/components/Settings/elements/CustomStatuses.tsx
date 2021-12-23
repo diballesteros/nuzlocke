@@ -55,6 +55,7 @@ function CustomStatuses(): JSX.Element {
           <Input
             data-testid="custom-status-input"
             label={t('custom_status')}
+            maxLength={20}
             onChange={(e, data) => setText(data.value)}
             value={text}
           />

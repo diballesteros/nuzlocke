@@ -112,6 +112,7 @@ function Rules(): JSX.Element {
             {t('please_ruleset')}
             <Input
               data-testid="add-ruleset-input"
+              maxLength={50}
               onChange={(e, data) => setRulesetName(data.value)}
               value={rulesetName}
             />

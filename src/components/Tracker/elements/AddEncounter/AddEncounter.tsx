@@ -65,6 +65,7 @@ function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
         {t('please_location')}
         <Input
           data-testid="add-encounter-input"
+          maxLength={100}
           onChange={(e, data) => setLocation(data.value)}
           value={location}
         />

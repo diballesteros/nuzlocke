@@ -68,8 +68,10 @@ function BadgeEditor({ icon }: BadgeEditorProps): JSX.Element {
           badges[selectedGame?.value]?.map((val, i) => {
             return (
               <Input
+                aria-label="badge-level-cap"
                 key={`badge-editor-${Number(i) + 1}`}
                 label={val.name}
+                maxLength={3}
                 onChange={(e, data) => handleChange(data.value, i)}
                 value={val.levelCap}
               />

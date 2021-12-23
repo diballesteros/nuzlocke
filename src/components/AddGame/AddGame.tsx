@@ -53,7 +53,9 @@ function AddGame(): JSX.Element {
       <Modal.Content className={modalStyles.modal}>
         {t('please_enter')}
         <Input
+          aria-label="custom-game-text"
           data-testid="add-game-input"
+          maxLength={50}
           onChange={(e, data) => setGameName(data.value)}
           value={gameName}
         />

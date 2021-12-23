@@ -58,8 +58,10 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
             return (
               <div className={styles.custom} key={`custombadge-${Number(i) + 1}`}>
                 <Input
+                  aria-label="custom-badge-level-cap"
                   data-testid={`custom-badge-input-${i}`}
                   label={Number(i) + 1}
+                  maxLength={3}
                   onChange={(e, data) => handleChange(data.value, i)}
                   value={val}
                 />

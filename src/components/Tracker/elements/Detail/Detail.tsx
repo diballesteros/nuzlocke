@@ -134,17 +134,17 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <Input
               className={styles.input}
               data-testid="level"
+              maxLength={3}
               label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
-              type="number"
               value={level}
             />
             <Input
               className={styles.input}
               data-testid="metlevel"
               label={t('met_level')}
+              maxLength={3}
               onChange={(e, data) => setMetLevel(Number(data.value))}
-              type="number"
               value={metLevel}
             />
             <Dropdown

@@ -46,11 +46,16 @@ function Report(): JSX.Element {
         </label>
         <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
           {t('selected_game')}:
-          <input name="selectedgame" data-testid="report-selectedgame" type="text" />
+          <input
+            maxLength={100}
+            name="selectedgame"
+            data-testid="report-selectedgame"
+            type="text"
+          />
         </label>
         <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
           {t('description')}:
-          <textarea name="description" data-testid="report-description" />
+          <textarea maxLength={1000} name="description" data-testid="report-description" />
         </label>
         <button style={{ width: '5.714rem' }} type="submit">
           {t('send')}

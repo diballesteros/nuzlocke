@@ -50,11 +50,12 @@ function General({ encounters, pokemon }: GeneralProps): JSX.Element {
           className={styles.level}
           data-testid={`level-input${pokemon}`}
           id={`level${pokemon}`}
-          type="number"
+          maxLength={3}
+          pattern="\d*"
           onChange={(e) => {
             update({ [`level${pokemon}`]: Number(e.target.value) });
           }}
-          value={form[`level${pokemon}`]}
+          value={form[`level${pokemon}`] || 0}
         />
         <Button
           data-testid={`plus-level${pokemon}`}

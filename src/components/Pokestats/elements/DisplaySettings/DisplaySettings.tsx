@@ -60,6 +60,7 @@ function DisplaySettings(): JSX.Element {
                 data-testid="summary-title"
                 fluid
                 label={t('title')}
+                maxLength={50}
                 onChange={(e, data) => changeSummaryTitle(data.value)}
                 style={{ marginBottom: 'var(--spacing-2)' }}
                 value={summary?.title}
