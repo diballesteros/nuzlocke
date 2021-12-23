@@ -56,10 +56,10 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
         {badges[selectedGame.value] &&
           badges[selectedGame.value]?.map((val, i) => {
             return (
-              <div className={styles.custom} key={`badge-${i + 1}`}>
+              <div className={styles.custom} key={`badge-${i}`}>
                 <Input
                   data-testid={`custom-badge-input-${i}`}
-                  label={i + 1}
+                  label={Number(i) + 1}
                   onChange={(e, data) => handleChange(data.value, i)}
                   value={val}
                 />

@@ -67,7 +67,7 @@ function Rules(): JSX.Element {
             text={rules[selectedRuleset]?.reduce(
               (str, rule, i) => {
                 return `${str}
-      ${i + 1}. ${getRuleContent(rule.content, rule.type) || 'N/A'}`;
+      ${Number(i) + 1}. ${getRuleContent(rule.content, rule.type) || 'N/A'}`;
               },
               `Ruleset
         `
@@ -155,7 +155,7 @@ function Rules(): JSX.Element {
       <div className={styles.rules} data-testid="ruleslist">
         {rules[selectedRuleset]?.map((rule, i) => {
           return (
-            <div className={styles.rule} key={`rule-${i + 1}`}>
+            <div className={styles.rule} key={`rule-${i}`}>
               <div className={styles.reorder}>
                 {i !== 0 && (
                   <Button

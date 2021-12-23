@@ -110,7 +110,13 @@ function PokemonSelector({
       closeOnDimmerClick
       open={open}
       trigger={
-        <div onClick={() => setOpen(true)} onKeyPress={onKeyPress} role="button" tabIndex={0}>
+        <div
+          data-testid="pokemon-selector"
+          onClick={() => setOpen(true)}
+          onKeyPress={onKeyPress}
+          role="button"
+          tabIndex={0}
+        >
           {children}
         </div>
       }
