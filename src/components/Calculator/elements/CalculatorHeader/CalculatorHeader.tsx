@@ -1,6 +1,6 @@
 import { GenerationNum, Result } from '@smogon/calc';
 import React, { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import { TFunction, useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
@@ -11,14 +11,14 @@ import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
 import styles from './CalculatorHeader.module.scss';
 
-export function getDesc(result: Result): string {
+export function getDesc(result: Result, t: TFunction): string {
   try {
-    return result?.fullDesc() || 'No move selected';
+    return result?.fullDesc() || t('no_move_selected');
   } catch (e) {
     if ((e as Error).message === 'damage[damage.length - 1] === 0.') {
       return `${result.attacker.name} ${result.move.name} vs ${result.defender.name}: 0 - 0%`;
     }
-    return 'Invalid calculation';
+    return t('invalid_calculation');
   }
 }
 
@@ -85,8 +85,8 @@ function CalculatorHeader(): JSX.Element {
       <div className={styles.primary}>
         <output className={styles.mainResult} data-testid="primary-damage">
           {primary[0] === 'attacker'
-            ? getDesc(attackerResults[primary[1]])
-            : getDesc(defenderResults[primary[1]])}
+            ? getDesc(attackerResults[primary[1]], t)
+            : getDesc(defenderResults[primary[1]], t)}
         </output>
         <Icon
           data-testid="expand-moves"
@@ -113,7 +113,7 @@ function CalculatorHeader(): JSX.Element {
                 tabIndex={0}
               >
                 <Icon name="pin" />
-                {getDesc(result)}
+                {getDesc(result, t)}
               </div>
             );
           })}
@@ -132,7 +132,7 @@ function CalculatorHeader(): JSX.Element {
                 tabIndex={0}
               >
                 <Icon name="pin" />
-                {getDesc(result)}
+                {getDesc(result, t)}
               </div>
             );
           })}

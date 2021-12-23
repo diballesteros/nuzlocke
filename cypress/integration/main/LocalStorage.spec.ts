@@ -26,6 +26,7 @@ describe('Local Storage', () => {
       const removeBDSP = data.replace('13.1', '15');
       cy.setLocalStorage('pokemon-tracker', removeBDSP);
     });
+    cy.visit('/');
     cy.contains('Nuzlocke Tracker').should('exist');
   });
 });
