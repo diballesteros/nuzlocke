@@ -1,14 +1,8 @@
 .modal,
-.modalMax,
 .modalColor {
   display: flex !important;
   flex-flow: column nowrap;
   gap: var(--spacing-1);
-}
-
-.modalMax {
-  max-height: '70vh';
-  overflow: 'auto';
 }
 
 .modalColor {

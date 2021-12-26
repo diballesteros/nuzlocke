@@ -118,7 +118,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
         </Button>
       }
     >
-      <Modal.Content className={styles.content}>
+      <Modal.Content className={styles.content} scrolling>
         <div className={styles.header}>
           <div className={styles.headerLeft}>
             <div className={styles.image}>
@@ -134,17 +134,17 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <Input
               className={styles.input}
               data-testid="level"
+              maxLength={3}
               label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
-              type="number"
               value={level}
             />
             <Input
               className={styles.input}
               data-testid="metlevel"
               label={t('met_level')}
+              maxLength={3}
               onChange={(e, data) => setMetLevel(Number(data.value))}
-              type="number"
               value={metLevel}
             />
             <Dropdown
@@ -242,6 +242,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
             <textarea
               className={styles.textarea}
               data-testid="cause of fainting"
+              maxLength={250}
               onChange={(e) => setFaint(e.target.value)}
               rows={5}
               value={faint}

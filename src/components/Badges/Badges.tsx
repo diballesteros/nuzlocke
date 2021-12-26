@@ -22,6 +22,12 @@ function Badges(): JSX.Element {
     navigate(`/badgedetail/${selectedGame?.value}/${index}`);
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>, index: number) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      navigate(`/badgedetail/${selectedGame?.value}/${index}`);
+    }
+  };
+
   return (
     <div className={styles.badges} data-testid="badges">
       {!!selectedGame &&
@@ -42,7 +48,9 @@ function Badges(): JSX.Element {
                 className={styles.question}
                 data-testid={`badge-detail-${index}`}
                 onClick={(e) => handleOpen(e, index)}
-                role="presentation"
+                onKeyPress={(e) => handleKeyPress(e, index)}
+                role="button"
+                tabIndex={0}
               >
                 <Icon name="question" />
               </div>
@@ -57,7 +65,7 @@ function Badges(): JSX.Element {
               className={`${styles.badge} ${
                 index <= games[selectedGame?.value]?.badge ? styles.active : ''
               }`}
-              key={`${badge}-${index + 1}`}
+              key={`${badge}-${Number(index) + 1}`}
               onClick={() => handleClick(index)}
               type="button"
             >

@@ -170,10 +170,6 @@ describe('Rules', () => {
           // @ts-expect-error - we need to override the clipboard
           delete win.navigator.clipboard;
           // @ts-expect-error - we need to override the clipboard
-          win.navigator.clipboard = () => {
-            return true;
-          };
-          // @ts-expect-error - we need to override the clipboard
           win.navigator.clipboard = cy.stub().resolves(true);
         },
       });
@@ -188,14 +184,6 @@ describe('Rules', () => {
         onBeforeLoad(win) {
           // @ts-expect-error - we need to override the clipboard
           delete win.navigator.clipboard;
-          // @ts-expect-error - we need to override the clipboard
-          win.navigator.clipboard = () => {
-            return true;
-          };
-          // @ts-expect-error - we need to override the clipboard
-          win.navigator.clipboard.writeText = () => {
-            return true;
-          };
           // @ts-expect-error - we need to override the clipboard
           win.navigator.clipboard = cy.stub().resolves(true);
           win.navigator.clipboard.writeText = cy.stub().resolves(true);

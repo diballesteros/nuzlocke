@@ -37,6 +37,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
           ),
         }}
         labelPosition="right corner"
+        maxLength={50}
         onChange={(e, data) => values.setSearch(data.value)}
         placeholder={`${t('search')}...`}
         type="search"

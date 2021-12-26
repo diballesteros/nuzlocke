@@ -48,11 +48,12 @@ function Stats({ pokemon }: StatsProps): JSX.Element {
           className={styles.currenthp}
           data-testid={`currenthp${pokemon}`}
           id={`currenthp${pokemon}`}
-          type="number"
+          maxLength={3}
+          pattern="\d*"
           onChange={(e) => {
             update({ [`currenthp${pokemon}`]: Number(e.target.value) });
           }}
-          value={form[`currenthp${pokemon}`]}
+          value={form[`currenthp${pokemon}`] || 0}
         />
         <output>/{totalHp}</output>
       </div>

@@ -79,6 +79,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
           <Input
             data-testid="edit-rule-level-input"
             fluid
+            max={100}
             onChange={(e, data) => setLevel(data.value)}
             placeholder={t('please_max')}
             type="number"
@@ -104,6 +105,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
         return (
           <Input
             data-testid="edit-rule-input"
+            maxLength={500}
             onChange={(e, data) => setRuleText(data.value)}
             value={ruleText}
           />

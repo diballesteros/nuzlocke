@@ -1,9 +1,10 @@
 import { GenerationNum, Result } from '@smogon/calc';
-import { useCallback, useState } from 'react';
-import { useTranslation } from 'react-i18next';
+import React, { useCallback, useState } from 'react';
+import { TFunction, useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import { MainField } from 'components/Calculator/elements';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import { GENERATION_SELECT, MAX_GAME } from 'constants/constant';
@@ -11,14 +12,14 @@ import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
 import styles from './CalculatorHeader.module.scss';
 
-export function getDesc(result: Result): string {
+export function getDesc(result: Result, t: TFunction): string {
   try {
-    return result?.fullDesc() || 'No move selected';
+    return result?.fullDesc() || t('no_move_selected');
   } catch (e) {
     if ((e as Error).message === 'damage[damage.length - 1] === 0.') {
       return `${result.attacker.name} ${result.move.name} vs ${result.defender.name}: 0 - 0%`;
     }
-    return 'Invalid calculation';
+    return t('invalid_calculation');
   }
 }
 
@@ -34,6 +35,21 @@ function CalculatorHeader(): JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const { attackerResults, defenderResults } = useCalculate();
+
+  const handleKeyPress = (
+    e: React.KeyboardEvent<HTMLDivElement>,
+    change: [position: 'attacker' | 'defender', index: number]
+  ) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setPrimary(change);
+    }
+  };
+
+  const handleMainKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setExpanded((prevState) => !prevState);
+    }
+  };
 
   return (
     <div className={styles.header}>
@@ -66,21 +82,34 @@ function CalculatorHeader(): JSX.Element {
           {t('reset')}
           <Icon className="icon refresh" />
         </Button>
+        <Popup
+          content={<b>{t('calculator_help')}</b>}
+          inverted={darkMode}
+          trigger={<Icon className={styles.help} name="question circle" />}
+        />
       </div>
       <div className={styles.primary}>
         <output className={styles.mainResult} data-testid="primary-damage">
           {primary[0] === 'attacker'
-            ? getDesc(attackerResults[primary[1]])
-            : getDesc(defenderResults[primary[1]])}
+            ? getDesc(attackerResults[primary[1]], t)
+            : getDesc(defenderResults[primary[1]], t)}
         </output>
         <Icon
+          className={styles.expand}
           data-testid="expand-moves"
           name="angle right"
           onClick={() => setExpanded((prevState) => !prevState)}
+          onKeyPress={handleMainKeyPress}
+          role="button"
           style={{ transform: expanded ? 'rotate(90deg)' : undefined }}
+          tabIndex={0}
         />
       </div>
-      <div className={`${styles.moreResults} ${expanded ? styles.open : ''}`}>
+      <div
+        aria-expanded={expanded}
+        className={`${styles.moreResults} ${expanded ? styles.open : ''}`}
+      >
+        <span className={styles.select}>{t('select_one')}</span>
         <div className={styles.grouped}>
           <b>{t('attacker')}:</b>
           {attackerResults.map((result, i) => {
@@ -90,10 +119,12 @@ function CalculatorHeader(): JSX.Element {
                 data-testid={`attacker-result-${i + 1}`}
                 key={`attacker-result-${i + 1}`}
                 onClick={() => setPrimary(['attacker', i])}
-                role="presentation"
+                onKeyPress={(e) => handleKeyPress(e, ['attacker', i])}
+                role="button"
+                tabIndex={0}
               >
                 <Icon name="pin" />
-                {getDesc(result)}
+                {getDesc(result, t)}
               </div>
             );
           })}
@@ -107,10 +138,12 @@ function CalculatorHeader(): JSX.Element {
                 data-testid={`defender-result-${i + 1}`}
                 key={`defender-result-${i + 1}`}
                 onClick={() => setPrimary(['defender', i])}
-                role="presentation"
+                onKeyPress={(e) => handleKeyPress(e, ['defender', i])}
+                role="button"
+                tabIndex={0}
               >
                 <Icon name="pin" />
-                {getDesc(result)}
+                {getDesc(result, t)}
               </div>
             );
           })}

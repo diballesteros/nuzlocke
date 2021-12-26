@@ -232,7 +232,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                   <div
                     data-testid={`image-box-${i}-${responsive}`}
                     className={styles.pokeImg}
-                    key={`boxed-${i + 1}`}
+                    key={`boxed-${Number(i) + 1}`}
                   >
                     <PkmImage name={foundPokemon?.text} shiny={box?.details?.shiny} />
                   </div>
@@ -253,7 +253,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                   <div
                     data-testid={`image-fainted-${i}-${responsive}`}
                     className={styles.pokeImg}
-                    key={`boxed-${i + 1}`}
+                    key={`fainted-${Number(i) + 1}`}
                   >
                     <PkmImage name={foundPokemon?.text} shiny={faint?.details?.shiny} />
                   </div>
@@ -264,12 +264,12 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         </div>
       )}
       <div className={styles.row}>
-        {summary?.rules && (
+        {summary?.rules && rules[selectedRuleset] && (
           <div className={`${styles.card} ${styles.medium}`}>
             <span className={styles.title}>{t('rules')}</span>
             <div className={styles.rules}>
-              {rules[selectedRuleset].map((rule, i) => {
-                return <RuleContent hideSmart key={`sumrule-${i + 1}`} i={i} rule={rule} />;
+              {rules[selectedRuleset]?.map((rule, i) => {
+                return <RuleContent hideSmart key={`sumrule-${Number(i) + 1}`} i={i} rule={rule} />;
               })}
             </div>
           </div>

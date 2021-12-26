@@ -67,6 +67,7 @@
       padding: 0;
       margin: 0;
 
+      &:focus,
       &:hover {
         background-color: #333;
         > i {

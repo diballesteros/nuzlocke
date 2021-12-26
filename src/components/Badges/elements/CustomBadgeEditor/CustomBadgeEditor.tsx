@@ -52,14 +52,16 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
         )
       }
     >
-      <Modal.Content className={modalStyles.modalMax}>
+      <Modal.Content className={modalStyles.modal} scrolling>
         {badges[selectedGame.value] &&
           badges[selectedGame.value]?.map((val, i) => {
             return (
-              <div className={styles.custom} key={`badge-${i + 1}`}>
+              <div className={styles.custom} key={`custombadge-${Number(i) + 1}`}>
                 <Input
+                  aria-label="custom-badge-level-cap"
                   data-testid={`custom-badge-input-${i}`}
-                  label={i + 1}
+                  label={Number(i) + 1}
+                  maxLength={3}
                   onChange={(e, data) => handleChange(data.value, i)}
                   value={val}
                 />

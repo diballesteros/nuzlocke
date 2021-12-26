@@ -36,6 +36,7 @@ function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
       data-testid={`nickname-${encounterId}`}
       fluid
       id={`nickname-${encounterId}`}
+      maxLength={12}
       onBlur={handleBlur}
       onChange={handleChange}
       placeholder={`${t('nickname')}...`}

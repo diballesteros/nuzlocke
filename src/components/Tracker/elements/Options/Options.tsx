@@ -54,7 +54,9 @@ const Options = React.memo(function Options() {
             (str, enc, i) => {
               const foundPokemon = POKEMAP.get(enc.pokemon);
               return `${str}
-      ${i + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${enc.status?.text || 'N/A'}`;
+      ${Number(i) + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${
+                enc.status?.text || 'N/A'
+              }`;
             },
             `Nuzlocke Encounter List
         `

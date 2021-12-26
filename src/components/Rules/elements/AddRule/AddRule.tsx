@@ -35,6 +35,7 @@ function AddRule(): JSX.Element {
           {t('rule_description')}:
           <Input
             data-testid="add-rule-input"
+            maxLength={500}
             fluid
             onChange={(e, data) => setRuleText(data.value)}
             placeholder={t('please_rule')}
@@ -100,6 +101,7 @@ function AddRule(): JSX.Element {
             data-testid="add-rule-level-input"
             disabled={!!containsLevel}
             fluid
+            max={100}
             onChange={(e, data) => setLevel(data.value)}
             placeholder={t('please_max')}
             type="number"

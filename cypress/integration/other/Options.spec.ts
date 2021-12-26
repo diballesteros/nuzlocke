@@ -18,9 +18,7 @@ describe('Options', () => {
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokemon-0]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });
-    cy.get('[data-testid=nickname-0] > input')
-      .type('Bulba Nickname')
-      .should('have.value', 'Bulba Nickname');
+    cy.get('[data-testid=nickname-0] > input').type('Bulbadude').should('have.value', 'Bulbadude');
     cy.get('[data-testid=filter] > input').click();
     cy.get('[data-testid=pokemon-1]').click();
     cy.get('[data-testid=poke-Bulbasaur]').click({ force: true });

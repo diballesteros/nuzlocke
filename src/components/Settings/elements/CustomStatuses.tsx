@@ -38,7 +38,7 @@ function CustomStatuses(): JSX.Element {
         </Button>
       }
     >
-      <Modal.Content className={modalStyles.modalMax}>
+      <Modal.Content className={modalStyles.modal} scrolling>
         {statuses?.map((status, i) => {
           return (
             <div className={styles.customStatus} key={`custom-status-${status}`}>
@@ -55,6 +55,7 @@ function CustomStatuses(): JSX.Element {
           <Input
             data-testid="custom-status-input"
             label={t('custom_status')}
+            maxLength={20}
             onChange={(e, data) => setText(data.value)}
             value={text}
           />

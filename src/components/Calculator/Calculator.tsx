@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   CalculatorHeader,
@@ -27,6 +27,12 @@ function Calculator(): JSX.Element {
       setDefaultCalculator();
     }
   }, [calc, selectedGame, setDefaultCalculator]);
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>, index: 0 | 1) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      setSelected(index);
+    }
+  };
 
   return (
     <form className={styles.container} id="calculator">
@@ -57,24 +63,28 @@ function Calculator(): JSX.Element {
             <Stats pokemon="2" />
             <SideField pokemon="2" />
           </fieldset>
-          <ul className={styles.tabs}>
-            <li
+          <div className={styles.tabs}>
+            <div
               className={`${styles.tab} ${selected === 0 ? styles.active : ''}`}
               data-testid="pokemon1-tab"
               onClick={() => setSelected(0)}
-              role="presentation"
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => handleKeyPress(e, 0)}
             >
               Pokémon 1
-            </li>
-            <li
+            </div>
+            <div
               className={`${styles.tab} ${selected === 1 ? styles.active : ''}`}
               data-testid="pokemon2-tab"
               onClick={() => setSelected(1)}
-              role="presentation"
+              role="button"
+              tabIndex={0}
+              onKeyPress={(e) => handleKeyPress(e, 1)}
             >
               Pokémon 2
-            </li>
-          </ul>
+            </div>
+          </div>
         </>
       ) : (
         <div className={styles.placeholder}>

@@ -21,7 +21,11 @@ describe('Calculator function tests', () => {
         throw Error('Invalid');
       },
     };
-    const value = getDesc(result as unknown as Result);
+
+    function mockTFunction() {
+      return 'Invalid calculation';
+    }
+    const value = getDesc(result as unknown as Result, mockTFunction);
     expect(value).toEqual('Invalid calculation');
   });
 
