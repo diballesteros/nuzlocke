@@ -11,6 +11,7 @@
   .options {
     grid-column: 1 / -1;
     display: flex;
+    align-items: center;
     gap: var(--spacing-2);
     margin: 0 0 var(--spacing-3) auto;
 
@@ -35,10 +36,18 @@
         top: 0 !important;
       }
     }
+
+    .help {
+      font-size: var(--font-size-4);
+      cursor: help;
+      color: var(--contrast);
+    }
   }
 
   .primary {
     display: flex;
+    align-items: center;
+    gap: var(--spacing-1);
     grid-column: 1 / -1;
     width: 100%;
     color: var(--contrast);
@@ -50,7 +59,7 @@
       justify-self: center;
     }
 
-    > i {
+    > .expand {
       font-size: var(--font-size-7);
       justify-self: flex-end;
       transition: transform 150ms ease;

@@ -1,3 +1,20 @@
+## Version 4.2.0
+
+💅 Enhancement
+
+- Added small tooltip on the calculator to help understand the result
+- Image optimizations
+- Added more keyboard navigation options for the tracker and calculator
+- Added a small tooltip for duplicate pokemon
+- All inputs now have a max-length for the amount of characters. This is for a future update! No current text was modified.
+
+🐛 Bug Fix
+
+- 'No move selected' is now correctly translated in German and Spanish in the calculator
+- Fixed encounters for Route 3 in Black and White
+- Fixed encounters for Route 19 in FireRed and LeafGreen
+- Added Honey tree encounters for Route 205 in Diamond, Pearl and Platinum
+
 ## Version 4.1.0
 
 💅 Enhancement

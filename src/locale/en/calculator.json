@@ -1,5 +1,6 @@
 {
   "attacker": "Attacker",
+  "calculator_help": "[ATK or SPATK EV] [Attacker] [Move] vs. [HP EV] / [DEF or SPDEF EV] [Defender] [Min - Max] (Min - Max %) -- [Amount of hits to knock out]",
   "current_hp": "Current HP",
   "defender": "Defender",
   "doubles": "Doubles",
@@ -16,6 +17,7 @@
   "select_gym": "Select a gym...",
   "select_item": "Select an item...",
   "select_nature": "Select a nature...",
+  "select_one": "Select one to show it as the primary result at the top",
   "select_status": "Select a status...",
   "show_all": "Show all",
   "singles": "Singles",

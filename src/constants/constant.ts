@@ -598,5 +598,5 @@ export const getSmogonItemName = (item: string): string => {
   if (item === "King's Rock") {
     return 'kings-rock';
   }
-  return item.toLowerCase().replaceAll(' ', '-');
+  return item?.toLowerCase()?.replaceAll(' ', '-');
 };

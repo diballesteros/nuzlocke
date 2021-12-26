@@ -264,11 +264,11 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         </div>
       )}
       <div className={styles.row}>
-        {summary?.rules && (
+        {summary?.rules && rules[selectedRuleset] && (
           <div className={`${styles.card} ${styles.medium}`}>
             <span className={styles.title}>{t('rules')}</span>
             <div className={styles.rules}>
-              {rules[selectedRuleset].map((rule, i) => {
+              {rules[selectedRuleset]?.map((rule, i) => {
                 return <RuleContent hideSmart key={`sumrule-${Number(i) + 1}`} i={i} rule={rule} />;
               })}
             </div>

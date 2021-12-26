@@ -10,7 +10,7 @@ const getParsedName = (name: string) => {
   if (SPECIAL_NAMES[name]) {
     return SPECIAL_NAMES[name];
   }
-  return name.toLowerCase();
+  return name?.toLowerCase();
 };
 
 const PkmImage = React.memo(function PkmImage({ name, shiny = false }: PkmImageProps) {

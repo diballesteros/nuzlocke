@@ -2,6 +2,42 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.2.0',
+    date: 1640536181278,
+    notes: [
+      {
+        description: 'Added small tooltip on the calculator to help understand the result',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added more keyboard navigation options for the tracker and calculator',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added a small tooltip for duplicate pokemon',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Most inputs now have a max-length for the amount of characters. This is for a future update! No current text was modified',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          "'No move selected' is now correctly translated in German and Spanish in the calculator",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounters for Route 3 in Black and White',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Honey tree encounters for Route 205 in Diamond, Pearl and Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.1.0',
     date: 1640211458740,
     notes: [

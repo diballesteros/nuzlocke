@@ -4,6 +4,7 @@ import { TFunction, useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import { MainField } from 'components/Calculator/elements';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import { GENERATION_SELECT, MAX_GAME } from 'constants/constant';
@@ -81,6 +82,11 @@ function CalculatorHeader(): JSX.Element {
           {t('reset')}
           <Icon className="icon refresh" />
         </Button>
+        <Popup
+          content={<b>{t('calculator_help')}</b>}
+          inverted={darkMode}
+          trigger={<Icon className={styles.help} name="question circle" />}
+        />
       </div>
       <div className={styles.primary}>
         <output className={styles.mainResult} data-testid="primary-damage">
@@ -89,6 +95,7 @@ function CalculatorHeader(): JSX.Element {
             : getDesc(defenderResults[primary[1]], t)}
         </output>
         <Icon
+          className={styles.expand}
           data-testid="expand-moves"
           name="angle right"
           onClick={() => setExpanded((prevState) => !prevState)}
@@ -98,7 +105,11 @@ function CalculatorHeader(): JSX.Element {
           tabIndex={0}
         />
       </div>
-      <div className={`${styles.moreResults} ${expanded ? styles.open : ''}`}>
+      <div
+        aria-expanded={expanded}
+        className={`${styles.moreResults} ${expanded ? styles.open : ''}`}
+      >
+        <span className={styles.select}>{t('select_one')}</span>
         <div className={styles.grouped}>
           <b>{t('attacker')}:</b>
           {attackerResults.map((result, i) => {

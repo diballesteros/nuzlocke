@@ -1,5 +1,6 @@
 {
   "attacker": "Atacador",
+  "calculator_help": "[ATK o SPATK EV] [Atacante] [Move] vs. [HP EV] / [DEF o SPDEF EV] [Defensor] [Mín. - Máx.] (Mín. - Máx.%) -- [Cantidad de golpes para noquear] ",
   "defender": "Defensor",
   "current_hp": "HP actual",
   "doubles": "Dobles",
@@ -16,6 +17,7 @@
   "select_gym": "Seleccione un gym...",
   "select_item": "Selecciona un item...",
   "select_nature": "Selecciona una naturaleza...",
+  "select_one": "Seleccione uno para mostrarlo como resultado principal en la parte superior",
   "select_status": "Seleccionar un estado..",
   "show_all": "Mostrar todos",
   "singles": "Individual",
