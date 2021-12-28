@@ -8,6 +8,7 @@ import { Filter, Move } from 'components';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import MOVES, { MOVEMAP } from 'constants/moves';
 import useFilter from 'hooks/useFilter';
+import useRemtoPx from 'hooks/useRemToPx';
 import useStore from 'store';
 import styles from './MoveSelector.module.scss';
 
@@ -21,6 +22,7 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
+  const itemSize = useRemtoPx(2.857);
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
   const currentMove = MOVEMAP.get(currentMoveId);
@@ -82,11 +84,16 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
         )
       }
     >
-      <Modal.Content className={styles.content}>
+      <Modal.Content className={styles.content} scrolling>
         <div data-testid="move-selector-wrapper">
           <Filter hideGen={!!limitGen} values={values} />
         </div>
-        <FixedSizeList height={400} itemCount={filteredMoves.length} itemSize={40} width="100%">
+        <FixedSizeList
+          height={400}
+          itemCount={filteredMoves.length}
+          itemSize={itemSize}
+          width="100%"
+        >
           {renderRow}
         </FixedSizeList>
       </Modal.Content>

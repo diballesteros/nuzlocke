@@ -11,9 +11,13 @@ import { Status } from 'components';
 import { Detail, Evolve, Nickname, Pokemon, ScrollList, Swap } from 'components/Tracker/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
+import useRemtoPx from 'hooks/useRemToPx';
 import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
+
+const NICKNAME_HEIGHT = 15.714; // 220px
+const NORMAL_HEIGHT = 12.857; // 180px
 
 const Encounters = React.memo(function Encounters() {
   const { t } = useTranslation('tracker');
@@ -43,6 +47,7 @@ const Encounters = React.memo(function Encounters() {
   );
   const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
   const [confirm, setConfirm] = useState(false);
+  const itemSize = useRemtoPx(nicknames ? NICKNAME_HEIGHT : NORMAL_HEIGHT);
 
   const filteredEncounters = useMemo(() => {
     return games[selectedGame?.value]?.encounters?.filter((enc) => {
@@ -186,7 +191,7 @@ const Encounters = React.memo(function Encounters() {
             <FixedSizeList
               height={690}
               itemCount={filteredEncounters?.length}
-              itemSize={nicknames ? 220 : 180}
+              itemSize={itemSize}
               ref={listRef}
               width="100%"
             >

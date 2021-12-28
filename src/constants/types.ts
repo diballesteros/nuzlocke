@@ -99,7 +99,7 @@ export interface AppState {
 export type Games = { [key: string]: TrackData };
 
 export type TrackData = {
-  badge: number;
+  badge: number[];
   encounters: TEncounter[];
 };
 
