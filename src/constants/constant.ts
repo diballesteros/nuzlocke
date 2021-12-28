@@ -201,6 +201,22 @@ export const SOULLINK_RULESET: TRuleEntry[] = [
   },
 ];
 
+export const WEDLOCKE_RULESSET: TRuleEntry[] = [
+  ...DEFAULT_RULESET,
+  {
+    content:
+      'The player may have three male Pokémon and three female Pokémon in their party at any time. Each male Pokémon forms a pair with a female Pokémon, and the two may only switch with each other in battle',
+    default: true,
+    type: 'TEXT',
+  },
+  {
+    content:
+      'Genderless Pokémon can not be caught. If they must be caught for any reason, they must not be used.',
+    default: true,
+    type: 'TEXT',
+  },
+];
+
 export const DEFAULT_RULES: TRulesetDictionary = {
   'Nuzlocke': DEFAULT_RULESET,
   'Hardcore': HARDCORE_RULESET,
@@ -208,6 +224,7 @@ export const DEFAULT_RULES: TRulesetDictionary = {
   'Wonderlocke': WONDERLOCKE_RULESET,
   'Genlocke': GENERATION_RULESET,
   'Soulocke': SOULLINK_RULESET,
+  'Wedlocke': WEDLOCKE_RULESSET,
 };
 
 export const INITIAL_SUMMARY = {

@@ -11,6 +11,7 @@ import {
   INITIAL_STATE,
   INITIAL_SUMMARY,
   SOULLINK_RULESET,
+  WEDLOCKE_RULESSET,
 } from 'constants/constant';
 import STATUSES from 'constants/status';
 import type {
@@ -582,6 +583,10 @@ const useStore = create<AppState>(
               gameMigration[key].badge = [];
             }
           });
+
+          if (!persistedState.rules.Wedlocke) {
+            persistedState.rules.Wedlocke = WEDLOCKE_RULESSET;
+          }
         }
 
         return {

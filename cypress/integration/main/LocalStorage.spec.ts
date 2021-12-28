@@ -13,7 +13,8 @@ describe('Local Storage', () => {
       );
       const addFilter = addRuleset.replace('"pokemon":null', '"pokemon":null,"filter":["Test"]');
       const replaceSoulocke = addFilter.replace('Soulocke', 'SomethingElse');
-      const changeVersion = replaceSoulocke.replace('"version":6', '"version":0');
+      const replaceWedlocke = replaceSoulocke.replace('Wedlocke', 'SomethingElse');
+      const changeVersion = replaceWedlocke.replace('"version":7', '"version":0');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
     cy.visit('/');
@@ -24,7 +25,8 @@ describe('Local Storage', () => {
     cy.visit('/');
     cy.getLocalStorage('pokemon-tracker').then((data) => {
       const removeBDSP = data.replace('13.1', '15');
-      cy.setLocalStorage('pokemon-tracker', removeBDSP);
+      const changeVersion = removeBDSP.replace('"version":4', '"version":0');
+      cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
     cy.visit('/');
     cy.contains('Nuzlocke Tracker').should('exist');
