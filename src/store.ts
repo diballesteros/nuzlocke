@@ -100,7 +100,7 @@ const useStore = create<AppState>(
         set((state) => {
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = {
-            badge: null,
+            badge: [],
             encounters: templateKey ? [...INITIAL_STATE.games[templateKey].encounters] : [],
           };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };

@@ -239,7 +239,8 @@ export const GAME_GENERATION: Record<string, GenerationNum> = {
   '13.1': 8,
 };
 
-export const MAX_GAME = 13.1;
+export const MAX_GAME = 13.1 as const;
+export const FAIRY_GEN = 9 as const;
 
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
@@ -290,20 +291,20 @@ export const INITIAL_STATE: Partial<AppState> = {
   darkMode: false,
   duplicates: false,
   games: {
-    '1': { badge: null, encounters: R_B_Y },
-    '2': { badge: null, encounters: G_S_C },
-    '3': { badge: null, encounters: R_S_E },
-    '4': { badge: null, encounters: FR_LG },
-    '5': { badge: null, encounters: D_P_PLAT },
-    '6': { badge: null, encounters: HG_SS },
-    '7': { badge: null, encounters: B_W },
-    '8': { badge: null, encounters: B_W_2 },
-    '9': { badge: null, encounters: X_Y },
-    '10': { badge: null, encounters: OR_AS },
-    '11': { badge: null, encounters: S_M },
-    '12': { badge: null, encounters: US_UM },
-    '13': { badge: null, encounters: SW_SH },
-    '13.1': { badge: null, encounters: BD_SP },
+    '1': { badge: [], encounters: R_B_Y },
+    '2': { badge: [], encounters: G_S_C },
+    '3': { badge: [], encounters: R_S_E },
+    '4': { badge: [], encounters: FR_LG },
+    '5': { badge: [], encounters: D_P_PLAT },
+    '6': { badge: [], encounters: HG_SS },
+    '7': { badge: [], encounters: B_W },
+    '8': { badge: [], encounters: B_W_2 },
+    '9': { badge: [], encounters: X_Y },
+    '10': { badge: [], encounters: OR_AS },
+    '11': { badge: [], encounters: S_M },
+    '12': { badge: [], encounters: US_UM },
+    '13': { badge: [], encounters: SW_SH },
+    '13.1': { badge: [], encounters: BD_SP },
   },
   gamesList: GAMES,
   missing: false,

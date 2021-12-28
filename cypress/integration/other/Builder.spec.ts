@@ -79,6 +79,13 @@ describe('Builder', () => {
     cy.contains('WATER 1').should('exist');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.get('.secondary > :nth-child(1)').click();
+    cy.get('[data-testid="builder-add"]').click();
+    cy.get('[data-testid="filter"] > input').type('Snub');
+    cy.get('[data-testid="poke-Snubbull"]').click();
+    cy.contains('NORMAL').should('exist');
+    cy.contains('Coverage').click();
+    cy.contains('FIGHTING 1').should('exist');
     cy.get('[data-testid=game-select]').click();
     cy.contains('Red, Blue and Yellow').click();
   });

@@ -301,6 +301,7 @@ const POKEMON: TPokemon[] = [
   },
   {
     value: 35,
+    previousType: 'NORMAL',
     text: 'Clefairy',
     type: 'FAIRY',
     evolve: [173, 35, 36],
@@ -308,6 +309,7 @@ const POKEMON: TPokemon[] = [
   },
   {
     value: 36,
+    previousType: 'NORMAL',
     text: 'Clefable',
     type: 'FAIRY',
     evolve: [173, 35, 36],
@@ -315,6 +317,7 @@ const POKEMON: TPokemon[] = [
   },
   {
     key: 'vulpix',
+    previousType: 'NORMAL',
     value: 37,
     text: 'Vulpix',
     type: 'FIRE',
@@ -348,6 +351,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 39,
     text: 'Jigglypuff',
+    previousType: 'NORMAL',
     type: 'NORMAL',
     dualtype: 'FAIRY',
     evolve: [174, 39, 40],
@@ -356,6 +360,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 40,
     text: 'Wigglytuff',
+    previousType: 'NORMAL',
     type: 'NORMAL',
     dualtype: 'FAIRY',
     evolve: [174, 39, 40],
@@ -1122,6 +1127,7 @@ const POKEMON: TPokemon[] = [
     key: 'mrmime',
     value: 122,
     text: 'Mr. Mime',
+    previousType: 'PSYCHIC',
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
     evolve: [439, 122],
@@ -1524,6 +1530,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 173,
     text: 'Cleffa',
+    previousType: 'NORMAL',
     type: 'FAIRY',
     evolve: [173, 35, 36],
     generation: 2,
@@ -1531,6 +1538,8 @@ const POKEMON: TPokemon[] = [
   {
     value: 174,
     text: 'Igglybuff',
+    previousType: 'NORMAL',
+    dualtype: 'FAIRY',
     type: 'NORMAL',
     evolve: [174, 39, 40],
     generation: 2,
@@ -1538,6 +1547,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 175,
     text: 'Togepi',
+    previousType: 'NORMAL',
     type: 'FAIRY',
     evolve: [175, 176, 468],
     generation: 2,
@@ -1545,6 +1555,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 176,
     text: 'Togetic',
+    previousType: 'NORMAL',
     type: 'FAIRY',
     dualtype: 'FLYING',
     evolve: [175, 176, 468],
@@ -1597,6 +1608,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 183,
     text: 'Marill',
+    previousType: 'WATER',
     type: 'WATER',
     dualtype: 'FAIRY',
     evolve: [298, 183, 184],
@@ -1605,6 +1617,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 184,
     text: 'Azumarill',
+    previousType: 'WATER',
     type: 'WATER',
     dualtype: 'FAIRY',
     evolve: [298, 183, 184],
@@ -1799,6 +1812,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 209,
     text: 'Snubbull',
+    previousType: 'NORMAL',
     type: 'FAIRY',
     evolve: [209, 210],
     generation: 2,
@@ -1806,6 +1820,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 210,
     text: 'Granbull',
+    previousType: 'NORMAL',
     type: 'FAIRY',
     evolve: [209, 210],
     generation: 2,
@@ -2344,6 +2359,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 280,
     text: 'Ralts',
+    previousType: 'PSYCHIC',
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
     evolve: [280, 281, 282, 475],
@@ -2352,6 +2368,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 281,
     text: 'Kirlia',
+    previousType: 'PSYCHIC',
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
     evolve: [280, 281, 282, 475],
@@ -2360,6 +2377,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 282,
     text: 'Gardevoir',
+    previousType: 'PSYCHIC',
     type: 'PSYCHIC',
     dualtype: 'FAIRY',
     evolve: [280, 281, 282, 475],
@@ -2479,6 +2497,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 298,
     text: 'Azurill',
+    previousType: 'NORMAL',
     type: 'NORMAL',
     dualtype: 'FAIRY',
     evolve: [298, 183, 184],
@@ -2515,6 +2534,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 303,
     text: 'Mawile',
+    previousType: 'STEEL',
     type: 'STEEL',
     dualtype: 'FAIRY',
     generation: 3,
@@ -4275,6 +4295,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 546,
     text: 'Cottonee',
+    previousType: 'GRASS',
     type: 'GRASS',
     dualtype: 'FAIRY',
     evolve: [546, 547],
@@ -4283,6 +4304,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 547,
     text: 'Whimsicott',
+    previousType: 'GRASS',
     type: 'GRASS',
     dualtype: 'FAIRY',
     evolve: [546, 547],

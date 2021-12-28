@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { getTypeCountParams, getTypeParams } from 'constants/constant';
+import { FAIRY_GEN, getTypeCountParams, getTypeParams } from 'constants/constant';
 import EFFECTIVENESS from 'constants/effectiveness';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
@@ -81,8 +81,12 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
   let i = 0;
   while (team.length > i) {
     const foundPokemon = POKEMAP.get(team[i]?.id);
-    if (foundPokemon?.type && EFFECTIVENESS[typeParams[1]][foundPokemon.type]) {
-      EFFECTIVENESS[typeParams[1]][foundPokemon.type]['Weak against'].forEach((type) => {
+    const primaryType =
+      foundPokemon?.previousType && Number(state?.selectedGame?.value) < FAIRY_GEN
+        ? foundPokemon.previousType
+        : foundPokemon?.type;
+    if (primaryType && EFFECTIVENESS[typeParams[1]][primaryType]) {
+      EFFECTIVENESS[typeParams[1]][primaryType]['Weak against'].forEach((type) => {
         typeParams[0][type] += 1;
         if (
           foundPokemon?.dualtype &&
@@ -97,8 +101,8 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
       EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Weak against'].forEach((type) => {
         typeParams[0][type] += 1;
         if (
-          EFFECTIVENESS[typeParams[1]][foundPokemon.type]?.Resists.includes(type) ||
-          EFFECTIVENESS[typeParams[1]][foundPokemon.type]?.['Immune to'].includes(type)
+          EFFECTIVENESS[typeParams[1]][primaryType]?.Resists.includes(type) ||
+          EFFECTIVENESS[typeParams[1]][primaryType]?.['Immune to'].includes(type)
         ) {
           typeParams[0][type] -= 1;
         }
