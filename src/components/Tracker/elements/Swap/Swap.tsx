@@ -15,7 +15,6 @@ interface SwapProps {
 
 function Swap({ encounter }: SwapProps): JSX.Element {
   const { t } = useTranslation('tracker');
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
   const team = useStore(selectTeam);
 
@@ -44,7 +43,6 @@ function Swap({ encounter }: SwapProps): JSX.Element {
         aria-label="swap"
         className={styles.button}
         data-testid={`swap-${encounter.id}`}
-        inverted={darkMode}
         title={text}
         type="button"
       >
@@ -57,7 +55,6 @@ function Swap({ encounter }: SwapProps): JSX.Element {
       aria-label="swap"
       className={styles.button}
       data-testid={`swap-${encounter.id}`}
-      inverted={darkMode}
       onClick={handleSwap}
       title={text}
       type="button"

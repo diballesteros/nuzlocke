@@ -49,8 +49,9 @@ export interface AppState {
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
-  changePokemon: (encounterId: number, pokemonId: number) => void;
+  changeNature: (encounterId: number, nature: string) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
+  changePokemon: (encounterId: number, pokemonId: number) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   changeSummaryDescription: (desc: string) => void;

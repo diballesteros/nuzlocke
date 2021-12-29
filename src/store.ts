@@ -196,6 +196,24 @@ const useStore = create<AppState>(
             }
           }
         }),
+      changeNature: (encounterId: number, nature: string) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+
+          if (index !== -1)
+            if (state.games[state.selectedGame?.value].encounters[index].details) {
+              state.games[state.selectedGame?.value].encounters[index].details.nature = nature;
+            } else {
+              state.games[state.selectedGame?.value].encounters[index].details = {
+                id: state.games[state.selectedGame?.value].encounters[index].pokemon,
+                level: 1,
+                moves: [],
+                nature,
+              };
+            }
+        }),
       changeNickname: (encounterId: number, nickname: string) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {

@@ -5,10 +5,19 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { Status } from 'components';
-import { Detail, Evolve, Nickname, Pokemon, ScrollList, Swap } from 'components/Tracker/elements';
+import {
+  Detail,
+  Evolve,
+  Nature,
+  Nickname,
+  Pokemon,
+  ScrollList,
+  Swap,
+} from 'components/Tracker/elements';
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
 import useRemtoPx from 'hooks/useRemToPx';
@@ -177,6 +186,7 @@ const Encounters = React.memo(function Encounters() {
             {!!foundPokemon && [1, 3, 4, 7].includes(encounter.status?.value) && (
               <Swap encounter={encounter} />
             )}
+            {!!foundPokemon && <Nature encounter={encounter} />}
           </div>
         </div>
       </div>

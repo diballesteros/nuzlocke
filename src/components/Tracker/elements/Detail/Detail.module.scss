@@ -54,6 +54,10 @@
 
   details[open] summary ~ * {
     animation: sweep 0.5s ease-in-out;
+
+    @media (prefers-reduced-motion) {
+      animation: none;
+    }
   }
 
   .expandable {

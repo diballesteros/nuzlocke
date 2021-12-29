@@ -2839,6 +2839,23 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
 
+"@prisma/client@^3.7.0":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@prisma/client/-/client-3.7.0.tgz#9cafc105f12635c95e9b7e7b18e8fbf52cf3f18a"
+  integrity sha512-fUJMvBOX5C7JPc0e3CJD6Gbelbu4dMJB4ScYpiht8HMUnRShw20ULOipTopjNtl6ekHQJ4muI7pXlQxWS9nMbw==
+  dependencies:
+    "@prisma/engines-version" "3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
+
+"@prisma/engines-version@3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f":
+  version "3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
+  resolved "https://registry.yarnpkg.com/@prisma/engines-version/-/engines-version-3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f.tgz#055f36ac8b06c301332c14963cd0d6c795942c90"
+  integrity sha512-+qx2b+HK7BKF4VCa0LZ/t1QCXsu6SmvhUQyJkOD2aPpmOzket4fEnSKQZSB0i5tl7rwCDsvAiSeK8o7rf+yvwg==
+
+"@prisma/engines@3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f":
+  version "3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
+  resolved "https://registry.yarnpkg.com/@prisma/engines/-/engines-3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f.tgz#12f28d5b78519fbd84c89a5bdff457ff5095e7a2"
+  integrity sha512-W549ub5NlgexNhR8EFstA/UwAWq3Zq0w9aNkraqsozVCt2CsX+lK4TK7IW5OZVSnxHwRjrgEAt3r9yPy8nZQRg==
+
 "@rollup/plugin-babel@^5.2.0":
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/@rollup/plugin-babel/-/plugin-babel-5.3.0.tgz#9cb1c5146ddd6a4968ad96f209c50c62f92f9879"
@@ -3323,10 +3340,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-14.18.2.tgz#00fe4d1686d5f6cf3a2f2e9a0eef42594d06abfc"
   integrity sha512-fqtSN5xn/bBzDxMT77C1rJg6CsH/R49E7qsGuvdPJa20HtV5zSTuLJPNfnlyVH3wauKnkHdLggTVkOW/xP9oQg==
 
-"@types/node@^17.0.4":
-  version "17.0.4"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.4.tgz#fec0ce0526abb6062fd206d72a642811b887a111"
-  integrity sha512-6xwbrW4JJiJLgF+zNypN5wr2ykM9/jHcL7rQ8fZe2vuftggjzZeRSM4OwRc6Xk8qWjwJ99qVHo/JgOGmomWRog==
+"@types/node@^17.0.5":
+  version "17.0.5"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.5.tgz#57ca67ec4e57ad9e4ef5a6bab48a15387a1c83e0"
+  integrity sha512-w3mrvNXLeDYV1GKTZorGJQivK6XLCoGwpnyJFbJVK/aTBQUxOCaa/GlFAAN3OTDFcb7h5tiFG+YXCO2By+riZw==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -7277,10 +7294,10 @@ human-signals@^2.1.0:
   resolved "https://registry.yarnpkg.com/human-signals/-/human-signals-2.1.0.tgz#dc91fcba42e4d06e4abaed33b3e7a3c02f514ea0"
   integrity sha512-B4FFZ6q/T2jhhksgkbEW3HBvWIfDW85snkQgawt07S7J5QXTk6BkNV+0yAeZrM5QpMAdYlocGoljn0sJ/WQkFw==
 
-i18next@^21.6.3:
-  version "21.6.3"
-  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.3.tgz#6ab6ab1020e1f3bda71c4d1dc216ac39663d6641"
-  integrity sha512-2uuRGslNQ8m7TRllsVs4cZuei5X9OgoPRB/Sj5oadUpxZaW+NYv3srn7zR+h8bCMhkux9z8HtnJdQM5Mz+Govw==
+i18next@^21.6.4:
+  version "21.6.4"
+  resolved "https://registry.yarnpkg.com/i18next/-/i18next-21.6.4.tgz#4da52a429094112b33d4383b5f44aa4890dcb081"
+  integrity sha512-pk0Utxtq5g//Q9ONQ0w3+PRSwOFJ7+m4rAekhHHg1Xql0KcUjJU7DzmzweGy6DsrIQ1GM/t57wLeeGuyGKtjTg==
   dependencies:
     "@babel/runtime" "^7.12.0"
 
@@ -10098,6 +10115,13 @@ pretty-format@^27.4.2:
     ansi-styles "^5.0.0"
     react-is "^17.0.1"
 
+prisma@^3.7.0:
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/prisma/-/prisma-3.7.0.tgz#9c73eeb2f16f767fdf523d0f4cc4c749734d62e2"
+  integrity sha512-pzgc95msPLcCHqOli7Hnabu/GRfSGSUWl5s2P6N13T/rgMB+NNeKbxCmzQiZT2yLOeLEPivV6YrW1oeQIwJxcg==
+  dependencies:
+    "@prisma/engines" "3.7.0-31.8746e055198f517658c08a0c426c7eec87f5a85f"
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"
@@ -10335,10 +10359,10 @@ react-fast-compare@^3.0.1:
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
 
-react-i18next@^11.15.1:
-  version "11.15.1"
-  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.15.1.tgz#1dec5f2bf2cf7bc5043e9fcb391c9d6e24bb9bfe"
-  integrity sha512-lnje1uKu5XeM5MLvfbt1oygF+nEIZnpOM4Iu8bkx5ECD4XRYgi3SJDmolrp0EDxDHeK2GgFb+vEEK0hsZ9sjeA==
+react-i18next@^11.15.2:
+  version "11.15.2"
+  resolved "https://registry.yarnpkg.com/react-i18next/-/react-i18next-11.15.2.tgz#5bbbf1ab208d7fb77d93aa8161e06b7d55fb35ff"
+  integrity sha512-28WlZ6tr57RQoIM1x4/gTzvzh3Vvr+YeZwJHTOqV/sLXMFbR+xzjgSMdLnOCDxmlQ0irGN2uM+HT+mYK+3bg6g==
   dependencies:
     "@babel/runtime" "^7.14.5"
     html-escaper "^2.0.2"
@@ -12619,7 +12643,7 @@ yocto-queue@^0.1.0:
   resolved "https://registry.yarnpkg.com/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
 
-zustand@^3.6.7:
-  version "3.6.7"
-  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.7.tgz#aab5ac0a9d6d21dce752aecd390f373ed9c9d70a"
-  integrity sha512-bYWKXMfoJwZyliFgidcQ3tJC/F2f2hHq1+lhTk8dVPX2k28i4VnpnKjBGNxAd2QNliV0m455Vm+gDL8LShrV3g==
+zustand@^3.6.8:
+  version "3.6.8"
+  resolved "https://registry.yarnpkg.com/zustand/-/zustand-3.6.8.tgz#17f24351aa9e1fbf46f3addb0bcb81b05940d79f"
+  integrity sha512-8dqxig1l/o/N4M3DGxhweLVyCvNsd40oU3fXuY4MfqX1notavmjljCnSeTN3FGfYzbo963w4un2ChYsPB/0gKA==
