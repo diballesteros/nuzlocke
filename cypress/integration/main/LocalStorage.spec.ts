@@ -12,9 +12,10 @@ describe('Local Storage', () => {
         '"typeModal":null,"rulesets":[{"text": "Nuzlocke", "value":"Nuzlocke"}, {"text":"Test","value":"Test"}]'
       );
       const addFilter = addRuleset.replace('"pokemon":null', '"pokemon":null,"filter":["Test"]');
-      const replaceSoulocke = addFilter.replace('Soulocke', 'SomethingElse');
+      const replaceShiny = addFilter.replace('"status":null', '"status":{"value":6}');
+      const replaceSoulocke = replaceShiny.replace('Soulocke', 'SomethingElse');
       const replaceWedlocke = replaceSoulocke.replace('Wedlocke', 'SomethingElse');
-      const replaceBadge = replaceWedlocke.replace('badge: []', 'badge: null');
+      const replaceBadge = replaceWedlocke.replace('"badge": []', '"badge": null');
       const changeVersion = replaceBadge.replace('"version":7', '"version":0');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
@@ -25,7 +26,7 @@ describe('Local Storage', () => {
   it('Remake Brilliant Diamond and Shining Pearl', () => {
     cy.visit('/');
     cy.getLocalStorage('pokemon-tracker').then((data) => {
-      const removeBDSP = data.replace('13.1', '15');
+      const removeBDSP = data.replace(/13.1/, '15');
       const changeVersion = removeBDSP.replace('"version":7', '"version":4');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
