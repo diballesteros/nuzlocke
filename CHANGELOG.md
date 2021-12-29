@@ -2,13 +2,14 @@
 
 🚀 New features
 
-- Added quick access buttons for the nature and ability in the Tracker
+- Added quick access buttons for the nature in the Tracker
 
 💅 Enhancement
 
 - Added Wedlocke ruleset to the rules options
 - Badges can now be activated/unactivated independently of it being in order
 - Pokemon whose types were changed after Fairy was introduced now show the correct typing in earlier games
+- If you have set a preference for reduced motion the app will have reduced animations
 
 🐛 Bug Fix
 

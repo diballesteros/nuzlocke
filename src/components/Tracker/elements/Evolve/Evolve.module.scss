@@ -2,6 +2,16 @@
 
 .button {
   margin-right: 0 !important;
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+  border: 1px var(--contrast) solid !important;
+  padding: var(--spacing-2) !important;
+  box-shadow: unset !important;
+
+  &:hover {
+    background: var(--contrast) !important;
+    color: var(--bgprimary) !important;
+  }
 }
 
 .option {

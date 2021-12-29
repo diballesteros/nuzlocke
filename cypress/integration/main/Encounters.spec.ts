@@ -142,7 +142,7 @@ describe('Encounters', () => {
     cy.get('[data-testid="level-up-0"]').click();
   });
 
-  it('Swap & Scroll', () => {
+  it('Swap & Scroll & Nature', () => {
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=import]').click();
     cy.get('[data-testid=import-file-input]').attachFile('over6.json', { force: true });
@@ -165,6 +165,10 @@ describe('Encounters', () => {
     cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="scroll-to-encounter-0"] > span').click();
     cy.contains('Starter').should('be.visible');
+    cy.get('[data-testid="nature-0"]').click();
+    cy.get('[data-testid="nature-0"] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid="nature-0"]').click();
+    cy.get('[data-testid="nature-0"] > .visible > :nth-child(3)').click();
   });
 
   context('Small screens', () => {
