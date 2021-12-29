@@ -14,7 +14,7 @@ describe('Local Storage', () => {
       const addFilter = addRuleset.replace('"pokemon":null', '"pokemon":null,"filter":["Test"]');
       const replaceSoulocke = addFilter.replace('Soulocke', 'SomethingElse');
       const replaceWedlocke = replaceSoulocke.replace('Wedlocke', 'SomethingElse');
-      const replaceBadge = replaceWedlocke.replace('badge: []', null);
+      const replaceBadge = replaceWedlocke.replace('badge: []', 'badge: null');
       const changeVersion = replaceBadge.replace('"version":7', '"version":0');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });

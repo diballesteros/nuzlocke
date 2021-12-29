@@ -4,7 +4,7 @@ import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules
 import STATUSES from 'constants/status';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
-import styles from './Status.module.scss';
+import styles from 'assets/styles/Dropdown.module.scss';
 
 interface StatusProps {
   encounter: TEncounter;
@@ -24,7 +24,7 @@ const Status = React.memo(function Status({ encounter }: StatusProps) {
     <Dropdown
       aria-label="status-selector"
       basic
-      className={styles.statusSelect}
+      className={styles.dropdown}
       disabled={!encounter?.pokemon}
       data-testid={`status-${encounter.id}`}
       fluid

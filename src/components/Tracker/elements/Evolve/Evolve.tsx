@@ -16,8 +16,7 @@ interface EvolveProps {
 
 function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
   const { t } = useTranslation('tracker');
-  const changePokemon = useStore((state) => state.changePokemon);
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const changePokemon = useStore(useCallback((state) => state.changePokemon, []));
   const [selected, setSelected] = useState(encounter.pokemon);
   const [open, setOpen] = useState(false);
 
@@ -46,7 +45,6 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
           className={styles.button}
           data-testid={`evolve-${encounter.id}}`}
           icon="dna"
-          inverted={darkMode}
           onClick={() => setOpen(true)}
           title="Evolve"
           type="button"
