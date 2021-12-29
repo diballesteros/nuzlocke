@@ -10,6 +10,7 @@ import { TYPE_COLOR } from 'constants/colors';
 import POKEMON from 'constants/pokemon';
 import type { Type } from 'constants/types';
 import useFilter from 'hooks/useFilter';
+import useRemtoPx from 'hooks/useRemToPx';
 import styles from 'assets/styles/Selector.module.scss';
 
 interface PokemonSelectorProps {
@@ -32,6 +33,7 @@ function PokemonSelector({
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
+  const itemSize = useRemtoPx();
 
   const filteredPokemon = useMemo(() => {
     let filtered = POKEMON.filter(
@@ -122,9 +124,14 @@ function PokemonSelector({
         </div>
       }
     >
-      <Modal.Content className={styles.content}>
+      <Modal.Content className={styles.content} scrolling>
         <Filter hideGen={!!limitGen} values={values} />
-        <FixedSizeList height={400} itemCount={filteredPokemon.length} itemSize={100} width="100%">
+        <FixedSizeList
+          height={400}
+          itemCount={filteredPokemon.length}
+          itemSize={itemSize}
+          width="100%"
+        >
           {renderRow}
         </FixedSizeList>
       </Modal.Content>

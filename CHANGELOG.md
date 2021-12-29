@@ -1,3 +1,32 @@
+## Version 4.3.0
+
+🚀 New features
+
+- Added quick access buttons for the nature in the Tracker
+
+💅 Enhancement
+
+- Added Wedlocke ruleset to the rules options
+- Badges can now be activated/unactivated independently of it being in order
+- Pokemon whose types were changed after Fairy was introduced now show the correct typing in earlier games
+- If you have set a preference for reduced motion the app will have reduced animations
+
+🐛 Bug Fix
+
+- Fixed encounters for Route 42 in Heart Gold and Soul Silver
+- Tracker should now display correctly on Firefox when configured with different text sizes
+- App should no longer zoom on text inputs on iOS
+- Fixed Igglybuff's typing
+
+🏠 Internal
+
+- Added @prisma/client 3.7.0
+- Added prisma 3.7.0
+- Bumped i18next to 21.6.4
+- Bumped react-i18next to 11.15.2
+- Bumped zustand to 3.6.8
+- Bumped @types/node to 17.0.5
+
 ## Version 4.2.0
 
 💅 Enhancement

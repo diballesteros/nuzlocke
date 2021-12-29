@@ -2,6 +2,51 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.3.0',
+    date: 1640782623391,
+    notes: [
+      {
+        description: 'Added quick access buttons for the nature in the Tracker',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Added Wedlocke ruleset to the rules options',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Badges can now be activated/unactivated independently of it being in order',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Pokemon whose types were changed after Fairy was introduced now show the correct typing in earlier games',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'If you have set a preference for reduced motion the app will have reduced animations',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fixed encounters for Route 42 in Heart Gold and Soul Silver',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Tracker should now display correctly on Firefox when configured with different text sizes',
+        type: 'FIX',
+      },
+      {
+        description: 'App should no longer zoom on text inputs on iOS',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Igglybuff's typing",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.2.0',
     date: 1640536181278,
     notes: [

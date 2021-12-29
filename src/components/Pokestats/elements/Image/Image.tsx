@@ -120,7 +120,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
                 <img
                   alt={badge.name}
                   className={`${styles.badge} ${
-                    index <= games[selectedGame?.value]?.badge ? styles.active : ''
+                    games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
                   }`}
                   key={`${badge.name}-${badge.id}`}
                   src={BADGE_IMAGES[selectedGame?.value][index].src}

@@ -9,6 +9,7 @@ import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail } from 'constants/types';
 import useFilter from 'hooks/useFilter';
+import useRemtoPx from 'hooks/useRemToPx';
 import styles from 'assets/styles/Selector.module.scss';
 
 interface DetailSelectorProps {
@@ -26,6 +27,7 @@ function DetailSelector({
 }: DetailSelectorProps): JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
+  const itemSize = useRemtoPx();
   const values = useFilter();
   const filteredEncounters = details?.filter((p) => {
     const foundPokemon = POKEMAP.get(p.id);
@@ -83,12 +85,12 @@ function DetailSelector({
         </div>
       }
     >
-      <Modal.Content className={styles.content}>
+      <Modal.Content className={styles.content} scrolling>
         <Filter hideGen={!!limitGen} values={values} />
         <FixedSizeList
           height={400}
           itemCount={filteredEncounters?.length ?? 0}
-          itemSize={100}
+          itemSize={itemSize}
           width="100%"
         >
           {renderRow}

@@ -1,0 +1,36 @@
+@import 'src/assets/styles/variables';
+
+.dropdownButton {
+  display: flex !important;
+  margin: 0 !important;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  height: 2.2rem;
+  border: 1px var(--contrast) solid !important;
+  border-radius: 4px;
+  padding: var(--spacing-2) !important;
+  background: transparent !important;
+  color: var(--contrast) !important;
+
+  > div {
+    margin-right: var(--spacing-1);
+  }
+
+  @media (max-width: $screen-xs) {
+    width: 2.5rem;
+
+    > div {
+      display: none !important;
+    }
+  }
+
+  &:hover {
+    background: var(--contrast) !important;
+    color: var(--bgprimary) !important;
+  }
+
+  > i {
+    margin: 0 !important;
+  }
+}

@@ -35,7 +35,7 @@ function Badges(): JSX.Element {
           return (
             <button
               className={`${styles.badge} ${
-                index <= games[selectedGame?.value]?.badge ? styles.active : ''
+                games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
               }`}
               key={`${badge.name}-${badge.id}`}
               onClick={() => handleClick(index)}
@@ -63,7 +63,7 @@ function Badges(): JSX.Element {
           return (
             <button
               className={`${styles.badge} ${
-                index <= games[selectedGame?.value]?.badge ? styles.active : ''
+                games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
               }`}
               key={`${badge}-${Number(index) + 1}`}
               onClick={() => handleClick(index)}

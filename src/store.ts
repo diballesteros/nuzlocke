@@ -11,6 +11,7 @@ import {
   INITIAL_STATE,
   INITIAL_SUMMARY,
   SOULLINK_RULESET,
+  WEDLOCKE_RULESSET,
 } from 'constants/constant';
 import STATUSES from 'constants/status';
 import type {
@@ -100,7 +101,7 @@ const useStore = create<AppState>(
         set((state) => {
           const newKey = Number(state.gamesList[state.gamesList.length - 1].value) + 1;
           state.games[newKey.toString()] = {
-            badge: null,
+            badge: [],
             encounters: templateKey ? [...INITIAL_STATE.games[templateKey].encounters] : [],
           };
           state.summary[newKey.toString()] = { ...INITIAL_SUMMARY };
@@ -194,6 +195,24 @@ const useStore = create<AppState>(
               state.games[state.selectedGame?.value].encounters[index].details.level = level - 1;
             }
           }
+        }),
+      changeNature: (encounterId: number, nature: string) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+
+          if (index !== -1)
+            if (state.games[state.selectedGame?.value].encounters[index].details) {
+              state.games[state.selectedGame?.value].encounters[index].details.nature = nature;
+            } else {
+              state.games[state.selectedGame?.value].encounters[index].details = {
+                id: state.games[state.selectedGame?.value].encounters[index].pokemon,
+                level: 1,
+                moves: [],
+                nature,
+              };
+            }
         }),
       changeNickname: (encounterId: number, nickname: string) =>
         set((state) => {
@@ -400,10 +419,12 @@ const useStore = create<AppState>(
         }),
       selectBadge: (badgeIndex: number) =>
         set((state) => {
-          if (state.games[state.selectedGame?.value]?.badge === badgeIndex) {
-            state.games[state.selectedGame?.value].badge -= 1;
+          if (state.games[state.selectedGame?.value]?.badge?.includes(badgeIndex)) {
+            state.games[state.selectedGame.value].badge = state.games[
+              state.selectedGame.value
+            ].badge?.filter((badge) => badge !== badgeIndex);
           } else {
-            state.games[state.selectedGame?.value].badge = badgeIndex;
+            state.games[state.selectedGame?.value].badge.push(badgeIndex);
           }
         }),
       search: (text: string) =>
@@ -489,7 +510,7 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 6,
+      version: 7,
       migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
         if (version < 1) {
@@ -567,6 +588,22 @@ const useStore = create<AppState>(
 
           if (!persistedState.rules.Soulocke) {
             persistedState.rules.Soulocke = SOULLINK_RULESET;
+          }
+        }
+
+        if (version < 7) {
+          Object.keys(gameMigration).forEach((key) => {
+            if (gameMigration[key].badge) {
+              gameMigration[key].badge = Array(gameMigration[key].badge)
+                .fill(null)
+                .map((_, i) => i);
+            } else {
+              gameMigration[key].badge = [];
+            }
+          });
+
+          if (!persistedState.rules.Wedlocke) {
+            persistedState.rules.Wedlocke = WEDLOCKE_RULESSET;
           }
         }
 

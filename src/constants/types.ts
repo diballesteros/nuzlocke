@@ -49,8 +49,9 @@ export interface AppState {
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
-  changePokemon: (encounterId: number, pokemonId: number) => void;
+  changeNature: (encounterId: number, nature: string) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
+  changePokemon: (encounterId: number, pokemonId: number) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   changeSummaryDescription: (desc: string) => void;
@@ -99,7 +100,7 @@ export interface AppState {
 export type Games = { [key: string]: TrackData };
 
 export type TrackData = {
-  badge: number;
+  badge: number[];
   encounters: TEncounter[];
 };
 
@@ -171,6 +172,7 @@ export interface TPokemon {
   evolve?: number[];
   generation: number;
   key?: string;
+  previousType?: Type;
   text: string;
   type: Type;
   value: number;
