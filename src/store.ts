@@ -419,6 +419,9 @@ const useStore = create<AppState>(
         }),
       selectBadge: (badgeIndex: number) =>
         set((state) => {
+          if (!Array.isArray(state.games[state.selectedGame?.value]?.badge)) {
+            state.games[state.selectedGame?.value].badge = [];
+          }
           if (state.games[state.selectedGame?.value]?.badge?.includes(badgeIndex)) {
             state.games[state.selectedGame.value].badge = state.games[
               state.selectedGame.value
