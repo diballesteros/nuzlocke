@@ -116,11 +116,12 @@ function Image({ forwardedRef, responsive = false }: ImageProps): JSX.Element {
         <div className={styles.badges}>
           {!!selectedGame &&
             badges[selectedGame?.value]?.map((badge, index) => {
+              const badgeArr = games[selectedGame?.value]?.badge;
               return (
                 <img
                   alt={badge.name}
                   className={`${styles.badge} ${
-                    games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
+                    Array.isArray(badgeArr) && badgeArr?.includes(index) ? styles.active : ''
                   }`}
                   key={`${badge.name}-${badge.id}`}
                   src={BADGE_IMAGES[selectedGame?.value][index].src}

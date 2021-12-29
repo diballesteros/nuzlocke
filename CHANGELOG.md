@@ -1,3 +1,9 @@
+## Version 4.3.1
+
+🐛 Bug Fix
+
+- Fix to new version causing some crashs on the stats and tracker screen for some users
+
 ## Version 4.3.0
 
 🚀 New features

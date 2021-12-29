@@ -32,10 +32,11 @@ function Badges(): JSX.Element {
     <div className={styles.badges} data-testid="badges">
       {!!selectedGame &&
         badges[selectedGame?.value]?.map((badge, index) => {
+          const badgeArr = games[selectedGame?.value]?.badge;
           return (
             <button
               className={`${styles.badge} ${
-                games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
+                Array.isArray(badgeArr) && badgeArr?.includes(index) ? styles.active : ''
               }`}
               key={`${badge.name}-${badge.id}`}
               onClick={() => handleClick(index)}
@@ -60,10 +61,11 @@ function Badges(): JSX.Element {
       {!!selectedGame &&
         customBadges[selectedGame?.value] &&
         customBadges[selectedGame?.value]?.map((badge, index) => {
+          const badgeArr = games[selectedGame?.value]?.badge;
           return (
             <button
               className={`${styles.badge} ${
-                games[selectedGame?.value]?.badge?.includes(index) ? styles.active : ''
+                Array.isArray(badgeArr) && badgeArr?.includes(index) ? styles.active : ''
               }`}
               key={`${badge}-${Number(index) + 1}`}
               onClick={() => handleClick(index)}

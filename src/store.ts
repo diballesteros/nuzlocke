@@ -510,7 +510,7 @@ const useStore = create<AppState>(
     })),
     {
       name: 'pokemon-tracker',
-      version: 7,
+      version: 8,
       migrate: (persistedState: AppState, version) => {
         const gameMigration = persistedState.games;
         if (version < 1) {
@@ -605,6 +605,12 @@ const useStore = create<AppState>(
           if (!persistedState.rules.Wedlocke) {
             persistedState.rules.Wedlocke = WEDLOCKE_RULESSET;
           }
+        }
+
+        if (version < 8) {
+          Object.keys(gameMigration).forEach((key) => {
+            gameMigration[key].badge = [];
+          });
         }
 
         return {
