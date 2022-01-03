@@ -18,6 +18,7 @@ function About(): JSX.Element {
           <b>{t('optionally')}</b> {t('thank_you_2')}
           <em>{t('coffee')}</em> {t('below')}
         </p>
+        <p>{t('warning_message')}</p>
         <h3>{t('credits')}:</h3>
         <ul className={styles.credits}>
           <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>

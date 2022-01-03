@@ -1,4 +1,5 @@
 {
+  "app_browser": "Diese App verwendet die Ihres Browsers",
   "back": "Zurück",
   "calculator": "Taschenrechner",
   "cancel": "Abbrechen",
@@ -33,6 +34,7 @@
   "suggested": "EMPFOHLEN",
   "Super effective against": "Super effektiv gegen",
   "template_hint": "Beachten Sie, dass dadurch nur die möglichen Begegnungen und Level-Cap-Nummern kopiert werden, nicht jedoch die gym-Informationen",
+  "to_save_game": "um deine Spieldaten zu speichern",
   "tracker": "Tracker",
   "types": "Typen",
   "Weak against": "Schwach gegenüber"

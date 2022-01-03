@@ -19,11 +19,9 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
-  "include": ["src"],
+  "include": ["src", "supabase.client.ts", "cypress"],
   "exclude": [
     "node_modules",
-    "cypress",
-    "*.spec.ts",
     "src/constants/locations/*.ts",
     "src/constants/badges.ts",
     "src/constants/changelog.ts",

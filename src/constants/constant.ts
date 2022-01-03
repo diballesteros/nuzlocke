@@ -351,6 +351,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   },
   team: {},
   text: null,
+  warning: false,
 };
 
 export const PHYS_SPEC_SPLIT: string[] = ['1', '2', '3'];

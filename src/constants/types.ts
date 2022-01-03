@@ -25,6 +25,7 @@ export interface AppState {
   text: string;
   typeModal: Type;
   types: Type[];
+  warning: boolean;
   addCustomBadge: () => void;
   addCustomStatus: (status: string) => void;
   addEncounter: (newLocation: string) => void;
@@ -94,6 +95,7 @@ export interface AppState {
   toggleShowAll: () => void;
   toggleSuggestions: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
+  toggleWarning: () => void;
   updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }
 
