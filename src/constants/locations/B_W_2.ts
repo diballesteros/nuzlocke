@@ -121,6 +121,13 @@ const B_W_2: TEncounter[] = [
     filterKey: 'bw2-16',
   },
   {
+    id: 43,
+    pokemon: null,
+    location: 'Hidden Grotto',
+    status: null,
+    filterKey: 'bw2-43',
+  },
+  {
     id: 17,
     pokemon: null,
     location: 'Driftveil Drawbridge',

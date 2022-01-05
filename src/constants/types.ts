@@ -53,6 +53,7 @@ export interface AppState {
   changeNature: (encounterId: number, nature: string) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
   changePokemon: (encounterId: number, pokemonId: number) => void;
+  changePreviousStatus: (encounterId: number, status: TStatus) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   changeSummaryDescription: (desc: string) => void;
@@ -166,6 +167,7 @@ export type TEncounter = {
   location: string;
   nickname?: string;
   pokemon: number;
+  previousStatus?: TStatus;
   status: TStatus;
 };
 

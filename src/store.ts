@@ -231,6 +231,14 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].pokemon = pokemonId;
         }),
+      changePreviousStatus: (encounterId: number, status: TStatus) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].previousStatus = status;
+        }),
       changeRuleset: (rulesetId: string) =>
         set((state) => {
           state.selectedRuleset = rulesetId;

@@ -22,7 +22,7 @@ function FAB(): JSX.Element {
       {open && (
         <div className={styles.list}>
           <div className={styles.listItem}>
-            <span className={styles.label}>{t('share', { ns: 'stats' })}</span>
+            <span className={styles.label}>{t('share')}</span>
             <Share
               disabled={!selectedGame}
               icon
@@ -56,7 +56,7 @@ function FAB(): JSX.Element {
             <AddEncounter icon />
           </div>
           <div className={styles.listItem} data-testid="fab-reset-encounters">
-            <span className={styles.label}>{t('add_encounter', { count: 2 })}</span>
+            <span className={styles.label}>{t('reset_encounters', { count: 2 })}</span>
             <ResetEncounters icon />
           </div>
         </div>

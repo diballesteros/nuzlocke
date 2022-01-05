@@ -29,5 +29,6 @@
   "reset_2": "Zurücksetzen",
   "reset_confirm": "Dadurch werden alle Begegnungen für das ausgewählte Spiel zurückgesetzt und benutzerdefinierte Begegnungen gelöscht. Bist du sicher?",
   "reset_encounters": "Begegnungen zurücksetzen",
-  "reset_success": "Begegnungen wurden erfolgreich zurückgesetzt"
+  "reset_success": "Begegnungen wurden erfolgreich zurückgesetzt",
+  "share": "Teilen"
 }

@@ -16,24 +16,31 @@ interface SwapProps {
 function Swap({ encounter }: SwapProps): JSX.Element {
   const { t } = useTranslation('tracker');
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
+  const changePreviousStatus = useStore(useCallback((state) => state.changePreviousStatus, []));
   const team = useStore(selectTeam);
 
   const text = encounter?.status?.value !== 7 ? t('Team', { ns: 'stats' }) : t('Box');
 
   const handleSwap = () => {
     if (encounter?.status?.value === 7) {
-      const foundStatus = STATUSES.find((stat) => stat.value === 1);
-      changeStatus(encounter.id, foundStatus);
+      const caughtStatus = encounter?.previousStatus
+        ? encounter.previousStatus
+        : STATUSES.find((stat) => stat.value === 1);
+      changeStatus(encounter.id, caughtStatus);
     } else if (team?.length < 6) {
       const foundStatus = STATUSES.find((stat) => stat.value === 7);
+      changePreviousStatus(encounter.id, encounter.status);
       changeStatus(encounter.id, foundStatus);
     }
   };
 
   const handleTeamSwap = (encounterSwap: TEncounter) => {
     const foundTeamStatus = STATUSES.find((stat) => stat.value === 7);
-    const foundCaughtStatus = STATUSES.find((stat) => stat.value === 1);
+    const foundCaughtStatus = encounter?.previousStatus
+      ? encounter.previousStatus
+      : STATUSES.find((stat) => stat.value === 1);
     changeStatus(encounterSwap?.id, foundCaughtStatus);
+    changePreviousStatus(encounter.id, encounter.status);
     changeStatus(encounter?.id, foundTeamStatus);
   };
 
