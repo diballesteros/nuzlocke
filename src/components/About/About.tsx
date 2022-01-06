@@ -18,69 +18,138 @@ function About(): JSX.Element {
           <b>{t('optionally')}</b> {t('thank_you_2')}
           <em>{t('coffee')}</em> {t('below')}
         </p>
-        <p>{t('warning_message')}</p>
+        <p>
+          {t('warning_message')}{' '}
+          <a
+            href="https://github.com/diballesteros/nuzlocke/wiki/How-data-storage-works"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            How data storage works
+          </a>
+        </p>
         <h3>{t('credits')}:</h3>
         <ul className={styles.credits}>
           <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
           <li>
             {t('images_provided')}
-            <a href="https://bulbapedia.bulbagarden.net/wiki/Main_Page" title="Bulbapedia">
+            <a
+              href="https://bulbapedia.bulbagarden.net/wiki/Main_Page"
+              title="Bulbapedia"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Bulbapedia
             </a>
           </li>
           <li>
             {t('icons_made')}
-            <a href="http://www.dariusdan.com" title="Darius Dan">
+            <a
+              href="http://www.dariusdan.com"
+              title="Darius Dan"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Darius Dan
             </a>{' '}
             {t('from')}
-            <a href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               www.flaticon.com
             </a>
           </li>
           <li>
             {t('icons_made')}
-            <a href="http://www.roundicons.com" title="Roundicons Freebies">
+            <a
+              href="http://www.roundicons.com"
+              title="Roundicons Freebies"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Roundicons Freebies
             </a>{' '}
             {t('from')}
-            <a href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               www.flaticon.com
             </a>
           </li>
           <li>
             {t('icons_made')}
-            <a href="https://www.flaticon.com/authors/nikita-golubev" title="Nikita Golubev">
+            <a
+              href="https://www.flaticon.com/authors/nikita-golubev"
+              title="Nikita Golubev"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Nikita Golubev
             </a>{' '}
             {t('from')}
-            <a href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               www.flaticon.com
             </a>
           </li>
           <li>
             {t('icons_made')}
-            <a href="https://www.freepik.com" title="Freepik">
+            <a
+              href="https://www.freepik.com"
+              title="Freepik"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Freepik
             </a>{' '}
             {t('from')}
-            <a href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               www.flaticon.com
             </a>
           </li>
           <li>
             {t('icons_made')}
-            <a href="https://www.flaticon.com/authors/vectors-market" title="Vectors Market">
+            <a
+              href="https://www.flaticon.com/authors/vectors-market"
+              title="Vectors Market"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Vectors Market
             </a>{' '}
             {t('from')}
-            <a href="https://www.flaticon.com/" title="Flaticon">
+            <a
+              href="https://www.flaticon.com/"
+              title="Flaticon"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               www.flaticon.com
             </a>
           </li>
           <li>
             {t('nickname_list')}
-            <a href="https://www.findnicknames.com/pokemon-nicknames/" title="findnicknames">
+            <a
+              href="https://www.findnicknames.com/pokemon-nicknames/"
+              title="findnicknames"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Find Nicknames
             </a>
           </li>
@@ -89,15 +158,27 @@ function About(): JSX.Element {
             <a
               href="https://icon-icons.com/users/b1kqPGvWi4JzKkAi8Q0MR/icon-sets/"
               title="findnicknames"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               Mohammad Ali
             </a>{' '}
             {t('from')}
-            <a href="https://icon-icons.com/" title="icon-icons">
+            <a
+              href="https://icon-icons.com/"
+              title="icon-icons"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Icon-icons{' '}
             </a>{' '}
             {t('under_the')}
-            <a href="https://creativecommons.org/licenses/by/4.0/" title="creative commons">
+            <a
+              href="https://creativecommons.org/licenses/by/4.0/"
+              title="creative commons"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
               Creative Commons License
             </a>
           </li>
