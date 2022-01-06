@@ -1,3 +1,13 @@
+## Version 4.4.1
+
+💅 Enhancement
+
+- Included a small update in the About section with a link that explains how the data storage works (and has always worked)
+
+🐛 Bug Fix
+
+- Fixed where Moltres is located in FireRed and LeafGreen. Moved from Victory Road to Mt Ember in the Sevii Islands
+
 ## Version 4.4.0
 
 💅 Enhancement

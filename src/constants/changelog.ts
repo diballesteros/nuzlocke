@@ -2,6 +2,22 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.1',
+    date: 1641507134643,
+    notes: [
+      {
+        description:
+          'Included a small update in the About section with a link that explains how the data storage works (and has always worked)',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Fixed where Moltres is located in FireRed and LeafGreen. Moved from Victory Road to Mt Ember in the Sevii Islands',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.0',
     date: 1641420227154,
     notes: [
