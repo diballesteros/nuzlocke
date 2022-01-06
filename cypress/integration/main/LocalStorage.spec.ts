@@ -19,7 +19,7 @@ describe('Local Storage', () => {
       const replaceSoulocke = replaceShiny.replace('Soulocke', 'SomethingElse');
       const replaceWedlocke = replaceSoulocke.replace('Wedlocke', 'SomethingElse');
       const replaceBadge = replaceWedlocke.replace('"badge":[]', '"badge":null');
-      const changeVersion = replaceBadge.replace('"version":7', '"version":0');
+      const changeVersion = replaceBadge.replace('"version":8', '"version":0');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
     cy.visit('/');
@@ -30,7 +30,7 @@ describe('Local Storage', () => {
     cy.visit('/');
     cy.getLocalStorage('pokemon-tracker').then((data) => {
       const removeBDSP = data.replace(/13.1/gi, '15');
-      const changeVersion = removeBDSP.replace('"version":7', '"version":4');
+      const changeVersion = removeBDSP.replace('"version":8', '"version":4');
       cy.setLocalStorage('pokemon-tracker', changeVersion);
     });
     cy.visit('/');

@@ -29,5 +29,6 @@
   "reset_2": "Reset",
   "reset_confirm": " This will reset all encounters for the selected game and delete custom encounters. Are you sure?",
   "reset_encounters": "Reset Encounters ",
-  "reset_success": "Successfully reset encounters"
+  "reset_success": "Successfully reset encounters",
+  "share": "Share"
 }

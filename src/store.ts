@@ -71,6 +71,7 @@ const useStore = create<AppState>(
       text: '',
       types: [],
       typeModal: null,
+      warning: INITIAL_STATE.warning,
       addCustomBadge: () =>
         set((state) => {
           if (state.customBadges[state.selectedGame?.value]) {
@@ -229,6 +230,14 @@ const useStore = create<AppState>(
           });
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].pokemon = pokemonId;
+        }),
+      changePreviousStatus: (encounterId: number, status: TStatus) =>
+        set((state) => {
+          const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
+            return enc.id === encounterId;
+          });
+          if (index !== -1)
+            state.games[state.selectedGame?.value].encounters[index].previousStatus = status;
         }),
       changeRuleset: (rulesetId: string) =>
         set((state) => {
@@ -500,6 +509,11 @@ const useStore = create<AppState>(
         set((state) => {
           state.summary[state?.selectedGame?.value][property] =
             !state.summary[state?.selectedGame?.value][property];
+        });
+      },
+      toggleWarning: () => {
+        set((state) => {
+          state.warning = true;
         });
       },
       updateDefaultValues: (values: Partial<TCalculatorForm>) => {

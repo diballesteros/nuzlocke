@@ -1,6 +1,7 @@
 describe('Custom game', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid="close-warning"]').click();
   });
 
   context('Add custom game', () => {

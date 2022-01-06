@@ -1,3 +1,20 @@
+## Version 4.4.0
+
+💅 Enhancement
+
+- Added informational message about how data for the tracker is stored
+- When changing the status to "Box" directly from the Tracker will not take into account it's previous status
+
+🐛 Bug Fix
+
+- Added Route 47, 48 and Safari Zone to Heart Gold and Soul Silver
+- Fixed the evolution chain for Nosepass and Probopass
+- Added Togepi as an encounter in Eterna City as you can get the egg from there
+- Fixed localization for the "Reset Encounters" label in smaller screens
+- Fixed encounters for Route 4 for Black and White 2
+- Added Hidden Grotto to Black and White 2
+- Fixed Route 24 encounters for FireRed and LeafGreen
+
 ## Version 4.3.1
 
 🐛 Bug Fix

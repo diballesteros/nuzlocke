@@ -25,6 +25,7 @@ export interface AppState {
   text: string;
   typeModal: Type;
   types: Type[];
+  warning: boolean;
   addCustomBadge: () => void;
   addCustomStatus: (status: string) => void;
   addEncounter: (newLocation: string) => void;
@@ -52,6 +53,7 @@ export interface AppState {
   changeNature: (encounterId: number, nature: string) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
   changePokemon: (encounterId: number, pokemonId: number) => void;
+  changePreviousStatus: (encounterId: number, status: TStatus) => void;
   changeRuleset: (rulesetId: string) => void;
   changeStatus: (encounterId: number, status: TStatus) => void;
   changeSummaryDescription: (desc: string) => void;
@@ -94,6 +96,7 @@ export interface AppState {
   toggleShowAll: () => void;
   toggleSuggestions: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
+  toggleWarning: () => void;
   updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
 }
 
@@ -164,6 +167,7 @@ export type TEncounter = {
   location: string;
   nickname?: string;
   pokemon: number;
+  previousStatus?: TStatus;
   status: TStatus;
 };
 

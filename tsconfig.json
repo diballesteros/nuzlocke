@@ -19,7 +19,7 @@
     "jsx": "react-jsx",
     "baseUrl": "./src"
   },
-  "include": ["src"],
+  "include": ["src", "supabase.client.ts"],
   "exclude": [
     "node_modules",
     "cypress",

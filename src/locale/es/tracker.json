@@ -29,5 +29,6 @@
   "reset_2": "Resetear",
   "reset_confirm": "Esto restablecerá todos los encuentros del juego seleccionado y eliminará los encuentros personalizados. ¿Está seguro?",
   "reset_encounters": "Restablecer encuentros",
-  "reset_success": "Los encuentros se restablecieron con éxito"
+  "reset_success": "Los encuentros se restablecieron con éxito",
+  "share": "Compartir"
 }

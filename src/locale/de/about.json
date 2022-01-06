@@ -13,5 +13,6 @@
   "source": "Quelle",
   "thank_you_1": "Vielen Dank, dass Sie Nuzlocke Tracker verwenden! Ich und andere Mitwirkende verbessern diese App in unserer Freizeit aktiv. Wenn Ihnen die App gefällt, bewerten Sie sie bitte im Microsoft Store, bei Google Play oder im Amazon Appstore. Um die App ",
   "thank_you_2": "zu unterstützen, besuchen Sie die ",
-  "under_the": "unter dem "
+  "under_the": "unter dem ",
+  "warning_message": "Diese App verwendet die Cookies/Localstorage Ihres Browsers, um korrekt zu funktionieren. Wenn der Cache oder die Browserdaten jemals gelöscht werden, verliert die App alle Daten"
 }

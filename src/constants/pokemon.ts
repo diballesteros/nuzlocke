@@ -2507,7 +2507,7 @@ const POKEMON: TPokemon[] = [
     value: 299,
     text: 'Nosepass',
     type: 'ROCK',
-    evolve: [299, 474],
+    evolve: [299, 476],
     generation: 3,
   },
   {
@@ -3802,7 +3802,7 @@ const POKEMON: TPokemon[] = [
     text: 'Probopass',
     type: 'ROCK',
     dualtype: 'STEEL',
-    evolve: [299, 474],
+    evolve: [299, 476],
     generation: 4,
   },
   {

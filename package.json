@@ -2,7 +2,7 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "4.3.1",
+  "version": "4.4.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
@@ -28,6 +28,7 @@
     "@sentry/react": "^6.16.1",
     "@sentry/tracing": "^6.16.1",
     "@smogon/calc": "^0.6.0",
+    "@supabase/supabase-js": "^1.29.1",
     "html-to-image": "^1.9.0",
     "i18next": "^21.6.4",
     "immer": "^9.0.7",
@@ -75,7 +76,6 @@
   "devDependencies": {
     "@cypress/code-coverage": "^3.9.12",
     "@cypress/instrument-cra": "^1.4.0",
-    "@prisma/client": "^3.7.0",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -101,7 +101,6 @@
     "eslint-plugin-react": "7.26.1",
     "eslint-plugin-react-hooks": "^4.3.0",
     "prettier": "^2.5.1",
-    "prisma": "^3.7.0",
     "sass": "^1.45.1",
     "sass-loader": "^12.4.0",
     "source-map-explorer": "^2.5.2",

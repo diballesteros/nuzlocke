@@ -233,6 +233,27 @@ const HG_SS: TEncounter[] = [
     filterKey: 'hgss-32',
   },
   {
+    id: 86,
+    pokemon: null,
+    location: 'Route 47',
+    status: null,
+    filterKey: 'hgss-86',
+  },
+  {
+    id: 87,
+    pokemon: null,
+    location: 'Route 48',
+    status: null,
+    filterKey: 'hgss-87',
+  },
+  {
+    id: 88,
+    pokemon: null,
+    location: 'Safari Zone',
+    status: null,
+    filterKey: 'hgss-88',
+  },
+  {
     id: 33,
     pokemon: null,
     location: 'Route 42',

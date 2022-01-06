@@ -1,6 +1,7 @@
 describe('Import', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid="close-warning"]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=import]').click();
   });

@@ -2,6 +2,47 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.0',
+    date: 1641420227154,
+    notes: [
+      {
+        description: 'Added informational message about how data for the tracker is stored',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Route 47, 48 and Safari Zone to Heart Gold and Soul Silver, encounters must be reset for them to appear',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed the evolution chain for Nosepass and Probopass',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Togepi as an encounter in Eterna City as you can get the egg from there',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed localization for the "Reset Encounters" label in smaller screens',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounters for Route 4 for Black and White 2',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Hidden Grotto as an encounter for Black and White 2, encounters must be reset for them to appear',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 24 encounters for FireRed and LeafGreen',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.3.1',
     date: 1640782623391,
     notes: [

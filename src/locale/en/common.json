@@ -1,4 +1,5 @@
 {
+  "app_browser": "This app uses your browser's ",
   "back": "Back",
   "calculator": "Calculator",
   "cancel": "Cancel",
@@ -34,6 +35,7 @@
   "suggested": "SUGGESTED",
   "Super effective against": "Super effective against",
   "template_hint": "Note this will only copy over the possible encounters and level cap numbers but not the gym information",
+  "to_save_game": "to save your game data",
   "tracker": "Tracker",
   "types": "Types",
   "Weak against": "Weak against"

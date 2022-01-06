@@ -13,5 +13,6 @@
   "source": "Source",
   "thank_you_1": "Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving this app in our free time. If you like the app please rate it in the Microsoft Store, Google Play or the Amazon Appstore. To ",
   "thank_you_2": "support the app check out the ",
-  "under_the": "under the"
+  "under_the": "under the",
+  "warning_message": "This app uses your browser's cookies/localstorage to work correctly. If the cache or browser data is ever cleared then the app will lose all it's data"
 }

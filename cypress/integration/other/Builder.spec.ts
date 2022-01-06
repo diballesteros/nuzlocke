@@ -1,6 +1,7 @@
 describe('Builder', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid="close-warning"]').click();
   });
 
   it('Build Team', () => {

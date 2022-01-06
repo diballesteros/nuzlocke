@@ -1,6 +1,7 @@
 describe('Encounters', () => {
   beforeEach(() => {
     cy.visit('/');
+    cy.get('[data-testid="close-warning"]').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
   });
@@ -158,6 +159,9 @@ describe('Encounters', () => {
     cy.get('[data-testid="swap-7"]').click();
     cy.get('[data-testid="poke-Magikarp"]').click({ force: true });
     cy.get('[data-testid="swap-7"]').click();
+    cy.get('[data-testid="swap-6"]').click();
+    cy.get('[data-testid="status-6"]').click();
+    cy.get('[data-testid="status-6"] > .visible > :nth-child(3)').click();
     cy.get('[data-testid="swap-6"]').click();
     cy.get('[data-testid="swap-6"]').click();
     cy.get('[data-testid="open-scroll-list"]').click();
