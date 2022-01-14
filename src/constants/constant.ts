@@ -609,9 +609,10 @@ export const SMOGON_NAMES: Record<string, string> = {
   'Stunfisk (Galarian)': 'Stunfisk-Galar',
 };
 
-export const MY_ITEMS = [...new Set(ITEMS[8])].filter(
-  (smogonItem) => smogonItem.substring(0, 2) !== 'TR'
-);
+export const MY_ITEMS = [
+  ...[...new Set(ITEMS[8])].filter((smogonItem) => smogonItem.substring(0, 2) !== 'TR'),
+  'Amulet Coin',
+];
 
 export const getSmogonItemName = (item: string): string => {
   if (item === "King's Rock") {

@@ -4,6 +4,7 @@ export { default as Badges } from './Badges/Badges';
 export { default as Builder } from './Builder/Builder';
 export { default as Calculator } from './Calculator/Calculator';
 export { default as Changelog } from './Changelog/Changelog';
+export { default as Community } from './Community/Community';
 export { default as Effectiveness } from './Effectiveness/Effectiveness';
 export { default as Export } from './Export/Export';
 export { default as Filter } from './Filter/Filter';
