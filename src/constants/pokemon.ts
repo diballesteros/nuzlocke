@@ -805,7 +805,7 @@ const POKEMON: TPokemon[] = [
     text: 'Doduo',
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [85, 85],
+    evolve: [84, 85],
     generation: 1,
   },
   {
@@ -813,7 +813,7 @@ const POKEMON: TPokemon[] = [
     text: 'Dodrio',
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [85, 85],
+    evolve: [84, 85],
     generation: 1,
   },
   {

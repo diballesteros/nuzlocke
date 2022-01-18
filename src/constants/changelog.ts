@@ -2,6 +2,34 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.2',
+    date: 1642530601617,
+    notes: [
+      {
+        description: 'Added amulet coin to selectable items',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Pokemon now show up as dupes for the entire evolution line',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Nature, Gender, Ability, and Item selectors now only show for the appropiate generations',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Sandy Cave as an encounter in Ultra Sun and Ultra Moon, encounters must be reset for them to appear',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed evolution line for Doduo and Dodrio',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.1',
     date: 1641507134643,
     notes: [

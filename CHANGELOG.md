@@ -1,3 +1,25 @@
+## Version 4.4.2
+
+💅 Enhancement
+
+- Added amulet coin to selectable items
+- Pokemon now show up as dupes for the entire evolution line
+- Nature, Gender, Ability, and Item selectors now only show for the appropiate generations
+
+🐛 Bug Fix
+
+- Added Sandy Cave as an encounter in Ultra Sun and Ultra Moon
+- Fixed evolution line for Doduo and Dodrio
+
+🏠 Internal
+
+- Bumped @types/jest to 27.4.0
+- Bumped @types/node to 17.0.8
+- Bumped cypress to 9.2.1
+- Bumped eslint-config-airbnb to 19.0.4
+- Bumped eslint-plugin-import to 2.25.4
+- Bumped sass to 1.48.0
+
 ## Version 4.4.1
 
 💅 Enhancement
