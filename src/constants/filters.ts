@@ -5642,6 +5642,7 @@ const FILTERS: { [key in string]: string[] } = {
   ],
   'usum-58': ['Solgaleo', 'Lunala'],
   'usum-59': ['Crabrawler'],
+  'usum-60': ['Zubat', 'Psyduck'],
   'swsh-0': ['Grookey', 'Scorbunny', 'Sobble'],
   'swsh-1': [
     'Hoothoot',

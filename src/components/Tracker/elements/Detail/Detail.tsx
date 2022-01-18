@@ -14,6 +14,7 @@ import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { Gender, TEncounter } from 'constants/types';
+import { selectItemGeneration, selectNAGeneration } from 'selectors';
 import useStore from 'store';
 import dropdownStyles from 'assets/styles/Dropdown.module.scss';
 import styles from './Detail.module.scss';
@@ -30,6 +31,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const exportToGame = useStore(useCallback((state) => state.exportToGame, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
+  const isNatureAbilityGen = useStore(selectNAGeneration);
+  const isItemGenderGen = useStore(selectItemGeneration);
   const foundPokemon = POKEMAP.get(encounter.pokemon);
   const [show, setShow] = useState(false);
   const [level, setLevel] = useState(encounter?.details?.level);
@@ -147,53 +150,61 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               onChange={(e, data) => setMetLevel(Number(data.value))}
               value={metLevel}
             />
-            <Dropdown
-              aria-label="gender-selector"
-              className={dropdownStyles.dropdown}
-              clearable
-              data-testid="gender"
-              inline
-              lazyLoad
-              onChange={(e, data) => setGender(data.value as unknown as Gender)}
-              options={GENDERS}
-              placeholder={t('gender', { ns: 'calculator' })}
-              selection
-              value={gender ?? ''}
-            />
-            <div className={styles.natureContainer}>
+            {isItemGenderGen && (
               <Dropdown
-                aria-label="nature-selector"
+                aria-label="gender-selector"
                 className={dropdownStyles.dropdown}
                 clearable
-                data-testid="nature"
+                data-testid="gender"
                 inline
                 lazyLoad
-                onChange={(e, data) => setNature(data.value as unknown as string)}
-                options={NATURES}
-                placeholder={t('select_nature', { ns: 'calculator' })}
+                onChange={(e, data) => setGender(data.value as unknown as Gender)}
+                options={GENDERS}
+                placeholder={t('gender', { ns: 'calculator' })}
+                selection
+                value={gender ?? ''}
+              />
+            )}
+            {isNatureAbilityGen && (
+              <div className={styles.natureContainer}>
+                <Dropdown
+                  aria-label="nature-selector"
+                  className={dropdownStyles.dropdown}
+                  clearable
+                  data-testid="nature"
+                  inline
+                  lazyLoad
+                  onChange={(e, data) => setNature(data.value as unknown as string)}
+                  options={NATURES}
+                  placeholder={t('select_nature', { ns: 'calculator' })}
+                  search
+                  selection
+                  value={nature ?? ''}
+                />
+                <Natures />
+              </div>
+            )}
+            {isNatureAbilityGen && (
+              <Dropdown
+                aria-label="ability"
+                className={dropdownStyles.dropdown}
+                clearable
+                data-testid="ability"
+                inline
+                lazyLoad
+                onChange={(e, data) => setAbility(data.value as unknown as string)}
+                options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+                  return { text: smogonAbility, value: smogonAbility };
+                })}
+                placeholder={t('select_ability', { ns: 'calculator' })}
                 search
                 selection
-                value={nature ?? ''}
+                value={ability ?? ''}
               />
-              <Natures />
-            </div>
-            <Dropdown
-              aria-label="ability"
-              className={dropdownStyles.dropdown}
-              clearable
-              data-testid="ability"
-              inline
-              lazyLoad
-              onChange={(e, data) => setAbility(data.value as unknown as string)}
-              options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
-                return { text: smogonAbility, value: smogonAbility };
-              })}
-              placeholder={t('select_ability', { ns: 'calculator' })}
-              search
-              selection
-              value={ability ?? ''}
-            />
-            <ItemSelector item={item} onChange={(newItem) => setItem(newItem)} />
+            )}
+            {isItemGenderGen && (
+              <ItemSelector item={item} onChange={(newItem) => setItem(newItem)} />
+            )}
             <Checkbox
               checked={shiny}
               className={styles.checkbox}

@@ -327,4 +327,5 @@ export const FORBIDDEN_ITEMS = [
   'Swampertite',
   'Tyranitarite',
   'Venusaurite',
+  'Amulet Coin',
 ];

@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { FAIRY_GEN, getTypeCountParams, getTypeParams } from 'constants/constant';
+import { FAIRY_GEN, GAME_GENERATION, getTypeCountParams, getTypeParams } from 'constants/constant';
 import EFFECTIVENESS from 'constants/effectiveness';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
@@ -155,4 +155,16 @@ export const selectShiny = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
     return enc?.details?.shiny;
   });
+};
+
+export const selectNAGeneration = (state: AppState): boolean => {
+  return GAME_GENERATION[state?.selectedGame?.value]
+    ? GAME_GENERATION[state?.selectedGame?.value] > 2
+    : true;
+};
+
+export const selectItemGeneration = (state: AppState): boolean => {
+  return GAME_GENERATION[state?.selectedGame?.value]
+    ? GAME_GENERATION[state?.selectedGame?.value] > 1
+    : true;
 };

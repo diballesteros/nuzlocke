@@ -73,7 +73,9 @@ function PokemonSelector({
 
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const pokemon = filteredPokemon[index];
-    const dupe = dupes?.includes(pokemon?.value);
+    const dupe = pokemon?.evolve
+      ? pokemon.evolve.some((evoId) => dupes?.includes(evoId))
+      : dupes?.includes(pokemon?.value);
     return (
       <div className={styles.rowContainer} style={style}>
         <div

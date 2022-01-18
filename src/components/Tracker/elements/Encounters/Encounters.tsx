@@ -21,6 +21,7 @@ import {
 import { TYPE_COLOR } from 'constants/colors';
 import { POKEMAP } from 'constants/pokemon';
 import useRemtoPx from 'hooks/useRemToPx';
+import { selectNAGeneration } from 'selectors';
 import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Encounters.module.scss';
@@ -38,6 +39,7 @@ const Encounters = React.memo(function Encounters() {
   const gens = useStore(useCallback((state) => state.gens, []));
   const types = useStore(useCallback((state) => state.types, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
+  const isNatureGen = useStore(selectNAGeneration);
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -186,7 +188,7 @@ const Encounters = React.memo(function Encounters() {
             {!!foundPokemon && [1, 3, 4, 7].includes(encounter.status?.value) && (
               <Swap encounter={encounter} />
             )}
-            {!!foundPokemon && <Nature encounter={encounter} />}
+            {!!foundPokemon && isNatureGen && <Nature encounter={encounter} />}
           </div>
         </div>
       </div>
