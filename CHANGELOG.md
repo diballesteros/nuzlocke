@@ -1,3 +1,16 @@
+## Version 4.4.3
+
+💅 Enhancement
+
+- Small update to error tracking in the Calculator
+
+🏠 Internal
+
+- Bumped @types/node to 17.0.10
+- Bumped @types/react-router-dom to 5.3.3
+- Bumped cypress to 9.3.1
+- Bumped sass to 1.49.0
+
 ## Version 4.4.2
 
 💅 Enhancement
