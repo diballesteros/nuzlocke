@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.3',
+    date: 1642596533630,
+    notes: [
+      {
+        description: 'Small update to error tracking in the Calculator',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.2',
     date: 1642530601617,
     notes: [
