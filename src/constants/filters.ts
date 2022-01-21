@@ -2474,7 +2474,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Staravia',
     'Kricketune',
     'Bonsly',
-    'Mime-jr',
+    'Mime Jr.',
   ],
   'dpp-40': [
     'Psyduck',
@@ -7743,7 +7743,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Miltank',
     'Kricketune',
     'Bonsly',
-    'Mime-jr',
+    'Mime Jr.',
     'Wurmple',
     'Combee',
     'Aipom',
@@ -8161,7 +8161,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Minun',
     'Castform',
     'Bonsly',
-    'Mime-Jr',
+    'Mime Jr.',
     'Happiny',
   ],
 };

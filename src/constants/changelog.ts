@@ -2,6 +2,20 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.4',
+    date: 1642765220441,
+    notes: [
+      {
+        description: 'Added Mime Jr. to encounters for Route 210 and Trophy Garden in BDSP',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Mime Jr. to encounters for Route 210 in Diamond, Pearl and Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.3',
     date: 1642596533630,
     notes: [
