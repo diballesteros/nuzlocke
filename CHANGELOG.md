@@ -1,3 +1,10 @@
+## Version 4.4.4
+
+🐛 Bug Fix
+
+- Added Mime Jr. to encounters for Route 210 and Trophy Garden in BDSP
+- Added Mime Jr. to encounters for Route 210 in Diamond, Pearl and Platinum
+
 ## Version 4.4.3
 
 💅 Enhancement
