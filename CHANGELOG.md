@@ -1,3 +1,10 @@
+## Version 4.4.5
+
+🐛 Bug Fix
+
+- Fixed a crash when assigning amulet coin as an item and opening the calculator
+- Added Soothe Bell as a selectable item
+
 ## Version 4.4.4
 
 🐛 Bug Fix
