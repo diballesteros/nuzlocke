@@ -109,7 +109,7 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
           <PokemonSlot pokemon={foundPokemon} />
         </DetailSelector>
       )}
-      {(encounters?.length > 0 || showGymDetails) && (
+      {(showGymDetails || name === 'pokemon1') && (
         <div className={styles.showAll}>
           {showGymDetails && (
             <Dropdown
@@ -134,8 +134,7 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
             onChange={(e, data) => setShowAll(data.checked)}
             toggle
           />
-          {name === 'pokemon1' && <span>{t('show_my')}</span>}
-          {name === 'pokemon2' && <span>{t('show_all')}</span>}
+          {name === 'pokemon1' ? <span>{t('show_my')}</span> : <span>{t('show_all')}</span>}
         </div>
       )}
     </div>
