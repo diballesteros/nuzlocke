@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.5',
+    date: 1642866238646,
+    notes: [
+      {
+        description:
+          'Fixed a crash when assigning amulet coin as an item and opening the calculator',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Soothe Bell as a selectable item',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.4',
     date: 1642765220441,
     notes: [
