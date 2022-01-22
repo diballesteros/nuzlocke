@@ -35,7 +35,7 @@ export function getPokemon(all: TCalculatorForm, id: 1 | 2) {
     };
 
     const getItem = (item: string) => {
-      if (all?.calculatorGen < 6 && FORBIDDEN_ITEMS.includes(item)) {
+      if (FORBIDDEN_ITEMS.includes(item)) {
         return undefined;
       }
       return item;

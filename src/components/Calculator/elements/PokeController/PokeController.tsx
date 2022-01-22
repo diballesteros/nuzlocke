@@ -83,12 +83,12 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
     }
     return [];
   }, [selectedGame]);
-
+  const derivedShow = name === 'pokemon1' ? !showAll : showAll;
   const showGymDetails = name === 'pokemon2' && detailsToOptions?.length > 0;
 
   return (
     <div className={styles.wrapper} data-testid={`pokecontroller-${name}`}>
-      {showAll ? (
+      {derivedShow ? (
         <PokemonSelector handlePokemon={handlePokemon} limitGen={form.calculatorGen}>
           <PokemonSlot pokemon={foundPokemon} />
         </PokemonSelector>
@@ -117,7 +117,7 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
               className={styles.dropdown}
               clearable
               data-testid="gym-filter"
-              disabled={showAll}
+              disabled={derivedShow}
               inline
               labeled
               onChange={(e, data) => setSelectedDetail(data.value)}
@@ -134,7 +134,8 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
             onChange={(e, data) => setShowAll(data.checked)}
             toggle
           />
-          <span>{t('show_all')}</span>
+          {name === 'pokemon1' && <span>{t('show_my')}</span>}
+          {name === 'pokemon2' && <span>{t('show_all')}</span>}
         </div>
       )}
     </div>
