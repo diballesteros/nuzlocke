@@ -2,6 +2,25 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.6',
+    date: 1643068534175,
+    notes: [
+      {
+        description:
+          'Fixed encounters for Route 103 and Route 124 for Omega Ruby and Alpha Sapphire',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Taillow and Swellow's evolution line",
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Glameow and Purugly's evolution line",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.5',
     date: 1642866238646,
     notes: [
