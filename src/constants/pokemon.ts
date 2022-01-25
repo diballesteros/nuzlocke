@@ -2329,7 +2329,7 @@ const POKEMON: TPokemon[] = [
     text: 'Taillow',
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [267, 277],
+    evolve: [276, 277],
     generation: 3,
   },
   {
@@ -2337,7 +2337,7 @@ const POKEMON: TPokemon[] = [
     text: 'Swellow',
     type: 'NORMAL',
     dualtype: 'FLYING',
-    evolve: [267, 277],
+    evolve: [276, 277],
     generation: 3,
   },
   {
@@ -3463,14 +3463,14 @@ const POKEMON: TPokemon[] = [
     value: 431,
     text: 'Glameow',
     type: 'NORMAL',
-    evolve: [430, 431],
+    evolve: [431, 432],
     generation: 4,
   },
   {
     value: 432,
     text: 'Purugly',
     type: 'NORMAL',
-    evolve: [430, 431],
+    evolve: [431, 432],
     generation: 4,
   },
   {

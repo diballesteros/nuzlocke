@@ -1,3 +1,17 @@
+## Version 4.4.6
+
+🐛 Bug Fix
+
+- Fixed encounters for Route 103 and Route 124 for Omega Ruby and Alpha Sapphire
+- Fixed Taillow and Swellow's evolution line
+- Fixed Glameow and Purugly's evolution line
+
+🏠 Internal
+
+- Bumped @supabase/supabase-js to 1.29.3
+- Bumped i18next to 21.6.7
+- Bumped eslint-plugin-react to 7.28.0
+
 ## Version 4.4.5
 
 🐛 Bug Fix
