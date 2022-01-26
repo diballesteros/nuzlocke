@@ -176,6 +176,7 @@ export interface TPokemon {
   evolve?: number[];
   generation: number;
   key?: string;
+  previousDualType?: Type;
   previousType?: Type;
   text: string;
   type: Type;
@@ -211,7 +212,13 @@ export type TRuleContent = string | string[] | number | number[];
 
 export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
-type TDetailClassification = 'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH';
+type TDetailClassification =
+  | 'GYM'
+  | 'TRIAL'
+  | 'DYNAMAX'
+  | 'REMATCH'
+  | 'RIVAL'
+  | 'EVIL_ORGANIZATION';
 
 export interface TSummary extends TSummaryBasic {
   description: string;

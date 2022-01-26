@@ -2,6 +2,20 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.7',
+    date: 1643233523198,
+    notes: [
+      {
+        description: 'Fixed Togekiss and Togetic typing in games before Fairy was introduced',
+        type: 'FIX',
+      },
+      {
+        description: 'Fainted pokemon now count towards the dupes',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.6',
     date: 1643068534175,
     notes: [
