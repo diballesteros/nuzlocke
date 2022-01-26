@@ -8,7 +8,7 @@ import { PkmImage, PokemonSelector } from 'common';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
-import { selectCaught, selectSuggestion } from 'selectors';
+import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import styles from './Pokemon.module.scss';
 
@@ -22,7 +22,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
   const changePokemon = useStore((state) => state.changePokemon);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
-  const caught = useStore(selectCaught);
+  const total = useStore(selectTotal);
   const showAll = useStore(useCallback((state) => state.showAll, []));
   const suggestionsSettings = useStore(useCallback((state) => state.suggestions, []));
   const games = useStore(useCallback((state) => state.games, []));
@@ -122,7 +122,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
     <div className={styles.pokemonSelect}>
       <div aria-label="Pokémon selector" className={styles.container}>
         <PokemonSelector
-          dupes={caught?.map((c) => c.pokemon)}
+          dupes={total?.map((c) => c.pokemon)}
           filter={filter}
           handlePokemon={onChange}
           suggestions={

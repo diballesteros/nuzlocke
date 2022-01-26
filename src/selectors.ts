@@ -85,20 +85,24 @@ export const selectBuilderWeak = (state: AppState): { [key in Type]: number } =>
       foundPokemon?.previousType && Number(state?.selectedGame?.value) < FAIRY_GEN
         ? foundPokemon.previousType
         : foundPokemon?.type;
+    const dualType =
+      foundPokemon?.previousDualType && Number(state?.selectedGame?.value) < FAIRY_GEN
+        ? foundPokemon.previousDualType
+        : foundPokemon?.dualtype;
     if (primaryType && EFFECTIVENESS[typeParams[1]][primaryType]) {
       EFFECTIVENESS[typeParams[1]][primaryType]['Weak against'].forEach((type) => {
         typeParams[0][type] += 1;
         if (
-          foundPokemon?.dualtype &&
-          (EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]?.Resists.includes(type) ||
-            EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]?.['Immune to'].includes(type))
+          dualType &&
+          (EFFECTIVENESS[typeParams[1]][dualType]?.Resists.includes(type) ||
+            EFFECTIVENESS[typeParams[1]][dualType]?.['Immune to'].includes(type))
         ) {
           typeParams[0][type] -= 1;
         }
       });
     }
-    if (foundPokemon?.dualtype && EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]) {
-      EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Weak against'].forEach((type) => {
+    if (dualType && EFFECTIVENESS[typeParams[1]][dualType]) {
+      EFFECTIVENESS[typeParams[1]][dualType]['Weak against'].forEach((type) => {
         typeParams[0][type] += 1;
         if (
           EFFECTIVENESS[typeParams[1]][primaryType]?.Resists.includes(type) ||
@@ -129,6 +133,18 @@ export const selectCaught = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
     return (
       enc?.status?.value === 1 ||
+      enc?.status?.value === 3 ||
+      enc?.status?.value === 4 ||
+      enc?.status?.value === 7
+    );
+  });
+};
+
+export const selectTotal = (state: AppState): TEncounter[] => {
+  return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
+    return (
+      enc?.status?.value === 1 ||
+      enc?.status?.value === 2 ||
       enc?.status?.value === 3 ||
       enc?.status?.value === 4 ||
       enc?.status?.value === 7

@@ -1,3 +1,10 @@
+## Version 4.4.7
+
+🐛 Bug Fix
+
+- Fixed Togekiss and Togetic typing in games before Fairy was introduced
+- Fainted pokemon now count towards the dupes
+
 ## Version 4.4.6
 
 🐛 Bug Fix

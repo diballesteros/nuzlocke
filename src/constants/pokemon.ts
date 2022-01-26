@@ -1556,6 +1556,7 @@ const POKEMON: TPokemon[] = [
     value: 176,
     text: 'Togetic',
     previousType: 'NORMAL',
+    previousDualType: 'FLYING',
     type: 'FAIRY',
     dualtype: 'FLYING',
     evolve: [175, 176, 468],
@@ -3739,6 +3740,8 @@ const POKEMON: TPokemon[] = [
   {
     value: 468,
     text: 'Togekiss',
+    previousType: 'NORMAL',
+    previousDualType: 'FLYING',
     type: 'FLYING',
     dualtype: 'FAIRY',
     evolve: [175, 176, 468],

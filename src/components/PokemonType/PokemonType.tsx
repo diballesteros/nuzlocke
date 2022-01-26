@@ -19,7 +19,10 @@ function PokemonType({ pokemon }: PokemonTypeProps): JSX.Element {
   return (
     <div className={styles.container}>
       {pokemon.previousType && Number(selectedGame?.value) < FAIRY_GEN ? (
-        <Type type={pokemon?.previousType} />
+        <>
+          <Type type={pokemon?.previousType} />
+          {!!pokemon?.previousDualType && <Type type={pokemon?.previousDualType} />}
+        </>
       ) : (
         <>
           <Type type={pokemon?.type} />
