@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.8',
+    date: 1643373757644,
+    notes: [
+      {
+        description: 'Fixed encounters for route 210 in Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Drifloon as an encounter in Valley Windworks in Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.7',
     date: 1643233523198,
     notes: [

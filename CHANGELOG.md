@@ -1,3 +1,19 @@
+## Version 4.4.8
+
+🐛 Bug Fix
+
+- Fixed encounters for route 210 in Diamond, Pearl, and Platinum
+- Added Drifloon as an encounter in Valley Windworks in Diamond, Pearl, and Platinum
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.17.2
+- Bumped @sentry/tracing to 6.17.2
+- Bumped i18next to 21.6.10
+- Bumped semantic-ui-react to 2.1.1
+- Bumped typescript to 4.5.5
+- Bumped @types/node to 17.0.13
+
 ## Version 4.4.7
 
 🐛 Bug Fix
