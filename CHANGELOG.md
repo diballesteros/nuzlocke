@@ -1,3 +1,11 @@
+## Version 4.4.9
+
+🐛 Bug Fix
+
+- Removed the warning message due to SEO issues
+- Added game corner purchases to Celadon City encounters in Fire Red and Leaf Green
+- Move selector now shows moves respective to that generation (not applicable to custom games)
+
 ## Version 4.4.8
 
 🐛 Bug Fix

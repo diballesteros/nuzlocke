@@ -10,7 +10,7 @@ import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
-import { GENDERS } from 'constants/constant';
+import { GAME_GENERATION, GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { Gender, TEncounter } from 'constants/types';
@@ -47,6 +47,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const [moveThree, setMoveThree] = useState(encounter?.details?.moves[2]);
   const [moveFour, setMoveFour] = useState(encounter?.details?.moves[3]);
   const [shiny, setShiny] = useState(encounter?.details?.shiny);
+  const limitGen = GAME_GENERATION[selectedGame?.value] || undefined;
 
   const handleClose = () => {
     setShow(false);
@@ -222,6 +223,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               <MoveSelector
                 currentMoveId={moveOne}
                 handleMove={(moveId: number) => setMoveOne(moveId)}
+                limitGen={limitGen}
               />
             </div>
             <div data-testid="move-2">
@@ -229,6 +231,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               <MoveSelector
                 currentMoveId={moveTwo}
                 handleMove={(moveId: number) => setMoveTwo(moveId)}
+                limitGen={limitGen}
               />
             </div>
             <div data-testid="move-3">
@@ -236,6 +239,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               <MoveSelector
                 currentMoveId={moveThree}
                 handleMove={(moveId: number) => setMoveThree(moveId)}
+                limitGen={limitGen}
               />
             </div>
             <div data-testid="move-4">
@@ -243,6 +247,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               <MoveSelector
                 currentMoveId={moveFour}
                 handleMove={(moveId: number) => setMoveFour(moveId)}
+                limitGen={limitGen}
               />
             </div>
           </div>
