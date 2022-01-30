@@ -13,7 +13,6 @@ const stepTo = ($el, target) => {
 describe('Calculator', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="close-warning"]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=calculator]').click();
   });

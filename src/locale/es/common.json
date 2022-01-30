@@ -1,5 +1,4 @@
 {
-  "app_browser": "Esta aplicación utiliza el de su navegador",
   "back": "Atrás",
   "calculator": "Calculadora",
   "cancel": "Cancelar",
@@ -35,7 +34,6 @@
   "suggested": "SUGERENCIA",
   "Super effective against": "Super efectivo contra",
   "template_hint": "Ten en cuenta que esto solo copiará los posibles encuentros y los números de límite de nivel, pero no la información del gym",
-  "to_save_game": "para guardar los datos del juego",
   "tracker": "Tracker",
   "types": "Tipos",
   "Weak against": "Debil contra"

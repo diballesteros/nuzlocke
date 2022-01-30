@@ -8,7 +8,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
-import { AddGame, Effectiveness, Export, Warning } from 'components';
+import { AddGame, Effectiveness, Export } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
 import { MAX_GAME } from 'constants/constant';
 import AppRouter from 'routes/AppRouter';
@@ -25,7 +25,6 @@ function App(): JSX.Element {
   const toggleMode = useStore(useCallback((state) => state.toggleMode, []));
   const selectGame = useStore(useCallback((state) => state.selectGame, []));
   const deleteGame = useStore(useCallback((state) => state.deleteGame, []));
-  const warning = useStore(useCallback((state) => state.warning, []));
   const [confirm, setConfirm] = useState(false);
   const [visible, setVisible] = useState(false);
 
@@ -269,7 +268,6 @@ function App(): JSX.Element {
         <br />® and Pokémon character names are trademarks of Nintendo.
       </footer>
       <Effectiveness />
-      {!warning && <Warning />}
       <ToastContainer
         limit={3}
         pauseOnFocusLoss={false}

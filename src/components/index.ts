@@ -25,4 +25,3 @@ export { default as Status } from './Status/Status';
 export { default as Tracker } from './Tracker/Tracker';
 export { default as Type } from './Type/Type';
 export { default as UpdateSW } from './UpdateSW/UpdateSW';
-export { default as Warning } from './Warning/Warning';
