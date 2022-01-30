@@ -94,7 +94,7 @@ describe('Calculator', () => {
     ).should('exist');
   });
 
-  it.only('Switching pokemon', () => {
+  it('Switching pokemon', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
