@@ -15,10 +15,16 @@ import styles from './MoveSelector.module.scss';
 interface MoveSelectorProps {
   currentMoveId: number;
   handleMove: (moveId: number) => void;
+  hideGen?: boolean;
   limitGen?: number;
 }
 
-function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps): JSX.Element {
+function MoveSelector({
+  currentMoveId,
+  handleMove,
+  hideGen,
+  limitGen,
+}: MoveSelectorProps): JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
@@ -86,7 +92,7 @@ function MoveSelector({ currentMoveId, handleMove, limitGen }: MoveSelectorProps
     >
       <Modal.Content className={styles.content} scrolling>
         <div data-testid="move-selector-wrapper">
-          <Filter hideGen={!!limitGen} values={values} />
+          <Filter hideGen={hideGen} values={values} />
         </div>
         <FixedSizeList
           height={400}

@@ -71,7 +71,6 @@ const useStore = create<AppState>(
       text: '',
       types: [],
       typeModal: null,
-      warning: INITIAL_STATE.warning,
       addCustomBadge: () =>
         set((state) => {
           if (state.customBadges[state.selectedGame?.value]) {
@@ -509,11 +508,6 @@ const useStore = create<AppState>(
         set((state) => {
           state.summary[state?.selectedGame?.value][property] =
             !state.summary[state?.selectedGame?.value][property];
-        });
-      },
-      toggleWarning: () => {
-        set((state) => {
-          state.warning = true;
         });
       },
       updateDefaultValues: (values: Partial<TCalculatorForm>) => {

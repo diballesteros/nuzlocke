@@ -3,7 +3,6 @@ import path = require('path');
 describe('PokéStats', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="close-warning"]').click();
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
   });

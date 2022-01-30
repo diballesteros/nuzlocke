@@ -2,6 +2,22 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.4.9',
+    date: 1643576683241,
+    notes: [
+      {
+        description:
+          'Added game corner purchases to Celadon City encounters in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Move selector now shows moves respective to that generation (not applicable to custom games)',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.8',
     date: 1643373757644,
     notes: [

@@ -13,7 +13,6 @@ const stepTo = ($el, target) => {
 describe('Calculator', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="close-warning"]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=calculator]').click();
   });
@@ -95,7 +94,7 @@ describe('Calculator', () => {
     ).should('exist');
   });
 
-  it('Switching pokemon', () => {
+  it.only('Switching pokemon', () => {
     cy.get('[data-testid=game-select]').click();
     cy.contains('Sword and Shield').click();
     cy.get('[data-testid=pokecontroller-pokemon2]').click();
