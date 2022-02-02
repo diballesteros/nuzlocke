@@ -45,7 +45,19 @@ export interface AppState {
     moveTwo: number,
     moveThree: number,
     moveFour: number,
-    shiny: boolean
+    shiny: boolean,
+    ivhp: number,
+    ivatk: number,
+    ivdef: number,
+    ivspatk: number,
+    ivspdef: number,
+    ivspeed: number,
+    evhp: number,
+    evatk: number,
+    evdef: number,
+    evspatk: number,
+    evspdef: number,
+    evspeed: number
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
@@ -311,6 +323,18 @@ export interface PokemonDetail {
   moves: number[];
   nature?: string;
   shiny?: boolean;
+  ivatk?: number;
+  ivdef?: number;
+  ivhp?: number;
+  ivspatk?: number;
+  ivspdef?: number;
+  ivspeed?: number;
+  evhp?: number;
+  evatk?: number;
+  evdef?: number;
+  evspatk?: number;
+  evspdef?: number;
+  evspeed?: number;
 }
 
 export type TReleaseNotes = { name: string; date: number; notes: TReleaseNote[] }[];

@@ -10,6 +10,7 @@ import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
+import { RangeSelector } from 'components/Tracker/elements';
 import { GAME_GENERATION, GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
@@ -47,6 +48,19 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const [moveThree, setMoveThree] = useState(encounter?.details?.moves[2]);
   const [moveFour, setMoveFour] = useState(encounter?.details?.moves[3]);
   const [shiny, setShiny] = useState(encounter?.details?.shiny);
+  const [ivhp, setIvhp] = useState(encounter?.details?.ivhp);
+  const [ivatk, setIvatk] = useState(encounter?.details?.ivatk);
+  const [ivdef, setIvdef] = useState(encounter?.details?.ivdef);
+  const [ivspatk, setIvspatk] = useState(encounter?.details?.ivspatk);
+  const [ivspeed, setIvspeed] = useState(encounter?.details?.ivspeed);
+  const [ivspdef, setIvspdef] = useState(encounter?.details?.ivspdef);
+  const [evhp, setEvhp] = useState(encounter?.details?.evhp);
+  const [evatk, setEvatk] = useState(encounter?.details?.evatk);
+  const [evdef, setEvdef] = useState(encounter?.details?.evdef);
+  const [evspatk, setEvspatk] = useState(encounter?.details?.evspatk);
+  const [evspeed, setEvspeed] = useState(encounter?.details?.evspeed);
+  const [evspdef, setEvspdef] = useState(encounter?.details?.evspdef);
+
   const limitGen = GAME_GENERATION[selectedGame?.value] || undefined;
 
   const handleClose = () => {
@@ -79,7 +93,19 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       moveTwo,
       moveThree,
       moveFour,
-      shiny
+      shiny,
+      ivhp,
+      ivatk,
+      ivdef,
+      ivspatk,
+      ivspdef,
+      ivspeed,
+      evhp,
+      evatk,
+      evdef,
+      evspatk,
+      evspdef,
+      evspeed
     );
     setShow(false);
   };
@@ -250,6 +276,93 @@ function Detail({ encounter }: DetailProps): JSX.Element {
                 limitGen={limitGen}
               />
             </div>
+          </div>
+        </details>
+
+        <details
+          className={styles.expandable}
+          style={{ display: limitGen > 2 ? undefined : 'none' }}
+        >
+          <summary data-testid="stats-summary">Stats</summary>
+          <div className={styles.expandable}>
+            HP:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivhp"
+                value={ivhp ?? 0}
+                onChange={(newValue: number) => setIvhp(newValue)}
+              />
+              <RangeSelector
+                name="evhp"
+                value={evhp ?? 0}
+                onChange={(newValue: number) => setEvhp(newValue)}
+              />
+            </fieldset>
+            ATK:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivatk"
+                value={ivatk ?? 0}
+                onChange={(newValue: number) => setIvatk(newValue)}
+              />
+              <RangeSelector
+                name="evatk"
+                value={evatk ?? 0}
+                onChange={(newValue: number) => setEvatk(newValue)}
+              />
+            </fieldset>
+            DEF:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivdef"
+                value={ivdef ?? 0}
+                onChange={(newValue: number) => setIvdef(newValue)}
+              />
+              <RangeSelector
+                name="evdef"
+                value={evdef ?? 0}
+                onChange={(newValue: number) => setEvdef(newValue)}
+              />
+            </fieldset>
+            SPATK:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivspatk"
+                value={ivspatk ?? 0}
+                onChange={(newValue: number) => setIvspatk(newValue)}
+              />
+              <RangeSelector
+                name="evspatk"
+                value={evspatk ?? 0}
+                onChange={(newValue: number) => setEvspatk(newValue)}
+              />
+            </fieldset>
+            SPDEF:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivspdef"
+                value={ivspdef ?? 0}
+                onChange={(newValue: number) => setIvspdef(newValue)}
+              />
+              <RangeSelector
+                name="evspdef"
+                value={evspdef ?? 0}
+                onChange={(newValue: number) => setEvspdef(newValue)}
+              />
+            </fieldset>
+            SPEED:
+            <fieldset className={styles.fieldset}>
+              <RangeSelector
+                name="ivspeed"
+                value={ivspeed ?? 0}
+                onChange={(newValue: number) => setIvspeed(newValue)}
+              />
+              <RangeSelector
+                name="evspeed"
+                value={evspeed ?? 0}
+                onChange={(newValue: number) => setEvspeed(newValue)}
+              />
+            </fieldset>
           </div>
         </details>
         {encounter?.status?.value === 2 && (

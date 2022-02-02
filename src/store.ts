@@ -149,7 +149,19 @@ const useStore = create<AppState>(
         moveTwo: number,
         moveThree: number,
         moveFour: number,
-        shiny: boolean
+        shiny: boolean,
+        ivhp: number,
+        ivatk: number,
+        ivdef: number,
+        ivspatk: number,
+        ivspdef: number,
+        ivspeed: number,
+        evhp: number,
+        evatk: number,
+        evdef: number,
+        evspatk: number,
+        evspdef: number,
+        evspeed: number
       ) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -167,6 +179,18 @@ const useStore = create<AppState>(
               faint,
               moves: [moveOne, moveTwo, moveThree, moveFour],
               shiny,
+              ivhp,
+              ivatk,
+              ivdef,
+              ivspatk,
+              ivspdef,
+              ivspeed,
+              evhp,
+              evatk,
+              evdef,
+              evspatk,
+              evspdef,
+              evspeed,
             };
         }),
       changeDupe: () =>

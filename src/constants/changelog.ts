@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.5.0',
+    date: 1643809787295,
+    notes: [
+      {
+        description:
+          'You can now directly edit a pokemons EVs/IVs from their details (clicking the pencil icon in the encounter entry) under the Stats section',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Added small tooltip to the calculator to explain how Show my Pokemon works',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 4.4.9',
     date: 1643576683241,
     notes: [

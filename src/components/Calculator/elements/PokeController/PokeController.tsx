@@ -1,7 +1,9 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
 import { PokemonSlot } from 'components/Calculator/elements';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
@@ -19,6 +21,7 @@ interface PokeControllerProps {
 function PokeController({ encounters, name }: PokeControllerProps): JSX.Element {
   const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
+  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [selectedDetail, setSelectedDetail] = useState(undefined);
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
@@ -36,6 +39,19 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
       ...(enc.details?.moves && { move2_1: enc.details?.moves[1] }),
       ...(enc.details?.moves && { move3_1: enc.details?.moves[2] }),
       ...(enc.details?.moves && { move4_1: enc.details?.moves[3] }),
+
+      ...(enc.details?.evhp && { evhp1: enc.details?.evhp }),
+      ...(enc.details?.evatk && { evatk1: enc.details?.evatk }),
+      ...(enc.details?.evdef && { evdef1: enc.details?.evdef }),
+      ...(enc.details?.evspatk && { evspatk1: enc.details?.evspatk }),
+      ...(enc.details?.evspdef && { evspdef1: enc.details?.evspdef }),
+      ...(enc.details?.evspeed && { evspeed1: enc.details?.evspeed }),
+      ...(enc.details?.ivhp && { ivhp1: enc.details?.ivhp }),
+      ...(enc.details?.ivatk && { ivatk1: enc.details?.ivatk }),
+      ...(enc.details?.ivdef && { ivdef1: enc.details?.ivdef }),
+      ...(enc.details?.ivspatk && { ivspatk1: enc.details?.ivspatk }),
+      ...(enc.details?.ivspdef && { ivspdef1: enc.details?.ivspdef }),
+      ...(enc.details?.ivspeed && { ivspeed1: enc.details?.ivspeed }),
       pokemon1: enc.pokemon,
     };
     update({ ...DEFAULT_POKEMON_1, ...partialCalc });
@@ -135,6 +151,13 @@ function PokeController({ encounters, name }: PokeControllerProps): JSX.Element 
             toggle
           />
           {name === 'pokemon1' ? <span>{t('show_my')}</span> : <span>{t('show_all')}</span>}
+          {name === 'pokemon1' && (
+            <Popup
+              content={<b>{t('show_help')}</b>}
+              inverted={darkMode}
+              trigger={<Icon className={styles.help} name="question circle" />}
+            />
+          )}
         </div>
       )}
     </div>
