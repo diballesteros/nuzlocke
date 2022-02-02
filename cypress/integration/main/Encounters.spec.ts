@@ -1,3 +1,15 @@
+const stepTo = ($el, target) => {
+  const step = $el[0].getAttribute('step') || 1;
+  const current = $el[0].value;
+  const diff = target - current;
+  const steps = Math.abs(diff * step);
+  if (diff > 0) {
+    $el[0].stepUp(steps);
+  } else {
+    $el[0].stepDown(steps);
+  }
+};
+
 describe('Encounters', () => {
   beforeEach(() => {
     cy.visit('/');
@@ -52,9 +64,47 @@ describe('Encounters', () => {
     cy.contains('Hardy').should('exist');
     cy.get('[data-testid=nature-close]').click();
     cy.get('[data-testid=nature-info]').click();
-
     cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
-    cy.contains('Cancel').click();
+
+    cy.get('[data-testid="stats-summary"]').click();
+    cy.get('[data-testid="evhp"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivhp"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivatk"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="evatk"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivdef"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="evdef"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivspatk"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="evspatk"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivspdef"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="evspdef"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="ivspeed"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+    cy.get('[data-testid="evspeed"]')
+      .then(($el) => stepTo($el, 1))
+      .trigger('change');
+
+    cy.contains('Save').click();
 
     cy.get('[data-testid="evolve-0}"]').click();
     cy.get(':nth-child(3) > .ui > label').click();

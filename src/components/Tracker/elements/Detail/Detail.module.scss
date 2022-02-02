@@ -64,6 +64,16 @@
     display: flex;
     flex-flow: column nowrap;
     gap: var(--spacing-3);
+
+    .fieldset {
+      display: grid;
+      grid-template-columns: 2.857rem minmax(0, 1fr) 2.857rem;
+      column-gap: var(--spacing-3);
+      row-gap: var(--spacing-4);
+      color: var(--contrast);
+      padding: var(--spacing-5);
+      border-radius: 4px;
+    }
   }
 
   .name {
