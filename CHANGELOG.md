@@ -1,10 +1,12 @@
-## Version 4.4.9
+## Version 4.5.0
 
-🐛 Bug Fix
+🚀 New features
 
-- Removed the warning message due to SEO issues
-- Added game corner purchases to Celadon City encounters in Fire Red and Leaf Green
-- Move selector now shows moves respective to that generation (not applicable to custom games)
+- You can now directly edit a pokemons EVs/IVs from their details (clicking the pencil icon in the encounter entry) under the Stats section
+
+💅 Enhancement
+
+- Added small tooltip to the calculator to explain how Show my Pokemon works
 
 ## Version 4.4.8
 
