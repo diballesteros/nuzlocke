@@ -1,5 +1,5 @@
 import { ABILITIES } from '@smogon/calc';
-import { useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -8,7 +8,7 @@ import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { ItemSelector, PkmImage } from 'common';
+import { ItemSelector, PkmImage, PokemonSelector } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { RangeSelector } from 'components/Tracker/elements';
 import { GAME_GENERATION, GENDERS } from 'constants/constant';
@@ -32,6 +32,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const exportToGame = useStore(useCallback((state) => state.exportToGame, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
+  const soulink = useStore(useCallback((state) => state.soulink, []));
   const isNatureAbilityGen = useStore(selectNAGeneration);
   const isItemGenderGen = useStore(selectItemGeneration);
   const foundPokemon = POKEMAP.get(encounter.pokemon);
@@ -60,8 +61,10 @@ function Detail({ encounter }: DetailProps): JSX.Element {
   const [evspatk, setEvspatk] = useState(encounter?.details?.evspatk);
   const [evspeed, setEvspeed] = useState(encounter?.details?.evspeed);
   const [evspdef, setEvspdef] = useState(encounter?.details?.evspdef);
+  const [soulLink, setSoulLink] = useState(encounter?.details?.soulink);
 
   const limitGen = GAME_GENERATION[selectedGame?.value] || undefined;
+  const foundSoulLink = POKEMAP.get(soulLink);
 
   const handleClose = () => {
     setShow(false);
@@ -77,6 +80,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
     setMoveThree(encounter?.details?.moves[2]);
     setMoveFour(encounter?.details?.moves[3]);
     setShiny(encounter?.details?.shiny);
+    setSoulLink(encounter?.details?.soulink);
   };
 
   const handleSave = () => {
@@ -105,7 +109,8 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       evdef,
       evspatk,
       evspdef,
-      evspeed
+      evspeed,
+      soulLink
     );
     setShow(false);
   };
@@ -128,6 +133,12 @@ function Detail({ encounter }: DetailProps): JSX.Element {
       handleClose();
       toast.success(t('pokemon_export'));
     }
+  };
+
+  const handleDeleteSoulLink = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setSoulLink(null);
   };
 
   return (
@@ -158,6 +169,40 @@ function Detail({ encounter }: DetailProps): JSX.Element {
           </div>
           <PokemonType pokemon={foundPokemon} />
         </div>
+        {soulink && (
+          <div className={styles.soulink}>
+            <span>Soul Link Pokémon:</span>
+            <PokemonSelector handlePokemon={(pokemonId) => setSoulLink(pokemonId)}>
+              {soulLink ? (
+                <div className={styles.selector} data-testid={`soullink-${encounter.id}`}>
+                  <div className={styles.image}>
+                    <PkmImage name={foundSoulLink.text} />
+                  </div>
+                  <span className={styles.soulLinkName}>{foundSoulLink.text}</span>
+                  <Button
+                    aria-label="delete-soullink"
+                    className={styles.deleteSoullink}
+                    data-testid="add-game"
+                    icon
+                    onClick={handleDeleteSoulLink}
+                    style={{ boxShadow: 'none' }}
+                  >
+                    <Icon name="trash" />
+                  </Button>
+                </div>
+              ) : (
+                <div className={styles.selector} data-testid={`soullink-${encounter.id}`}>
+                  <span
+                    data-testid={`soullink-empty-${encounter.id}`}
+                    className={styles.placeholder}
+                  >
+                    Pokémon...
+                  </span>
+                </div>
+              )}
+            </PokemonSelector>
+          </div>
+        )}
         <details open>
           <summary data-testid="detail-summary">{t('details', { ns: 'badges' })}</summary>
           <div className={styles.expandable}>

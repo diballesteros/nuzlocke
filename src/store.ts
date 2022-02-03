@@ -65,6 +65,7 @@ const useStore = create<AppState>(
       selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
+      soulink: INITIAL_STATE.soulink,
       suggestions: INITIAL_STATE.suggestions,
       summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
@@ -161,7 +162,8 @@ const useStore = create<AppState>(
         evdef: number,
         evspatk: number,
         evspdef: number,
-        evspeed: number
+        evspeed: number,
+        soulink
       ) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -191,6 +193,7 @@ const useStore = create<AppState>(
               evspatk,
               evspdef,
               evspeed,
+              soulink,
             };
         }),
       changeDupe: () =>
@@ -521,6 +524,11 @@ const useStore = create<AppState>(
       toggleShowAll: () => {
         set((state) => {
           state.showAll = !state.showAll;
+        });
+      },
+      toggleSoulink: () => {
+        set((state) => {
+          state.soulink = !state.soulink;
         });
       },
       toggleSuggestions: () => {
