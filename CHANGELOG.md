@@ -8,6 +8,17 @@
 
 - Fixed a bug with the level and met level inputs where it was possible to input invalid characters
 
+🏠 Internal
+
+- Bumped @sentry/react to 6.17.4
+- Bumped @sentry/tracing to 6.17.4
+- Bumped react-toastify to 8.1.1
+- Bumped @testing-library/jest-dom to 5.16.2
+- Bumped @types/node to 17.0.14
+- Bumped @types/react to 17.0.39
+- Bumped cypress to 9.4.1
+- Bumped sass to 1.49.7
+
 ## Version 4.5.0
 
 🚀 New features
