@@ -7,5 +7,6 @@
   "show_all": "Show all pokémon in every encounter",
   "show_missing": "Show only missing encounters",
   "show_nicknames": "Show nicknames",
+  "show_soulink": "Show option to select a Soul Link pokémon from the details",
   "show_suggestions": "Show suggestions"
 }

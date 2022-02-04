@@ -19,6 +19,7 @@ export interface AppState {
   rulesets: TRuleset[];
   selectedGame: TGame;
   selectedRuleset: string;
+  soulink: boolean;
   showAll: boolean;
   suggestions: boolean;
   team: TTeamDictionary;
@@ -57,7 +58,8 @@ export interface AppState {
     evdef: number,
     evspatk: number,
     evspdef: number,
-    evspeed: number
+    evspeed: number,
+    soulink: number
   ) => void;
   changeDupe: () => void;
   changeLevel: (encounterId: number, increase: boolean) => void;
@@ -105,6 +107,7 @@ export interface AppState {
   toggleMode: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
+  toggleSoulink: () => void;
   toggleSuggestions: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
   updateDefaultValues: (values: Partial<TCalculatorForm>) => void;
@@ -323,6 +326,7 @@ export interface PokemonDetail {
   moves: number[];
   nature?: string;
   shiny?: boolean;
+  soulink?: number;
   ivatk?: number;
   ivdef?: number;
   ivhp?: number;

@@ -47,6 +47,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Build an ideal team with the Team Builder!
 - Quick access to details on type effectiveness and natures
 - Encounter suggestions
+- Soul Link integrations
 
 ### ✨ How it works
 

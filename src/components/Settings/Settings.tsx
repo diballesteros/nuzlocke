@@ -50,6 +50,12 @@ function Settings(): JSX.Element {
           label={t('show_suggestions')}
           onChange={() => appState.toggleSuggestions()}
         />
+        <Checkbox
+          checked={appState.soulink}
+          data-testid="settings-soulink"
+          label={t('show_soulink')}
+          onChange={() => appState.toggleSoulink()}
+        />
         <span className={styles.label}>{t('language')}:</span>
         <Dropdown
           className={styles.dropdown}
