@@ -212,7 +212,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               maxLength={3}
               label={t('level', { ns: 'rules' })}
               onChange={(e, data) => setLevel(Number(data.value))}
-              value={level}
+              value={Number.isNaN(level) ? '' : level}
             />
             <Input
               className={styles.input}
@@ -220,7 +220,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               label={t('met_level')}
               maxLength={3}
               onChange={(e, data) => setMetLevel(Number(data.value))}
-              value={metLevel}
+              value={Number.isNaN(metLevel) ? '' : metLevel}
             />
             {isItemGenderGen && (
               <Dropdown

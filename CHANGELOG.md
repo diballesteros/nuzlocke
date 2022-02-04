@@ -1,3 +1,13 @@
+## Version 4.6.0
+
+🚀 New features
+
+- From the settings page you can now enable Soul Link functionality. Once the setting is enabled in the details of an encounter you can now select a soul link pokemon associated to the encounter.
+
+🐛 Bug Fix
+
+- Fixed a bug with the level and met level inputs where it was possible to input invalid characters
+
 ## Version 4.5.0
 
 🚀 New features

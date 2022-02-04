@@ -2,6 +2,22 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.6.0',
+    date: 1643974875632,
+    notes: [
+      {
+        description:
+          'From the settings page you can now enable Soul Link functionality. Once the setting is enabled in the details of an encounter you can now select a soul link pokemon associated to the encounter',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Fixed a bug with the level and met level inputs where it was possible to input invalid characters',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.5.0',
     date: 1643809787295,
     notes: [
