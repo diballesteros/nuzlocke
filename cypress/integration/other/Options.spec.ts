@@ -157,4 +157,24 @@ describe('Options', () => {
     cy.get('[data-testid="tracker"]').click();
     cy.contains('Foobar').should('not.exist');
   });
+
+  it('Soul Link', () => {
+    cy.contains('Settings').click();
+    cy.get('[data-testid="settings-soulink"] > label').click();
+    cy.get('[data-testid=options]').click();
+    cy.get('[data-testid="tracker"]').click();
+    cy.get('[data-testid=game-select]').click();
+    cy.contains('Sword and Shield').click();
+    cy.get('[data-testid="pokemon-0"]').click();
+    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid="status-0"]').click();
+    cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid="edit-encounter-0"]').click();
+    cy.get('[data-testid="soullink-0"]').click();
+    cy.get('[data-testid="poke-Bulbasaur"]').click({ force: true });
+    cy.get('[data-testid="delete-soullink-0"]').click();
+    cy.get('[data-testid="soullink-0"]').click();
+    cy.get('[data-testid="poke-Bulbasaur"]').click({ force: true });
+    cy.contains('Save').click();
+  });
 });

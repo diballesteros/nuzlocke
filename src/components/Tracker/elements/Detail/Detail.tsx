@@ -182,7 +182,7 @@ function Detail({ encounter }: DetailProps): JSX.Element {
                   <Button
                     aria-label="delete-soullink"
                     className={styles.deleteSoullink}
-                    data-testid="add-game"
+                    data-testid={`delete-soullink-${encounter.id}`}
                     icon
                     onClick={handleDeleteSoulLink}
                     style={{ boxShadow: 'none' }}
