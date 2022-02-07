@@ -104,6 +104,9 @@ describe('Encounters', () => {
       .then(($el) => stepTo($el, 1))
       .trigger('change');
 
+    cy.get('[data-testid="ivhp-substract"]').click();
+    cy.get('[data-testid="ivhp-add"]').click();
+
     cy.contains('Save').click();
 
     cy.get('[data-testid="evolve-0}"]').click();

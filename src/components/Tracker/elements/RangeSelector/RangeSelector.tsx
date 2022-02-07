@@ -1,4 +1,6 @@
 import { useCallback } from 'react';
+import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import styles from 'components/Calculator/elements/Range/Range.module.scss';
 
 interface RangeSelectorProps {
@@ -24,6 +26,21 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): JSX.Eleme
     return { backgroundSize: `${(value * 100) / type.max || 0}% 100%` };
   }, [value, type.max]);
 
+  const handleIncrement = () => {
+    if (type.label === 'EV' && value + 1 <= EV.max) {
+      onChange(value + 1);
+    }
+    if (type.label === 'IV' && value + 1 <= IV.max) {
+      onChange(value + 1);
+    }
+  };
+
+  const handleDecrement = () => {
+    if (value - 1 >= 0) {
+      onChange(value - 1);
+    }
+  };
+
   return (
     <>
       <label className={styles.label} htmlFor={name}>
@@ -40,7 +57,25 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): JSX.Eleme
         onChange={(e) => onChange(Number(e.target.value))}
         value={value}
       />
+      <Button
+        aria-label="substract"
+        className={styles.button}
+        data-testid={`${name}-substract`}
+        icon
+        onClick={handleDecrement}
+      >
+        <Icon name="minus" />
+      </Button>
       <output className={styles.output}>{value}</output>
+      <Button
+        aria-label="add"
+        className={styles.button}
+        data-testid={`${name}-add`}
+        icon
+        onClick={handleIncrement}
+      >
+        <Icon name="plus" />
+      </Button>
     </>
   );
 }

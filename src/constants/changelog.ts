@@ -2,6 +2,27 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.7.0',
+    date: 1644277706865,
+    notes: [
+      {
+        description:
+          'You can now increment or decrement EV/IVs in the details by 1 with newly added buttons',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'You can now edit pokemon details from the Teams Tab in the stats page by clicking the pencil button',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Meowth (Alolan) as an encounter to Malie Garden in Sun and Moon and Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.6.0',
     date: 1643974875632,
     notes: [

@@ -123,6 +123,12 @@
           width: 100%;
         }
 
+        .details {
+          position: absolute;
+          right: var(--spacing-1);
+          top: var(--spacing-2);
+        }
+
         .lineOne {
           position: absolute;
           top: 70%;

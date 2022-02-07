@@ -127,7 +127,7 @@
 
     .fieldset {
       display: grid;
-      grid-template-columns: 2.857rem minmax(0, 1fr) 2.857rem;
+      grid-template-columns: 2.857rem minmax(0, 1fr) repeat(3, 2.857rem);
       column-gap: var(--spacing-3);
       row-gap: var(--spacing-4);
       color: var(--contrast);
