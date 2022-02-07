@@ -4968,7 +4968,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Gumshoos',
   ],
   'sm-35': [
-    'Mewoth (Alolan)',
+    'Meowth (Alolan)',
     'Psyduck',
     'Poliwag',
     'Ledian',
@@ -5496,7 +5496,7 @@ const FILTERS: { [key in string]: string[] } = {
   'usum-33': ['Staryu', 'Sandygast', 'Tentacool', 'Wingull', 'Finneon', 'Pyukumuku'],
   'usum-34': ['Magnemite', 'Grimer (Alolan)', 'Trubbish', 'Minccino'],
   'usum-35': [
-    'Mewoth (Alolan)',
+    'Meowth (Alolan)',
     'Psyduck',
     'Poliwag',
     'Ledian',
