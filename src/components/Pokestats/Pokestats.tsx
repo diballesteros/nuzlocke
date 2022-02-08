@@ -7,6 +7,7 @@ import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { PkmImage } from 'common';
 import { PokeInfo } from 'components';
 import { Summary, Tip } from 'components/Pokestats/elements';
+import { Detail } from 'components/Tracker/elements';
 import { POKEMAP } from 'constants/pokemon';
 import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import useStore from 'store';
@@ -77,6 +78,9 @@ function Pokestats(): JSX.Element {
                   </div>
                   <div className={styles.lineOne} />
                   <div className={styles.lineTwo} />
+                  <div className={styles.details}>
+                    <Detail encounter={enc} />
+                  </div>
                 </div>
               );
             })

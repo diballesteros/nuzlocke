@@ -1,10 +1,10 @@
 .label {
-  grid-column: 1;
+  display: grid;
+  place-content: center;
   user-select: none;
 }
 
 input[type='range'].input {
-  grid-column: 2;
   -webkit-appearance: none;
   height: var(--spacing-2);
   align-self: center;
@@ -43,11 +43,12 @@ input[type='range'].input {
 }
 
 .output {
+  display: grid;
+  place-content: center;
   font-weight: bold;
   border: 1px solid var(--contrast);
   border-radius: 4px;
   padding: var(--spacing-0) var(--spacing-1);
   text-align: center;
-  grid-column: 3;
   user-select: none;
 }

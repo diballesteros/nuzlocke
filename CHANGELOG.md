@@ -1,3 +1,14 @@
+## Version 4.7.0
+
+💅 Enhancement
+
+- You can now increment or decrement EV/IVs by 1 with newly added buttons
+- You can now edit pokemon details from the Teams Tab in the stats page by clicking the pencil button
+
+🐛 Bug Fix
+
+- Added Meowth (Alolan) as an encounter to Malie Garden in Sun and Moon and Ultra Sun and Ultra Moon
+
 ## Version 4.6.0
 
 🚀 New features
