@@ -5,6 +5,11 @@
   position: relative;
   overflow-y: auto;
 
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.55) !important;
+    height: 12px;
+  }
+
   .badge {
     display: flex;
     align-items: center;
