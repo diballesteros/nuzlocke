@@ -28,7 +28,7 @@
     "@sentry/react": "^6.17.5",
     "@sentry/tracing": "^6.17.5",
     "@smogon/calc": "^0.6.0",
-    "@supabase/supabase-js": "^1.29.3",
+    "@supabase/supabase-js": "^1.29.4",
     "html-to-image": "^1.9.0",
     "i18next": "^21.6.11",
     "immer": "^9.0.12",
