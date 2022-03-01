@@ -66,6 +66,12 @@ describe('Encounters', () => {
     cy.get('[data-testid=nature-info]').click();
     cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
 
+    cy.get('[data-testid="ability-info"]').click();
+    cy.get('[data-testid="ability-search"] > input').type('Aftermath');
+    cy.get('[data-testid="ability-close"]').click();
+    cy.get('[data-testid="ability-info"]').click();
+    cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
+
     cy.get('[data-testid="stats-summary"]').click();
     cy.get('[data-testid="evhp"]')
       .then(($el) => stepTo($el, 1))

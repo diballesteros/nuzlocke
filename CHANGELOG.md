@@ -1,3 +1,32 @@
+## Version 4.8.0
+
+🚀 New features
+
+- Added question mark button next to ability selector to find added details on what the ability actually does.
+
+💅 Enhancement
+
+- Increased the contrast of the color of the scrollbar on the badges
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.18.1
+- Bumped @sentry/tracing to 6.18.1
+- Bumped i18next to 21.6.12
+- Bumped react-i18mext to 11.15.5
+- Bumped react-toastify to 8.2.0
+- Bumped semantic-ui-react to 2.1.2
+- Bumped zustand to 3.7.1
+- Bumped @types/node to 17.0.21
+- Bumped @types/jest to 27.4.1
+- Bumped @types/lodash to 4.14.179
+- Bumped @testing-library/react to 12.1.3
+- Bumped cypress to 9.5.0
+- Bumped sass to 1.49.9
+- Bumped eslint-config=prettier to 8.4.0
+- Bumped eslint-plugin-react to 7.29.2
+- Bumped sass-loader to 12.6.0
+
 ## Version 4.7.0
 
 💅 Enhancement
