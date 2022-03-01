@@ -247,15 +247,6 @@ function App(): JSX.Element {
               >
                 <Icon name="calculator" /> <span>{t('calculator')}</span>
               </NavLink>
-              {process.env.NODE_ENV !== 'production' && (
-                <NavLink
-                  className={({ isActive }) => (isActive ? styles.activeLink : '')}
-                  end
-                  to="/community"
-                >
-                  <Icon name="globe" /> <span>{t('community')}</span>
-                </NavLink>
-              )}
             </nav>
             <div className={styles.mainContent}>
               <AppRouter />

@@ -10,7 +10,7 @@ import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { ItemSelector, PkmImage, PokemonSelector } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
-import { RangeSelector } from 'components/Tracker/elements';
+import { Abilities, RangeSelector } from 'components/Tracker/elements';
 import { GAME_GENERATION, GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
@@ -257,22 +257,25 @@ function Detail({ encounter }: DetailProps): JSX.Element {
               </div>
             )}
             {isNatureAbilityGen && (
-              <Dropdown
-                aria-label="ability"
-                className={dropdownStyles.dropdown}
-                clearable
-                data-testid="ability"
-                inline
-                lazyLoad
-                onChange={(e, data) => setAbility(data.value as unknown as string)}
-                options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
-                  return { text: smogonAbility, value: smogonAbility };
-                })}
-                placeholder={t('select_ability', { ns: 'calculator' })}
-                search
-                selection
-                value={ability ?? ''}
-              />
+              <div className={styles.natureContainer}>
+                <Dropdown
+                  aria-label="ability"
+                  className={dropdownStyles.dropdown}
+                  clearable
+                  data-testid="ability"
+                  inline
+                  lazyLoad
+                  onChange={(e, data) => setAbility(data.value as unknown as string)}
+                  options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
+                    return { text: smogonAbility, value: smogonAbility };
+                  })}
+                  placeholder={t('select_ability', { ns: 'calculator' })}
+                  search
+                  selection
+                  value={ability ?? ''}
+                />
+                <Abilities text={ability ?? ''} />
+              </div>
             )}
             {isItemGenderGen && (
               <ItemSelector item={item} onChange={(newItem) => setItem(newItem)} />

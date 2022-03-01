@@ -5,7 +5,6 @@ import {
   Builder,
   Calculator,
   Changelog,
-  Community,
   Import,
   Pokestats,
   Report,
@@ -96,14 +95,6 @@ function AppRouter(): JSX.Element {
         element={
           <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
             <Import />
-          </Sentry.ErrorBoundary>
-        }
-      />
-      <Route
-        path="/community"
-        element={
-          <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
-            <Community />
           </Sentry.ErrorBoundary>
         }
       />

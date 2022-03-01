@@ -1,3 +1,4 @@
+export { default as Abilities } from './Abilities/Abilities';
 export { default as AddEncounter } from './AddEncounter/AddEncounter';
 export { default as Encounters } from './Encounters/Encounters';
 export { default as Detail } from './Detail/Detail';
