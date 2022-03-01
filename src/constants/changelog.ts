@@ -2,6 +2,47 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.8.0',
+    date: 1646095120885,
+    notes: [
+      {
+        description:
+          'Added question mark button next to ability selector to find added details on what the ability actually does.',
+        type: 'FEATURE',
+      },
+      {
+        description:
+          'Just wanted to say thank you to everyone who uses the report a bug feature to send kind words for developing the app! I really appreciate it and it means a lot.',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Increased the contrast of the color of the scrollbar on the badges',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
+    name: 'Version 4.7.0',
+    date: 1644277706865,
+    notes: [
+      {
+        description:
+          'You can now increment or decrement EV/IVs in the details by 1 with newly added buttons',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'You can now edit pokemon details from the Teams Tab in the stats page by clicking the pencil button',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added Meowth (Alolan) as an encounter to Malie Garden in Sun and Moon and Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.7.0',
     date: 1644277706865,
     notes: [
