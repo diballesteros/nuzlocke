@@ -1,3 +1,17 @@
+## Version 4.8.1
+
+🐛 Bug Fix
+
+- Added Eevee as an encounter in Celadon City in FireRed and LeafGreen
+- Fixed Marsh and Soul badge pointing to the wrong Gym leaders in FireRed and LeafGreen
+- Added Pikachu as an encounter in Slateport City in Omega Ruby and Alpha Sapphire
+
+🏠 Internal
+
+- Removed patron from FUNDING.yml
+- Bumped react-router-dom to 6.2.2
+- Bumped i18next to 21.6.13
+
 ## Version 4.8.0
 
 🚀 New features
