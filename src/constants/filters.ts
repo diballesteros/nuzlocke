@@ -1748,6 +1748,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Scyther',
     'Porygon',
     'Pinsir',
+    'Eevee',
   ],
   'frlg-29': ['Hitmonlee', 'Hitmonchan', 'Lapras'],
   'frlg-31': ['Rattata', 'Raticate', 'Spearow', 'Doduo', 'Snorlax'],
@@ -4432,7 +4433,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Nosepass',
   ],
   'oras-15': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer'],
-  'oras-16': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer'],
+  'oras-16': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer', 'Pikachu'],
   'oras-17': [
     'Oddish',
     'Tentacool',

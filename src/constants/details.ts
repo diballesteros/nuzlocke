@@ -2262,39 +2262,6 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       {
         content: [
           {
-            ability: 'Synchronize',
-            id: 64,
-            level: 38,
-            moves: [60, 115, 248, 347],
-          },
-          {
-            ability: 'Soundproof',
-            id: 122,
-            level: 37,
-            moves: [112, 60, 226, 347],
-          },
-          {
-            ability: 'Shield Dust',
-            id: 49,
-            level: 38,
-            moves: [60, 16, 141, 48],
-          },
-          {
-            ability: 'Synchronize',
-            id: 65,
-            level: 43,
-            moves: [94, 105, 248, 347],
-          },
-        ],
-        game: 'FireRed and LeafGreen',
-        name: 'Sabrina',
-        type: 'GYM',
-      },
-    ],
-    [
-      {
-        content: [
-          {
             ability: 'Levitate',
             id: 109,
             level: 37,
@@ -2324,6 +2291,40 @@ const DETAILS: { [key: string]: TDetail[][] } = {
         type: 'GYM',
       },
     ],
+    [
+      {
+        content: [
+          {
+            ability: 'Synchronize',
+            id: 64,
+            level: 38,
+            moves: [60, 115, 248, 347],
+          },
+          {
+            ability: 'Soundproof',
+            id: 122,
+            level: 37,
+            moves: [112, 60, 226, 347],
+          },
+          {
+            ability: 'Shield Dust',
+            id: 49,
+            level: 38,
+            moves: [60, 16, 141, 48],
+          },
+          {
+            ability: 'Synchronize',
+            id: 65,
+            level: 43,
+            moves: [94, 105, 248, 347],
+          },
+        ],
+        game: 'FireRed and LeafGreen',
+        name: 'Sabrina',
+        type: 'GYM',
+      },
+    ],
+
     [
       {
         content: [

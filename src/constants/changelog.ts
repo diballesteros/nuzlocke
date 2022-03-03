@@ -2,6 +2,26 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.8.1',
+    date: 1646340625635,
+    notes: [
+      {
+        description: 'Added Eevee as an encounter in Celadon City in FireRed and LeafGreen',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Fixed Marsh and Soul badge pointing to the wrong Gym leaders in FireRed and LeafGreen',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Pikachu as an encounter in Slateport City in Omega Ruby and Alpha Sapphire',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.8.0',
     date: 1646095120885,
     notes: [

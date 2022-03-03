@@ -2,7 +2,7 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "4.9.0",
+  "version": "4.8.1",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
@@ -29,12 +29,12 @@
     "@sentry/tracing": "^6.18.1",
     "@smogon/calc": "^0.6.0",
     "html-to-image": "^1.9.0",
-    "i18next": "^21.6.12",
+    "i18next": "^21.6.13",
     "immer": "^9.0.12",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-i18next": "^11.15.5",
-    "react-router-dom": "^6.2.1",
+    "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
     "react-toastify": "^8.2.0",
     "react-window": "^1.8.6",
