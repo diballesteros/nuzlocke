@@ -2,6 +2,22 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.8.2',
+    date: 1646393856707,
+    notes: [
+      {
+        description:
+          'Added Eevee and game corner encounters to Celadon City in Red, Blue, and Yellow',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Scraggy and Darmanitan to encounters in Desert Resort in Black and White',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.8.1',
     date: 1646340625635,
     notes: [

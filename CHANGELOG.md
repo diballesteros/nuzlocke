@@ -1,3 +1,10 @@
+## Version 4.8.2
+
+🐛 Bug Fix
+
+- Added Eevee and game corner encounters to Celadon City in Red, Blue, and Yellow
+- Added Scraggy and Darmanitan to encounters in Desert Resort in Black and White
+
 ## Version 4.8.1
 
 🐛 Bug Fix
