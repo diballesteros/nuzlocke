@@ -1,3 +1,16 @@
+## Version 4.8.3
+
+🐛 Bug Fix
+
+- Added Route 16, Lostlorn Forest and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).
+
+🏠 Internal
+
+- Bumped @types/reat-dom to 17.0.13
+- Bumped cypress to 9.5.1
+- Bumped eslint-config-prettier to 8.5.0
+- Bumped eslint-plugin-react to 7.29.3
+
 ## Version 4.8.2
 
 🐛 Bug Fix

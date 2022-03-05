@@ -2,6 +2,17 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.8.3',
+    date: 1646479870954,
+    notes: [
+      {
+        description:
+          'Added Route 16, Lostlorn Forest and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.8.2',
     date: 1646393856707,
     notes: [
