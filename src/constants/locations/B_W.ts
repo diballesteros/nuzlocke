@@ -100,6 +100,20 @@ const B_W: TEncounter[] = [
     filterKey: 'bw-14',
   },
   {
+    id: 37,
+    pokemon: null,
+    location: 'Route 16',
+    status: null,
+    filterKey: 'bw-37',
+  },
+  {
+    id: 38,
+    pokemon: null,
+    location: 'Lostlorn Forest',
+    status: null,
+    filterKey: 'bw-38',
+  },
+  {
     id: 16,
     pokemon: null,
     location: 'Route 5',
@@ -231,6 +245,13 @@ const B_W: TEncounter[] = [
     location: 'Victory Road',
     status: null,
     filterKey: 'bw-36',
+  },
+  {
+    id: 39,
+    pokemon: null,
+    location: 'P2 Laboratory',
+    status: null,
+    filterKey: 'bw-39',
   },
 ];
 
