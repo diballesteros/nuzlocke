@@ -350,7 +350,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       {
         content: [
           {
-            id: 51,
+            id: 50,
             level: 50,
             moves: [28, 91, 90, 89],
           },
@@ -361,18 +361,18 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           },
           {
             id: 31,
-            level: 54,
+            level: 53,
             moves: [39, 89, 24, 87],
           },
           {
             id: 34,
-            level: 47,
+            level: 55,
             moves: [87, 43, 89, 24],
           },
           {
             id: 112,
-            level: 50,
-            moves: [157, 31, 90, 32],
+            level: 55,
+            moves: [157, 31, 89, 32],
           },
         ],
         game: 'Yellow',

@@ -3,11 +3,20 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 4.8.3',
-    date: 1646479870954,
+    date: 1646603938101,
     notes: [
       {
         description:
-          'Added Route 16, Lostlorn Forest and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).',
+          'Added Route 16, Lostlorn Forest, and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed the levels and movesets of Giovanni's team in Yellow",
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Gamecorner encounters for Goldenrod City for Heart Gold and Soul Silver',
         type: 'FIX',
       },
     ],

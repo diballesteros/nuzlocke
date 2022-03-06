@@ -2,7 +2,9 @@
 
 🐛 Bug Fix
 
-- Added Route 16, Lostlorn Forest and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).
+- Added Route 16, Lostlorn Forest, and P2 Laboratory to the encounters for Black and White (This requires a reset to all encounters to see).
+- Fixed the levels and movesets of Giovanni's team in Yellow
+- Added Gamecorner encounters for Goldenrod City for Heart Gold and Soul Silver
 
 🏠 Internal
 

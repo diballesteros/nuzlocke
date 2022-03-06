@@ -2996,7 +2996,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Ditto',
     'Corsola',
   ],
-  'hgss-18': ['Eevee'],
+  'hgss-18': ['Eevee', 'Abra', 'Ekans', 'Sandshrew', 'Dratini'],
   'hgss-19': [
     'Pidgey',
     'Nidoran♀',
