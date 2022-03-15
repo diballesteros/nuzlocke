@@ -60,6 +60,7 @@ const useStore = create<AppState>(
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
+      notes: INITIAL_STATE.notes,
       rules: INITIAL_STATE.rules,
       rulesets: null, // No longer used
       selectedGame: INITIAL_STATE.selectedGame,
@@ -249,6 +250,10 @@ const useStore = create<AppState>(
           if (index !== -1)
             state.games[state.selectedGame?.value].encounters[index].nickname = nickname;
         }),
+      changeNotes: (text: string) =>
+        set((state) => {
+          state.notes[state.selectedGame?.value] = text;
+        }),
       changePokemon: (encounterId: number, pokemonId: number) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -349,6 +354,9 @@ const useStore = create<AppState>(
           if (state.customBadges[state?.selectedGame?.value]) {
             delete state.customBadges[state?.selectedGame?.value];
           }
+          if (state.notes[state?.selectedGame?.value]) {
+            delete state.notes[state?.selectedGame?.value];
+          }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
           );
@@ -411,6 +419,7 @@ const useStore = create<AppState>(
           if (newAppState.team) state.team = newAppState.team;
           if (newAppState.customBadges) state.customBadges = newAppState.customBadges;
           if (newAppState.customStatuses) state.customStatuses = newAppState.customStatuses;
+          if (newAppState.notes) state.notes = newAppState.notes;
         }),
       massImport: (newEncounters: TEncounter[]) =>
         set((state) => {

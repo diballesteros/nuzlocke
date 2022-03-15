@@ -65,6 +65,13 @@ const SINNOH: TEncounter[] = [
     filterKey: 'dpp-10',
   },
   {
+    id: 66,
+    pokemon: null,
+    location: 'Mining Museum',
+    status: null,
+    filterKey: 'dpp-66',
+  },
+  {
     id: 11,
     pokemon: null,
     location: 'Route 204',

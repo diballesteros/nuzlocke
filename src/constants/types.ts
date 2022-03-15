@@ -15,6 +15,7 @@ export interface AppState {
   missing: boolean;
   newVersion: string;
   nicknames: boolean;
+  notes: TNotesDictionary;
   rules: TRulesetDictionary;
   rulesets: TRuleset[];
   selectedGame: TGame;
@@ -65,6 +66,7 @@ export interface AppState {
   changeLevel: (encounterId: number, increase: boolean) => void;
   changeNature: (encounterId: number, nature: string) => void;
   changeNickname: (encounterId: number, nickname: string) => void;
+  changeNotes: (text: string) => void;
   changePokemon: (encounterId: number, pokemonId: number) => void;
   changePreviousStatus: (encounterId: number, status: TStatus) => void;
   changeRuleset: (rulesetId: string) => void;
@@ -206,6 +208,7 @@ export type TStatus = {
 export type TLocation = {
   name: string;
 };
+export type TNotesDictionary = { [key: string]: string };
 
 export type TRulesetDictionary = { [key: string]: TRuleEntry[] };
 

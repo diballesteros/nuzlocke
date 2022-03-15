@@ -20,6 +20,7 @@ function Export(): JSX.Element {
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const showAll = useStore(useCallback((state) => state.showAll, []));
   const suggestions = useStore(useCallback((state) => state.suggestions, []));
+  const notes = useStore(useCallback((state) => state.notes, []));
 
   const handleExport = () => {
     const dataStr = `data:text/json;charset=utf-8,${encodeURIComponent(
@@ -38,6 +39,7 @@ function Export(): JSX.Element {
         showAll,
         suggestions,
         team,
+        notes,
       })
     )}`;
     const downloadAnchorNode = document.createElement('a');
