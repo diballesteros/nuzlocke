@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon';
+import shallow from 'zustand/shallow';
 import type { TEncounter } from 'constants/types';
 import { selectCaught, selectFailed, selectFainted } from 'selectors';
 import useStore from 'store';
@@ -19,13 +20,20 @@ interface ScrollListProps {
 function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
+  const notes = useStore(useCallback((state) => state.notes, []));
+  const changeNotes = useStore(useCallback((state) => state.changeNotes, []));
+  const selectedGame = useStore(
+    useCallback((state) => state.selectedGame, []),
+    shallow
+  );
   const fainted = useStore(selectFainted);
   const failed = useStore(selectFailed);
   const caught = useStore(selectCaught);
-  const [open, setOpen] = useState('SCROLL_LIST');
+  const [open, setOpen] = useState<'SCROLL_LIST' | 'NOTES' | null>(null);
 
   const lastEncounter = useMemo(() => {
-    return encounters?.findIndex((enc) => !enc.pokemon) || encounters?.length - 1;
+    const index = encounters?.findIndex((enc) => !enc.pokemon);
+    return index > -1 ? index : encounters.length - 1;
   }, [encounters]);
 
   const getStatusSVG = (enc: TEncounter) => {
@@ -59,9 +67,9 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
     setOpen(open === 'SCROLL_LIST' ? null : 'SCROLL_LIST');
   };
 
-  // const toggleNotes = () => {
-  //   setOpen(open === 'NOTES' ? null : 'NOTES');
-  // };
+  const toggleNotes = () => {
+    setOpen(open === 'NOTES' ? null : 'NOTES');
+  };
 
   return (
     <>
@@ -106,22 +114,33 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
           </ol>
         </nav>
       )}
-      {/* {open === 'NOTES' && (
+      {open === 'NOTES' && (
         <div className={styles.container}>
-          <p>Notes for the game</p>
+          <div className={styles.header}>
+            <div className={styles.options}>
+              <p>{t('notes')}</p>
+              <Button
+                aria-label="close-scroll-list"
+                basic
+                data-testid="close-scroll-list"
+                icon="close"
+                inverted={darkMode}
+                onClick={() => setOpen(null)}
+                size="mini"
+              />
+            </div>
+          </div>
           <textarea
             className={styles.textarea}
             data-testid="game-notes"
-            // onChange={(e) => setText(e.target.value)}
-            placeholder={t('copy_table')}
-            // rows={5}
-            // value={text}
+            onChange={(e) => changeNotes(e.target.value)}
+            value={notes[selectedGame?.value] ?? ''}
           />
         </div>
-      )} */}
-      {lastEncounter > -1 ? (
+      )}
+      {selectedGame?.value ? (
         <div className={styles.scrollList}>
-          {/* <Button
+          <Button
             aria-label="open-notes"
             data-testid="open-notes"
             inverted={darkMode}
@@ -133,7 +152,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             size="mini"
             title="Open notes"
             compact
-          /> */}
+          />
           <Button
             aria-label="open-scroll-list"
             data-testid="open-scroll-list"
@@ -146,15 +165,17 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             size="mini"
             compact
           />
-          <button
-            aria-label="scroll-to-last-encounter"
-            className={styles.scrollerButton}
-            data-testid={`scroll-to-last-encounter-${lastEncounter}`}
-            onClick={() => scrollTo(lastEncounter)}
-            type="button"
-          >
-            {t('go_to')} {encounters[lastEncounter].location} <Icon name="arrow right" />
-          </button>
+          {lastEncounter > -1 && (
+            <button
+              aria-label="scroll-to-last-encounter"
+              className={styles.scrollerButton}
+              data-testid={`scroll-to-last-encounter-${lastEncounter}`}
+              onClick={() => scrollTo(lastEncounter)}
+              type="button"
+            >
+              {t('go_to')} {encounters[lastEncounter]?.location} <Icon name="arrow right" />
+            </button>
+          )}
         </div>
       ) : null}
     </>

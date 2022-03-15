@@ -327,6 +327,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   missing: false,
   newVersion: '1',
   nicknames: false,
+  notes: {},
   rules: DEFAULT_RULES,
   rulesets: null, // No longer used
   selectedGame: null,

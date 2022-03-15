@@ -203,7 +203,7 @@ describe('Encounters', () => {
     cy.get('[data-testid="level-down-button-0"]').click();
   });
 
-  it('Swap & Scroll & Nature', () => {
+  it('Swap & Scroll & Nature & Notes', () => {
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=import]').click();
     cy.get('[data-testid=import-file-input]').attachFile('over6.json', { force: true });
@@ -233,6 +233,10 @@ describe('Encounters', () => {
     cy.get('[data-testid="nature-0"] > .visible > :nth-child(2)').click();
     cy.get('[data-testid="nature-0"]').click();
     cy.get('[data-testid="nature-0"] > .visible > :nth-child(3)').click();
+    cy.get('[data-testid="open-notes"]').click();
+    cy.get('[data-testid="game-notes"]')
+      .type('These are notes')
+      .should('have.value', 'These are notes');
   });
 
   context('Small screens', () => {
