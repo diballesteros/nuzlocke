@@ -59,9 +59,9 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
     setOpen(open === 'SCROLL_LIST' ? null : 'SCROLL_LIST');
   };
 
-  const toggleNotes = () => {
-    setOpen(open === 'NOTES' ? null : 'NOTES');
-  };
+  // const toggleNotes = () => {
+  //   setOpen(open === 'NOTES' ? null : 'NOTES');
+  // };
 
   return (
     <>
@@ -106,7 +106,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
           </ol>
         </nav>
       )}
-      {open === 'NOTES' && (
+      {/* {open === 'NOTES' && (
         <div className={styles.container}>
           <p>Notes for the game</p>
           <textarea
@@ -118,10 +118,10 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             // value={text}
           />
         </div>
-      )}
+      )} */}
       {lastEncounter > -1 ? (
         <div className={styles.scrollList}>
-          <Button
+          {/* <Button
             aria-label="open-notes"
             data-testid="open-notes"
             inverted={darkMode}
@@ -133,7 +133,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             size="mini"
             title="Open notes"
             compact
-          />
+          /> */}
           <Button
             aria-label="open-scroll-list"
             data-testid="open-scroll-list"
