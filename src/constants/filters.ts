@@ -2840,6 +2840,7 @@ const FILTERS: { [key in string]: string[] } = {
   'dpp-63': ['Azelf'],
   'dpp-64': ['Uxie'],
   'dpp-65': ['Dialga', 'Palkia'],
+  'dpp-66': ['Omanyte', 'Kabuto', 'Aerodactyl', 'Lileep', 'Anorith', 'Cranidos', 'Shieldon'],
   'hgss-0': ['Cyndaquil', 'Chikorita', 'Totodile'],
   'hgss-1': [
     'Tentacool',
@@ -8279,5 +8280,6 @@ const FILTERS: { [key in string]: string[] } = {
   'bdsp-66': ['Azelf'],
   'bdsp-67': ['Uxie'],
   'bdsp-68': ['Dialga', 'Palkia'],
+  'bdsp-69': ['Omanyte', 'Kabuto', 'Aerodactyl', 'Lileep', 'Anorith', 'Cranidos', 'Shieldon'],
 };
 export default FILTERS;

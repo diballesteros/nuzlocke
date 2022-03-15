@@ -7,7 +7,7 @@ const CHANGELOG: TReleaseNotes = [
     notes: [
       {
         description:
-          'Added a notes section accessible at the bottom with the pencil button. This is stored per game.',
+          'Added a notes section which is accessible at the bottom from the pencil button. This is stored per game.',
         type: 'FEATURE',
       },
       {
@@ -30,7 +30,7 @@ const CHANGELOG: TReleaseNotes = [
       },
       {
         description:
-          'Added Valor Cavern, Acuity Cavern, and Spear Pillar encounters to BDSP and BDP',
+          'Added Valor Cavern, Acuity Cavern, Spear Pillar, and Mining Museum encounters to BDSP and BDP (This requires a reset to all encounters to see).',
         type: 'FIX',
       },
     ],

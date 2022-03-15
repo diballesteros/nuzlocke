@@ -2,7 +2,7 @@
 
 🚀 New features
 
-- Added a notes section accessible at the bottom with the pencil button. This is stored per game.
+- Added a notes section which is accessible at the bottom from the pencil button. This is stored per game.
 
 💅 Enhancement
 
@@ -13,7 +13,20 @@
 🐛 Bug Fix
 
 - The quick access list at the bottom now shows regardless of all encounters being completed
-- Added Valor Cavern, Acuity Cavern, and Spear Pillar encounters to BDSP and BDP
+- Added Valor Cavern, Acuity Cavern, Spear Pillar, and Mining Museum encounters to BDSP and BDP
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.18.2
+- Bumped @sentry/tracing to 6.18.2
+- Bumped i18next to 21.6.14
+- Bumped react-i18next to 11.15.7
+- Bumped @testing-library/react to 12.1.4
+- Bumped @types/lodash to 4.14.180
+- Bumped @types/react to 17.0.40
+- Bumped cypress to 9.5.2
+- Bumped eslint-config-airbnb-typescript to 16.1.2
+- Bumped eslint-plugin-react to 7.29.4
 
 ## Version 4.8.3
 
