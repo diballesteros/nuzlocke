@@ -317,6 +317,13 @@ const SINNOH: TEncounter[] = [
     filterKey: 'dpp-48',
   },
   {
+    id: 63,
+    pokemon: null,
+    location: 'Valor Cavern',
+    status: null,
+    filterKey: 'dpp-63',
+  },
+  {
     id: 49,
     pokemon: null,
     location: 'Route 211',
@@ -352,11 +359,25 @@ const SINNOH: TEncounter[] = [
     filterKey: 'dpp-53',
   },
   {
+    id: 64,
+    pokemon: null,
+    location: 'Acuity Cavern',
+    status: null,
+    filterKey: 'dpp-64',
+  },
+  {
     id: 54,
     pokemon: null,
     location: 'Snowpoint City',
     status: null,
     filterKey: 'dpp-54',
+  },
+  {
+    id: 65,
+    pokemon: null,
+    location: 'Spear Pillar',
+    status: null,
+    filterKey: 'dpp-65',
   },
   {
     id: 55,

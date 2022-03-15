@@ -1,3 +1,5 @@
+@import 'src/assets/styles/variables';
+
 .table {
   display: flex;
   flex-flow: column nowrap;
@@ -24,6 +26,10 @@
 
     &.type {
       border: 3px solid;
+    }
+
+    &.greyedOut {
+      filter: grayscale(1);
     }
 
     .header {
@@ -56,6 +62,30 @@
       gap: var(--spacing-2);
       align-self: center;
       align-items: center;
+
+      .levelButtons {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-2);
+
+        @media (max-width: $screen-md) {
+          display: none;
+        }
+
+        .button {
+          margin-right: 0 !important;
+          background-color: transparent !important;
+          color: var(--contrast) !important;
+          border: 1px var(--contrast) solid !important;
+          padding: var(--spacing-2) !important;
+          box-shadow: unset !important;
+
+          &:hover {
+            background: var(--contrast) !important;
+            color: var(--bgprimary) !important;
+          }
+        }
+      }
     }
   }
 

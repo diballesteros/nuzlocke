@@ -5,7 +5,6 @@ import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { Status } from 'components';
@@ -100,10 +99,13 @@ const Encounters = React.memo(function Encounters() {
   const renderRow: React.FC<RowProps> = ({ index, style }) => {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
+    const isGreyedOut = encounter?.status?.value === 2;
     return (
       <div style={style}>
         <div
-          className={`${styles.row} ${encounter?.pokemon ? styles.type : ''}`}
+          className={`${styles.row} ${encounter?.pokemon ? styles.type : ''} ${
+            isGreyedOut ? styles.greyedOut : ''
+          }`}
           data-testid={`encounter-${index}`}
           style={{
             borderImage: encounter?.pokemon
@@ -189,6 +191,35 @@ const Encounters = React.memo(function Encounters() {
               <Swap encounter={encounter} />
             )}
             {!!foundPokemon && isNatureGen && <Nature encounter={encounter} />}
+            <div className={styles.levelButtons}>
+              {!!encounter.pokemon && (
+                <>
+                  <span>{t('level', { ns: 'rules' })}:</span>
+                  <Button
+                    aria-label="level-up-button"
+                    className={styles.button}
+                    data-testid={`level-up-button-${encounter.id}`}
+                    icon
+                    onClick={() => changeLevel(encounter.id, true)}
+                    title={t('level_up')}
+                    type="button"
+                  >
+                    <Icon name="arrow up" />
+                  </Button>
+                  <Button
+                    aria-label="level-down-button"
+                    className={styles.button}
+                    data-testid={`level-down-button-${encounter.id}`}
+                    icon
+                    onClick={() => changeLevel(encounter.id, false)}
+                    title={t('level_down')}
+                    type="button"
+                  >
+                    <Icon name="arrow down" />
+                  </Button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>

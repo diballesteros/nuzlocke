@@ -338,6 +338,13 @@ const BD_SP: TEncounter[] = [
     filterKey: 'bdsp-48',
   },
   {
+    id: 66,
+    pokemon: null,
+    location: 'Valor Cavern',
+    status: null,
+    filterKey: 'bdsp-66',
+  },
+  {
     id: 49,
     pokemon: null,
     location: 'Route 211',
@@ -373,11 +380,25 @@ const BD_SP: TEncounter[] = [
     filterKey: 'bdsp-53',
   },
   {
+    id: 67,
+    pokemon: null,
+    location: 'Acuity Cavern',
+    status: null,
+    filterKey: 'bdsp-67',
+  },
+  {
     id: 54,
     pokemon: null,
     location: 'Snowpoint City',
     status: null,
     filterKey: 'bdsp-54',
+  },
+  {
+    id: 68,
+    pokemon: null,
+    location: 'Spear Pillar',
+    status: null,
+    filterKey: 'bdsp-68',
   },
   {
     id: 56,

@@ -21,6 +21,7 @@
     .selector {
       display: flex;
       flex-flow: column nowrap;
+      position: relative;
       gap: var(--spacing-2);
       padding-left: var(--spacing-3);
       height: 100%;
@@ -55,6 +56,12 @@
       .name {
         margin-top: auto;
         margin-bottom: var(--spacing-2);
+      }
+
+      .level {
+        position: absolute;
+        top: var(--spacing-2);
+        right: var(--spacing-2);
       }
     }
   }

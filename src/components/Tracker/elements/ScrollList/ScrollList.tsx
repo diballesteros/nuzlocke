@@ -22,10 +22,10 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   const fainted = useStore(selectFainted);
   const failed = useStore(selectFailed);
   const caught = useStore(selectCaught);
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState('SCROLL_LIST');
 
   const lastEncounter = useMemo(() => {
-    return encounters?.findIndex((enc) => !enc.pokemon);
+    return encounters?.findIndex((enc) => !enc.pokemon) || encounters?.length - 1;
   }, [encounters]);
 
   const getStatusSVG = (enc: TEncounter) => {
@@ -52,12 +52,20 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
 
   const handleClick = (index: number) => {
     scrollTo(index);
-    setOpen(false);
+    setOpen(null);
+  };
+
+  const toggleScrollList = () => {
+    setOpen(open === 'SCROLL_LIST' ? null : 'SCROLL_LIST');
+  };
+
+  const toggleNotes = () => {
+    setOpen(open === 'NOTES' ? null : 'NOTES');
   };
 
   return (
     <>
-      {open && (
+      {open === 'SCROLL_LIST' && (
         <nav className={styles.container}>
           <div className={styles.header}>
             <div className={styles.options}>
@@ -68,7 +76,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
                 data-testid="close-scroll-list"
                 icon="close"
                 inverted={darkMode}
-                onClick={() => setOpen(false)}
+                onClick={() => setOpen(null)}
                 size="mini"
               />
             </div>
@@ -98,16 +106,42 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
           </ol>
         </nav>
       )}
+      {open === 'NOTES' && (
+        <div className={styles.container}>
+          <p>Notes for the game</p>
+          <textarea
+            className={styles.textarea}
+            data-testid="game-notes"
+            // onChange={(e) => setText(e.target.value)}
+            placeholder={t('copy_table')}
+            // rows={5}
+            // value={text}
+          />
+        </div>
+      )}
       {lastEncounter > -1 ? (
         <div className={styles.scrollList}>
+          <Button
+            aria-label="open-notes"
+            data-testid="open-notes"
+            inverted={darkMode}
+            type="button"
+            toggle
+            active={open === 'NOTES'}
+            onClick={toggleNotes}
+            icon="pencil"
+            size="mini"
+            title="Open notes"
+            compact
+          />
           <Button
             aria-label="open-scroll-list"
             data-testid="open-scroll-list"
             inverted={darkMode}
             type="button"
             toggle
-            active={open}
-            onClick={() => setOpen(!open)}
+            active={open === 'SCROLL_LIST'}
+            onClick={toggleScrollList}
             icon="list alternate outline"
             size="mini"
             compact

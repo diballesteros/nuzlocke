@@ -1,3 +1,20 @@
+## Version 4.9.0
+
+🚀 New features
+
+- Added a notes section accessible at the bottom with the pencil button. This is stored per game.
+
+💅 Enhancement
+
+- Added level text to encounter
+- Added level up and down buttons to encounter for quick access. Note these only appears on larger screens
+- Encounters that have fainted now show up as grayed out
+
+🐛 Bug Fix
+
+- The quick access list at the bottom now shows regardless of all encounters being completed
+- Added Valor Cavern, Acuity Cavern, and Spear Pillar encounters to BDSP and BDP
+
 ## Version 4.8.3
 
 🐛 Bug Fix

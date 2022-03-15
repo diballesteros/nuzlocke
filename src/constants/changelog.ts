@@ -2,6 +2,40 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.0',
+    date: 1647346617887,
+    notes: [
+      {
+        description:
+          'Added a notes section accessible at the bottom with the pencil button. This is stored per game.',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Added level text to encounter',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added level up and down buttons to encounter for quick access. Note these only appears on larger screens',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Encounters that have fainted now show up as grayed out',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'The quick access list at the bottom now shows regardless of all encounters being completed',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Valor Cavern, Acuity Cavern, and Spear Pillar encounters to BDSP and BDP',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.8.3',
     date: 1646603938101,
     notes: [

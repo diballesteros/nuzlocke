@@ -199,6 +199,8 @@ describe('Encounters', () => {
     cy.contains('Save').click();
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="level-up-0"]').click();
+    cy.get('[data-testid="level-up-button-0"]').click();
+    cy.get('[data-testid="level-down-button-0"]').click();
   });
 
   it('Swap & Scroll & Nature', () => {
