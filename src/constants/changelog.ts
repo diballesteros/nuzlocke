@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.1',
+    date: 1647775846998,
+    notes: [
+      {
+        description: 'Added Aerodactyl to Ambrette town encounters in X and Y',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.0',
     date: 1647346617887,
     notes: [

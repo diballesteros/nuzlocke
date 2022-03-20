@@ -7150,7 +7150,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Clawitzer',
     'Omanyte',
     'Kabuto',
-    'Aerodacyl',
+    'Aerodactyl',
     'Lileep',
     'Anorith',
     'Cranidos',

@@ -1,3 +1,9 @@
+## Version 4.9.1
+
+🐛 Bug Fix
+
+- Added Aerodactyl to Ambrette town encounters in X and Y
+
 ## Version 4.9.0
 
 🚀 New features
