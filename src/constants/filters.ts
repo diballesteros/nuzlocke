@@ -2112,7 +2112,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Shinx',
   ],
   'dpp-8': ['Zubat', 'Psyduck', 'Geodude'],
-  'dpp-9': ['Abra', 'Omanyte', 'Kabuto', 'Aerodactyl', 'Lileep', 'Anorith', 'Cranidos', 'Shieldon'],
+  'dpp-9': ['Abra'],
   'dpp-10': ['Zubat', 'Geodude', 'Onix'],
   'dpp-11': [
     'Caterpie',
@@ -2324,7 +2324,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Bibarel',
     'Budew',
   ],
-  'dpp-26': ['Eevee'],
+  'dpp-26': ['Eevee', 'Happiny'],
   'dpp-27': [
     'Vulpix',
     'Zubat',
@@ -7501,16 +7501,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Whiscash',
     'Geodude',
   ],
-  'bdsp-9': [
-    'Abra',
-    'Omanyte',
-    'Kabuto',
-    'Aerodactyl',
-    'Lileep',
-    'Anorith',
-    'Cranidos',
-    'Shieldon',
-  ],
+  'bdsp-9': ['Abra'],
   'bdsp-10': ['Zubat', 'Geodude', 'Onix'],
   'bdsp-11': [
     'Zubat',

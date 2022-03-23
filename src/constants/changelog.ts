@@ -3,10 +3,19 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 4.9.1',
-    date: 1647775846998,
+    date: 1648066699394,
     notes: [
       {
         description: 'Added Aerodactyl to Ambrette town encounters in X and Y',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Oreburgh City encounters in DPP and BDSP',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Happiny as an encounter in Hearthrome City  in Diamond, Pearl, and Platinum',
         type: 'FIX',
       },
     ],

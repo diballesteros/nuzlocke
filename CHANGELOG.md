@@ -3,6 +3,19 @@
 🐛 Bug Fix
 
 - Added Aerodactyl to Ambrette town encounters in X and Y
+- Fixed Oreburgh City encounters in DPP and BDSP
+- Added Happiny as an encounter in Hearthrome City in Diamond, Pearl, and Platinum
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.19.2
+- Bumped @sentry/tracing to 6.19.2
+- Bumped react-i18next to 11.16.1
+- Bumped @testing-library/react to 12.1.4
+- Bumped @types/node to 17.0.23
+- Bumped @types/react to 17.0.42
+- Bumped @types/react-dom to 17.0.14
+- Bumped prettier to 2.6.0
 
 ## Version 4.9.0
 
