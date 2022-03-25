@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.2',
+    date: 1648207797540,
+    notes: [
+      {
+        description: 'Fixed Route 24 encounters in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.1',
     date: 1648066699394,
     notes: [
