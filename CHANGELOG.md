@@ -1,3 +1,9 @@
+## Version 4.9.2
+
+🐛 Bug Fix
+
+- Fixed Route 24 encounters in Fire Red and Leaf Green
+
 ## Version 4.9.1
 
 🐛 Bug Fix
