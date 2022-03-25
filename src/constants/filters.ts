@@ -1663,7 +1663,6 @@ const FILTERS: { [key in string]: string[] } = {
     'Slowpoke',
     'Psyduck',
     'Krabby',
-    'Horsea',
     'Magikarp',
     'Gyarados',
   ],
