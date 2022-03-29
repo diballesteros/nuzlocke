@@ -3236,6 +3236,7 @@ const POKEMON: TPokemon[] = [
     value: 400,
     text: 'Bibarel',
     type: 'NORMAL',
+    dualtype: 'WATER',
     evolve: [399, 400],
     generation: 4,
   },

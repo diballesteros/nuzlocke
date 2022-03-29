@@ -1,3 +1,12 @@
+## Version 4.9.3
+
+🐛 Bug Fix
+
+- Fixed Bibarel's typing
+- Fixed Route 1 (Trainer school) encounters for Ultra Sun and Ultra Moon
+- Added Route 16 to X and Y (This requires a reset to all encounters to see)
+- Added Honey tree encounters to Route 208, 209, 211, 212, 214, 222 and Eterna Forest in Brilliant Diamond and Shining Pearl
+
 ## Version 4.9.2
 
 🐛 Bug Fix
