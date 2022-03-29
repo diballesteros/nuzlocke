@@ -274,6 +274,14 @@ const X_Y: TEncounter[] = [
     filterKey: 'xy-34',
   },
   {
+    id: 46,
+    pokemon: null,
+    location: 'Route 16',
+    status: null,
+    filter: null,
+    filterKey: 'xy-46',
+  },
+  {
     id: 35,
     pokemon: null,
     location: 'Frost Cavern',

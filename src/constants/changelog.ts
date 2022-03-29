@@ -2,6 +2,29 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.3',
+    date: 1648527206427,
+    notes: [
+      {
+        description: "Fixed Bibarel's typing",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 1 (Trainer school) encounters for Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Route 16 to X and Y (This requires a reset to all encounters to see)',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Honey tree encounters to Route 208, 209, 211, 212, 214, 222 and Eterna Forest in Brilliant Diamond and Shining Pearl',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.2',
     date: 1648207797540,
     notes: [
