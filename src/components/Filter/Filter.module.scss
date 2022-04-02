@@ -9,6 +9,11 @@
     flex: 1;
     width: 100%;
 
+    &.active > input {
+      border-color: var(--badge);
+      border-width: 3px;
+    }
+
     > input::-webkit-input-placeholder {
       color: #3f3f3fde;
     }

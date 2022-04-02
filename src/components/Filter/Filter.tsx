@@ -22,7 +22,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX
     <div className={styles.filter}>
       <Input
         aria-label="search"
-        className={styles.search}
+        className={`${styles.search} ${values.search ? styles.active : ''}`}
         data-testid="filter"
         fluid
         icon="search"
