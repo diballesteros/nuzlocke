@@ -2,6 +2,25 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.4',
+    date: 1648869568970,
+    notes: [
+      {
+        description: 'Added outline to searchbar when its active',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'To the person reporting missing encounters in the first gen games. Its not a waste of time. I appreciate every bug report and everyone using the app!',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fixed encounters for Route 4 in Red, Blue, and Yellow',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.3',
     date: 1648527206427,
     notes: [

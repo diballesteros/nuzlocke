@@ -1,3 +1,25 @@
+## Version 4.9.4
+
+🐛 Bug Fix
+
+- Fixed encounters for Route 4 in Red, Blue, and Yellow
+
+💅 Enhancement
+
+- Added outline to searchbar when its active
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.19.3
+- Bumped @sentry/tracing to 6.19.3
+- Bumped react-i18next to 11.16.2
+- Bumped react-router-dom to 6.3.0
+- Bumped @testing-library/jest-dom to 5.16.3
+- Bumped @types/lodash to 4.14.181
+- Bumped @types/react to 17.0.43
+- Bumped cypress to 9.5.3
+- Bumped prettier to 2.6.1
+
 ## Version 4.9.3
 
 🐛 Bug Fix
