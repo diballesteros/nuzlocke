@@ -1,3 +1,12 @@
+## Version 4.9.5
+
+🐛 Bug Fix
+
+- Resetting encounters also resets badges now
+- Added Pewter City as a location in Red, Blue, and Yellow
+- Added Zubat and Golbat to Iron Island encounters in BDSP
+- Fixed Cranidos' level in Diamond, Pearl, and Platinum
+
 ## Version 4.9.4
 
 🐛 Bug Fix

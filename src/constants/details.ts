@@ -2703,7 +2703,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           {
             ability: 'Mold Breaker',
             id: 408,
-            level: 12,
+            level: 14,
             moves: [29, 43, 228],
           },
         ],

@@ -28,7 +28,7 @@
   "pokemon_export": "Pokémon exportado con éxito",
   "reset": "RESETEAR",
   "reset_2": "Resetear",
-  "reset_confirm": "Esto restablecerá todos los encuentros del juego seleccionado y eliminará los encuentros personalizados. ¿Está seguro?",
+  "reset_confirm": "Esto restablecerá todos los encuentros para el juego seleccionado, eliminará los encuentros personalizados y desmarcará todas las insignias. ¿Está seguro?",
   "reset_encounters": "Restablecer encuentros",
   "reset_success": "Los encuentros se restablecieron con éxito",
   "share": "Compartir"
