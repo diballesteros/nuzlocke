@@ -472,6 +472,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Ditto',
     'Mewtwo',
   ],
+  'rby-49': [],
   'gsc-0': ['Cyndaquil', 'Chikorita', 'Totodile'],
   'gsc-1': [
     'Tentacool',
@@ -8067,6 +8068,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Onix',
     'Steelix',
     'Riolu',
+    'Zubat',
+    'Golbat',
   ],
   'bdsp-48': [
     'Psyduck',

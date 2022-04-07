@@ -446,6 +446,7 @@ const useStore = create<AppState>(
           ]?.encounters
             ? INITIAL_STATE.games[state.selectedGame.value].encounters
             : [];
+          state.games[state.selectedGame?.value].badge = [];
         }),
       resetBadges: (gameKey: string) =>
         set((state) => {

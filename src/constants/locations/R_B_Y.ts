@@ -51,6 +51,13 @@ const R_B_Y: TEncounter[] = [
     filterKey: 'rby-6',
   },
   {
+    id: 7,
+    pokemon: null,
+    location: 'Pewter City',
+    status: null,
+    filterKey: 'rby-49',
+  },
+  {
     id: 8,
     pokemon: null,
     location: 'Route 3',
