@@ -1,4 +1,4 @@
-## Version 4.9.5
+## Version 4.9.6
 
 🐛 Bug Fix
 
@@ -28,6 +28,15 @@
 - Bumped eslint-plugin-react-hook to 4.4.0
 - Bumped prettier to 2.6.2
 - Bumped sass to 1.50.0
+
+## Version 4.9.5
+
+🐛 Bug Fix
+
+- Resetting encounters also resets badges now
+- Added Pewter City as a location in Red, Blue, and Yellow
+- Added Zubat and Golbat to Iron Island encounters in BDSP
+- Fixed Cranidos' level in Diamond, Pearl, and Platinum
 
 ## Version 4.9.4
 

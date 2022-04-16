@@ -2,7 +2,7 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
-    name: 'Version 4.9.5',
+    name: 'Version 4.9.6',
     date: 1650120336488,
     notes: [
       {
@@ -20,6 +20,30 @@ const CHANGELOG: TReleaseNotes = [
       },
       {
         description: "Fixed Vulpix's type in earlier generations",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
+    name: 'Version 4.9.5',
+    date: 1649374478404,
+
+    notes: [
+      {
+        description: 'Resetting encounters also resets badges now',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Pewter City as a location in Red, Blue, and Yellow (requires a reset to encounters to see)',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Zubat and Golbat to Iron Island encounters in BDSP',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Cranidos' level in Diamond, Pearl, and Platinum",
         type: 'FIX',
       },
     ],
