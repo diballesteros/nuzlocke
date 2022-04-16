@@ -78,7 +78,7 @@ describe('Calculator', () => {
     cy.get('[data-testid=defender-result-1]').click();
     cy.get('[data-testid=primary-damage]').should(
       'have.text',
-      '0 Atk Bulbasaur Pound vs. Lvl 10 0 HP / 0+ Def Dynamax Bulbasaur: 214-252 (334.3 - 393.7%) -- guaranteed OHKO'
+      '0 Atk Bulbasaur Pound vs. Lvl 10 65 HP / 0+ Def Dynamax Bulbasaur: 214-252 (324.2 - 381.8%) -- guaranteed OHKO'
     );
     cy.get('[data-testid=isSwitching1]').click();
     cy.get('[data-testid=field-settings]').click();

@@ -38,7 +38,7 @@ describe('Encounters', () => {
     cy.contains('Search by Pokémon, location, or status').should('be.visible');
   });
 
-  it('Edit base encounter', () => {
+  it.only('Edit base encounter', () => {
     cy.get('[data-testid="pokemon-0"]').click();
     cy.contains('Cancel').click();
     cy.get('[data-testid="pokemon-0"]').click();
@@ -53,7 +53,7 @@ describe('Encounters', () => {
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.contains('Cancel').click();
     cy.get('[data-testid=status-0]').click();
-    cy.get('[data-testid=status-0] > .visible > :nth-child(2)').click();
+    cy.get('[data-testid="status-0"] > .visible > :nth-child(2)').click();
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.get('[data-testid="cause of fainting"]')

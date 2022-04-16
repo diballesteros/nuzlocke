@@ -5505,7 +5505,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             id: 621,
             item: 'Sitrus Berry',
             level: 50,
-            moves: [279, 242, 163, 157],
+            moves: [279, 242, 525, 157],
           },
           {
             ability: 'Levitate',

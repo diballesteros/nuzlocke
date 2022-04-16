@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
+import type { DropdownItemProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown/DropdownItem';
 import { getSmogonItemName, MY_ITEMS } from 'constants/constant';
 import styles from 'assets/styles/Dropdown.module.scss';
 
@@ -37,7 +38,7 @@ function ItemSelector({ dataTestId, item, onChange }: ItemSelectorProps): JSX.El
       inline
       lazyLoad
       onChange={(e, data) => onChange(data.value as string)}
-      options={OPTIONS}
+      options={OPTIONS as unknown as DropdownItemProps[]}
       placeholder={t('select_item')}
       selection
       search

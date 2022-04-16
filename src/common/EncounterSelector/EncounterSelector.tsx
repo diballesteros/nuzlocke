@@ -87,6 +87,7 @@ function EncounterSelector({
     >
       <Modal.Content className={styles.content} scrolling>
         <Filter hideGen={!!limitGen} values={values} />
+        {/* @ts-ignore */}
         <FixedSizeList
           height={400}
           itemCount={filteredEncounters.length}

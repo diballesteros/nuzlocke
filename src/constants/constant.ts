@@ -566,6 +566,7 @@ export const SPECIAL_NAMES: Record<string, string> = {
   'Darumaka (Galarian)': 'darumaka-galar',
   'Darmanitan (Galarian)': 'darmanitan-galar',
   'Stunfisk (Galarian)': 'stunfisk-galar',
+  'Yamask (Galarian)': 'yamask-galar',
 };
 
 export const SMOGON_NAMES: Record<string, string> = {

@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { ButtonController } from 'components/Calculator/elements';
 import { TERRAIN, WEATHER, WEATHER_EXCLUSIONS } from 'constants/calculator';
 import type { TCalculatorMain } from 'constants/types';
@@ -36,7 +37,9 @@ function MainField(): JSX.Element {
                 data-testid="gameType-singles"
                 label={t('singles')}
                 name="gameType"
-                onChange={(e, data) => update({ gameType: data.value as 'Singles' })}
+                onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+                  update({ gameType: data.value as 'Singles' })
+                }
                 value="Singles"
               />
               <Radio
@@ -45,7 +48,9 @@ function MainField(): JSX.Element {
                 data-testid="gameType-doubles"
                 label={t('doubles')}
                 name="gameType"
-                onChange={(e, data) => update({ gameType: data.value as 'Doubles' })}
+                onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+                  update({ gameType: data.value as 'Doubles' })
+                }
                 value="Doubles"
               />
             </div>
@@ -62,7 +67,7 @@ function MainField(): JSX.Element {
                     key={`terrain-${tera}`}
                     label={tera}
                     name="terrain"
-                    onChange={(e, data) =>
+                    onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
                       update({ terrain: data.value as TCalculatorMain['terrain'] })
                     }
                     value={tera}
@@ -84,7 +89,7 @@ function MainField(): JSX.Element {
                       key={`weather-${type}`}
                       label={type}
                       name="weather"
-                      onChange={(e, data) =>
+                      onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
                         update({ weather: data.value as TCalculatorMain['weather'] })
                       }
                       value={type}

@@ -94,6 +94,7 @@ function MoveSelector({
         <div data-testid="move-selector-wrapper">
           <Filter hideGen={hideGen} values={values} />
         </div>
+        {/* @ts-ignore */}
         <FixedSizeList
           height={400}
           itemCount={filteredMoves.length}

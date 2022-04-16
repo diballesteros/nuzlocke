@@ -2,6 +2,7 @@ import { Pokemon } from '@smogon/calc';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
+import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { PkmImage } from 'common';
 import { Moves, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
@@ -44,13 +45,17 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
           <Radio
             checked={view === 0}
             label={t('original')}
-            onChange={(e, data) => setView(data.value as number)}
+            onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+              setView(data.value as number)
+            }
             value={0}
           />
           <Radio
             checked={view === 1}
             label={t('rematch')}
-            onChange={(e, data) => setView(data.value as number)}
+            onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+              setView(data.value as number)
+            }
             value={1}
           />
         </div>

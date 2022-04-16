@@ -43,7 +43,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
   };
 
   const getAlertText = useCallback(
-    (pokemonId) => {
+    (pokemonId: number) => {
       let alert = '';
       let teamCounter = 0;
       const genRule = rules[selectedRuleset]?.find((rule) => rule.type === 'GENERATION');

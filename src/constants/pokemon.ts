@@ -4437,9 +4437,16 @@ const POKEMON: TPokemon[] = [
     value: 562,
     text: 'Yamask',
     type: 'GHOST',
-    dualtype: 'GROUND',
     evolve: [562, 563],
     generation: 5,
+  },
+  {
+    value: -562,
+    text: 'Yamask (Galarian)',
+    type: 'GHOST',
+    dualtype: 'GROUND',
+    evolve: [562, 867],
+    generation: 8,
   },
   {
     value: 563,
@@ -6682,7 +6689,7 @@ const POKEMON: TPokemon[] = [
     text: 'Runerigus',
     type: 'GROUND',
     dualtype: 'GHOST',
-    evolve: [562, 867],
+    evolve: [-562, 867],
     generation: 8,
   },
   {
