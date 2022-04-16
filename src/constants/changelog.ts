@@ -18,6 +18,10 @@ const CHANGELOG: TReleaseNotes = [
           'Fixed a bug where the game would crash when selecting PSN Cure Berry as an item',
         type: 'FIX',
       },
+      {
+        description: "Fixed Vulpix's type in earlier generations",
+        type: 'FIX',
+      },
     ],
   },
   {

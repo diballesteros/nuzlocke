@@ -317,7 +317,6 @@ const POKEMON: TPokemon[] = [
   },
   {
     key: 'vulpix',
-    previousType: 'NORMAL',
     value: 37,
     text: 'Vulpix',
     type: 'FIRE',

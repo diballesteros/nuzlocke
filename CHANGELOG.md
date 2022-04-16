@@ -5,6 +5,7 @@
 - Fixed Drayden's Drudigon's moveset in Challenge mode
 - Added Yamask Galarian Form
 - Fixed a bug where the game would crash when selecting PSN Cure Berry as an item
+- Fixed Vulpix's type in earlier generations
 
 🏠 Internal
 
