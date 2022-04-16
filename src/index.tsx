@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import 'semantic-ui-css/components/button.min.css';
 import 'semantic-ui-css/components/container.min.css';
@@ -37,7 +37,10 @@ Sentry.init({
   tracesSampleRate: 0.2,
 });
 
-ReactDOM.render(
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
   <>
     <BrowserRouter>
       <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
@@ -45,8 +48,7 @@ ReactDOM.render(
       </Sentry.ErrorBoundary>
     </BrowserRouter>
     <UpdateSW />
-  </>,
-  document.getElementById('root')
+  </>
 );
 
 serviceWorkerRegistration.register({

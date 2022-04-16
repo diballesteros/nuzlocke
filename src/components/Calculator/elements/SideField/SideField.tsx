@@ -1,5 +1,6 @@
 import { useCallback } from 'react';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
+import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { ButtonController } from 'components/Calculator/elements';
 import { FIELD_EXCLUSIONS, SIDE_FIELD } from 'constants/calculator';
 import type { TCalculatorFields } from 'constants/types';
@@ -49,7 +50,9 @@ function SideField({ pokemon }: SideFieldProps): JSX.Element {
                   key={`spike-${amt}-${pokemon}`}
                   label={amt}
                   name={`spikes${pokemon}`}
-                  onChange={(e, data) => update({ [`spikes${pokemon}`]: data.value })}
+                  onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+                    update({ [`spikes${pokemon}`]: data.value })
+                  }
                   value={amt}
                 />
               );

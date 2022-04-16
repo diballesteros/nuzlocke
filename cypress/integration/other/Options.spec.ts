@@ -147,6 +147,9 @@ describe('Options', () => {
     cy.get('[data-testid="status-0"]').click();
     cy.get('.visible.menu.transition').scrollTo('bottom');
     cy.get('.visible > :nth-child(7)').click();
+    cy.get('[data-testid="status-0"]').click();
+    cy.get('.visible.menu.transition').scrollTo('bottom');
+    cy.get('.visible > :nth-child(7)').click();
     cy.contains('Foobar').should('exist');
     cy.get('[data-testid=options]').click();
     cy.contains('Settings').click();

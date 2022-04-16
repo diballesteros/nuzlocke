@@ -1,3 +1,34 @@
+## Version 4.9.6
+
+🐛 Bug Fix
+
+- Fixed Drayden's Drudigon's moveset in Challenge mode
+- Added Yamask Galarian Form
+- Fixed a bug where the game would crash when selecting PSN Cure Berry as an item
+- Fixed Vulpix's type in earlier generations
+
+🏠 Internal
+
+- Added patch-package 6.4.7
+- Bumped @sentry/react to 6.19.6
+- Bumped @sentry/tracing to 6.19.6
+- Bumped i18next to 21.6.16
+- Bumped react to 18.0.0
+- Bumped react-dom to 18.0.0
+- Bumped react-scripts to 5.0.1
+- Bumped zustand to 3.7.2
+- Bumped @testing-library/jest-dom to 5.16.4
+- Bumped @testing-library/react to 13.1.1
+- Bumped @testing-library/user to 14.1.0
+- Bumped @types/node to 17.0.24
+- Bumped @types/react to 18.0.5
+- Bumped @types/react-dom to 18.0.1
+- Bumped cypress 9.5.4
+- Bumped eslint-plugin-import to 2.26.0
+- Bumped eslint-plugin-react-hook to 4.4.0
+- Bumped prettier to 2.6.2
+- Bumped sass to 1.50.0
+
 ## Version 4.9.5
 
 🐛 Bug Fix

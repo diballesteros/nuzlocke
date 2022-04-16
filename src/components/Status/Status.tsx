@@ -31,6 +31,7 @@ const Status = React.memo(function Status({ encounter }: StatusProps) {
       inline
       labeled
       lazyLoad
+      // open
       onChange={handleChange}
       options={allStatuses}
       placeholder={`${t('status')}...`}

@@ -2,8 +2,32 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.6',
+    date: 1650120336488,
+    notes: [
+      {
+        description: "Fixed Drayden's Drudigon's moveset in Challenge mode",
+        type: 'FIX',
+      },
+      {
+        description: 'Added Yamask Galarian Form',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Fixed a bug where the game would crash when selecting PSN Cure Berry as an item',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Vulpix's type in earlier generations",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.5',
     date: 1649374478404,
+
     notes: [
       {
         description: 'Resetting encounters also resets badges now',

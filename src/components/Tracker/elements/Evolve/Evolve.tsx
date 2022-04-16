@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { PkmImage } from 'common';
 import { POKEMAP } from 'constants/pokemon';
@@ -64,7 +65,9 @@ function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
                 className={styles.radio}
                 checked={id === selected}
                 label={foundPokemon?.text}
-                onChange={(e, data) => handleChange(data.value as number)}
+                onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
+                  handleChange(data.value as number)
+                }
                 value={id}
               />
             </div>

@@ -30,6 +30,7 @@
 
     &.greyedOut {
       filter: grayscale(1);
+      z-index: 1;
     }
 
     .header {
