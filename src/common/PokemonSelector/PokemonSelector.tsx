@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
@@ -11,6 +11,7 @@ import POKEMON from 'constants/pokemon';
 import type { Type } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import useRemtoPx from 'hooks/useRemToPx';
+import useStore from 'store';
 import styles from 'assets/styles/Selector.module.scss';
 
 interface PokemonSelectorProps {
@@ -20,6 +21,7 @@ interface PokemonSelectorProps {
   handlePokemon: (pokemonId: number) => void;
   limitGen?: number;
   suggestions?: Type[] | false;
+  tooltip?: boolean;
 }
 
 function PokemonSelector({
@@ -29,11 +31,13 @@ function PokemonSelector({
   handlePokemon,
   limitGen,
   suggestions,
+  tooltip = false,
 }: PokemonSelectorProps): JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();
   const itemSize = useRemtoPx();
+  const toggleShowAllTooltip = useStore(useCallback((state) => state.toggleShowAllTooltip, []));
 
   const filteredPokemon = useMemo(() => {
     let filtered = POKEMON.filter(
@@ -128,6 +132,15 @@ function PokemonSelector({
     >
       <Modal.Content className={styles.content} scrolling>
         <Filter hideGen={!!limitGen} values={values} />
+        {tooltip && (
+          <aside className={styles.callout}>
+            <Icon name="lightbulb outline" />
+            <p>{t('show_all_tooltip')}</p>
+            <Button type="button" icon inverted onClick={toggleShowAllTooltip}>
+              <Icon className={styles.icon} name="close" />
+            </Button>
+          </aside>
+        )}
         {/* @ts-ignore */}
         <FixedSizeList
           height={400}

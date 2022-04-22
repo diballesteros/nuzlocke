@@ -333,6 +333,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedGame: null,
   selectedRuleset: 'Nuzlocke',
   showAll: false,
+  showAllTooltip: true,
   soulink: false,
   suggestions: true,
   summary: {
@@ -570,6 +571,7 @@ export const SPECIAL_NAMES: Record<string, string> = {
 };
 
 export const SMOGON_NAMES: Record<string, string> = {
+  'Aegislash': 'Aegislash-Both',
   'Nidoran♀': 'Nidoran-F',
   'Nidoran♂': 'Nidoran-M',
   'Rattata (Alolan)': 'Rattata-Alola',

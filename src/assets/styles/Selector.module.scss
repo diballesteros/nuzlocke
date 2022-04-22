@@ -3,6 +3,22 @@
     margin-bottom: var(--spacing-3);
   }
 
+  .callout {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-3);
+    padding: var(--spacing-3);
+    border-radius: 4px;
+    border: currentColor 1px dashed;
+    margin-bottom: var(--spacing-3);
+
+    > p {
+      margin: 0;
+    }
+  }
+
   .rowContainer {
     padding-right: var(--spacing-3);
     border-radius: 4px;

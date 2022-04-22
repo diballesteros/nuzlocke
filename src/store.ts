@@ -66,6 +66,7 @@ const useStore = create<AppState>(
       selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
+      showAllTooltip: INITIAL_STATE.showAllTooltip,
       soulink: INITIAL_STATE.soulink,
       suggestions: INITIAL_STATE.suggestions,
       summary: INITIAL_STATE.summary,
@@ -534,6 +535,11 @@ const useStore = create<AppState>(
       toggleShowAll: () => {
         set((state) => {
           state.showAll = !state.showAll;
+        });
+      },
+      toggleShowAllTooltip: () => {
+        set((state) => {
+          state.showAllTooltip = false;
         });
       },
       toggleSoulink: () => {

@@ -1,3 +1,26 @@
+## Version 4.9.7
+
+💅 Enhancement
+
+- Added a tooltip in the Pokemon selector for added clarity on how to make all pokemon appear
+
+🐛 Bug Fix
+
+- Fixed encounters for Ten Carat Hills in Ultra Sun and Ultra Moon
+- Fixed encounters for Pallet Town in Fire Red and Leaf Green
+- Removed Big Wave Beach from the encounters in Ultra Sun and Ultra Moon
+- Fixed a bug where the app would crash when selecting Aegislash in the calculator
+
+🏠 Internal
+
+- Bumped react-i18next to 11.16.17
+- Bumped @testing-library/user-event to 14.1.1
+- Bumped @types/lodash to 4.14.182
+- Bumped @types/node to 17.0.25
+- Bumped @types/react to 18.0.6
+- Bumped @types/react-dom to 18.0.2
+- Bumped sass to 1.50.1
+
 ## Version 4.9.6
 
 🐛 Bug Fix

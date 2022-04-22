@@ -22,6 +22,7 @@ export interface AppState {
   selectedRuleset: string;
   soulink: boolean;
   showAll: boolean;
+  showAllTooltip: boolean;
   suggestions: boolean;
   team: TTeamDictionary;
   text: string;
@@ -109,6 +110,7 @@ export interface AppState {
   toggleMode: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
+  toggleShowAllTooltip: () => void;
   toggleSoulink: () => void;
   toggleSuggestions: () => void;
   toggleSummarySetting: (property: keyof TSummaryBasic) => void;
