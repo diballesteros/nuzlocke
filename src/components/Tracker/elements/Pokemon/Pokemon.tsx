@@ -26,6 +26,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
   const showAll = useStore(useCallback((state) => state.showAll, []));
   const suggestionsSettings = useStore(useCallback((state) => state.suggestions, []));
   const games = useStore(useCallback((state) => state.games, []));
+  const showAllTooltip = useStore(useCallback((state) => state.showAllTooltip, []));
   const suggestions = useStore(selectSuggestion);
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
@@ -128,6 +129,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
           suggestions={
             filter && suggestions && suggestionsSettings && !showAll ? suggestions : false
           }
+          tooltip={showAllTooltip}
         >
           {encounter?.pokemon ? (
             <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>

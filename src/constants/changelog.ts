@@ -2,6 +2,34 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.7',
+    date: 1650657707242,
+    notes: [
+      {
+        description:
+          'Added a tooltip in the Pokemon selector for added clarity on how to make all pokemon appear',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fixed encounters for Ten Carat Hills in Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounters for Pallet Town in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description: 'Removed Big Wave Beach from the encounters in Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Fixed a bug where the app would crash when selecting Aegislash in the calculator',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.6',
     date: 1650120336488,
     notes: [
