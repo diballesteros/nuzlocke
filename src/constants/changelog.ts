@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.8',
+    date: 1651147276472,
+    notes: [
+      {
+        description:
+          'Fixed encounters for Cinnabar Island in Red, Blue, and Yellow and Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed the color of button in the pokemon selector tooltip in light mode',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.7',
     date: 1650657707242,
     notes: [

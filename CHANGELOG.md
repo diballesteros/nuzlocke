@@ -1,3 +1,23 @@
+## Version 4.9.8
+
+🐛 Bug Fix
+
+- Fixed encounters for Cinnabar Island in Red, Blue, and Yellow and Fire Red and Leaf Green
+- Fixed the color of button in the pokemon selector tooltip in light mode
+
+🏠 Internal
+
+- Bumped @sentry/react to 6.19.7
+- Bumped @sentry/tracing to 6.19.7
+- Bumped react to 18.1.0
+- Bumped react-dom to 18.1.0
+- Bumped react-window to 1.8.7
+- Bumped @types/node to 17.0.29
+- Bumped @types/react to 18.0.8
+- Bumped cypress to 9.6.0
+- Bumped eslint-plugin-react-hooks to 4.5.0
+- Bumped sass to 1.51.0
+
 ## Version 4.9.7
 
 💅 Enhancement
