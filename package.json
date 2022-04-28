@@ -53,8 +53,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --ignore-pattern *.test.tsx",
-    "postinstall": "patch-package"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x} --ignore-pattern *.test.tsx"
   },
   "eslintConfig": {
     "extends": [

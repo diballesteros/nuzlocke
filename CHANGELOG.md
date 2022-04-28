@@ -17,6 +17,7 @@
 - Bumped cypress to 9.6.0
 - Bumped eslint-plugin-react-hooks to 4.5.0
 - Bumped sass to 1.51.0
+- Removed patch-package
 
 ## Version 4.9.7
 
