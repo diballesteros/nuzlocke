@@ -136,7 +136,7 @@ function PokemonSelector({
           <aside className={styles.callout}>
             <Icon name="lightbulb outline" />
             <p>{t('show_all_tooltip')}</p>
-            <Button type="button" icon inverted onClick={toggleShowAllTooltip}>
+            <Button data-testid="remove-tooltip" type="button" icon onClick={toggleShowAllTooltip}>
               <Icon className={styles.icon} name="close" />
             </Button>
           </aside>

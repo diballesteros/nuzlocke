@@ -1,3 +1,4 @@
+// @ts-ignore
 const stepTo = ($el, target) => {
   const step = $el[0].getAttribute('step') || 1;
   const current = $el[0].value;
@@ -22,6 +23,7 @@ describe('Encounters', () => {
       .type('Slumbering Weald')
       .should('have.value', 'Slumbering Weald');
     cy.get('[data-testid=pokemon-1]').click();
+    cy.get('[data-testid="remove-tooltip"]').click();
     cy.get('[data-testid=poke-Butterfree]').click();
     cy.get('[data-testid=filter-button]').click();
     cy.get('[data-testid=filter-gen-1]').click();

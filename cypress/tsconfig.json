@@ -4,5 +4,5 @@
     "lib": ["es5", "dom"],
     "types": ["cypress", "cypress-file-upload", "node", "cypress-localstorage-commands"]
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*"]
 }
