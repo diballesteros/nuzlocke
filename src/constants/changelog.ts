@@ -3,7 +3,7 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 4.9.8',
-    date: 1651147276472,
+    date: 1651338690304,
     notes: [
       {
         description:
@@ -12,6 +12,14 @@ const CHANGELOG: TReleaseNotes = [
       },
       {
         description: 'Fixed the color of button in the pokemon selector tooltip in light mode',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounters for Ecruteak City in HGSS',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Route 26 to HGSS (Requires encounters reset to appear)',
         type: 'FIX',
       },
     ],

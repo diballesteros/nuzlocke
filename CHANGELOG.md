@@ -4,6 +4,8 @@
 
 - Fixed encounters for Cinnabar Island in Red, Blue, and Yellow and Fire Red and Leaf Green
 - Fixed the color of button in the pokemon selector tooltip in light mode
+- Fixed encounters for Ecruteak City in HGSS
+- Added Route 26 to HGSS (Requires encounters reset to appear)
 
 🏠 Internal
 
