@@ -2,6 +2,17 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.9',
+    date: 1651871797363,
+    notes: [
+      {
+        description:
+          'Adjusted encounters for Team Magma Hideout and Team Aqua Hideout in Ruby, Sapphire, and Emerald.',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.8',
     date: 1651338690304,
     notes: [

@@ -296,6 +296,13 @@ const R_S_E: TEncounter[] = [
     filterKey: 'rse-41',
   },
   {
+    id: 69,
+    pokemon: null,
+    location: 'Team Aqua Hideout',
+    status: null,
+    filterKey: 'rse-69',
+  },
+  {
     id: 42,
     pokemon: null,
     location: 'Route 124',
