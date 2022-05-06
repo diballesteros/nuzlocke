@@ -1,3 +1,18 @@
+## Version 4.9.9
+
+🐛 Bug Fix
+
+- Adjusted encounters for Team Magma Hideout and Team Aqua Hideout in RSE
+
+🏠 Internal
+
+- Bumped @testing-library/react to 13.2.0
+- Bumped @types/jest to 27.5.0
+- Bumped @types/node to 17.0.31
+- Bumped @types/react-dom to 18.0.3
+- Bumped i18next to 21.7.1
+- Bumped react-i18next to 11.16.9
+
 ## Version 4.9.8
 
 🐛 Bug Fix

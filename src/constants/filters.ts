@@ -1628,6 +1628,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Barboach',
     'Whiscash',
   ],
+  'rse-69': ['Electrode'],
   'frlg-0': ['Bulbasaur', 'Charmander', 'Squirtle'],
   'frlg-1': [
     'Bulbasaur',
