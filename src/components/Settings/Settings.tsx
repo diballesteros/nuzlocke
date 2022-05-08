@@ -12,7 +12,7 @@ function Settings(): JSX.Element {
   const { t, i18n } = useTranslation('settings');
   const appState = useStore((state) => state);
 
-  const handleLanguageChange = (event: React.SyntheticEvent<HTMLElement>, data: DropdownProps) => {
+  const handleLanguageChange = (e: React.SyntheticEvent<HTMLElement>, data: DropdownProps) => {
     appState.setLanguage(data.value as TLanguage);
     i18n.changeLanguage(data.value as string);
   };
@@ -20,6 +20,12 @@ function Settings(): JSX.Element {
   return (
     <Page header={t('settings')}>
       <div className={styles.settings}>
+        <Checkbox
+          checked={appState.darkMode}
+          data-testid="settings-darkmode"
+          label={t('darkmode')}
+          onChange={() => appState.toggleMode()}
+        />
         <Checkbox
           checked={appState.duplicates}
           data-testid="settings-dupes"

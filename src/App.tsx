@@ -22,7 +22,6 @@ function App(): JSX.Element {
   const newVersion = useStore(useCallback((state) => state.newVersion, []));
   const gamesList = useStore(useCallback((state) => state.gamesList, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const toggleMode = useStore(useCallback((state) => state.toggleMode, []));
   const selectGame = useStore(useCallback((state) => state.selectGame, []));
   const deleteGame = useStore(useCallback((state) => state.deleteGame, []));
   const [confirm, setConfirm] = useState(false);
@@ -135,15 +134,6 @@ function App(): JSX.Element {
             <h1>Nuzlocke Tracker</h1>
           </Menu.Menu>
           <Menu.Menu position="right">
-            {/* <Button
-              aria-label="darkmode"
-              className={`${styles.button} ${styles.darkmode}`}
-              data-testid="darkmode"
-              icon
-              onClick={toggleMode}
-            >
-              <Icon name={darkMode ? 'sun outline' : 'sun'} />
-            </Button> */}
             <Auth />
           </Menu.Menu>
         </Menu>

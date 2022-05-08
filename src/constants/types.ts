@@ -469,3 +469,10 @@ export type TCalculatorMain = {
 };
 
 export type TCalculatorForm = TSplitCalculator<TCalculatorStats> & TCalculatorMain;
+
+export type TProfile = {
+  id: string;
+  username: string;
+  updated_at: string | Date;
+  nuzlocke: string;
+};
