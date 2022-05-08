@@ -101,7 +101,8 @@ describe('Options', () => {
 
   it('Dark mode', () => {
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(255, 255, 255)');
-    cy.get('[data-testid=darkmode]').click();
+    cy.contains('Settings').click();
+    cy.get('[data-testid="settings-darkmode"]').click();
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(33, 33, 33)');
   });
 

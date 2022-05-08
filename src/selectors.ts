@@ -184,3 +184,41 @@ export const selectItemGeneration = (state: AppState): boolean => {
     ? GAME_GENERATION[state?.selectedGame?.value] > 1
     : true;
 };
+
+export const selectExport = (state: AppState): string => {
+  const {
+    badges,
+    customBadges,
+    customStatuses,
+    darkMode,
+    duplicates,
+    games,
+    gamesList,
+    missing,
+    nicknames,
+    rules,
+    selectedGame,
+    showAll,
+    suggestions,
+    team,
+    notes,
+  } = state;
+
+  return JSON.stringify({
+    badges,
+    customBadges,
+    customStatuses,
+    darkMode,
+    duplicates,
+    games,
+    gamesList,
+    missing,
+    nicknames,
+    rules,
+    selectedGame,
+    showAll,
+    suggestions,
+    team,
+    notes,
+  });
+};

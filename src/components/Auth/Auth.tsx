@@ -7,14 +7,19 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { supabase } from 'supabaseClient';
+import { TProfile } from 'constants/types';
+import { selectExport } from 'selectors';
+import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './Auth.module.scss';
 
 export default function Auth() {
   const { t, i18n } = useTranslation('common');
+  const exportString = useStore(selectExport);
   const [open, setOpen] = useState(false);
   const [session, setSession] = useState<Session>(null);
   const [loading, setLoading] = useState(false);
+  const [logging, setLogging] = useState(false);
   const [saving, setSaving] = useState(false);
   const [syncing, setSyncing] = useState(false);
   const [email, setEmail] = useState('');
@@ -36,7 +41,7 @@ export default function Auth() {
         const user = supabase.auth.user();
 
         const { data, error, status } = await supabase
-          .from('profiles')
+          .from<TProfile>('profiles')
           .select(`username, updated_at`)
           .eq('id', user.id)
           .single();
@@ -62,14 +67,21 @@ export default function Auth() {
       setSaving(true);
       const user = supabase.auth.user();
 
-      const updates = {
+      const updates: TProfile = {
         id: user.id,
         username,
         updated_at: new Date(),
+        nuzlocke: exportString,
       };
 
-      const { error } = await supabase.from('profiles').upsert(updates, { returning: 'minimal' });
+      const { error, status } = await supabase
+        .from<TProfile>('profiles')
+        .upsert(updates, { returning: 'minimal' });
+
       if (error) throw Error(error.message);
+      if (status === 200 || status === 201) {
+        toast.success('Successfully saved data');
+      }
     } catch (err) {
       toast.error('Unable to update profile');
     } finally {
@@ -84,7 +96,7 @@ export default function Auth() {
         const user = supabase.auth.user();
 
         const { data, error, status } = await supabase
-          .from('profiles')
+          .from<TProfile>('profiles')
           .select(`username, updated_at, nuzlocke`)
           .eq('id', user.id)
           .single();
@@ -103,6 +115,21 @@ export default function Auth() {
         toast.error('Unable to sync profile');
       } finally {
         setSyncing(false);
+      }
+    }
+  };
+
+  const onLogOut = async () => {
+    if (session) {
+      setLogging(true);
+      try {
+        const { error } = await supabase.auth.signOut();
+        if (error) throw Error(error.message);
+      } catch {
+        toast.error('Unable to logout');
+      } finally {
+        setLogging(false);
+        setOpen(false);
       }
     }
   };
@@ -128,7 +155,7 @@ export default function Auth() {
     }
   };
 
-  const isLoading = loading || saving || syncing;
+  const isLoading = loading || saving || syncing || logging;
 
   return (
     <Modal
@@ -210,8 +237,8 @@ export default function Auth() {
       <Modal.Actions>
         <Button onClick={handleClose}>{t('cancel')}</Button>
         {session ? (
-          <Button disabled={isLoading} primary>
-            Logout
+          <Button disabled={isLoading} onClick={onLogOut} primary>
+            {logging ? 'Logging out' : 'Logout'}
           </Button>
         ) : (
           <Button onClick={handleLogin} disabled={isLoading} primary>
