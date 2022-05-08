@@ -1,0 +1,47 @@
+@import 'src/assets/styles/variables';
+
+.button {
+  background-color: transparent !important;
+  color: var(--contrast) !important;
+
+  &:hover {
+    background-color: transparent;
+    color: var(--contrast) !important;
+  }
+
+  @media (max-width: $screen-sm) {
+    padding: var(--spacing-1) !important;
+  }
+}
+
+.account {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: var(--spacing-3);
+
+  > p {
+    font-size: var(--font-size-5);
+    font-weight: bold;
+    margin: 0;
+
+    &:not(first-child) {
+      margin-top: var(--spacing-4);
+    }
+  }
+
+  .refreshContainer {
+    display: flex;
+    gap: var(--spacing-3);
+
+    > span {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  .refresh {
+    display: flex;
+    gap: var(--spacing-2);
+    width: fit-content;
+  }
+}

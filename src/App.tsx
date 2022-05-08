@@ -8,7 +8,7 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import Sidebar from 'semantic-ui-react/dist/commonjs/modules/Sidebar';
-import { AddGame, Effectiveness, Export } from 'components';
+import { AddGame, Auth, Effectiveness, Export } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
 import { MAX_GAME } from 'constants/constant';
 import AppRouter from 'routes/AppRouter';
@@ -135,15 +135,6 @@ function App(): JSX.Element {
             <h1>Nuzlocke Tracker</h1>
           </Menu.Menu>
           <Menu.Menu position="right">
-            <Button
-              aria-label="darkmode"
-              className={`${styles.button} ${styles.darkmode}`}
-              data-testid="darkmode"
-              icon
-              onClick={toggleMode}
-            >
-              <Icon name={darkMode ? 'sun outline' : 'sun'} />
-            </Button>
             {/* <Button
               aria-label="darkmode"
               className={`${styles.button} ${styles.darkmode}`}
@@ -151,8 +142,9 @@ function App(): JSX.Element {
               icon
               onClick={toggleMode}
             >
-              <Icon name="user" />
+              <Icon name={darkMode ? 'sun outline' : 'sun'} />
             </Button> */}
+            <Auth />
           </Menu.Menu>
         </Menu>
       </header>
