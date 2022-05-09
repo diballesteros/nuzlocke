@@ -15,6 +15,7 @@
   "encounter_template": "Encounter Template",
   "export": "Export",
   "generations": "Generations",
+  "get_profile_error": "Unable to get profile",
   "Has no effect on": "Has no effect on",
   "Immune to": "Immune to",
   "increased_stat": "Increased stat",

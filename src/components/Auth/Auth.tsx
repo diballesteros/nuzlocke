@@ -7,7 +7,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { supabase } from 'supabaseClient';
-import { TProfile } from 'constants/types';
+import { AppState, TProfile } from 'constants/types';
 import { selectExport } from 'selectors';
 import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
@@ -15,6 +15,7 @@ import styles from './Auth.module.scss';
 
 export default function Auth() {
   const { t, i18n } = useTranslation('common');
+  const importState = useStore(useCallback((state) => state.importState, []));
   const exportString = useStore(selectExport);
   const [open, setOpen] = useState(false);
   const [session, setSession] = useState<Session>(null);
@@ -55,7 +56,7 @@ export default function Auth() {
           setUpdatedAt(data.updated_at);
         }
       } catch (error) {
-        toast.error('Unable to get profile');
+        toast.error(t('get_profile_error'));
       } finally {
         setLoading(false);
       }
@@ -108,6 +109,13 @@ export default function Auth() {
         if (data.nuzlocke) {
           setUsername(data.username);
           setUpdatedAt(data.updated_at);
+          const partialState: Partial<AppState> = JSON.parse(data.nuzlocke);
+          if (!!partialState?.games && !!partialState?.selectedGame && !!partialState?.gamesList) {
+            importState(partialState);
+            toast.success('Synced profile correctly');
+          } else {
+            throw Error(t('No Nuzlocke data found'));
+          }
         } else {
           toast.error('No Nuzlocke data found');
         }
@@ -173,6 +181,11 @@ export default function Auth() {
       }
     >
       <Modal.Content className={modalStyles.modal}>
+        <span className={styles.beta}>BETA</span>
+        <u className={styles.warning}>
+          This feature is in <b>beta</b> and will be undergoing heavy changes in the coming weeks.
+          Please take that into consideration when using it!
+        </u>
         {session ? (
           <section className={styles.account}>
             <p>You are currently logged in with:</p>
@@ -197,7 +210,10 @@ export default function Auth() {
               {syncing ? 'Syncing' : 'Obtain and Sync Nuzlocke Data'}
               <Icon name="cloud download" />
             </Button>
-            <p>The following option will save your Nuzlocke Data remotely:</p>
+            <p>
+              The following option will save your Nuzlocke Data remotely (This does not happen
+              automatically):
+            </p>
             <div className={styles.refreshContainer}>
               <Button className={styles.refresh} disabled={isLoading} icon onClick={updateProfile}>
                 {saving ? 'Saving' : 'Save Nuzlocke Data and Username'}
