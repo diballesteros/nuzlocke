@@ -1,3 +1,9 @@
+## Version 4.9.10
+
+🐛 Bug Fix
+
+- Added Route 26 to Gold, Silver, and Crystal (requires an encounter reset)
+
 ## Version 4.9.9
 
 🐛 Bug Fix

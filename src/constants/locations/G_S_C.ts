@@ -317,6 +317,13 @@ const G_S_C: TEncounter[] = [
     filterKey: 'gsc-44',
   },
   {
+    id: 85,
+    pokemon: null,
+    location: 'Route 26',
+    status: null,
+    filterKey: 'gsc-85',
+  },
+  {
     id: 45,
     pokemon: null,
     location: 'Victory Road',

@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.10',
+    date: 1652226401598,
+    notes: [
+      {
+        description: 'Added Route 26 to Gold, Silver, and Crystal (requires an encounter reset)',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.9',
     date: 1651871797363,
     notes: [
