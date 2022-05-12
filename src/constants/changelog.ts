@@ -3,10 +3,19 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 4.9.10',
-    date: 1652226401598,
+    date: 1652326223276,
     notes: [
       {
         description: 'Added Route 26 to Gold, Silver, and Crystal (requires an encounter reset)',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Cliff Cave to Heart Gold and Soul Silver (requires an encounter reset)',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Selecting a pokemon that has no IVs/EVs will now set the IV/EV to 0 in the calculator',
         type: 'FIX',
       },
     ],

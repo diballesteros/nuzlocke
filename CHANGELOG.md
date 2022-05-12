@@ -3,6 +3,8 @@
 🐛 Bug Fix
 
 - Added Route 26 to Gold, Silver, and Crystal (requires an encounter reset)
+- Added Cliff Cave to Heart Gold and Soul Silver (requires an encounter reset)
+- Selecting a pokemon that has no IVs/EVs will now set the IV/EV to 0 in the calculator
 
 ## Version 4.9.9
 
