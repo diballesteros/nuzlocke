@@ -240,6 +240,13 @@ const HG_SS: TEncounter[] = [
     filterKey: 'hgss-86',
   },
   {
+    id: 90,
+    pokemon: null,
+    location: 'Cliff Cave',
+    status: null,
+    filterKey: 'hgss-90',
+  },
+  {
     id: 87,
     pokemon: null,
     location: 'Route 48',
