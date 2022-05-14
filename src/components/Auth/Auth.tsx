@@ -61,7 +61,7 @@ export default function Auth() {
         setLoading(false);
       }
     }
-  }, [session]);
+  }, [session, t]);
 
   const updateProfile = async () => {
     try {
@@ -81,10 +81,10 @@ export default function Auth() {
 
       if (error) throw Error(error.message);
       if (status === 200 || status === 201) {
-        toast.success('Successfully saved data');
+        toast.success(t('data_success'));
       }
     } catch (err) {
-      toast.error('Unable to update profile');
+      toast.error(t('data_error'));
     } finally {
       setSaving(false);
     }
@@ -112,15 +112,15 @@ export default function Auth() {
           const partialState: Partial<AppState> = JSON.parse(data.nuzlocke);
           if (!!partialState?.games && !!partialState?.selectedGame && !!partialState?.gamesList) {
             importState(partialState);
-            toast.success('Synced profile correctly');
+            toast.success(t('sync_success'));
           } else {
-            throw Error(t('No Nuzlocke data found'));
+            throw Error(t('no_nuzlocke'));
           }
         } else {
-          toast.error('No Nuzlocke data found');
+          toast.error(t('no_nuzlocke'));
         }
       } catch (error) {
-        toast.error('Unable to sync profile');
+        toast.error(t('sync_error'));
       } finally {
         setSyncing(false);
       }
@@ -134,7 +134,7 @@ export default function Auth() {
         const { error } = await supabase.auth.signOut();
         if (error) throw Error(error.message);
       } catch {
-        toast.error('Unable to logout');
+        toast.error(t('logout_error'));
       } finally {
         setLogging(false);
         setOpen(false);
@@ -155,9 +155,9 @@ export default function Auth() {
       setLoading(true);
       const { error } = await supabase.auth.signIn({ email });
       if (error) throw Error(error.message);
-      toast.success('Check your email for the login link');
+      toast.success(t('check_email'));
     } catch (err) {
-      toast.error('Unable to login');
+      toast.error(t('login_error'));
     } finally {
       setLoading(false);
     }
@@ -181,14 +181,14 @@ export default function Auth() {
       }
     >
       <Modal.Content className={modalStyles.modal}>
-        <span className={styles.beta}>BETA</span>
+        <span className={styles.beta}>ALPHA</span>
         <u className={styles.warning}>
-          This feature is in <b>beta</b> and will be undergoing heavy changes in the coming weeks.
+          This feature is in <b>alpha</b> and will be undergoing heavy changes in the coming weeks.
           Please take that into consideration when using it!
         </u>
         {session ? (
           <section className={styles.account}>
-            <p>You are currently logged in with:</p>
+            <p>{t('currently_logged_in')}</p>
             <span>Email: {session.user.email}</span>
             <Input
               label="Username"
@@ -196,10 +196,7 @@ export default function Auth() {
               value={username || ''}
               onChange={(e) => setUsername(e.target.value)}
             />
-            <p>
-              The following option will obtain Nuzlocke data from the server and replace your
-              current Nuzlocke Data:
-            </p>
+            <p>{t('replace_nuzlocke_data')}</p>
             <Button
               color="facebook"
               className={styles.refresh}
@@ -207,7 +204,7 @@ export default function Auth() {
               icon
               onClick={syncNuzlockeData}
             >
-              {syncing ? 'Syncing' : 'Obtain and Sync Nuzlocke Data'}
+              {syncing ? t('syncing') : t('obtain_nuzlocke_data')}
               <Icon name="cloud download" />
             </Button>
             <p>
