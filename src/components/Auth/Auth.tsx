@@ -184,14 +184,15 @@ export default function Auth() {
         <span className={styles.beta}>ALPHA</span>
         <u className={styles.warning}>
           This feature is in <b>alpha</b> and will be undergoing heavy changes in the coming weeks.
-          Please take that into consideration when using it!
+          Please take that into consideration when using it! Please report any bugs you may find
+          with the new feature.
         </u>
         {session ? (
           <section className={styles.account}>
             <p>{t('currently_logged_in')}</p>
             <span>Email: {session.user.email}</span>
             <Input
-              label="Username"
+              label={t('username  ')}
               type="text"
               value={username || ''}
               onChange={(e) => setUsername(e.target.value)}
@@ -207,17 +208,14 @@ export default function Auth() {
               {syncing ? t('syncing') : t('obtain_nuzlocke_data')}
               <Icon name="cloud download" />
             </Button>
-            <p>
-              The following option will save your Nuzlocke Data remotely (This does not happen
-              automatically):
-            </p>
+            <p>{t('save_nuzlocke_remotely')}</p>
             <div className={styles.refreshContainer}>
               <Button className={styles.refresh} disabled={isLoading} icon onClick={updateProfile}>
-                {saving ? 'Saving' : 'Save Nuzlocke Data and Username'}
+                {saving ? t('saving') : t('save_nuzlocke_data')}
                 <Icon name="cloud upload" />
               </Button>
               <span>
-                Last updated:{' '}
+                {t('last_updated') + ' '}
                 {new Date(updatedAt).toLocaleDateString(i18n.language, {
                   weekday: 'short',
                   month: 'short',
@@ -231,10 +229,7 @@ export default function Auth() {
           </section>
         ) : (
           <>
-            <p>
-              Login with an email. You can upload your nuzlocke data to access it from a different
-              device.
-            </p>
+            <p>{t('login_with_email')}</p>
             <Input
               aria-label="custom-game-text"
               data-testid="add-game-input"
@@ -251,11 +246,11 @@ export default function Auth() {
         <Button onClick={handleClose}>{t('cancel')}</Button>
         {session ? (
           <Button disabled={isLoading} onClick={onLogOut} primary>
-            {logging ? 'Logging out' : 'Logout'}
+            {logging ? t('logging_out') : t('logout')}
           </Button>
         ) : (
           <Button onClick={handleLogin} disabled={isLoading} primary>
-            {loading ? 'Sending magic link...' : 'Send magic link'}
+            {loading ? t('sending_magic_link') : t('send_magic_link')}
           </Button>
         )}
       </Modal.Actions>
