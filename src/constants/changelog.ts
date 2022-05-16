@@ -2,6 +2,33 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 4.9.11',
+    date: 1652708168548,
+    notes: [
+      {
+        description: "Fixed Roxanne's pokemon's abilities in Omega Ruby and Alpha Sapphire",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Pokemon Mansion encounters in RBY and FRLG',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed art mapping incorrectly for Marsh and Soul badges in RBY and FRLG',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Red's Blastoise's moveset in HGSS",
+        type: 'FIX',
+      },
+      {
+        description:
+          "Changing the generation in the Calculator for custom games now reset's calculator values to due a bug that would cause the app the crash",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.10',
     date: 1652326223276,
     notes: [

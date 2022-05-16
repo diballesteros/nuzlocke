@@ -4456,7 +4456,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             ability: 'Torrent',
             id: 9,
             level: 84,
-            moves: [411, 308, 216, 430],
+            moves: [411, 308, 59, 430],
           },
         ],
         game: 'HeartGold and SoulSilver',
@@ -6566,13 +6566,13 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       {
         content: [
           {
-            ability: 'Rock Head',
+            ability: 'Sturdy',
             id: 74,
             level: 12,
             moves: [33, 111, 317],
           },
           {
-            ability: 'Sturdy',
+            ability: 'Magnet Pull',
             id: 299,
             level: 14,
             moves: [33, 106, 317],

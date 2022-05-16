@@ -61,7 +61,9 @@ function CalculatorHeader(): JSX.Element {
             data-testid="gen-selector"
             labeled
             inline
-            onChange={(e, data) => update({ calculatorGen: data.value as GenerationNum })}
+            onChange={(e, data) =>
+              update({ ...DEFAULT_VALUES, calculatorGen: data.value as GenerationNum })
+            }
             options={GENERATION_SELECT}
             placeholder={t('select')}
             selection

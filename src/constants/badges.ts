@@ -105,12 +105,12 @@ const BADGES: TBadgeDictionary = {
     {
       id: 5,
       levelCap: '43',
-      name: 'Soul Badge',
+      name: 'Marsh Badge',
     },
     {
       id: 6,
       levelCap: '43',
-      name: 'Marsh Badge',
+      name: 'Soul Badge',
     },
     {
       id: 7,
@@ -256,12 +256,12 @@ const BADGES: TBadgeDictionary = {
     {
       id: 5,
       levelCap: 43,
-      name: 'Soul Badge',
+      name: 'Marsh Badge',
     },
     {
       id: 6,
       levelCap: 43,
-      name: 'Marsh Badge',
+      name: 'Soul Badge',
     },
     {
       id: 7,
@@ -1008,10 +1008,10 @@ export const BADGE_IMAGES: TBadgeImages = {
       src: rainbow,
     },
     {
-      src: soul,
+      src: marsh,
     },
     {
-      src: marsh,
+      src: soul,
     },
     {
       src: volcano,
@@ -1101,10 +1101,10 @@ export const BADGE_IMAGES: TBadgeImages = {
       src: rainbow,
     },
     {
-      src: soul,
+      src: marsh,
     },
     {
-      src: marsh,
+      src: soul,
     },
     {
       src: volcano,
