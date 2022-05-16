@@ -411,6 +411,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Muk',
     'Koffing',
     'Weezing',
+    'Magmar',
+    'Ditto',
   ],
   'rby-45': [
     'Pidgey',
@@ -1947,7 +1949,18 @@ const FILTERS: { [key in string]: string[] } = {
     'Kabuto',
     'Aerodactyl',
   ],
-  'frlg-44': ['Rattata', 'Raticate', 'Vulpix', 'Growlithe', 'Grimer', 'Muk', 'Koffing', 'Weezing'],
+  'frlg-44': [
+    'Rattata',
+    'Raticate',
+    'Vulpix',
+    'Growlithe',
+    'Grimer',
+    'Muk',
+    'Koffing',
+    'Weezing',
+    'Magmar',
+    'Ditto',
+  ],
   'frlg-45': [
     'Psyduck',
     'Tentacool',

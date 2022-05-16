@@ -1,3 +1,13 @@
+## Version 4.9.11
+
+🐛 Bug Fix
+
+- Fixed Roxanne's pokemon's abilities in Omega Ruby and Alpha Sapphire
+- Fixed Pokemon Mansion's encounter in RBY and FRLG
+- Fixed art mapping incorrectly for Marsh and Soul badges in RBY and FRLG
+- Fixed Red's Blastoise's moveset in HGSS
+- Changing the generation in the Calculator for custom games now reset's Calculator values to due a bug that would cause the app the crash
+
 ## Version 4.9.10
 
 🐛 Bug Fix
