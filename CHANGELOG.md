@@ -1,3 +1,20 @@
+## Version 5.0.0
+
+🚀 New features
+
+- Added a way to back up your nuzlocke data online and access from other devices. This feature is in ALPHA. Please report any bugs you may find.
+
+💅 Enhancement
+
+- Darkmode toggle was moved to the settings page
+
+🐛 Bug Fix
+
+- Added Parfum Palace to encounters in X and Y (requires reset)
+- Added Sableye to Granite Cave in RSE and ORAS
+- Added headbutt encounters to Illex Forest in HGSS
+- Added headbutt encounters to Route 34 in HGSS
+
 ## Version 4.9.11
 
 🐛 Bug Fix

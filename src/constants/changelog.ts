@@ -2,6 +2,37 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.0.0',
+    date: 1652903071306,
+    notes: [
+      {
+        description:
+          'Added a way to back up your nuzlocke data online and access from other devices. This feature is in ALPHA. Please report any bugs you may find.',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Darkmode toggle was moved to the settings page',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added Parfum Palace to encounters in X and Y (requires reset)',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Sableye to Granite Cave in RSE and ORAS',
+        type: 'FIX',
+      },
+      {
+        description: 'Added headbutt encounters to Illex Forest in HGSS',
+        type: 'FIX',
+      },
+      {
+        description: 'Added headbutt encounters to Route 34 in HGSS',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 4.9.11',
     date: 1652708168548,
     notes: [
