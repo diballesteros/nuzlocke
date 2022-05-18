@@ -2,7 +2,7 @@
 
 🚀 New features
 
-- Added a way to back up your nuzlocke data online and access from other devices. This feature is in ALPHA. Please report any bugs you may find.
+- Added a way to back up your nuzlocke data online and access from other devices. This feature is in ALPHA. Please report any bugs you may find. This is accessible from the top right where the dark mode toggle used to be.
 
 💅 Enhancement
 
