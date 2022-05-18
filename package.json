@@ -12,7 +12,7 @@
       "src/serviceWorker.ts",
       "src/serviceWorkerRegistration.ts",
       "src/components/UpdateSW/UpdateSW.tsx",
-      "<rootDir>/src/components/Auth/Auth.tsx",
+      "src/components/Auth/Auth.tsx",
       "src/index.tsx"
     ]
   },
