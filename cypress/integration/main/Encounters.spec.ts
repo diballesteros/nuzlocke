@@ -83,6 +83,8 @@ describe('Encounters', () => {
     cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
 
     cy.get('[data-testid="stats-summary"]').click();
+    cy.get('[data-testid="input-ivhp"]').type('10').should('have.value', 10);
+    cy.get('[data-testid="input-ivhp"]').type('{backspace}{backspace}').should('have.value', 0);
     cy.get('[data-testid="evhp"]')
       .then(($el) => stepTo($el, 1))
       .trigger('change');

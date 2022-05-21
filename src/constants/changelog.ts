@@ -2,6 +2,30 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.0',
+    date: 1653172680861,
+    notes: [
+      {
+        description:
+          'In case the calculator is an unrecoverable state a button has been added to reset it to the default state',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'EV/IV inputs in the pokemon details can now be edited directly by typing in a value',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added Pinsir to Lush Jungle encounters in Sun and Moon',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Dragonspiral Tower encounters in BW',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.0.0',
     date: 1652903071306,
     notes: [

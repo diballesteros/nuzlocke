@@ -1,3 +1,22 @@
+## Version 5.1.0
+
+💅 Enhancement
+
+- In case the calculator is an unrecoverable state a button has been added to reset it to the default state
+- EV/IV inputs in the pokemon details can now be edited directly by typing in a value
+
+🐛 Bug Fix
+
+- Added Pinsir to Lush Jungle encounters in Sun and Moon
+- Fixed Dragonspiral Tower encounters in BW
+
+🏠 Internal
+
+- Bumped @types/node to 17.0.35
+- Bumped eslint-plugin-react to 7.30.0
+- Bumped sass to 1.52.1
+- Bumped sass-loader to 13.0.0
+
 ## Version 5.0.0
 
 🚀 New features

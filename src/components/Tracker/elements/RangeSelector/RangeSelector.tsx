@@ -41,6 +41,16 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): JSX.Eleme
     }
   };
 
+  const handleTextChange = (newValue: string) => {
+    const parsedNumber = Number(newValue);
+
+    if (newValue && !isNaN(parsedNumber) && parsedNumber >= 0 && parsedNumber <= type.max) {
+      onChange(Number(newValue));
+    } else if (newValue === '') {
+      onChange(0);
+    }
+  };
+
   return (
     <>
       <label className={styles.label} htmlFor={name}>
@@ -66,7 +76,13 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): JSX.Eleme
       >
         <Icon name="minus" />
       </Button>
-      <output className={styles.output}>{value}</output>
+      <input
+        className={styles.output}
+        data-testid={`input-${name}`}
+        inputMode="numeric"
+        onChange={(e) => handleTextChange(e.target.value)}
+        value={value}
+      />
       <Button
         aria-label="add"
         className={styles.button}
