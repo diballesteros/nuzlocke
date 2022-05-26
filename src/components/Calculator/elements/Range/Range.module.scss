@@ -51,4 +51,6 @@ input[type='range'].input {
   padding: var(--spacing-0) var(--spacing-1);
   text-align: center;
   user-select: none;
+  background-color: transparent;
+  color: var(--contrast);
 }
