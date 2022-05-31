@@ -5,6 +5,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import shallow from 'zustand/shallow';
 import { PkmImage, PokemonSelector } from 'common';
+import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
@@ -136,7 +137,10 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
               <div className={styles.image}>
                 <PkmImage name={foundPokemon.text} shiny={encounter?.details?.shiny} />
               </div>
-              <span className={styles.name}>{foundPokemon.text}</span>
+              <span className={styles.name}>
+                {foundPokemon.text}
+                {getGenderIcon(encounter?.details?.gender)}
+              </span>
               <span className={styles.level}>Lv: {encounter?.details?.level ?? 0}</span>
             </div>
           ) : (

@@ -4785,6 +4785,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Rhyhorn',
     'Donphan',
     'Pinsir',
+    'Heracross',
   ],
   'oras-37': ['Tentacool', 'Staryu', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer'],
   'oras-38': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Sharpedo', 'Wailmer'],
@@ -5890,6 +5891,7 @@ const FILTERS: { [key in string]: string[] } = {
   'usum-58': ['Solgaleo', 'Lunala'],
   'usum-59': ['Crabrawler'],
   'usum-60': ['Zubat', 'Psyduck'],
+  'usum-61': ['Granbull', 'Pelipper', 'Gastrodon', 'Furfrou', 'Inkay', 'Crabrawler'],
   'swsh-0': ['Grookey', 'Scorbunny', 'Sobble'],
   'swsh-1': [
     'Hoothoot',

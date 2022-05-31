@@ -1,3 +1,29 @@
+## Version 5.1.1
+
+💅 Enhancement
+
+- Added small gender symbol to the pokemon in the tracker
+
+🐛 Bug Fix
+
+- Added Poni Wilds to USUM (needs reset to see)
+- Fixed Suicune's typing
+- Added Heracross to Safari Zone encounters in ORAS
+- Hide last updated date in nuzlocke backup window if it doesn't exist yet
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.0.0
+- Bumped @sentry/tracing to 7.0.0
+- Bumped i18next to 21.8.5
+- Bumped semantic-ui-react to 2.1.3
+- Bumped @cypress/code-coverage 3.10.0
+- Bumped @types/node to 17.0.38
+- Bumped @types/react to 18.0.10
+- Bumped @types/react-dom to 18.0.5
+- Bumped cypress to 9.7.0
+- Bumped cypress-localstorage-commands 2.0.0
+
 ## Version 5.1.0
 
 💅 Enhancement

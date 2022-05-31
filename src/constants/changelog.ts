@@ -2,6 +2,32 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.1',
+    date: 1654037686586,
+    notes: [
+      {
+        description: 'Added small gender symbol to the pokemon in the tracker',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added Poni Wilds to USUM (needs reset to see)',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Suicune's typing",
+        type: 'FIX',
+      },
+      {
+        description: 'Added Heracross to Safari Zone encounters in ORAS',
+        type: 'FIX',
+      },
+      {
+        description: "Hide last updated date in nuzlocke backup window if it doesn't exist yet",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.0',
     date: 1653172680861,
     notes: [
