@@ -1,4 +1,4 @@
-import { addBreadcrumb, Severity } from '@sentry/react';
+import { addBreadcrumb } from '@sentry/react';
 import { calculate, Field, Move, Pokemon, Result } from '@smogon/calc';
 import type { StatusName } from '@smogon/calc/dist/data/interface';
 import { useCallback, useMemo } from 'react';
@@ -44,7 +44,7 @@ export function getPokemon(all: TCalculatorForm, id: 1 | 2) {
     addBreadcrumb({
       category: 'Calculator',
       message: `Pokemon details: ${JSON.stringify(all)}`,
-      level: Severity.Log,
+      level: 'log',
     });
 
     return new Pokemon(

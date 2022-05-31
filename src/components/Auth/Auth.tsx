@@ -214,17 +214,19 @@ export default function Auth() {
                 {saving ? t('saving') : t('save_nuzlocke_data')}
                 <Icon name="cloud upload" />
               </Button>
-              <span>
-                {t('last_updated') + ' '}
-                {new Date(updatedAt).toLocaleDateString(i18n.language, {
-                  weekday: 'short',
-                  month: 'short',
-                  year: 'numeric',
-                  day: 'numeric',
-                  hour: '2-digit',
-                  minute: '2-digit',
-                })}
-              </span>
+              {updatedAt && (
+                <span>
+                  {t('last_updated') + ' '}
+                  {new Date(updatedAt).toLocaleDateString(i18n.language, {
+                    weekday: 'short',
+                    month: 'short',
+                    year: 'numeric',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })}
+                </span>
+              )}
             </div>
           </section>
         ) : (

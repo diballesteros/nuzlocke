@@ -2079,7 +2079,7 @@ const POKEMON: TPokemon[] = [
   {
     value: 245,
     text: 'Suicune',
-    type: 'ICE',
+    type: 'WATER',
     generation: 2,
   },
   {
