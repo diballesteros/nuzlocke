@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import type { TEncounter, TPokemon } from 'constants/types';
+import type { Gender, TEncounter, TPokemon } from 'constants/types';
 import styles from './PokeInfo.module.scss';
 
 interface PokeInfoProps {
@@ -8,22 +8,24 @@ interface PokeInfoProps {
   pokemon: TPokemon;
 }
 
+export const getGenderIcon = (gender: Gender) => {
+  switch (gender) {
+    case 'MALE':
+      return <Icon name="man" />;
+    case 'FEMALE':
+      return <Icon name="woman" />;
+    default:
+      return null;
+  }
+};
+
 function PokeInfo({ encounter, pokemon }: PokeInfoProps): JSX.Element {
   const { t } = useTranslation('stats');
-  const getGenderIcon = () => {
-    switch (encounter?.details?.gender) {
-      case 'MALE':
-        return <Icon name="man" />;
-      case 'FEMALE':
-        return <Icon name="woman" />;
-      default:
-        return null;
-    }
-  };
+
   return (
     <div className={styles.container}>
       <b>
-        {pokemon?.text} {!!encounter?.details?.gender && getGenderIcon()}
+        {pokemon?.text} {!!encounter?.details?.gender && getGenderIcon(encounter?.details?.gender)}
         {!!encounter?.details?.level && ` Lv. ${encounter.details.level}`}
       </b>
       {encounter.nickname && <span>{encounter.nickname}</span>}
