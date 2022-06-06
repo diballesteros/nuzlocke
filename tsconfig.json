@@ -17,9 +17,10 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "baseUrl": "./src"
+    "baseUrl": "./src",
+    "types": ["cypress", "cypress-file-upload", "node", "cypress-localstorage-commands"]
   },
-  "include": ["src", "supabase.client.ts"],
+  "include": ["src", "supabase.client.ts", "cypress.config.ts", "cypress/e2e/**/*.ts"],
   "exclude": [
     "node_modules",
     "cypress",

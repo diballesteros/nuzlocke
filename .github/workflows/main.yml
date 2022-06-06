@@ -9,10 +9,10 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🌲 Cypress install
-        uses: cypress-io/github-action@v2.9.7
+        uses: cypress-io/github-action@v4
         with:
           runTests: false
       # report machine parameters
@@ -35,7 +35,7 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🎓 Install dependencies
         run: yarn install
@@ -47,7 +47,7 @@ jobs:
         run: yarn test --ci --coverage
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
 
   ui-chrome-tests-main:
     timeout-minutes: 15
@@ -64,16 +64,16 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v2.9.7
+        uses: cypress-io/github-action@v4
         with:
           start: yarn run develop:ci
           wait-on: http://localhost:3000
@@ -82,14 +82,14 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome - Main'
-          spec: 'cypress/integration/main/*'
+          spec: 'cypress/e2e/main/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
 
   ui-chrome-tests-other:
     timeout-minutes: 15
@@ -106,16 +106,16 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v2.9.7
+        uses: cypress-io/github-action@v4
         with:
           start: yarn run develop:ci
           wait-on: http://localhost:3000
@@ -124,14 +124,14 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome - Other'
-          spec: 'cypress/integration/other/*'
+          spec: 'cypress/e2e/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
 
   ui-firefox-tests-main:
     timeout-minutes: 15
@@ -150,16 +150,16 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Firefox'
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           start: yarn run develop:ci
           wait-on: 'http://localhost:3000'
@@ -168,14 +168,14 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Main'
-          spec: 'cypress/integration/main/*'
+          spec: 'cypress/e2e/main/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0
 
   ui-firefox-tests-other:
     timeout-minutes: 15
@@ -194,16 +194,16 @@ jobs:
         uses: styfle/cancel-workflow-action@0.9.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v3
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Firefox'
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v4
         with:
           start: yarn run develop:ci
           wait-on: 'http://localhost:3000'
@@ -212,11 +212,11 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Other'
-          spec: 'cypress/integration/other/*'
+          spec: 'cypress/e2e/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v2
+        uses: codecov/codecov-action@v3.1.0

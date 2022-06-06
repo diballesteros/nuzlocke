@@ -1,3 +1,23 @@
+## Version 5.1.2
+
+🐛 Bug Fix
+
+- Fixed Tynamo's evolution line
+- Fixed Route 104 encounters for ORAS
+- Fixed Route 102 encounters for ORAS
+
+🏠 Internal
+
+- Migrated Cypress from 9.x to 10.x
+- Adjusted Typescript configuration to correctly handle Cypress spec files
+- Bumped @testing-library/react to 13.3.0
+- Bumped @types/node to 17.0.40
+- Bumped @types/react to 18.0.12
+- Bumped cypress-localstorage-commands to 2.1.0
+- Bumped sass to 1.52.2
+- Bumped i18next to 21.8.8
+- Bumped react-i18next to 11.17.0
+
 ## Version 5.1.1
 
 💅 Enhancement

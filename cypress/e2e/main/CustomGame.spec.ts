@@ -1,3 +1,4 @@
+/* eslint-disable testing-library/await-async-utils */
 describe('Custom game', () => {
   beforeEach(() => {
     cy.visit('/');
