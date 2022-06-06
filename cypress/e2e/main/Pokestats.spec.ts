@@ -1,4 +1,5 @@
-import path = require('path');
+/* eslint-disable testing-library/await-async-utils */
+import path from 'path';
 
 describe('PokéStats', () => {
   beforeEach(() => {
@@ -100,7 +101,7 @@ describe('PokéStats', () => {
     cy.wait(3000);
     const filename = path.join(downloadsFolder, 'nuzlocke.png');
     cy.readFile(filename, 'binary', { timeout: 15000 }).should((buffer) => {
-      expect(buffer.length).to.be.gt(1000);
+      expect(buffer.length).greaterThan(1000);
     });
   });
 

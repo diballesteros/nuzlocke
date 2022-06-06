@@ -257,7 +257,7 @@ describe('Encounters', () => {
       cy.get('[data-testid=fab-tracker] > .ui').click();
     });
 
-    it('Add encounter', () => {
+    it('Add encounter - Small', () => {
       cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
       cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
       cy.contains('Save').click();
@@ -269,7 +269,7 @@ describe('Encounters', () => {
         .should('have.length', 1);
     });
 
-    it('Reset all encounters', () => {
+    it('Reset all encounters - Small', () => {
       cy.get('[data-testid="pokemon-0"]').click();
       cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
       cy.get('[data-testid=fab-reset-encounters] > [data-testid=reset-all]').click();
