@@ -82,7 +82,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome - Main'
-          spec: 'cypress/integration/main/*'
+          spec: 'cypress/e2e/main/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -124,7 +124,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Chrome - Other'
-          spec: 'cypress/integration/other/*'
+          spec: 'cypress/e2e/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -168,7 +168,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Main'
-          spec: 'cypress/integration/main/*'
+          spec: 'cypress/e2e/main/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
@@ -212,7 +212,7 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Other'
-          spec: 'cypress/integration/other/*'
+          spec: 'cypress/e2e/other/*'
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
