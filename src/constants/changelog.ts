@@ -2,6 +2,24 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.2',
+    date: 1654547437623,
+    notes: [
+      {
+        description: "Fixed Tynamo's evolution line",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 104 encounters for ORAS',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 102 encounters for ORAS',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.1',
     date: 1654037686586,
     notes: [

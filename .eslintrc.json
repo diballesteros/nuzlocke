@@ -32,10 +32,11 @@
     },
     "ecmaVersion": 11,
     "sourceType": "module",
-    "project": "./tsconfig.json"
+    "project": ["./tsconfig.json", "./cypress/tsconfig.json"],
+    "tsconfigRootDir": "./"
   },
   "plugins": ["@typescript-eslint"],
-  "ignorePatterns": ["cypress/*, src/constants/locations/*"],
+  "ignorePatterns": ["src/constants/locations/*"],
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
