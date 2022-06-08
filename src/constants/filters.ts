@@ -4683,9 +4683,9 @@ const FILTERS: { [key in string]: string[] } = {
     'Barboach',
     'Baltoy',
   ],
-  'oras-23': ['Machop', 'Marill', 'Numel'],
+  'oras-23': ['Machop', 'Numel'],
   'oras-24': ['Machop', 'Grimer', 'Koffing', 'Slugma', 'Numel', 'Torkoal'],
-  'oras-25': ['Sandshrew', 'Slugma', 'Skarmory', 'Spinda'],
+  'oras-25': ['Sandshrew', 'Skarmory', 'Spinda'],
   'oras-26': [
     'Lombre',
     'Nuzleaf',

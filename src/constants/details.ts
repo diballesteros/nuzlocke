@@ -8641,7 +8641,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             nature: 'Impish',
           },
           {
-            ability: 'Rock Head',
+            ability: 'Sturdy',
             id: 95,
             level: 12,
             moves: [88, 20, 446],
