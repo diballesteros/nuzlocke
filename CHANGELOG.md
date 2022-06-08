@@ -1,3 +1,19 @@
+## Version 5.1.3
+
+🐛 Bug Fix
+
+- Fixed Route 112 encounters for ORAS
+- Fixed Route 113 encounters for ORAS
+- Fixed Roark's Onix's Ability for ORAS (It is now sturdy)
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.1.0
+- Bumped @sentry/tracing to 7.1.0
+- Bumped i18next to 21.8.9
+- Bumped @types/jest to 28.1.1
+- Bumped @types/node to 17.0.41
+
 ## Version 5.1.2
 
 🐛 Bug Fix

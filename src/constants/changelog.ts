@@ -2,6 +2,24 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.3',
+    date: 1654655777582,
+    notes: [
+      {
+        description: 'Fixed Route 112 encounters for ORAS',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 113 encounters for ORAS',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Roark's Onix's Ability for ORAS (It is now sturdy)",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.2',
     date: 1654547437623,
     notes: [
