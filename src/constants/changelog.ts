@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.4',
+    date: 1655340103831,
+    notes: [
+      {
+        description: 'Fixed Route 112 encounters for ORAS',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.3',
     date: 1654655777582,
     notes: [

@@ -1,3 +1,23 @@
+## Version 5.1.4
+
+🐛 Bug Fix
+
+- Fixed Route 120 encounters for ORAS
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.1.1
+- Bumped @sentry/tracing to 7.1.1
+- Bumped immer to 9.0.15
+- Bumped react to 18.2.0
+- Bumped react-dom to 18.2.0
+- Bumped react-i18next 11.17.2
+- Bumped @types/node to 18.0.0
+- Bumped cypress to 10.1.0
+- Bumped eslint-plugin-react-hooks to 4.6.0
+- Bumped prettier to 2.7.0
+- Bumped sass to 1.52.3
+
 ## Version 5.1.3
 
 🐛 Bug Fix
