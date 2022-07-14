@@ -613,7 +613,7 @@ export const SMOGON_NAMES: Record<string, string> = {
   'Stunfisk (Galarian)': 'Stunfisk-Galar',
 };
 
-export const EXTRA_ITEMS = ['Amulet Coin', 'Soothe Bell'];
+export const EXTRA_ITEMS = ['Amulet Coin', 'Soothe Bell', 'Exp. Share'];
 
 export const MY_ITEMS = [
   ...[...new Set(ITEMS[8])].filter((smogonItem) => smogonItem.substring(0, 2) !== 'TR'),
