@@ -1,3 +1,32 @@
+## Version 5.1.5
+
+🐛 Bug Fix
+
+- Added the EXP share as a selectable item
+- Added Abundant Shrine as an encounter to BW2
+- Fixed National Park encounters for Heart Gold and Soul Silver
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.6.0
+- Bumped @sentry/tracing to 7.6.0
+- Bumped @supabase/supabase-js to 1.35.4
+- Bumped i18next to 21.8.14
+- Bumped react-i18next to 11.18.1
+- Bumped @testing-library/user-event to 14.2.1
+- Bumped @types/jest to 28.1.5
+- Bumped @types/node to 18.0.4
+- Bumped @types/react to 18.0.15
+- Bumped @types/react-dom to 18.0.6
+- Bumped cypress to 10.3.0
+- Bumped eslint-plugin-jsx-a11y to 6.6.0
+- Bumped eslint-plugin-prettier to 4.2.1
+- Bumped eslint-plugin-react to 7.30.1
+- Bumped prettier to 2.7.1
+- Bumped sass to 1.53.0
+- Bumped sass-loader to 13.0.2
+
+
 ## Version 5.1.4
 
 🐛 Bug Fix

@@ -2,6 +2,24 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.1.5',
+    date: 1655340103831,
+    notes: [
+      {
+        description: 'Added the EXP share as a selectable item',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Abundant Shrine as an encounter to BW2',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed National Park encounters for Heart Gold and Soul Silver',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.4',
     date: 1655340103831,
     notes: [
