@@ -3,7 +3,7 @@ import type { TReleaseNotes } from 'constants/types';
 const CHANGELOG: TReleaseNotes = [
   {
     name: 'Version 5.1.5',
-    date: 1655340103831,
+    date: 1657764871402,
     notes: [
       {
         description: 'Added the EXP share as a selectable item',
