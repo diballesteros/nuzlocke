@@ -1,3 +1,21 @@
+## Version 5.1.6
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.10.0
+- Bumped @sentry/tracing to 7.10.0
+- Bumped @supabase/supabase-js to 1.35.6
+- Bumped i18next to 21.9.0
+- Bumped react-i18next to 11.18.3
+- Bumped @testing-library/user-event to 14.4.3
+- Bumped @types/jest to 28.1.6
+- Bumped @types/node to 18.7.3
+- Bumped @types/react to 18.0.17
+- Bumped cypress to 10.4.0
+- Bumped cypress-localstorage-commands to 2.2.0
+- Bumped eslint-plugin-jsx-a11y to 6.6.1
+- Bumped sass to 1.54.3
+
 ## Version 5.1.5
 
 🐛 Bug Fix
@@ -25,7 +43,6 @@
 - Bumped prettier to 2.7.1
 - Bumped sass to 1.53.0
 - Bumped sass-loader to 13.0.2
-
 
 ## Version 5.1.4
 
