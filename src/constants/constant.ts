@@ -574,6 +574,7 @@ export const SMOGON_NAMES: Record<string, string> = {
   'Aegislash': 'Aegislash-Both',
   'Nidoran♀': 'Nidoran-F',
   'Nidoran♂': 'Nidoran-M',
+  'Flabébé': 'Flabebe',
   'Rattata (Alolan)': 'Rattata-Alola',
   'Raticate (Alolan)': 'Raticate-Alola',
   'Raichu (Alolan)': 'Raichu-Alola',

@@ -2,6 +2,24 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.2.0',
+    date: 1657764871402,
+    notes: [
+      {
+        description: 'Search now works with nicknames',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Fire is no longer listed as having no effect on Ghost types',
+        type: 'FIX',
+      },
+      {
+        description: 'Flabébé should now correctly work with the calculator',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.1.5',
     date: 1657764871402,
     notes: [

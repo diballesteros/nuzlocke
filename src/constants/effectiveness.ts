@@ -42,7 +42,7 @@ const EFFECTIVENESS: TGenerationEffects = {
       'Weak against': ['GROUND', 'ROCK', 'WATER'],
       'Resists': ['BUG', 'FIRE', 'GRASS'],
       'Immune to': [],
-      'Has no effect on': ['GHOST'],
+      'Has no effect on': [],
     },
     'FLYING': {
       'Super effective against': ['BUG', 'FIGHTING', 'GRASS'],
@@ -174,7 +174,7 @@ const EFFECTIVENESS: TGenerationEffects = {
       'Weak against': ['GROUND', 'ROCK', 'WATER'],
       'Resists': ['BUG', 'FIRE', 'GRASS', 'ICE', 'STEEL'],
       'Immune to': [],
-      'Has no effect on': ['GHOST'],
+      'Has no effect on': [],
     },
     'FLYING': {
       'Super effective against': ['BUG', 'FIGHTING', 'GRASS'],
@@ -341,7 +341,7 @@ const EFFECTIVENESS: TGenerationEffects = {
       'Weak against': ['GROUND', 'ROCK', 'WATER'],
       'Resists': ['BUG', 'FAIRY', 'FIRE', 'GRASS', 'ICE', 'STEEL'],
       'Immune to': [],
-      'Has no effect on': ['GHOST'],
+      'Has no effect on': [],
     },
     'FLYING': {
       'Super effective against': ['BUG', 'FIGHTING', 'GRASS'],

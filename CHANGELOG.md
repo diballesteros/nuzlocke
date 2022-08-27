@@ -1,3 +1,27 @@
+## Version 5.2.0
+
+💅 Enhancement
+
+- Search now works with nicknames
+
+🐛 Bug Fix
+
+- Fire is no longer listed as having no effect on Ghost types
+- Flabébé should now correctly work with the calculator
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.11.1
+- Bumped @sentry/tracing to 7.11.1
+- Bumped html-to-image to 1.10.6
+- Bumped i18next to 21.9.1
+- Bumped react-i18next to 11.18.5
+- Bumped @types/jest to 28.1.8
+- Bumped @types/node to 18.7.13
+- Bumped @types/lodash to 4.14.184
+- Bumped cypress to 10.6.0
+- Bumped sass to 1.54.5
+
 ## Version 5.1.6
 
 🏠 Internal
