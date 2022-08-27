@@ -66,6 +66,7 @@ const Encounters = React.memo(function Encounters() {
       return (
         (enc.location.toUpperCase()?.includes(upperCase) ||
           enc.status?.text.toUpperCase()?.includes(upperCase) ||
+          enc.nickname?.toUpperCase()?.includes(upperCase) ||
           foundPokemon?.text?.toUpperCase()?.includes(upperCase)) &&
         (gens.length > 0 ? gens.includes(foundPokemon?.generation) : true) &&
         (types.length > 0
