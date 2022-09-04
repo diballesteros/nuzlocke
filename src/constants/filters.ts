@@ -1492,6 +1492,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Carvanha',
     'Kecleon',
     'Tropius',
+    'Carvanha',
+    'Feebas',
   ],
   'rse-33': ['Skitty', 'Plusle'],
   'rse-34': [

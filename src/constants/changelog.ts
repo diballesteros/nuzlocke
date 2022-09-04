@@ -2,6 +2,26 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.2.1',
+    date: 1662301999577,
+    notes: [
+      {
+        description:
+          'Fixed a bug where the app would crash when switching generations in the calculator',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounters for Route 119 in Ruby, Sapphire, and Emerald',
+        type: 'FIX',
+      },
+      {
+        description:
+          'In order to see Route 16 or Lostlorn Forest for Black and White please reset all the encounters',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.2.0',
     date: 1661609675029,
     notes: [
