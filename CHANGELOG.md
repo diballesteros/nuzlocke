@@ -1,3 +1,22 @@
+## Version 5.2.1
+
+🐛 Bug Fix
+
+- Fire is no longer listed as having no effect on Ghost types
+- Flabébé should now correctly work with the calculator
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.12.1
+- Bumped @sentry/tracing to 7.12.1
+- Bumped html-to-image to 1.10.8
+- Bumped @types/jest to 29.0.0
+- Bumped @types/node to 18.7.13
+- Bumped @types/lodash to 4.14.184
+- Bumped cypress to 10.7.0
+- Bumped cypress-localstorage-commands 2.2.1
+- Bumped sass to 1.54.8
+
 ## Version 5.2.0
 
 💅 Enhancement

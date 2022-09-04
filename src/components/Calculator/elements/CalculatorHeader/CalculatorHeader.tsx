@@ -62,7 +62,12 @@ function CalculatorHeader(): JSX.Element {
             labeled
             inline
             onChange={(e, data) =>
-              update({ ...DEFAULT_VALUES, calculatorGen: data.value as GenerationNum })
+              update({
+                ...DEFAULT_VALUES,
+                pokemon1: 1,
+                pokemon2: 1,
+                calculatorGen: data.value as GenerationNum,
+              })
             }
             options={GENERATION_SELECT}
             placeholder={t('select')}
