@@ -1,3 +1,10 @@
+## Version 5.2.2
+
+🐛 Bug Fix
+
+- Fixed Route 119 and Magma Hideout encounters for Ruby, Emerald and Sapphire
+- Fixed Route 210 encounters for Diamond and Pearl
+
 ## Version 5.2.1
 
 🐛 Bug Fix
