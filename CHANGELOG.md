@@ -1,3 +1,19 @@
+## Version 5.2.2
+
+🐛 Bug Fix
+
+- Fixed Route 119 and Magma Hideout encounters for Ruby, Emerald and Sapphire
+- Fixed Route 210 encounters for Diamond and Pearl
+
+🏠 Internal
+
+- Bumped @testing-library/react to 13.4.0
+- Bumped react-i18next to 11.18.6
+- Bumped @types/react to 18.0.19
+- Bumped @types/node to 18.7.16
+- Bumped @types/lodash to 4.14.184
+- Bumped sass to 1.54.9
+
 ## Version 5.2.1
 
 🐛 Bug Fix

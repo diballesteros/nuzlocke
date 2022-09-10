@@ -2,6 +2,20 @@ import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
   {
+    name: 'Version 5.2.2',
+    date: 1662849769887,
+    notes: [
+      {
+        description: 'Fixed Route 119 and Magma Hideout encounters for Ruby, Emerald and Sapphire',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 210 encounters for Diamond and Pearl',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.2.1',
     date: 1662301999577,
     notes: [

@@ -1494,6 +1494,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Tropius',
     'Carvanha',
     'Feebas',
+    'Castform',
   ],
   'rse-33': ['Skitty', 'Plusle'],
   'rse-34': [
@@ -1583,7 +1584,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Shuppet',
     'Duskull',
   ],
-  'rse-41': ['Electrode'],
+  'rse-41': ['Electrode', 'Geodude'],
   'rse-42': [
     'Tentacool',
     'Magikarp',
@@ -2595,6 +2596,13 @@ const FILTERS: { [key in string]: string[] } = {
     'Barboach',
     'Whiscash',
     'Gyarados',
+    'Wurmple',
+    'Combee',
+    'Aipom',
+    'Burmy',
+    'Cherubi',
+    'Heracross',
+    'Munchlax',
   ],
   'dpp-40': [
     'Psyduck',
