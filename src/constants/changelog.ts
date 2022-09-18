@@ -1,6 +1,8 @@
+import { CHANGELOG2 } from 'constants/changelog_2';
 import type { TReleaseNotes } from 'constants/types';
 
 const CHANGELOG: TReleaseNotes = [
+  ...CHANGELOG2,
   {
     name: 'Version 5.2.2',
     date: 1662849769887,
