@@ -1,3 +1,37 @@
+## Version 5.2.3
+
+🐛 Bug Fix
+
+- Fixed Rustboro City encoutners in Ruby, Sapphire, and Emerald
+- Fixed Rustboro City, Route 119, Route 107, Route 126, Route 128, Route 129, and Route 130 encounters in Omega Ruby and Alpha Sapphire
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.13.0
+- Bumped @sentry/tracing to 7.13.0
+- Bumped @testing-library/react to 13.4.0
+- Bumped @types/jest to 29.0.3
+- Bumped @types/lodash to 4.14.185
+- Bumped @types/node to 18.7.18
+- Bumped @types/react to 18.0.20
+- Bumped cypress to 10.8.0
+
+## Version 5.2.2
+
+🐛 Bug Fix
+
+- Fixed Route 119 and Magma Hideout encounters for Ruby, Emerald and Sapphire
+- Fixed Route 210 encounters for Diamond and Pearl
+
+🏠 Internal
+
+- Bumped @testing-library/react to 13.4.0
+- Bumped react-i18next to 11.18.6
+- Bumped @types/react to 18.0.19
+- Bumped @types/node to 18.7.16
+- Bumped @types/lodash to 4.14.184
+- Bumped sass to 1.54.9
+
 ## Version 5.2.2
 
 🐛 Bug Fix
