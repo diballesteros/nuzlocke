@@ -2,6 +2,26 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.2.4',
+    date: 1664035513999,
+    notes: [
+      {
+        description: 'Fixed Safari Zone encounters for Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Fix encounters for Route 121, 123, Lilycove City, and Shoal Cave for Omega Ruby and Alpha Sapphire',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Scorched Slab as an encounter location for Omega Ruby and Alpha Sapphire, this requires an encounter reset to see',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.2.3',
     date: 1663512268548,
     notes: [
