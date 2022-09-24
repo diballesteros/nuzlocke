@@ -1,3 +1,11 @@
+## Version 5.2.4
+
+🐛 Bug Fix
+
+- Fixed Safari Zone encounters for Fire Red and Leaf Green
+- Fix encounters for Route 121, 123, Lilycove City, and Shoal Cave for Omega Ruby and Alpha Sapphire
+- Added Scorched Slab as an encounter location for Omega Ruby and Alpha Sapphire, this requires an encounter reset to see
+
 ## Version 5.2.3
 
 🐛 Bug Fix
