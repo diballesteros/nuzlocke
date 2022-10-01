@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.2.5',
+    date: 1664625343125,
+    notes: [
+      {
+        description: 'Added genders to pokemon in Emerald gym fight details',
+        type: 'UPDATE',
+      },
+    ],
+  },
+  {
     name: 'Version 5.2.4',
     date: 1664035513999,
     notes: [

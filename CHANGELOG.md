@@ -1,3 +1,24 @@
+## Version 5.2.5
+
+🐛 Bug Fix
+
+- Added genders to pokemon in Emerald gym fight details
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.14.0
+- Bumped @sentry/tracing to 7.14.0
+- Bumped @supabase/supabase-js to 1.35.7
+- Bumped i18next to 21.9.2
+- Bumped @types/jest to 29.1.1
+- Bumped @types/lodash to 4.14.186
+- Bumped @types/node to 18.7.23
+- Bumped @types/react to 18.0.21
+- Bumped cypress to 10.9.0
+- Bumped eslint-plugin-react to 7.31.8
+- Bumped sass to 1.55.0
+- Bumped source-map-explorer to 2.5.3
+
 ## Version 5.2.4
 
 🐛 Bug Fix
