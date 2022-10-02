@@ -5,6 +5,7 @@ import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
 import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { PkmImage } from 'common';
 import { Moves, PokemonType } from 'components';
+import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
 import { TYPE_COLOR } from 'constants/colors';
 import {
   D_STAT_COLOR,
@@ -90,7 +91,9 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
                   <div className={styles.pokemonImage}>
                     <PkmImage name={poke?.text} />
                   </div>
-                  <span>{poke?.text}</span>
+                  <span>
+                    {poke?.text} <span>{getGenderIcon(pokemon.gender)}</span>
+                  </span>
                   <span>Lv. {pokemon?.level}</span>
                 </div>
                 <div className={styles.pokemonDetails}>
