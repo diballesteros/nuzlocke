@@ -18,6 +18,7 @@
 - Bumped eslint-plugin-react to 7.31.8
 - Bumped sass to 1.55.0
 - Bumped source-map-explorer to 2.5.3
+- Bumped zustand to 4.1.1
 
 ## Version 5.2.4
 

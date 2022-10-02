@@ -1,6 +1,6 @@
-import produce from 'immer';
-import create, { State, StateCreator } from 'zustand';
+import create from 'zustand';
 import { persist } from 'zustand/middleware';
+import { immer } from 'zustand/middleware/immer';
 import BADGES, { GAME_CAP_DICTIONARY, LEVEL_CAPS } from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import {
@@ -31,20 +31,13 @@ import type {
   Type,
 } from 'constants/types';
 
-const immer =
-  <T extends State>(config: StateCreator<T>): StateCreator<T> =>
-  (set, get, api) =>
-    config(
-      (partial, replace) => {
-        const nextState =
-          typeof partial === 'function' ? produce(partial as (state: T) => T) : (partial as T);
-        return set(nextState, replace);
-      },
-      get,
-      api
-    );
+function assertAppState(val: unknown): asserts val is AppState {
+  if (typeof val !== 'object') {
+    throw new TypeError('Invalid app state');
+  }
+}
 
-const useStore = create<AppState>(
+const useStore = create<AppState>()(
   persist(
     immer((set) => ({
       badges: BADGES,
@@ -570,7 +563,8 @@ const useStore = create<AppState>(
     {
       name: 'pokemon-tracker',
       version: 8,
-      migrate: (persistedState: AppState, version) => {
+      migrate: (persistedState, version) => {
+        assertAppState(persistedState);
         const gameMigration = persistedState.games;
         if (version < 1) {
           Object.keys(gameMigration).forEach((key) => {
