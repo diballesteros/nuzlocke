@@ -2,6 +2,29 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.3.0',
+    date: 1665245743186,
+    notes: [
+      {
+        description: 'Added support for importing EV/IVs from games in the import menu',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Added EV/IV information to some of the USUM trials',
+        type: 'UPDATE',
+      },
+      {
+        description:
+          'Added postgame encounters for FireRed and LeafGreen (requires an encounter reset)',
+        type: 'UPDATE',
+      },
+      {
+        description: 'Silver Powder should now correctly factor into damage calculations',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.2.5',
     date: 1664625343125,
     notes: [

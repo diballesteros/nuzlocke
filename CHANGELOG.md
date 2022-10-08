@@ -1,3 +1,26 @@
+## Version 5.3.0
+
+💅 Enhancement
+
+- Added support for importing EV/IVs from games in the import menu
+- Added EV/IV information to some of the USUM trials
+- Added postgame encounters for FireRed and LeafGreen (requires an encounter reset)
+
+🐛 Bug Fix
+
+- Silver Powder should now correctly factor into damage calculations
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.14.2
+- Bumped @sentry/tracing to 7.14.2
+- Bumped i18next to 21.10.0
+- Bumped react-toastify to 9.0.8
+- Bumped semantic-ui-css to 2.5.0
+- Bumped @types/jest to 29.1.2
+- Bumped @types/node to 18.8.3
+- Bumped sass-loader to 13.1.0
+
 ## Version 5.2.5
 
 🐛 Bug Fix
