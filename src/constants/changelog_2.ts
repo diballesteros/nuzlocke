@@ -2,6 +2,21 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.4.0',
+    date: 1665875755336,
+    notes: [
+      {
+        description:
+          'Added support to skip encounters so it does not show up as the next available encounter by popping out the list and clicking on the eye icon',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Added Axew to encounters in Rolling Fields in Sword and Shield',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.3.0',
     date: 1665245743186,
     notes: [

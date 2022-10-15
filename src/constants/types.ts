@@ -23,6 +23,7 @@ export interface AppState {
   soulink: boolean;
   showAll: boolean;
   showAllTooltip: boolean;
+  skipped: TSkippedDictionary;
   suggestions: boolean;
   team: TTeamDictionary;
   text: string;
@@ -34,6 +35,7 @@ export interface AppState {
   addGame: (newGame: string, templateKey?: string) => void;
   addRule: (entry: TRuleEntry) => void;
   addRuleset: (newRuleset: string) => void;
+  addSkipped: (index: number) => void;
   addTeamMember: (pokemonId: number) => void;
   changeDetails: (
     encounterId: number,
@@ -84,6 +86,7 @@ export interface AppState {
   deleteEncounter: (encounterId: number) => void;
   deleteRule: (ruleIndex: number) => void;
   deleteRuleset: () => void;
+  deleteSkipped: (index: number) => void;
   deleteTeamMember: (teamIndex: number) => void;
   editBadge: (newBadge: string, i: number) => void;
   editCustomBadge: (newBadge: string, i: number) => void;
@@ -213,6 +216,8 @@ export type TLocation = {
 export type TNotesDictionary = { [key: string]: string };
 
 export type TRulesetDictionary = { [key: string]: TRuleEntry[] };
+
+export type TSkippedDictionary = { [key: string]: number[] };
 
 export type TRuleset = {
   key: string;

@@ -6,6 +6,7 @@ import { DEFAULT_VALUES } from 'constants/calculator';
 import {
   DEFAULT_RULES,
   DEFAULT_RULESET_NAMES,
+  EN_LANGUAGE,
   GAME_KEY_DICTIONARY,
   GAMES,
   INITIAL_STATE,
@@ -49,7 +50,7 @@ const useStore = create<AppState>()(
       games: INITIAL_STATE.games,
       gamesList: GAMES,
       gens: [],
-      language: 'en',
+      language: EN_LANGUAGE,
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
@@ -60,6 +61,7 @@ const useStore = create<AppState>()(
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
       showAllTooltip: INITIAL_STATE.showAllTooltip,
+      skipped: INITIAL_STATE.skipped,
       soulink: INITIAL_STATE.soulink,
       suggestions: INITIAL_STATE.suggestions,
       summary: INITIAL_STATE.summary,
@@ -123,6 +125,14 @@ const useStore = create<AppState>()(
       addRuleset: (rulesetName: string) =>
         set((state) => {
           state.rules[rulesetName] = [];
+        }),
+      addSkipped: (index: number) =>
+        set((state) => {
+          if (state.skipped[state?.selectedGame?.value]) {
+            state.skipped[state?.selectedGame?.value].push(index);
+          } else {
+            state.skipped[state?.selectedGame?.value] = [index];
+          }
         }),
       addTeamMember: (pokemonId: number) =>
         set((state) => {
@@ -351,6 +361,9 @@ const useStore = create<AppState>()(
           if (state.notes[state?.selectedGame?.value]) {
             delete state.notes[state?.selectedGame?.value];
           }
+          if (state.skipped[state?.selectedGame?.value]) {
+            delete state.skipped[state?.selectedGame?.value];
+          }
           const gameIndex = state.gamesList.findIndex(
             (game) => game.value === state?.selectedGame.value
           );
@@ -364,6 +377,16 @@ const useStore = create<AppState>()(
       deleteRuleset: () =>
         set((state) => {
           delete state.rules[state.selectedRuleset];
+        }),
+      deleteSkipped: (index: number) =>
+        set((state) => {
+          const skippedIndex = state.skipped[state?.selectedGame?.value].findIndex(
+            (skippedNumber) => {
+              return skippedNumber === index;
+            }
+          );
+          if (skippedIndex !== -1)
+            state.skipped[state?.selectedGame?.value].splice(skippedIndex, 1);
         }),
       deleteTeamMember: (teamIndex: number) =>
         set((state) => {
@@ -414,6 +437,7 @@ const useStore = create<AppState>()(
           if (newAppState.customBadges) state.customBadges = newAppState.customBadges;
           if (newAppState.customStatuses) state.customStatuses = newAppState.customStatuses;
           if (newAppState.notes) state.notes = newAppState.notes;
+          if (newAppState.skipped) state.skipped = newAppState.skipped;
         }),
       massImport: (newEncounters: TEncounter[]) =>
         set((state) => {

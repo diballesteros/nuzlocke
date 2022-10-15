@@ -82,16 +82,27 @@
       margin-bottom: var(--spacing-2);
       cursor: pointer;
 
-      > span {
-        margin-right: var(--spacing-2);
+      .innerListItem {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .left {
+          > span {
+            margin-right: var(--spacing-2);
+          }
+
+          > svg {
+            height: var(--spacing-4);
+            width: var(--spacing-4);
+          }
+        }
       }
 
+      &.last,
       &:hover {
-        text-decoration: underline;
-      }
-      > svg {
-        height: var(--spacing-4);
-        width: var(--spacing-4);
+        font-weight: bold;
+        background-color: var(--badgeopac);
       }
     }
   }

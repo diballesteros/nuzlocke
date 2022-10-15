@@ -222,6 +222,8 @@ describe('Encounters', () => {
     cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid="skip-encounter-7"]').click();
+    cy.get('[data-testid="skip-encounter-7"]').click();
     cy.get('[data-testid="scroll-to-last-encounter-7"]').click();
     cy.get('[data-testid="pokemon-7"]').should('exist').click();
     cy.contains('DUPE').should('exist');

@@ -6366,6 +6366,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Pangoro',
     'Haunter',
     'Mudsdale',
+    'Axew',
   ],
   'swsh-6': [
     'Vulpix',
