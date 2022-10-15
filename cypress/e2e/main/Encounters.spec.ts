@@ -222,9 +222,11 @@ describe('Encounters', () => {
     cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="skip-encounter-7"]').click();
     cy.get('[data-testid="skip-encounter-7"]').click();
-    cy.get('[data-testid="scroll-to-last-encounter-7"]').click();
+    cy.get('[data-testid="open-scroll-list"]').click();
+    cy.get('[data-testid="scroll-to-last-encounter-7"]').click({ force: true });
     cy.get('[data-testid="pokemon-7"]').should('exist').click();
     cy.contains('DUPE').should('exist');
     cy.get('[data-testid="poke-Growlithe"]').click({ force: true });
@@ -241,7 +243,7 @@ describe('Encounters', () => {
     cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="close-scroll-list"]').click();
     cy.get('[data-testid="open-scroll-list"]').click();
-    cy.get('[data-testid="scroll-to-encounter-0"] > span').click();
+    cy.get('[data-testid="scroll-to-encounter-0"]').click();
     cy.contains('Starter').should('be.visible');
     cy.get('[data-testid="nature-0"]').click();
     cy.get('[data-testid="nature-0"] > .visible > :nth-child(2)').click();
