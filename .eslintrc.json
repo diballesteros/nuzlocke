@@ -32,7 +32,7 @@
     },
     "ecmaVersion": 11,
     "sourceType": "module",
-    "project": ["./tsconfig.json", "./cypress/tsconfig.json"],
+    "project": ["tsconfig.json", "cypress/tsconfig.json"],
     "tsconfigRootDir": "./"
   },
   "plugins": ["@typescript-eslint"],

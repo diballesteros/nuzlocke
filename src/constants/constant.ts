@@ -19,6 +19,7 @@ import {
   AppState,
   TEncounter,
   TGame,
+  TLanguage,
   TRule,
   TRuleContent,
   TRuleEntry,
@@ -258,6 +259,7 @@ export const GAME_GENERATION: Record<string, GenerationNum> = {
 
 export const MAX_GAME = 13.1 as const;
 export const FAIRY_GEN = 9 as const;
+export const EN_LANGUAGE: TLanguage = 'en';
 
 export const INITIAL_STATE: Partial<AppState> = {
   badges: BADGES,
@@ -334,6 +336,7 @@ export const INITIAL_STATE: Partial<AppState> = {
   selectedRuleset: 'Nuzlocke',
   showAll: false,
   showAllTooltip: true,
+  skipped: {},
   soulink: false,
   suggestions: true,
   summary: {

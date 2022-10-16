@@ -1,3 +1,22 @@
+## Version 5.4.0
+
+🚀 New features
+
+- Added support to skip encounters so it does not show up as the next available encounter by popping out the list and clicking on the eye icon
+
+🐛 Bug Fix
+
+- Added Axew to encounters in Rolling Fields in Sword and Shield
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.15.0
+- Bumped @sentry/tracing to 7.15.0
+- Bumped zustand to 4.1.2
+- Bumped @types/node to 18.11.0
+- Bumped cypress to 10.10.0
+- Bumped eslint-plugin-react to 7.31.10
+
 ## Version 5.3.0
 
 💅 Enhancement

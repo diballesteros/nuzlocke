@@ -21,7 +21,10 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const notes = useStore(useCallback((state) => state.notes, []));
+  const skipped = useStore(useCallback((state) => state.skipped, []));
   const changeNotes = useStore(useCallback((state) => state.changeNotes, []));
+  const addSkipped = useStore(useCallback((state) => state.addSkipped, []));
+  const deleteSkipped = useStore(useCallback((state) => state.deleteSkipped, []));
   const selectedGame = useStore(
     useCallback((state) => state.selectedGame, []),
     shallow
@@ -32,9 +35,11 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   const [open, setOpen] = useState<'SCROLL_LIST' | 'NOTES' | null>(null);
 
   const lastEncounter = useMemo(() => {
-    const index = encounters?.findIndex((enc) => !enc.pokemon);
+    const index = encounters?.findIndex(
+      (enc, i) => !enc.pokemon && !skipped[selectedGame?.value]?.includes(i)
+    );
     return index > -1 ? index : encounters.length - 1;
-  }, [encounters]);
+  }, [encounters, selectedGame, skipped]);
 
   const getStatusSVG = (enc: TEncounter) => {
     switch (enc?.status?.value) {
@@ -71,6 +76,16 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
     setOpen(open === 'NOTES' ? null : 'NOTES');
   };
 
+  const onSkip = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
+    addSkipped(index);
+  };
+
+  const onDeleteSkip = (e: React.MouseEvent, index: number) => {
+    e.stopPropagation();
+    deleteSkipped(index);
+  };
+
   return (
     <>
       {open === 'SCROLL_LIST' && (
@@ -98,19 +113,39 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             </div>
           </div>
           <ol>
-            {encounters.map((encounter, index) => (
-              <li
-                aria-label={`scroll-to-encounter-${index}`}
-                data-testid={`scroll-to-encounter-${index}`}
-                key={encounter.id}
-                onClick={() => handleClick(index)}
-                role="menuitem"
-                tabIndex={0}
-              >
-                <span>{encounter.location}</span>
-                {getStatusSVG(encounter)}
-              </li>
-            ))}
+            {encounters.map((encounter, index) => {
+              const isSkipped = skipped[selectedGame?.value]?.includes(index);
+              return (
+                <li
+                  aria-label={`scroll-to-encounter-${index}`}
+                  className={index === lastEncounter ? styles.last : ''}
+                  data-testid={`scroll-to-encounter-${index}`}
+                  key={encounter.id}
+                  onClick={() => handleClick(index)}
+                  role="menuitem"
+                  tabIndex={0}
+                >
+                  <div className={styles.innerListItem}>
+                    <div className={styles.left}>
+                      <span>{encounter.location}</span>
+                      {getStatusSVG(encounter)}
+                    </div>
+                    <Button
+                      active={isSkipped}
+                      aria-label={`skip-encounter-${index}`}
+                      basic
+                      className={styles.skip}
+                      data-testid={`skip-encounter-${index}`}
+                      icon
+                      onClick={isSkipped ? (e) => onDeleteSkip(e, index) : (e) => onSkip(e, index)}
+                      toggle
+                    >
+                      <Icon name={isSkipped ? 'eye slash' : 'eye'} />
+                    </Button>
+                  </div>
+                </li>
+              );
+            })}
           </ol>
         </nav>
       )}
