@@ -3,7 +3,7 @@ import type { TReleaseNotes } from 'constants/types';
 export const CHANGELOG2: TReleaseNotes = [
   {
     name: 'Version 5.4.0',
-    date: 1665875755336,
+    date: 1665923670722,
     notes: [
       {
         description:
