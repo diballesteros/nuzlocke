@@ -85,6 +85,22 @@ describe('Custom game', () => {
     cy.get('[data-testid=add-encounter]').click();
     cy.get('[data-testid=add-encounter-input] > input').type('Test');
     cy.contains('Save').click();
+    cy.get('[data-testid=reset-all]').click();
+    cy.contains('Save').click();
+    cy.get('[data-testid=encounters-list]')
+      .children()
+      .children()
+      .children()
+      .should('have.length', 0);
+  });
+
+  it('Delete game with full options', () => {
+    cy.get('[data-testid=add-game]').click();
+    cy.get('[data-testid=add-game-input] > input').type('Emerald Kaizo');
+    cy.contains('Save').click();
+    cy.get('[data-testid=add-encounter]').click();
+    cy.get('[data-testid=add-encounter-input] > input').type('Test');
+    cy.contains('Save').click();
     cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="skip-encounter-0"]').click();
     cy.get('[data-testid="open-scroll-list"]').click();
@@ -93,12 +109,8 @@ describe('Custom game', () => {
       .type('These are notes')
       .should('have.value', 'These are notes');
     cy.get('[data-testid="close-scroll-list"]').click();
-    cy.get('[data-testid=reset-all]').click();
-    cy.contains('Save').click();
-    cy.get('[data-testid=encounters-list]')
-      .children()
-      .children()
-      .children()
-      .should('have.length', 0);
+    cy.get('[aria-label="deletegame"]').click();
+    cy.contains('Cancel').click();
+    cy.contains('OK').click();
   });
 });
