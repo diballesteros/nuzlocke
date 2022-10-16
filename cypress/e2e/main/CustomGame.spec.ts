@@ -110,7 +110,6 @@ describe('Custom game', () => {
       .should('have.value', 'These are notes');
     cy.get('[data-testid="close-scroll-list"]').click();
     cy.get('[aria-label="deletegame"]').click();
-    cy.contains('Cancel').click();
     cy.contains('OK').click();
   });
 });
