@@ -6,7 +6,7 @@ describe('Custom game', () => {
 
   context('Add custom game', () => {
     afterEach(() => {
-      cy.get('[data-testid=add-encounter-input] > input').type('Test');
+      cy.get('[data-testid=add-encounter-input] > input').type('Test', { force: true });
       cy.contains('Save').click();
       cy.get('[data-testid="open-scroll-list"]').click();
       cy.get('[data-testid="skip-encounter-0"]').click();
