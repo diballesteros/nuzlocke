@@ -1,3 +1,4 @@
+// @ts-expect-error: Cypress type definitions not found
 const stepTo = ($el, target) => {
   const step = $el[0].getAttribute('step') || 1;
   const current = $el[0].value;
@@ -32,6 +33,8 @@ describe('Calculator', () => {
     cy.get('[data-testid=nature1] > .visible > :nth-child(1)').click();
     cy.get('[data-testid=ability1] > .search').click().type('Overgrow');
     cy.get('[data-testid=ability1] > .visible > :nth-child(1)').click();
+    cy.get('[data-testid="item1"] > .search').type('Silver Powder', { force: true });
+    cy.get('[data-testid="item1"] > .visible > :nth-child(1)').click();
     cy.get('[data-testid="item1"] > .search').type('Miracle Seed', { force: true });
     cy.get('[data-testid="item1"] > .visible > :nth-child(1)').click();
     cy.contains(

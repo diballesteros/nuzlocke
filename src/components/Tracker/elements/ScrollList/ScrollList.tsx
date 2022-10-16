@@ -173,7 +173,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
           />
         </div>
       )}
-      {selectedGame?.value ? (
+      {!!selectedGame?.value && (
         <div className={styles.scrollList}>
           <Button
             aria-label="open-notes"
@@ -212,7 +212,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
             </button>
           )}
         </div>
-      ) : null}
+      )}
     </>
   );
 }

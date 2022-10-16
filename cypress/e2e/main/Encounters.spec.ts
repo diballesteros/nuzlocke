@@ -125,6 +125,8 @@ describe('Encounters', () => {
     cy.get('[data-testid="ivhp-substract"]').click();
     cy.get('[data-testid="ivhp-add"]').click();
 
+    cy.get('[data-testid="evhp-add"]').click();
+
     cy.contains('Save').click();
 
     cy.get('[data-testid="evolve-0}"]').click();
@@ -225,6 +227,8 @@ describe('Encounters', () => {
     cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="skip-encounter-7"]').click();
     cy.get('[data-testid="skip-encounter-7"]').click();
+    cy.get('[data-testid="skip-encounter-8"]').click();
+    cy.get('[data-testid="skip-encounter-8"]').click();
     cy.get('[data-testid="open-scroll-list"]').click();
     cy.get('[data-testid="scroll-to-last-encounter-7"]').click({ force: true });
     cy.get('[data-testid="pokemon-7"]').should('exist').click();

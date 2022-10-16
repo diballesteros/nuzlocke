@@ -20,15 +20,7 @@ describe('Error Boundary', () => {
   });
 
   test('Calc Error Boundary', () => {
-    const ThrowError = () => {
-      throw new Error('Test');
-    };
-
-    render(
-      <Sentry.ErrorBoundary fallback={<CalcErrorboundary />}>
-        <ThrowError />
-      </Sentry.ErrorBoundary>
-    );
+    render(<CalcErrorboundary />);
 
     expect(screen.getByTestId('calc-errorboundary')).toBeVisible();
     userEvent.click(screen.getByTestId('calc-error-reset'));

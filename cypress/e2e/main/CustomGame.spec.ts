@@ -10,6 +10,14 @@ describe('Custom game', () => {
       cy.contains('Save').click();
       cy.get('[data-testid=filter] > input').type('Test');
       cy.wait(1000);
+      cy.get('[data-testid="open-scroll-list"]').click();
+      cy.get('[data-testid="skip-encounter-0"]').click();
+      cy.get('[data-testid="open-scroll-list"]').click();
+      cy.get('[data-testid="open-notes"]').click();
+      cy.get('[data-testid="game-notes"]')
+        .type('These are notes')
+        .should('have.value', 'These are notes');
+      cy.get('[data-testid="close-scroll-list"]').click();
       cy.get('[data-testid=encounters-list]')
         .children()
         .children()
