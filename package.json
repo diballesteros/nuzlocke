@@ -27,7 +27,7 @@
   },
   "private": true,
   "dependencies": {
-    "@sentry/react": "^7.15.0",
+    "@sentry/react": "^7.16.0",
     "@sentry/tracing": "^7.15.0",
     "@smogon/calc": "^0.6.0",
     "@supabase/supabase-js": "^1.35.7",
