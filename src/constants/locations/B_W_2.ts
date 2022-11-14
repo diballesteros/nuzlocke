@@ -156,6 +156,20 @@ const B_W_2: TEncounter[] = [
     filterKey: 'bw2-21',
   },
   {
+    id: 45,
+    pokemon: null,
+    location: 'Guidance Chamber',
+    status: null,
+    filterKey: 'bw2-45',
+  },
+  {
+    id: 46,
+    pokemon: null,
+    location: 'Rumination Field',
+    status: null,
+    filterKey: 'bw2-46',
+  },
+  {
     id: 22,
     pokemon: null,
     location: 'Chargestone Cave',
@@ -301,6 +315,20 @@ const B_W_2: TEncounter[] = [
     location: 'Victory Road',
     status: null,
     filterKey: 'bw2-41',
+  },
+  {
+    id: 47,
+    pokemon: null,
+    location: 'Trial Chamber',
+    status: null,
+    filterKey: 'bw2-47',
+  },
+  {
+    id: 48,
+    pokemon: null,
+    location: 'P2 Laboratory',
+    status: null,
+    filterKey: 'bw2-48',
   },
 ];
 

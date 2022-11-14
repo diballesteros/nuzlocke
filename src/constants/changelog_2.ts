@@ -2,6 +2,33 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.4.1',
+    date: 1668459228974,
+    notes: [
+      {
+        description: "Corrected typo with Ghetsis's name",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Magma Hideout encounters for Emerald',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed Route 209 encounters for Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Liberty Garden encounter to Black and White',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Trial Chamber, Guidance Chamber, Rumination Field and P2 Laboratory encounters for Black and White 2',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.4.0',
     date: 1665923670722,
     notes: [
