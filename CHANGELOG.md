@@ -1,3 +1,13 @@
+## Version 5.4.1
+
+🐛 Bug Fix
+
+- Corrected typo with Ghetsis's name
+- Fixed Magma Hideout encounters for Emerald
+- Fixed Route 209 encounters for Diamond, Pearl, and Platinum
+- Added Liberty Garden encounter to Black and White
+- Added Trial Chamber, Guidance Chamber, Rumination Field and P2 Laboratory encounters for Black and White 2
+
 ## Version 5.4.0
 
 🚀 New features
@@ -11,7 +21,7 @@
 🏠 Internal
 
 - Bumped @sentry/react to 7.15.0
-- Bumped @sentry/tracing to 7.15.0
+- Bumped @sentry/tracing to 7.15.0`
 - Bumped zustand to 4.1.2
 - Bumped @types/node to 18.11.0
 - Bumped cypress to 10.10.0
