@@ -1708,7 +1708,16 @@ const FILTERS: { [key in string]: string[] } = {
     'Gyarados',
   ],
   'frlg-10': ['Clefairy', 'Zubat', 'Paras', 'Geodude'],
-  'frlg-11': ['Psyduck', 'Tentacool', 'Slowpoke', 'Krabby', 'Horsea', 'Magikarp', 'Gyarados'],
+  'frlg-11': [
+    'Psyduck',
+    'Tentacool',
+    'Slowpoke',
+    'Krabby',
+    'Horsea',
+    'Magikarp',
+    'Gyarados',
+    'Jynx',
+  ],
   'frlg-12': [
     'Caterpie',
     'Metapod',
@@ -1940,6 +1949,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Absol',
     'Chingling',
     'Bronzor',
+    'Articuno',
   ],
   'frlg-43': [
     'Psyduck',
@@ -6665,6 +6675,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Dusclops',
     'Glalie',
     'Golurk',
+    'Cherubi',
   ],
   'swsh-12': [
     'Machoke',
@@ -8884,5 +8895,6 @@ const FILTERS: { [key in string]: string[] } = {
   'bdsp-67': ['Uxie'],
   'bdsp-68': ['Dialga', 'Palkia'],
   'bdsp-69': ['Omanyte', 'Kabuto', 'Aerodactyl', 'Lileep', 'Anorith', 'Cranidos', 'Shieldon'],
+  'bdsp-70': ['Jirachi', 'Mew'],
 };
 export default FILTERS;

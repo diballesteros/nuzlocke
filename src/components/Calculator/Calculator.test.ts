@@ -1,5 +1,6 @@
 import { Result } from '@smogon/calc';
 import { assertIndex, assertResult, getPokemon, getResults } from 'hooks/useCalculate';
+import { TFunction } from 'i18next';
 import { getDesc } from './elements/CalculatorHeader/CalculatorHeader';
 
 describe('Calculator function tests', () => {
@@ -25,7 +26,7 @@ describe('Calculator function tests', () => {
     function mockTFunction() {
       return 'Invalid calculation';
     }
-    const value = getDesc(result as unknown as Result, mockTFunction);
+    const value = getDesc(result as unknown as Result, mockTFunction as unknown as TFunction);
     expect(value).toEqual('Invalid calculation');
   });
 
