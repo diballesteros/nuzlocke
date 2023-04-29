@@ -3,7 +3,7 @@ import type { TReleaseNotes } from 'constants/types';
 export const CHANGELOG2: TReleaseNotes = [
   {
     name: 'Version 5.4.2',
-    date: 1672945091266,
+    date: 1682784141071,
     notes: [
       {
         description:
@@ -17,6 +17,14 @@ export const CHANGELOG2: TReleaseNotes = [
       {
         description:
           'Added Floaroma Town in Brilliant Diamond and Shining Pearl. This requires an encounter reset to see',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Trophy Garden in Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Cobalion to Mistralton Cave in Black and White',
         type: 'FIX',
       },
     ],

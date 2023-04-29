@@ -47,7 +47,7 @@ describe('Encounters', () => {
     cy.get('.st0Fire').click({ force: true });
     cy.contains('Super effective against').should('exist');
     cy.get('.tabular > :nth-child(3)').click();
-    cy.get('.st0Steel').click({ force: true, multiple: true });
+    cy.get('.st0Steel').first().click({ force: true });
     cy.get('[data-testid=effect-close]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
     cy.contains('Scorbunny').should('exist');

@@ -5,32 +5,34 @@
 - Fixed encounters for Cerulean City and Seafoam Islands in Fire Red and Leaf Green
 - Added Cherubi to Watchtower Ruins in Sword and Shield
 - Added Floaroma Town in Brilliant Diamond and Shining Pearl. This requires an encounter reset to see
+- Added Trophy Garden in Diamond, Pearl, and Platinum
+- Added Cobalion to Mistralton Cave in Black and White
 
 🏠 Internal
 
-- Bumped @sentry/react to 7.29.0
-- Bumped @sentry/tracing to 7.29.0
-- Bumped html-to-image to 1.11.4
-- Bumped i18next to 22.4.8
+- Bumped @sentry/react to 7.50.0
+- Bumped @sentry/tracing to 7.50.0
+- Bumped html-to-image to 1.11.11
+- Bumped i18next to 22.4.15
 - Bumped immer to 9.0.17
-- Bumped react-i18next to 12.1.1
-- Bumped react-router-dom to 6.6.1
-- Bumped react-toastify to 9.1.1
-- Bumped react-window to 1.8.8
+- Bumped react-i18next to 12.2.2
+- Bumped react-router-dom to 6.11.0
+- Bumped react-toastify to 9.1.2
+- Bumped react-window to 1.8.9
 - Bumped semantic-ui-react to 2.1.4
-- Bumped zustand to 4.2.0
-- Bumped @types/jest to 29.2.5
-- Bumped @types/lodash to 4.14.191
-- Bumped @types/node to 18.11.18
-- Bumped @types/react to 18.0.26
-- Bumped @types/react-dom to 18.0.10
-- Bumped cypress to 12.3.0
-- Bumped cypress-localstorage-commands to 2.2.2
+- Bumped zustand to 4.3.7
+- Bumped @types/jest to 29.5.1
+- Bumped @types/lodash to 4.14.194
+- Bumped @types/node to 18.16.3
+- Bumped @types/react to 18.2.0
+- Bumped @types/react-dom to 18.2.1
+- Bumped cypress to 12.11.0
+- Bumped cypress-localstorage-commands to 2.2.3
 - Bumped eslint-config-prettier to 8.6.0
 - Bumped to eslint-plugin-react to 7.31.11
-- Bumped prettier to 2.8.1
-- Bumped sass to 1.57.1
-- Bumped sass-loader to 13.2.0
+- Bumped prettier to 2.8.8
+- Bumped sass to 1.62.1
+- Bumped sass-loader to 13.2.2
 
 ## Version 5.4.1
 
