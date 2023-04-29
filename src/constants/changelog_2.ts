@@ -2,6 +2,34 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.4.2',
+    date: 1682784141071,
+    notes: [
+      {
+        description:
+          'Fixed encounters for Cerulean City and Seafoam Islands in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Cherubi to Watchtower Ruins in Sword and Shield',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Floaroma Town in Brilliant Diamond and Shining Pearl. This requires an encounter reset to see',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Trophy Garden in Diamond, Pearl, and Platinum',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Cobalion to Mistralton Cave in Black and White',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.4.1',
     date: 1668459228974,
     notes: [
