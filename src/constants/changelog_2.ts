@@ -2,6 +2,16 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.4.3',
+    date: 1685291528317,
+    notes: [
+      {
+        description: "Fixed Fantina's Mismagius' moveset in Brilliant Diamong and Shining Pearl",
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.4.2',
     date: 1682784141071,
     notes: [

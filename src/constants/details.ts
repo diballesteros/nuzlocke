@@ -8881,7 +8881,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             id: 429,
             item: 'Expert Belt',
             level: 36,
-            moves: [109, 60, 345, 605],
+            moves: [109, 566, 345, 605],
             nature: 'Timid',
           },
         ],

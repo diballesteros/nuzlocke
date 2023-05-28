@@ -1,3 +1,9 @@
+## Version 5.4.3
+
+🐛 Bug Fix
+
+- Fixed Fantina's Mismagius' moveset in Brilliant Diamong and Shining Pearl
+
 ## Version 5.4.2
 
 🐛 Bug Fix
