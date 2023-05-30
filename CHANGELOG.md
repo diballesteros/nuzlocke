@@ -1,3 +1,28 @@
+## Version 5.4.4
+
+🏠 Internal
+
+- Update to Github Actions
+- Bumped @sentry/react to 7.53.1
+- Bumped @sentry/tracing to 7.53.1
+- Bumped i18next to 22.5.0
+- Bumped immer to 10.0.2
+- Bumped react-i18next to 12.3.1
+- Bumped react-router-dom to 6.11.2
+- Bumped react-toastify to 9.1.3
+- Bumped zustand to 4.3.8
+- Bumped @cypress/code-coverage to 3.10.6
+- Bumped @types/lodash to 4.14.195
+- Bumped @types/node to 20.2.5
+- Bumped @types/react to 18.2.7
+- Bumped @types/react-dom to 18.2.4
+- Bumped cypress to 12.13.0
+- Bumped eslint-config-prettier to 8.8.0
+- Bumped eslint-plugin-import to 2.27.5
+- Bumped eslint-plugin-jsx-a11y to 6.7.1
+- Bumped to eslint-plugin-react to 7.32.2
+- Bumped sass-loader to 13.3.1
+
 ## Version 5.4.3
 
 🐛 Bug Fix

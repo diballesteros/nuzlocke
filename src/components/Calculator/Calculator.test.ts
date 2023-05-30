@@ -1,6 +1,6 @@
 import { Result } from '@smogon/calc';
-import { assertIndex, assertResult, getPokemon, getResults } from 'hooks/useCalculate';
 import { TFunction } from 'i18next';
+import { assertIndex, assertResult, getPokemon, getResults } from 'hooks/useCalculate';
 import { getDesc } from './elements/CalculatorHeader/CalculatorHeader';
 
 describe('Calculator function tests', () => {
