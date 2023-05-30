@@ -75,7 +75,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
         ) {
           alert = 'FORBIDDEN GEN';
         }
-        if (levelRule?.content < encounter?.details?.level) {
+        if ((levelRule?.content as number) < encounter?.details?.level) {
           alert = 'OVERLEVELED';
         }
         if (
