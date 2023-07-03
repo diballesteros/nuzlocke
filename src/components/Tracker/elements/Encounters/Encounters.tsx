@@ -6,7 +6,7 @@ import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { Status } from 'components';
 import {
   Detail,

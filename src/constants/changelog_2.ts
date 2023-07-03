@@ -2,6 +2,20 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.4.5',
+    date: 1688385563589,
+    notes: [
+      {
+        description: 'Fixed encounter list for Safari Zone in Yellow',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed encounter list for Seafoam island in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.4.3',
     date: 1685291528317,
     notes: [

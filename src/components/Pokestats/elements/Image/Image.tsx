@@ -2,7 +2,7 @@ import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { PkmImage } from 'common';
 import { Moves, PokeInfo } from 'components';
 import { Tip } from 'components/Pokestats/elements';

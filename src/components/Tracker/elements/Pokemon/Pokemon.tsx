@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { PkmImage, PokemonSelector } from 'common';
 import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
 import FILTERS from 'constants/filters';
