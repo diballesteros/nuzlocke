@@ -9,8 +9,6 @@
 
 - Bumped @sentry/react to 7.57.0
 - Bumped @sentry/tracing to 7.57.0
-- Bumped i18next to 23.2.6
-- Bumped react-i18next to 13.0.1
 - Bumped react-router-dom to 6.14.1
 - Bumped @cypress/code-coverage to 3.10.8
 - Bumped @types/jest to 29.5.2
