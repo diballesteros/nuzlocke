@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { DisplaySettings, Image } from 'components/Pokestats/elements';
 import useStore from 'store';
 import styles from './Summary.module.scss';

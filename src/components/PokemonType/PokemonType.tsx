@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import { Type } from 'components';
 import { FAIRY_GEN } from 'constants/constant';
 import type { TPokemon } from 'constants/types';

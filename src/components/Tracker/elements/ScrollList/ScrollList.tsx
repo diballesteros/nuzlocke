@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon';
-import shallow from 'zustand/shallow';
+import { shallow } from 'zustand/shallow';
 import type { TEncounter } from 'constants/types';
 import { selectCaught, selectFailed, selectFainted } from 'selectors';
 import useStore from 'store';
