@@ -3,16 +3,16 @@ on: [push]
 jobs:
   install:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.17.0-chrome88-ff89
+    container: cypress/browsers:node18.12.0-chrome107
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🌲 Cypress install
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           runTests: false
       # report machine parameters
@@ -21,7 +21,7 @@ jobs:
       - run: yarn build
 
       - name: 📁 Save build folder
-        uses: actions/upload-artifact@v3.1.2
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: build
           if-no-files-found: error
@@ -32,10 +32,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🎓 Install dependencies
         run: yarn install --ignore-platform
@@ -47,12 +47,12 @@ jobs:
         run: yarn test --ci --coverage
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.2.0
 
   ui-chrome-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.17.0-chrome88-ff89
+    container: cypress/browsers:node18.12.0-chrome107
     needs: install
     strategy:
       fail-fast: false
@@ -61,19 +61,19 @@ jobs:
         containers: [1, 2, 3, 4]
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.4
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: yarn run develop:ci
           wait-on: http://localhost:3000
@@ -89,12 +89,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.2.0
 
   ui-chrome-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.17.0-chrome88-ff89
+    container: cypress/browsers:node18.12.0-chrome107
     needs: install
     strategy:
       fail-fast: false
@@ -103,19 +103,19 @@ jobs:
         containers: [1, 2, 3, 4]
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.4
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Chrome'
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: yarn run develop:ci
           wait-on: http://localhost:3000
@@ -131,13 +131,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.2.0
 
   ui-firefox-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node18.17.0-chrome88-ff89
+      image: cypress/browsers:node18.12.0-chrome107
       options: --user 1001
     needs: install
     strategy:
@@ -147,19 +147,19 @@ jobs:
         containers: [1, 2, 3, 4]
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.4
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Firefox'
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: yarn run develop:ci
           wait-on: 'http://localhost:3000'
@@ -175,13 +175,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.2.0
 
   ui-firefox-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node18.17.0-chrome88-ff89
+      image: cypress/browsers:node18.12.0-chrome107
       options: --user 1001
     needs: install
     strategy:
@@ -191,19 +191,19 @@ jobs:
         containers: [1, 2, 3, 4]
     steps:
       - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.11.0
+        uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.4
         with:
           name: build
           path: build
 
       - name: 💻 'UI Tests - Firefox'
-        uses: cypress-io/github-action@v4
+        uses: cypress-io/github-action@v6
         with:
           start: yarn run develop:ci
           wait-on: 'http://localhost:3000'
@@ -219,4 +219,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: ✅ Upload coverage to Codecov
-        uses: codecov/codecov-action@v3.1.4
+        uses: codecov/codecov-action@v4.2.0
