@@ -3,18 +3,15 @@ on: [push]
 jobs:
   install:
     runs-on: ubuntu-latest
-    container: cypress/browsers:node18.12.0-chrome107
+    container: 
+        image: cypress/browsers:node18.12.0-chrome107
+        options: --user 1001
     steps:
       - name: 🛑 Cancel Previous Runs
         uses: styfle/cancel-workflow-action@0.12.1
 
       - name: 🛫 Checkout
         uses: actions/checkout@v4
-
-        ## Workaround https://github.com/cypress-io/cypress/issues/19981
-        ## workaround name with an emoji
-      - name: 🗿 Work around
-        run: chown -R 1001:1001 /github/home/.cache && echo "pwn dat cache"
 
       - name: 🌲 Cypress install
         uses: cypress-io/github-action@v6
