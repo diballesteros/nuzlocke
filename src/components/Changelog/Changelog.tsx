@@ -8,7 +8,7 @@ import type { TReleaseGroup } from 'constants/types';
 import useStore from 'store';
 import styles from './Changelog.module.scss';
 
-function Changelog(): JSX.Element {
+function Changelog(): React.JSX.Element {
   const { t, i18n } = useTranslation('common');
   const [logs, setLogs] = useState(3);
   const removeNew = useStore((state) => state.removeNew);

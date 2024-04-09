@@ -1,4 +1,4 @@
-import { ReactText, useCallback, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -11,7 +11,7 @@ import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './AddRule.module.scss';
 
-function AddRule(): JSX.Element {
+function AddRule(): React.JSX.Element {
   const { t } = useTranslation('rules');
   const addRule = useStore(useCallback((state) => state.addRule, []));
   const rules = useStore(useCallback((state) => state.rules, []));
@@ -143,7 +143,7 @@ function AddRule(): JSX.Element {
     setGens([]);
   };
 
-  const handleTabChange = (newIndex: ReactText) => {
+  const handleTabChange = (newIndex: string | number) => {
     setTab(Number(newIndex));
   };
 

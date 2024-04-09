@@ -8,7 +8,7 @@ import apple from 'assets/svg/Download_on_the_App_Store_Badge_US-UK_RGB_blk_0929
 import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
-function About(): JSX.Element {
+function About(): React.JSX.Element {
   const { t } = useTranslation('about');
   return (
     <Page header={t('about')}>

@@ -6,7 +6,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import useStore from 'store';
 import styles from './Back.module.scss';
 
-function Back(): JSX.Element {
+function Back(): React.JSX.Element {
   const { t } = useTranslation('common');
   const navigate = useNavigate();
   const darkMode = useStore(useCallback((state) => state.darkMode, []));

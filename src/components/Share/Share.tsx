@@ -14,7 +14,7 @@ interface ShareProps {
   text: string;
 }
 
-function Share({ disabled, icon = false, text }: ShareProps): JSX.Element {
+function Share({ disabled, icon = false, text }: ShareProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   const appState = useStore((state) => state);

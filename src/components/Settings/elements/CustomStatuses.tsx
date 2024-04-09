@@ -8,7 +8,7 @@ import modalStyles from 'assets/styles/Modal.module.scss';
 
 import styles from './CustomStatuses.module.scss';
 
-function CustomStatuses(): JSX.Element {
+function CustomStatuses(): React.JSX.Element {
   const { t } = useTranslation('settings');
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');

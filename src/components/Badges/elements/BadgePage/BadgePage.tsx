@@ -1,4 +1,4 @@
-import { ReactText, useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
@@ -8,7 +8,7 @@ import DETAILS from 'constants/details';
 import useStore from 'store';
 import styles from './BadgePage.module.scss';
 
-function BadgePage(): JSX.Element {
+function BadgePage(): React.JSX.Element {
   const navigate = useNavigate();
   const { badge, game } = useParams();
   const { t } = useTranslation('badges');
@@ -45,7 +45,7 @@ function BadgePage(): JSX.Element {
       })
     : null;
 
-  const handleTabChange = (newIndex: ReactText) => {
+  const handleTabChange = (newIndex: string | number) => {
     setTab(Number(newIndex));
   };
 

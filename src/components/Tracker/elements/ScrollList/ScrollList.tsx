@@ -2,7 +2,6 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon';
-import { shallow } from 'zustand/shallow';
 import type { TEncounter } from 'constants/types';
 import { selectCaught, selectFailed, selectFainted } from 'selectors';
 import useStore from 'store';
@@ -17,7 +16,7 @@ interface ScrollListProps {
   scrollTo: (index: number) => void;
 }
 
-function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
+function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const notes = useStore(useCallback((state) => state.notes, []));
@@ -25,10 +24,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): JSX.Element {
   const changeNotes = useStore(useCallback((state) => state.changeNotes, []));
   const addSkipped = useStore(useCallback((state) => state.addSkipped, []));
   const deleteSkipped = useStore(useCallback((state) => state.deleteSkipped, []));
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const fainted = useStore(selectFainted);
   const failed = useStore(selectFailed);
   const caught = useStore(selectCaught);

@@ -14,7 +14,7 @@ interface CustomBadgeEditorProps {
   icon?: boolean;
 }
 
-function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): JSX.Element {
+function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element {
   const { t } = useTranslation('badges');
   const [open, setOpen] = useState(false);
   const badges = useStore(useCallback((state) => state.customBadges, []));

@@ -10,7 +10,7 @@ interface TypeProps {
   type: TType;
 }
 
-function Type({ hideName = false, type }: TypeProps): JSX.Element {
+function Type({ hideName = false, type }: TypeProps): React.JSX.Element {
   const showTypeModal = useStore(useCallback((state) => state.showTypeModal, []));
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {

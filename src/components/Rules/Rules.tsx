@@ -15,7 +15,7 @@ import useStore from 'store';
 import modalStyles from 'assets/styles/Modal.module.scss';
 import styles from './Rules.module.scss';
 
-function Rules(): JSX.Element {
+function Rules(): React.JSX.Element {
   const { t } = useTranslation('rules');
   const rules = useStore(useCallback((state) => state.rules, []));
   const reorderRule = useStore(useCallback((state) => state.reorderRule, []));

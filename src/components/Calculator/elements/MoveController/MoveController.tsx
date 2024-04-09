@@ -9,7 +9,7 @@ interface MoveControllerProps {
   pokemon: '1' | '2';
 }
 
-function MoveController({ move, pokemon }: MoveControllerProps): JSX.Element {
+function MoveController({ move, pokemon }: MoveControllerProps): React.JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
 

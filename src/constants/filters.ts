@@ -41,7 +41,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Seaking',
   ],
   'rby-10': ['Sandshrew', 'Clefairy', 'Zubat', 'Paras', 'Geodude'],
-  'rby-11': ['Bulbasaur', 'Psyduck', 'Poliwag', 'Krabby', 'Goldeen', 'Seaking', 'Magikarp'],
+  'rby-11': ['Bulbasaur', 'Psyduck', 'Poliwag', 'Krabby', 'Goldeen', 'Seaking', 'Magikarp', 'Jynx'],
   'rby-12': [
     'Charmander',
     'Caterpie',
@@ -717,6 +717,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Yanma',
     'Pineco',
     'Snubbull',
+    'Spearow',
   ],
   'gsc-20': [
     'Caterpie',
@@ -1160,6 +1161,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Magikarp',
     'Hoothoot',
     'Noctowl',
+    'Slugma',
   ],
   'gsc-61': ['Fearow', 'Grimer', 'Muk', 'Slugma'],
   'gsc-62': ['Fearow', 'Grimer', 'Muk', 'Slugma'],
@@ -1994,6 +1996,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Seadra',
     'Magikarp',
     'Gyarados',
+    'Mr. Mime',
   ],
   'frlg-46': [
     'Psyduck',
@@ -3415,6 +3418,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Ditto',
     'Hoothoot',
     'Yanma',
+    'Spearow',
   ],
   'hgss-20': [
     'Caterpie',
@@ -3628,7 +3632,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Magikarp',
   ],
   'hgss-49': ['Treecko', 'Torchic', 'Mudkip'],
-  'hgss-50': ['Pidgey', 'Oddish', 'Gloom', 'Meowth', 'Abra', 'Bellsprout'],
+  'hgss-50': ['Pidgey', 'Oddish', 'Gloom', 'Meowth', 'Abra', 'Bellsprout', 'Combee'],
   'hgss-51': [
     'Rattata',
     'Raticate',
@@ -3673,6 +3677,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Goldeen',
     'Seaking',
     'Magikarp',
+    'Buizel',
   ],
   'hgss-56': ['Goldeen', 'Seaking', 'Magikarp'],
   'hgss-57': [
@@ -4038,6 +4043,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Azurill',
     'Torkoal',
     'Luxio',
+    'Psyduck',
   ],
   'hgss-89': [
     'Raticate',
@@ -4916,7 +4922,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Slowpoke',
     'Amoonguss',
   ],
-  'bw2-45': ['Boldore', 'Woobat', 'Axew', 'Drilbur', 'Cobalion'],
+  'bw2-45': ['Boldore', 'Woobat', 'Axew', 'Drilbur', 'Cobalion', 'Aron'],
   'bw2-46': ['Virizion'],
   'bw2-47': ['Terrakion', 'Boldore', 'Woobat', 'Mienfoo', 'Durant', 'Excadrill'],
   'bw2-48': [
@@ -4993,7 +4999,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Swablu',
   ],
   'oras-10': ['Abra', 'Poochyena', 'Zigzagoon', 'Taillow', 'Nincada', 'Whismur', 'Skitty'],
-  'oras-11': ['Whismur'],
+  'oras-11': ['Whismur', 'Geodude'],
   'oras-12': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer'],
   'oras-13': ['Tentacool', 'Magikarp', 'Wingull', 'Pelipper', 'Wailmer'],
   'oras-14': [
@@ -6431,6 +6437,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Haunter',
     'Mudsdale',
     'Axew',
+    'Barboach',
   ],
   'swsh-6': [
     'Vulpix',
@@ -7080,6 +7087,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Rhydon',
     'Unfezant',
     'Crustle',
+    'Wynaut',
   ],
   'swsh-26': [
     'Dugtrio',
@@ -7978,6 +7986,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Gothorita',
     'Amoonguss',
     'Foongus',
+    'Garbodor',
+    'Bannette',
   ],
   'xy-43': [
     'Poliwag',

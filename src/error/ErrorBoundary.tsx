@@ -1,4 +1,4 @@
-function ErrorBoundary(): JSX.Element {
+function ErrorBoundary(): React.JSX.Element {
   return (
     <main
       data-testid="errorboundary"

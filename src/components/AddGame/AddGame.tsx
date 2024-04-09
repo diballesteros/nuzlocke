@@ -12,7 +12,7 @@ import styles from './AddGame.module.scss';
 
 const NONE = 'none';
 
-function AddGame(): JSX.Element {
+function AddGame(): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const [template, setTemplate] = useState(NONE);

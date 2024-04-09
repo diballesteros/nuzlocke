@@ -8,7 +8,7 @@ import type { TLanguage } from 'constants/types';
 import useStore from 'store';
 import styles from './Settings.module.scss';
 
-function Settings(): JSX.Element {
+function Settings(): React.JSX.Element {
   const { t, i18n } = useTranslation('settings');
   const appState = useStore((state) => state);
 

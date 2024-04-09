@@ -8,7 +8,7 @@ interface ButtonControllerProps {
   name: keyof TCalculatorForm;
 }
 
-function ButtonController({ label, name }: ButtonControllerProps): JSX.Element {
+function ButtonController({ label, name }: ButtonControllerProps): React.JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
 

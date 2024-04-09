@@ -12,7 +12,7 @@ interface ResetEncounterProps {
   icon?: boolean;
 }
 
-function ResetEncounters({ icon = false }: ResetEncounterProps): JSX.Element {
+function ResetEncounters({ icon = false }: ResetEncounterProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));

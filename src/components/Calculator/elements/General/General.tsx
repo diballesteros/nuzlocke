@@ -18,7 +18,7 @@ interface GeneralProps {
   pokemon: '1' | '2';
 }
 
-function General({ encounters, pokemon }: GeneralProps): JSX.Element {
+function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));

@@ -19,7 +19,7 @@ interface MemberProps {
   pokemonDetail: PokemonDetail;
 }
 
-function Member({ index, pokemonDetail }: MemberProps): JSX.Element {
+function Member({ index, pokemonDetail }: MemberProps): React.JSX.Element {
   const { t } = useTranslation('builder');
   const pokemon = POKEMAP.get(pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));

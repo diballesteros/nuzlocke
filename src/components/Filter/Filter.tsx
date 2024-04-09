@@ -15,7 +15,7 @@ interface FilterProps {
   values: TFilter;
 }
 
-function Filter({ darkMode = false, hideGen = false, values }: FilterProps): JSX.Element {
+function Filter({ darkMode = false, hideGen = false, values }: FilterProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
   return (

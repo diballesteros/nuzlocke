@@ -3625,7 +3625,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             id: 241,
             item: 'Lum Berry',
             level: 19,
-            moves: [205, 213, 23, 205],
+            moves: [205, 213, 23, 208],
           },
         ],
         game: 'HeartGold and SoulSilver',
@@ -5131,7 +5131,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             moves: [372, 33, 123, 474],
           },
           {
-            ability: 'Levitate',
+            ability: 'Stench',
             id: 88,
             level: 17,
             moves: [474, 189, 139, 50],

@@ -5,7 +5,7 @@ import { selectBuilderStrong, selectBuilderWeak } from 'selectors';
 import useStore from 'store';
 import styles from './Coverage.module.scss';
 
-function Coverage(): JSX.Element {
+function Coverage(): React.JSX.Element {
   const { t } = useTranslation('builder');
   const strong = useStore(selectBuilderStrong);
   const weak = useStore(selectBuilderWeak);

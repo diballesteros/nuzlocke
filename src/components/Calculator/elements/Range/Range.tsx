@@ -9,7 +9,7 @@ interface RangeProps {
   max: number;
 }
 
-function Range({ label, name, max }: RangeProps): JSX.Element {
+function Range({ label, name, max }: RangeProps): React.JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const fieldValue = form[name] as number;

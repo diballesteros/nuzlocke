@@ -24,7 +24,7 @@ function DetailSelector({
   details,
   handleDetail,
   limitGen,
-}: DetailSelectorProps): JSX.Element {
+}: DetailSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const itemSize = useRemtoPx();

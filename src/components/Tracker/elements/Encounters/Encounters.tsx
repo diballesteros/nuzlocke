@@ -6,7 +6,6 @@ import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
-import { shallow } from 'zustand/shallow';
 import { Status } from 'components';
 import {
   Detail,
@@ -39,22 +38,10 @@ const Encounters = React.memo(function Encounters() {
   const types = useStore(useCallback((state) => state.types, []));
   const nicknames = useStore(useCallback((state) => state.nicknames, []));
   const isNatureGen = useStore(selectNAGeneration);
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
-  const clearEncounter = useStore(
-    useCallback((state) => state.clearEncounter, []),
-    shallow
-  );
-  const deleteEncounter = useStore(
-    useCallback((state) => state.deleteEncounter, []),
-    shallow
-  );
-  const changeLevel = useStore(
-    useCallback((state) => state.changeLevel, []),
-    shallow
-  );
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const clearEncounter = useStore(useCallback((state) => state.clearEncounter, []));
+  const deleteEncounter = useStore(useCallback((state) => state.deleteEncounter, []));
+  const changeLevel = useStore(useCallback((state) => state.changeLevel, []));
   const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
   const [confirm, setConfirm] = useState(false);
   const itemSize = useRemtoPx(nicknames ? NICKNAME_HEIGHT : NORMAL_HEIGHT);
@@ -97,7 +84,7 @@ const Encounters = React.memo(function Encounters() {
     listRef.current?.scrollToItem(index + 1, 'center');
   };
 
-  const renderRow: React.FC<RowProps> = ({ index, style }) => {
+  const renderRow = ({ index, style }: RowProps) => {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     const isGreyedOut = encounter?.status?.value === 2;

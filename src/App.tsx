@@ -15,7 +15,7 @@ import AppRouter from 'routes/AppRouter';
 import useStore from 'store';
 import styles from './App.module.scss';
 
-function App(): JSX.Element {
+function App(): React.JSX.Element {
   const navigate = useNavigate();
   const { t } = useTranslation('common');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));

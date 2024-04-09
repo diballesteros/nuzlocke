@@ -24,7 +24,7 @@ const removeNone = (value: string) => {
   return value === '(None)' ? null : value;
 };
 
-function Import(): JSX.Element {
+function Import(): React.JSX.Element {
   const { t } = useTranslation('import');
   const importState = useStore(useCallback((state) => state.importState, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));

@@ -18,7 +18,7 @@ import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
 import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
 import styles from './Pokestats.module.scss';
 
-function Pokestats(): JSX.Element {
+function Pokestats(): React.JSX.Element {
   const { t } = useTranslation('stats');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const teamPokemon = useStore(selectTeam);

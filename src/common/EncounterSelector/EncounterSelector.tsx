@@ -24,7 +24,7 @@ function EncounterSelector({
   encounters,
   handleEncounter,
   limitGen,
-}: EncounterSelectorProps): JSX.Element {
+}: EncounterSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const itemSize = useRemtoPx();

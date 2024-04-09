@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
-import { shallow } from 'zustand/shallow';
 import { PkmImage, PokemonSelector } from 'common';
 import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
 import FILTERS from 'constants/filters';
@@ -29,10 +28,7 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
   const games = useStore(useCallback((state) => state.games, []));
   const showAllTooltip = useStore(useCallback((state) => state.showAllTooltip, []));
   const suggestions = useStore(selectSuggestion);
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
 

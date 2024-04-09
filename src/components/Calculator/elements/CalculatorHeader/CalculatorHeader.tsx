@@ -24,7 +24,7 @@ export function getDesc(result: Result, t: TFunction): string {
   }
 }
 
-function CalculatorHeader(): JSX.Element {
+function CalculatorHeader(): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const [expanded, setExpanded] = useState(false);
   const [primary, setPrimary] = useState<[position: 'attacker' | 'defender', index: number]>([

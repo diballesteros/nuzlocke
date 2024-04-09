@@ -8,7 +8,7 @@ import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import useStore from 'store';
 import styles from './DisplaySettings.module.scss';
 
-function DisplaySettings(): JSX.Element {
+function DisplaySettings(): React.JSX.Element {
   const { t } = useTranslation('stats');
   const summary = useStore(
     useCallback(

@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { shallow } from 'zustand/shallow';
 import { Type } from 'components';
 import { FAIRY_GEN } from 'constants/constant';
 import type { TPokemon } from 'constants/types';
@@ -10,11 +9,8 @@ interface PokemonTypeProps {
   pokemon: TPokemon;
 }
 
-function PokemonType({ pokemon }: PokemonTypeProps): JSX.Element {
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
+function PokemonType({ pokemon }: PokemonTypeProps): React.JSX.Element {
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
 
   return (
     <div className={styles.container}>

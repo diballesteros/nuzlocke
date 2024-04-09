@@ -15,7 +15,7 @@ interface EvolveProps {
   evolveIds: number[];
 }
 
-function Evolve({ encounter, evolveIds }: EvolveProps): JSX.Element {
+function Evolve({ encounter, evolveIds }: EvolveProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changePokemon = useStore(useCallback((state) => state.changePokemon, []));
   const [selected, setSelected] = useState(encounter.pokemon);

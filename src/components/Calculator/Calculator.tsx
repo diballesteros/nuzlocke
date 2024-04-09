@@ -13,7 +13,7 @@ import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Calculator.module.scss';
 
-function Calculator(): JSX.Element {
+function Calculator(): React.JSX.Element {
   const { t } = useTranslation('common');
   const [selected, setSelected] = useState<0 | 1>(0);
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));

@@ -8,7 +8,7 @@ interface PokemonSlotProps {
   pokemon: TPokemon;
 }
 
-function PokemonSlot({ pokemon }: PokemonSlotProps): JSX.Element {
+function PokemonSlot({ pokemon }: PokemonSlotProps): React.JSX.Element {
   return (
     <div className={styles.selector} style={{ backgroundColor: `${TYPE_COLOR[pokemon?.type]}50` }}>
       <div className={styles.info}>

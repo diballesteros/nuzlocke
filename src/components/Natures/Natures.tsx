@@ -5,7 +5,7 @@ import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import NATURES from 'constants/natures';
 import styles from './Natures.module.scss';
 
-function Natures(): JSX.Element {
+function Natures(): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   return (

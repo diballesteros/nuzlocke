@@ -26,7 +26,7 @@ const OPTIONS = MY_ITEMS.map((item) => {
   };
 });
 
-function ItemSelector({ dataTestId, item, onChange }: ItemSelectorProps): JSX.Element {
+function ItemSelector({ dataTestId, item, onChange }: ItemSelectorProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
 
   return (

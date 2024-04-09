@@ -1,4 +1,4 @@
-import create from 'zustand';
+import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 import BADGES, { GAME_CAP_DICTIONARY, LEVEL_CAPS } from 'constants/badges';

@@ -99,7 +99,19 @@ describe('Options', () => {
     cy.contains('SUGGESTED').should('not.exist');
   });
 
-  it('Dark mode', () => {
+  it.only('Dark mode', () => {
+    cy.clearLocalStorage();
+    cy.visit('/', {
+      onBeforeLoad: (win) => {
+        cy.stub(win, 'matchMedia')
+          .withArgs('(prefers-color-scheme:dark)')
+          .returns({
+            matches: false,
+            addListener: () => {},
+          });
+      },
+    });
+    cy.get('[data-testid=options]').click();
     cy.get('[data-testid=app]').should('have.css', 'background-color', 'rgb(255, 255, 255)');
     cy.contains('Settings').click();
     cy.get('[data-testid="settings-darkmode"]').click();
