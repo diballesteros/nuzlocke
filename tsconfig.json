@@ -20,7 +20,13 @@
     "baseUrl": "./src",
     "types": ["cypress", "cypress-file-upload", "node", "cypress-localstorage-commands"]
   },
-  "include": ["src", "supabase.client.ts", "cypress.config.ts", "cypress/e2e/**/*.ts"],
+  "include": [
+    "src",
+    "supabase.client.ts",
+    "cypress.config.ts",
+    "cypress/e2e/**/*.ts",
+    "supabase/functions/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "cypress",

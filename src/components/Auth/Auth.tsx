@@ -7,6 +7,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { supabase } from 'supabaseClient';
+import { DELETION_CONFIRMATION } from 'constants/constant';
 import { AppState, TProfile } from 'constants/types';
 import { selectExport } from 'selectors';
 import useStore from 'store';
@@ -26,34 +27,46 @@ export default function Auth() {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState(null);
   const [updatedAt, setUpdatedAt] = useState(null);
+  const [showDelete, setShowDelete] = useState(false);
+  const [confirmText, setConfirmText] = useState('');
+  const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    setSession(supabase.auth.session());
+    supabase.auth.getSession().then(({ data: { session: sessionData } }) => {
+      setSession(sessionData);
+    });
 
-    supabase.auth.onAuthStateChange((_event, supaSession) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, supaSession) => {
       setSession(supaSession);
     });
+
+    return () => subscription.unsubscribe();
   }, []);
 
   const getProfile = useCallback(async () => {
     if (session) {
       try {
         setLoading(true);
-        const user = supabase.auth.user();
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
 
         const { data, error, status } = await supabase
-          .from<TProfile>('profiles')
+          .from('profiles')
           .select(`username, updated_at`)
           .eq('id', user.id)
           .single();
 
+        const typedData = data as TProfile;
         if (error && status !== 406) {
           throw Error(error.message);
         }
 
-        if (data) {
-          setUsername(data.username);
-          setUpdatedAt(data.updated_at);
+        if (typedData) {
+          setUsername(typedData.username);
+          setUpdatedAt(typedData.updated_at);
         }
       } catch (error) {
         toast.error(t('get_profile_error'));
@@ -66,7 +79,9 @@ export default function Auth() {
   const updateProfile = async () => {
     try {
       setSaving(true);
-      const user = supabase.auth.user();
+      const {
+        data: { user },
+      } = await supabase.auth.getUser();
 
       const updates: TProfile = {
         id: user.id,
@@ -75,9 +90,7 @@ export default function Auth() {
         nuzlocke: exportString,
       };
 
-      const { error, status } = await supabase
-        .from<TProfile>('profiles')
-        .upsert(updates, { returning: 'minimal' });
+      const { error, status } = await supabase.from('profiles').upsert(updates);
 
       if (error) throw Error(error.message);
       if (status === 200 || status === 201) {
@@ -94,10 +107,12 @@ export default function Auth() {
     if (session) {
       try {
         setSyncing(true);
-        const user = supabase.auth.user();
+        const {
+          data: { user },
+        } = await supabase.auth.getUser();
 
         const { data, error, status } = await supabase
-          .from<TProfile>('profiles')
+          .from('profiles')
           .select(`username, updated_at, nuzlocke`)
           .eq('id', user.id)
           .single();
@@ -127,7 +142,7 @@ export default function Auth() {
     }
   };
 
-  const onLogOut = async () => {
+  const handleLogOut = async () => {
     if (session) {
       setLogging(true);
       try {
@@ -153,7 +168,7 @@ export default function Auth() {
   const handleLogin = async () => {
     try {
       setLoading(true);
-      const { error } = await supabase.auth.signIn({ email });
+      const { error } = await supabase.auth.signInWithOtp({ email });
       if (error) throw Error(error.message);
       toast.success(t('check_email'));
     } catch (err) {
@@ -163,7 +178,26 @@ export default function Auth() {
     }
   };
 
-  const isLoading = loading || saving || syncing || logging;
+  const handleShowDelete = () => {
+    setShowDelete(true);
+  };
+
+  const handleDelete = async () => {
+    try {
+      setDeleting(true);
+      const { error } = await supabase.functions.invoke('user-self-deletion');
+      if (error) throw Error(error.message);
+      setOpen(false);
+      toast.success(t('delete_data_success'));
+      setSession(null);
+    } catch (err) {
+      toast.error(t('delete_data_error'));
+    } finally {
+      setDeleting(false);
+    }
+  };
+
+  const isLoading = loading || saving || syncing || logging || deleting;
 
   return (
     <Modal
@@ -181,12 +215,7 @@ export default function Auth() {
       }
     >
       <Modal.Content className={modalStyles.modal}>
-        <span className={styles.beta}>ALPHA</span>
-        <u className={styles.warning}>
-          This feature is in <b>alpha</b> and will be undergoing heavy changes in the coming weeks.
-          Please take that into consideration when using it! Please report any bugs you may find
-          with the new feature.
-        </u>
+        <span className={styles.beta}>BETA</span>
         {session ? (
           <section className={styles.account}>
             <p>{t('currently_logged_in')}</p>
@@ -228,6 +257,37 @@ export default function Auth() {
                 </span>
               )}
             </div>
+            <p>{t('delete_nuzlocke')}</p>
+            {showDelete ? (
+              <div className={styles.confirmContainer}>
+                <p>{t('delete_type_confirmation', { text: DELETION_CONFIRMATION })}</p>
+                <Input
+                  label={t('confirm_delete')}
+                  type="text"
+                  value={confirmText || ''}
+                  onChange={(e) => setConfirmText(e.target.value)}
+                />
+                <Button
+                  className={styles.delete}
+                  color="red"
+                  disabled={isLoading || confirmText !== DELETION_CONFIRMATION}
+                  icon
+                  onClick={handleDelete}
+                >
+                  {t('delete')}
+                </Button>
+              </div>
+            ) : (
+              <Button
+                className={styles.delete}
+                color="red"
+                disabled={isLoading}
+                icon
+                onClick={handleShowDelete}
+              >
+                {t('delete')}
+              </Button>
+            )}
           </section>
         ) : (
           <>
@@ -247,7 +307,7 @@ export default function Auth() {
       <Modal.Actions>
         <Button onClick={handleClose}>{t('cancel')}</Button>
         {session ? (
-          <Button disabled={isLoading} onClick={onLogOut} primary>
+          <Button disabled={isLoading} onClick={handleLogOut} primary>
             {logging ? t('logging_out') : t('logout')}
           </Button>
         ) : (

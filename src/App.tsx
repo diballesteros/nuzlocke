@@ -242,6 +242,7 @@ function App(): React.JSX.Element {
       </footer>
       <Effectiveness />
       <ToastContainer
+        stacked
         limit={3}
         pauseOnFocusLoss={false}
         pauseOnHover={false}

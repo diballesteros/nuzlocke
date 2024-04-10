@@ -4,8 +4,6 @@ import { Page } from 'common';
 import amazon from 'assets/img/amazon-appstore-badge-english-white.png';
 import google from 'assets/img/google-play-badge.png';
 import kofi from 'assets/img/kofi2.png';
-import apple from 'assets/svg/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg';
-import { ReactComponent as MicrosoftSVG } from 'assets/svg/English_get.svg';
 import styles from './About.module.scss';
 
 function About(): React.JSX.Element {
@@ -188,14 +186,6 @@ function About(): React.JSX.Element {
         </a>
         <div className={styles.stores}>
           <a
-            className={styles.microsoft}
-            href="//www.microsoft.com/store/apps/9PCM3Z3K0FTG?cid=storebadge&ocid=badge"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <MicrosoftSVG />
-          </a>
-          <a
             className={styles.playstore}
             href="https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1"
             rel="noopener noreferrer"
@@ -210,25 +200,15 @@ function About(): React.JSX.Element {
           >
             <img alt="Get it on Amazon appstore" src={amazon} />
           </a>
-          <a
+          {/* <a
             href="https://apps.apple.com/us/app/nuzlocke-tracker/id1595977751"
             rel="noopener noreferrer"
             target="_blank"
           >
             <img alt="Get it on App Store" src={apple} />
-          </a>
+          </a> */}
         </div>
         <div className={styles.socials}>
-          <a
-            className={styles.socialButton}
-            data-show-count="false"
-            href="https://twitter.com/relatablecoder?ref_src=twsrc%5Etfw"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            <Icon name="twitter square" />
-            <span>{t('follow')}</span>
-          </a>
           <a
             className={styles.socialButton}
             href="https://github.com/diballesteros/nuzlocke/"

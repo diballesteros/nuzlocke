@@ -99,7 +99,7 @@ describe('Options', () => {
     cy.contains('SUGGESTED').should('not.exist');
   });
 
-  it.only('Dark mode', () => {
+  it('Dark mode', () => {
     cy.clearLocalStorage();
     cy.visit('/', {
       onBeforeLoad: (win) => {
@@ -192,5 +192,10 @@ describe('Options', () => {
     cy.get('[data-testid="soullink-0"]').click();
     cy.get('[data-testid="poke-Bulbasaur"]').click({ force: true });
     cy.contains('Save').click();
+  });
+
+  it('Delete', () => {
+    cy.visit('/delete');
+    cy.contains('Delete Account').should('exist');
   });
 });

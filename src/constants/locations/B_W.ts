@@ -260,6 +260,13 @@ const B_W: TEncounter[] = [
     status: null,
     filterKey: 'bw-40',
   },
+  {
+    id: 41,
+    pokemon: null,
+    location: 'Treasure Hunter',
+    status: null,
+    filterKey: 'bw-41',
+  },
 ];
 
 export default B_W;
