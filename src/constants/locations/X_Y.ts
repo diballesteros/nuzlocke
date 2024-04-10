@@ -148,7 +148,7 @@ const X_Y: TEncounter[] = [
   {
     id: 18,
     pokemon: null,
-    location: 'Cyallage City',
+    location: 'Cyllage City',
     status: null,
     filter: null,
     filterKey: 'xy-18',
@@ -228,7 +228,7 @@ const X_Y: TEncounter[] = [
   {
     id: 28,
     pokemon: null,
-    location: 'Courmarine City',
+    location: 'Coumarine City',
     status: null,
     filter: null,
     filterKey: 'xy-28',

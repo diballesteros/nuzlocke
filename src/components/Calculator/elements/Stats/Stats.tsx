@@ -24,7 +24,7 @@ const DV = {
   max: 15,
 };
 
-function Stats({ pokemon }: StatsProps): JSX.Element {
+function Stats({ pokemon }: StatsProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const { pokemon1, pokemon2 } = useCalculate();
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));

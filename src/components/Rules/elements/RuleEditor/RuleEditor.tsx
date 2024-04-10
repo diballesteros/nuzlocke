@@ -16,7 +16,7 @@ interface RuleEditorProps {
   type: TRule;
 }
 
-function RuleEditor({ content, index, type }: RuleEditorProps): JSX.Element {
+function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Element {
   const { t } = useTranslation('rules');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));

@@ -13,7 +13,7 @@ interface SwapProps {
   encounter: TEncounter;
 }
 
-function Swap({ encounter }: SwapProps): JSX.Element {
+function Swap({ encounter }: SwapProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
   const changePreviousStatus = useStore(useCallback((state) => state.changePreviousStatus, []));

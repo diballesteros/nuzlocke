@@ -9,7 +9,7 @@ import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import styles from './FAB.module.scss';
 
-function FAB(): JSX.Element {
+function FAB(): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const [open, setOpen] = useState(false);
   const handleClick = () => {

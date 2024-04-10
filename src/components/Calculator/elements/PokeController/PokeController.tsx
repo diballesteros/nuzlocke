@@ -18,7 +18,7 @@ interface PokeControllerProps {
   name: 'pokemon1' | 'pokemon2';
 }
 
-function PokeController({ encounters, name }: PokeControllerProps): JSX.Element {
+function PokeController({ encounters, name }: PokeControllerProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));

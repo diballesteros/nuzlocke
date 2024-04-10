@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react';
-import { Integrations } from '@sentry/tracing';
+import { useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 import 'semantic-ui-css/components/button.min.css';
@@ -21,7 +21,13 @@ import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
 import 'semantic-ui-css/components/sidebar.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter } from 'react-router-dom';
+import {
+  BrowserRouter,
+  createRoutesFromChildren,
+  matchRoutes,
+  useLocation,
+  useNavigationType,
+} from 'react-router-dom';
 import * as serviceWorkerRegistration from 'serviceWorkerRegistration';
 import { UpdateSW } from 'components';
 import ErrorBoundary from 'error/ErrorBoundary';
@@ -32,7 +38,15 @@ import './i18n';
 
 Sentry.init({
   dsn: process.env.REACT_APP_SENTRY_DSN,
-  integrations: [new Integrations.BrowserTracing()],
+  integrations: [
+    Sentry.reactRouterV6BrowserTracingIntegration({
+      useEffect,
+      useLocation,
+      useNavigationType,
+      createRoutesFromChildren,
+      matchRoutes,
+    }),
+  ],
   release: process.env.REACT_APP_VERSION,
   tracesSampleRate: 0.2,
 });

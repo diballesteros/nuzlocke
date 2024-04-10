@@ -12,7 +12,7 @@ interface AddEncounterProps {
   icon?: boolean;
 }
 
-function AddEncounter({ icon = false }: AddEncounterProps): JSX.Element {
+function AddEncounter({ icon = false }: AddEncounterProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));

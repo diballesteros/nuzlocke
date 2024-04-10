@@ -4,7 +4,7 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { selectExport } from 'selectors';
 import useStore from 'store';
 
-function Export(): JSX.Element {
+function Export(): React.JSX.Element {
   const { t } = useTranslation('common');
   const exportString = useStore(selectExport);
 

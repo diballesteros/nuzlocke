@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-function UpdateSW(): JSX.Element {
+function UpdateSW(): React.JSX.Element {
   const [waitingServiceWorker, setWaitingServiceWorker] = useState(null);
 
   const setServiceWorker = useCallback(

@@ -9,7 +9,7 @@ import useStore from 'store';
 import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
 import styles from './Builder.module.scss';
 
-function Builder(): JSX.Element {
+function Builder(): React.JSX.Element {
   const { t } = useTranslation('builder');
   const team = useStore(
     useCallback(

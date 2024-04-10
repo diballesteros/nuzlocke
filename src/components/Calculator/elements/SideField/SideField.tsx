@@ -13,7 +13,7 @@ interface SideFieldProps {
 
 const SPIKES = [0, 1, 2, 3];
 
-function SideField({ pokemon }: SideFieldProps): JSX.Element {
+function SideField({ pokemon }: SideFieldProps): React.JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
 

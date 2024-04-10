@@ -6,7 +6,7 @@ interface PageProps {
   header: string;
 }
 
-function Page({ children, header }: PageProps): JSX.Element {
+function Page({ children, header }: PageProps): React.JSX.Element {
   return (
     <section className={styles.page}>
       <div className={styles.header}>

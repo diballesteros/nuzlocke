@@ -8,7 +8,7 @@ interface MoveProps {
   showStatus: boolean;
 }
 
-function Move({ moveDetail, showStatus }: MoveProps): JSX.Element {
+function Move({ moveDetail, showStatus }: MoveProps): React.JSX.Element {
   return (
     <div className={styles.move} style={{ backgroundColor: `${TYPE_COLOR[moveDetail.type]}90` }}>
       <Type hideName type={moveDetail.type} />

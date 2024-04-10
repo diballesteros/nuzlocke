@@ -24,7 +24,7 @@ interface DetailProps {
   encounter?: TEncounter;
 }
 
-function Detail({ encounter }: DetailProps): JSX.Element {
+function Detail({ encounter }: DetailProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));

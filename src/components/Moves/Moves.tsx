@@ -7,7 +7,7 @@ interface MovesProps {
   showStatus?: boolean;
 }
 
-function Moves({ moves = [], showStatus = false }: MovesProps): JSX.Element {
+function Moves({ moves = [], showStatus = false }: MovesProps): React.JSX.Element {
   return (
     <div className={styles.moves}>
       {moves?.map((move, i) => {

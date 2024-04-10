@@ -10,7 +10,7 @@ interface NatureProps {
   encounter: TEncounter;
 }
 
-function Nature({ encounter }: NatureProps): JSX.Element {
+function Nature({ encounter }: NatureProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const changeNature = useStore(useCallback((state) => state.changeNature, []));
 

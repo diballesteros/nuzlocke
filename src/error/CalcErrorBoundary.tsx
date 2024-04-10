@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import useStore from 'store';
 
-function ErrorBoundary(): JSX.Element {
+function ErrorBoundary(): React.JSX.Element {
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   return (
     <main

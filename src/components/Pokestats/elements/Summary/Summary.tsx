@@ -4,17 +4,13 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import { shallow } from 'zustand/shallow';
 import { DisplaySettings, Image } from 'components/Pokestats/elements';
 import useStore from 'store';
 import styles from './Summary.module.scss';
 
-function Summary(): JSX.Element {
+function Summary(): React.JSX.Element {
   const { t } = useTranslation('stats');
-  const selectedGame = useStore(
-    useCallback((state) => state.selectedGame, []),
-    shallow
-  );
+  const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const summaryRef = useRef<HTMLDivElement>(null);
 
   const handleDownload = async () => {

@@ -9,7 +9,7 @@ interface RuleContentProps {
   rule: TRuleEntry;
 }
 
-function RuleContent({ hideSmart, i, rule }: RuleContentProps): JSX.Element {
+function RuleContent({ hideSmart, i, rule }: RuleContentProps): React.JSX.Element {
   const { t } = useTranslation('rules');
   return (
     <div className={styles.content}>

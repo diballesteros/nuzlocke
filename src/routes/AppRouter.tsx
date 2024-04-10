@@ -15,7 +15,7 @@ import {
 import { BadgePage } from 'components/Badges/elements';
 import ErrorBoundary from 'error/ErrorBoundary';
 
-function AppRouter(): JSX.Element {
+function AppRouter(): React.JSX.Element {
   return (
     <Routes>
       <Route

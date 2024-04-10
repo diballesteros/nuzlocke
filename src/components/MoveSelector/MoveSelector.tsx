@@ -24,7 +24,7 @@ function MoveSelector({
   handleMove,
   hideGen,
   limitGen,
-}: MoveSelectorProps): JSX.Element {
+}: MoveSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const values = useFilter();

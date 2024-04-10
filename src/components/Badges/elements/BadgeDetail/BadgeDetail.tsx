@@ -24,7 +24,7 @@ interface BadgeDetailProps {
   selectedDetail: TDetail;
 }
 
-function BadgeDetail({ selectedDetail }: BadgeDetailProps): JSX.Element {
+function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
   const { t } = useTranslation('badges');
   const [view, setView] = useState(0);
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));

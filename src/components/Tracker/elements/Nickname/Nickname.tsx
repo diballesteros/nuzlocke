@@ -11,7 +11,7 @@ interface NicknameProps {
   nickname?: string;
 }
 
-function Nickname({ encounterId, nickname }: NicknameProps): JSX.Element {
+function Nickname({ encounterId, nickname }: NicknameProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changeNickname = useStore((state) => state.changeNickname);
   const darkMode = useStore(useCallback((state) => state.darkMode, []));

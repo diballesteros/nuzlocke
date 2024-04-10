@@ -5,7 +5,7 @@ import { BADGE_IMAGES } from 'constants/badges';
 import useStore from 'store';
 import styles from './Badges.module.scss';
 
-function Badges(): JSX.Element {
+function Badges(): React.JSX.Element {
   const navigate = useNavigate();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));

@@ -19,7 +19,7 @@ const IV = {
   max: 31,
 };
 
-function RangeSelector({ name, onChange, value }: RangeSelectorProps): JSX.Element {
+function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX.Element {
   const type = name.includes('ev') ? EV : IV;
 
   const getBarFill = useCallback(() => {

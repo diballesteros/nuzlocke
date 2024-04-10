@@ -18,7 +18,7 @@ interface ModifierProps {
     | 'modspeed2';
 }
 
-function Modifier({ name }: ModifierProps): JSX.Element {
+function Modifier({ name }: ModifierProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));

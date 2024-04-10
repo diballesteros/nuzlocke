@@ -19,7 +19,7 @@ export const getGenderIcon = (gender: Gender) => {
   }
 };
 
-function PokeInfo({ encounter, pokemon }: PokeInfoProps): JSX.Element {
+function PokeInfo({ encounter, pokemon }: PokeInfoProps): React.JSX.Element {
   const { t } = useTranslation('stats');
 
   return (

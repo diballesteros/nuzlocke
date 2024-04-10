@@ -5,7 +5,7 @@ interface TipProps {
   missing: string;
 }
 
-function Tip({ missing }: TipProps): JSX.Element {
+function Tip({ missing }: TipProps): React.JSX.Element {
   const { t } = useTranslation('stats');
   return (
     <div className={styles.container} data-testid="status-tip">

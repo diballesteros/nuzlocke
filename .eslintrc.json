@@ -22,6 +22,7 @@
     "react-app/jest",
     "airbnb-typescript",
     "plugin:@typescript-eslint/recommended",
+    "plugin:deprecation/recommended",
     "prettier",
     "plugin:prettier/recommended"
   ],

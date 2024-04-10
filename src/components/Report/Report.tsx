@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { Page } from 'common';
 import modalStyles from 'assets/styles/Modal.module.scss';
 
-function Report(): JSX.Element {
+function Report(): React.JSX.Element {
   const { t } = useTranslation('report');
 
   return (
