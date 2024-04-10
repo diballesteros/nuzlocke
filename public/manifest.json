@@ -31,7 +31,7 @@
     }
   ],
   "start_url": ".",
-  "display_override": ["standalone"],
+  "display_override": ["window-controls-overlay", "standalone"],
   "display": "standalone",
   "edge_side_panel": {},
   "share_target": {
@@ -55,7 +55,8 @@
   "orientation": "portrait-primary",
   "categories": ["entertainment", "productivity"],
   "iarc_rating_id": "0e709b1e-f322-4f7e-974d-0c965ce09b7b",
-  "prefer_related_applications": "false",
+  "prefer_related_applications": false,
+  "widgets": [],
   "shortcuts": [
     {
       "name": "Start tracking",
