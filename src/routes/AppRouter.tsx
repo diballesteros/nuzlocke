@@ -5,6 +5,7 @@ import {
   Builder,
   Calculator,
   Changelog,
+  Delete,
   Import,
   Pokestats,
   Report,
@@ -103,6 +104,14 @@ function AppRouter(): React.JSX.Element {
         element={
           <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
             <BadgePage />
+          </Sentry.ErrorBoundary>
+        }
+      />
+      <Route
+        path="/delete"
+        element={
+          <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
+            <Delete />
           </Sentry.ErrorBoundary>
         }
       />

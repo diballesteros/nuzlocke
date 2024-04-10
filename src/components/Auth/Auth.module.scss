@@ -64,4 +64,16 @@
     gap: var(--spacing-2);
     width: fit-content;
   }
+
+  .confirmContainer {
+    display: flex;
+    gap: var(--spacing-3);
+    align-items: center;
+  }
+
+  .delete {
+    display: flex;
+    gap: var(--spacing-2);
+    width: fit-content;
+  }
 }

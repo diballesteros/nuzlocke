@@ -2,6 +2,30 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.6.0',
+    date: 1712779602626,
+    notes: [
+      {
+        description:
+          'Added button to delete account from the account settings, note this is permanent',
+        type: 'FEATURE',
+      },
+      {
+        description: 'Fixed Totem Gumshoos moveset in Ultra Sun and Ultra Moon',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed the levels for Olivia's pokemon in Sun and Moon",
+        type: 'FIX',
+      },
+      {
+        description:
+          'Removed Larvesta from Route 18 encounters and added it to Treasure Hunter in Black and White',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.5.0',
     date: 1712707374313,
     notes: [

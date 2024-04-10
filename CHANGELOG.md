@@ -1,3 +1,30 @@
+## Version 5.6.0
+
+🚀 New features
+
+- Added delete button for account
+
+🐛 Bug Fix
+
+- Fixed encounter list for USUM
+- Fixed movesets for Totem Gumshoos in USUM
+- Fixed levels for Olivia in SM
+
+🏠 Internal
+
+- Bumped @supabase/supabase-js to 2.42.0
+- Bumped react-toastify to 10.0.5
+- Bumped @cypress/code-coverage to 3.12.34
+- Bumped @testing-library/user-event to 14.5.2
+- Bumped @types/node to 20.12.7
+- Bumped @types/react to 18.2.75
+- Bumped eslint-plugin-import to 2.29.1
+- Bumped eslint-plugin-jsx-a11y to 6.8.0
+- Bumped eslint-plugin-prettier to 5.1.3
+- Bumped eslint-plugin-react to 7.34.1
+- Bumped prettier to 3.2.5
+- Bumped cypress to 13.7.2
+
 ## Version 5.5.0
 
 🐛 Bug Fix

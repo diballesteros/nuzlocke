@@ -7181,7 +7181,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           {
             ability: 'Sturdy',
             id: 299,
-            level: 25,
+            level: 26,
             moves: [157, 209, 86],
           },
           {
@@ -7194,7 +7194,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             ability: 'Vital Spirit',
             id: 745,
             item: 'Rockium Z',
-            level: 26,
+            level: 27,
             moves: [44, 88],
           },
         ],
@@ -7617,7 +7617,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
             id: 735,
             item: 'Pecha Berry',
             level: 12,
-            moves: [162, 44, 43, 184],
+            moves: [162, 44, 33, 184],
           },
           {
             ability: 'Stakeout',

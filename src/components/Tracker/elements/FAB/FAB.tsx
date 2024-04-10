@@ -31,8 +31,8 @@ function FAB(): React.JSX.Element {
                   const foundPokemon = POKEMAP.get(enc.pokemon);
                   return `${str}
       ${Number(i) + 1}. ${enc.location} - ${foundPokemon?.text || 'N/A'} - ${
-                    enc.status?.text || 'N/A'
-                  }`;
+        enc.status?.text || 'N/A'
+      }`;
                 },
                 `Nuzlocke Encounter List
         `

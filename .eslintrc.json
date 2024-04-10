@@ -37,7 +37,7 @@
     "tsconfigRootDir": "./"
   },
   "plugins": ["@typescript-eslint"],
-  "ignorePatterns": ["src/constants/locations/*"],
+  "ignorePatterns": ["src/constants/locations/*", "supabase/*"],
   "rules": {
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",

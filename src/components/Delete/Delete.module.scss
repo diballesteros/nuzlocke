@@ -1,0 +1,7 @@
+.delete {
+  display: flex;
+  flex: 1;
+  flex-flow: column nowrap;
+  padding-right: var(--spacing-2);
+  color: var(--contrast);
+}
