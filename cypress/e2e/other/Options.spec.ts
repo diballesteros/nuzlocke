@@ -196,6 +196,6 @@ describe('Options', () => {
 
   it('Delete', () => {
     cy.visit('/delete');
-    cy.contains('Delete Account').should('exist');
+    cy.contains('Account Deletion').should('exist');
   });
 });
