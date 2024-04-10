@@ -2,6 +2,65 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 5.5.0',
+    date: 1712707374313,
+    notes: [
+      {
+        description: 'Added Jynx as an encounter to Cerulean City in Red Blue and Yellow',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Slugma as an encounter to Route 16 in Gold Silver and Crystal',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Mr. Mime as an encounter to Route 2 in Fire Red and Leaf Green',
+        type: 'FIX',
+      },
+      {
+        description: 'Added Aron as an encounter to Guidance Chamber in Black and White 2',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Spearow to Route 35, Psyduck to the Safari Zone, and Combee to Route 5 as encounters in Heart Gold and Soul Silver',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Barboach to Rolling Fields and Wynaut to Stony Wilderness in Sword and Shield',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Geodude to Route 18 and Banette to Pokemon Village as encounters to X and Y',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Zubat to Meteor Falls and Geodude to Rusturf Tunnel in Omega Ruby and Alpha Sapphire',
+        type: 'FIX',
+      },
+      {
+        description:
+          'Added Sea Mauville and Soaring in the Sky locations for Omega Ruby and Alpha Sapphire',
+        type: 'FIX',
+      },
+      {
+        description: "Fixed Whitney's Miltank moveset in Heart Gold and Soul Silver",
+        type: 'FIX',
+      },
+      {
+        description: "Changed Roxie's Grimer's ability to Stench in Black and White 2",
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed the spelling of Cyllage City and Coumarine City in X and Y',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 5.4.5',
     date: 1688385563589,
     notes: [

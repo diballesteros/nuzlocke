@@ -415,6 +415,20 @@ const OR_AS: TEncounter[] = [
     filterKey: 'oras-62',
   },
   {
+    id: 69,
+    pokemon: null,
+    location: 'Sea Mauville',
+    status: null,
+    filterKey: 'oras-70',
+  },
+  {
+    id: 70,
+    pokemon: null,
+    location: 'Soaring in the Sky',
+    status: null,
+    filterKey: 'oras-71',
+  },
+  {
     id: 63,
     pokemon: null,
     location: 'Route 109',

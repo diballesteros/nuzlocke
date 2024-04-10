@@ -1,3 +1,56 @@
+## Version 5.5.0
+
+🐛 Bug Fix
+
+- Fixed encounter list for RBY, GSC, FRLG, BW2, ORAS, HGSS, XY, SWSH
+- Fixed movesets for Whitney
+- Fixed movesets for Roxie
+- Typo fixes for Cyllage City and Coumarine City
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.109.0
+- Removed @sentry/tracing
+- Added @sentry/browser
+- Bumped @smogon/calc to 0.9.0
+- Bumped immer to 10.0.4
+- Bumped react-router-dom to 6.22.3
+- Bumped react-window to 1.8.10
+- Bumped semantic-ui-react to 2.15
+- Bumped zustand to 4.5.2
+- Bumped @cypress/code-coverage to 3.12.33
+- Bumped @types/jest to 29.5.12
+- Bumped @types/lodash to 4.17.0
+- Bumped @types/node to 20.12.5
+- Bumped @types/react to 18.2.74
+- Bumped @types/react-dom to 18.2.24
+- Bumped @types/react-window to 1.8.8
+- Bumped cypress to 13.7.2
+- Bumped cypress-localstorage-commands to 2.2.5
+- Added eslint-plugin-deprecation
+- Updated workflows to use new packages
+
+## Version 5.4.5
+
+🐛 Bug Fix
+
+- Fixed encounter list for Safari Zone in Yellow
+- Fixed encounter list for Seafoam island in Fire Red and Leaf Green
+
+🏠 Internal
+
+- Bumped @sentry/react to 7.57.0
+- Bumped @sentry/tracing to 7.57.0
+- Bumped react-router-dom to 6.14.1
+- Bumped @cypress/code-coverage to 3.10.8
+- Bumped @types/jest to 29.5.2
+- Bumped @types/node to 20.3.3
+- Bumped @types/react to 18.2.14
+- Bumped @types/react-dom to 18.2.6
+- Bumped cypress to 12.16.0
+- Bumped sass to 1.63.6
+- Bumped sass-loader to 13.3.2
+
 ## Version 5.4.5
 
 🐛 Bug Fix

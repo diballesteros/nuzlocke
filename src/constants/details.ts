@@ -4420,7 +4420,7 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           },
         ],
         game: 'HeartGold and SoulSilver',
-        name: 'Brock',
+        name: 'Blaine',
         type: 'GYM',
       },
     ],
