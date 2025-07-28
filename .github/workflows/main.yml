@@ -4,7 +4,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.18.0-chrome90-ff88
+      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
       options: --user 1001
     steps:
       - name: 🛑 Cancel Previous Runs
@@ -18,7 +18,7 @@ jobs:
         with:
           runTests: false
       # report machine parameters
-      - run: npm run cypress info
+      - run: npx cypress info
       - run: node -p 'os.cpus()'
       - run: npm run build
 
@@ -100,7 +100,7 @@ jobs:
   ui-chrome-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.18.0-chrome90-ff88
+    container: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
     needs: install
     strategy:
       fail-fast: false
@@ -145,7 +145,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.18.0-chrome90-ff88
+      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
       options: --user 1001
     needs: install
     strategy:
@@ -191,7 +191,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node16.18.0-chrome90-ff88
+      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
       options: --user 1001
     needs: install
     strategy:
