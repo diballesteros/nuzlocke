@@ -96,6 +96,10 @@ export default defineConfig({
 
   envPrefix: 'REACT_APP_',
 
+  server: {
+    port: 3000,
+  },
+
   build: {
     sourcemap: true,
   },
