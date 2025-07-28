@@ -2,17 +2,10 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "5.6.0",
+  "version": "6.0.0",
   "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/diballesteros/nuzlocke/issues"
-  },
-  "nyc": {
-    "exclude": [
-      "src/components/UpdateSW/UpdateSW.tsx",
-      "src/components/Auth/Auth.tsx",
-      "src/index.tsx"
-    ]
   },
   "private": true,
   "dependencies": {

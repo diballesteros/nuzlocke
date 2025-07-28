@@ -23,13 +23,7 @@
       "node"
     ]
   },
-  "include": [
-    "src",
-    "vite.config.ts",
-    "supabase.client.ts",
-    "cypress.config.ts",
-    "cypress/e2e/**/*.ts"
-  ],
+  "include": ["src", "supabase.client.ts", "cypress.config.ts", "cypress/e2e/**/*.ts"],
   "exclude": [
     "node_modules",
     "cypress",
