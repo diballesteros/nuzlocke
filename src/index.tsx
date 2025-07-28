@@ -20,7 +20,7 @@ import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
 import 'semantic-ui-css/components/sidebar.min.css';
 import 'react-toastify/dist/ReactToastify.css';
-import { BrowserRouter } from 'react-router';
+import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
 import 'assets/styles/pokemon.css';
 import 'assets/styles/item.css';
