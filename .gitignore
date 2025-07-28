@@ -30,5 +30,6 @@ yarn-error.log*
 # Sentry Config File
 .env.sentry-build-plugin
 
-# Service Worker
+# Build
 /dev-dist
+/dist
