@@ -1,159 +1,158 @@
-name: Cypress
-on: [push]
+name: Cypress Tests
+on:
+  push:
+    branches-ignore:
+      - 'renovate/**'
+
 jobs:
   install:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+      image: cypress/browsers:node22.16.0
       options: --user 1001
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🌲 Cypress install
+      - name: Cypress install
         uses: cypress-io/github-action@v6
         with:
           runTests: false
       # report machine parameters
       - run: npx cypress info
+      - run: node --version
       - run: node -p 'os.cpus()'
+      - run: npm run lint
+      - run: npm run test
       - run: npm run build
 
-      - name: 📁 Save build folder
-        uses: actions/upload-artifact@v4.3.1
+      - name: Save build folder
+        uses: actions/upload-artifact@v4
         with:
           name: build
           if-no-files-found: error
           path: dist
 
-  Vitest-Lint:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
-        uses: actions/checkout@v4
-
-      - name: 🎓 Install dependencies
-        run: npm install --ignore-platform
-
-      - name: 🧹 Run linting
-        run: npm run lint
-
-      - name: 🃏 Run Vitest
-        run: npm run test
-
   ui-chrome-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+      image: cypress/browsers:node22.16.0
       options: --user 1001
     needs: install
     strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
-        # runs copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4, 5]
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v4.1.4
+      - name: Download the build folders
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
 
-      - name: 💻 'UI Tests - Chrome'
+      - name: Node info
+        run: node -v
+
+      - name: 'UI Tests - Chrome - Main'
         uses: cypress-io/github-action@v6
         with:
           start: npm run dev
-          wait-on: http://localhost:3000
+          wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
           group: 'UI - Chrome - Main'
-          spec: 'cypress/e2e/main/*'
+          spec: cypress/e2e/main/*
+          config-file: cypress.config.ts
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ui-chrome-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+    container:
+      image: cypress/browsers:node22.16.0
+      options: --user 1001
     needs: install
     strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
-        # runs copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+        # run copies of the current job in parallel
+        containers: [1, 2, 3, 4, 5]
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v4.1.4
+      - name: Download the build folders
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
 
-      - name: 💻 'UI Tests - Chrome'
+      - name: 'UI Tests - Chrome - Other'
         uses: cypress-io/github-action@v6
         with:
           start: npm run dev
-          wait-on: http://localhost:3000
+          wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: chrome
           record: true
           parallel: true
           group: 'UI - Chrome - Other'
-          spec: 'cypress/e2e/other/*'
+          spec: cypress/e2e/other/*
+          config-file: cypress.config.ts
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ui-firefox-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+      image: cypress/browsers:node22.16.0
       options: --user 1001
     needs: install
     strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+        containers: [1, 2, 3, 4, 5]
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v4.1.4
+      - name: Download the build folders
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
 
-      - name: 💻 'UI Tests - Firefox'
+      - name: 'UI Tests - Firefox - Main'
         uses: cypress-io/github-action@v6
         with:
           start: npm run dev
@@ -163,38 +162,42 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Main'
-          spec: 'cypress/e2e/main/*'
+          spec: cypress/e2e/main/*
+          config-file: cypress.config.ts
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   ui-firefox-tests-other:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+      image: cypress/browsers:node22.16.0
       options: --user 1001
     needs: install
     strategy:
+      # when one test fails, DO NOT cancel the other
+      # containers, because this will kill Cypress processes
+      # leaving Cypress Cloud hanging ...
+      # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
         # run copies of the current job in parallel
-        containers: [1, 2, 3, 4]
+        containers: [1, 2, 3, 4, 5]
     steps:
-      - name: 🛑 Cancel Previous Runs
-        uses: styfle/cancel-workflow-action@0.12.1
-
-      - name: 🛫 Checkout
+      - name: Checkout
         uses: actions/checkout@v4
 
-      - name: 🏗 Download the build folders
-        uses: actions/download-artifact@v4.1.4
+      - name: Download the build folders
+        uses: actions/download-artifact@v4
         with:
           name: build
           path: dist
 
-      - name: 💻 'UI Tests - Firefox'
+      - name: 'UI Tests - Firefox - Other'
         uses: cypress-io/github-action@v6
         with:
           start: npm run dev
@@ -204,8 +207,11 @@ jobs:
           record: true
           parallel: true
           group: 'UI - Firefox - Other'
-          spec: 'cypress/e2e/other/*'
+          spec: cypress/e2e/other/*
+          config-file: cypress.config.ts
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # Recommended: pass the GitHub token lets this action correctly
+          # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
