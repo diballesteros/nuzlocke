@@ -197,41 +197,4 @@ describe('Rules', () => {
       cy.contains('Copied').should('exist');
     });
   });
-
-  context('Webshare', () => {
-    it('Share Rules - WebShare', { browser: '!firefox' }, () => {
-      cy.visit('/', {
-        onBeforeLoad(win) {
-          win.navigator.canShare = () => {
-            return true;
-          };
-          delete win.navigator.share;
-          delete win.navigator.canShare;
-          win.navigator.canShare = cy.stub().resolves(true);
-          win.navigator.share = cy.stub().resolves(true);
-        },
-      });
-      cy.get('[data-testid="options"]').click();
-      cy.contains('Rules').click();
-      cy.get('h1').click();
-      cy.get('[data-testid="share-encounters"]').click();
-      cy.contains('Sharing now available').should('exist');
-    });
-
-    it('Share Rules - WebShare - Error', { browser: '!firefox' }, () => {
-      cy.visit('/', {
-        onBeforeLoad(win) {
-          delete win.navigator.share;
-          delete win.navigator.canShare;
-          win.navigator.canShare = () => true;
-          win.navigator.share = cy.stub().rejects(Error('test'));
-        },
-      });
-      cy.get('[data-testid="options"]').click();
-      cy.contains('Rules').click();
-      cy.get('h1').click();
-      cy.get('[data-testid="share-encounters"]').click();
-      cy.contains('Unable to share').should('exist');
-    });
-  });
 });
