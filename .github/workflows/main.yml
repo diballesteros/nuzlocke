@@ -51,7 +51,9 @@ jobs:
   ui-chrome-tests-main:
     timeout-minutes: 15
     runs-on: ubuntu-latest
-    container: cypress/browsers:node16.18.0-chrome90-ff88
+    container:
+      image: cypress/browsers:node-22.17.1-chrome-138.0.7204.157-1-ff-140.0.4-edge-138.0.3351.83-1
+      options: --user 1001
     needs: install
     strategy:
       fail-fast: false
