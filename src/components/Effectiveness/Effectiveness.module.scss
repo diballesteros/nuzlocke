@@ -1,12 +1,10 @@
-@import 'src/assets/styles/variables';
-
 .content {
+  overflow: auto;
+
   @media (max-width: $screen-sm) {
     min-height: 76vh;
     max-height: 76vh;
   }
-
-  overflow: auto;
 
   > h3 {
     display: grid;

@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { BADGE_IMAGES } from 'constants/badges';
 import useStore from 'store';

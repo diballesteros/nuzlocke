@@ -41,7 +41,7 @@ function Share({ disabled, icon = false, text }: ShareProps): React.JSX.Element 
         success: t('share_success'),
         error: t('unable_share', { ns: 'stats' }),
       });
-    } catch (err) {
+    } catch {
       toast.error(t('unable_share', { ns: 'stats' }));
     }
   };

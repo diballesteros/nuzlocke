@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-expect-error - Cypress custom command for stepping through input values
 const stepTo = ($el, target) => {
   const step = $el[0].getAttribute('step') || 1;
   const current = $el[0].value;
@@ -14,24 +14,23 @@ const stepTo = ($el, target) => {
 describe('Encounters', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid=game-select]').click();
+    cy.get('[data-testid="game-select"]').click();
     cy.contains('Sword and Shield').click();
   });
 
   it('Filter', () => {
-    cy.get('[data-testid=filter] > input')
-      .type('Slumbering Weald')
-      .should('have.value', 'Slumbering Weald');
-    cy.get('[data-testid=pokemon-1]').click();
+    cy.get('[data-testid="filter"] > input').type('Slumbering Weald');
+    cy.get('[data-testid="filter"] > input').should('have.value', 'Slumbering Weald');
+    cy.get('[data-testid="pokemon-1"]').click();
     cy.get('[data-testid="remove-tooltip"]').click();
-    cy.get('[data-testid=poke-Butterfree]').click();
-    cy.get('[data-testid=filter-button]').click();
-    cy.get('[data-testid=filter-gen-1]').click();
-    cy.get('[data-testid=filter-gen-1]').click();
-    cy.get('[data-testid=filter-type-BUG]').click();
-    cy.get('[data-testid=filter-type-BUG]').click();
-    cy.get('[data-testid=filter-button]').click();
-    cy.get('[data-testid=encounters-list]')
+    cy.get('[data-testid="poke-Butterfree"]').click();
+    cy.get('[data-testid="filter-button"]').click();
+    cy.get('[data-testid="filter-gen-1"]').click();
+    cy.get('[data-testid="filter-gen-1"]').click();
+    cy.get('[data-testid="filter-type-BUG"]').click();
+    cy.get('[data-testid="filter-type-BUG"]').click();
+    cy.get('[data-testid="filter-button"]').click();
+    cy.get('[data-testid="encounters-list"]')
       .children()
       .children()
       .children()
@@ -48,13 +47,13 @@ describe('Encounters', () => {
     cy.contains('Super effective against').should('exist');
     cy.get('.tabular > :nth-child(3)').click();
     cy.get('.st0Steel').first().click({ force: true });
-    cy.get('[data-testid=effect-close]').click();
-    cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
+    cy.get('[data-testid="effect-close"]').click();
+    cy.get('[data-testid="poke-Scorbunny"]').click({ force: true });
     cy.contains('Scorbunny').should('exist');
 
-    cy.get('[data-testid=edit-encounter-0]').click();
+    cy.get('[data-testid="edit-encounter-0"]').click();
     cy.contains('Cancel').click();
-    cy.get('[data-testid=status-0]').click();
+    cy.get('[data-testid="status-0"]').click();
     cy.get('[data-testid="status-0"] > .visible > :nth-child(2)').click({
       waitForAnimations: true,
       force: true,
@@ -66,9 +65,8 @@ describe('Encounters', () => {
     });
     cy.get('[data-testid=status-0] > .divider').should('have.text', 'Fainted');
     cy.get('[data-testid=edit-encounter-0]').click();
-    cy.get('[data-testid="cause of fainting"]')
-      .type('Died to crit')
-      .should('have.value', 'Died to crit');
+    cy.get('[data-testid="cause of fainting"]').type('Died to crit');
+    cy.get('[data-testid="cause of fainting"]').should('have.value', 'Died to crit');
     cy.get('[data-testid=nature-info]').click();
     cy.contains('Increased stat').should('exist');
     cy.contains('Hardy').should('exist');
@@ -83,8 +81,10 @@ describe('Encounters', () => {
     cy.get('.dimmable > div').click(1, 1, { force: true, multiple: true });
 
     cy.get('[data-testid="stats-summary"]').click();
-    cy.get('[data-testid="input-ivhp"]').type('10').should('have.value', 10);
-    cy.get('[data-testid="input-ivhp"]').type('{backspace}{backspace}').should('have.value', 0);
+    cy.get('[data-testid="input-ivhp"]').type('10');
+    cy.get('[data-testid="input-ivhp"]').should('have.value', 10);
+    cy.get('[data-testid="input-ivhp"]').type('{backspace}{backspace}');
+    cy.get('[data-testid="input-ivhp"]').should('have.value', 0);
     cy.get('[data-testid="evhp"]')
       .then(($el) => stepTo($el, 1))
       .trigger('change');
@@ -170,12 +170,13 @@ describe('Encounters', () => {
   });
 
   it('Add encounter', () => {
-    cy.get('[data-testid=add-encounter]').click();
+    cy.get('[data-testid="add-encounter"]').click();
     cy.contains('Cancel').click();
-    cy.get('[data-testid=add-encounter]').click();
-    cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
+    cy.get('[data-testid="add-encounter"]').click();
+    cy.get('[data-testid="add-encounter-input"] > input').type('Test');
+    cy.get('[data-testid="add-encounter-input"] > input').should('have.value', 'Test');
     cy.contains('Save').click();
-    cy.get('[data-testid=filter] > input').type('Test');
+    cy.get('[data-testid="filter"] > input').type('Test');
     cy.get('[data-testid=encounters-list]')
       .children()
       .children()
@@ -208,8 +209,9 @@ describe('Encounters', () => {
     cy.get('[data-testid="reset-encounter-0"]').click();
     cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid=poke-Scorbunny]').click({ force: true });
-    cy.get('[data-testid=edit-encounter-0]').click();
-    cy.get('[data-testid=metlevel] > input').type('5').should('have.value', 5);
+    cy.get('[data-testid="edit-encounter-0"]').click();
+    cy.get('[data-testid="metlevel"] > input').type('5');
+    cy.get('[data-testid="metlevel"] > input').should('have.value', 5);
     cy.contains('Save').click();
     cy.get('[data-testid="encounter-options-0"]').click();
     cy.get('[data-testid="level-up-0"]').click();
@@ -254,9 +256,8 @@ describe('Encounters', () => {
     cy.get('[data-testid="nature-0"]').click();
     cy.get('[data-testid="nature-0"] > .visible > :nth-child(3)').click();
     cy.get('[data-testid="open-notes"]').click();
-    cy.get('[data-testid="game-notes"]')
-      .type('These are notes')
-      .should('have.value', 'These are notes');
+    cy.get('[data-testid="game-notes"]').type('These are notes');
+    cy.get('[data-testid="game-notes"]').should('have.value', 'These are notes');
   });
 
   context('Small screens', () => {
@@ -267,7 +268,8 @@ describe('Encounters', () => {
 
     it('Add encounter - Small', () => {
       cy.get('[data-testid=fab-add-encounter] > [data-testid=add-encounter]').click();
-      cy.get('[data-testid=add-encounter-input] > input').type('Test').should('have.value', 'Test');
+      cy.get('[data-testid="add-encounter-input"] > input').type('Test');
+      cy.get('[data-testid="add-encounter-input"] > input').should('have.value', 'Test');
       cy.contains('Save').click();
       cy.get('[data-testid=filter] > input').type('Test');
       cy.get('[data-testid=encounters-list]')

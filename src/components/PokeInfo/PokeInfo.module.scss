@@ -1,13 +1,12 @@
-@import 'src/assets/styles/variables';
-
 .container {
   display: flex;
   flex-flow: column wrap;
 
   > span {
+    max-width: 16.071rem;
+
     @media (max-width: $screen-sm) {
       max-width: 8.929rem;
     }
-    max-width: 16.071rem;
   }
 }

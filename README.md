@@ -1,6 +1,6 @@
 # Nuzlocke Tracker
 
-(https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Nuzlocke Tracker](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/vrp6hz/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/vrp6hz/runs) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues) [![codecov](https://codecov.io/gh/diballesteros/nuzlocke/branch/master/graph/badge.svg?token=SQPSF96J1S)](https://codecov.io/gh/diballesteros/nuzlocke)
+[![Nuzlocke Tracker](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/vrp6hz/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/vrp6hz/runs) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues) [![codecov](https://codecov.io/gh/diballesteros/nuzlocke/branch/master/graph/badge.svg?token=SQPSF96J1S)](https://codecov.io/gh/diballesteros/nuzlocke)
 
 ## Table of Contents
 
@@ -77,20 +77,6 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 ## Getting started
 
-### 🔑 Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- [git](https://github.com/git-guides/install-git#:~:text=To%20install%20Git%2C%20run%20the,installation%20by%20typing%3A%20git%20version%20.)
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-- yarn
-  ```sh
-  npm install --global yarn
-  ```
-
 ### 💻 Installation
 
 1. Clone the repo
@@ -100,11 +86,11 @@ This is an example of how to list things you need to use the software and how to
    ```
 2. Install NPM packages
    ```sh
-   yarn
+   npm install
    ```
 3. Run the project locally
    ```bash
-   yarn start
+   npm run dev
    ```
 
 ## Running the tests
@@ -112,7 +98,7 @@ This is an example of how to list things you need to use the software and how to
 This project uses [Cypress](https://www.cypress.io/) for testing. To run them:
 
 ```sh
-yarn e2e
+npm e2e
 ```
 
 In the new window execute any of the \*.spec.ts files.
@@ -120,7 +106,7 @@ In the new window execute any of the \*.spec.ts files.
 This will run the unit tests:
 
 ```bash
-yarn test
+npm test
 ```
 
 ## Roadmap
@@ -155,8 +141,4 @@ This project is licensed under the BSD-3-Clause License - see the [LICENSE](http
 
 ## Legal
 
-Pokémon © 2002-2021 Pokémon. © 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
-
-## Contact
-
-Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com
+Pokémon © 2002-2025 Pokémon. © 1995-2025 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.

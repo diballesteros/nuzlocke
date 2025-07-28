@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';

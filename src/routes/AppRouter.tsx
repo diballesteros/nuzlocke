@@ -1,5 +1,5 @@
 import * as Sentry from '@sentry/react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router';
 import {
   About,
   Builder,

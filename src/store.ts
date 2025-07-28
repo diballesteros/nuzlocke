@@ -450,7 +450,7 @@ const useStore = create<AppState>()(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = process.env.REACT_APP_VERSION;
+          state.newVersion = import.meta.env.REACT_APP_VERSION;
         }),
       reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) =>
         set((state) => {
@@ -577,6 +577,10 @@ const useStore = create<AppState>()(
       },
       updateDefaultValues: (values: Partial<TCalculatorForm>) => {
         set((state) => {
+          if (!state.selectedGame?.value) {
+            return;
+          }
+
           state.calcs[state?.selectedGame?.value].form = {
             ...state.calcs[state?.selectedGame?.value].form,
             ...values,

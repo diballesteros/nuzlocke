@@ -11,11 +11,11 @@ import { Detail } from 'components/Tracker/elements';
 import { POKEMAP } from 'constants/pokemon';
 import { selectCaught, selectFailed, selectFainted, selectTeam } from 'selectors';
 import useStore from 'store';
-import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
-import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
-import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
-import { ReactComponent as SummarySVG } from 'assets/svg/summary.svg';
-import { ReactComponent as TeamSVG } from 'assets/svg/team.svg';
+import CaughtSVG from 'assets/svg/caught.svg?react';
+import FailedSVG from 'assets/svg/failed.svg?react';
+import FaintedSVG from 'assets/svg/fainted.svg?react';
+import SummarySVG from 'assets/svg/summary.svg?react';
+import TeamSVG from 'assets/svg/team.svg?react';
 import styles from './Pokestats.module.scss';
 
 function Pokestats(): React.JSX.Element {

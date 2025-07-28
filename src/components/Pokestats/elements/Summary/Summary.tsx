@@ -52,7 +52,7 @@ function Summary(): React.JSX.Element {
         success: t('share_image'),
         error: t('unable_share'),
       });
-    } catch (err) {
+    } catch {
       toast.error(t('unable_share'));
     }
   };

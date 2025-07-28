@@ -68,7 +68,7 @@ export default function Auth() {
           setUsername(typedData.username);
           setUpdatedAt(typedData.updated_at);
         }
-      } catch (error) {
+      } catch {
         toast.error(t('get_profile_error'));
       } finally {
         setLoading(false);
@@ -96,7 +96,7 @@ export default function Auth() {
       if (status === 200 || status === 201) {
         toast.success(t('data_success'));
       }
-    } catch (err) {
+    } catch {
       toast.error(t('data_error'));
     } finally {
       setSaving(false);
@@ -134,7 +134,7 @@ export default function Auth() {
         } else {
           toast.error(t('no_nuzlocke'));
         }
-      } catch (error) {
+      } catch {
         toast.error(t('sync_error'));
       } finally {
         setSyncing(false);
@@ -171,7 +171,7 @@ export default function Auth() {
       const { error } = await supabase.auth.signInWithOtp({ email });
       if (error) throw Error(error.message);
       toast.success(t('check_email'));
-    } catch (err) {
+    } catch {
       toast.error(t('login_error'));
     } finally {
       setLoading(false);
@@ -190,7 +190,7 @@ export default function Auth() {
       setOpen(false);
       toast.success(t('delete_data_success'));
       setSession(null);
-    } catch (err) {
+    } catch {
       toast.error(t('delete_data_error'));
     } finally {
       setDeleting(false);

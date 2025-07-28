@@ -21,10 +21,10 @@ import {
   selectTeam,
 } from 'selectors';
 import useStore from 'store';
-import { ReactComponent as CaughtSVG } from 'assets/svg/caught.svg';
-import { ReactComponent as FailedSVG } from 'assets/svg/failed.svg';
-import { ReactComponent as FaintedSVG } from 'assets/svg/fainted.svg';
-import { ReactComponent as ShinySVG } from 'assets/svg/shiny.svg';
+import CaughtSVG from 'assets/svg/caught.svg?react';
+import FailedSVG from 'assets/svg/failed.svg?react';
+import FaintedSVG from 'assets/svg/fainted.svg?react';
+import ShinySVG from 'assets/svg/shiny.svg?react';
 import styles from './Image.module.scss';
 
 const CALC = 140 * Math.PI;

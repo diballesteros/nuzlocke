@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Page } from 'common';
 import { BadgeDetail } from 'components/Badges/elements';

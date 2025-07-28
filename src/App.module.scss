@@ -1,6 +1,3 @@
-@use 'src/assets/styles/mixins';
-@import 'src/assets/styles/variables';
-
 .app {
   height: fit-content;
   background-color: var(--bgprimary);
@@ -26,7 +23,10 @@
   }
 
   .gameSelect {
-    @include mixins.semantic-icon;
+    > i {
+      color: var(--contrast);
+      top: 0 !important;
+    }
     width: 100%;
     max-width: var(--screen-xxs);
     background-color: transparent !important;
