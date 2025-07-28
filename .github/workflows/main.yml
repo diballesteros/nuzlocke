@@ -65,7 +65,7 @@ jobs:
       - name: 'UI Tests - Chrome - Main'
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev
+          start: npx vite --host --port 3000
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: chrome
@@ -110,7 +110,7 @@ jobs:
       - name: 'UI Tests - Chrome - Other'
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev
+          start: npx vite --host --port 3000
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: chrome
@@ -155,7 +155,7 @@ jobs:
       - name: 'UI Tests - Firefox - Main'
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev
+          start: npx vite --host --port 3000
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: firefox
@@ -200,7 +200,7 @@ jobs:
       - name: 'UI Tests - Firefox - Other'
         uses: cypress-io/github-action@v6
         with:
-          start: npm run dev
+          start: npx vite --host --port 3000
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
           browser: firefox
