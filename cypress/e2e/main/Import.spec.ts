@@ -6,7 +6,9 @@ describe('Import', () => {
   });
 
   it('Import - Success', () => {
-    cy.get('[data-testid=import-file-input]').attachFile('PokemonList.json', { force: true });
+    cy.get('[data-testid=import-file-input]').selectFile('cypress/fixtures/PokemonList.json', {
+      force: true,
+    });
     cy.get('[data-testid=apply-import]').click();
     cy.get('[data-testid=options]').click();
     cy.get('[data-testid=tracker]').click();
@@ -29,7 +31,7 @@ describe('Import', () => {
   });
 
   it('Import - Failure', () => {
-    cy.get('[data-testid=import-file-input]').attachFile('Invalid.json');
+    cy.get('[data-testid=import-file-input]').selectFile('cypress/fixtures/Invalid.json');
     cy.get('[data-testid=apply-import]').click();
     cy.contains('Invalid file').should('exist');
   });

@@ -15,13 +15,7 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    "types": [
-      "vitest/globals",
-      "@testing-library/jest-dom",
-      "cypress",
-      "cypress-file-upload",
-      "node"
-    ]
+    "types": ["vitest/globals", "@testing-library/jest-dom", "cypress", "node"]
   },
   "include": ["src", "supabase.client.ts", "cypress.config.ts", "cypress/e2e/**/*.ts"],
   "exclude": [

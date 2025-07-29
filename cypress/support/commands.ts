@@ -24,8 +24,6 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-import 'cypress-file-upload';
-
 Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid="level"] > input').type('15');
   cy.get('[data-testid="level"] > input').should('have.value', 15);

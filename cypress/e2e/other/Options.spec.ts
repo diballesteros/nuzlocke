@@ -81,7 +81,9 @@ describe('Options', () => {
 
   it('Suggestions', () => {
     cy.get('[data-testid="import"]').click();
-    cy.get('[data-testid="import-file-input"]').attachFile('Suggestions.json', { force: true });
+    cy.get('[data-testid="import-file-input"]').selectFile('cypress/fixtures/Suggestions.json', {
+      force: true,
+    });
     cy.get('[data-testid="apply-import"]').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="tracker"]').click();

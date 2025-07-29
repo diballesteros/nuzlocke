@@ -144,7 +144,9 @@ describe('Rules', () => {
   it('Over 6 alert', { scrollBehavior: 'center' }, () => {
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="import"]').click();
-    cy.get('[data-testid="import-file-input"]').attachFile('over6.json', { force: true });
+    cy.get('[data-testid="import-file-input"]').selectFile('cypress/fixtures/over6.json', {
+      force: true,
+    });
     cy.get('[data-testid="apply-import"]').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="tracker"]').click();

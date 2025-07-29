@@ -8,6 +8,6 @@
     "noEmit": true,
     "lib": ["es5", "dom"],
     "isolatedModules": false,
-    "types": ["cypress", "cypress-file-upload", "node"]
+    "types": ["cypress", "node"]
   }
 }

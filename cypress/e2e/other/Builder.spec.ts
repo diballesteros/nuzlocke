@@ -65,13 +65,15 @@ describe('Builder', () => {
     cy.get('[data-testid="builder-add"]').should('be.disabled');
   });
 
-  it('Coverage', () => {
+  it.only('Coverage', () => {
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="builder"]').click();
     cy.contains('Coverage').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="import"]').click();
-    cy.get('[data-testid="import-file-input"]').attachFile('Coverage.json', { force: true });
+    cy.get('[data-testid="import-file-input"]').selectFile('cypress/fixtures/Coverage.json', {
+      force: true,
+    });
     cy.get('[data-testid="apply-import"]').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="builder"]').click();
