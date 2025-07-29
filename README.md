@@ -26,7 +26,7 @@ Web app to track and record encounters in any Pokémon game. Including custom ga
 
 All Pokémon included up to generation 8.
 
-Built with ReactJS, Create-React-App, Zustand and Semantic UI.
+Built with ReactJS, Typescript, Vite, Zustand and Semantic UI.
 
 ### 🚀 Features
 
@@ -98,7 +98,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 This project uses [Cypress](https://www.cypress.io/) for testing. To run them:
 
 ```sh
-npm e2e
+npm run e2e
 ```
 
 In the new window execute any of the \*.spec.ts files.
@@ -106,7 +106,7 @@ In the new window execute any of the \*.spec.ts files.
 This will run the unit tests:
 
 ```bash
-npm test
+npm run test
 ```
 
 ## Roadmap

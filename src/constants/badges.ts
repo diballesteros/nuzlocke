@@ -292,7 +292,7 @@ const BADGES: TBadgeDictionary = {
     },
     {
       id: 3,
-      levelCap: 26,
+      levelCap: 30,
       name: 'Relic Badge',
     },
     {

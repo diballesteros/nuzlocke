@@ -2,7 +2,7 @@
   "name": "nuzlocke",
   "author": "Diego Ballesteros Castellanos",
   "description": "Nuzlocke tracker to record encounters with detailed information",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "license": "BSD-3-Clause",
   "type": "module",
   "bugs": {

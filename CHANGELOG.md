@@ -1,3 +1,19 @@
+## Version 6.1.0
+
+🚀 New Features
+
+- Added informational reminder in badge/trial details indicating that displayed stats are base stats and may not reflect actual opponent values
+
+🐛 Bug Fixes
+
+- Fixed Kyurem's dual type from Dragon/Flying to Dragon/Ice
+- Fixed "Dodouo" typo to "Doduo" in encounter filters
+- Updated Platinum Relic Badge level cap from 26 to 30
+- Removed incorrect Sitrus Berry from Lucario in Platinum gym leader team
+- Reordered Sneasel and Piloswine in Byron's Platinum team for accuracy
+- Added missing encounters to Route 32 (Heracross, Spearow, Aipom) in HeartGold/SoulSilver
+- Added missing encounters to Route 4 and Melemele Sea in Sun/Moon (Exeggcute, Hoothoot, Pineco, Ledyba, Spinarak, Tentacool)
+
 ## Version 6.0.0
 
 🚀 Major Changes

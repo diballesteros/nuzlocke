@@ -61,6 +61,9 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
           />
         </div>
       )}
+      <div>
+        <span className={styles.detailReminder}>{t('detail_reminder')}</span>
+      </div>
       <div className={styles.gymPokemon}>
         {getContent()?.map((pokemon, ind) => {
           const poke = POKEMAP.get(pokemon.id);
