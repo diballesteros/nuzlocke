@@ -1,3 +1,45 @@
+## Version 6.0.0
+
+🚀 Major Changes
+
+- **Build System Migration**: Migrated from Create React App to Vite 7.0.6 for faster builds and improved developer experience
+- **Package Management**: Removed yarn.lock and switched to npm for dependency management
+- **React Router**: Updated to v7.7.1 with new import paths
+- **Progressive Web App**: Implemented with vite-plugin-pwa and 3MB cache limit
+- **Development Server**: Standardized to port 3000 with --host flag for container compatibility
+
+🛠️ Development Infrastructure
+
+- **TypeScript**: Updated to 5.8.3 with ES2021 target and bundler module resolution
+- **ESLint**: Migrated to flat config (eslint.config.mjs) with modern plugin architecture
+- **Testing**: Switched from Jest to Vitest with jsdom environment
+- **Cypress**: Updated to 14.5.3 with modernized test patterns
+- **GitHub Actions**: Completely modernized CI/CD pipeline with cypress/browsers:22.17.1
+- **Build Performance**: Optimized with Vite's fast HMR and build caching
+
+📦 Package Updates
+
+- **React**: Updated to 18.3.1 with improved JSX runtime
+- **Sentry**: Updated to @sentry/react 9.42.0 with @sentry/vite-plugin 4.0.1
+- **Supabase**: Updated to @supabase/supabase-js 2.52.1
+- **UI Libraries**: Maintained semantic-ui-react 2.1.5 compatibility
+- **Development Tools**: Added vitest 3.2.4, vite-plugin-svgr 4.3.0
+
+🔧 Code Modernization
+
+- **SVG Imports**: Migrated from ReactComponent to ?react suffix imports
+- **Environment Variables**: Switched from process.env to import.meta.env
+- **Module System**: Updated to ESM with proper type declarations
+- **Error Handling**: Improved with simplified catch blocks and better type safety
+- **File Structure**: Organized with Vite-compatible asset handling
+
+🏠 Internal Cleanup
+
+- **Removed Legacy Files**: Cleaned up CRA-specific configurations and Docker files
+- **Service Worker**: Replaced react-scripts service worker with Vite PWA implementation
+- **Code Coverage**: Removed @cypress/code-coverage
+- **Browser Compatibility**: Updated browserslist for modern browser support
+
 ## Version 5.6.0
 
 🚀 New features
