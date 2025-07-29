@@ -5067,7 +5067,7 @@ const POKEMON: TPokemon[] = [
     value: 646,
     text: 'Kyurem',
     type: 'DRAGON',
-    dualtype: 'FLYING',
+    dualtype: 'ICE',
     generation: 5,
   },
   {

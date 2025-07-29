@@ -2,6 +2,29 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 6.1.0',
+    date: 1753806926559,
+    notes: [
+      {
+        description:
+          'Added helpful reminder in gym/trial details that stats shown are base stats and may not reflect actual opponent stats',
+        type: 'FEATURE',
+      },
+      {
+        description: "Fixed Kyurem's dual type from Dragon/Flying to Dragon/Ice",
+        type: 'FIX',
+      },
+      {
+        description: 'Updated Platinum Relic Badge level cap from 26 to 30',
+        type: 'FIX',
+      },
+      {
+        description: 'Fixed various encounter lists and gym leader details across multiple games',
+        type: 'FIX',
+      },
+    ],
+  },
+  {
     name: 'Version 6.0.0',
     date: 1753800124396,
     notes: [

@@ -2916,7 +2916,6 @@ const DETAILS: { [key: string]: TDetail[][] } = {
           {
             ability: 'Steadfast',
             id: 448,
-            item: 'Sitrus Berry',
             level: 32,
             moves: [409, 395, 232, 198],
           },
@@ -3070,16 +3069,16 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       {
         content: [
           {
-            ability: 'Oblivious',
-            id: 221,
-            level: 40,
-            moves: [89, 419, 444, 258],
-          },
-          {
             ability: 'Inner Focus',
             id: 215,
             level: 40,
             moves: [332, 185, 420, 163],
+          },
+          {
+            ability: 'Oblivious',
+            id: 221,
+            level: 40,
+            moves: [89, 419, 444, 258],
           },
           {
             ability: 'Snow Warning',
