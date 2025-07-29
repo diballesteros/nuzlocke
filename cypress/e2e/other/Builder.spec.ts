@@ -65,7 +65,7 @@ describe('Builder', () => {
     cy.get('[data-testid="builder-add"]').should('be.disabled');
   });
 
-  it.only('Coverage', () => {
+  it('Coverage', () => {
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="builder"]').click();
     cy.contains('Coverage').click();
@@ -77,7 +77,7 @@ describe('Builder', () => {
     cy.get('[data-testid="apply-import"]').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="builder"]').click();
-    cy.contains('Coverage').click();
+    cy.get('.secondary > :nth-child(2)').click();
     cy.contains('ICE 4').should('exist');
     cy.contains('WATER 1').should('exist');
     cy.get('[data-testid="game-select"]').click();
