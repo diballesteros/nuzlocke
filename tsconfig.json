@@ -1,24 +1,21 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    "lib": ["ES2021", "DOM.Iterable", "DOM"],
     "allowJs": true,
     "skipLibCheck": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "strictNullChecks": false,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
-    "downlevelIteration": true,
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "baseUrl": "./src",
-    "types": ["cypress", "cypress-file-upload", "node", "cypress-localstorage-commands"]
+    "types": ["vitest/globals", "@testing-library/jest-dom", "cypress", "node"]
   },
   "include": ["src", "supabase.client.ts", "cypress.config.ts", "cypress/e2e/**/*.ts"],
   "exclude": [
@@ -36,5 +33,6 @@
     "src/constants/nickname.ts",
     "src/constants/details.ts",
     "supabase/functions/**/*.ts"
-  ]
+  ],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

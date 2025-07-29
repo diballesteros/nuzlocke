@@ -48,7 +48,7 @@ function Import(): React.JSX.Element {
         } else {
           throw Error(t('invalid'));
         }
-      } catch (error) {
+      } catch {
         toast.error(t('invalid_file'));
       }
     };
@@ -81,18 +81,42 @@ function Import(): React.JSX.Element {
           ],
           nature: removeNone(data[arrPositions.get('Nature')]),
           shiny: data[arrPositions.get('IsShiny')] === 'True',
-          ivhp: Number(data[arrPositions.get('HP_IV')]) ?? 31,
-          ivatk: Number(data[arrPositions.get('ATK_IV')]) ?? 31,
-          ivdef: Number(data[arrPositions.get('DEF_IV')]) ?? 31,
-          ivspatk: Number(data[arrPositions.get('SPA_IV')]) ?? 31,
-          ivspdef: Number(data[arrPositions.get('SPD_IV')]) ?? 31,
-          ivspeed: Number(data[arrPositions.get('SPE_IV')]) ?? 31,
-          evhp: Number(data[arrPositions.get('HP_EV')]) ?? 0,
-          evatk: Number(data[arrPositions.get('ATK_EV')]) ?? 0,
-          evdef: Number(data[arrPositions.get('DEF_EV')]) ?? 0,
-          evspatk: Number(data[arrPositions.get('SPA_EV')]),
-          evspdef: Number(data[arrPositions.get('SPD_EV')]) ?? 0,
-          evspeed: Number(data[arrPositions.get('SPE_EV')]) ?? 0,
+          ivhp: isNaN(Number(data[arrPositions.get('HP_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('HP_IV')]),
+          ivatk: isNaN(Number(data[arrPositions.get('ATK_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('ATK_IV')]),
+          ivdef: isNaN(Number(data[arrPositions.get('DEF_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('DEF_IV')]),
+          ivspatk: isNaN(Number(data[arrPositions.get('SPA_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('SPA_IV')]),
+          ivspdef: isNaN(Number(data[arrPositions.get('SPD_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('SPD_IV')]),
+          ivspeed: isNaN(Number(data[arrPositions.get('SPE_IV')]))
+            ? 31
+            : Number(data[arrPositions.get('SPE_IV')]),
+          evhp: isNaN(Number(data[arrPositions.get('HP_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('HP_EV')]),
+          evatk: isNaN(Number(data[arrPositions.get('ATK_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('ATK_EV')]),
+          evdef: isNaN(Number(data[arrPositions.get('DEF_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('DEF_EV')]),
+          evspatk: isNaN(Number(data[arrPositions.get('SPA_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('SPA_EV')]),
+          evspdef: isNaN(Number(data[arrPositions.get('SPD_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('SPD_EV')]),
+          evspeed: isNaN(Number(data[arrPositions.get('SPE_EV')]))
+            ? 0
+            : Number(data[arrPositions.get('SPE_EV')]),
         },
         id: foundEnc.id,
         location: foundEnc.location,
@@ -139,7 +163,7 @@ function Import(): React.JSX.Element {
       }, []);
       massImport(newEncounters);
       toast.success(t('game_success'));
-    } catch (e) {
+    } catch {
       toast.error(t('invalid_text'));
     }
   };

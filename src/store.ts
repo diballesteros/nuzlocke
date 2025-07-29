@@ -26,6 +26,7 @@ import type {
   TPokemon,
   TRuleContent,
   TRuleEntry,
+  TRuleset,
   TRulesetDictionary,
   TStatus,
   TSummaryBasic,
@@ -44,19 +45,19 @@ const useStore = create<AppState>()(
       badges: BADGES,
       calcs: INITIAL_STATE.calcs,
       customBadges: {},
-      customStatuses: [],
+      customStatuses: [] as TStatus[],
       darkMode: INITIAL_STATE.darkMode,
       duplicates: INITIAL_STATE.duplicates,
       games: INITIAL_STATE.games,
       gamesList: GAMES,
-      gens: [],
+      gens: [] as number[],
       language: EN_LANGUAGE,
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
       notes: INITIAL_STATE.notes,
       rules: INITIAL_STATE.rules,
-      rulesets: null, // No longer used
+      rulesets: null as TRuleset[] | null, // No longer used
       selectedGame: INITIAL_STATE.selectedGame,
       selectedRuleset: INITIAL_STATE.selectedRuleset,
       showAll: INITIAL_STATE.showAll,
@@ -67,8 +68,8 @@ const useStore = create<AppState>()(
       summary: INITIAL_STATE.summary,
       team: INITIAL_STATE.team,
       text: '',
-      types: [],
-      typeModal: null,
+      types: [] as Type[],
+      typeModal: null as Type | null,
       addCustomBadge: () =>
         set((state) => {
           if (state.customBadges[state.selectedGame?.value]) {
@@ -450,7 +451,7 @@ const useStore = create<AppState>()(
         }),
       removeNew: () =>
         set((state) => {
-          state.newVersion = process.env.REACT_APP_VERSION;
+          state.newVersion = import.meta.env.REACT_APP_VERSION;
         }),
       reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) =>
         set((state) => {
@@ -577,6 +578,10 @@ const useStore = create<AppState>()(
       },
       updateDefaultValues: (values: Partial<TCalculatorForm>) => {
         set((state) => {
+          if (!state.selectedGame?.value) {
+            return;
+          }
+
           state.calcs[state?.selectedGame?.value].form = {
             ...state.calcs[state?.selectedGame?.value].form,
             ...values,

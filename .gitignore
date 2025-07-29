@@ -26,3 +26,10 @@ yarn-debug.log*
 yarn-error.log*
 
 .vscode
+
+# Sentry Config File
+.env.sentry-build-plugin
+
+# Build
+/dev-dist
+/dist

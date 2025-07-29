@@ -6,7 +6,7 @@ import { PokemonSelector } from 'common';
 import { Member } from 'components';
 import Coverage from 'components/Builder/elements/Coverage/Coverage';
 import useStore from 'store';
-import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
+import PokeballSVG from 'assets/svg/pokeball.svg?react';
 import styles from './Builder.module.scss';
 
 function Builder(): React.JSX.Element {

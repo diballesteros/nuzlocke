@@ -21,7 +21,7 @@ import { POKEMAP } from 'constants/pokemon';
 import useRemtoPx from 'hooks/useRemToPx';
 import { selectNAGeneration } from 'selectors';
 import useStore from 'store';
-import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
+import PokeballSVG from 'assets/svg/pokeball.svg?react';
 import styles from './Encounters.module.scss';
 
 const NICKNAME_HEIGHT = 15.714; // 220px
@@ -219,7 +219,6 @@ const Encounters = React.memo(function Encounters() {
       {selectedGame ? (
         <>
           <div className={styles.list} data-testid="encounters-list">
-            {/* @ts-ignore */}
             <FixedSizeList
               height={690}
               itemCount={filteredEncounters?.length}

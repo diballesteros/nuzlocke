@@ -141,7 +141,6 @@ function PokemonSelector({
             </Button>
           </aside>
         )}
-        {/* @ts-ignore */}
         <FixedSizeList
           height={400}
           itemCount={filteredPokemon.length}

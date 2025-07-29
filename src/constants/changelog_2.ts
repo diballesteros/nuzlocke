@@ -2,6 +2,17 @@ import type { TReleaseNotes } from 'constants/types';
 
 export const CHANGELOG2: TReleaseNotes = [
   {
+    name: 'Version 6.0.0',
+    date: 1753800124396,
+    notes: [
+      {
+        description:
+          'Major under-the-hood improvements including faster build times, improved performance, and modernized development infrastructure',
+        type: 'FEATURE',
+      },
+    ],
+  },
+  {
     name: 'Version 5.6.0',
     date: 1712779602626,
     notes: [

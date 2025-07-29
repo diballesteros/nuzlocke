@@ -10,7 +10,7 @@ import {
 import useWindowSize from 'hooks/useWindowSize';
 import { selectCaught } from 'selectors';
 import useStore from 'store';
-import { ReactComponent as PokeballSVG } from 'assets/svg/pokeball.svg';
+import PokeballSVG from 'assets/svg/pokeball.svg?react';
 import styles from './Calculator.module.scss';
 
 function Calculator(): React.JSX.Element {

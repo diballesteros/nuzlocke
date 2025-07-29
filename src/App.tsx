@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router';
 import { toast, ToastContainer } from 'react-toastify';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
@@ -29,7 +29,7 @@ function App(): React.JSX.Element {
 
   useEffect(() => {
     if (
-      newVersion !== process.env.REACT_APP_VERSION &&
+      newVersion !== import.meta.env.REACT_APP_VERSION &&
       window?.matchMedia('(prefers-color-scheme:dark)')?.matches
     ) {
       useStore.setState((state) => {
@@ -92,7 +92,7 @@ function App(): React.JSX.Element {
             data-testid="options"
           >
             <Icon name="bars" />
-            {newVersion !== process.env.REACT_APP_VERSION && (
+            {newVersion !== import.meta.env.REACT_APP_VERSION && (
               <span className={styles.exclamation}>!</span>
             )}
           </button>
@@ -185,7 +185,7 @@ function App(): React.JSX.Element {
           </Menu.Item>
           <Menu.Item as="div" data-testid="changelog" onClick={() => handleRoute('/changelog')}>
             Changelog
-            {newVersion !== process.env.REACT_APP_VERSION && (
+            {newVersion !== import.meta.env.REACT_APP_VERSION && (
               <span className={styles.exclamation}>!</span>
             )}
             <Icon name="clipboard outline" />
@@ -237,7 +237,7 @@ function App(): React.JSX.Element {
         </Sidebar.Pusher>
       </Sidebar.Pushable>
       <footer className={`${styles.footer} ${visible ? styles.hide : ''}`}>
-        Pokémon © 2002-2021 Pokémon <br />© 1995-2021 Nintendo/Creatures Inc./GAME FREAK inc. TM,
+        Pokémon © 2002-2025 Pokémon <br />© 1995-2025 Nintendo/Creatures Inc./GAME FREAK inc. TM,
         <br />® and Pokémon character names are trademarks of Nintendo.
       </footer>
       <Effectiveness />
