@@ -38,6 +38,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
 - **Cypress conventions:** select by `data-testid`. Pick games with `cy.selectGame('<name>')` (in `cypress/support/commands.ts`), not raw dropdown clicks. `cypress/support/e2e.ts` blocks the dev PWA service worker. Without that, reloads skip Cypress's `window:before:load`, so stubs and coverage silently stop working.
 - Auth/Supabase (`src/components/Auth`) is going to be removed. Don't add tests for it.
+- Sass and Semantic UI React will be replaced (Tailwind is planned). Keep changes to them minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
 
 ## Architecture
 
