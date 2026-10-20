@@ -1,0 +1,11 @@
+dist
+dev-dist
+coverage
+.nyc_output
+cypress/fixtures
+cypress/downloads
+cypress/screenshots
+public/*.html
+supabase
+CHANGELOG.md
+package-lock.json
