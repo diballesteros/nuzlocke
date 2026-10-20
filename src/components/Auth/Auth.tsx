@@ -158,6 +158,8 @@ export default function Auth() {
   };
 
   useEffect(() => {
+    // Auth is slated for removal, so this existing pattern is left as is
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     getProfile();
   }, [getProfile, session]);
 

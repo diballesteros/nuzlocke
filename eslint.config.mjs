@@ -37,15 +37,24 @@ export default tseslint.config(
   //     },
   //   },
   // },
+  // Separate objects: spreading both presets into one let the hooks preset overwrite the
+  // React preset's plugins and rules, so no react/* rules ran
   {
     files: ['**/*.jsx', '**/*.tsx'],
     ...reactPlugin.configs.flat.recommended,
-    ...reactHooksPlugin.configs['recommended-latest'],
+    rules: {
+      ...reactPlugin.configs.flat.recommended.rules,
+      ...reactPlugin.configs.flat['jsx-runtime'].rules,
+    },
     settings: {
       react: {
         version: '18.3.1',
       },
     },
+  },
+  {
+    files: ['**/*.jsx', '**/*.tsx'],
+    ...reactHooksPlugin.configs.flat['recommended-latest'],
   },
   {
     files: ['cypress/**/*.ts', 'cypress/**/*.js', '**/*.cy.ts', '**/*.cy.js'],
