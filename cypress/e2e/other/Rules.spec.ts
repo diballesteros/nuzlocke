@@ -78,8 +78,7 @@ describe('Rules', () => {
       cy.contains('Type').click();
       cy.contains('Type rule already exists').should('exist');
       cy.contains('Cancel').click();
-      cy.get('[data-testid="game-select"]').click();
-      cy.contains('Sword and Shield').click();
+      cy.selectGame('Sword and Shield');
       cy.get('[data-testid="options"]').click();
       cy.get('.vertical > :nth-child(1)').click();
       cy.get('[data-testid="pokemon-0"]').click();
@@ -103,8 +102,7 @@ describe('Rules', () => {
       cy.contains('Generation').click();
       cy.contains('Generation rule already exists').should('exist');
       cy.contains('Cancel').click();
-      cy.get('[data-testid="game-select"]').click();
-      cy.contains('Sword and Shield').click();
+      cy.selectGame('Sword and Shield');
       cy.get('[data-testid="options"]').click();
       cy.get('.vertical > :nth-child(1)').click();
       cy.get('[data-testid="pokemon-0"]').click();
@@ -127,8 +125,7 @@ describe('Rules', () => {
       cy.contains('Level').click();
       cy.contains('Level rule already exists').should('exist');
       cy.contains('Cancel').click();
-      cy.get('[data-testid="game-select"]').click();
-      cy.contains('Sword and Shield').click();
+      cy.selectGame('Sword and Shield');
       cy.get('[data-testid="options"]').click();
       cy.get('.vertical > :nth-child(1)').click();
       cy.get('[data-testid="pokemon-0"]').click();

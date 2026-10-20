@@ -1,8 +1,7 @@
 describe('Accessibility', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
   });
 
   it('Keyboard Navigation', () => {

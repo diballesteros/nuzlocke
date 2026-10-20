@@ -20,8 +20,7 @@ describe('Calculator', () => {
 
   it('Base Calculations', { scrollBehavior: 'center' }, () => {
     cy.contains('Please select a game').should('exist');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="minus-level1"]').click();
     cy.get('[data-testid="level-input1"]').should('have.value', '99');
     cy.get('[data-testid="plus-level1"]').click();
@@ -102,8 +101,7 @@ describe('Calculator', () => {
   });
 
   it('Switching pokemon', () => {
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="pokecontroller-pokemon2"]').click();
     cy.get('[data-testid="filter"] > input').type('Giratina');
     cy.get('[data-testid="poke-Giratina"]').click({ force: true });
@@ -166,8 +164,7 @@ describe('Calculator', () => {
   });
 
   it('Smogon names & Forbidden items', () => {
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="show-all-pokemon1"] > label').click();
     cy.get('[data-testid="pokecontroller-pokemon1"]').click();
     cy.get('[data-testid="filter"] > input').type('Galarian');
@@ -185,8 +182,7 @@ describe('Calculator', () => {
     cy.get('[data-testid="poke-Nidoran♂"]').click({ force: true });
     cy.contains('Nidoran♀').should('exist');
     cy.contains('Nidoran♂').should('exist');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.selectGame('Ruby, Sapphire and Emerald');
     cy.get('[data-testid="item1"] > .search').type('Charizard', { force: true });
     cy.get('[data-testid="item1"] > .visible > :nth-child(1)').click();
     cy.get('[data-testid="item2"] > .search').type('Charizard', { force: true });

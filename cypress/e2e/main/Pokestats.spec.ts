@@ -3,8 +3,7 @@ import path from 'path';
 describe('PokéStats', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
   });
 
   it('Tips', () => {
@@ -103,6 +102,33 @@ describe('PokéStats', () => {
     const filename = path.join(downloadsFolder, 'nuzlocke.png');
     cy.readFile(filename, 'binary', { timeout: 15000 }).should((buffer) => {
       expect(buffer.length).greaterThan(1000);
+    });
+  });
+
+  context('Share Image', { browser: '!firefox' }, () => {
+    const visitWithShare = (canShare: boolean) => {
+      cy.visit('/stats', {
+        onBeforeLoad(win) {
+          Object.defineProperty(win.navigator, 'canShare', { value: () => canShare });
+          Object.defineProperty(win.navigator, 'share', {
+            value: cy.stub().as('share').resolves(),
+          });
+        },
+      });
+    };
+
+    it('Share Success', () => {
+      visitWithShare(true);
+      cy.get('[data-testid="share-image"]').click();
+      cy.contains('Share the image!', { timeout: 15000 }).should('exist');
+      cy.get('@share').should('have.been.calledOnce');
+    });
+
+    it('Share Unsupported', () => {
+      visitWithShare(false);
+      cy.get('[data-testid="share-image"]').click();
+      cy.contains('Unable to share', { timeout: 15000 }).should('exist');
+      cy.get('@share').should('not.have.been.called');
     });
   });
 });
