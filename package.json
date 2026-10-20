@@ -87,7 +87,7 @@
     "istanbul-lib-coverage": "^3.2.2",
     "istanbul-lib-report": "^3.0.1",
     "istanbul-reports": "^3.2.0",
-    "jsdom": "^26.1.0",
+    "jsdom": "^29.1.1",
     "prettier": "^3.9.10",
     "sass": "^1.105.2",
     "start-server-and-test": "^3.0.13",
