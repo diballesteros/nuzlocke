@@ -1,3 +1,4 @@
+import '@cypress/code-coverage/support';
 import './commands';
 
 // The dev-mode PWA service worker serves pages without Cypress's injected scripts, so reloads skip
