@@ -1,20 +1,10 @@
-// ***********************************************************
-// This example support/index.js is processed and
-// loaded automatically before your test files.
-//
-// This is a great place to put global configuration and
-// behavior that modifies Cypress.
-//
-// You can change the location of this file or turn off
-// automatically serving support files with the
-// 'supportFile' configuration option.
-//
-// You can read more here:
-// https://on.cypress.io/configuration
-// ***********************************************************
-
-// Import commands.js using ES2015 syntax:
 import './commands';
 
-// Alternatively you can use CommonJS syntax:
-// require('./commands')
+// The dev-mode PWA service worker serves pages without Cypress's injected scripts, so reloads skip
+// window:before:load (stubs, coverage). Drop existing registrations and block new ones.
+Cypress.on('window:before:load', (win) => {
+  const sw = win.navigator.serviceWorker;
+  if (!sw) return;
+  sw.getRegistrations().then((registrations) => registrations.forEach((r) => r.unregister()));
+  sw.register = () => new Promise<ServiceWorkerRegistration>(() => {});
+});
