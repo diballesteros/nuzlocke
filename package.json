@@ -42,7 +42,8 @@
     "e2e:run": "start-server-and-test dev:cov http://localhost:3000 cy:run",
     "cy:run": "cypress run --browser chrome",
     "coverage": "node scripts/coverage.mjs",
-    "verify": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit:cov && npm run build && npm run e2e:run && npm run coverage"
+    "verify": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit:cov && npm run build && npm run e2e:run && npm run coverage",
+    "verify:fast": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit && npm run build"
   },
   "browserslist": {
     "production": [
