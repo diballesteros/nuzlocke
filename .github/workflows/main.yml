@@ -8,7 +8,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:22.17.1
+      image: cypress/browsers:24.22.0
       options: --user 1001
     steps:
       - name: Checkout
@@ -46,7 +46,7 @@ jobs:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:22.17.1
+      image: cypress/browsers:24.22.0
       options: --user 1001
     needs: install
     strategy:
