@@ -1,11 +1,23 @@
 import eslint from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
 import pluginCypress from 'eslint-plugin-cypress';
+import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
+  {
+    ignores: [
+      'dist/',
+      'dev-dist/',
+      'coverage/',
+      '.nyc_output/',
+      'cypress/downloads/',
+      'src/constants/locations/*',
+      'supabase/*',
+    ],
+  },
   eslint.configs.recommended,
   tseslint.configs.recommended,
   prettierConfig,
@@ -40,7 +52,10 @@ export default tseslint.config(
     ...pluginCypress.configs.recommended,
   },
   {
-    ignores: ['src/constants/locations/*', 'supabase/*'],
+    files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     rules: {
       'no-console': ['warn', { 'allow': ['warn', 'error', 'info'] }],
       'sort-imports': ['error', { 'ignoreCase': true, 'ignoreDeclarationSort': true }],
