@@ -236,12 +236,7 @@ export type TRuleContent = string | string[] | number | number[];
 export type TRule = 'TEXT' | 'TYPE' | 'GENERATION' | 'LEVEL';
 
 type TDetailClassification =
-  | 'GYM'
-  | 'TRIAL'
-  | 'DYNAMAX'
-  | 'REMATCH'
-  | 'RIVAL'
-  | 'EVIL_ORGANIZATION';
+  'GYM' | 'TRIAL' | 'DYNAMAX' | 'REMATCH' | 'RIVAL' | 'EVIL_ORGANIZATION';
 
 export interface TSummary extends TSummaryBasic {
   description: string;
