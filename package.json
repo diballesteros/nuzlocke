@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "@sentry/react": "^9.42.0",
+    "@sentry/react": "^9.47.2",
     "@smogon/calc": "^0.9.0",
     "@supabase/supabase-js": "^2.52.1",
     "html-to-image": "^1.11.11",
