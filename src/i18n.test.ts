@@ -14,6 +14,14 @@ describe('i18n', () => {
     expect(i18n.t('back', { ns: 'common' })).toBe('Atrás');
   });
 
+  test('falls back to English for missing keys', async () => {
+    const { default: i18n } = await import('./i18n');
+    // Every real key is translated (see localeKeys in data.test.ts), so add one only to English
+    i18n.addResource('en', 'common', 'fallback_probe', 'English only');
+    await i18n.changeLanguage('de');
+    expect(i18n.t('fallback_probe', { ns: 'common' })).toBe('English only');
+  });
+
   test('loads encounter-template translations', async () => {
     const { default: i18n } = await import('./i18n');
     await i18n.changeLanguage('de');
