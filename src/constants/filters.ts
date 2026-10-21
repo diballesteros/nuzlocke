@@ -7143,7 +7143,6 @@ const FILTERS: { [key in string]: string[] } = {
     'Klang',
     'Stunfisk (Galarian)',
     'Meowstic',
-    'Barbaracle',
     'Charjabug',
     'Mudsdale',
     'Corviknight',
