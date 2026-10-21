@@ -1,0 +1,37 @@
+[
+  {
+    "id": "aria-command-name",
+    "impact": "serious",
+    "nodes": 9
+  },
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 16
+  },
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": 1
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "nodes": 9
+  },
+  {
+    "id": "role-img-alt",
+    "impact": "serious",
+    "nodes": 7
+  },
+  {
+    "id": "scrollable-region-focusable",
+    "impact": "serious",
+    "nodes": 1
+  }
+]

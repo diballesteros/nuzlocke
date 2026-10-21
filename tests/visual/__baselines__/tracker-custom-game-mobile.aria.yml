@@ -1,0 +1,62 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Emerald Kaizo
+  - button "addgame"
+  - button "deletegame"
+  - button "Login"
+- main:
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button "0"
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - list:
+    - text: Starter
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Pallet Town
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 1
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian City
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: /Route \d+/
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 2
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian Forest
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+  - button "open-notes"
+  - button "open-scroll-list"
+  - button "scroll-to-last-encounter": Go to Starter
+  - button "tracker-options"
+- region "Notifications Alt+T"

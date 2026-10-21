@@ -40,6 +40,35 @@ export default defineConfig({
       snapshotPathTemplate: '{testDir}/__goldens__/{arg}{ext}',
       use: { ...chrome, timezoneId: 'UTC', locale: 'en-US' },
     },
+    // Only with VISUAL=1: baselines are rendered in the pinned Playwright Docker image (npm run
+    // verify:visual) or in CI's container, never on a developer OS with different fonts
+    ...(process.env.VISUAL
+      ? [
+          {
+            name: 'visual',
+            testDir: 'tests/visual',
+            snapshotPathTemplate: '{testDir}/__baselines__/{arg}{ext}',
+            use: {
+              ...devices['Desktop Chrome'],
+              timezoneId: 'UTC',
+              locale: 'en-US',
+              // Software rasterization with fixed colour and font settings: GPU and threaded
+              // raster otherwise anti-alias rounded corners differently from run to run
+              launchOptions: {
+                args: [
+                  '--disable-gpu',
+                  '--disable-gpu-rasterization',
+                  '--disable-partial-raster',
+                  '--disable-skia-runtime-opts',
+                  '--disable-lcd-text',
+                  '--force-color-profile=srgb',
+                  '--font-render-hinting=none',
+                ],
+              },
+            },
+          },
+        ]
+      : []),
     // Only with SEEDS=1 (npm run seeds), so a normal run never rewrites the seeds
     ...(process.env.SEEDS
       ? [{ name: 'seeds', testDir: 'tests/seeds', use: { ...chrome, timezoneId: 'UTC' } }]

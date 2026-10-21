@@ -1,0 +1,14 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Choose a game
+  - button "addgame"
+  - button "Login"
+- main:
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - img
+  - text: Please select a game
+  - button "tracker-options"
+- region "Notifications Alt+T"

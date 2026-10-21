@@ -1,0 +1,31 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Sword and Shield
+  - button "addgame"
+  - button "Login"
+- main:
+  - text: Builder Coverage
+  - img
+  - text: Bulbasaur
+  - button "pokemon type":
+    - img
+    - text: GRASS
+  - button "pokemon type":
+    - img
+    - text: POISON
+  - combobox "nature-selector":
+    - textbox
+    - alert: Select a nature...
+  - button "nature chart"
+  - combobox "ability":
+    - textbox
+    - alert: Select an ability...
+  - combobox "item":
+    - textbox
+    - alert: Select an item...
+  - text: Select a move... Select a move... Select a move... Select a move...
+  - button "DELETE"
+  - button:
+    - button
+- region "Notifications Alt+T"

@@ -1,0 +1,27 @@
+[
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 1
+  },
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": 4
+  },
+  {
+    "id": "label",
+    "impact": "critical",
+    "nodes": 3
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "nodes": 1
+  }
+]

@@ -1,0 +1,127 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: FireRed and LeafGreen
+  - button "addgame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button /Boulder Badge \d+/:
+    - img "Boulder Badge"
+    - text: ""
+    - button
+  - button /Cascade Badge \d+/:
+    - img "Cascade Badge"
+    - text: ""
+    - button
+  - button /Thunder Badge \d+/:
+    - img "Thunder Badge"
+    - text: ""
+    - button
+  - button /Rainbow Badge \d+/:
+    - img "Rainbow Badge"
+    - text: ""
+    - button
+  - button /Marsh Badge \d+/:
+    - img "Marsh Badge"
+    - text: ""
+    - button
+  - button /Soul Badge \d+/:
+    - img "Soul Badge"
+    - text: ""
+    - button
+  - button /Volcano Badge \d+/:
+    - img "Volcano Badge"
+    - text: ""
+    - button
+  - button /Earth Badge \d+/:
+    - img "Earth Badge"
+    - text: ""
+    - button
+  - button /Elite 4 \d+/:
+    - img "Elite 4"
+    - text: ""
+    - button
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - button "SHARE"
+  - button "ADD"
+  - button "RESET"
+  - list:
+    - text: Starter
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Pallet Town
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 1
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian City
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: /Route \d+/
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 2
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian Forest
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+  - button "open-notes"
+  - button "open-scroll-list"
+  - button "scroll-to-last-encounter": Go to Starter
+- region "Notifications Alt+T"
+- searchbox "search"
+- button "search-filter"
+- complementary:
+  - paragraph: If you don't happen to see the pokémon you're looking for here you can see all pokémon by enabling the option on the settings page. And please report any missing encounters as a bug to help out fellow nuzlockers.
+  - button
+- list:
+  - img
+  - text: Bulbasaur
+  - button "pokemon type":
+    - img
+    - text: GRASS
+  - button "pokemon type":
+    - img
+    - text: POISON
+  - img
+  - text: Charmander
+  - button "pokemon type":
+    - img
+    - text: FIRE
+  - img
+  - text: Squirtle
+  - button "pokemon type":
+    - img
+    - text: WATER
+- button "Cancel"

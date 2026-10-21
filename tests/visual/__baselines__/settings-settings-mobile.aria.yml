@@ -1,0 +1,27 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: FireRed and LeafGreen
+  - button "addgame"
+  - button "Login"
+- main:
+  - heading "Settings" [level=2]
+  - button "Back"
+  - checkbox [checked]
+  - text: Dark mode 
+  - checkbox
+  - text: Duplicate clause (Show alert on duplicate pokémon)
+  - checkbox
+  - text: Show nicknames
+  - checkbox
+  - text: Show only missing encounters
+  - checkbox
+  - text: Show all pokémon in every encounter
+  - checkbox [checked]
+  - text: Show suggestions 
+  - checkbox
+  - text: "Show option to select a Soul Link pokémon from the details Language:"
+  - listbox:
+    - alert: English
+  - button "Edit custom statuses"
+- region "Notifications Alt+T"

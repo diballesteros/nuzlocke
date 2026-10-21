@@ -1,0 +1,32 @@
+[
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 1
+  },
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": 2
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "role-img-alt",
+    "impact": "serious",
+    "nodes": 10
+  },
+  {
+    "id": "scrollable-region-focusable",
+    "impact": "serious",
+    "nodes": 1
+  }
+]
