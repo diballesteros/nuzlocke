@@ -72,14 +72,14 @@ describe('Calculator', () => {
     cy.get('[data-testid=modatk1]').should('contain.text', '0');
     cy.get('[data-testid=isDynamaxed1]').click();
     cy.contains(
-      'Lvl 10 0- Atk burned Bulbasaur Max Strike vs. 0 HP / 0 Def Bulbasaur on a critical hit: 1-2 (0.4 - 0.8%)'
+      'Lvl 10 0- Atk burned Bulbasaur Max Strike (90 BP) vs. 0 HP / 0 Def Bulbasaur on a critical hit: 1-2 (0.4 - 0.8%)'
     ).should('exist');
     cy.get('[data-testid=spike-3-1] > label').click();
     cy.get('[data-testid=expand-moves]').click();
     cy.get('[data-testid=attacker-result-2]').click();
     cy.get('[data-testid=primary-damage]').should(
       'have.text',
-      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth vs. 0 HP / 0 Def Bulbasaur: 1-1 (0.4 - 0.4%)'
+      'Lvl 10 0- Atk Miracle Seed burned Bulbasaur Max Overgrowth (110 BP) vs. 0 HP / 0 Def Bulbasaur: 1-1 (0.4 - 0.4%)'
     );
     cy.get('[data-testid=defender-result-1]').click();
     cy.get('[data-testid=primary-damage]').should(
@@ -141,7 +141,7 @@ describe('Calculator', () => {
     cy.contains('Black Belt').should('exist');
     cy.contains('Surf').should('exist');
     cy.contains(
-      'Lvl 15 0- Atk Scorbunny Pound vs. Lvl 20 0 HP / 0 Def Eldegoss: 4-5 (6.6 - 8.3%)'
+      'Lvl 15 0- Atk 0 IVs Scorbunny Pound vs. Lvl 20 0 HP / 0 Def Eldegoss: 4-5 (6.6 - 8.3%)'
     ).should('exist');
   });
 
@@ -157,10 +157,14 @@ describe('Calculator', () => {
     cy.get('[data-testid="gen-selector"] > .visible > :nth-child(1)').click();
     cy.get('[data-testid="gen-selector"]').click();
     cy.get('[data-testid="gen-selector"] > .visible > :nth-child(2)').click();
+    cy.contains('Bulbasaur Pound vs. Bulbasaur: 29-35 (9.8 - 11.9%) -- possible 9HKO').should(
+      'exist'
+    );
     cy.get('[data-testid="spike-1-2"] > label').click();
-    cy.contains(
-      'Bulbasaur Pound vs. Bulbasaur: 29-35 (9.8 - 11.9%) -- possible 8HKO after Spikes'
-    ).should('exist');
+    // @smogon/calc 0.11+ counts Spikes here but no longer appends "after Spikes" to "possible nHKO"
+    cy.contains('Bulbasaur Pound vs. Bulbasaur: 29-35 (9.8 - 11.9%) -- possible 8HKO').should(
+      'exist'
+    );
   });
 
   it('Smogon names & Forbidden items', () => {
