@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: FireRed and LeafGreen
   - button "addgame"
-  - button "Login"
 - main:
   - heading "Settings" [level=2]
   - button "Back"

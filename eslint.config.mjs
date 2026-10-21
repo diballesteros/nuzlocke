@@ -17,7 +17,6 @@ export default tseslint.config(
       'verification/artifacts/',
       'verification/.session/',
       'src/constants/locations/*',
-      'supabase/*',
     ],
   },
   eslint.configs.recommended,

@@ -181,5 +181,6 @@ test.describe('Options', () => {
   test('Delete', async ({ page }) => {
     await page.goto('/delete');
     await expect(text(page, 'Account Deletion')).toBeAttached();
+    await expect(text(page, 'Accounts have been discontinued')).toBeVisible();
   });
 });

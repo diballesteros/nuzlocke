@@ -10,7 +10,7 @@ Static and form pages: the changelog, about, bug/suggestion report, and account 
 - `info-report`: `/report` form with type, device, OS, browser, game and description
   (`report-type`, `report-device`, `report-os`, `report-browser`, `report-selectedgame`,
   `report-description`). It posts to Netlify Forms.
-- `info-delete`: `/delete` explains account deletion ("Account Deletion").
+- `info-delete`: `/delete` ("Account Deletion") says accounts were discontinued and their data deleted.
 
 ## How to get to it (user POV)
 
@@ -31,4 +31,4 @@ Preconditions:
 ## Gotchas
 
 - Don't submit the report form: it posts to the live Netlify form.
-- `/delete` is tied to the Supabase account feature, which is being removed.
+- `/delete` is kept for outside links: accounts and Supabase were removed, so it only explains that.

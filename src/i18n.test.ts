@@ -26,8 +26,8 @@ describe('i18n', () => {
   test('interpolates and pluralises', async () => {
     const { default: i18n } = await import('./i18n');
     await i18n.changeLanguage('en');
-    expect(i18n.t('delete_type_confirmation', { ns: 'common', text: 'delete it' })).toContain(
-      'Please type: delete it in the input'
+    expect(i18n.t('already_exists', { ns: 'rules', rule: 'Dupes' })).toBe(
+      'Dupes rule already exists'
     );
     expect(i18n.t('add_encounter', { ns: 'tracker', count: 1 })).toBe('Add Encounter');
     expect(i18n.t('add_encounter', { ns: 'tracker', count: 2 })).toBe('Add Encounters');

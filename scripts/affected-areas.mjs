@@ -28,7 +28,6 @@ const ALIASES = {
   locale: 'src/locale',
   error: 'src/error',
   routes: 'src/routes',
-  supabaseClient: 'src/supabaseClient.ts',
 };
 
 const posix = (file) => file.split(path.sep).join('/');

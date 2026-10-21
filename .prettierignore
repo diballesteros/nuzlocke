@@ -4,7 +4,6 @@ coverage
 .nyc_output
 tests/data
 public/*.html
-supabase
 CHANGELOG.md
 package-lock.json
 test-results

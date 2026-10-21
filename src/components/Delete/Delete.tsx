@@ -8,13 +8,8 @@ export default function Delete(): React.JSX.Element {
   return (
     <Page header={t('account_deletion')}>
       <div className={styles.delete}>
-        <h3>{t('delete_steps_header')}</h3>
-        <ol>
-          <li>{t('delete_steps_1')}</li>
-          <li>{t('delete_steps_2')}</li>
-          <li>{t('delete_steps_3')}</li>
-        </ol>
-        <p>{t('delete_steps_warning')}</p>
+        <h3>{t('accounts_discontinued')}</h3>
+        <p>{t('accounts_discontinued_details')}</p>
       </div>
     </Page>
   );

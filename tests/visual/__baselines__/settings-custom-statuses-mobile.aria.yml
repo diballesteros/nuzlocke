@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: Sword and Shield
   - button "addgame"
-  - button "Login"
 - main:
   - heading "Settings" [level=2]
   - button "Back"

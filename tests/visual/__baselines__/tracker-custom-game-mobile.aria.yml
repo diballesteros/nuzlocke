@@ -4,7 +4,6 @@
     - alert: Emerald Kaizo
   - button "addgame"
   - button "deletegame"
-  - button "Login"
 - main:
   - button /\d+/
   - button /\d+/
