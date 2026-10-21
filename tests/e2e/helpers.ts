@@ -3,7 +3,7 @@
 import path from 'node:path';
 import { expect, type Locator, type Page } from '@playwright/test';
 
-export const FIXTURES = path.join('cypress', 'fixtures');
+export const FIXTURES = path.join('tests', 'data');
 export const fixture = (name: string) => path.join(FIXTURES, name);
 
 // Like cy.contains: case-sensitive substring, first match. A space also matches text split across

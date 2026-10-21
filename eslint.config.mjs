@@ -1,6 +1,5 @@
 import eslint from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
-import pluginCypress from 'eslint-plugin-cypress';
 import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -13,7 +12,6 @@ export default tseslint.config(
       'dev-dist/',
       'coverage/',
       '.nyc_output/',
-      'cypress/downloads/',
       'test-results/',
       'playwright-report/',
       'verification/artifacts/',
@@ -59,10 +57,6 @@ export default tseslint.config(
   {
     files: ['**/*.jsx', '**/*.tsx'],
     ...reactHooksPlugin.configs.flat['recommended-latest'],
-  },
-  {
-    files: ['cypress/**/*.ts', 'cypress/**/*.js', '**/*.cy.ts', '**/*.cy.js'],
-    ...pluginCypress.configs.recommended,
   },
   {
     files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],

@@ -18,8 +18,8 @@ node .claude/skills/verify-nuzlocke/control-nuzlocke.mjs launch --prod   # vite 
 
 Ready means the app shell (`[data-testid="app"]`) rendered, not just that the port answers. Launch
 starts a detached host that owns Vite and a Chromium with CDP on :9333. The app starts with empty
-storage, so pick a seed next. Ports 3100/9333 never collide with Playwright tests (3001) or Cypress
-(3000). If the port is taken, launch refuses; don't drive someone else's server.
+storage, so pick a seed next. Ports 3100/9333 never collide with Playwright tests (3001) or
+`npm run dev` (3000). If the port is taken, launch refuses; don't drive someone else's server.
 
 ## Doctor
 

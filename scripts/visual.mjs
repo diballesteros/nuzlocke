@@ -53,8 +53,6 @@ const result = spawnSync(
     '--ipc=host',
     '-e',
     'CI=1',
-    '-e',
-    'CYPRESS_INSTALL_BINARY=0',
     '-v',
     `${work}:/in:ro`,
     '-v',

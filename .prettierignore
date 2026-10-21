@@ -2,9 +2,7 @@ dist
 dev-dist
 coverage
 .nyc_output
-cypress/fixtures
-cypress/downloads
-cypress/screenshots
+tests/data
 public/*.html
 supabase
 CHANGELOG.md

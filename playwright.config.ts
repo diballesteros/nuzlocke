@@ -1,12 +1,12 @@
 import { defineConfig, devices, type Project } from '@playwright/test';
 
-// Port 3001 so a Cypress run (dev:cov on 3000) or the control CLI (3100) can go on at the same time
+// Port 3001 so `npm run dev` (3000) or the control CLI (3100) can keep running alongside
 const PORT = Number(process.env.E2E_PORT ?? 3001);
-// Cypress's default viewport. Layout breakpoints sit near 1005px, so keep tests on this side of them
+// The viewport the specs were written for (Cypress's default). Layout breakpoints sit near 1005px
 const viewport = { width: 1000, height: 660 };
 const chrome = { ...devices['Desktop Chrome'], viewport };
 
-// Dark system theme, like the Cypress runs (their Chrome followed the OS theme): the app turns
+// Dark system theme, as in the original Cypress runs (their Chrome followed the OS): the app turns
 // on dark mode from it on first visit. Tests about the light theme opt out
 const e2e = (name: string, device: string): Project => ({
   name,
@@ -76,7 +76,7 @@ export default defineConfig({
   ],
   webServer: {
     // Istanbul-instrumented and without HMR, like dev:cov, so runs report e2e coverage
-    command: `cross-env CYPRESS_COVERAGE=true vite --port ${PORT} --strictPort`,
+    command: `cross-env REACT_APP_COVERAGE=true vite --port ${PORT} --strictPort`,
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,

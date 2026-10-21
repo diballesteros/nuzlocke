@@ -1,4 +1,4 @@
-// Merges Vitest (coverage/unit) and e2e (coverage/e2e, coverage/playwright) coverage into
+// Merges Vitest (coverage/unit) and Playwright e2e (coverage/playwright) coverage into
 // coverage/merged and fails when the combined numbers drop below THRESHOLDS.
 import fs from 'node:fs';
 import path from 'node:path';

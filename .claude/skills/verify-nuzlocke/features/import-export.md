@@ -20,10 +20,10 @@ Back up and restore everything as JSON, and import a game's encounters from PkHe
 
 Preconditions:
 
-- Seed `game-selected`. Import files live in `cypress/fixtures/` (`PokemonList.json`, `Team.json`,
+- Seed `game-selected`. Import files live in `tests/data/` (`PokemonList.json`, `Team.json`,
   `over6.json`, `Coverage.json`, `Suggestions.json`, `Invalid.json`, `table.txt`).
 
-- **Import.** `CLI goto import`; set the file input to `cypress/fixtures/PokemonList.json` (the
+- **Import.** `CLI goto import`; set the file input to `tests/data/PokemonList.json` (the
   e2e helper `importFile` does this), then `CLI click --testid apply-import`. The tracker shows
   "Emerald Kaizo".
 - **Export.** In a Playwright test, wait for the download after clicking `export`; the JSON has

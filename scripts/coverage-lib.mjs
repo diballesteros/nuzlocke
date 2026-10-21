@@ -8,9 +8,9 @@ import libCoverage from 'istanbul-lib-coverage';
 export const OUT_DIR = 'coverage/merged';
 
 // Vitest writes remapped coverage-final.json. Every other JSON file is raw (pre-remap) e2e data:
-// Cypress's raw/out.json, Playwright's raw/<project>-<worker>.json, or either one at the root of
-// a CI artifact folder. Raw data is remapped with Vitest's remapper: nyc's older remapper drops JSX
-// return statements compiled by Oxc (Vite 8), so its locations would not line up with Vitest's.
+// Playwright's raw/<project>-<worker>.json, or those files at the root of a CI artifact folder.
+// Raw data is remapped with Vitest's remapper: nyc's older remapper drops JSX return statements
+// compiled by Oxc (Vite 8), so its locations would not line up with Vitest's.
 const isRemapped = (file) => path.basename(file) === 'coverage-final.json';
 
 const jsonFiles = (dir) =>
@@ -21,7 +21,7 @@ const jsonFiles = (dir) =>
         .map((name) => path.join(dir, name))
     : [];
 
-// One folder per source under coverage/: unit, e2e, playwright locally; one per artifact in CI
+// One folder per source under coverage/: unit and playwright locally; one per artifact in CI
 export const findSources = (dirs) => {
   if (!fs.existsSync('coverage')) return [];
   return (dirs ?? fs.readdirSync('coverage').filter((dir) => dir !== path.basename(OUT_DIR)))
