@@ -1,0 +1,36 @@
+[
+  {
+    "path": "$.state.customStatuses[0]",
+    "after": {
+      "icon": null,
+      "key": "Traded",
+      "value": "<time:0>",
+      "text": "Traded"
+    }
+  },
+  {
+    "path": "$.state.darkMode",
+    "before": true,
+    "after": false
+  },
+  {
+    "path": "$.state.duplicates",
+    "before": false,
+    "after": true
+  },
+  {
+    "path": "$.state.language",
+    "before": "en",
+    "after": "de"
+  },
+  {
+    "path": "$.state.nicknames",
+    "before": false,
+    "after": true
+  },
+  {
+    "path": "$.state.soulink",
+    "before": false,
+    "after": true
+  }
+]

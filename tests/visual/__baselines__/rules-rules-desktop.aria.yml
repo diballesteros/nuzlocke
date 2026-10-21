@@ -1,0 +1,42 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Sword and Shield
+  - button "addgame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button "SHARE"
+  - button "ADD RULE"
+  - listbox "rules":
+    - alert: Nuzlocke
+  - button "addruleset"
+  - button
+  - text: "1."
+  - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
+  - button
+  - button
+  - text: "2."
+  - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
+  - button
+  - button
+  - text: "3."
+  - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
+  - button
+  - text: "4."
+  - paragraph: No items in battle
+  - button "delete rule"
+  - button "edit rule"
+- region "Notifications Alt+T"

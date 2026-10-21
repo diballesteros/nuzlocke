@@ -1,0 +1,56 @@
+[
+  {
+    "path": "$.state.calcs.13.form.gameType",
+    "before": "Singles",
+    "after": "Doubles"
+  },
+  {
+    "path": "$.state.calcs.13.form.weather",
+    "before": "None",
+    "after": "Rain"
+  },
+  {
+    "path": "$.state.calcs.13.form.currenthp1",
+    "before": 0,
+    "after": 120
+  },
+  {
+    "path": "$.state.calcs.13.form.currenthp2",
+    "before": 0,
+    "after": 231
+  },
+  {
+    "path": "$.state.calcs.13.form.level1",
+    "before": 100,
+    "after": 50
+  },
+  {
+    "path": "$.state.calcs.13.form.move1_crit1",
+    "before": false,
+    "after": true
+  },
+  {
+    "path": "$.state.calcs.13.form.status2",
+    "before": "none",
+    "after": "brn"
+  },
+  {
+    "path": "$.state.calcs.13.form.nature1",
+    "after": "Adamant"
+  },
+  {
+    "path": "$.state.selectedGame.value",
+    "before": "4",
+    "after": "13"
+  },
+  {
+    "path": "$.state.selectedGame.text",
+    "before": "FireRed and LeafGreen",
+    "after": "Sword and Shield"
+  },
+  {
+    "path": "$.state.selectedGame.key",
+    "before": "4",
+    "after": "13"
+  }
+]

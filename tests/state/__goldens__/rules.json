@@ -1,0 +1,40 @@
+[
+  {
+    "path": "$.state.rules.Nuzlocke[0].content",
+    "before": "Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently",
+    "after": {
+      "sha256": "91da41262b15ac7a",
+      "size": 346
+    }
+  },
+  {
+    "path": "$.state.rules.Nuzlocke[1].content",
+    "before": {
+      "sha256": "91da41262b15ac7a",
+      "size": 346
+    },
+    "after": "Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently"
+  },
+  {
+    "path": "$.state.rules.Nuzlocke[3]",
+    "after": {
+      "content": "No items in battle outside of gyms",
+      "default": false,
+      "type": "TEXT"
+    }
+  },
+  {
+    "path": "$.state.rules.Nuzlocke[4]",
+    "after": {
+      "content": [
+        "GRASS"
+      ],
+      "default": false,
+      "type": "TYPE"
+    }
+  },
+  {
+    "path": "$.state.rules.House rules",
+    "after": []
+  }
+]

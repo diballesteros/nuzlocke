@@ -1,0 +1,85 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: FireRed and LeafGreen
+  - button "addgame"
+  - button "Login"
+- main:
+  - heading "About" [level=2]
+  - button "Back"
+  - paragraph:
+    - text: Thank you for using Nuzlocke Tracker! Me and fellow contributors are actively improving this app in our free time. If you like the app please rate it in the Google Play or the Amazon Appstore. To optionally support the app check out the
+    - emphasis: Buy me a Coffee link
+    - text: below.
+  - paragraph:
+    - text: "This app uses your browser's cookies/localstorage to work correctly. If the cache or browser data is ever cleared then the app will lose all it's data. Check out this link to find out more:"
+    - link "How data storage works":
+      - /url: https://github.com/diballesteros/nuzlocke/wiki/How-data-storage-works
+  - heading "Credits:" [level=3]
+  - list:
+    - listitem: Google Play and the Google Play logo are trademarks of Google LLC.
+    - listitem:
+      - text: Images provided by
+      - link "Bulbapedia":
+        - /url: https://bulbapedia.bulbagarden.net/wiki/Main_Page
+    - listitem:
+      - text: Icons made by
+      - link "Darius Dan":
+        - /url: http://www.dariusdan.com
+      - text: from
+      - link "www.flaticon.com":
+        - /url: https://www.flaticon.com/
+    - listitem:
+      - text: Icons made by
+      - link "Roundicons Freebies":
+        - /url: http://www.roundicons.com
+      - text: from
+      - link "www.flaticon.com":
+        - /url: https://www.flaticon.com/
+    - listitem:
+      - text: Icons made by
+      - link "Nikita Golubev":
+        - /url: https://www.flaticon.com/authors/nikita-golubev
+      - text: from
+      - link "www.flaticon.com":
+        - /url: https://www.flaticon.com/
+    - listitem:
+      - text: Icons made by
+      - link "Freepik":
+        - /url: https://www.freepik.com
+      - text: from
+      - link "www.flaticon.com":
+        - /url: https://www.flaticon.com/
+    - listitem:
+      - text: Icons made by
+      - link "Vectors Market":
+        - /url: https://www.flaticon.com/authors/vectors-market
+      - text: from
+      - link "www.flaticon.com":
+        - /url: https://www.flaticon.com/
+    - listitem:
+      - text: Nickname list provided by
+      - link "Find Nicknames":
+        - /url: https://www.findnicknames.com/pokemon-nicknames/
+    - listitem:
+      - text: Favicon provided by
+      - link "Mohammad Ali":
+        - /url: https://icon-icons.com/users/b1kqPGvWi4JzKkAi8Q0MR/icon-sets/
+      - text: from
+      - link "Icon-icons":
+        - /url: https://icon-icons.com/
+      - text: under the
+      - link "Creative Commons License":
+        - /url: https://creativecommons.org/licenses/by/4.0/
+  - link "Buy Me a Coffee at ko-fi.com":
+    - /url: https://ko-fi.com/X8X05XBDC
+    - img "Buy Me a Coffee at ko-fi.com"
+  - link "Get it on Google Play":
+    - /url: https://play.google.com/store/apps/details?id=app.netlify.nuzlocke.twa&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1
+    - img "Get it on Google Play"
+  - link "Get it on Amazon appstore":
+    - /url: https://www.amazon.com/dp/B09GFF7VCB/ref=apps_sf_sta
+    - img "Get it on Amazon appstore"
+  - link "Source":
+    - /url: https://github.com/diballesteros/nuzlocke/
+- region "Notifications Alt+T"

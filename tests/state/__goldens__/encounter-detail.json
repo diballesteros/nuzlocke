@@ -1,0 +1,40 @@
+[
+  {
+    "path": "$.state.games.13.encounters[id=0].pokemon",
+    "before": null,
+    "after": 814
+  },
+  {
+    "path": "$.state.games.13.encounters[id=0].details",
+    "after": {
+      "metLevel": 5,
+      "gender": "FEMALE",
+      "ability": "Arena Trap",
+      "id": 813,
+      "item": "Black Belt",
+      "moves": [
+        1,
+        null,
+        null,
+        null
+      ],
+      "shiny": true,
+      "evatk": 4
+    }
+  },
+  {
+    "path": "$.state.selectedGame.value",
+    "before": "4",
+    "after": "13"
+  },
+  {
+    "path": "$.state.selectedGame.text",
+    "before": "FireRed and LeafGreen",
+    "after": "Sword and Shield"
+  },
+  {
+    "path": "$.state.selectedGame.key",
+    "before": "4",
+    "after": "13"
+  }
+]

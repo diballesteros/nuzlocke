@@ -1,0 +1,45 @@
+- banner:
+  - button "sidebar-button"
+  - listbox "games":
+    - alert: FireRed and LeafGreen
+  - button "addgame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - heading "Changelog" [level=2]
+  - button "Back"
+  - heading /Version 6\.1\.0 Tue, Jul \d+, \d+/ [level=4]:
+    - text: ""
+    - time: /Tue, Jul \d+, \d+/
+  - list:
+    - listitem: FEATURE Added helpful reminder in gym/trial details that stats shown are base stats and may not reflect actual opponent stats
+    - listitem: FIX Fixed Kyurem's dual type from Dragon/Flying to Dragon/Ice
+    - listitem: /FIX Updated Platinum Relic Badge level cap from \d+ to \d+/
+    - listitem: FIX Fixed various encounter lists and gym leader details across multiple games
+  - heading /Version 6\.0\.0 Tue, Jul \d+, \d+/ [level=4]:
+    - text: ""
+    - time: /Tue, Jul \d+, \d+/
+  - list:
+    - listitem: FEATURE Major under-the-hood improvements including faster build times, improved performance, and modernized development infrastructure
+  - heading /Version 5\.6\.0 Wed, Apr \d+, \d+/ [level=4]:
+    - text: ""
+    - time: /Wed, Apr \d+, \d+/
+  - list:
+    - listitem: FEATURE Added button to delete account from the account settings, note this is permanent
+    - listitem: FIX Fixed Totem Gumshoos moveset in Ultra Sun and Ultra Moon
+    - listitem: FIX Fixed the levels for Olivia's pokemon in Sun and Moon
+    - listitem: /FIX Removed Larvesta from Route \d+ encounters and added it to Treasure Hunter in Black and White/
+  - button "See more"
+- region "Notifications Alt+T"

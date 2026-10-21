@@ -1,0 +1,108 @@
+[
+  {
+    "path": "$.state.badges",
+    "before": {
+      "sha256": "8f3b256453e8b152",
+      "size": 6362
+    },
+    "after": {
+      "sha256": "52d2778b01737b08",
+      "size": 646959
+    }
+  },
+  {
+    "path": "$.state.games",
+    "before": {
+      "sha256": "d5f60935a4d6d33e",
+      "size": 72168
+    },
+    "after": {
+      "sha256": "1128c41a2f5a7210",
+      "size": 134023
+    }
+  },
+  {
+    "path": "$.state.gamesList",
+    "before": {
+      "sha256": "0e6956dba47223a2",
+      "size": 790
+    },
+    "after": {
+      "sha256": "c70d269b187466c9",
+      "size": 796
+    }
+  },
+  {
+    "path": "$.state.notes",
+    "before": {},
+    "after": {
+      "1": "",
+      "2": "",
+      "3": "",
+      "4": "",
+      "5": "",
+      "6": "",
+      "7": "",
+      "8": "",
+      "9": "",
+      "10": "",
+      "11": "",
+      "12": "",
+      "13": "",
+      "14": "These are some notes",
+      "13.1": "Hello this is a test"
+    }
+  },
+  {
+    "path": "$.state.rules",
+    "before": {
+      "sha256": "fcb079e30268dd0a",
+      "size": 6921
+    },
+    "after": {
+      "sha256": "746addf4c79c9e52",
+      "size": 4389
+    }
+  },
+  {
+    "path": "$.state.selectedGame",
+    "before": null,
+    "after": {
+      "value": "14",
+      "text": "Emerald Kaizo",
+      "key": "custom-game-Emerald Kaizo-<time:1>"
+    }
+  },
+  {
+    "path": "$.state.suggestions",
+    "before": true,
+    "after": false
+  },
+  {
+    "path": "$.state.team",
+    "before": {},
+    "after": {
+      "1": [
+        {
+          "id": 2,
+          "level": 0,
+          "moves": []
+        }
+      ],
+      "6": [
+        {
+          "id": 3,
+          "level": 0,
+          "moves": []
+        }
+      ],
+      "14": [
+        {
+          "id": 3,
+          "level": 0,
+          "moves": []
+        }
+      ]
+    }
+  }
+]

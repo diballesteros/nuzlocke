@@ -1,0 +1,39 @@
+[
+  {
+    "path": "$.state.selectedGame.value",
+    "before": "4",
+    "after": "13"
+  },
+  {
+    "path": "$.state.selectedGame.text",
+    "before": "FireRed and LeafGreen",
+    "after": "Sword and Shield"
+  },
+  {
+    "path": "$.state.selectedGame.key",
+    "before": "4",
+    "after": "13"
+  },
+  {
+    "path": "$.state.team.13",
+    "after": [
+      {
+        "id": 1,
+        "level": 0,
+        "moves": [
+          1,
+          null,
+          null,
+          null
+        ],
+        "ability": "Arena Trap",
+        "item": "Black Belt"
+      },
+      {
+        "id": 7,
+        "level": 0,
+        "moves": []
+      }
+    ]
+  }
+]

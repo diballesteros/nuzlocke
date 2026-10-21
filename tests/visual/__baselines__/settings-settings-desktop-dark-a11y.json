@@ -1,0 +1,22 @@
+[
+  {
+    "id": "aria-input-field-name",
+    "impact": "serious",
+    "nodes": 1
+  },
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 2
+  },
+  {
+    "id": "label",
+    "impact": "critical",
+    "nodes": 7
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  }
+]

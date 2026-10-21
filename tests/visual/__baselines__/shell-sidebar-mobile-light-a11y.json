@@ -1,0 +1,32 @@
+[
+  {
+    "id": "aria-command-name",
+    "impact": "serious",
+    "nodes": 9
+  },
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 9
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "nested-interactive",
+    "impact": "serious",
+    "nodes": 9
+  },
+  {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "region",
+    "impact": "moderate",
+    "nodes": 1
+  }
+]

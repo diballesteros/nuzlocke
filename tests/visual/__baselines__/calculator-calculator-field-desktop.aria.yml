@@ -1,0 +1,277 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Sword and Shield
+  - button "addgame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button "Field"
+  - text: "Game type:"
+  - radio [checked]
+  - text: Singles
+  - radio
+  - text: "Doubles Terrain:"
+  - radio [checked]
+  - text: None
+  - radio
+  - text: Electric
+  - radio
+  - text: Grassy
+  - radio
+  - text: Misty
+  - radio
+  - text: "Psychic Weather:"
+  - radio [checked]
+  - text: None
+  - radio
+  - text: Sun
+  - radio
+  - text: Rain
+  - radio
+  - text: Sand
+  - radio
+  - text: Hail
+  - radio
+  - text: Harsh Sunshine
+  - radio
+  - text: Heavy Rain
+  - radio
+  - text: Strong Winds
+  - button "Gravity"
+  - button "Reset"
+  - status: "/Lvl \\d+ 0 Atk Bulbasaur Pound vs\\. 0 HP \\/ 0 Def Bulbasaur: 6-8 \\(2\\.5 - 3\\.4%\\)/"
+  - text: "Select one to show it as the primary result at the top Attacker:"
+  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
+  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
+  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
+  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
+  - text: "Defender:"
+  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
+  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
+  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
+  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
+  - group:
+    - img
+    - text: Bulbasaur
+    - button "pokemon type":
+      - img
+      - text: GRASS
+    - button "pokemon type":
+      - img
+      - text: POISON
+    - checkbox [checked]
+    - text: Show my Pokémon
+    - button
+    - textbox: /\d+/
+    - button
+    - listbox "gender-selector":
+      - alert: Gender...
+    - combobox "nature-selector":
+      - textbox
+      - alert: Select a nature...
+    - combobox "ability":
+      - textbox
+      - alert: Select an ability...
+    - combobox "item":
+      - textbox
+      - alert: Select an item...
+    - combobox "status":
+      - textbox
+      - alert: Healthy
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - text: "Current HP:"
+    - textbox "Current HP:": /\d+/
+    - status: /\/\d+/
+    - group:
+      - text: HP
+      - status: /\d+/
+    - group:
+      - text: ATK
+      - status: /\d+/
+    - group:
+      - text: DEF
+      - status: /\d+/
+    - group:
+      - text: SP. ATK
+      - status: /\d+/
+    - group:
+      - text: SP. DEF
+      - status: /\d+/
+    - group:
+      - text: SPEED
+      - status: /\d+/
+    - button "Dynamax"
+    - button "Light Screen"
+    - button "Reflect"
+    - button "Protect"
+    - button "Stealth Rock"
+    - button "Leech Seed"
+    - button "Tailwind"
+    - button "Foresight"
+    - button "Friend Guard"
+    - button "Helping Hand"
+    - button "Cannonade"
+    - button "Aurora Veil"
+    - button "Battery"
+    - button "Steelsurge"
+    - button "Vinelash"
+    - button "Volcalith"
+    - button "Wildfire"
+    - button "Switching out"
+    - text: "Spikes:"
+    - radio [checked]
+    - text: "0"
+    - radio
+    - text: "1"
+    - radio
+    - text: "2"
+    - radio
+    - text: "3"
+  - group:
+    - button "Bulbasaur pokemon type pokemon type":
+      - img
+      - text: ""
+      - button "pokemon type":
+        - img
+        - text: GRASS
+      - button "pokemon type":
+        - img
+        - text: POISON
+    - listbox "gym-filter" [disabled]:
+      - alert: Select a gym...
+    - checkbox [checked]
+    - text: Show all
+    - button
+    - textbox: /\d+/
+    - button
+    - listbox "gender-selector":
+      - alert: Gender...
+    - combobox "nature-selector":
+      - textbox
+      - alert: Select a nature...
+    - combobox "ability":
+      - textbox
+      - alert: Select an ability...
+    - combobox "item":
+      - textbox
+      - alert: Select an item...
+    - combobox "status":
+      - textbox
+      - alert: Healthy
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - img "move status"
+    - button
+    - button "Crit"
+    - button "Z"
+    - text: "Current HP:"
+    - textbox "Current HP:": /\d+/
+    - status: /\/\d+/
+    - group:
+      - text: HP
+      - status: /\d+/
+    - group:
+      - text: ATK
+      - status: /\d+/
+    - group:
+      - text: DEF
+      - status: /\d+/
+    - group:
+      - text: SP. ATK
+      - status: /\d+/
+    - group:
+      - text: SP. DEF
+      - status: /\d+/
+    - group:
+      - text: SPEED
+      - status: /\d+/
+    - button "Dynamax"
+    - button "Light Screen"
+    - button "Reflect"
+    - button "Protect"
+    - button "Stealth Rock"
+    - button "Leech Seed"
+    - button "Tailwind"
+    - button "Foresight"
+    - button "Friend Guard"
+    - button "Helping Hand"
+    - button "Cannonade"
+    - button "Aurora Veil"
+    - button "Battery"
+    - button "Steelsurge"
+    - button "Vinelash"
+    - button "Volcalith"
+    - button "Wildfire"
+    - button "Switching out"
+    - text: "Spikes:"
+    - radio [checked]
+    - text: "0"
+    - radio
+    - text: "1"
+    - radio
+    - text: "2"
+    - radio
+    - text: "3"
+- region "Notifications Alt+T"

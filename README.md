@@ -1,6 +1,6 @@
 # Nuzlocke Tracker
 
-[![Nuzlocke Tracker](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/vrp6hz/master&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/vrp6hz/runs) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
 
 ## Table of Contents
 
@@ -95,13 +95,15 @@ Built with ReactJS, Typescript, Vite, Zustand and Semantic UI.
 
 ## Running the tests
 
-This project uses [Cypress](https://www.cypress.io/) for testing. To run them:
+This project uses [Playwright](https://playwright.dev/) for end-to-end, persisted-state and visual tests. To run them:
 
 ```sh
-npm run e2e
+npm run pw:e2e        # end-to-end journeys in Chromium (pw:e2e:all adds Firefox and WebKit)
+npm run verify:state  # checks what each journey stores
+npm run verify:visual # screenshot, ARIA and accessibility baselines (needs Docker)
 ```
 
-In the new window execute any of the \*.spec.ts files.
+`npm run verify` runs every check CI runs except the visual baselines.
 
 This will run the unit tests:
 

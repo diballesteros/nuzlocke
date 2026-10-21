@@ -1,0 +1,11 @@
+[
+  {
+    "path": "$.state.badges.4[id=1].levelCap",
+    "before": 14,
+    "after": "149"
+  },
+  {
+    "path": "$.state.games.4.badge[0]",
+    "after": 0
+  }
+]

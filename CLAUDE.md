@@ -9,35 +9,58 @@ Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracki
 ## Commands
 
 ```bash
-npm run verify        # THE gate: typecheck → lint → format:check → unit+coverage → build → e2e+coverage → merged threshold
+npm run verify        # THE gate: typecheck → lint → format:check → unit+coverage → build → Playwright e2e (chromium) + state goldens → merged threshold
 npm run verify:fast   # same without coverage and e2e; fine for tooling-only changes, run the full gate before pushing
 npm run dev           # Vite dev server on http://localhost:3000
-npm run dev:cov       # same, Istanbul-instrumented (CYPRESS_COVERAGE=true), HMR off
-npm run typecheck     # tsc for src (Vitest types) and cypress/ (Cypress types) separately
+npm run dev:cov       # same, Istanbul-instrumented (REACT_APP_COVERAGE=true), HMR off
+npm run typecheck     # tsc for src (Vitest types) and tests/ (Playwright) separately
 npm run lint          # eslint .            (lint:fix to autofix)
 npm run format:check  # prettier --check .
 npm run test          # vitest watch        (test:unit = single run, test:unit:cov = with coverage)
-npm run e2e:run       # starts dev:cov, runs all Cypress specs headless in Chrome
+npm run pw:e2e        # Playwright e2e on chromium (starts its own instrumented dev server on :3001)
+npm run pw:e2e:all    # chromium + firefox + webkit
+npm run verify:state  # persisted-store goldens (tests/state)
+npm run verify:visual # visual + ARIA + a11y baselines, inside the pinned Playwright Docker image
+npm run seeds         # regenerate verification/seeds by driving the app
 npm run coverage      # merges unit + raw e2e coverage → coverage/merged, enforces thresholds
-npm run e2e           # Cypress UI (needs a dev server on :3000)
 ```
 
 - Single unit test: `npx vitest run src/store.test.ts` (or `-t "<test name>"`).
-- Single e2e spec headless: `npx cypress run --browser chrome --spec cypress/e2e/main/Encounters.spec.ts` (dev server must be up on port 3000).
-- Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files". Stopping a backgrounded `vite` shell can leave its `node` child running, so check the port (`Get-NetTCPConnection -LocalPort 3000`) and stop the owning process.
-- Firefox is installed locally (winget `Mozilla.Firefox`; CI's image may be a version ahead): `npx cypress run --browser firefox --spec "cypress/e2e/main/*"`. `e2e:run` uses Chrome only. Some failures happen only on CI's Linux Firefox and not locally; failure screenshots are uploaded as `screenshots-*` artifacts on the workflow run. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
-- Semantic UI `Checkbox` focuses its hidden input on mousedown. On Firefox ≥ 158 that focus can undo the scroll Cypress does before a click, so mouseup lands elsewhere and the toggle is silently dropped (seen in the PokéStats settings panel). Click those labels with `{ scrollBehavior: false }` and assert the `checked` class after each toggle. Real users aren't affected (no pre-click scroll). Dead ends: `scrollBehavior: 'nearest'` still fails, and setting `scrollBehavior: false` for the whole test breaks `cy.selectGame`.
+- Single e2e spec: `npx playwright test tests/e2e/main/Encounters.spec.ts --project=chromium` (add `-g "<title>"`, `--headed`, or `--debug`). A failure leaves a trace: `npx playwright show-trace test-results/<test>/trace.zip`.
+- Playwright reuses a server already on :3001 outside CI. If that server isn't instrumented, `npm run coverage` fails with "has no files"; stop it (`Get-NetTCPConnection -LocalPort 3001`) and rerun. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
+
+### Verification harness (Playwright)
+
+Use the `verify-nuzlocke` skill (`.claude/skills/verify-nuzlocke/`) to drive the running app and prove a change: `control-nuzlocke.mjs` (launch/doctor/seed/goto/click/pick/type/snapshot/screenshot/state/cleanup on 127.0.0.1:3100) and a feature map with one file per feature. Pins that every UI change is held to:
+
+- **e2e** (`tests/e2e`, import files in `tests/data`): ported from Cypress, which they replaced after a per-file coverage comparison showed Playwright covered every statement, branch and function Cypress did. Everything that touches UI-library markup lives in `tests/e2e/helpers.ts`; a library swap changes helper bodies, not specs. Select by `data-testid`; pick games with `selectGame`. The config blocks the dev PWA service worker, which would otherwise serve pages around init scripts and coverage. Coverage comes from `window.__coverage__` per worker (`tests/fixtures.ts`).
+- **State goldens** (`tests/state`, `__goldens__/`): journeys from a seed record what they changed in `localStorage["pokemon-tracker"]`. A UI-only change must leave them byte-identical (CI requires the `state-change-approved` label otherwise). Ids from `Date.now()` become numbered placeholders, arrays of records are diffed by `id`, values over 300 chars become hashes.
+- **Visual/ARIA/a11y baselines** (`tests/visual`, `__baselines__/`): 25 states × light/dark × desktop/mobile, compared at `threshold: 0`. Only render them with `npm run verify:visual` (Docker) or in CI's container: the visual project launches Chromium with software rasterization (GPU raster gave 8–24 px of corner noise), and the default 0.2 threshold hid dark-theme changes. Each state is tagged with every area it renders (its own, its page's, `@shell`): the sidebar over the tracker is a tracker state too.
+- **Seeds** (`verification/seeds`): persisted stores produced by `npm run seeds`. `src/verification.seeds.test.ts` fails when one stops loading at the current persist version; regenerate them after a store-shape change.
+
+**Change protocol for UI work** (enforced on PRs by `.github/workflows/review.yml`): `scripts/affected-areas.mjs` maps the diff to areas through the real import graph (aliases, named imports through barrels, SCSS `@use`; it stops at the router; `verification/areas.json` lists roots and global files). Every visual state outside those areas must match exactly. Baselines may change only for touched areas and need a glob row in `verification/approved-diffs.tsv`; `scripts/baseline-guard.mjs` also rejects edited goldens and new `skip`/`only`/masks/looser thresholds. `scripts/migration-ratchet.mjs` keeps the Semantic UI file, Sass file and hex-colour counts in `verification/ratchet.json` from going up (lower them with `--update`). Bundle size (+5% budget), dependency review and changed-line coverage (80%, in `main.yml`) also run. Update baselines with `npm run verify:visual -- --grep @<area> --update-snapshots`, log them, and never update an untouched area to make a diff pass.
+
+Porting and harness gotchas:
+
+- Cypress `force` clicks dispatch to the element; Playwright's `force` still clicks at coordinates. Ported as `dispatchEvent('click')`.
+- `cy.type` goes through intermediate values (the ruleset-name input warns on a partial match); ported as keystrokes (`typeInto`), and `cy.clear` explicitly. `fill` skips them.
+- Cypress's Chrome followed the OS dark theme, so e2e projects use `colorScheme: 'dark'`.
+- Cypress `contains` matches CSS-uppercased text; Playwright matches DOM text. Assert a "not present" check's target exists first, or it can never fail (the PokéStats section checks could not).
+- Hovering a badge clears its grayscale filter: move the pointer away before asserting. The first tracker row's nature menu opens under the badge strip (`pickOption(..., { covered: true })`). With several Builder members, the team panel covers the next member's delete button. All three are real UI issues for the redesign.
+- Only dialogs with an `onClose` close on Escape today (pinned in `tests/e2e/main/Interactions.spec.ts`); Radix closes all of them by default.
+- Playwright's own Firefox build won't start on this Windows machine ("side-by-side configuration is incorrect"); Firefox runs in CI's Linux container.
+- From Git Bash, the control CLI accepts routes without a leading slash (`goto rules`); MSYS rewrites `/rules` into a Windows path. Git Bash's GNU `tar` reads `C:` as a remote host, so `scripts/visual.mjs` copies files with Node.
 
 ### Debugging CI failures
 
-- Don't guess from a failing check name; read the logs. This `gh` version has no `gh run view --json jobs`, so use `gh api repos/diballesteros/nuzlocke/actions/runs/<run-id>/jobs` and `gh api repos/diballesteros/nuzlocke/actions/jobs/<job-id>/logs`. Failure screenshots are in the run's `screenshots-*` artifacts.
-- To reproduce CI's exact browsers, run the spec inside the `cypress/browsers:<.node-version>` Docker image. Docker Desktop is installed but may be stopped, so start it first. Mount a tar of `git ls-files` (not the working tree, whose Windows `node_modules` won't run on Linux) and run `npm ci` inside the container, then `start-server-and-test 'npm run dev -- --host' http://localhost:3000 "npx cypress run --browser firefox --spec <spec>"`. Run `docker` from Bash with `MSYS_NO_PATHCONV=1`, or Git Bash rewrites `/src` into a Windows path.
+- Don't guess from a failing check name; read the logs. This `gh` version has no `gh run view --json jobs`, so use `gh api repos/diballesteros/nuzlocke/actions/runs/<run-id>/jobs` and `gh api repos/diballesteros/nuzlocke/actions/jobs/<job-id>/logs`. Failed Playwright jobs upload `playwright-<browser>-<shard>` artifacts with traces; the PR review workflow uploads `visual-report` and `state-report`.
+- To reproduce CI's browsers, use the `mcr.microsoft.com/playwright:v<version>-noble` image (the tag follows `@playwright/test`). `scripts/visual.mjs` shows the recipe: copy the repo's tracked and unignored files into the container (never the Windows `node_modules`), `npm ci`, then `npx playwright test`. Docker Desktop is installed but may be stopped, so start it first. Run raw `docker` commands from Bash with `MSYS_NO_PATHCONV=1`, or Git Bash rewrites `/src` into a Windows path.
 - A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs.
 
 ### Security advisories
 
 - Check Dependabot alerts with `gh api --paginate repos/diballesteros/nuzlocke/dependabot/alerts?state=open --jq '.[]'` (the `--jq` is needed; plain `--paginate` concatenates JSON arrays). Compare each alert's vulnerable range against `package-lock.json` with semver, using `origin/master` after a `git fetch` (local `master` can be stale).
-- Fix with plain `npm audit fix` (lockfile only), then `npm run verify`. Never `npm audit fix --force`: it downgrades majors. The remaining moderates in the `nyc` → `js-yaml` chain (under `@cypress/code-coverage` and `vite-plugin-istanbul`) only affect test tooling and are left on purpose, because npm's only fix is a downgrade that breaks coverage.
+- Fix with plain `npm audit fix` (lockfile only), then `npm run verify`. Never `npm audit fix --force`: it downgrades majors. The remaining moderates in the `@istanbuljs/load-nyc-config` → `js-yaml` chain (under `vite-plugin-istanbul`) only affect test tooling and are left on purpose, because npm's only fix is a downgrade that breaks coverage.
 
 Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 
@@ -45,14 +68,13 @@ Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 
 Every change, and especially every dependency bump, must pass `npm run verify` before it's committed. Behaviour must stay the same unless the user asks otherwise.
 
-- **Coverage** comes from Vitest (`coverage/unit`) plus Cypress (via `vite-plugin-istanbul` and `@cypress/code-coverage`; raw data in `coverage/e2e/raw/out.json`), merged by `scripts/coverage.mjs`. The script remaps the raw e2e data with Vitest's own remapper (`@vitest/istanbul-lib-source-maps`), so both sides get identical statement, branch and function maps. nyc's report in `coverage/e2e` is only a console summary and is not used. `dev:cov` turns HMR off so no Fast Refresh code is instrumented. If unit and e2e maps ever drift apart, the merge double-counts or under-counts. Exclusions (static data tables, tests, Auth) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
+- **Coverage** comes from Vitest (`coverage/unit`) plus Playwright (via `vite-plugin-istanbul`; raw data per worker in `coverage/playwright/raw/`, cleared at the start of each run), merged by `scripts/coverage.mjs` (`coverage-lib.mjs`). The script remaps the raw e2e data with Vitest's own remapper (`@vitest/istanbul-lib-source-maps`), so both sides get identical statement, branch and function maps. The instrumented server (`REACT_APP_COVERAGE=true`) turns HMR off so no Fast Refresh code is instrumented. If unit and e2e maps ever drift apart, the merge double-counts or under-counts. Exclusions (static data tables, tests, Auth) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
 - **Vite 8 compatibility shims** in `vite.config.ts`, all to be removed with Semantic UI: `legacy.inconsistentCjsInterop` (default imports from `semantic-ui-react/dist/commonjs/*`) and `build.cssMinify: 'esbuild'` (Lightning CSS rejects an invalid semantic-ui-css selector). `build.target` is pinned to Vite 7's defaults to keep browser support unchanged.
-- **CI** (`.github/workflows/main.yml`) runs the static checks and unit coverage, then a browser × spec-group × container matrix against `dev:cov`, then a `coverage` job that merges every container's report.
+- **CI** (`.github/workflows/main.yml`) runs the static checks and unit coverage, a Playwright browser × shard matrix (chromium, firefox, webkit × 3) in the `mcr.microsoft.com/playwright` image, then a `coverage` job that merges every report and checks changed-line coverage. `review.yml` runs the blast-radius checks on PRs.
 - **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), `src/constants/data.test.ts`, `src/i18n.test.ts` (stored language applied at startup by the custom async detector, fallback, plurals), and `src/hooks/useCalculate.golden.test.ts` (snapshot of damage ranges for gens 1–8; a calc upgrade that changes any number fails it).
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
-- **Cypress conventions:** select by `data-testid`. Pick games with `cy.selectGame('<name>')` (in `cypress/support/commands.ts`), not raw dropdown clicks. `cypress/support/e2e.ts` blocks the dev PWA service worker. Without that, reloads skip Cypress's `window:before:load`, so stubs and coverage silently stop working.
 - Auth/Supabase (`src/components/Auth`) is going to be removed. Don't add tests for it.
-- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@babel/core` 7.x (`@cypress/code-coverage` needs Babel 7; it's declared so npm resolves plugin-react's optional Babel peer); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
+- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); encounter rows use `toTopPosition` (react-window 2 transforms trap dropdowns); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
 - Sass and Semantic UI React will be replaced (Tailwind is planned). Keep changes to them minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
 
@@ -62,7 +84,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
 - **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
 - **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
-- **Flaky e2e:** once on Vite 8, `Calculator.spec.ts` timed out waiting for the page `load` event in its `beforeEach` (60 s). It passed on every rerun. If it recurs, look at dev-server cold transforms of the large constants files.
+- **Flaky e2e:** once on Vite 8, Cypress's `Calculator.spec.ts` timed out waiting for the page `load` event (60 s), and Playwright's WebKit keyboard test failed once while the machine was busy. Both passed on every rerun. If it recurs, look at dev-server cold transforms of the large constants files.
 
 ## Architecture
 
@@ -88,7 +110,7 @@ Large static data files drive the app; most bug fixes and content updates are ed
 - `pokemon.ts`, `moves.ts`, `abilities.ts`, `natures.ts`, `effectiveness.ts`, `types.ts` (all shared TS types live in `types.ts`).
 - Damage calculator uses `@smogon/calc` (`calculator.ts`, `hooks/useCalculate.ts`).
 
-Changing `pokemon.ts` may require updating `cypress/fixtures/PokemonList.json` to keep e2e tests passing.
+Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep e2e tests passing.
 
 ### UI
 

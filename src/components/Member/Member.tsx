@@ -44,13 +44,17 @@ function Member({ index, pokemonDetail }: MemberProps): React.JSX.Element {
           <PokemonType pokemon={pokemon} />
           <Icon
             className={styles.arrow}
+            data-testid={`expand-${pokemon.text}`}
             style={{ transform: expanded ? 'rotate(90deg)' : undefined }}
             name="angle right"
             onClick={() => setExpanded((prevState) => !prevState)}
           />
         </div>
       </div>
-      <div className={`${styles.details} ${expanded ? styles.open : ''}`}>
+      <div
+        className={`${styles.details} ${expanded ? styles.open : ''}`}
+        data-testid={`team-details-${pokemon.text}`}
+      >
         <div>
           <Dropdown
             aria-label="nature-selector"

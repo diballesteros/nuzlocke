@@ -1,0 +1,42 @@
+{
+  "$comment": "Areas of the UI, as used by the visual suite's tags (tests/visual/pages.spec.ts) and scripts/affected-areas.mjs. A changed file touches an area when the area's root imports it, directly or through other modules. Walking up the import graph stops at the router, so a page's components don't count as touching the shell. Files matching 'global' touch every area.",
+  "roots": {
+    "shell": ["src/App.tsx"],
+    "tracker": ["src/components/Tracker/Tracker.tsx"],
+    "badges": [
+      "src/components/Badges/Badges.tsx",
+      "src/components/Badges/elements/BadgePage/BadgePage.tsx"
+    ],
+    "rules": ["src/components/Rules/Rules.tsx"],
+    "pokestats": ["src/components/Pokestats/Pokestats.tsx"],
+    "builder": ["src/components/Builder/Builder.tsx"],
+    "calculator": ["src/components/Calculator/Calculator.tsx"],
+    "settings": ["src/components/Settings/Settings.tsx"],
+    "misc": [
+      "src/components/Import/Import.tsx",
+      "src/components/About/About.tsx",
+      "src/components/Changelog/Changelog.tsx",
+      "src/components/Report/Report.tsx",
+      "src/components/Delete/Delete.tsx"
+    ]
+  },
+  "boundaries": ["src/routes/AppRouter.tsx"],
+  "global": [
+    "index.html",
+    "package.json",
+    "package-lock.json",
+    "vite.config.ts",
+    "tsconfig.json",
+    "playwright.config.ts",
+    "public/**",
+    "src/index.tsx",
+    "src/index.css",
+    "src/i18n.ts",
+    "src/store.ts",
+    "src/assets/styles/_*.scss",
+    "tests/fixtures.ts",
+    "tests/e2e/helpers.ts",
+    "tests/visual/pages.spec.ts",
+    "verification/seeds/**"
+  ]
+}

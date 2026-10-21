@@ -1,0 +1,77 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Emerald Kaizo
+  - button "addgame"
+  - button "deletegame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button /\d+/
+  - button "0"
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - button "SHARE"
+  - button "ADD"
+  - button "RESET"
+  - list:
+    - text: Starter
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Pallet Town
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 1
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian City
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: /Route \d+/
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Route 2
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+    - text: Viridian Forest
+    - button "encounter-options"
+    - button "Pokémon..."
+    - listbox "status-selector" [disabled]:
+      - alert: Status...
+  - button "open-notes"
+  - button "open-scroll-list"
+  - button "scroll-to-last-encounter": Go to Starter
+- region "Notifications Alt+T"

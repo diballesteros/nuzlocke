@@ -1,0 +1,8 @@
+# Changes to the verification harness, its baselines and CI need the maintainer's review, so a PR
+# can't make a failing check pass by editing what it is checked against.
+/tests/                          @diballesteros
+/verification/                   @diballesteros
+/playwright.config.ts            @diballesteros
+/scripts/                        @diballesteros
+/.github/                        @diballesteros
+/.claude/skills/verify-nuzlocke/ @diballesteros

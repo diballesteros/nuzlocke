@@ -1,0 +1,200 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Sword and Shield
+  - button "addgame"
+  - button "editgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button /Grass Badge \d+/:
+    - img "Grass Badge"
+    - text: ""
+    - button
+  - button /Water Badge \d+/:
+    - img "Water Badge"
+    - text: ""
+    - button
+  - button /Fire Badge \d+/:
+    - img "Fire Badge"
+    - text: ""
+    - button
+  - button /Fighting\/Ghost Badge \d+/:
+    - img "Fighting/Ghost Badge"
+    - text: ""
+    - button
+  - button /Fairy Badge \d+/:
+    - img "Fairy Badge"
+    - text: ""
+    - button
+  - button /Rock\/Ice Badge \d+/:
+    - img "Rock/Ice Badge"
+    - text: ""
+    - button
+  - button /Dark Badge \d+/:
+    - img "Dark Badge"
+    - text: ""
+    - button
+  - button /Dragon Badge \d+/:
+    - img "Dragon Badge"
+    - text: ""
+    - button
+  - button /Champion Cup \d+/:
+    - img "Champion Cup"
+    - text: ""
+    - button
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - button "SHARE"
+  - button "ADD"
+  - button "RESET"
+  - list:
+    - text: Starter
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Scorbunny Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Captured
+    - button "evolve"
+    - button "swap": Team
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: Slumbering Weald
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Magikarp Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Gifted
+    - button "evolve"
+    - button "swap": Team
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: Route 1
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Caterpie Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Traded
+    - button "evolve"
+    - button "swap": Team
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: Wedgehurst
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Slowpoke (Galarian) Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Status...
+    - button "evolve"
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: Route 2
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button /Lapras Lv: \d+/':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Fainted
+    - listbox "Nature":
+      - alert: Bold
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: "Wild Area: Rolling Fields"
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Butterfree Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Failed
+    - button "evolve"
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+    - text: "Wild Area: Dappled Grove"
+    - button "edit encounter"
+    - button "encounter-options"
+    - 'button "Vulpix Lv: 0"':
+      - img
+      - text: ""
+    - listbox "status-selector":
+      - alert: Team
+    - button "evolve"
+    - button "swap": Box
+    - listbox "Nature":
+      - alert: Nature
+    - text: "Level:"
+    - button "level-up-button"
+    - button "level-down-button"
+  - button "open-notes"
+  - button "open-scroll-list"
+  - button "scroll-to-last-encounter": "Go to Wild Area: West Lake Axewell"
+- region "Notifications Alt+T"
+- img
+- text: Scorbunny
+- button "pokemon type":
+  - img
+  - text: FIRE
+- group:
+  - text: Details Level
+  - textbox
+  - text: Met Level
+  - textbox
+  - listbox "gender-selector":
+    - alert: FEMALE
+  - combobox "nature-selector":
+    - textbox
+    - alert: Select a nature...
+  - button "nature chart"
+  - combobox "ability":
+    - textbox
+    - alert: Select an ability...
+  - button "ability table"
+  - combobox "item":
+    - textbox
+    - alert: Select an item...
+  - checkbox
+  - text: Shiny
+- group: Moves
+- group: Stats
+- button "Cancel"
+- button "Export to Builder"
+- listbox:
+  - alert: Export to game and close
+- button "Save"

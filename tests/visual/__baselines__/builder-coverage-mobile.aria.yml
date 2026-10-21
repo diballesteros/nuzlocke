@@ -1,0 +1,13 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Sword and Shield
+  - button "addgame"
+  - button "Login"
+- main:
+  - text: Builder Coverage
+  - heading "# of moves strong against" [level=2]
+  - text: NORMAL 0 FIRE 0 WATER 0 GRASS 0 ELECTRIC 0 ICE 0 POISON 0 FIGHTING 0 GROUND 0 FLYING 0 PSYCHIC 0 BUG 0 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0
+  - heading "Weak against" [level=2]
+  - text: FIRE 1 ICE 1 FLYING 1 PSYCHIC 1 NORMAL 0 WATER 0 GRASS 0 ELECTRIC 0 POISON 0 FIGHTING 0 GROUND 0 BUG 0 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0
+- region "Notifications Alt+T"

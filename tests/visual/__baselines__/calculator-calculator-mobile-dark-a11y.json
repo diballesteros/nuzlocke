@@ -1,0 +1,47 @@
+[
+  {
+    "id": "aria-allowed-attr",
+    "impact": "critical",
+    "nodes": 1
+  },
+  {
+    "id": "aria-hidden-focus",
+    "impact": "serious",
+    "nodes": 1
+  },
+  {
+    "id": "aria-required-children",
+    "impact": "critical",
+    "nodes": 2
+  },
+  {
+    "id": "button-name",
+    "impact": "critical",
+    "nodes": 6
+  },
+  {
+    "id": "color-contrast",
+    "impact": "serious",
+    "nodes": 1
+  },
+  {
+    "id": "label",
+    "impact": "critical",
+    "nodes": 10
+  },
+  {
+    "id": "meta-viewport",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "nodes": 1
+  },
+  {
+    "id": "role-img-alt",
+    "impact": "serious",
+    "nodes": 1
+  }
+]

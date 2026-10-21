@@ -19,7 +19,7 @@ function Export(): React.JSX.Element {
   };
 
   return (
-    <Menu.Item as="div" onClick={handleExport}>
+    <Menu.Item as="div" data-testid="export" onClick={handleExport}>
       <Icon name="download" />
       {t('export')}
     </Menu.Item>

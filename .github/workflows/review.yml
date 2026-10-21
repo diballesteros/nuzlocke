@@ -1,0 +1,184 @@
+name: Blast radius
+# Checks that show what a PR can affect beyond its diff, and fail when it changes something it
+# shouldn't. The functional suites (unit, e2e, coverage) run in main.yml on every push.
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+concurrency:
+  group: review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  affected-areas:
+    runs-on: ubuntu-latest
+    outputs:
+      all: ${{ steps.areas.outputs.all }}
+      grep: ${{ steps.areas.outputs.grep }}
+      grep-invert: ${{ steps.areas.outputs.grep-invert }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Areas this PR can affect
+        id: areas
+        run: |
+          node scripts/affected-areas.mjs --base origin/${{ github.base_ref }} --markdown areas.md > areas.json
+          cat areas.json
+          echo "all=$(node -p "require('./areas.json').all")" >> "$GITHUB_OUTPUT"
+          echo "grep-invert=$(node -p "require('./areas.json').grepInvert ?? ''")" >> "$GITHUB_OUTPUT"
+      - name: Baseline guard
+        env:
+          STATE_CHANGE_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'state-change-approved') }}
+        run: node scripts/baseline-guard.mjs --base origin/${{ github.base_ref }} --areas areas.json
+      - name: Migration ratchet
+        if: always()
+        run: set -o pipefail; node scripts/migration-ratchet.mjs 2>&1 | tee ratchet.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review-areas
+          path: |
+            areas.json
+            areas.md
+            ratchet.txt
+
+  visual:
+    needs: affected-areas
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    container:
+      # The same image npm run verify:visual renders baselines in
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --user 1001
+    env:
+      VISUAL: 1
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      # Hard gate: every state outside the touched areas must match its baseline exactly
+      - name: Untouched areas are unchanged
+        if: needs.affected-areas.outputs.all != 'true'
+        run: >
+          npx playwright test --project=visual
+          ${{ needs.affected-areas.outputs.grep-invert && format('--grep-invert "{0}"', needs.affected-areas.outputs.grep-invert) || '' }}
+      # Touched areas must match the baselines committed in this PR (updated ones are logged in
+      # verification/approved-diffs.tsv and checked by the baseline guard)
+      - name: Touched areas match their committed baselines
+        run: npx playwright test --project=visual
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: visual-report
+          path: |
+            playwright-report
+            test-results
+
+  state:
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci
+      - name: Persisted-store goldens
+        run: npx playwright test --project=state
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: state-report
+          path: test-results
+
+  bundle-size:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - name: Base build
+        run: |
+          git worktree add ../base origin/${{ github.base_ref }}
+          cd ../base
+          npm ci --no-audit --no-fund
+          npx vite build
+          node "$GITHUB_WORKSPACE/scripts/bundle-size.mjs" --out "$GITHUB_WORKSPACE/base-sizes.json"
+      - name: Head build
+        run: |
+          npm ci --no-audit --no-fund
+          npx vite build
+          node scripts/bundle-size.mjs --out head-sizes.json
+      - name: Compare
+        run: node scripts/bundle-size.mjs --compare base-sizes.json head-sizes.json --markdown bundle.md
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: review-bundle
+          path: bundle.md
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/dependency-review-action@v4
+        with:
+          fail-on-severity: moderate
+          comment-summary-in-pr: on-failure
+
+  summary:
+    needs: [affected-areas, visual, state, bundle-size]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: review-*
+          merge-multiple: true
+      - name: Post the summary on the PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          {
+            echo '<!-- blast-radius -->'
+            echo '## Blast radius'
+            echo
+            cat areas.md 2>/dev/null || echo 'Affected areas: not computed'
+            echo
+            echo "| Check | Result |"
+            echo "|---|---|"
+            echo "| Visual, ARIA and a11y baselines | ${{ needs.visual.result }} |"
+            echo "| Persisted-store goldens | ${{ needs.state.result }} |"
+            echo "| Baseline guard and ratchet | ${{ needs.affected-areas.result }} |"
+            echo "| Bundle size | ${{ needs.bundle-size.result }} |"
+            echo
+            echo '**Migration ratchet**'
+            echo '```'
+            cat ratchet.txt 2>/dev/null || echo "not computed"
+            echo '```'
+            echo
+            cat bundle.md 2>/dev/null || true
+          } > comment.md
+          gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file comment.md --edit-last --create-if-none

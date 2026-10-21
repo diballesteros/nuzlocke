@@ -7,7 +7,7 @@ import istanbul from 'vite-plugin-istanbul';
 import svgr from 'vite-plugin-svgr';
 import path from 'path';
 
-// Tests and static data tables are left out of coverage. Shared by Cypress (istanbul) and Vitest
+// Tests and static data tables are left out of coverage. Shared by Playwright (istanbul) and Vitest
 const COVERAGE_EXCLUDE = [
   'src/**/*.test.{ts,tsx}',
   'src/setupTests.ts',
@@ -23,13 +23,13 @@ export default defineConfig({
   plugins: [
     react(),
     svgr(),
-    // Instruments src only when CYPRESS_COVERAGE=true (npm run dev:cov), for Cypress coverage
+    // Instruments src only when REACT_APP_COVERAGE=true (npm run dev:cov, the Playwright web server).
+    // The plugin reads <envPrefix>COVERAGE, hence the REACT_APP_ prefix
     istanbul({
       include: 'src/**/*.{ts,tsx}',
       exclude: ['node_modules', ...COVERAGE_EXCLUDE],
       extension: ['.ts', '.tsx'],
       requireEnv: true,
-      cypress: true,
     }),
     VitePWA({
       registerType: 'autoUpdate',
@@ -135,7 +135,7 @@ export default defineConfig({
   server: {
     port: 3000,
     // Without HMR, plugin-react skips Fast Refresh code so e2e coverage lines up with Vitest's
-    ...(process.env.CYPRESS_COVERAGE === 'true' && { hmr: false }),
+    ...(process.env.REACT_APP_COVERAGE === 'true' && { hmr: false }),
   },
 
   build: {

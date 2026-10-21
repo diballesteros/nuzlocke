@@ -1,0 +1,62 @@
+[
+  {
+    "path": "$.state.calcs.14.1",
+    "after": {
+      "sha256": "c550fb22de1ce20a",
+      "size": 1879
+    }
+  },
+  {
+    "path": "$.state.customBadges.14.1",
+    "after": [
+      "141",
+      "21",
+      "24",
+      "29",
+      "43",
+      "43",
+      "47",
+      "50",
+      "65",
+      0
+    ]
+  },
+  {
+    "path": "$.state.games.14.1",
+    "after": {
+      "sha256": "f0f08647d09b6c95",
+      "size": 3945
+    }
+  },
+  {
+    "path": "$.state.gamesList[14]",
+    "after": {
+      "value": "14.1",
+      "text": "Emerald Kaizo",
+      "key": "custom-game-Emerald Kaizo-<time:0>"
+    }
+  },
+  {
+    "path": "$.state.selectedGame",
+    "before": null,
+    "after": {
+      "value": "1",
+      "text": "Red, Blue and Yellow",
+      "key": "1"
+    }
+  },
+  {
+    "path": "$.state.summary.14.1",
+    "after": {
+      "boxed": true,
+      "description": "",
+      "encounters": true,
+      "fainted": true,
+      "rules": true,
+      "showDescription": true,
+      "stats": true,
+      "status": 0,
+      "title": "Nuzlocke Run"
+    }
+  }
+]

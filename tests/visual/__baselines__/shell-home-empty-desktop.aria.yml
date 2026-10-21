@@ -1,0 +1,28 @@
+- banner:
+  - button "sidebar-button": "!"
+  - listbox "games":
+    - alert: Choose a game
+  - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
+  - button "Login"
+- main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
+  - button "search-options"
+  - searchbox "search"
+  - button "search-filter"
+  - button "SHARE" [disabled]
+  - button "ADD" [disabled]
+  - button "RESET" [disabled]
+  - img
+  - text: Please select a game
+- region "Notifications Alt+T"
