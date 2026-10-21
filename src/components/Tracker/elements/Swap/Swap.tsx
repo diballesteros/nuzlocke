@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { useShallow } from 'zustand/shallow';
 import { EncounterSelector } from 'common';
 import STATUSES from 'constants/status';
 import type { TEncounter } from 'constants/types';
@@ -17,7 +18,7 @@ function Swap({ encounter }: SwapProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changeStatus = useStore(useCallback((state) => state.changeStatus, []));
   const changePreviousStatus = useStore(useCallback((state) => state.changePreviousStatus, []));
-  const team = useStore(selectTeam);
+  const team = useStore(useShallow(selectTeam));
 
   const text = encounter?.status?.value !== 7 ? t('Team', { ns: 'stats' }) : t('Box');
 

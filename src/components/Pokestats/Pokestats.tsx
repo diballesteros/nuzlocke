@@ -4,6 +4,7 @@ import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
 import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
+import { useShallow } from 'zustand/shallow';
 import { PkmImage } from 'common';
 import { PokeInfo } from 'components';
 import { Summary, Tip } from 'components/Pokestats/elements';
@@ -21,10 +22,10 @@ import styles from './Pokestats.module.scss';
 function Pokestats(): React.JSX.Element {
   const { t } = useTranslation('stats');
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
-  const teamPokemon = useStore(selectTeam);
-  const faintedPokemon = useStore(selectFainted);
-  const caughtPokemon = useStore(selectCaught);
-  const failedPokemon = useStore(selectFailed);
+  const teamPokemon = useStore(useShallow(selectTeam));
+  const faintedPokemon = useStore(useShallow(selectFainted));
+  const caughtPokemon = useStore(useShallow(selectCaught));
+  const failedPokemon = useStore(useShallow(selectFailed));
 
   const panes = [
     {
