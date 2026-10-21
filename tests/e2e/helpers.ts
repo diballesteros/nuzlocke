@@ -94,6 +94,9 @@ export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: numb
 // The count label on a tab (PokéStats)
 export const tabCount = (page: Page, n: number) => tab(page, 'secondary', n).locator('.ui.label');
 
+// The open dialog
+export const modalDialog = (page: Page) => page.locator('.ui.modal');
+
 // Modals and popovers close when the dimmed page around them is clicked
 export const clickOutside = (page: Page) => page.mouse.click(2, 2);
 

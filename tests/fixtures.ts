@@ -3,7 +3,7 @@ import path from 'node:path';
 import { test as base, type Page } from '@playwright/test';
 import libCoverage, { type CoverageMap } from 'istanbul-lib-coverage';
 
-export { expect, type Page } from '@playwright/test';
+export { expect, type Locator, type Page } from '@playwright/test';
 
 // Raw (pre-remap) istanbul data, remapped and merged by scripts/coverage.mjs
 const RAW_DIR = path.join('coverage', 'playwright', 'raw');
