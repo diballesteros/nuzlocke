@@ -4,8 +4,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 interface ImportMetaEnv {
-  readonly REACT_APP_SUPABASE_URL: string;
-  readonly REACT_APP_SUPABASE_ANON_KEY: string;
   readonly REACT_APP_SENTRY_DSN: string;
   readonly REACT_APP_VERSION: string;
 }

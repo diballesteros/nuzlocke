@@ -12,9 +12,6 @@ const COVERAGE_EXCLUDE = [
   'src/**/*.test.{ts,tsx}',
   'src/setupTests.ts',
   'src/vite-env.d.ts',
-  // Auth (Supabase) is planned for removal, so it is not tested
-  'src/components/Auth/**',
-  'src/supabaseClient.ts',
   'src/constants/locations/**',
   'src/constants/{abilities,badges,changelog,changelog_2,details,filters,moves,nicknames,pokemon}.ts',
 ];
@@ -93,7 +90,6 @@ export default defineConfig({
       'locale': path.resolve(import.meta.dirname, './src/locale'),
       'error': path.resolve(import.meta.dirname, './src/error'),
       'routes': path.resolve(import.meta.dirname, './src/routes'),
-      'supabaseClient': path.resolve(import.meta.dirname, './src/supabaseClient.ts'),
     },
   },
 

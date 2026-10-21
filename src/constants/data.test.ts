@@ -51,9 +51,7 @@ const KNOWN_ISSUES = {
   localeKeys: [
     'es/common.json: missing encounter_template',
     'es/common.json: missing none',
-    'es/common.json: missing syncing',
     'es/common.json: extra None',
-    'es/common.json: extra sincronizando',
     'de/common.json: missing encounter_template',
     'de/common.json: missing none',
     'de/common.json: extra None',

@@ -630,5 +630,3 @@ export const getSmogonItemName = (item: string): string => {
   }
   return item?.toLowerCase()?.replaceAll(' ', '-');
 };
-
-export const DELETION_CONFIRMATION = 'delete my nuzlocke data';

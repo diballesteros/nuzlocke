@@ -31,8 +31,7 @@
     "src/constants/moves.ts",
     "src/constants/pokemon.ts",
     "src/constants/nickname.ts",
-    "src/constants/details.ts",
-    "supabase/functions/**/*.ts"
+    "src/constants/details.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
