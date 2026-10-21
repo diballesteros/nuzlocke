@@ -48,14 +48,7 @@ const KNOWN_ISSUES = {
     'bdsp-63: Tentracruel',
     'bdsp-63: Meditie',
   ],
-  localeKeys: [
-    'es/common.json: missing encounter_template',
-    'es/common.json: missing none',
-    'es/common.json: extra None',
-    'de/common.json: missing encounter_template',
-    'de/common.json: missing none',
-    'de/common.json: extra None',
-  ],
+  localeKeys: [],
 };
 
 describe('Game data integrity', () => {
