@@ -152,6 +152,12 @@ describe('Rules', () => {
   });
 
   context('Share text', { browser: 'firefox' }, () => {
+    // navigator.clipboard is a getter-only property, which newer Firefox won't let tests reassign,
+    // so shadow it with an own property on the navigator instead
+    const stubClipboard = (win: Cypress.AUTWindow, clipboard: unknown) => {
+      Object.defineProperty(win.navigator, 'clipboard', { value: clipboard, configurable: true });
+    };
+
     it('Share Error', () => {
       cy.get('h1').click();
       cy.get('[data-testid="share-encounters"]').click();
@@ -168,10 +174,8 @@ describe('Rules', () => {
     it('Share Clipboard Error', () => {
       cy.visit('/rules', {
         onBeforeLoad(win) {
-          // @ts-expect-error - we need to override the clipboard
-          delete win.navigator.clipboard;
-          // @ts-expect-error - we need to override the clipboard
-          win.navigator.clipboard = cy.stub().resolves(true);
+          // A clipboard without writeText makes copying fail
+          stubClipboard(win, cy.stub().resolves(true));
         },
       });
       cy.get('h1').click();
@@ -183,11 +187,7 @@ describe('Rules', () => {
     it('Share Success', () => {
       cy.visit('/rules', {
         onBeforeLoad(win) {
-          // @ts-expect-error - we need to override the clipboard
-          delete win.navigator.clipboard;
-          // @ts-expect-error - we need to override the clipboard
-          win.navigator.clipboard = cy.stub().resolves(true);
-          win.navigator.clipboard.writeText = cy.stub().resolves(true);
+          stubClipboard(win, { writeText: cy.stub().resolves(true) });
         },
       });
       cy.get('h1').click();
