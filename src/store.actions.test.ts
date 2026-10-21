@@ -71,6 +71,14 @@ describe('encounters', () => {
     const before = structuredClone(encounters());
     store().changePokemon(-1, 25);
     store().changeStatus(-1, STATUSES[0]);
+    store().changeNickname(-1, 'Ghost');
+    store().changePreviousStatus(-1, STATUSES[0]);
+    store().changeLevel(-1, true);
+    store().changeNature(-1, 'Bold');
+    store().clearEncounter(-1);
+    store().changeDetails(
+      ...([-1, ...Array(25).fill(undefined)] as Parameters<AppState['changeDetails']>)
+    );
     store().deleteEncounter(-1);
     expect(encounters()).toEqual(before);
   });
@@ -162,6 +170,19 @@ describe('games', () => {
     store().addSkipped(5);
     store().deleteSkipped(3);
     expect(store().skipped[SWSH]).toEqual([5]);
+    store().deleteSkipped(42);
+    expect(store().skipped[SWSH]).toEqual([5]);
+  });
+
+  test('deleting a game without per-game data still removes the game', () => {
+    store().addGame('Bare');
+    useStore.setState((state) => {
+      delete state.summary[CUSTOM];
+      delete state.calcs[CUSTOM];
+    });
+    store().deleteGame();
+    expect(store().games[CUSTOM]).toBeUndefined();
+    expect(store().selectedGame).toBeNull();
   });
 });
 

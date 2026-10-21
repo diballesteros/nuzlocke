@@ -95,6 +95,21 @@ describe('Store migrations', () => {
     expect(migrated.filter).toBeUndefined();
   });
 
+  test('v1: states without legacy rulesets keep the default rules', () => {
+    const state = persistedState();
+    delete state.rulesets;
+    expect(migrate(state, 1).rules.Nuzlocke).toEqual(DEFAULT_RULES.Nuzlocke);
+  });
+
+  test('v2: inline filters for unknown locations are left alone', () => {
+    const state = persistedState();
+    state.games['4'].encounters[0] = { id: 999, location: 'Nowhere', pokemon: null, status: null };
+    state.games['4'].encounters[0].filter = ['Pidgey'];
+    const migrated = encounterAt(migrate(state, 2), '4', 0);
+    expect(migrated.filter).toEqual(['Pidgey']);
+    expect(migrated.filterKey).toBeUndefined();
+  });
+
   test('v3: Brilliant Diamond/Shining Pearl is added once', () => {
     const state = persistedState();
     delete state.games['13.1'];
@@ -128,6 +143,24 @@ describe('Store migrations', () => {
     const state = persistedState();
     delete state.games['1'].badge;
     expect(migrate(state, 6).games['1'].badge).toEqual([]);
+  });
+
+  test('v5: legacy status 6 without details only changes the status', () => {
+    const state = persistedState();
+    state.games['1'].encounters[0] = {
+      ...encounterAt(state, '1', 0),
+      pokemon: 25,
+      status: { icon: null, key: 'old', value: 6, text: 'Old' },
+    };
+    const migrated = encounterAt(migrate(state, 5), '1', 0);
+    expect(migrated.status).toEqual(STATUSES[1]);
+    expect(migrated.details).toBeUndefined();
+  });
+
+  test('v8: a current state keeps its badges', () => {
+    const state = persistedState();
+    state.games['1'].badge = [0, 1];
+    expect(migrate(state, 8).games['1'].badge).toEqual([0, 1]);
   });
 
   test('v5: legacy status 6 becomes Fainted + shiny, and Soulocke rules are added', () => {

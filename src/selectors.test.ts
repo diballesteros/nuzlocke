@@ -94,6 +94,13 @@ describe('type suggestions', () => {
     expect(selectSuggestion(stateWith('13', [encounter(0, 1)]))).toBeUndefined();
   });
 
+  test('team members without a pokemon contribute no coverage', () => {
+    const withEmpty = selectSuggestion(stateWith('13', [encounter(0, 7, null)]));
+    const allTypes = selectSuggestion(stateWith('13', [encounter(0, 7, 0)]));
+    expect(withEmpty).toEqual(allTypes);
+    expect(withEmpty.length).toBeGreaterThan(0);
+  });
+
   test('suggests types that cover what the team cannot hit (Pikachu, Gen 8)', () => {
     expect(selectSuggestion(stateWith('13', [encounter(0, 7, 25)]))).toMatchInlineSnapshot(`
       [
@@ -198,6 +205,24 @@ describe('team builder', () => {
         "WATER": 1,
       }
     `);
+  });
+
+  test('uses the pre-Fairy dual type in Gen 5 (Togetic: Normal/Flying)', () => {
+    const weak = selectBuilderWeak(
+      stateWith('7', [], { team: { '7': [{ id: 176, level: 30, moves: [] }] } })
+    );
+    const weakTo = Object.entries(weak)
+      .filter(([, count]) => count > 0)
+      .map(([type]) => type)
+      .sort();
+    expect(weakTo).toEqual(['ELECTRIC', 'ICE', 'ROCK']);
+  });
+
+  test('unknown team members are skipped', () => {
+    const weak = selectBuilderWeak(
+      stateWith('13', [], { team: { '13': [{ id: -1, level: 1, moves: [] }] } })
+    );
+    expect(Object.values(weak).every((count) => count === 0)).toBe(true);
   });
 
   test('uses pre-Fairy types for older games (Clefairy in Gen 1)', () => {
