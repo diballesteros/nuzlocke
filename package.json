@@ -58,7 +58,7 @@
     ]
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.14.7",
+    "@cypress/code-coverage": "^4.0.3",
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
     "@sentry/vite-plugin": "^4.9.1",
@@ -76,7 +76,7 @@
     "@vitest/coverage-istanbul": "^3.2.7",
     "@vitest/ui": "^3.2.7",
     "cross-env": "^10.1.0",
-    "cypress": "^14.5.4",
+    "cypress": "^16.2.0",
     "eslint": "^10.13.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-cypress": "^7.0.2",
