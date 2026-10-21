@@ -15,7 +15,10 @@ const walk = (dir) =>
 const files = walk('src').filter((file) => !/\.test\.tsx?$/.test(file));
 const read = (file) => fs.readFileSync(file, 'utf8');
 const code = files.filter((file) => /\.tsx?$/.test(file));
-const styles = files.filter((file) => /\.s?css$/.test(file) && !/(pokemon|item)\.css$/.test(file));
+// Sprite sheets are generated; src/styles/globals.css is the token source, where colours belong
+const styles = files.filter(
+  (file) => /\.s?css$/.test(file) && !/((pokemon|item)\.css|styles[\\/]globals\.css)$/.test(file)
+);
 
 const counts = {
   // Files importing Semantic UI React components
