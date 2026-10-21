@@ -22,11 +22,41 @@ npm run coverage      # merges unit + raw e2e coverage → coverage/merged, enfo
 npm run e2e           # Cypress UI (needs a dev server on :3000)
 ```
 
+```bash
+npm run pw:e2e        # Playwright e2e on chromium (its own instrumented dev server on :3001)
+npm run pw:e2e:all    # chromium + firefox + webkit
+npm run verify:state  # persisted-store goldens (tests/state)
+npm run verify:visual # visual + ARIA + a11y baselines, inside the pinned Playwright Docker image
+npm run seeds         # regenerate verification/seeds by driving the app
+```
+
 - Single unit test: `npx vitest run src/store.test.ts` (or `-t "<test name>"`).
 - Single e2e spec headless: `npx cypress run --browser chrome --spec cypress/e2e/main/Encounters.spec.ts` (dev server must be up on port 3000).
 - Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files". Stopping a backgrounded `vite` shell can leave its `node` child running, so check the port (`Get-NetTCPConnection -LocalPort 3000`) and stop the owning process.
 - Firefox is installed locally (winget `Mozilla.Firefox`; CI's image may be a version ahead): `npx cypress run --browser firefox --spec "cypress/e2e/main/*"`. `e2e:run` uses Chrome only. Some failures happen only on CI's Linux Firefox and not locally; failure screenshots are uploaded as `screenshots-*` artifacts on the workflow run. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
 - Semantic UI `Checkbox` focuses its hidden input on mousedown. On Firefox ≥ 158 that focus can undo the scroll Cypress does before a click, so mouseup lands elsewhere and the toggle is silently dropped (seen in the PokéStats settings panel). Click those labels with `{ scrollBehavior: false }` and assert the `checked` class after each toggle. Real users aren't affected (no pre-click scroll). Dead ends: `scrollBehavior: 'nearest'` still fails, and setting `scrollBehavior: false` for the whole test breaks `cy.selectGame`.
+
+### Verification harness (Playwright, replacing Cypress)
+
+Use the `verify-nuzlocke` skill (`.claude/skills/verify-nuzlocke/`) to drive the running app and prove a change: `control-nuzlocke.mjs` (launch/doctor/seed/goto/click/pick/type/snapshot/screenshot/state/cleanup on 127.0.0.1:3100) and a feature map with one file per feature. Pins that every UI change is held to:
+
+- **e2e** (`tests/e2e`): the Cypress journeys, ported. Everything that touches UI-library markup lives in `tests/e2e/helpers.ts`; a library swap changes helper bodies, not specs. Coverage comes from `window.__coverage__` per worker (`tests/fixtures.ts`) and merges in `scripts/coverage.mjs` (`coverage-lib.mjs`). `scripts/compare-e2e-coverage.mjs` proved Playwright covers everything Cypress did.
+- **State goldens** (`tests/state`, `__goldens__/`): journeys from a seed record what they changed in `localStorage["pokemon-tracker"]`. A UI-only change must leave them byte-identical (CI requires the `state-change-approved` label otherwise). Ids from `Date.now()` become numbered placeholders, arrays of records are diffed by `id`, values over 300 chars become hashes.
+- **Visual/ARIA/a11y baselines** (`tests/visual`, `__baselines__/`): 25 states × light/dark × desktop/mobile, compared at `threshold: 0`. Only render them with `npm run verify:visual` (Docker) or in CI's container: the visual project launches Chromium with software rasterization (GPU raster gave 8–24 px of corner noise), and the default 0.2 threshold hid dark-theme changes. Each state is tagged with every area it renders (its own, its page's, `@shell`): the sidebar over the tracker is a tracker state too.
+- **Seeds** (`verification/seeds`): persisted stores produced by `npm run seeds`. `src/verification.seeds.test.ts` fails when one stops loading at the current persist version; regenerate them after a store-shape change.
+
+**Change protocol for UI work** (enforced on PRs by `.github/workflows/review.yml`): `scripts/affected-areas.mjs` maps the diff to areas through the real import graph (aliases, named imports through barrels, SCSS `@use`; it stops at the router; `verification/areas.json` lists roots and global files). Every visual state outside those areas must match exactly. Baselines may change only for touched areas and need a glob row in `verification/approved-diffs.tsv`; `scripts/baseline-guard.mjs` also rejects edited goldens and new `skip`/`only`/masks/looser thresholds. `scripts/migration-ratchet.mjs` keeps the Semantic UI file, Sass file and hex-colour counts in `verification/ratchet.json` from going up (lower them with `--update`). Bundle size (+5% budget), dependency review and changed-line coverage (80%, in `main.yml`) also run. Update baselines with `npm run verify:visual -- --grep @<area> --update-snapshots`, log them, and never update an untouched area to make a diff pass.
+
+Porting and harness gotchas:
+
+- Cypress `force` clicks dispatch to the element; Playwright's `force` still clicks at coordinates. Ported as `dispatchEvent('click')`.
+- `cy.type` goes through intermediate values (the ruleset-name input warns on a partial match); ported as keystrokes (`typeInto`), and `cy.clear` explicitly. `fill` skips them.
+- Cypress's Chrome followed the OS dark theme, so e2e projects use `colorScheme: 'dark'`.
+- Cypress `contains` matches CSS-uppercased text; Playwright matches DOM text. Assert a "not present" check's target exists first, or it can never fail (the PokéStats section checks could not).
+- Hovering a badge clears its grayscale filter: move the pointer away before asserting. The first tracker row's nature menu opens under the badge strip (`pickOption(..., { covered: true })`). With several Builder members, the team panel covers the next member's delete button. All three are real UI issues for the redesign.
+- Only dialogs with an `onClose` close on Escape today (pinned in `tests/e2e/main/Interactions.spec.ts`); Radix closes all of them by default.
+- Playwright's own Firefox build won't start on this Windows machine ("side-by-side configuration is incorrect"); Firefox runs in CI's Linux container.
+- From Git Bash, the control CLI accepts routes without a leading slash (`goto rules`); MSYS rewrites `/rules` into a Windows path. Git Bash's GNU `tar` reads `C:` as a remote host, so `scripts/visual.mjs` copies files with Node.
 
 ### Debugging CI failures
 
