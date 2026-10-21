@@ -1,0 +1,6 @@
+# Playwright compares these byte for byte; keep LF on every OS
+tests/state/__goldens__/** text eol=lf
+tests/visual/__baselines__/**/*.yml text eol=lf
+tests/visual/__baselines__/**/*.json text eol=lf
+tests/visual/__baselines__/**/*.png binary
+verification/seeds/*.json text eol=lf
