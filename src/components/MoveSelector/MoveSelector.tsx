@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
+import { List, RowComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -51,7 +51,7 @@ function MoveSelector({
     handleMove(null);
   };
 
-  const renderRow: React.FC<RowProps> = ({ index, style }) => {
+  const renderRow = ({ index, style }: RowProps) => {
     const move = filteredMoves[index];
     return (
       <div style={style}>
@@ -94,14 +94,13 @@ function MoveSelector({
         <div data-testid="move-selector-wrapper">
           <Filter hideGen={hideGen} values={values} />
         </div>
-        <FixedSizeList
-          height={400}
-          itemCount={filteredMoves.length}
-          itemSize={itemSize}
-          width="100%"
-        >
-          {renderRow}
-        </FixedSizeList>
+        <List
+          rowComponent={renderRow}
+          rowCount={filteredMoves.length}
+          rowHeight={itemSize}
+          rowProps={{}}
+          style={{ height: 400, width: '100%' }}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={() => setOpen(false)}>{t('cancel')}</Button>

@@ -1,7 +1,7 @@
-import React, { useCallback, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
+import { List, RowComponentProps as RowProps, useListRef } from 'react-window';
 import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
@@ -23,13 +23,14 @@ import { selectNAGeneration } from 'selectors';
 import useStore from 'store';
 import PokeballSVG from 'assets/svg/pokeball.svg?react';
 import styles from './Encounters.module.scss';
+import toTopPosition from './toTopPosition';
 
 const NICKNAME_HEIGHT = 15.714; // 220px
 const NORMAL_HEIGHT = 12.857; // 180px
 
 const Encounters = React.memo(function Encounters() {
   const { t } = useTranslation('tracker');
-  const listRef = useRef(null);
+  const listRef = useListRef(null);
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
   const darkMode = useStore(useCallback((state) => state.darkMode, []));
@@ -81,7 +82,9 @@ const Encounters = React.memo(function Encounters() {
   };
 
   const handleScroll = (index: number) => {
-    listRef.current?.scrollToItem(index + 1, 'center');
+    // react-window 2 throws on out-of-range rows; v1 clamped to the last one
+    const lastRow = filteredEncounters.length - 1;
+    listRef.current?.scrollToRow({ index: Math.min(index + 1, lastRow), align: 'center' });
   };
 
   const renderRow = ({ index, style }: RowProps) => {
@@ -89,7 +92,7 @@ const Encounters = React.memo(function Encounters() {
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     const isGreyedOut = encounter?.status?.value === 2;
     return (
-      <div style={style}>
+      <div style={toTopPosition(style)}>
         <div
           className={`${styles.row} ${encounter?.pokemon ? styles.type : ''} ${
             isGreyedOut ? styles.greyedOut : ''
@@ -219,15 +222,14 @@ const Encounters = React.memo(function Encounters() {
       {selectedGame ? (
         <>
           <div className={styles.list} data-testid="encounters-list">
-            <FixedSizeList
-              height={690}
-              itemCount={filteredEncounters?.length}
-              itemSize={itemSize}
-              ref={listRef}
-              width="100%"
-            >
-              {renderRow}
-            </FixedSizeList>
+            <List
+              rowComponent={renderRow}
+              rowCount={filteredEncounters?.length}
+              rowHeight={itemSize}
+              listRef={listRef}
+              rowProps={{}}
+              style={{ height: 690, width: '100%' }}
+            />
           </div>
           <ScrollList encounters={filteredEncounters} scrollTo={handleScroll} />
         </>
