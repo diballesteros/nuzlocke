@@ -62,7 +62,7 @@
     "@cypress/code-coverage": "^4.0.3",
     "@eslint/eslintrc": "^3.3.7",
     "@eslint/js": "^10.0.1",
-    "@sentry/vite-plugin": "^4.9.1",
+    "@sentry/vite-plugin": "^11.8.0",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^7.0.1",
     "@testing-library/react": "^16.3.3",
