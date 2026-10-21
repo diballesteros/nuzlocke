@@ -10,6 +10,7 @@ Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracki
 
 ```bash
 npm run verify        # THE gate: typecheck → lint → format:check → unit+coverage → build → e2e+coverage → merged threshold
+npm run verify:fast   # same without coverage and e2e; fine for tooling-only changes, run the full gate before pushing
 npm run dev           # Vite dev server on http://localhost:3000
 npm run dev:cov       # same, Istanbul-instrumented (CYPRESS_COVERAGE=true), HMR off
 npm run typecheck     # tsc for src (Vitest types) and cypress/ (Cypress types) separately
@@ -25,7 +26,18 @@ npm run e2e           # Cypress UI (needs a dev server on :3000)
 - Single e2e spec headless: `npx cypress run --browser chrome --spec cypress/e2e/main/Encounters.spec.ts` (dev server must be up on port 3000).
 - Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files". Stopping a backgrounded `vite` shell can leave its `node` child running, so check the port (`Get-NetTCPConnection -LocalPort 3000`) and stop the owning process.
 - Firefox is installed locally (winget `Mozilla.Firefox`; CI's image may be a version ahead): `npx cypress run --browser firefox --spec "cypress/e2e/main/*"`. `e2e:run` uses Chrome only. Some failures happen only on CI's Linux Firefox and not locally; failure screenshots are uploaded as `screenshots-*` artifacts on the workflow run. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
-- Semantic UI `Checkbox` focuses its hidden input on mousedown. On Firefox ≥ 158 that focus can undo the scroll Cypress does before a click, so mouseup lands elsewhere and the toggle is silently dropped (seen in the PokéStats settings panel). Click those labels with `{ scrollBehavior: false }` and assert the `checked` class after each toggle. Real users aren't affected (no pre-click scroll). To reproduce CI's exact browsers, run the spec inside the `cypress/browsers:<.node-version>` Docker image (Docker Desktop is installed); run `docker` from Bash with `MSYS_NO_PATHCONV=1`.
+- Semantic UI `Checkbox` focuses its hidden input on mousedown. On Firefox ≥ 158 that focus can undo the scroll Cypress does before a click, so mouseup lands elsewhere and the toggle is silently dropped (seen in the PokéStats settings panel). Click those labels with `{ scrollBehavior: false }` and assert the `checked` class after each toggle. Real users aren't affected (no pre-click scroll). Dead ends: `scrollBehavior: 'nearest'` still fails, and setting `scrollBehavior: false` for the whole test breaks `cy.selectGame`.
+
+### Debugging CI failures
+
+- Don't guess from a failing check name; read the logs. This `gh` version has no `gh run view --json jobs`, so use `gh api repos/diballesteros/nuzlocke/actions/runs/<run-id>/jobs` and `gh api repos/diballesteros/nuzlocke/actions/jobs/<job-id>/logs`. Failure screenshots are in the run's `screenshots-*` artifacts.
+- To reproduce CI's exact browsers, run the spec inside the `cypress/browsers:<.node-version>` Docker image. Docker Desktop is installed but may be stopped, so start it first. Mount a tar of `git ls-files` (not the working tree, whose Windows `node_modules` won't run on Linux) and run `npm ci` inside the container, then `start-server-and-test 'npm run dev -- --host' http://localhost:3000 "npx cypress run --browser firefox --spec <spec>"`. Run `docker` from Bash with `MSYS_NO_PATHCONV=1`, or Git Bash rewrites `/src` into a Windows path.
+- A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs.
+
+### Security advisories
+
+- Check Dependabot alerts with `gh api --paginate repos/diballesteros/nuzlocke/dependabot/alerts?state=open --jq '.[]'` (the `--jq` is needed; plain `--paginate` concatenates JSON arrays). Compare each alert's vulnerable range against `package-lock.json` with semver, using `origin/master` after a `git fetch` (local `master` can be stale).
+- Fix with plain `npm audit fix` (lockfile only), then `npm run verify`. Never `npm audit fix --force`: it downgrades majors. The remaining moderates in the `nyc` → `js-yaml` chain (under `@cypress/code-coverage` and `vite-plugin-istanbul`) only affect test tooling and are left on purpose, because npm's only fix is a downgrade that breaks coverage.
 
 Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 
