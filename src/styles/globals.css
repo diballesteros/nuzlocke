@@ -1,0 +1,125 @@
+/*
+ * Design tokens and Tailwind v4. While Semantic UI is still in the app, this file must not change
+ * how anything looks:
+ * - no preflight: Tailwind's reset would restyle every Semantic component (Phase 3 turns it on);
+ * - Tailwind sits in cascade layers, and unlayered CSS (Semantic, index.css, SCSS modules) always
+ *   beats layered CSS, so migrated components rely on utilities and nothing else targets them;
+ * - utilities come only from the @source list below.
+ * The ratchet in scripts/migration-ratchet.mjs leaves this file out of its hex count: tokens are
+ * where colours belong.
+ */
+@layer theme, base, components, utilities;
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities) source(none);
+@import 'tw-animate-css';
+
+/*
+ * Utilities are generated only from migrated code. Automatic detection would also read class-like
+ * words in unmigrated code (container, hidden, visible, fixed…) and emit utilities that restyle
+ * Semantic markup. Phase 2 adds each area here as it moves to Tailwind; Phase 3 drops the list.
+ */
+@source '../components/ui';
+@source '../lib';
+@source '../common/Back';
+@source '../common/Page';
+@source not '../**/*.test.ts';
+
+/* `dark:` follows the store's darkMode, which App.tsx mirrors as a class on <html> */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* App colours (light). --placeholder is only defined for dark mode, as before */
+  --header: #ffffff;
+  --card: #ffffff;
+  --bgprimary: #ffffff;
+  --bgsecondary: #e2e1e0;
+  --badge: #d46a6a;
+  --badgeopac: #d46a6a50;
+  --badgeflash: #ffaaaa;
+  --contrast: #333333;
+  --contrast-border: #e5e5e5;
+
+  /* Semantic UI's default button */
+  --button: #e0e1e2;
+  --button-hover: #cacbcd;
+  --button-foreground: rgba(0, 0, 0, 0.6);
+  --button-hover-foreground: rgba(0, 0, 0, 0.8);
+
+  /* shadcn/ui tokens, mapped onto the app colours and Semantic UI's accents */
+  --background: var(--bgprimary);
+  --foreground: var(--contrast);
+  --card-foreground: var(--contrast);
+  --popover: var(--card);
+  --popover-foreground: var(--contrast);
+  --primary: #2185d0;
+  --primary-foreground: #ffffff;
+  --secondary: var(--bgsecondary);
+  --secondary-foreground: var(--contrast);
+  --muted: var(--bgsecondary);
+  --muted-foreground: var(--contrast);
+  --accent: var(--bgsecondary);
+  --accent-foreground: var(--contrast);
+  --destructive: #db2828;
+  --border: var(--contrast-border);
+  --input: var(--contrast-border);
+  --ring: #85b7d9;
+  --radius: 0.2857rem;
+}
+
+:root.dark {
+  --header: #1b1c1d;
+  --card: #424242;
+  --bgprimary: #212121;
+  --bgsecondary: #333333;
+  --badge: #c395fe;
+  --badgeopac: #c395fe50;
+  --badgeflash: #ffffff;
+  --contrast: #ffffff;
+  --contrast-border: #525252;
+  --placeholder: #d9d9d9;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-header: var(--header);
+  --color-badge: var(--badge);
+  --color-placeholder: var(--placeholder);
+  --color-button: var(--button);
+  --color-button-hover: var(--button-hover);
+  --color-button-foreground: var(--button-foreground);
+  --color-button-hover-foreground: var(--button-hover-foreground);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@theme {
+  /* Semantic UI's control font (Lato isn't loaded, so browsers use the fallbacks) */
+  --font-control: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
+  /* The app's breakpoints (index.css, _variables.scss) replace Tailwind's */
+  --breakpoint-*: initial;
+  --breakpoint-xxs: 22.857rem;
+  --breakpoint-xs: 35.714rem;
+  --breakpoint-sm: 39.286rem;
+  --breakpoint-md: 53.751rem;
+  --breakpoint-lg: 85.714rem;
+}

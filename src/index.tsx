@@ -1,5 +1,6 @@
 import * as Sentry from '@sentry/react';
 import { createRoot } from 'react-dom/client';
+import './styles/globals.css';
 import './index.css';
 import 'semantic-ui-css/components/button.min.css';
 import 'semantic-ui-css/components/container.min.css';
