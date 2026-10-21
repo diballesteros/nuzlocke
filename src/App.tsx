@@ -154,7 +154,7 @@ function App(): React.JSX.Element {
             Tracker
             <Icon name="map" />
           </Menu.Item>
-          <Menu.Item as="div" onClick={() => handleRoute('/rules')}>
+          <Menu.Item as="div" data-testid="rules" onClick={() => handleRoute('/rules')}>
             <Icon name="book" />
             {t('rules', { ns: 'stats' })}
           </Menu.Item>
@@ -170,7 +170,7 @@ function App(): React.JSX.Element {
             <Icon name="calculator" />
             {t('damage_calculator')}
           </Menu.Item>
-          <Menu.Item as="div" onClick={() => handleRoute('/settings')}>
+          <Menu.Item as="div" data-testid="settings" onClick={() => handleRoute('/settings')}>
             {t('settings', { ns: 'settings' })}
             <Icon name="wrench" />
           </Menu.Item>

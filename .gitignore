@@ -34,3 +34,13 @@ yarn-error.log*
 # Build
 /dev-dist
 /dist
+
+# Playwright and the verification skill
+/test-results
+/playwright-report
+/blob-report
+/verification/artifacts
+/verification/.session
+
+# Personal Claude Code settings
+.claude/settings.local.json

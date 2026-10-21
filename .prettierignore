@@ -9,3 +9,8 @@ public/*.html
 supabase
 CHANGELOG.md
 package-lock.json
+test-results
+playwright-report
+verification/artifacts
+verification/.session
+verification/seeds

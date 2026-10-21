@@ -109,9 +109,55 @@ jobs:
           if-no-files-found: ignore
           path: coverage/e2e/raw/out.json
 
+  playwright:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    container:
+      # Keep the tag on the installed @playwright/test version
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      # Firefox refuses to start when HOME belongs to another user
+      options: --user 1001
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+        shard: [1, 2, 3]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: 0
+
+      - name: Playwright e2e
+        run: npx playwright test --project=${{ matrix.browser }} --shard=${{ matrix.shard }}/3
+
+      - name: Save failure traces
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-${{ matrix.browser }}-${{ matrix.shard }}
+          if-no-files-found: ignore
+          path: |
+            test-results
+            playwright-report
+
+      - name: Save e2e coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-pw-${{ matrix.browser }}-${{ matrix.shard }}
+          if-no-files-found: ignore
+          path: coverage/playwright/raw
+
   coverage:
     runs-on: ubuntu-latest
-    needs: ui-tests
+    needs: [ui-tests, playwright]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

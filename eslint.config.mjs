@@ -64,6 +64,16 @@ export default tseslint.config(
     files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],
     languageOptions: { globals: globals.node },
   },
+  // Node scripts whose page.evaluate callbacks run in the browser
+  {
+    files: ['.claude/skills/**/*.mjs'],
+    languageOptions: { globals: { ...globals.node, ...globals.browser } },
+  },
+  // Playwright fixtures must destructure their first argument, even when they use none of it
+  {
+    files: ['tests/**/*.ts'],
+    rules: { 'no-empty-pattern': 'off' },
+  },
   {
     rules: {
       'no-console': ['warn', { 'allow': ['warn', 'error', 'info'] }],
