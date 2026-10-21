@@ -17,7 +17,7 @@ npm run lint          # eslint .            (lint:fix to autofix)
 npm run format:check  # prettier --check .
 npm run test          # vitest watch        (test:unit = single run, test:unit:cov = with coverage)
 npm run e2e:run       # starts dev:cov, runs all Cypress specs headless in Chrome
-npm run coverage      # merges coverage/*/coverage-final.json → coverage/merged, enforces thresholds
+npm run coverage      # merges unit + raw e2e coverage → coverage/merged, enforces thresholds
 npm run e2e           # Cypress UI (needs a dev server on :3000)
 ```
 
@@ -32,7 +32,8 @@ Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 
 Every change, and especially every dependency bump, must pass `npm run verify` before it's committed. Behaviour must stay the same unless the user asks otherwise.
 
-- **Coverage** comes from Vitest (`coverage/unit`) plus Cypress (`coverage/e2e`, via `vite-plugin-istanbul` and `@cypress/code-coverage`), merged by `scripts/coverage.mjs`. Exclusions (static data tables, tests, Auth) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
+- **Coverage** comes from Vitest (`coverage/unit`) plus Cypress (via `vite-plugin-istanbul` and `@cypress/code-coverage`; raw data in `coverage/e2e/raw/out.json`), merged by `scripts/coverage.mjs`. The script remaps the raw e2e data with Vitest's own remapper (`@vitest/istanbul-lib-source-maps`), so both sides get identical statement, branch and function maps. nyc's report in `coverage/e2e` is only a console summary and is not used. `dev:cov` turns HMR off so no Fast Refresh code is instrumented. If unit and e2e maps ever drift apart, the merge double-counts or under-counts. Exclusions (static data tables, tests, Auth) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
+- **Vite 8 compatibility shims** in `vite.config.ts`, all to be removed with Semantic UI: `legacy.inconsistentCjsInterop` (default imports from `semantic-ui-react/dist/commonjs/*`) and `build.cssMinify: 'esbuild'` (Lightning CSS rejects an invalid semantic-ui-css selector). `build.target` is pinned to Vite 7's defaults to keep browser support unchanged.
 - **CI** (`.github/workflows/main.yml`) runs the static checks and unit coverage, then a browser × spec-group × container matrix against `dev:cov`, then a `coverage` job that merges every container's report.
 - **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), and `src/constants/data.test.ts`.
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.

@@ -82,18 +82,18 @@ export default defineConfig({
 
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, 'src'),
-      'components': path.resolve(__dirname, './src/components'),
-      'constants': path.resolve(__dirname, './src/constants'),
-      'common': path.resolve(__dirname, './src/common'),
-      'hooks': path.resolve(__dirname, './src/hooks'),
-      'selectors': path.resolve(__dirname, './src/selectors'),
-      'store': path.resolve(__dirname, './src/store.ts'),
-      'assets': path.resolve(__dirname, './src/assets'),
-      'locale': path.resolve(__dirname, './src/locale'),
-      'error': path.resolve(__dirname, './src/error'),
-      'routes': path.resolve(__dirname, './src/routes'),
-      'supabaseClient': path.resolve(__dirname, './src/supabaseClient.ts'),
+      '@': path.resolve(import.meta.dirname, 'src'),
+      'components': path.resolve(import.meta.dirname, './src/components'),
+      'constants': path.resolve(import.meta.dirname, './src/constants'),
+      'common': path.resolve(import.meta.dirname, './src/common'),
+      'hooks': path.resolve(import.meta.dirname, './src/hooks'),
+      'selectors': path.resolve(import.meta.dirname, './src/selectors'),
+      'store': path.resolve(import.meta.dirname, './src/store.ts'),
+      'assets': path.resolve(import.meta.dirname, './src/assets'),
+      'locale': path.resolve(import.meta.dirname, './src/locale'),
+      'error': path.resolve(import.meta.dirname, './src/error'),
+      'routes': path.resolve(import.meta.dirname, './src/routes'),
+      'supabaseClient': path.resolve(import.meta.dirname, './src/supabaseClient.ts'),
     },
   },
 
@@ -126,6 +126,12 @@ export default defineConfig({
 
   envPrefix: 'REACT_APP_',
 
+  // Components are default-imported from semantic-ui-react/dist/commonjs/* in ~56 files, which
+  // Vite 8's stricter CJS interop resolves to the module object. Remove with Semantic UI
+  legacy: {
+    inconsistentCjsInterop: true,
+  },
+
   server: {
     port: 3000,
     // Without HMR, plugin-react skips Fast Refresh code so e2e coverage lines up with Vitest's
@@ -134,5 +140,10 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
+    // Vite 7's default targets; Vite 8 raised them (Chrome 111, Safari 16.4), dropping older browsers
+    target: ['chrome107', 'edge107', 'firefox104', 'safari16'],
+    // Lightning CSS (Vite 8 default) rejects an invalid selector in semantic-ui-css
+    // ("[data-tooltip][data-inverted]:after .header"). Revisit once Semantic UI is gone
+    cssMinify: 'esbuild',
   },
 });

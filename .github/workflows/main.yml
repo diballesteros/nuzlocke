@@ -99,7 +99,7 @@ jobs:
           name: coverage-e2e-${{ matrix.browser }}-${{ matrix.group }}-${{ matrix.containers }}
           # A container can get no specs from Cypress Cloud's load balancing
           if-no-files-found: ignore
-          path: coverage/e2e/coverage-final.json
+          path: coverage/e2e/raw/out.json
 
   coverage:
     runs-on: ubuntu-latest
