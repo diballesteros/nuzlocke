@@ -40,13 +40,43 @@ const approved = (
   .map((row) => row.split('\t')[0].trim())
   .filter(Boolean)
   .map(globToRegExp);
-for (const file of changed.filter((f) => f.startsWith(BASELINES))) {
+// Every area a baseline's state renders, read from the visual suite's tags (the same ones CI's
+// --grep-invert uses): a dialog over the tracker is a tracker state too
+const stateAreas = () => {
+  const cli = path.join('node_modules', '@playwright', 'test', 'cli.js');
+  const list = JSON.parse(
+    execFileSync(process.execPath, [cli, 'test', '--project=visual', '--list', '--reporter=json'], {
+      env: { ...process.env, VISUAL: '1' },
+      maxBuffer: 64 * 1024 * 1024,
+    }).toString()
+  );
+  const areas = new Map();
+  const visit = (suite) => {
+    suite.suites?.forEach(visit);
+    for (const spec of suite.specs ?? []) {
+      // Baselines are named <owner area>-<state>-<viewport>[-<theme>]; the owner is one of the tags
+      const state = suite.title.replace(' ', '-');
+      for (const owner of spec.tags) {
+        areas.set(`${owner}-${state}-${spec.title}`, spec.tags);
+        areas.set(`${owner}-${state}`, spec.tags);
+      }
+    }
+  };
+  list.suites.forEach(visit);
+  return areas;
+};
+const changedBaselines = changed.filter((f) => f.startsWith(BASELINES));
+const areasOf = changedBaselines.length ? stateAreas() : new Map();
+
+for (const file of changedBaselines) {
   const name = path.posix.basename(file);
-  const area = name.split('-')[0];
-  if (!affected.all && !affected.areas.includes(area)) {
+  const stem = name.replace(/(-a11y\.json|\.aria\.yml|\.png)$/, '');
+  const renders = areasOf.get(stem) ?? [name.split('-')[0]];
+  if (!affected.all && !renders.some((area) => affected.areas.includes(area))) {
     errors.push(
-      `${file} changed, but this PR touches no ${area} code (touched: ${affected.areas.join(', ') || 'none'}). ` +
-        'Untouched areas must not change; never update their baselines to make a diff pass.'
+      `${file} changed, but its state renders ${renders.join(', ')} and this PR touches ` +
+        `${affected.areas.join(', ') || 'none'}. Untouched areas must not change; never update ` +
+        'their baselines to make a diff pass.'
     );
   }
   if (fs.existsSync(file) && !approved.some((pattern) => pattern.test(name))) {
