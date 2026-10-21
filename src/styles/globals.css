@@ -20,6 +20,8 @@
  */
 @source '../components/ui';
 @source '../lib';
+@source '../common/Back';
+@source '../common/Page';
 @source not '../**/*.test.ts';
 
 /* `dark:` follows the store's darkMode, which App.tsx mirrors as a class on <html> */
@@ -36,6 +38,12 @@
   --badgeflash: #ffaaaa;
   --contrast: #333333;
   --contrast-border: #e5e5e5;
+
+  /* Semantic UI's default button */
+  --button: #e0e1e2;
+  --button-hover: #cacbcd;
+  --button-foreground: rgba(0, 0, 0, 0.6);
+  --button-hover-foreground: rgba(0, 0, 0, 0.8);
 
   /* shadcn/ui tokens, mapped onto the app colours and Semantic UI's accents */
   --background: var(--bgprimary);
@@ -93,6 +101,10 @@
   --color-header: var(--header);
   --color-badge: var(--badge);
   --color-placeholder: var(--placeholder);
+  --color-button: var(--button);
+  --color-button-hover: var(--button-hover);
+  --color-button-foreground: var(--button-foreground);
+  --color-button-hover-foreground: var(--button-hover-foreground);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
@@ -100,6 +112,9 @@
 }
 
 @theme {
+  /* Semantic UI's control font (Lato isn't loaded, so browsers use the fallbacks) */
+  --font-control: Lato, 'Helvetica Neue', Arial, Helvetica, sans-serif;
+
   /* The app's breakpoints (index.css, _variables.scss) replace Tailwind's */
   --breakpoint-*: initial;
   --breakpoint-xxs: 22.857rem;

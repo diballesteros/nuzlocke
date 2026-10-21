@@ -10,14 +10,20 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
 ## Where things live
 
 - `src/styles/globals.css`: Tailwind (theme and utilities only, **no preflight** until Phase 3), the design tokens, the `dark` variant, and the `@source` list.
-- `src/components/ui/`: shadcn primitives, generated with `npx shadcn@4.22.1 add <name>` (config in `components.json`). They're our code after generation, so edit them freely, but keep the file names.
+- `src/components/ui/`: shadcn primitives, generated with `npx shadcn@4.22.1 add <name>` (config in `components.json`). They're our code after generation, so edit them freely, but keep the file names. After every `add`, check the result: the CLI has written `import { cn } from "cn"` and installed an unrelated npm package called `cn`. Fix the import to `@/lib/utils`, `npm uninstall cn`, and review any other dependency it added (`radix-ui` is expected). Then run Prettier, since it writes double quotes.
 - `src/lib/utils.ts`: `cn()` for class merging.
 - The `@/` import alias maps to `src/` (Vite and `tsconfig.json`). The bare aliases (`components`, `common`, `store`…) still work.
 
 ## Rules
 
-1. **Utilities exist only for sources in the `@source` list.** Automatic detection is off, because it would read class-like words in unmigrated code (`container`, `hidden`, `visible`) and restyle Semantic markup. When you migrate an area, add its directory to the list in `globals.css`, e.g. `@source '../components/Rules';`. A class that "does nothing" usually means its directory isn't listed.
-2. **Unlayered CSS beats Tailwind.** Semantic CSS, `index.css` and SCSS modules aren't in cascade layers, so they win over any utility. A migrated component must drop its `*.module.scss` and every Semantic class (`ui …`). A leftover global rule (for example `index.css` styling `h1`–`h5`, or `.ui` overrides) will still apply: override it with a more specific utility (`[&_h3]:mt-0`) or leave it for Phase 3.
+1. **Utilities exist only for sources in the `@source` list.** Automatic detection is off, because it would read class-like words in unmigrated code (`container`, `hidden`, `visible`) and restyle Semantic markup. When you migrate an area, add its directory to the list in `globals.css`, e.g. `@source '../components/Rules';`. A class that "does nothing" usually means its directory isn't listed. Listed files are scanned whole, comments included: a comment saying "white outline" emitted `.outline`, which restyled Semantic's `square outline` icons in every area. Keep words that are both utilities and Semantic class names (`outline`, `hidden`, `visible`, `container`, `fixed`, `active`) out of comments and strings in listed directories, and check new utilities with a build when a diff shows up outside your area.
+2. **Unlayered CSS beats Tailwind.** Semantic CSS, `index.css` and SCSS modules aren't in cascade layers, so they win over any utility. A migrated component must drop its `*.module.scss` and every Semantic class (`ui …`). A leftover global rule still applies whatever a utility's specificity is; only an important utility (`mt-0!`) beats it. The known ones:
+   - Semantic's `reset.min.css` sets `font-family`, `font-size`, `line-height` and `margin` on every `button`, `input`, `select` and `textarea`. Primitives that render those elements mark these four with `!` (see `ui/button.tsx`). It also sets `display: block` on `article`, `aside`, `footer`, `header`, `nav` and `section`, so `flex`/`grid` on those needs `!` (see `common/Page`).
+   - `index.css` styles `h1`–`h5` (margins, sizes, font).
+   - `.ui` overrides in `index.css`.
+
+   Use `!` only for properties a global rule actually sets, and leave the rest for Phase 3.
+
 3. **Colours come from tokens, never hex.** Use the semantic utilities:
    - `bg-background`, `text-foreground`
    - `bg-card`, `text-card-foreground`
