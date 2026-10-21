@@ -24,7 +24,8 @@ npm run e2e           # Cypress UI (needs a dev server on :3000)
 - Single unit test: `npx vitest run src/store.test.ts` (or `-t "<test name>"`).
 - Single e2e spec headless: `npx cypress run --browser chrome --spec cypress/e2e/main/Encounters.spec.ts` (dev server must be up on port 3000).
 - Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files". Stopping a backgrounded `vite` shell can leave its `node` child running, so check the port (`Get-NetTCPConnection -LocalPort 3000`) and stop the owning process.
-- Firefox isn't installed locally. The Firefox-only specs (Rules share tests) run only in CI. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
+- Firefox is installed locally (winget `Mozilla.Firefox`; CI's image may be a version ahead): `npx cypress run --browser firefox --spec "cypress/e2e/main/*"`. `e2e:run` uses Chrome only. Some failures happen only on CI's Linux Firefox and not locally; failure screenshots are uploaded as `screenshots-*` artifacts on the workflow run. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
+- In specs, don't click the same toggle twice back to back: on CI Firefox one click got lost. Assert the state (e.g. the `checked` class) between clicks.
 
 Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 

@@ -93,6 +93,14 @@ jobs:
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      - name: Save failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ matrix.browser }}-${{ matrix.group }}-${{ matrix.containers }}
+          if-no-files-found: ignore
+          path: cypress/screenshots
+
       - name: Save e2e coverage
         uses: actions/upload-artifact@v4
         with:

@@ -57,8 +57,12 @@ describe('PokéStats', () => {
     cy.get(':nth-child(4) > summary').click();
     cy.get('[data-testid="summary-rules"] > label').click();
     cy.get(':nth-child(5) > summary').click();
+    // Wait for each toggle to land before the next click; back-to-back clicks lost one on CI Firefox
+    cy.get('[data-testid="summary-show-description"]').should('have.class', 'checked');
     cy.get('[data-testid="summary-show-description"] > label').click();
+    cy.get('[data-testid="summary-show-description"]').should('not.have.class', 'checked');
     cy.get('[data-testid="summary-show-description"] > label').click();
+    cy.get('[data-testid="summary-show-description"]').should('have.class', 'checked');
     cy.get('[data-testid="summary-description"]').type('Summary description');
     cy.get('[data-testid="summary-description"]').should('have.value', 'Summary description');
     cy.get('[data-testid="display-settings"]').click();
