@@ -1,0 +1,22 @@
+[
+  {
+    "path": "$.state.summary.13.boxed",
+    "before": true,
+    "after": false
+  },
+  {
+    "path": "$.state.summary.13.description",
+    "before": "",
+    "after": "Second attempt"
+  },
+  {
+    "path": "$.state.summary.13.status",
+    "before": 0,
+    "after": 1
+  },
+  {
+    "path": "$.state.summary.13.title",
+    "before": "Nuzlocke Run",
+    "after": "Nuzlocke Run 2"
+  }
+]

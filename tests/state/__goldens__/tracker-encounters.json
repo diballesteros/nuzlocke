@@ -1,0 +1,68 @@
+[
+  {
+    "path": "$.state.games.4.encounters.order",
+    "before": {
+      "sha256": "8fb242994b730c91",
+      "size": 568
+    },
+    "after": {
+      "sha256": "754910e62ec546b1",
+      "size": 575
+    }
+  },
+  {
+    "path": "$.state.games.4.encounters[id=0].pokemon",
+    "before": null,
+    "after": 1
+  },
+  {
+    "path": "$.state.games.4.encounters[id=0].status",
+    "before": null,
+    "after": {
+      "icon": "chess king",
+      "key": "Team",
+      "value": 7,
+      "text": "Team"
+    }
+  },
+  {
+    "path": "$.state.games.4.encounters[id=0].details",
+    "after": {
+      "level": 16,
+      "id": 1,
+      "moves": [
+        null,
+        null,
+        null,
+        null
+      ]
+    }
+  },
+  {
+    "path": "$.state.games.4.encounters[id=1].nickname",
+    "after": null
+  },
+  {
+    "path": "$.state.games.4.encounters[id=1].details",
+    "after": null
+  },
+  {
+    "path": "$.state.games.4.encounters[id=2]",
+    "before": {
+      "id": 2,
+      "pokemon": null,
+      "location": "Route 1",
+      "status": null,
+      "filterKey": "frlg-2"
+    }
+  },
+  {
+    "path": "$.state.games.4.encounters[id=<time:0>]",
+    "after": {
+      "id": "<time:0>",
+      "location": "Secret Garden",
+      "pokemon": null,
+      "status": null
+    }
+  }
+]
