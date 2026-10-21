@@ -14,8 +14,7 @@ describe('Options', () => {
     cy.get('[data-testid="settings-missing"] > label').click();
     cy.get('[data-testid="settings-showall"] > label').click();
     cy.contains('Back').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid="poke-Bulbasaur"]').click({ force: true });
     cy.get('[data-testid="nickname-0"] > input').type('Bulbadude');
@@ -95,8 +94,7 @@ describe('Options', () => {
     cy.get('[data-testid="pokemon-1"]').click();
     cy.contains('SUGGESTED').should('exist');
     cy.contains('Cancel').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="pokemon-1"]').click();
     cy.contains('SUGGESTED').should('exist');
     cy.contains('Cancel').click();
@@ -146,8 +144,7 @@ describe('Options', () => {
     cy.contains('Cancel').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="tracker"]').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid="poke-Scorbunny"]').click({ force: true });
     cy.get('[data-testid="status-0"]').click();
@@ -172,8 +169,7 @@ describe('Options', () => {
     cy.get('[data-testid="settings-soulink"] > label').click();
     cy.get('[data-testid="options"]').click();
     cy.get('[data-testid="tracker"]').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('[data-testid="pokemon-0"]').click();
     cy.get('[data-testid="poke-Scorbunny"]').click({ force: true });
     cy.get('[data-testid="status-0"]').click();

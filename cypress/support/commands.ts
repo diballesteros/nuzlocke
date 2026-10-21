@@ -51,3 +51,9 @@ Cypress.Commands.add('pokemondetail', () => {
   cy.get('[data-testid="move-4"] > div').click();
   cy.get('[data-testid="move-Pound"]').click();
 });
+
+// Waits for the dropdown menu to open before picking, so slow (instrumented) builds don't race it
+Cypress.Commands.add('selectGame', (game: string) => {
+  cy.get('[data-testid="game-select"]').click();
+  cy.get('[data-testid="game-select"] .menu.visible').contains('.item', game).click();
+});

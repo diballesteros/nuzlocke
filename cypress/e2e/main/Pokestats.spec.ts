@@ -1,10 +1,17 @@
 import path from 'path';
 
+// Semantic UI's Checkbox focuses its hidden input on mousedown. On Firefox 158 that focus undoes
+// the scroll Cypress makes before clicking, so mouseup lands on another element and the toggle is
+// dropped. Clicking without that scroll avoids it; the state is asserted after each toggle.
+const toggleSetting = (testId: string, checked: boolean) => {
+  cy.get(`[data-testid="${testId}"] > label`).click({ scrollBehavior: false });
+  cy.get(`[data-testid="${testId}"]`).should(checked ? 'have.class' : 'not.have.class', 'checked');
+};
+
 describe('PokéStats', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
   });
 
   it('Tips', () => {
@@ -50,16 +57,17 @@ describe('PokéStats', () => {
     cy.get('[data-testid="summary-status"]').click();
     cy.get('[data-testid="summary-status"] > .visible > :nth-child(3)').click();
     cy.get(':nth-child(2) > summary').click();
-    cy.get('[data-testid="summary-encounters"] > label').click();
+    toggleSetting('summary-encounters', false);
     cy.get(':nth-child(3) > summary').click();
-    cy.get('[data-testid="summary-stats"] > label').click();
-    cy.get('[data-testid="summary-boxed"] > label').click();
-    cy.get('[data-testid="summary-fainted"] > label').click();
+    toggleSetting('summary-stats', false);
+    toggleSetting('summary-boxed', false);
+    toggleSetting('summary-fainted', false);
     cy.get(':nth-child(4) > summary').click();
-    cy.get('[data-testid="summary-rules"] > label').click();
+    toggleSetting('summary-rules', false);
     cy.get(':nth-child(5) > summary').click();
-    cy.get('[data-testid="summary-show-description"] > label').click();
-    cy.get('[data-testid="summary-show-description"] > label').click();
+    cy.get('[data-testid="summary-show-description"]').should('have.class', 'checked');
+    toggleSetting('summary-show-description', false);
+    toggleSetting('summary-show-description', true);
     cy.get('[data-testid="summary-description"]').type('Summary description');
     cy.get('[data-testid="summary-description"]').should('have.value', 'Summary description');
     cy.get('[data-testid="display-settings"]').click();
@@ -103,6 +111,33 @@ describe('PokéStats', () => {
     const filename = path.join(downloadsFolder, 'nuzlocke.png');
     cy.readFile(filename, 'binary', { timeout: 15000 }).should((buffer) => {
       expect(buffer.length).greaterThan(1000);
+    });
+  });
+
+  context('Share Image', { browser: '!firefox' }, () => {
+    const visitWithShare = (canShare: boolean) => {
+      cy.visit('/stats', {
+        onBeforeLoad(win) {
+          Object.defineProperty(win.navigator, 'canShare', { value: () => canShare });
+          Object.defineProperty(win.navigator, 'share', {
+            value: cy.stub().as('share').resolves(),
+          });
+        },
+      });
+    };
+
+    it('Share Success', () => {
+      visitWithShare(true);
+      cy.get('[data-testid="share-image"]').click();
+      cy.contains('Share the image!', { timeout: 15000 }).should('exist');
+      cy.get('@share').should('have.been.calledOnce');
+    });
+
+    it('Share Unsupported', () => {
+      visitWithShare(false);
+      cy.get('[data-testid="share-image"]').click();
+      cy.contains('Unable to share', { timeout: 15000 }).should('exist');
+      cy.get('@share').should('not.have.been.called');
     });
   });
 });

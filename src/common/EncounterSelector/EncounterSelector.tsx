@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
+import { List, RowComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { PkmImage } from 'common';
@@ -52,7 +52,7 @@ function EncounterSelector({
     setOpen(false);
   };
 
-  const renderRow: React.FC<RowProps> = ({ index, style }) => {
+  const renderRow = ({ index, style }: RowProps) => {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     return (
@@ -87,14 +87,13 @@ function EncounterSelector({
     >
       <Modal.Content className={styles.content} scrolling>
         <Filter hideGen={!!limitGen} values={values} />
-        <FixedSizeList
-          height={400}
-          itemCount={filteredEncounters.length}
-          itemSize={itemSize}
-          width="100%"
-        >
-          {renderRow}
-        </FixedSizeList>
+        <List
+          rowComponent={renderRow}
+          rowCount={filteredEncounters.length}
+          rowHeight={itemSize}
+          rowProps={{}}
+          style={{ height: 400, width: '100%' }}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>

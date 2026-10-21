@@ -1,8 +1,7 @@
 describe('Badges', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
   });
 
   it('Select badge', () => {
@@ -23,8 +22,7 @@ describe('Badges', () => {
     cy.contains('Set default').click();
     cy.contains('Cancel').click();
     cy.get('[title="Grass Badge"]').should('have.text', '20');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Red, Blue and Yellow').click();
+    cy.selectGame('Red, Blue and Yellow');
     cy.get('[data-testid="edit-badges"]').click();
     cy.get('[data-testid="badge-multiple-default"]').click();
     cy.get('[data-testid="badge-multiple-default"] > .visible > :nth-child(2)').click();
@@ -43,13 +41,11 @@ describe('Badges', () => {
     cy.contains('Eldegoss').should('exist');
     cy.contains('DYNAMAX').should('exist');
     cy.contains('Back').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Ultra Sun and Ultra Moon').click();
+    cy.selectGame('Ultra Sun and Ultra Moon');
     cy.get('[data-testid="badge-detail-0"] > .question').click();
     cy.contains('TOTEM').should('exist');
     cy.contains('Back').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('HeartGold and SoulSilver').click();
+    cy.selectGame('HeartGold and SoulSilver');
     cy.get('[data-testid="badges"]').scrollTo('right');
     cy.get('[data-testid="badge-detail-8"] > .question').click();
     cy.contains('Rematch').should('exist').click();

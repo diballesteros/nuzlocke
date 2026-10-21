@@ -2,6 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon';
+import { useShallow } from 'zustand/shallow';
 import type { TEncounter } from 'constants/types';
 import { selectCaught, selectFailed, selectFainted } from 'selectors';
 import useStore from 'store';
@@ -25,9 +26,9 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
   const addSkipped = useStore(useCallback((state) => state.addSkipped, []));
   const deleteSkipped = useStore(useCallback((state) => state.deleteSkipped, []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
-  const fainted = useStore(selectFainted);
-  const failed = useStore(selectFailed);
-  const caught = useStore(selectCaught);
+  const fainted = useStore(useShallow(selectFainted));
+  const failed = useStore(useShallow(selectFailed));
+  const caught = useStore(useShallow(selectCaught));
   const [open, setOpen] = useState<'SCROLL_LIST' | 'NOTES' | null>(null);
 
   const lastEncounter = useMemo(() => {

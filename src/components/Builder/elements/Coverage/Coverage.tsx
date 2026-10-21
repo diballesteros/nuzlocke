@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import { useShallow } from 'zustand/shallow';
 import { TYPE_COLOR } from 'constants/colors';
 import type { Type } from 'constants/types';
 import { selectBuilderStrong, selectBuilderWeak } from 'selectors';
@@ -7,8 +8,8 @@ import styles from './Coverage.module.scss';
 
 function Coverage(): React.JSX.Element {
   const { t } = useTranslation('builder');
-  const strong = useStore(selectBuilderStrong);
-  const weak = useStore(selectBuilderWeak);
+  const strong = useStore(useShallow(selectBuilderStrong));
+  const weak = useStore(useShallow(selectBuilderWeak));
 
   return (
     <section className={styles.container}>

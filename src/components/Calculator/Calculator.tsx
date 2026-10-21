@@ -7,6 +7,7 @@ import {
   SideField,
   Stats,
 } from 'components/Calculator/elements';
+import { useShallow } from 'zustand/shallow';
 import useWindowSize from 'hooks/useWindowSize';
 import { selectCaught } from 'selectors';
 import useStore from 'store';
@@ -19,7 +20,7 @@ function Calculator(): React.JSX.Element {
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const setDefaultCalculator = useStore(useCallback((state) => state.setDefaultCalculator, []));
-  const caught = useStore(selectCaught);
+  const caught = useStore(useShallow(selectCaught));
   const size = useWindowSize();
 
   useEffect(() => {

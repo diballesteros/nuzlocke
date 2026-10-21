@@ -1,11 +1,23 @@
 import eslint from '@eslint/js';
 import prettierConfig from 'eslint-config-prettier';
 import pluginCypress from 'eslint-plugin-cypress';
+import globals from 'globals';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 import tseslint from 'typescript-eslint';
 
 export default tseslint.config(
+  {
+    ignores: [
+      'dist/',
+      'dev-dist/',
+      'coverage/',
+      '.nyc_output/',
+      'cypress/downloads/',
+      'src/constants/locations/*',
+      'supabase/*',
+    ],
+  },
   eslint.configs.recommended,
   tseslint.configs.recommended,
   prettierConfig,
@@ -25,10 +37,15 @@ export default tseslint.config(
   //     },
   //   },
   // },
+  // Separate objects: spreading both presets into one let the hooks preset overwrite the
+  // React preset's plugins and rules, so no react/* rules ran
   {
     files: ['**/*.jsx', '**/*.tsx'],
     ...reactPlugin.configs.flat.recommended,
-    ...reactHooksPlugin.configs['recommended-latest'],
+    rules: {
+      ...reactPlugin.configs.flat.recommended.rules,
+      ...reactPlugin.configs.flat['jsx-runtime'].rules,
+    },
     settings: {
       react: {
         version: '18.3.1',
@@ -36,11 +53,18 @@ export default tseslint.config(
     },
   },
   {
+    files: ['**/*.jsx', '**/*.tsx'],
+    ...reactHooksPlugin.configs.flat['recommended-latest'],
+  },
+  {
     files: ['cypress/**/*.ts', 'cypress/**/*.js', '**/*.cy.ts', '**/*.cy.js'],
     ...pluginCypress.configs.recommended,
   },
   {
-    ignores: ['src/constants/locations/*', 'supabase/*'],
+    files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],
+    languageOptions: { globals: globals.node },
+  },
+  {
     rules: {
       'no-console': ['warn', { 'allow': ['warn', 'error', 'info'] }],
       'sort-imports': ['error', { 'ignoreCase': true, 'ignoreDeclarationSort': true }],

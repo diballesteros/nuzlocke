@@ -1,6 +1,6 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { FixedSizeList, ListChildComponentProps as RowProps } from 'react-window';
+import { List, RowComponentProps as RowProps } from 'react-window';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
@@ -75,7 +75,7 @@ function PokemonSelector({
     setOpen(false);
   };
 
-  const renderRow: React.FC<RowProps> = ({ index, style }) => {
+  const renderRow = ({ index, style }: RowProps) => {
     const pokemon = filteredPokemon[index];
     const dupe = pokemon?.evolve
       ? pokemon.evolve.some((evoId) => dupes?.includes(evoId))
@@ -141,14 +141,13 @@ function PokemonSelector({
             </Button>
           </aside>
         )}
-        <FixedSizeList
-          height={400}
-          itemCount={filteredPokemon.length}
-          itemSize={itemSize}
-          width="100%"
-        >
-          {renderRow}
-        </FixedSizeList>
+        <List
+          rowComponent={renderRow}
+          rowCount={filteredPokemon.length}
+          rowHeight={itemSize}
+          rowProps={{}}
+          style={{ height: 400, width: '100%' }}
+        />
       </Modal.Content>
       <Modal.Actions>
         <Button onClick={handleClose}>{t('cancel')}</Button>

@@ -34,6 +34,12 @@ export function getPokemon(all: TCalculatorForm, id: 1 | 2) {
       return all?.calculatorGen > 2 ? iv : dv * 2 + 1;
     };
 
+    // Gens 1-2 have no EV inputs. @smogon/calc assumed max stat experience there until 0.11
+    // started reading EVs, so keep passing the max to get the same numbers
+    const getEV = (ev: number) => {
+      return all?.calculatorGen > 2 ? ev : 252;
+    };
+
     const getItem = (item: string) => {
       if (FORBIDDEN_ITEMS.includes(item)) {
         return undefined;
@@ -65,12 +71,12 @@ export function getPokemon(all: TCalculatorForm, id: 1 | 2) {
           spe: getDVorIV(all?.[`ivspeed${id}`], all?.[`dvspeed${id}`]) ?? undefined,
         },
         evs: {
-          hp: all?.[`evhp${id}`],
-          atk: all?.[`evatk${id}`],
-          def: all?.[`evdef${id}`],
-          spa: all?.[`evspatk${id}`],
-          spd: all?.[`evspdef${id}`],
-          spe: all?.[`evspeed${id}`],
+          hp: getEV(all?.[`evhp${id}`]),
+          atk: getEV(all?.[`evatk${id}`]),
+          def: getEV(all?.[`evdef${id}`]),
+          spa: getEV(all?.[`evspatk${id}`]),
+          spd: getEV(all?.[`evspdef${id}`]),
+          spe: getEV(all?.[`evspeed${id}`]),
         },
         boosts: {
           atk: all?.[`modatk${id}`],

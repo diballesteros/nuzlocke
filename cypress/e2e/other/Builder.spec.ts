@@ -8,8 +8,7 @@ describe('Builder', () => {
     cy.get('[data-testid="builder"]').click();
     cy.contains('Please select a game').should('exist');
     cy.contains('Coverage').click();
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
     cy.get('.secondary > :nth-child(1)').click();
     cy.get('[data-testid="builder-add"]').click();
     cy.get('[data-testid="filter-button"]').click();
@@ -80,8 +79,7 @@ describe('Builder', () => {
     cy.get('.secondary > :nth-child(2)').click();
     cy.contains('ICE 4').should('exist');
     cy.contains('WATER 1').should('exist');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Ruby, Sapphire and Emerald').click();
+    cy.selectGame('Ruby, Sapphire and Emerald');
     cy.get('.secondary > :nth-child(1)').click();
     cy.get('[data-testid="builder-add"]').click();
     cy.get('[data-testid="filter"] > input').type('Snub');
@@ -89,8 +87,7 @@ describe('Builder', () => {
     cy.contains('NORMAL').should('exist');
     cy.contains('Coverage').click();
     cy.contains('FIGHTING 1').should('exist');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Red, Blue and Yellow').click();
+    cy.selectGame('Red, Blue and Yellow');
   });
 
   context('Export to builder', () => {
@@ -115,13 +112,11 @@ describe('Builder', () => {
     });
 
     it('No team beforehand', () => {
-      cy.get('[data-testid="game-select"]').click();
-      cy.contains('Sword and Shield').click();
+      cy.selectGame('Sword and Shield');
     });
 
     it('With team beforehand', () => {
-      cy.get('[data-testid="game-select"]').click();
-      cy.contains('Sword and Shield').click();
+      cy.selectGame('Sword and Shield');
       cy.get('[data-testid="options"]').click();
       cy.contains('Builder').click();
       cy.get('[data-testid="builder-add"]').click();

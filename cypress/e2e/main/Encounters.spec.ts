@@ -14,8 +14,7 @@ const stepTo = ($el, target) => {
 describe('Encounters', () => {
   beforeEach(() => {
     cy.visit('/');
-    cy.get('[data-testid="game-select"]').click();
-    cy.contains('Sword and Shield').click();
+    cy.selectGame('Sword and Shield');
   });
 
   it('Filter', () => {
@@ -190,8 +189,7 @@ describe('Encounters', () => {
     cy.get('[data-testid=edit-encounter-0]').click();
     cy.get('[data-testid=export-to-game]').click();
     cy.get('[data-testid=export-to-game] > .visible > :nth-child(2)').click();
-    cy.get('[data-testid=game-select]').click();
-    cy.contains('Gold, Silver and Crystal').click();
+    cy.selectGame('Gold, Silver and Crystal');
     cy.contains('From Sword and Shield').should('exist');
     cy.contains('Scorbunny').should('exist');
   });

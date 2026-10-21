@@ -1,6 +1,6 @@
 {
   "extends": "../tsconfig.json",
-  "include": ["./**/*.ts"],
+  "include": ["./**/*.ts", "../cypress.config.ts"],
   "exclude": [],
   "compilerOptions": {
     "target": "es5",

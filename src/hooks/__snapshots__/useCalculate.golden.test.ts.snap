@@ -1,0 +1,73 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`calculator golden damage ranges > gen 1 1`] = `
+[
+  "205-242 | 23-28",
+  "46-55 | 0-0",
+  "229-270 | 0-0",
+  "0-0 | 381-448",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 2 1`] = `
+[
+  "180-212 | 23-28",
+  "55-65 | 0-0",
+  "168-198 | 0-0",
+  "0-0 | 319-376",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 3 1`] = `
+[
+  "173-204 | 22-27",
+  "55-65 | 0-0",
+  "158-186 | 0-0",
+  "0-0 | 340-400",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 4 1`] = `
+[
+  "170-204 | 22-27",
+  "54-65 | 0-0",
+  "156-186 | 0-0",
+  "0-0 | 340-400",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 5 1`] = `
+[
+  "170-204 | 32-38",
+  "54-65 | 0-0",
+  "156-186 | 0-0",
+  "0-0 | 340-400",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 6 1`] = `
+[
+  "162-192 | 32-38",
+  "52-62 | 0-0",
+  "150-176 | 0-0",
+  "0-0 | 320-380",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 7 1`] = `
+[
+  "162-192 | 26-31",
+  "52-62 | 0-0",
+  "150-176 | 0-0",
+  "0-0 | 320-380",
+]
+`;
+
+exports[`calculator golden damage ranges > gen 8 1`] = `
+[
+  "162-192 | 26-31",
+  "52-62 | 0-0",
+  "150-176 | 0-0",
+  "0-0 | 320-380",
+]
+`;

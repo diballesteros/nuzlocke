@@ -8,7 +8,7 @@ jobs:
   install:
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:22.17.1
+      image: cypress/browsers:24.22.0
       options: --user 1001
     steps:
       - name: Checkout
@@ -22,8 +22,10 @@ jobs:
       - run: npx cypress info
       - run: node --version
       - run: node -p 'os.cpus()'
+      - run: npm run typecheck
       - run: npm run lint
-      - run: npm run test
+      - run: npm run format:check
+      - run: npm run test:unit:cov
       - run: npm run build
 
       - name: Save build folder
@@ -33,11 +35,18 @@ jobs:
           if-no-files-found: error
           path: dist
 
-  ui-chrome-tests-main:
+      - name: Save unit coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-unit
+          if-no-files-found: error
+          path: coverage/unit/coverage-final.json
+
+  ui-tests:
     timeout-minutes: 15
     runs-on: ubuntu-latest
     container:
-      image: cypress/browsers:22.17.1
+      image: cypress/browsers:24.22.0
       options: --user 1001
     needs: install
     strategy:
@@ -47,6 +56,8 @@ jobs:
       # https://github.com/cypress-io/github-action/issues/48
       fail-fast: false
       matrix:
+        browser: [chrome, firefox]
+        group: [main, other]
         # run copies of the current job in parallel
         containers: [1, 2, 3, 4, 5]
     steps:
@@ -62,17 +73,18 @@ jobs:
       - name: Node info
         run: node -v
 
-      - name: 'UI Tests - Chrome - Main'
+      - name: 'UI Tests'
         uses: cypress-io/github-action@v6
         with:
-          start: npx vite --host --port 3000
+          # Instrumented dev server, so each container reports e2e coverage
+          start: npm run dev:cov -- --host
           wait-on: 'http://localhost:3000'
           wait-on-timeout: 120
-          browser: chrome
+          browser: ${{ matrix.browser }}
           record: true
           parallel: true
-          group: 'UI - Chrome - Main'
-          spec: cypress/e2e/main/*
+          group: 'UI - ${{ matrix.browser }} - ${{ matrix.group }}'
+          spec: cypress/e2e/${{ matrix.group }}/*
           config-file: cypress.config.ts
         env:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
@@ -81,137 +93,49 @@ jobs:
           # determine the unique run id necessary to re-run the checks
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  ui-chrome-tests-other:
-    timeout-minutes: 15
+      - name: Save failure screenshots
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: screenshots-${{ matrix.browser }}-${{ matrix.group }}-${{ matrix.containers }}
+          if-no-files-found: ignore
+          path: cypress/screenshots
+
+      - name: Save e2e coverage
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-e2e-${{ matrix.browser }}-${{ matrix.group }}-${{ matrix.containers }}
+          # A container can get no specs from Cypress Cloud's load balancing
+          if-no-files-found: ignore
+          path: coverage/e2e/raw/out.json
+
+  coverage:
     runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:22.17.1
-      options: --user 1001
-    needs: install
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving Cypress Cloud hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
+    needs: ui-tests
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Download the build folders
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+        env:
+          CYPRESS_INSTALL_BINARY: 0
+
+      - name: Download coverage
         uses: actions/download-artifact@v4
         with:
-          name: build
-          path: dist
+          pattern: coverage-*
+          path: coverage
 
-      - name: 'UI Tests - Chrome - Other'
-        uses: cypress-io/github-action@v6
+      - name: Merge and check thresholds
+        run: npm run coverage
+
+      - name: Save coverage report
+        uses: actions/upload-artifact@v4
         with:
-          start: npx vite --host --port 3000
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
-          browser: chrome
-          record: true
-          parallel: true
-          group: 'UI - Chrome - Other'
-          spec: cypress/e2e/other/*
-          config-file: cypress.config.ts
-        env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  ui-firefox-tests-main:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:22.17.1
-      options: --user 1001
-    needs: install
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving Cypress Cloud hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: dist
-
-      - name: 'UI Tests - Firefox - Main'
-        uses: cypress-io/github-action@v6
-        with:
-          start: npx vite --host --port 3000
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
-          browser: firefox
-          record: true
-          parallel: true
-          group: 'UI - Firefox - Main'
-          spec: cypress/e2e/main/*
-          config-file: cypress.config.ts
-        env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-  ui-firefox-tests-other:
-    timeout-minutes: 15
-    runs-on: ubuntu-latest
-    container:
-      image: cypress/browsers:22.17.1
-      options: --user 1001
-    needs: install
-    strategy:
-      # when one test fails, DO NOT cancel the other
-      # containers, because this will kill Cypress processes
-      # leaving Cypress Cloud hanging ...
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        # run copies of the current job in parallel
-        containers: [1, 2, 3, 4, 5]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Download the build folders
-        uses: actions/download-artifact@v4
-        with:
-          name: build
-          path: dist
-
-      - name: 'UI Tests - Firefox - Other'
-        uses: cypress-io/github-action@v6
-        with:
-          start: npx vite --host --port 3000
-          wait-on: 'http://localhost:3000'
-          wait-on-timeout: 120
-          browser: firefox
-          record: true
-          parallel: true
-          group: 'UI - Firefox - Other'
-          spec: cypress/e2e/other/*
-          config-file: cypress.config.ts
-        env:
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          # Recommended: pass the GitHub token lets this action correctly
-          # determine the unique run id necessary to re-run the checks
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: coverage-report
+          path: coverage/merged

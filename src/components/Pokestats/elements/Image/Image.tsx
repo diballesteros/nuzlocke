@@ -2,6 +2,7 @@ import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import Label from 'semantic-ui-react/dist/commonjs/elements/Label';
+import { useShallow } from 'zustand/shallow';
 import { PkmImage } from 'common';
 import { Moves, PokeInfo } from 'components';
 import { Tip } from 'components/Pokestats/elements';
@@ -40,13 +41,13 @@ function Image({ forwardedRef, responsive = false }: ImageProps): React.JSX.Elem
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
   const games = useStore(useCallback((state) => state.games, []));
-  const teamPokemon = useStore(selectTeam);
-  const boxedPokemon = useStore(selectBoxed);
-  const faintedPokemon = useStore(selectFainted);
-  const caughtPokemon = useStore(selectCaught);
+  const teamPokemon = useStore(useShallow(selectTeam));
+  const boxedPokemon = useStore(useShallow(selectBoxed));
+  const faintedPokemon = useStore(useShallow(selectFainted));
+  const caughtPokemon = useStore(useShallow(selectCaught));
   const completion = useStore(selectCompletion);
-  const failedPokemon = useStore(selectFailed);
-  const shinyPokemon = useStore(selectShiny);
+  const failedPokemon = useStore(useShallow(selectFailed));
+  const shinyPokemon = useStore(useShallow(selectShiny));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const summary = useStore(
     useCallback(

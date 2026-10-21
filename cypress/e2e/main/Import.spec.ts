@@ -38,8 +38,7 @@ describe('Import', () => {
 
   context('PkHeX Imports', () => {
     beforeEach(() => {
-      cy.get('[data-testid=game-select]').click();
-      cy.contains('HeartGold and SoulSilver').click();
+      cy.selectGame('HeartGold and SoulSilver');
     });
 
     it('Import Game by Table', () => {

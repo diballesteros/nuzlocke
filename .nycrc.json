@@ -1,0 +1,6 @@
+{
+  "report-dir": "coverage/e2e",
+  "temp-dir": "coverage/e2e/raw",
+  "reporter": ["text-summary"],
+  "extension": [".ts", ".tsx"]
+}
