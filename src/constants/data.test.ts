@@ -12,7 +12,12 @@ const GAME_KEYS = GAMES.map((game) => game.value);
 
 // Data problems that already exist in the app. Each test must match its list exactly, so a new
 // problem fails the test, and fixing one means deleting its entry here.
-const KNOWN_ISSUES = {
+const KNOWN_ISSUES: {
+  missingFilters: string[];
+  duplicateIds: string[];
+  unknownEncounterNames: string[];
+  localeKeys: string[];
+} = {
   missingFilters: ['4: Rocket Hideout (frlg-30)', '12: Royal Avenue (usum-51)'],
   duplicateIds: ['10: id 69'],
   // Misspellings: these Pokémon are never matched for their location

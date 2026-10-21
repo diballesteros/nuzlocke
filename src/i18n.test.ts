@@ -14,13 +14,13 @@ describe('i18n', () => {
     expect(i18n.t('back', { ns: 'common' })).toBe('Atrás');
   });
 
-  test('falls back to English for missing keys', async () => {
+  test('loads encounter-template translations', async () => {
     const { default: i18n } = await import('./i18n');
     await i18n.changeLanguage('de');
-    // encounter_template is missing from de/common.json (see KNOWN_ISSUES in data.test.ts)
-    expect(i18n.t('encounter_template', { ns: 'common' })).toBe(
-      i18n.t('encounter_template', { ns: 'common', lng: 'en' })
-    );
+    expect(i18n.t('encounter_template', { ns: 'common' })).toBe('Begegnungsvorlage');
+
+    await i18n.changeLanguage('es');
+    expect(i18n.t('encounter_template', { ns: 'common' })).toBe('Plantilla de encuentros');
   });
 
   test('interpolates and pluralises', async () => {
