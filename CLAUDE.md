@@ -23,8 +23,8 @@ npm run e2e           # Cypress UI (needs a dev server on :3000)
 
 - Single unit test: `npx vitest run src/store.test.ts` (or `-t "<test name>"`).
 - Single e2e spec headless: `npx cypress run --browser chrome --spec cypress/e2e/main/Encounters.spec.ts` (dev server must be up on port 3000).
-- Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files".
-- Firefox isn't installed locally. The Firefox-only specs (Rules share tests) run only in CI.
+- Port 3000 must be free before `e2e:run`. If another server holds it, `dev:cov` exits and the specs run against the uninstrumented server; `npm run coverage` then fails with "has no files". Stopping a backgrounded `vite` shell can leave its `node` child running, so check the port (`Get-NetTCPConnection -LocalPort 3000`) and stop the owning process.
+- Firefox isn't installed locally. The Firefox-only specs (Rules share tests) run only in CI. Local Node is 24.20 (winget's latest LTS); CI and Netlify use 24.22 from `.node-version`.
 
 Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 
@@ -35,13 +35,21 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Coverage** comes from Vitest (`coverage/unit`) plus Cypress (via `vite-plugin-istanbul` and `@cypress/code-coverage`; raw data in `coverage/e2e/raw/out.json`), merged by `scripts/coverage.mjs`. The script remaps the raw e2e data with Vitest's own remapper (`@vitest/istanbul-lib-source-maps`), so both sides get identical statement, branch and function maps. nyc's report in `coverage/e2e` is only a console summary and is not used. `dev:cov` turns HMR off so no Fast Refresh code is instrumented. If unit and e2e maps ever drift apart, the merge double-counts or under-counts. Exclusions (static data tables, tests, Auth) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
 - **Vite 8 compatibility shims** in `vite.config.ts`, all to be removed with Semantic UI: `legacy.inconsistentCjsInterop` (default imports from `semantic-ui-react/dist/commonjs/*`) and `build.cssMinify: 'esbuild'` (Lightning CSS rejects an invalid semantic-ui-css selector). `build.target` is pinned to Vite 7's defaults to keep browser support unchanged.
 - **CI** (`.github/workflows/main.yml`) runs the static checks and unit coverage, then a browser × spec-group × container matrix against `dev:cov`, then a `coverage` job that merges every container's report.
-- **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), and `src/constants/data.test.ts`.
+- **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), `src/constants/data.test.ts`, `src/i18n.test.ts` (stored language applied at startup by the custom async detector, fallback, plurals), and `src/hooks/useCalculate.golden.test.ts` (snapshot of damage ranges for gens 1–8; a calc upgrade that changes any number fails it).
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
 - **Cypress conventions:** select by `data-testid`. Pick games with `cy.selectGame('<name>')` (in `cypress/support/commands.ts`), not raw dropdown clicks. `cypress/support/e2e.ts` blocks the dev PWA service worker. Without that, reloads skip Cypress's `window:before:load`, so stubs and coverage silently stop working.
 - Auth/Supabase (`src/components/Auth`) is going to be removed. Don't add tests for it.
 - **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@babel/core` 7.x (`@cypress/code-coverage` needs Babel 7; it's declared so npm resolves plugin-react's optional Babel peer); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); encounter rows use `toTopPosition` (react-window 2 transforms trap dropdowns); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
 - Sass and Semantic UI React will be replaced (Tailwind is planned). Keep changes to them minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
+
+## Known issues (left as-is while behaviour is frozen)
+
+- **Game data and locale bugs:** listed exactly in `KNOWN_ISSUES` in `src/constants/data.test.ts`. That covers 30 misspelled Pokémon names in `filters.ts` (never matched for their location), two locations without an encounter table, a duplicate encounter id in OR/AS, and es/de `common.json` key drift (the Spanish file has the key `sincronizando` instead of `syncing`).
+- **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
+- **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
+- **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
+- **Flaky e2e:** once on Vite 8, `Calculator.spec.ts` timed out waiting for the page `load` event in its `beforeEach` (60 s). It passed on every rerun. If it recurs, look at dev-server cold transforms of the large constants files.
 
 ## Architecture
 
@@ -51,7 +59,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 
 ### State (`src/store.ts`)
 
-A single Zustand store, persisted to localStorage under the key `pokemon-tracker`, holds everything: games, encounters, badges, rules, team, summary, calculator forms, settings. Most per-game state is a dictionary keyed by the game's `value` string (`'1'`…`'13'`, `'13.1'`, and incrementing numbers for custom games), always indexed via `state.selectedGame.value`. Actions mutate draft state with immer.
+A single Zustand store, persisted to localStorage under the key `pokemon-tracker`, holds everything: games, encounters, badges, rules, team, summary, calculator forms, settings. Most per-game state is a dictionary keyed by the game's `value` string (`'1'`…`'13'`, `'13.1'`, and custom games), always indexed via `state.selectedGame.value`. A custom game's key is the last key + 1, so because the last base game is `'13.1'`, custom games get `'14.1'`, `'15.1'`, …; saved data depends on this. Actions mutate draft state with immer.
 
 **Changing the persisted state shape requires bumping `version` in the persist config and adding a `version < N` branch in `migrate`** so existing users' localStorage is upgraded. Derived data (team, type suggestions, etc.) lives in `src/selectors.ts`. Encounter status `value === 7` means "on team".
 
