@@ -17,9 +17,14 @@ const affected = JSON.parse(fs.readFileSync(option('--areas'), 'utf8'));
 const git = (...gitArgs) =>
   execFileSync('git', gitArgs, { maxBuffer: 64 * 1024 * 1024 }).toString();
 const changed = git('diff', '--name-only', `${base}...HEAD`).split('\n').filter(Boolean);
+// Adding a pin (a new journey or state) is ordinary review material; what's guarded is editing or
+// deleting an existing one
+const edited = git('diff', '--name-only', '--diff-filter=MDR', `${base}...HEAD`)
+  .split('\n')
+  .filter(Boolean);
 const errors = [];
 
-const goldens = changed.filter((file) => file.startsWith('tests/state/__goldens__/'));
+const goldens = edited.filter((file) => file.startsWith('tests/state/__goldens__/'));
 if (goldens.length && process.env.STATE_CHANGE_APPROVED !== 'true') {
   errors.push(
     `State goldens changed (${goldens.join(', ')}). A UI change must not change stored data. ` +
@@ -65,7 +70,7 @@ const stateAreas = () => {
   list.suites.forEach(visit);
   return areas;
 };
-const changedBaselines = changed.filter((f) => f.startsWith(BASELINES));
+const changedBaselines = edited.filter((f) => f.startsWith(BASELINES));
 const areasOf = changedBaselines.length ? stateAreas() : new Map();
 
 for (const file of changedBaselines) {
@@ -84,10 +89,12 @@ for (const file of changedBaselines) {
   }
 }
 
+// This script itself is left out (its patterns would match) and is covered by CODEOWNERS instead
 const HARNESS =
-  /^(tests\/|playwright\.config\.ts$|verification\/|scripts\/(visual|baseline-guard|affected-areas)\.mjs$)/;
+  /^(tests\/|playwright\.config\.ts$|verification\/|scripts\/(visual|affected-areas)\.mjs$)/;
+// Any non-zero screenshot threshold loosens the comparison; `threshold: 0` is the standard
 const LOOSENING =
-  /\b(test|describe)\.(skip|only|fixme)\b|\bmask\s*:|maxDiffPixel|threshold\s*:\s*(?!0\b)/;
+  /\b(test|describe)\.(skip|only|fixme)\b|\bmask\s*:|maxDiffPixel|threshold\s*:\s*(0?\.\d*[1-9]|[1-9])/;
 for (const file of changed.filter((f) => HARNESS.test(f) && /\.(ts|mjs)$/.test(f))) {
   const added = git('diff', '-U0', `${base}...HEAD`, '--', file)
     .split('\n')
@@ -104,6 +111,6 @@ if (errors.length) {
   process.exit(1);
 }
 console.info(
-  `Baseline guard passed: ${goldens.length} golden(s), ` +
-    `${changed.filter((f) => f.startsWith(BASELINES)).length} baseline(s) changed.`
+  `Baseline guard passed: ${goldens.length} golden(s) and ${changedBaselines.length} baseline(s) ` +
+    `edited, ${changed.filter((f) => f.startsWith(BASELINES)).length - changedBaselines.length} added.`
 );

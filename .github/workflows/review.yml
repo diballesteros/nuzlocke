@@ -29,9 +29,6 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
-        env:
-          CYPRESS_INSTALL_BINARY: 0
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
       - name: Areas this PR can affect
         id: areas
         run: |
@@ -44,7 +41,8 @@ jobs:
           STATE_CHANGE_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'state-change-approved') }}
         run: node scripts/baseline-guard.mjs --base origin/${{ github.base_ref }} --areas areas.json
       - name: Migration ratchet
-        run: node scripts/migration-ratchet.mjs | tee ratchet.txt
+        if: always()
+        run: set -o pipefail; node scripts/migration-ratchet.mjs 2>&1 | tee ratchet.txt
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -71,8 +69,6 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
-        env:
-          CYPRESS_INSTALL_BINARY: 0
       # Hard gate: every state outside the touched areas must match its baseline exactly
       - name: Untouched areas are unchanged
         if: needs.affected-areas.outputs.all != 'true'
@@ -104,8 +100,6 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
-        env:
-          CYPRESS_INSTALL_BINARY: 0
       - name: Persisted-store goldens
         run: npx playwright test --project=state
       - uses: actions/upload-artifact@v4
@@ -131,17 +125,11 @@ jobs:
           npm ci --no-audit --no-fund
           npx vite build
           node "$GITHUB_WORKSPACE/scripts/bundle-size.mjs" --out "$GITHUB_WORKSPACE/base-sizes.json"
-        env:
-          CYPRESS_INSTALL_BINARY: 0
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
       - name: Head build
         run: |
           npm ci --no-audit --no-fund
           npx vite build
           node scripts/bundle-size.mjs --out head-sizes.json
-        env:
-          CYPRESS_INSTALL_BINARY: 0
-          PLAYWRIGHT_SKIP_BROWSER_DOWNLOAD: 1
       - name: Compare
         run: node scripts/bundle-size.mjs --compare base-sizes.json head-sizes.json --markdown bundle.md
       - uses: actions/upload-artifact@v4
@@ -188,9 +176,9 @@ jobs:
             echo
             echo '**Migration ratchet**'
             echo '```'
-            cat ratchet.txt 2>/dev/null
+            cat ratchet.txt 2>/dev/null || echo "not computed"
             echo '```'
             echo
-            cat bundle.md 2>/dev/null
+            cat bundle.md 2>/dev/null || true
           } > comment.md
           gh pr comment "$PR" --repo "$GITHUB_REPOSITORY" --body-file comment.md --edit-last --create-if-none
