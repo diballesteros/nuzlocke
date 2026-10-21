@@ -42,9 +42,14 @@ const readCoverage = async (source) => {
   return JSON.parse(JSON.stringify(remapped.toJSON()));
 };
 
-// Vitest and the Vite istanbul plugin may key the same file differently on Windows
+// Keys every file by its place in this checkout. Reports from elsewhere use other absolute paths:
+// CI's Playwright container checks out to /__w/nuzlocke/nuzlocke, the merge job to
+// /home/runner/work/nuzlocke/nuzlocke, and Vitest and the istanbul plugin may differ on Windows.
 export const normalize = (file) => {
-  const resolved = path.resolve(file).replace(/\\/g, '/');
+  const posixFile = file.replace(/\\/g, '/');
+  const marker = posixFile.indexOf('/src/');
+  const local = marker === -1 ? file : path.join(process.cwd(), posixFile.slice(marker + 1));
+  const resolved = path.resolve(fs.existsSync(local) ? local : file).replace(/\\/g, '/');
   return resolved.replace(/^[a-z]:/, (drive) => drive.toUpperCase());
 };
 
