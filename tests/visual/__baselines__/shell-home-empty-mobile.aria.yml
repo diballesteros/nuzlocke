@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: Choose a game
   - button "addgame"
-  - button "Login"
 - main:
   - button "search-options"
   - searchbox "search"

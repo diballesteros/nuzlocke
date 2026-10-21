@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: Sword and Shield
   - button "addgame"
-  - button "Login"
 - main:
   - text: Builder Coverage
   - heading "# of moves strong against" [level=2]

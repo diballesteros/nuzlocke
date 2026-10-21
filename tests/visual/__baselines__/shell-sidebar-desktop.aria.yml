@@ -5,7 +5,6 @@
   - button "addgame"
   - button "editgame"
   - heading "Nuzlocke Tracker" [level=1]
-  - button "Login"
 - text: Tracker Rules Stats Builder Damage Calculator Settings Export Import Report Changelog ! About
 - main:
   - navigation:

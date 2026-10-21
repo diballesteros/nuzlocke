@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: Sword and Shield
   - button "addgame"
-  - button "Login"
 - main:
   - button "Field"
   - button "Reset"

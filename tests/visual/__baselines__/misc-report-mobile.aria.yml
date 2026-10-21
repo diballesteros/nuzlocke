@@ -3,7 +3,6 @@
   - listbox "games":
     - alert: FireRed and LeafGreen
   - button "addgame"
-  - button "Login"
 - main:
   - heading "Report a bug or suggest a feature" [level=2]
   - button "Back"

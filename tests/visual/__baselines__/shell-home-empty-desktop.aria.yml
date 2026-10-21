@@ -4,7 +4,6 @@
     - alert: Choose a game
   - button "addgame"
   - heading "Nuzlocke Tracker" [level=1]
-  - button "Login"
 - main:
   - navigation:
     - link "Tracker":
