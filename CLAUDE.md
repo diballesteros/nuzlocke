@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite, Zustand (with immer + persist) for state, Semantic UI React for components, SCSS modules for styling, i18next for translations (en/es/de), Supabase for optional auth/sharing, Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
+Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, Semantic UI React for components, SCSS modules for styling, i18next for translations (en/es/de), Supabase for optional auth/sharing, Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
 
 ## Commands
 
@@ -39,6 +39,8 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
 - **Cypress conventions:** select by `data-testid`. Pick games with `cy.selectGame('<name>')` (in `cypress/support/commands.ts`), not raw dropdown clicks. `cypress/support/e2e.ts` blocks the dev PWA service worker. Without that, reloads skip Cypress's `window:before:load`, so stubs and coverage silently stop working.
 - Auth/Supabase (`src/components/Auth`) is going to be removed. Don't add tests for it.
+- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@babel/core` 7.x (`@cypress/code-coverage` needs Babel 7; it's declared so npm resolves plugin-react's optional Babel peer); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
+- **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); encounter rows use `toTopPosition` (react-window 2 transforms trap dropdowns); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
 - Sass and Semantic UI React will be replaced (Tailwind is planned). Keep changes to them minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
 
 ## Architecture
