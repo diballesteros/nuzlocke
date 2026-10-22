@@ -43,6 +43,9 @@ describe('Combobox', () => {
   test('shows the placeholder, then every option when opened', async () => {
     const { input, user } = setup();
     expect(screen.getByTestId('item').textContent).toContain('Select an item...');
+    // The value drawn over the input is its accessible description
+    const description = document.getElementById(input.getAttribute('aria-describedby') ?? '');
+    expect(description?.textContent).toBe('Select an item...');
     expect(input.getAttribute('aria-expanded')).toBe('false');
     await user.click(screen.getByTestId('item'));
     expect(input.getAttribute('aria-expanded')).toBe('true');

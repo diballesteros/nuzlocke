@@ -57,6 +57,7 @@ function Combobox({
   const [query, setQuery] = React.useState('');
   const [highlighted, setHighlighted] = React.useState('');
   const listId = React.useId();
+  const valueId = React.useId();
   const rootRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const selected = options.find((option) => option.value === value);
@@ -100,6 +101,8 @@ function Combobox({
             ref={inputRef}
             aria-autocomplete="list"
             aria-controls={open ? listId : undefined}
+            // The value is drawn over the input; announce it as the input's description
+            aria-describedby={valueId}
             aria-expanded={open}
             aria-label={ariaLabel}
             autoComplete="off"
@@ -124,6 +127,8 @@ function Combobox({
             }}
           />
           <div
+            aria-hidden
+            id={valueId}
             data-slot="combobox-value"
             className={cn(
               'pointer-events-none relative left-px z-3 inline-block font-bold',
