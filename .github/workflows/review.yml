@@ -69,11 +69,13 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
-      # Hard gate: every state outside the touched areas must match its baseline exactly
+      # Hard gate: every state outside the touched areas must match its baseline exactly. Every state
+      # is also tagged @shell, so when a PR touches all of them there is nothing left to run here
+      # (--pass-with-no-tests); the next step still checks them all against their baselines.
       - name: Untouched areas are unchanged
         if: needs.affected-areas.outputs.all != 'true'
         run: >
-          npx playwright test --project=visual
+          npx playwright test --project=visual --pass-with-no-tests
           ${{ needs.affected-areas.outputs.grep-invert && format('--grep-invert "{0}"', needs.affected-areas.outputs.grep-invert) || '' }}
       # Touched areas must match the baselines committed in this PR (updated ones are logged in
       # verification/approved-diffs.tsv and checked by the baseline guard)
