@@ -84,7 +84,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
 - **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
 - **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
-- **Flaky e2e:** once on Vite 8, Cypress's `Calculator.spec.ts` timed out waiting for the page `load` event (60 s), and Playwright's WebKit keyboard test failed once while the machine was busy. Both passed on every rerun. If it recurs, look at dev-server cold transforms of the large constants files.
+- **Flaky e2e:** once on Vite 8, Cypress's `Calculator.spec.ts` timed out waiting for the page `load` event (60 s), and Playwright's WebKit keyboard test failed once while the machine was busy. Both passed on every rerun. In CI, WebKit's `Rules › Over 6 alert` (shard 3) failed twice on 2026-10-21, on master's #825 merge and on #830, with "TEAM OVER 6" never appearing after clicking the alert. #825's own CI had passed on the same tree, and a rerun passed. If it recurs, look at dev-server cold transforms of the large constants files.
 
 ## Architecture
 
