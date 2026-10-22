@@ -21,8 +21,18 @@
 @source '../components/ui';
 @source '../lib';
 @source '../common/Back';
+@source '../common/DetailSelector';
+@source '../common/EncounterSelector';
 @source '../common/Page';
+@source '../common/PokemonSelector';
+@source '../common/SelectorRow';
 @source not '../**/*.test.ts';
+/*
+ * Listed files are scanned whole, so words in code and comments become utilities too (`.filter(`
+ * emits `.filter`). These names are also Semantic class names (`filter icon`, `square outline`,
+ * `ui container`…), so they must never be generated while Semantic is in the app.
+ */
+@source not inline('container filter ring outline hidden visible invisible collapse table');
 
 /* `dark:` follows the store's darkMode, which App.tsx mirrors as a class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -44,6 +54,9 @@
   --button-hover: #cacbcd;
   --button-foreground: rgba(0, 0, 0, 0.6);
   --button-hover-foreground: rgba(0, 0, 0, 0.8);
+
+  /* The suggested/dupe tag on a selector row */
+  --suggestion: #80c0d690;
 
   /* shadcn/ui tokens, mapped onto the app colours and Semantic UI's accents */
   --background: var(--bgprimary);
@@ -105,6 +118,7 @@
   --color-button-hover: var(--button-hover);
   --color-button-foreground: var(--button-foreground);
   --color-button-hover-foreground: var(--button-hover-foreground);
+  --color-suggestion: var(--suggestion);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);

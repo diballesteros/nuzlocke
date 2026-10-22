@@ -1,11 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Type } from 'components';
 import EFFECTIVENESS from 'constants/effectiveness';
 import useStore from 'store';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
 import styles from './Effectiveness.module.scss';
 
 const Effectiveness = React.memo(function Effectiveness() {
@@ -47,19 +53,23 @@ const Effectiveness = React.memo(function Effectiveness() {
   }, []);
 
   return (
-    <Modal open={!!typeModal}>
-      <Modal.Content className={styles.content}>
-        <h3>
-          <Type type={typeModal} />
-        </h3>
-        <Tab panes={panes} />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button data-testid="effect-close" onClick={closeTypeModal}>
-          {t('cancel')}
-        </Button>
-      </Modal.Actions>
-    </Modal>
+    <Dialog open={!!typeModal}>
+      <DialogContent dismissible={false}>
+        <DialogBody className={styles.content}>
+          <DialogTitle asChild>
+            <h3>
+              <Type type={typeModal} />
+            </h3>
+          </DialogTitle>
+          <Tab panes={panes} />
+        </DialogBody>
+        <DialogFooter>
+          <Button data-testid="effect-close" onClick={closeTypeModal} variant="secondary">
+            {t('cancel')}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 });
 
