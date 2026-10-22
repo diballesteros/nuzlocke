@@ -22,7 +22,7 @@ function Badges(): React.JSX.Element {
     navigate(`/badgedetail/${selectedGame?.value}/${index}`);
   };
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>, index: number) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>, index: number) => {
     if (e.key === 'Enter' || e.key === ' ') {
       navigate(`/badgedetail/${selectedGame?.value}/${index}`);
     }
@@ -49,7 +49,7 @@ function Badges(): React.JSX.Element {
                 className={styles.question}
                 data-testid={`badge-detail-${index}`}
                 onClick={(e) => handleOpen(e, index)}
-                onKeyPress={(e) => handleKeyPress(e, index)}
+                onKeyDown={(e) => handleKeyDown(e, index)}
                 role="button"
                 tabIndex={0}
               >

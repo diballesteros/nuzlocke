@@ -37,7 +37,7 @@ function CalculatorHeader(): React.JSX.Element {
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const { attackerResults, defenderResults } = useCalculate();
 
-  const handleKeyPress = (
+  const handleKeyDown = (
     e: React.KeyboardEvent<HTMLDivElement>,
     change: [position: 'attacker' | 'defender', index: number]
   ) => {
@@ -46,7 +46,7 @@ function CalculatorHeader(): React.JSX.Element {
     }
   };
 
-  const handleMainKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const handleMainKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') {
       setExpanded((prevState) => !prevState);
     }
@@ -107,7 +107,7 @@ function CalculatorHeader(): React.JSX.Element {
           data-testid="expand-moves"
           name="angle right"
           onClick={() => setExpanded((prevState) => !prevState)}
-          onKeyPress={handleMainKeyPress}
+          onKeyDown={handleMainKeyDown}
           role="button"
           style={{ transform: expanded ? 'rotate(90deg)' : undefined }}
           tabIndex={0}
@@ -127,7 +127,7 @@ function CalculatorHeader(): React.JSX.Element {
                 data-testid={`attacker-result-${i + 1}`}
                 key={`attacker-result-${i + 1}`}
                 onClick={() => setPrimary(['attacker', i])}
-                onKeyPress={(e) => handleKeyPress(e, ['attacker', i])}
+                onKeyDown={(e) => handleKeyDown(e, ['attacker', i])}
                 role="button"
                 tabIndex={0}
               >
@@ -146,7 +146,7 @@ function CalculatorHeader(): React.JSX.Element {
                 data-testid={`defender-result-${i + 1}`}
                 key={`defender-result-${i + 1}`}
                 onClick={() => setPrimary(['defender', i])}
-                onKeyPress={(e) => handleKeyPress(e, ['defender', i])}
+                onKeyDown={(e) => handleKeyDown(e, ['defender', i])}
                 role="button"
                 tabIndex={0}
               >
