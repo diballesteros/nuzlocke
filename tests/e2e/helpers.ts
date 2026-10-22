@@ -112,6 +112,11 @@ export const clickOutside = (page: Page) => page.mouse.click(2, 2);
 export const modalField = (page: Page, n: number) =>
   page.locator('.ui.modal .content').locator(`:scope > :nth-child(${n}) > input`);
 
+// Semantic's Popup opens on hover (after 50 ms) and toggles on click. A pointer click races the
+// two: when the browser is slow, the hover opens it first and the click closes it again (WebKit's
+// "Over 6 alert" flake). Dispatching the click never moves the pointer, so only the click counts.
+export const openPopup = (trigger: Locator) => trigger.dispatchEvent('click');
+
 // The help icon next to a widget
 export const helpIcon = (page: Page, id: string) => byTestId(page, id).locator('.question').first();
 
