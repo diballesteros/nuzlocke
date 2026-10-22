@@ -33,9 +33,7 @@
   - combobox "ability":
     - textbox
     - alert: Select an ability...
-  - combobox "item":
-    - textbox
-    - alert: Select an item...
+  - combobox "item"
   - text: Select a move... Select a move... Select a move... Select a move...
   - button "DELETE"
   - button:

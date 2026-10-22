@@ -39,9 +39,7 @@
     - combobox "ability":
       - textbox
       - alert: Select an ability...
-    - combobox "item":
-      - textbox
-      - alert: Select an item...
+    - combobox "item"
     - combobox "status":
       - textbox
       - alert: Healthy

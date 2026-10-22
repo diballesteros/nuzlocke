@@ -27,7 +27,7 @@
   {
     "id": "label",
     "impact": "critical",
-    "nodes": 10
+    "nodes": 9
   },
   {
     "id": "meta-viewport",
