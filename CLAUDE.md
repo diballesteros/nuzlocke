@@ -80,7 +80,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 
 ## Known issues (left as-is while behaviour is frozen)
 
-- **Game data and locale bugs:** listed exactly in `KNOWN_ISSUES` in `src/constants/data.test.ts`. That covers 30 misspelled Pokémon names in `filters.ts` (never matched for their location), two locations without an encounter table, a duplicate encounter id in OR/AS, and es/de `common.json` key drift (the Spanish file has the key `sincronizando` instead of `syncing`).
+- **Game data and locale bugs:** listed exactly in `KNOWN_ISSUES` in `src/constants/data.test.ts`. That covers 30 misspelled Pokémon names in `filters.ts` (never matched for their location), two locations without an encounter table, and a duplicate encounter id in OR/AS. Locale keys match across en/es/de, so `localeKeys` is empty and `src/i18n.test.ts` tests the English fallback with a key it adds itself.
 - **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
 - **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
 - **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
