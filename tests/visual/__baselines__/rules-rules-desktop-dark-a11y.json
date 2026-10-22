@@ -8,10 +8,5 @@
     "id": "button-name",
     "impact": "critical",
     "nodes": 6
-  },
-  {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
   }
 ]

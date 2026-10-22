@@ -10,11 +10,6 @@
     "nodes": 9
   },
   {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
-  },
-  {
     "id": "nested-interactive",
     "impact": "serious",
     "nodes": 9
