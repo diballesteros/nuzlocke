@@ -39,29 +39,9 @@ function App(): React.JSX.Element {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // The colours for each theme are tokens in src/styles/globals.css
   useEffect(() => {
-    if (darkMode) {
-      document.documentElement.style.setProperty('--header', '#1b1c1d');
-      document.documentElement.style.setProperty('--card', '#424242');
-      document.documentElement.style.setProperty('--badge', '#C395FE');
-      document.documentElement.style.setProperty('--badgeopac', '#C395FE50');
-      document.documentElement.style.setProperty('--badgeflash', '#ffffff');
-      document.documentElement.style.setProperty('--bgprimary', '#212121');
-      document.documentElement.style.setProperty('--bgsecondary', '#333333');
-      document.documentElement.style.setProperty('--contrast', '#FFFFFF');
-      document.documentElement.style.setProperty('--placeholder', '#d9d9d9');
-      document.documentElement.style.setProperty('--contrast-border', '#525252');
-    } else {
-      document.documentElement.style.setProperty('--header', '#ffffff');
-      document.documentElement.style.setProperty('--card', '#ffffff');
-      document.documentElement.style.setProperty('--bgprimary', '#FFFFFF');
-      document.documentElement.style.setProperty('--badge', '#D46A6A');
-      document.documentElement.style.setProperty('--badgeopac', '#D46A6A50');
-      document.documentElement.style.setProperty('--badgeflash', '#ffaaaa');
-      document.documentElement.style.setProperty('--bgsecondary', '#E2E1E0');
-      document.documentElement.style.setProperty('--contrast', '#333333');
-      document.documentElement.style.setProperty('--contrast-border', '#e5e5e5');
-    }
+    document.documentElement.classList.toggle('dark', darkMode);
   }, [darkMode]);
 
   const handleChange = (e: React.SyntheticEvent<HTMLElement, Event>, data: DropdownProps) => {

@@ -1,5 +1,6 @@
 /// <reference types="vitest/config" />
 import { sentryVitePlugin } from '@sentry/vite-plugin';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -19,6 +20,7 @@ const COVERAGE_EXCLUDE = [
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     svgr(),
     // Instruments src only when REACT_APP_COVERAGE=true (npm run dev:cov, the Playwright web server).
     // The plugin reads <envPrefix>COVERAGE, hence the REACT_APP_ prefix

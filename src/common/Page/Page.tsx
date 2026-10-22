@@ -1,5 +1,4 @@
 import { Back } from 'common';
-import styles from './Page.module.scss';
 
 interface PageProps {
   children: React.ReactNode;
@@ -8,8 +7,9 @@ interface PageProps {
 
 function Page({ children, header }: PageProps): React.JSX.Element {
   return (
-    <section className={styles.page}>
-      <div className={styles.header}>
+    // flex is important because Semantic's reset sets `section { display: block }`
+    <section className="flex! h-full flex-col flex-nowrap gap-(--spacing-2) px-(--spacing-4)">
+      <div className="flex flex-row flex-nowrap justify-between text-foreground">
         <h2>{header}</h2> <Back />
       </div>
       {children}
