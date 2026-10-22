@@ -5,11 +5,6 @@
     "nodes": 10
   },
   {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
-  },
-  {
     "id": "role-img-alt",
     "impact": "serious",
     "nodes": 3

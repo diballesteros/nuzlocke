@@ -70,7 +70,7 @@ function PokemonSelector({
     setOpen(false);
   };
 
-  const onKeyPress = (e: React.KeyboardEvent<HTMLDivElement>) => {
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
     if (e.key === 'Enter' || e.key === ' ') setOpen(true);
   };
 
@@ -115,7 +115,7 @@ function PokemonSelector({
       <div
         data-testid="pokemon-selector"
         onClick={() => setOpen(true)}
-        onKeyPress={onKeyPress}
+        onKeyDown={onKeyDown}
         role="button"
         tabIndex={0}
       >

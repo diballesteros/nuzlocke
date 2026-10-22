@@ -29,7 +29,7 @@ function Calculator(): React.JSX.Element {
     }
   }, [calc, selectedGame, setDefaultCalculator]);
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLDivElement>, index: 0 | 1) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>, index: 0 | 1) => {
     if (e.key === 'Enter' || e.key === ' ') {
       setSelected(index);
     }
@@ -71,7 +71,7 @@ function Calculator(): React.JSX.Element {
               onClick={() => setSelected(0)}
               role="button"
               tabIndex={0}
-              onKeyPress={(e) => handleKeyPress(e, 0)}
+              onKeyDown={(e) => handleKeyDown(e, 0)}
             >
               Pokémon 1
             </div>
@@ -81,7 +81,7 @@ function Calculator(): React.JSX.Element {
               onClick={() => setSelected(1)}
               role="button"
               tabIndex={0}
-              onKeyPress={(e) => handleKeyPress(e, 1)}
+              onKeyDown={(e) => handleKeyDown(e, 1)}
             >
               Pokémon 2
             </div>

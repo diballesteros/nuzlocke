@@ -20,11 +20,6 @@
     "nodes": 8
   },
   {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
-  },
-  {
     "id": "region",
     "impact": "moderate",
     "nodes": 2
