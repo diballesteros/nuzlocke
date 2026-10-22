@@ -23,6 +23,8 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
    - `.ui` overrides in `index.css`.
 
    - With no preflight, a border's width defaults to `medium` (3px): `border-solid` plus `border-t` draws 3px on the other three sides. Set every side (`border-0 border-t border-solid`).
+   - Semantic sets `*, *::before, *::after { box-sizing: inherit }`, so `box-border` and `[box-sizing:…]` utilities lose; mark them `!`. An SCSS module that set `box-sizing: unset` made its whole subtree content-box, so padded children grew past their `width`/`min-width` (see `components/Import`).
+   - `index.css` and Semantic colour every `a`, so a link styled as a button needs `text-…!` (see the Source link in `components/About`).
 
    Use `!` only for properties a global rule actually sets, and leave the rest for Phase 3.
 
@@ -61,7 +63,10 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
    Shipped so far:
    - `button`: variants `default` (grey, inverted in dark mode, like `inverted={darkMode}`) and `secondary` (grey in both themes); sizes `default` and `icon`.
    - `dialog`: `DialogContent` (Semantic modal sizes, centred, focus moves to the dialog itself), `DialogBody` (Semantic's modal content; `scrolling` caps it at Semantic's scrolling height), `DialogFooter` (the actions bar), `DialogTitle` (required by Radix; use `className="sr-only"` when the design has no visible title). `dismissible={false}` keeps a dialog open on Escape and outside clicks, for dialogs that had no `onClose`.
+   - `button` also has `primary` (Semantic's `primary`) and `grey` (`color="grey"`), the same in both themes.
+   - `radio-group`: `RadioGroup` (the root; it can wrap other content, as on Import), `RadioGroupItem` (Semantic's ring and bullet) and `RadioGroupOption` (an item plus its `<label htmlFor>`, laid out like `<Radio label>`; `data-testid` goes on the wrapper, so the `toggle` helper's `label` click still works).
    - `common/SelectorRow`: the Pokémon row shared by the selector dialogs.
+   - Inside a button the text colour is translucent (`--button-foreground` is `rgba(0,0,0,0.6)`), so a lucide icon made of several paths paints their overlap darker. Use lucide's `Icon` with a one-path `iconNode` (see the plus in `components/Changelog`). Lucide has no brand logos; draw those as an inline SVG (the GitHub mark in `components/About`).
    - Lucide glyphs draw smaller than FontAwesome's inside the same box. To match an icon, enlarge the SVG and give it negative margins, so it still takes Semantic's 1em × 1.18em slot and the button or line keeps its height (see `common/Back` and `common/PokemonSelector`).
 
 10. **Locators:** keep every existing `data-testid` on the element the tests act on. Specs don't change during the migration. Only the helper bodies in `tests/e2e/helpers.ts` change (`pickOption`, `checkbox`, `modalDialog`…), and they're switched in the same PR as the widget. Radix renders `role="option"`, `role="dialog"` and so on, so prefer roles in new helpers.

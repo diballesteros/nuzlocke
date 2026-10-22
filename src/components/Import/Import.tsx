@@ -1,15 +1,17 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { Link } from 'lucide-react';
 import { Page } from 'common';
 import MOVES from 'constants/moves';
 import POKEMON from 'constants/pokemon';
 import type { AppState, Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
-import styles from './Import.module.scss';
+import { Button } from '@/components/ui/button';
+import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
+
+// The two options' labels, as Import's old `.ui.radio.checkbox > label` override drew them
+const OPTION_LABEL = 'text-foreground text-(length:--font-size-4) font-bold';
 
 const GENDER_DICTIONARY: Record<string, Gender> = {
   'F': 'FEMALE',
@@ -175,12 +177,16 @@ function Import(): React.JSX.Element {
 
   return (
     <Page header={t('import')}>
-      <div className={styles.container}>
-        <Radio
-          checked={option === 'all'}
+      <RadioGroup
+        aria-label={t('import')}
+        className="flex [box-sizing:unset]! flex-col flex-nowrap gap-(--spacing-4) overflow-auto text-foreground [&>p]:mb-0!"
+        onValueChange={(value) => setOption(value as 'all' | 'table')}
+        value={option}
+      >
+        <RadioGroupOption
           data-testid="all-import-option"
           label={t('complete_import')}
-          onChange={() => setOption('all')}
+          labelClassName={OPTION_LABEL}
           value="all"
         />
         <p>
@@ -192,16 +198,21 @@ function Import(): React.JSX.Element {
           <strong>{t('export')}</strong>
           {t('import_helper_3')}
         </p>
-        <div className={styles.customFile}>
-          <div className={styles.fileText}>
+        <div className="relative flex h-fit w-4/5 flex-row flex-nowrap items-center">
+          <div className="flex h-full min-w-1/2 items-center rounded-l-[4px] bg-file-field px-(--spacing-2) text-white">
             <span>{file?.name || `${t('select_file')}...`}</span>
           </div>
-          <Button color="grey" data-testid="attach-file" type="button">
+          <Button
+            className="relative rounded-l-none"
+            data-testid="attach-file"
+            type="button"
+            variant="grey"
+          >
             {t('select_file')}
             <input
               accept=".json, text/json"
               aria-labelledby="import"
-              className={styles.hiddenFile}
+              className="absolute top-0 right-0 h-full w-full opacity-0"
               data-testid="import-file-input"
               onChange={(e) => setFile(e.target.files[0])}
               type="file"
@@ -214,12 +225,11 @@ function Import(): React.JSX.Element {
           {t('pkhex_helper')} <strong>{t('selected')}</strong> {t('game')}:{' '}
           <em>{selectedGame?.text || t('no_game')}</em>
         </p>
-        <Radio
-          checked={option === 'table'}
+        <RadioGroupOption
           data-testid="table-import-option"
           disabled={!selectedGame?.value}
           label={t('import_game_by')}
-          onChange={() => setOption('table')}
+          labelClassName={OPTION_LABEL}
           value="table"
         />
         <a
@@ -227,10 +237,11 @@ function Import(): React.JSX.Element {
           rel="noopener noreferrer"
           target="_blank"
         >
-          {t('how_to')} <Icon name="linkify" />
+          {t('how_to')}{' '}
+          <Link aria-hidden className="inline-block h-[1em] w-[1.18em]" strokeWidth={3} />
         </a>
         <textarea
-          className={styles.textarea}
+          className="h-[7.143rem] min-h-[7.143rem] resize-none"
           data-testid="table-import-textarea"
           onChange={(e) => setText(e.target.value)}
           placeholder={t('copy_table')}
@@ -238,16 +249,16 @@ function Import(): React.JSX.Element {
           value={text}
         />
         <Button
-          className={styles.apply}
+          className="mr-(--spacing-2)! w-fit self-end"
           data-testid="apply-import"
           disabled={(option === 'all' && !file) || (option === 'table' && !text)}
           onClick={handleApply}
-          primary
           type="button"
+          variant="primary"
         >
           {t('apply')}
         </Button>
-      </div>
+      </RadioGroup>
     </Page>
   );
 }

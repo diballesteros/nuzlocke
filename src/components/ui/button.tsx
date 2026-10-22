@@ -17,6 +17,10 @@ const buttonVariants = cva(
         // Semantic's plain button, grey in both themes
         secondary:
           'bg-button text-button-foreground hover:bg-button-hover hover:text-button-hover-foreground focus-visible:bg-button-hover focus-visible:text-button-hover-foreground',
+        // Semantic's `primary` and `color="grey"` buttons, the same in both themes
+        primary:
+          'bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:bg-primary-focus active:bg-primary-active',
+        grey: 'bg-grey text-white hover:bg-grey-hover focus-visible:bg-grey-focus active:bg-grey-active',
       },
       size: {
         default: 'px-[1.5em] py-[0.78571429em]',
