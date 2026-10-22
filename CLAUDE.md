@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project
 
-Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, Semantic UI React for components, SCSS modules for styling, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
+Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, Semantic UI React and SCSS modules for most components, migrating area by area to shadcn/ui (Radix) and Tailwind v4, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
 
 ## Commands
 
@@ -76,11 +76,11 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - Accounts (Supabase auth and cloud saves) were removed in Phase 0. Runs live only in localStorage; `/delete` stays as a notice that accounts were discontinued, because outside links may point to it.
 - **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); encounter rows use `toTopPosition` (react-window 2 transforms trap dropdowns); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
-- Sass and Semantic UI React will be replaced (Tailwind is planned). Keep changes to them minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
+- Sass and Semantic UI React are being replaced by Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, `@source`, primitives and locators. Keep changes to unmigrated Semantic/Sass code minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
 
 ## Known issues (left as-is while behaviour is frozen)
 
-- **Game data and locale bugs:** listed exactly in `KNOWN_ISSUES` in `src/constants/data.test.ts`. That covers 30 misspelled Pokémon names in `filters.ts` (never matched for their location), two locations without an encounter table, a duplicate encounter id in OR/AS, and es/de `common.json` key drift (the Spanish file has the key `sincronizando` instead of `syncing`).
+- **Game data and locale bugs:** listed exactly in `KNOWN_ISSUES` in `src/constants/data.test.ts`. That covers one misspelled Pokémon name in `filters.ts` (`Hatterne` in swsh-30, which could be Hatterene or Hattrem, so it's never matched for that location), two locations without an encounter table, and a duplicate encounter id in OR/AS. Locale keys match across en/es/de, so `localeKeys` is empty and `src/i18n.test.ts` tests the English fallback with a key it adds itself.
 - **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
 - **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
 - **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
@@ -90,7 +90,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 
 ### Imports
 
-`vite.config.ts` defines bare-path aliases: `components`, `common`, `constants`, `hooks`, `store`, `selectors`, `assets`, `locale`, `error`, `routes`, and `@` → `src`. Use these (e.g. `import useStore from 'store'`) rather than relative paths. Every SCSS module automatically gets `@use "@/assets/styles" as *;` injected. Env vars must be prefixed `REACT_APP_` (`envPrefix`) and are read via `import.meta.env`.
+`vite.config.ts` defines bare-path aliases: `components`, `common`, `constants`, `hooks`, `store`, `selectors`, `assets`, `locale`, `error`, `routes`, and `@` → `src` (also a tsconfig path, so shadcn's `@/lib/utils` imports type-check). Use these (e.g. `import useStore from 'store'`) rather than relative paths. Every SCSS module automatically gets `@use "@/assets/styles" as *;` injected. Env vars must be prefixed `REACT_APP_` (`envPrefix`) and are read via `import.meta.env`.
 
 ### State (`src/store.ts`)
 
@@ -113,6 +113,8 @@ Large static data files drive the app; most bug fixes and content updates are ed
 Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep e2e tests passing.
 
 ### UI
+
+- `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind without preflight. Tailwind only generates utilities for directories in its `@source` list, because automatic detection would restyle Semantic markup that uses words like `container` or `hidden` as class names. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
 - `src/components/<Name>/<Name>.tsx` + `<Name>.module.scss`, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.

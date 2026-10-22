@@ -1,3 +1,6 @@
 baseline	commit	reason
 *	e8828b9	Phase 0 removed the header Login button. Desktop: the top-right icon is gone. Mobile: the game dropdown widens into the freed space. ARIA: only button "Login" is gone (all 50 snapshots); axe results unchanged.
+badges-badge-detail-*	46ab7af	Page/Back moved to Tailwind + shadcn Button: the FontAwesome back arrow is now lucide ArrowLeft (glyph pixels only; button size, label and layout unchanged). ARIA and axe unchanged.
+misc-*	46ab7af	Page/Back moved to Tailwind + shadcn Button: the FontAwesome back arrow is now lucide ArrowLeft (glyph pixels only; button size, label and layout unchanged). ARIA and axe unchanged.
+settings-*	46ab7af	Page/Back moved to Tailwind + shadcn Button: the FontAwesome back arrow is now lucide ArrowLeft (glyph pixels only; button size, label and layout unchanged). ARIA and axe unchanged.
 *-a11y.json	df9c0ac7671f29dfececd1c4714e1ffbf16380a0	Removed maximum-scale=1; axe no longer reports meta-viewport. No screenshot or ARIA change.
