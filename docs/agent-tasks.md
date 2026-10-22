@@ -134,44 +134,9 @@ Nothing else in the workflows changes: no new jobs, steps, conditions, permissio
 - `git diff --no-index README.md docs/index.md` shows only the added Contact section.
 - `npm run format:check` passes and CI is green.
 
-### Task 4: Investigate the flaky WebKit test `Rules › Over 6 alert` (report only)
+### Task 4: ~~Investigate the flaky WebKit test `Rules › Over 6 alert`~~ (done, don't pick up)
 
-**Why:** `tests/e2e/other/Rules.spec.ts:144` failed twice on WebKit in CI on 2026-10-21 (shard 3), with `TEAM OVER 6` never appearing after clicking `alert-0`. Reruns on the same code passed. `CLAUDE.md` lists it under "Flaky e2e". A flaky check costs a rerun every time and teaches people to ignore red.
-
-**Deliverable:** a GitHub issue, not a PR. **Don't change any file in the repo** for this task: no test edits, no retries, no timeouts, no source fixes. Temporary local changes for debugging are fine, but revert them.
-
-**What's known:**
-
-- The failing run: https://github.com/diballesteros/nuzlocke/actions/runs/39673766818 (attempt 1, job `playwright (webkit, 3)`). Its log shows `expect(locator).toBeAttached() failed … element(s) not found` at line 148. Its `playwright-webkit-3` artifact has the trace and screenshot, if it hasn't expired:
-
-  ```bash
-  gh run download 39673766818 --repo diballesteros/nuzlocke -n playwright-webkit-3 -D <scratch-dir>
-  npx playwright show-trace <scratch-dir>/test-results/<test-folder>/trace.zip
-  ```
-
-- The test imports `tests/data/over6.json` with `importFile`, navigates to the tracker, clicks `alert-0`, and expects the text `TEAM OVER 6`. The helpers are in `tests/e2e/helpers.ts`.
-- `CLAUDE.md` suggests looking at dev-server cold transforms of the large constants files.
-
-**Steps:**
-
-1. Reproduce. Locally (WebKit runs on this Windows machine, Firefox doesn't):
-
-   ```bash
-   npx playwright test tests/e2e/other/Rules.spec.ts --project=webkit -g "Over 6 alert" --repeat-each=50 --workers=4
-   ```
-
-   Also try it with the whole `webkit` project and `--shard=3/3`, since it failed inside a shard. Then try CI's environment: the `mcr.microsoft.com/playwright:v<version>-noble` image (`CLAUDE.md` → "Debugging CI failures", and `scripts/visual.mjs` for how to copy the repo in).
-
-2. Find out what the page looks like when it fails, from the trace or from your own failing runs: is the import finished, is the tracker rendered, did the click land on `alert-0`, did a dialog open with other text, are there console errors?
-3. Find the cause, or the best-supported hypothesis, and the smallest fix. Say whether it belongs in the app (`src/`) or in the test or helper, and which files it would touch.
-
-**Done when:** an issue titled `Flaky e2e: WebKit Rules › Over 6 alert` exists with:
-
-- how often it failed for you, locally and in the container, with the exact commands
-- what the failing page showed (attach or link screenshots), and the evidence for the cause
-- the proposed fix and the files it would touch, for the owner to schedule
-
-If you can't make it fail at all in 200+ repetitions, say so in the issue, with what you tried.
+Resolved in #830 on 2026-10-22, so there's nothing left to investigate and no issue to open. The cause was a race in the test, not WebKit: Semantic's `Popup` opens on hover after 50 ms and toggles on click, so when the browser was slow the hover opened the alert and the click closed it again. Tests now open popups with `openPopup` in `tests/e2e/helpers.ts`, which dispatches the click without moving the pointer. If a popup test flakes again, check that it uses `openPopup` before anything else.
 
 ---
 
