@@ -13,10 +13,5 @@
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 2
-  },
-  {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
   }
 ]

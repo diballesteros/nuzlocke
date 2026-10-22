@@ -12,50 +12,17 @@ const GAME_KEYS = GAMES.map((game) => game.value);
 
 // Data problems that already exist in the app. Each test must match its list exactly, so a new
 // problem fails the test, and fixing one means deleting its entry here.
-const KNOWN_ISSUES = {
+const KNOWN_ISSUES: {
+  missingFilters: string[];
+  duplicateIds: string[];
+  unknownEncounterNames: string[];
+  localeKeys: string[];
+} = {
   missingFilters: ['4: Rocket Hideout (frlg-30)', '12: Royal Avenue (usum-51)'],
   duplicateIds: ['10: id 69'],
   // Misspellings: these Pokémon are never matched for their location
-  unknownEncounterNames: [
-    'gsc-63: Spinark',
-    'rse-36: Milktank',
-    'frlg-49: Macargo',
-    'hgss-17: Spinark',
-    'hgss-63: Spinark',
-    'hgss-87: Ledybda',
-    'bw2-44: Whimiscott',
-    'bw2-44: Liligant',
-    'sm-3: Spinark',
-    'sm-54: Konmmo-o',
-    'usum-3: Spinark',
-    'usum-18: Groyvle',
-    'usum-56: Konmmo-o',
-    'swsh-4: Barrskewda',
-    'swsh-5: Skowvet',
-    'swsh-5: Kirilia',
-    'swsh-6: Seimsitoad',
-    'swsh-7: Grappoloct',
-    'swsh-10: Galavantula',
-    'swsh-24: Rhyorn',
-    'swsh-24: Rimbombee',
-    'swsh-26: Barbarcle',
-    'swsh-30: Togedmaru',
-    'swsh-30: Hakam-o',
-    'swsh-30: Hatterne',
-    'swsh-30: Barraskweda',
-    'swsh-32: Swirilix',
-    'bdsp-57: Flaafy',
-    'bdsp-63: Tentracruel',
-    'bdsp-63: Meditie',
-  ],
-  localeKeys: [
-    'es/common.json: missing encounter_template',
-    'es/common.json: missing none',
-    'es/common.json: extra None',
-    'de/common.json: missing encounter_template',
-    'de/common.json: missing none',
-    'de/common.json: extra None',
-  ],
+  unknownEncounterNames: ['swsh-30: Hatterne'],
+  localeKeys: [],
 };
 
 describe('Game data integrity', () => {

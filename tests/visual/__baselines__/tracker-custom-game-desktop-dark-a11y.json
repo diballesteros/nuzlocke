@@ -8,10 +8,5 @@
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 1
-  },
-  {
-    "id": "meta-viewport",
-    "impact": "moderate",
-    "nodes": 1
   }
 ]
