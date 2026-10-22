@@ -35,8 +35,15 @@ export const navigate = async (page: Page, testId: string) => {
   await byTestId(page, testId).click();
 };
 
-// Dropdowns (Semantic UI: role="option" items inside the open menu)
-export const options = (page: Page, id: string) => byTestId(page, id).getByRole('option');
+// Dropdowns. Semantic UI renders role="option" items inside the open menu; the Combobox
+// (data-slot="combobox") portals its menu, which carries the test id plus "-options"
+export const options = (page: Page, id: string) =>
+  byTestId(page, id)
+    .getByRole('option')
+    .or(byTestId(page, `${id}-options`).getByRole('option'));
+
+const menuOpen = (dropdown: Locator) =>
+  dropdown.locator(':scope > .menu.visible, :scope > input[aria-expanded="true"]').count();
 
 // `covered`: the open menu sits under another element (known UI issue: the first row's nature
 // menu opens upward beneath the badge strip), so the click is dispatched to the option directly,
@@ -48,7 +55,7 @@ export const pickOption = async (
   { covered = false } = {}
 ) => {
   const dropdown = byTestId(page, id);
-  if (!(await dropdown.locator('.menu.visible').count())) await dropdown.click();
+  if (!(await menuOpen(dropdown))) await dropdown.click();
   const items = options(page, id);
   const item =
     typeof option === 'number' ? items.nth(option) : items.filter({ hasText: option }).first();
@@ -58,10 +65,12 @@ export const pickOption = async (
 
 // The value (or placeholder) a dropdown shows
 export const dropdownText = (page: Page, id: string) =>
-  byTestId(page, id).locator(':scope > .text');
+  byTestId(page, id).locator(':scope > .text, :scope > [data-slot="combobox-value"]');
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>
-  byTestId(page, id).locator(':scope > input.search').pressSequentially(value);
+  byTestId(page, id)
+    .locator(':scope > input.search, :scope > input[role="combobox"]')
+    .pressSequentially(value);
 
 export const selectGame = async (page: Page, game: string) => {
   await byTestId(page, 'game-select').click();

@@ -22,7 +22,7 @@
   {
     "id": "label",
     "impact": "critical",
-    "nodes": 6
+    "nodes": 5
   },
   {
     "id": "nested-interactive",

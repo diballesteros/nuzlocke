@@ -22,6 +22,8 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
    - `index.css` styles `h1`–`h5` (margins, sizes, font).
    - `.ui` overrides in `index.css`.
 
+   - With no preflight, a border's width defaults to `medium` (3px): `border-solid` plus `border-t` draws 3px on the other three sides. Set every side (`border-0 border-t border-solid`).
+
    Use `!` only for properties a global rule actually sets, and leave the rest for Phase 3.
 
 3. **Colours come from tokens, never hex.** Use the semantic utilities:

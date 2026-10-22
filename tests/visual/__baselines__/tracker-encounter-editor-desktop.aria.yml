@@ -185,9 +185,7 @@
     - textbox
     - alert: Select an ability...
   - button "ability table"
-  - combobox "item":
-    - textbox
-    - alert: Select an item...
+  - combobox "item"
   - checkbox
   - text: Shiny
 - group: Moves
