@@ -6,6 +6,7 @@ import {
   importFile,
   navigate,
   openOptions,
+  openPopup,
   pickOption,
   selectGame,
   text,
@@ -38,7 +39,7 @@ test.describe('Options', () => {
     await field(page, 'filter').click();
     await byTestId(page, 'pokemon-1').click();
     await byTestId(page, 'poke-Bulbasaur').dispatchEvent('click');
-    await byTestId(page, 'alert-0').click();
+    await openPopup(byTestId(page, 'alert-0'));
     await expect(text(page, 'DUPE')).toBeAttached();
     await expect(text(page, 'Duplicate pokémon are not allowed')).toBeAttached();
     await expect(text(page, 'Starter')).toBeAttached();

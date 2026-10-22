@@ -84,7 +84,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Calculator:** an empty IV field reaches `@smogon/calc` as `undefined` and every stat becomes `NaN`. It's recorded in `src/components/Calculator/Calculator.test.ts`; update that test when fixing it.
 - **Calculator wording (upstream):** since `@smogon/calc` 0.11, "possible nHKO" texts no longer say "after Spikes" (other KO texts still do). Hazards are still counted in the KO number.
 - **react-toastify CSS loads twice:** `src/index.tsx` imports `ReactToastify.css`, and toastify ≥ 11.1 also injects its own styles. Harmless; drop the import during the styling rewrite.
-- **Flaky e2e:** once on Vite 8, Cypress's `Calculator.spec.ts` timed out waiting for the page `load` event (60 s), and Playwright's WebKit keyboard test failed once while the machine was busy. Both passed on every rerun. If it recurs, look at dev-server cold transforms of the large constants files.
+- **Flaky e2e:** once on Vite 8, Cypress's `Calculator.spec.ts` timed out waiting for the page `load` event (60 s), and Playwright's WebKit keyboard test failed once while the machine was busy. Both passed on every rerun. WebKit's `Rules › Over 6 alert` failed three times in CI (2026-10-21/22) from a race in the test, now fixed: Semantic's `Popup` opens on hover after 50 ms and toggles on click, so on a slow run the hover opened it and the click closed it. Open popups with `openPopup` (`tests/e2e/helpers.ts`), which dispatches the click without moving the pointer. If it recurs, look at dev-server cold transforms of the large constants files.
 
 ## Architecture
 

@@ -1,18 +1,22 @@
 import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, RowComponentProps as RowProps } from 'react-window';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { PkmImage } from 'common';
-import { Filter, PokemonType } from 'components';
-import { TYPE_COLOR } from 'constants/colors';
+import { Lightbulb, Star, X } from 'lucide-react';
+import SelectorRow, { SELECTOR_TAG } from 'common/SelectorRow/SelectorRow';
+import { Filter } from 'components';
 import POKEMON from 'constants/pokemon';
 import type { Type } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import useRemtoPx from 'hooks/useRemToPx';
 import useStore from 'store';
-import styles from 'assets/styles/Selector.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface PokemonSelectorProps {
   children: React.ReactNode;
@@ -81,78 +85,83 @@ function PokemonSelector({
       ? pokemon.evolve.some((evoId) => dupes?.includes(evoId))
       : dupes?.includes(pokemon?.value);
     return (
-      <div className={styles.rowContainer} style={style}>
-        <div
-          className={`${styles.row} ${dupe ? styles.dupe : ''}`}
-          data-testid={`poke-${pokemon.text}`}
-          onClick={() => handleClick(pokemon.value)}
-          role="presentation"
-          style={{ backgroundColor: `${TYPE_COLOR[pokemon.type]}50` }}
-        >
-          {suggestions &&
-            !dupe &&
-            (suggestions.includes(pokemon.type) || suggestions.includes(pokemon.dualtype)) && (
-              <div className={styles.suggestion}>
-                <Icon name="star" />
-                <span>{t('suggested')}</span>
-              </div>
-            )}
-          {dupe && (
-            <span className={styles.suggestion} title={t('dupe_description')}>
+      <SelectorRow
+        dupe={dupe}
+        name={pokemon.text}
+        onClick={() => handleClick(pokemon.value)}
+        pokemon={pokemon}
+        style={style}
+        tag={
+          dupe ? (
+            <span className={SELECTOR_TAG} title={t('dupe_description')}>
               DUPE
             </span>
-          )}
-          <div className={styles.details}>
-            <div className={styles.image}>
-              <PkmImage name={pokemon?.text} />
-            </div>
-            <b>{pokemon.text}</b>
-          </div>
-          <PokemonType pokemon={pokemon} />
-        </div>
-      </div>
+          ) : (
+            suggestions &&
+            (suggestions.includes(pokemon.type) || suggestions.includes(pokemon.dualtype)) && (
+              <div className={SELECTOR_TAG}>
+                <Star aria-hidden className="size-[1em] fill-[gold] text-[gold]" />
+                <span>{t('suggested')}</span>
+              </div>
+            )
+          )
+        }
+      />
     );
   };
 
   return (
-    <Modal
-      closeOnDimmerClick
-      open={open}
-      trigger={
-        <div
-          data-testid="pokemon-selector"
-          onClick={() => setOpen(true)}
-          onKeyDown={onKeyDown}
-          role="button"
-          tabIndex={0}
-        >
-          {children}
-        </div>
-      }
-    >
-      <Modal.Content className={styles.content} scrolling>
-        <Filter hideGen={!!limitGen} values={values} />
-        {tooltip && (
-          <aside className={styles.callout}>
-            <Icon name="lightbulb outline" />
-            <p>{t('show_all_tooltip')}</p>
-            <Button data-testid="remove-tooltip" type="button" icon onClick={toggleShowAllTooltip}>
-              <Icon className={styles.icon} name="close" />
+    <>
+      <div
+        data-testid="pokemon-selector"
+        onClick={() => setOpen(true)}
+        onKeyDown={onKeyDown}
+        role="button"
+        tabIndex={0}
+      >
+        {children}
+      </div>
+      <Dialog open={open}>
+        <DialogContent dismissible={false}>
+          <DialogTitle className="sr-only">{t('select_pokemon')}</DialogTitle>
+          <DialogBody className="[&>div:first-child]:mb-(--spacing-3)" scrolling>
+            <Filter hideGen={!!limitGen} values={values} />
+            {tooltip && (
+              <aside className="mb-(--spacing-3) flex! flex-row flex-nowrap items-center justify-center gap-(--spacing-3) rounded-[4px] border border-dashed border-current p-(--spacing-3)">
+                <Lightbulb aria-hidden className="-mx-[0.125em] size-[1.25em] shrink-0" />
+                <p className="m-0!">{t('show_all_tooltip')}</p>
+                <Button
+                  aria-label={t('close')}
+                  data-testid="remove-tooltip"
+                  onClick={toggleShowAllTooltip}
+                  size="icon"
+                  type="button"
+                  variant="secondary"
+                >
+                  <X
+                    aria-hidden
+                    className="-mx-[0.06em] -my-[0.15em] size-[1.3em] align-top"
+                    strokeWidth={3}
+                  />
+                </Button>
+              </aside>
+            )}
+            <List
+              rowComponent={renderRow}
+              rowCount={filteredPokemon.length}
+              rowHeight={itemSize}
+              rowProps={{}}
+              style={{ height: 400, width: '100%' }}
+            />
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleClose} variant="secondary">
+              {t('cancel')}
             </Button>
-          </aside>
-        )}
-        <List
-          rowComponent={renderRow}
-          rowCount={filteredPokemon.length}
-          rowHeight={itemSize}
-          rowProps={{}}
-          style={{ height: 400, width: '100%' }}
-        />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleClose}>{t('cancel')}</Button>
-      </Modal.Actions>
-    </Modal>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

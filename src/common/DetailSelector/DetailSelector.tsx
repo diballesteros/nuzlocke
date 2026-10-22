@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, RowComponentProps as RowProps } from 'react-window';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import { PkmImage } from 'common';
-import { Filter, PokemonType } from 'components';
-import { TYPE_COLOR } from 'constants/colors';
+import SelectorRow from 'common/SelectorRow/SelectorRow';
+import { Filter } from 'components';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import useRemtoPx from 'hooks/useRemToPx';
-import styles from 'assets/styles/Selector.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
 
 interface DetailSelectorProps {
   children: React.ReactNode;
@@ -56,49 +60,42 @@ function DetailSelector({
     const detail = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(detail.id);
     return (
-      <div className={styles.rowContainer} style={style}>
-        <div
-          className={styles.row}
-          data-testid={`poke-${foundPokemon.text}`}
-          onClick={() => handleClick(detail)}
-          role="presentation"
-          style={{ backgroundColor: `${TYPE_COLOR[foundPokemon.type]}50` }}
-        >
-          <div className={styles.details}>
-            <div className={styles.image}>
-              <PkmImage name={foundPokemon?.text} shiny={detail?.shiny} />
-            </div>
-            <b>{foundPokemon.text}</b>
-          </div>
-          <PokemonType pokemon={foundPokemon} />
-        </div>
-      </div>
+      <SelectorRow
+        name={foundPokemon.text}
+        onClick={() => handleClick(detail)}
+        pokemon={foundPokemon}
+        shiny={detail?.shiny}
+        style={style}
+      />
     );
   };
+
   return (
-    <Modal
-      closeOnDimmerClick
-      open={open}
-      trigger={
-        <div onClick={() => setOpen(true)} role="presentation">
-          {children}
-        </div>
-      }
-    >
-      <Modal.Content className={styles.content} scrolling>
-        <Filter hideGen={!!limitGen} values={values} />
-        <List
-          rowComponent={renderRow}
-          rowCount={filteredEncounters?.length ?? 0}
-          rowHeight={itemSize}
-          rowProps={{}}
-          style={{ height: 400, width: '100%' }}
-        />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
-      </Modal.Actions>
-    </Modal>
+    <>
+      <div onClick={() => setOpen(true)} role="presentation">
+        {children}
+      </div>
+      <Dialog open={open}>
+        <DialogContent dismissible={false}>
+          <DialogTitle className="sr-only">{t('select_pokemon')}</DialogTitle>
+          <DialogBody className="[&>div:first-child]:mb-(--spacing-3)" scrolling>
+            <Filter hideGen={!!limitGen} values={values} />
+            <List
+              rowComponent={renderRow}
+              rowCount={filteredEncounters?.length ?? 0}
+              rowHeight={itemSize}
+              rowProps={{}}
+              style={{ height: 400, width: '100%' }}
+            />
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleClose} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

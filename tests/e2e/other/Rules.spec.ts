@@ -5,6 +5,7 @@ import {
   field,
   importFile,
   navigate,
+  openPopup,
   pickOption,
   selectGame,
   text,
@@ -25,7 +26,7 @@ const expectAlert = async (page: Page, alert: string, level?: string) => {
     await typeInto(field(page, 'level'), level);
     await text(page, 'Save').click();
   }
-  await byTestId(page, 'alert-0').click();
+  await openPopup(byTestId(page, 'alert-0'));
   await expect(text(page, alert)).toBeAttached();
 };
 
@@ -144,7 +145,7 @@ test.describe('Rules', () => {
   test('Over 6 alert', async ({ page }) => {
     await importFile(page, 'over6.json');
     await navigate(page, 'tracker');
-    await byTestId(page, 'alert-0').click();
+    await openPopup(byTestId(page, 'alert-0'));
     await expect(text(page, 'TEAM OVER 6')).toBeAttached();
   });
 

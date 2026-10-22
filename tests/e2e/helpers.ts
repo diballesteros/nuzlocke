@@ -94,14 +94,19 @@ export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: numb
 // The count label on a tab (PokéStats)
 export const tabCount = (page: Page, n: number) => tab(page, 'secondary', n).locator('.ui.label');
 
-// The open dialog
-export const modalDialog = (page: Page) => page.locator('.ui.modal');
+// The open dialog (Semantic's modal until every dialog is on Radix)
+export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialog"]');
 
 // Modals and popovers close when the dimmed page around them is clicked
 export const clickOutside = (page: Page) => page.mouse.click(2, 2);
 
 export const modalField = (page: Page, n: number) =>
   page.locator('.ui.modal .content').locator(`:scope > :nth-child(${n}) > input`);
+
+// Semantic's Popup opens on hover (after 50 ms) and toggles on click. A pointer click races the
+// two: when the browser is slow, the hover opens it first and the click closes it again (WebKit's
+// "Over 6 alert" flake). Dispatching the click never moves the pointer, so only the click counts.
+export const openPopup = (trigger: Locator) => trigger.dispatchEvent('click');
 
 // The help icon next to a widget
 export const helpIcon = (page: Page, id: string) => byTestId(page, id).locator('.question').first();
