@@ -23,6 +23,7 @@
 @source '../common/Back';
 @source '../common/DetailSelector';
 @source '../common/EncounterSelector';
+@source '../common/ItemSelector';
 @source '../common/Page';
 @source '../common/PokemonSelector';
 @source '../common/SelectorRow';
@@ -54,6 +55,10 @@
   --button-hover: #cacbcd;
   --button-foreground: rgba(0, 0, 0, 0.6);
   --button-hover-foreground: rgba(0, 0, 0, 0.8);
+
+  /* Semantic's dropdown menu: its border while open, and the rule between items */
+  --dropdown-active-border: #96c8da;
+  --dropdown-item-border: #fafafa;
 
   /* The suggested/dupe tag on a selector row */
   --suggestion: #80c0d690;
@@ -119,6 +124,9 @@
   --color-button-foreground: var(--button-foreground);
   --color-button-hover-foreground: var(--button-hover-foreground);
   --color-suggestion: var(--suggestion);
+  --color-contrast-border: var(--contrast-border);
+  --color-dropdown-active-border: var(--dropdown-active-border);
+  --color-dropdown-item-border: var(--dropdown-item-border);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
