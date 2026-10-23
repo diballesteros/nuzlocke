@@ -19,21 +19,20 @@
       - /url: /calculator
   - heading "Settings" [level=2]
   - button "Back"
-  - checkbox [checked]
-  - text: Dark mode 
-  - checkbox
+  - checkbox "Dark mode" [checked]
+  - text: Dark mode
+  - checkbox "Duplicate clause (Show alert on duplicate pokémon)"
   - text: Duplicate clause (Show alert on duplicate pokémon)
-  - checkbox
+  - checkbox "Show nicknames"
   - text: Show nicknames
-  - checkbox
+  - checkbox "Show only missing encounters"
   - text: Show only missing encounters
-  - checkbox
+  - checkbox "Show all pokémon in every encounter"
   - text: Show all pokémon in every encounter
-  - checkbox [checked]
-  - text: Show suggestions 
-  - checkbox
+  - checkbox "Show suggestions" [checked]
+  - text: Show suggestions
+  - checkbox "Show option to select a Soul Link pokémon from the details"
   - text: "Show option to select a Soul Link pokémon from the details Language:"
-  - listbox:
-    - alert: English
+  - combobox "Language": English
   - button "Edit custom statuses"
 - region "Notifications Alt+T"
