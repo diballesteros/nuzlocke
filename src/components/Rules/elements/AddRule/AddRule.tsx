@@ -1,27 +1,30 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import useStore from 'store';
-import modalStyles from 'assets/styles/Modal.module.scss';
-import styles from './AddRule.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { PlusIcon } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import { MultiSelect } from '@/components/ui/multi-select';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 function AddRule(): React.JSX.Element {
   const { t } = useTranslation('rules');
   const addRule = useStore(useCallback((state) => state.addRule, []));
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [open, setOpen] = useState(false);
   const [ruleText, setRuleText] = useState('');
   const [level, setLevel] = useState('');
-  const [types, setTypes] = useState([]);
-  const [gens, setGens] = useState([]);
+  const [types, setTypes] = useState<string[]>([]);
+  const [gens, setGens] = useState<number[]>([]);
   const [tab, setTab] = useState(0);
   const containsType = rules[selectedRuleset]?.some((rule) => rule.type === 'TYPE');
   const containsGen = rules[selectedRuleset]?.some((rule) => rule.type === 'GENERATION');
@@ -31,78 +34,76 @@ function AddRule(): React.JSX.Element {
     {
       menuItem: t('text'),
       render: () => (
-        <Tab.Pane>
+        <>
           {t('rule_description')}:
           <Input
+            aria-label={t('rule_description')}
             data-testid="add-rule-input"
-            maxLength={500}
             fluid
-            onChange={(e, data) => setRuleText(data.value)}
+            maxLength={500}
+            onChange={(e) => setRuleText(e.target.value)}
             placeholder={t('please_rule')}
             value={ruleText}
           />
-        </Tab.Pane>
+        </>
       ),
     },
     {
       menuItem: t('type'),
       render: () => (
-        <Tab.Pane>
+        <>
           {t('allow_only_types')}:
-          <Dropdown
+          <MultiSelect
+            aria-label={t('allow_only_types')}
             data-testid="add-rule-type"
             disabled={!!containsType}
-            fluid
-            multiple
-            onChange={(e, data) => setTypes([...(data.value as string[])])}
+            onChange={setTypes}
             options={Object.keys(TYPE_COUNT).map((key) => {
-              return { key, text: key, value: key };
+              return { text: key, value: key };
             })}
             placeholder={t('please_type')}
-            selection
             value={types}
           />
           {!!containsType && (
             <span style={{ color: 'red' }}>{t('already_exists', { rule: t('type') })}</span>
           )}
-        </Tab.Pane>
+        </>
       ),
     },
     {
       menuItem: t('generation'),
       render: () => (
-        <Tab.Pane>
+        <>
           {t('allow_only_generations')}:
-          <Dropdown
+          <MultiSelect
+            aria-label={t('allow_only_generations')}
             data-testid="add-rule-generation"
-            fluid
             disabled={!!containsGen}
-            multiple
-            onChange={(e, data) => setGens([...(data.value as number[])])}
+            onChange={setGens}
             options={GENERATIONS.map((gen) => {
-              return { key: gen, text: gen, value: gen };
+              return { text: String(gen), value: gen };
             })}
             placeholder={t('please_generation')}
-            selection
             value={gens}
           />
           {!!containsGen && (
             <span style={{ color: 'red' }}>{t('already_exists', { rule: t('generation') })}</span>
           )}
-        </Tab.Pane>
+        </>
       ),
     },
     {
       menuItem: t('level'),
       render: () => (
-        <Tab.Pane>
+        <>
           {t('max_level_allowed')}:
           <Input
+            aria-label={t('max_level_allowed')}
             data-testid="add-rule-level-input"
             disabled={!!containsLevel}
             fluid
             max={100}
-            onChange={(e, data) => setLevel(data.value)}
+            onChange={(e) => setLevel(e.target.value)}
             placeholder={t('please_max')}
             type="number"
             value={level}
@@ -110,7 +111,7 @@ function AddRule(): React.JSX.Element {
           {!!containsLevel && (
             <span style={{ color: 'red' }}>{t('already_exists', { rule: t('level') })}</span>
           )}
-        </Tab.Pane>
+        </>
       ),
     },
   ];
@@ -143,10 +144,6 @@ function AddRule(): React.JSX.Element {
     setGens([]);
   };
 
-  const handleTabChange = (newIndex: string | number) => {
-    setTab(Number(newIndex));
-  };
-
   const getDisabled = () => {
     switch (tab) {
       case 1:
@@ -162,38 +159,47 @@ function AddRule(): React.JSX.Element {
   };
 
   return (
-    <Modal
-      className={styles.addRule}
-      open={open}
-      trigger={
-        <Button
-          color="green"
-          data-testid="add-rule"
-          disabled={!selectedRuleset}
-          inverted={darkMode}
-          onClick={() => setOpen(true)}
-          type="button"
-        >
-          {t('add_rule')}
-          <Icon name="plus" />
-        </Button>
-      }
-    >
-      <Modal.Content className={modalStyles.modal}>
-        <Tab
-          activeIndex={tab}
-          className={styles.tabs}
-          onTabChange={(e, data) => handleTabChange(data.activeIndex)}
-          panes={panes}
-        />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
-        <Button disabled={getDisabled()} onClick={handleAdd} primary>
-          {t('save', { ns: 'common' })}
-        </Button>
-      </Modal.Actions>
-    </Modal>
+    <>
+      <Button
+        data-testid="add-rule"
+        disabled={!selectedRuleset}
+        onClick={() => setOpen(true)}
+        type="button"
+        variant="green"
+      >
+        {t('add_rule')}
+        <PlusIcon className="-my-[0.08em] mr-[-0.03em] ml-[0.336em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80" />
+      </Button>
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent dismissible={false}>
+          <DialogTitle className="sr-only">{t('add_rule')}</DialogTitle>
+          <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)">
+            <Tabs onValueChange={(value) => setTab(Number(value))} value={String(tab)}>
+              <TabsList>
+                {panes.map((pane, i) => (
+                  <TabsTrigger key={pane.menuItem} value={String(i)}>
+                    {pane.menuItem}
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+              {panes.map((pane, i) => (
+                <TabsContent key={pane.menuItem} value={String(i)}>
+                  {pane.render()}
+                </TabsContent>
+              ))}
+            </Tabs>
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleClose} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+            <Button disabled={getDisabled()} onClick={handleAdd} variant="primary">
+              {t('save', { ns: 'common' })}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

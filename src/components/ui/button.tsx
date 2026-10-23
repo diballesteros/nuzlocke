@@ -23,11 +23,21 @@ const buttonVariants = cva(
         // Semantic's `color="blue" inverted={darkMode}`: solid blue, outlined in dark mode
         blue: 'bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:bg-primary-focus active:bg-primary-active dark:bg-transparent dark:text-blue-inverted dark:shadow-[inset_0_0_0_2px_var(--color-blue-inverted)] dark:hover:bg-blue-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-blue-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-blue-inverted-active dark:active:text-white dark:active:shadow-none',
         grey: 'bg-grey text-white hover:bg-grey-hover focus-visible:bg-grey-focus active:bg-grey-active',
+        // Semantic's `color="green" inverted={darkMode}`: solid green, outlined in dark mode
+        green:
+          'bg-green text-white hover:bg-green-hover focus-visible:bg-green-focus active:bg-green-active dark:bg-transparent dark:text-green-inverted dark:shadow-[inset_0_0_0_2px_var(--color-green-inverted)] dark:hover:bg-green-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-green-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-green-inverted-active dark:active:text-white dark:active:shadow-none',
+        // Semantic's `color="red" inverted={darkMode}`: solid red, outlined in dark mode
+        red: 'bg-destructive text-white hover:bg-red-hover focus-visible:bg-red-focus active:bg-red-active dark:bg-transparent dark:text-red-inverted dark:shadow-[inset_0_0_0_2px_var(--color-red-inverted)] dark:hover:bg-red-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-red-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-red-inverted-active dark:active:text-white dark:active:shadow-none',
+        // Semantic's `basic inverted={darkMode}`: a thin outline on the page's background
+        basic:
+          'bg-transparent font-normal text-button-foreground shadow-[inset_0_0_0_1px_var(--color-field-border)] hover:bg-white hover:text-button-hover-foreground hover:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] focus-visible:bg-white focus-visible:text-button-hover-foreground focus-visible:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] active:bg-basic-active dark:text-basic-inverted-foreground dark:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.5)] dark:hover:bg-transparent dark:hover:text-white dark:hover:shadow-[inset_0_0_0_2px_var(--color-white)] dark:focus-visible:bg-transparent dark:focus-visible:text-white dark:focus-visible:shadow-[inset_0_0_0_2px_var(--color-white)] dark:active:bg-[rgba(255,255,255,0.08)]',
       },
       size: {
         default: 'px-[1.5em] py-[0.78571429em]',
         // Semantic's `icon` button: square padding around a single icon
         icon: 'p-[0.78571429em]',
+        // Semantic's `compact icon` button
+        'compact-icon': 'p-[0.58928571em]',
       },
     },
     defaultVariants: {

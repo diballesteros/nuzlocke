@@ -9,12 +9,8 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
-
-// Semantic's icon in an icon button: a 1em × 1.18em slot. The one-path glyphs are drawn in a larger
-// box, so the negative margins keep the button the size it was.
-const ICON = '-my-[0.08em] mr-[-0.03em] ml-[0.05em] size-[1.16em] align-top opacity-90';
 
 function CustomStatuses(): React.JSX.Element {
   const { t } = useTranslation('settings');
@@ -58,7 +54,7 @@ function CustomStatuses(): React.JSX.Element {
                     size="icon"
                     variant="secondary"
                   >
-                    <MinusIcon className={ICON} />
+                    <MinusIcon className={BUTTON_ICON} />
                   </Button>
                 </div>
               );
@@ -78,7 +74,7 @@ function CustomStatuses(): React.JSX.Element {
                 size="icon"
                 variant="secondary"
               >
-                <PlusIcon className={ICON} />
+                <PlusIcon className={BUTTON_ICON} />
               </Button>
             </div>
           </DialogBody>
