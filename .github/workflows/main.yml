@@ -9,9 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -24,7 +24,7 @@ jobs:
       - run: npm run build
 
       - name: Save unit coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-unit
           if-no-files-found: error
@@ -45,9 +45,9 @@ jobs:
         shard: [1, 2, 3]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -59,7 +59,7 @@ jobs:
 
       - name: Save failure traces
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-${{ matrix.browser }}-${{ matrix.shard }}
           if-no-files-found: ignore
@@ -68,7 +68,7 @@ jobs:
             playwright-report
 
       - name: Save e2e coverage
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-pw-${{ matrix.browser }}-${{ matrix.shard }}
           if-no-files-found: ignore
@@ -79,12 +79,12 @@ jobs:
     needs: [checks, playwright]
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           # Full history, so changed lines can be diffed against master
           fetch-depth: 0
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -92,7 +92,7 @@ jobs:
       - run: npm ci
 
       - name: Download coverage
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: coverage-*
           path: coverage
@@ -105,7 +105,7 @@ jobs:
         run: node scripts/diff-coverage.mjs --base origin/master
 
       - name: Save coverage report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: coverage-report
           path: coverage/merged
