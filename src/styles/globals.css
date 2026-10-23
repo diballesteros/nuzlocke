@@ -20,6 +20,11 @@
  */
 @source '../components/ui';
 @source '../lib';
+@source '../components/About';
+@source '../components/Changelog';
+@source '../components/Delete';
+@source '../components/Import';
+@source '../components/Report';
 @source '../common/Back';
 @source '../common/DetailSelector';
 @source '../common/EncounterSelector';
@@ -55,6 +60,19 @@
   --button-hover: #cacbcd;
   --button-foreground: rgba(0, 0, 0, 0.6);
   --button-hover-foreground: rgba(0, 0, 0, 0.8);
+  /* Semantic's coloured buttons: primary and grey, each with hover, focus and active shades */
+  --primary-hover: #1678c2;
+  --primary-focus: #0d71bb;
+  --primary-active: #1a69a4;
+  --grey: #767676;
+  --grey-hover: #838383;
+  --grey-focus: #8a8a8a;
+  --grey-active: #909090;
+
+  /* Semantic's radio: the ring, the ring once checked, and the bullet */
+  --radio-border: #d4d4d5;
+  --radio-checked-border: rgba(34, 36, 38, 0.35);
+  --radio-bullet: rgba(0, 0, 0, 0.95);
 
   /* Semantic's dropdown menu: its border while open, and the rule between items */
   --dropdown-active-border: #96c8da;
@@ -62,6 +80,17 @@
 
   /* The suggested/dupe tag on a selector row */
   --suggestion: #80c0d690;
+
+  /* The changelog's release-note tags, the same in both themes */
+  --note-feature: #c6f6d5;
+  --note-feature-foreground: #276749;
+  --note-update: #bee3f8;
+  --note-update-foreground: #2b6cb0;
+  --note-fix: #fed7d7;
+  --note-fix-foreground: #9b2c2c;
+
+  /* The file name next to Import's file button */
+  --file-field: #00000050;
 
   /* shadcn/ui tokens, mapped onto the app colours and Semantic UI's accents */
   --background: var(--bgprimary);
@@ -127,6 +156,23 @@
   --color-contrast-border: var(--contrast-border);
   --color-dropdown-active-border: var(--dropdown-active-border);
   --color-dropdown-item-border: var(--dropdown-item-border);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-focus: var(--primary-focus);
+  --color-primary-active: var(--primary-active);
+  --color-grey: var(--grey);
+  --color-grey-hover: var(--grey-hover);
+  --color-grey-focus: var(--grey-focus);
+  --color-grey-active: var(--grey-active);
+  --color-radio-border: var(--radio-border);
+  --color-radio-checked-border: var(--radio-checked-border);
+  --color-radio-bullet: var(--radio-bullet);
+  --color-note-feature: var(--note-feature);
+  --color-note-feature-foreground: var(--note-feature-foreground);
+  --color-note-update: var(--note-update);
+  --color-note-update-foreground: var(--note-update-foreground);
+  --color-note-fix: var(--note-fix);
+  --color-note-fix-foreground: var(--note-fix-foreground);
+  --color-file-field: var(--file-field);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);

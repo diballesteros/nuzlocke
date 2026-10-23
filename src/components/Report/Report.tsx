@@ -1,29 +1,32 @@
 import { useTranslation } from 'react-i18next';
 import { Page } from 'common';
-import modalStyles from 'assets/styles/Modal.module.scss';
 
 function Report(): React.JSX.Element {
   const { t } = useTranslation('report');
 
   return (
     <Page header={t('report_a_bug')}>
-      <form className={modalStyles.modalColor} name="contact" method="post">
+      <form
+        className="flex flex-col flex-nowrap gap-(--spacing-1) text-foreground"
+        name="contact"
+        method="post"
+      >
         <input type="hidden" name="form-name" value="contact" />
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('type')}:
           <select name="type" data-testid="report-type">
             <option value="bug">Bug</option>
             <option value="suggestion">Suggestion</option>
           </select>
         </label>
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('device')}:
           <select name="device" data-testid="report-device">
             <option value="desktop">Desktop</option>
             <option value="mobile">Mobile</option>
           </select>
         </label>
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('os')}:
           <select name="os" data-testid="report-os">
             <option value="windows">Windows</option>
@@ -34,7 +37,7 @@ function Report(): React.JSX.Element {
             <option value="other">Other</option>
           </select>
         </label>
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('browser')}:
           <select name="browser" data-testid="report-browser">
             <option value="googlechrome">Google Chrome</option>
@@ -44,7 +47,7 @@ function Report(): React.JSX.Element {
             <option value="other">Other</option>
           </select>
         </label>
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('selected_game')}:
           <input
             maxLength={100}
@@ -53,11 +56,11 @@ function Report(): React.JSX.Element {
             type="text"
           />
         </label>
-        <label style={{ display: 'flex', flexFlow: 'column nowrap' }}>
+        <label className="flex flex-col flex-nowrap">
           {t('description')}:
           <textarea maxLength={1000} name="description" data-testid="report-description" />
         </label>
-        <button style={{ width: '5.714rem' }} type="submit">
+        <button className="w-[5.714rem]" type="submit">
           {t('send')}
         </button>
       </form>

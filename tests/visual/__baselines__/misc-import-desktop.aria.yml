@@ -19,28 +19,29 @@
       - /url: /calculator
   - heading "Import" [level=2]
   - button "Back"
-  - radio [checked]
-  - text: Complete Import
-  - paragraph:
-    - text: This will import and replace the encounters, rules and builder teams for
-    - strong: all
-    - text: games! This uses the file generated from the
-    - strong: export
-    - text: in the sidebar.
-  - text: Select a file...
-  - button "Select a file Choose File":
-    - text: ""
-    - button "Choose File"
-  - text: "IMPORTANT: The following option may not import ALL encounters but should work on the majority and will rewrite encounters if they already exist. The status is not imported"
-  - paragraph:
-    - text: /Use PkHex's \(version \d+\.\d+\.1\) Box Data Report to import encounters for the/
-    - strong: selected
-    - text: "game:"
-    - emphasis: FireRed and LeafGreen
-  - radio
-  - text: Import game by table
-  - link "How to generate table with PkHex":
-    - /url: https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-table-with-PkHeX
-  - textbox "Copy and paste the table data..."
-  - button "Apply" [disabled]
+  - radiogroup "Import":
+    - radio "Complete Import" [checked]
+    - text: Complete Import
+    - paragraph:
+      - text: This will import and replace the encounters, rules and builder teams for
+      - strong: all
+      - text: games! This uses the file generated from the
+      - strong: export
+      - text: in the sidebar.
+    - text: Select a file...
+    - button "Select a file Choose File":
+      - text: ""
+      - button "Choose File"
+    - text: "IMPORTANT: The following option may not import ALL encounters but should work on the majority and will rewrite encounters if they already exist. The status is not imported"
+    - paragraph:
+      - text: /Use PkHex's \(version \d+\.\d+\.1\) Box Data Report to import encounters for the/
+      - strong: selected
+      - text: "game:"
+      - emphasis: FireRed and LeafGreen
+    - radio "Import game by table"
+    - text: Import game by table
+    - link "How to generate table with PkHex":
+      - /url: https://github.com/diballesteros/nuzlocke/wiki/How-to-generate-table-with-PkHeX
+    - textbox "Copy and paste the table data..."
+    - button "Apply" [disabled]
 - region "Notifications Alt+T"
