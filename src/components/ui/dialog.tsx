@@ -17,10 +17,13 @@ function DialogContent({
   dismissible = true,
   onEscapeKeyDown,
   onInteractOutside,
+  size = 'default',
   ...props
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   // false: only the dialog's own buttons close it, not Escape or a click outside
   dismissible?: boolean;
+  // Semantic's modal widths: the default, or `small` (Confirm's)
+  size?: 'default' | 'small';
 }) {
   return (
     <DialogPrimitive.Portal data-slot="dialog-portal">
@@ -33,6 +36,8 @@ function DialogContent({
           aria-describedby={undefined}
           className={cn(
             'relative w-[95%] rounded-md will-change-[top,left,margin,transform,opacity] bg-white text-left text-[1rem] shadow-[1px_3px_3px_0_rgba(0,0,0,0.2),1px_3px_15px_2px_rgba(0,0,0,0.2)] outline-none min-[768px]:w-[88%] min-[992px]:w-[850px] min-[1200px]:w-[900px] min-[1920px]:w-[950px] data-[state=closed]:animate-out data-[state=closed]:zoom-out-95 data-[state=open]:animate-in data-[state=open]:zoom-in-95',
+            size === 'small' &&
+              'min-[768px]:w-[70.4%] min-[992px]:w-[680px] min-[1200px]:w-[720px] min-[1920px]:w-[760px]',
             className
           )}
           onEscapeKeyDown={(e) => {
@@ -82,7 +87,7 @@ function DialogFooter({ className, ...props }: React.ComponentProps<'div'>) {
     <div
       data-slot="dialog-footer"
       className={cn(
-        'rounded-b-[2px] border-x-0 border-t border-b-0 border-solid border-foreground bg-background p-[1rem] text-right text-foreground max-[768px]:pb-0 max-[768px]:[&>button]:mb-[1rem]!',
+        'rounded-b-[2px] border-x-0 border-t border-b-0 border-solid border-foreground bg-background p-[1rem] text-right text-foreground max-[768px]:pb-0 max-[768px]:[&>button]:mb-[1rem]! [&>button]:ml-[0.75em]!',
         className
       )}
       {...props}

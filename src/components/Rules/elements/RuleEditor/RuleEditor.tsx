@@ -1,14 +1,19 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import type { TRule, TRuleContent } from 'constants/types';
 import useStore from 'store';
-import modalStyles from 'assets/styles/Modal.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { BUTTON_ICON, PencilIcon } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import { MultiSelect } from '@/components/ui/multi-select';
 
 interface RuleEditorProps {
   content: TRuleContent;
@@ -18,7 +23,6 @@ interface RuleEditorProps {
 
 function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Element {
   const { t } = useTranslation('rules');
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const editRule = useStore(useCallback((state) => state.editRule, []));
   const [open, setOpen] = useState(false);
   const [ruleText, setRuleText] = useState(content);
@@ -61,86 +65,90 @@ function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Elemen
     switch (type) {
       case 'TYPE':
         return (
-          <Dropdown
+          <MultiSelect
+            aria-label={t('allow_only_types')}
             data-testid="edit-rule-type"
-            fluid
-            multiple
-            onChange={(e, data) => setTypes([...(data.value as string[])])}
+            onChange={setTypes}
             options={Object.keys(TYPE_COUNT).map((key) => {
-              return { key, text: key, value: key };
+              return { text: key, value: key };
             })}
             placeholder={t('please_type')}
-            selection
-            value={types}
+            value={types as string[]}
           />
         );
       case 'LEVEL':
         return (
           <Input
+            aria-label={t('max_level_allowed')}
             data-testid="edit-rule-level-input"
             fluid
             max={100}
-            onChange={(e, data) => setLevel(data.value)}
+            onChange={(e) => setLevel(e.target.value)}
             placeholder={t('please_max')}
             type="number"
-            value={level}
+            value={level as string}
           />
         );
       case 'GENERATION':
         return (
-          <Dropdown
+          <MultiSelect
+            aria-label={t('allow_only_generations')}
             data-testid="edit-rule-generation"
-            fluid
-            multiple
-            onChange={(e, data) => setGens([...(data.value as number[])])}
+            onChange={setGens}
             options={GENERATIONS.map((gen) => {
-              return { key: gen, text: gen, value: gen };
+              return { text: String(gen), value: gen };
             })}
             placeholder={t('please_generation')}
-            selection
-            value={gens}
+            value={gens as number[]}
           />
         );
       default:
         return (
           <Input
+            aria-label={t('rule_description')}
             data-testid="edit-rule-input"
             maxLength={500}
-            onChange={(e, data) => setRuleText(data.value)}
-            value={ruleText}
+            onChange={(e) => setRuleText(e.target.value)}
+            value={ruleText as string}
           />
         );
     }
   };
 
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={handleEditClose}
-      open={open}
-      trigger={
-        <Button
-          aria-label="edit rule"
-          basic
-          compact
-          data-testid={`edit-rule-${index}`}
-          icon
-          inverted={darkMode}
-          onClick={handleEditModal}
-          type="button"
-        >
-          <Icon name="pencil" />
-        </Button>
-      }
-    >
-      <Modal.Content className={modalStyles.modal}>{getInput()}</Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleEditClose}>{t('cancel', { ns: 'common' })}</Button>
-        <Button disabled={false} onClick={handleEditRule} primary>
-          {t('save', { ns: 'common' })}
-        </Button>
-      </Modal.Actions>
-    </Modal>
+    <>
+      <Button
+        aria-label="edit rule"
+        data-testid={`edit-rule-${index}`}
+        onClick={handleEditModal}
+        size="compact-icon"
+        type="button"
+        variant="basic"
+      >
+        <PencilIcon className={BUTTON_ICON} />
+      </Button>
+      <Dialog
+        open={open}
+        onOpenChange={(next) => {
+          if (!next) handleEditClose();
+        }}
+      >
+        <DialogContent>
+          <DialogTitle className="sr-only">{t('rule_description')}</DialogTitle>
+          <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)">
+            {getInput()}
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleEditClose} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+            <Button onClick={handleEditRule} variant="primary">
+              {t('save', { ns: 'common' })}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

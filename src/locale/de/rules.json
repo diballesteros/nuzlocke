@@ -18,5 +18,7 @@
   "rule_description": "Regelbeschreibung",
   "ruleset_already": "Regelsatz mit diesem Namen existiert bereits",
   "text": "Text",
-  "type": "Typ"
+  "type": "Typ",
+  "move_down": "Nach unten",
+  "move_up": "Nach oben"
 }

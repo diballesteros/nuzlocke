@@ -18,5 +18,7 @@
   "rule_description": "Rule Description",
   "ruleset_already": "Ruleset with this name already exists",
   "text": "Text",
-  "type": "Type"
+  "type": "Type",
+  "move_down": "Move down",
+  "move_up": "Move up"
 }

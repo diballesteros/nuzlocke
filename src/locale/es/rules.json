@@ -18,5 +18,7 @@
   "rule_description": "Descripción de la regla",
   "ruleset_already": "Un conjunto de reglas con este nombre ya existe",
   "text": "Texto",
-  "type": "Tipo"
+  "type": "Tipo",
+  "move_down": "Bajar",
+  "move_up": "Subir"
 }

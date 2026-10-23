@@ -35,15 +35,16 @@ export const navigate = async (page: Page, testId: string) => {
   await byTestId(page, testId).click();
 };
 
-// Dropdowns. Semantic UI renders role="option" items inside the open menu; the Combobox
-// (data-slot="combobox") portals its menu, which carries the test id plus "-options"
+// Dropdowns. Semantic UI, a `contained` Select and the MultiSelect render role="option" items
+// inside the element carrying the test id; the Combobox (data-slot="combobox") portals its menu,
+// which carries the test id plus "-options". An open menu's trigger has aria-expanded="true".
 export const options = (page: Page, id: string) =>
   byTestId(page, id)
     .getByRole('option')
     .or(byTestId(page, `${id}-options`).getByRole('option'));
 
 const menuOpen = (dropdown: Locator) =>
-  dropdown.locator(':scope > .menu.visible, :scope > input[aria-expanded="true"]').count();
+  dropdown.locator(':scope > .menu.visible, :scope > [aria-expanded="true"]').count();
 
 // `covered`: the open menu sits under another element (known UI issue: the first row's nature
 // menu opens upward beneath the badge strip), so the click is dispatched to the option directly,

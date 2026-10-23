@@ -2,12 +2,7 @@
   {
     "id": "aria-required-children",
     "impact": "critical",
-    "nodes": 2
-  },
-  {
-    "id": "button-name",
-    "impact": "critical",
-    "nodes": 6
+    "nodes": 1
   },
   {
     "id": "page-has-heading-one",

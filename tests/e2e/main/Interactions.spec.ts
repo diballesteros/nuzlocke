@@ -35,6 +35,7 @@ const ESCAPE: { dialog: string; route: string; open: string; closes: boolean }[]
   { dialog: 'share', route: '/rules', open: 'share-encounters', closes: true },
   { dialog: 'Pokémon selector', route: '/', open: 'pokemon-0', closes: false },
   { dialog: 'add rule', route: '/rules', open: 'add-rule', closes: false },
+  { dialog: 'add ruleset', route: '/rules', open: 'add-ruleset', closes: true },
   { dialog: 'custom statuses', route: '/settings', open: 'edit-custom-statuses', closes: false },
 ];
 

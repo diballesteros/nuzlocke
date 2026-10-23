@@ -25,6 +25,7 @@
 @source '../components/Delete';
 @source '../components/Import';
 @source '../components/Report';
+@source '../components/Rules';
 @source '../components/Settings';
 @source '../common/Back';
 @source '../common/DetailSelector';
@@ -76,6 +77,28 @@
   --blue-inverted-focus: #2bbbff;
   --blue-inverted-active: #21b8ff;
 
+  /* Semantic's green and red buttons (red's fill is --destructive), solid and inverted (dark
+     mode), each with hover, focus and active shades */
+  --green: #21ba45;
+  --green-hover: #16ab39;
+  --green-focus: #0ea432;
+  --green-active: #198f35;
+  --green-inverted: #2ecc40;
+  --green-inverted-hover: #22be34;
+  --green-inverted-focus: #19b82b;
+  --green-inverted-active: #25a233;
+  --red-hover: #d01919;
+  --red-focus: #ca1010;
+  --red-active: #b21e1e;
+  --red-inverted: #ff695e;
+  --red-inverted-hover: #ff5144;
+  --red-inverted-focus: #ff4335;
+  --red-inverted-active: #ff392b;
+
+  /* Semantic's basic button: its pressed fill, and its text when inverted (dark mode) */
+  --basic-active: #f8f8f8;
+  --basic-inverted-foreground: #f9fafb;
+
   /* Semantic's radio and checkbox: the box, the box once checked or hovered, and the mark */
   --toggle-border: #d4d4d5;
   --toggle-checked-border: rgba(34, 36, 38, 0.35);
@@ -88,6 +111,8 @@
   --field-foreground: rgba(0, 0, 0, 0.87);
   --field-label: #e8e8e8;
   --field-label-foreground: rgba(0, 0, 0, 0.6);
+  --field-placeholder: rgba(191, 191, 191, 0.87);
+  --field-placeholder-focus: rgba(115, 115, 115, 0.87);
 
   /* Semantic's dropdown menu: its border while open, and the rule between items */
   --dropdown-active-border: #96c8da;
@@ -182,6 +207,23 @@
   --color-blue-inverted-hover: var(--blue-inverted-hover);
   --color-blue-inverted-focus: var(--blue-inverted-focus);
   --color-blue-inverted-active: var(--blue-inverted-active);
+  --color-green: var(--green);
+  --color-green-hover: var(--green-hover);
+  --color-green-focus: var(--green-focus);
+  --color-green-active: var(--green-active);
+  --color-green-inverted: var(--green-inverted);
+  --color-green-inverted-hover: var(--green-inverted-hover);
+  --color-green-inverted-focus: var(--green-inverted-focus);
+  --color-green-inverted-active: var(--green-inverted-active);
+  --color-red-hover: var(--red-hover);
+  --color-red-focus: var(--red-focus);
+  --color-red-active: var(--red-active);
+  --color-red-inverted: var(--red-inverted);
+  --color-red-inverted-hover: var(--red-inverted-hover);
+  --color-red-inverted-focus: var(--red-inverted-focus);
+  --color-red-inverted-active: var(--red-inverted-active);
+  --color-basic-active: var(--basic-active);
+  --color-basic-inverted-foreground: var(--basic-inverted-foreground);
   --color-toggle-border: var(--toggle-border);
   --color-toggle-checked-border: var(--toggle-checked-border);
   --color-toggle-mark: var(--toggle-mark);
@@ -190,6 +232,8 @@
   --color-field-foreground: var(--field-foreground);
   --color-field-label: var(--field-label);
   --color-field-label-foreground: var(--field-label-foreground);
+  --color-field-placeholder: var(--field-placeholder);
+  --color-field-placeholder-focus: var(--field-placeholder-focus);
   --color-note-feature: var(--note-feature);
   --color-note-feature-foreground: var(--note-feature-foreground);
   --color-note-update: var(--note-update);
