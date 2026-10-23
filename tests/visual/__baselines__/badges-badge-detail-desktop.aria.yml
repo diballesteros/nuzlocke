@@ -19,47 +19,50 @@
       - /url: /calculator
   - heading "Details" [level=2]
   - button "Back"
-  - text: "FireRed and LeafGreen Brock Note: these are the Pokemon's base stats, it may not reflect the opponent's actual stats"
-  - img
-  - text: /Geodude Lv\. \d+/
-  - button "pokemon type":
+  - tablist:
+    - tab "FireRed and LeafGreen" [selected]
+  - tabpanel "FireRed and LeafGreen":
+    - text: "Brock Note: these are the Pokemon's base stats, it may not reflect the opponent's actual stats"
     - img
-    - text: ROCK
-  - button "pokemon type":
+    - text: /Geodude Lv\. \d+/
+    - button "pokemon type":
+      - img
+      - text: ROCK
+    - button "pokemon type":
+      - img
+      - text: GROUND
+    - text: "/Ability: Rock Head hp: \\d+ atk: \\d+ def: \\d+ spa: \\d+ spd: \\d+ spe: \\d+/"
+    - button "pokemon type":
+      - img
+    - text: Tackle
+    - img "move status"
+    - button "pokemon type":
+      - img
+    - text: Defense Curl
+    - img "move status"
     - img
-    - text: GROUND
-  - text: "/Ability: Rock Head hp: \\d+ atk: \\d+ def: \\d+ spa: \\d+ spd: \\d+ spe: \\d+/"
-  - button "pokemon type":
-    - img
-  - text: Tackle
-  - img "move status"
-  - button "pokemon type":
-    - img
-  - text: Defense Curl
-  - img "move status"
-  - img
-  - text: /Onix Lv\. \d+/
-  - button "pokemon type":
-    - img
-    - text: ROCK
-  - button "pokemon type":
-    - img
-    - text: GROUND
-  - text: "/Ability: Rock Head hp: \\d+ atk: \\d+ def: \\d+ spa: \\d+ spd: \\d+ spe: \\d+/"
-  - button "pokemon type":
-    - img
-  - text: Tackle
-  - img "move status"
-  - button "pokemon type":
-    - img
-  - text: Bind
-  - img "move status"
-  - button "pokemon type":
-    - img
-  - text: Harden
-  - img "move status"
-  - button "pokemon type":
-    - img
-  - text: Rock Tomb
-  - img "move status"
+    - text: /Onix Lv\. \d+/
+    - button "pokemon type":
+      - img
+      - text: ROCK
+    - button "pokemon type":
+      - img
+      - text: GROUND
+    - text: "/Ability: Rock Head hp: \\d+ atk: \\d+ def: \\d+ spa: \\d+ spd: \\d+ spe: \\d+/"
+    - button "pokemon type":
+      - img
+    - text: Tackle
+    - img "move status"
+    - button "pokemon type":
+      - img
+    - text: Bind
+    - img "move status"
+    - button "pokemon type":
+      - img
+    - text: Harden
+    - img "move status"
+    - button "pokemon type":
+      - img
+    - text: Rock Tomb
+    - img "move status"
 - region "Notifications Alt+T"
