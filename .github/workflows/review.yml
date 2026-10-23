@@ -21,10 +21,10 @@ jobs:
       grep: ${{ steps.areas.outputs.grep }}
       grep-invert: ${{ steps.areas.outputs.grep-invert }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -43,7 +43,7 @@ jobs:
       - name: Migration ratchet
         if: always()
         run: set -o pipefail; node scripts/migration-ratchet.mjs 2>&1 | tee ratchet.txt
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: review-areas
@@ -63,8 +63,8 @@ jobs:
     env:
       VISUAL: 1
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -81,7 +81,7 @@ jobs:
       # verification/approved-diffs.tsv and checked by the baseline guard)
       - name: Touched areas match their committed baselines
         run: npx playwright test --project=visual
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: visual-report
@@ -96,15 +96,15 @@ jobs:
       image: mcr.microsoft.com/playwright:v1.64.1-noble
       options: --user 1001
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
       - name: Persisted-store goldens
         run: npx playwright test --project=state
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: state-report
@@ -113,10 +113,10 @@ jobs:
   bundle-size:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
           cache: npm
@@ -134,7 +134,7 @@ jobs:
           node scripts/bundle-size.mjs --out head-sizes.json
       - name: Compare
         run: node scripts/bundle-size.mjs --compare base-sizes.json head-sizes.json --markdown bundle.md
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: review-bundle
@@ -143,8 +143,8 @@ jobs:
   dependency-review:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/dependency-review-action@v4
+      - uses: actions/checkout@v7
+      - uses: actions/dependency-review-action@v5
         with:
           fail-on-severity: moderate
           comment-summary-in-pr: on-failure
@@ -154,7 +154,7 @@ jobs:
     if: always()
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with:
           pattern: review-*
           merge-multiple: true
