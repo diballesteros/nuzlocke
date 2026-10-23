@@ -1,6 +1,6 @@
 # Nuzlocke Tracker
 
-[![CodeQL](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/diballesteros/nuzlocke/actions/workflows/codeql-analysis.yml) [![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues) [![codecov](https://codecov.io/gh/diballesteros/nuzlocke/branch/master/graph/badge.svg?token=SQPSF96J1S)](https://codecov.io/gh/diballesteros/nuzlocke)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/1a2636a6-8db8-4386-8033-d280495aaf91/deploy-status)](https://app.netlify.com/sites/nuzlocke/deploys) ![GitHub release](https://img.shields.io/github/release/diballesteros/nuzlocke.svg?style=flat-square) [![Issues](https://img.shields.io/github/issues-raw/diballesteros/nuzlocke.svg?maxAge=25000)](https://github.com/diballesteros/nuzlocke/issues)
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ Web app to track and record encounters in any Pokémon game. Including custom ga
 
 All Pokémon included up to generation 8.
 
-Built with ReactJS, Create-React-App, Zustand and Semantic UI.
+Built with ReactJS, Typescript, Vite, Zustand and Semantic UI.
 
 ### 🚀 Features
 
@@ -47,7 +47,7 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 - Build an ideal team with the Team Builder!
 - Quick access to details on type effectiveness and natures
 - Encounter suggestions
-- Soul link integrations
+- Soul Link integrations
 
 ### ✨ How it works
 
@@ -77,20 +77,6 @@ Built with ReactJS, Create-React-App, Zustand and Semantic UI.
 
 ## Getting started
 
-### 🔑 Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- [git](https://github.com/git-guides/install-git#:~:text=To%20install%20Git%2C%20run%20the,installation%20by%20typing%3A%20git%20version%20.)
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-- yarn
-  ```sh
-  npm install --global yarn
-  ```
-
 ### 💻 Installation
 
 1. Clone the repo
@@ -100,11 +86,11 @@ This is an example of how to list things you need to use the software and how to
    ```
 2. Install NPM packages
    ```sh
-   yarn
+   npm install
    ```
 3. Run the project locally
    ```bash
-   yarn start
+   npm run dev
    ```
 
 ## Running the tests
@@ -122,7 +108,7 @@ npm run verify:visual # screenshot, ARIA and accessibility baselines (needs Dock
 This will run the unit tests:
 
 ```bash
-yarn test
+npm run test
 ```
 
 ## Roadmap
