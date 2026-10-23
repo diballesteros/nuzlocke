@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Icon, type IconNode } from 'lucide-react';
 import { Page } from 'common';
 import CHANGELOG from 'constants/changelog';
 import type { TReleaseGroup } from 'constants/types';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
-
-// Lucide's plus is two paths, and the button's translucent text colour painted their crossing twice.
-// One path paints it once, and square caps match the old FontAwesome glyph.
-const PLUS: IconNode = [['path', { d: 'M5 12h14M12 5v14', key: 'plus' }]];
+import { PlusIcon } from '@/components/ui/icons';
 
 function Changelog(): React.JSX.Element {
   const { t, i18n } = useTranslation('common');
@@ -79,13 +75,7 @@ function Changelog(): React.JSX.Element {
             onClick={onSeeMore}
             type="button"
           >
-            <Icon
-              aria-hidden
-              className="-my-[0.08em] mr-[0.395em] ml-[-0.165em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80"
-              iconNode={PLUS}
-              strokeLinecap="square"
-              strokeWidth={4.5}
-            />
+            <PlusIcon className="-my-[0.08em] mr-[0.395em] ml-[-0.165em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80" />
             {t('see_more')}
           </Button>
         )}

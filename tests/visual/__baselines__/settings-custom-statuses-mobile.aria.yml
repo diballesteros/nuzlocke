@@ -1,32 +1,12 @@
 - banner:
-  - button "sidebar-button": "!"
   - listbox "games":
     - alert: Sword and Shield
-  - button "addgame"
-- main:
-  - heading "Settings" [level=2]
-  - button "Back"
-  - checkbox [checked]
-  - text: Dark mode 
-  - checkbox
-  - text: Duplicate clause (Show alert on duplicate pokémon)
-  - checkbox
-  - text: Show nicknames
-  - checkbox
-  - text: Show only missing encounters
-  - checkbox
-  - text: Show all pokémon in every encounter
-  - checkbox
-  - text: Show suggestions
-  - checkbox
-  - text: "Show option to select a Soul Link pokémon from the details Language:"
-  - listbox:
-    - alert: English
-  - button "Edit custom statuses"
 - region "Notifications Alt+T"
-- text: Traded
-- button
-- text: Custom status
-- textbox
-- button
-- button "Cancel"
+- dialog "Edit custom statuses":
+  - heading "Edit custom statuses" [level=2]
+  - text: Traded
+  - button "Remove"
+  - text: ""
+  - textbox "Custom status"
+  - button "Add"
+  - button "Cancel"

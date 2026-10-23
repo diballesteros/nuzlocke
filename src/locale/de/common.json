@@ -49,5 +49,7 @@
   "template_hint": "Beachten Sie, dass dadurch nur die möglichen Begegnungen und Level-Cap-Nummern kopiert werden, nicht jedoch die gym-Informationen",
   "tracker": "Tracker",
   "types": "Typen",
-  "Weak against": "Schwach gegenüber"
+  "Weak against": "Schwach gegenüber",
+  "add": "Hinzufügen",
+  "remove": "Entfernen"
 }

@@ -49,5 +49,7 @@
   "template_hint": "Note this will only copy over the possible encounters and level cap numbers but not the gym information",
   "tracker": "Tracker",
   "types": "Types",
-  "Weak against": "Weak against"
+  "Weak against": "Weak against",
+  "add": "Add",
+  "remove": "Remove"
 }
