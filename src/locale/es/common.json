@@ -49,5 +49,7 @@
   "template_hint": "Ten en cuenta que esto solo copiará los posibles encuentros y los números de límite de nivel, pero no la información del gym",
   "tracker": "Tracker",
   "types": "Tipos",
-  "Weak against": "Debil contra"
+  "Weak against": "Debil contra",
+  "add": "Añadir",
+  "remove": "Quitar"
 }

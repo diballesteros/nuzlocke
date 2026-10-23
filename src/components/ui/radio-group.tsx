@@ -21,14 +21,14 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        'peer absolute top-px left-0 m-0! size-[15px] cursor-pointer rounded-full border border-solid border-radio-border bg-white p-0 outline-none transition-[border-color] duration-100 hover:border-radio-checked-border focus-visible:border-dropdown-active-border disabled:cursor-default! data-[state=checked]:border-radio-checked-border',
+        'peer absolute top-px left-0 m-0! size-[15px] cursor-pointer rounded-full border border-solid border-toggle-border bg-white p-0 outline-none transition-[border-color] duration-100 hover:border-toggle-checked-border focus-visible:border-dropdown-active-border disabled:cursor-default! data-[state=checked]:border-toggle-checked-border',
         className
       )}
       {...props}
     >
       <RadioGroupPrimitive.Indicator
         data-slot="radio-group-indicator"
-        className="absolute top-[3px] left-[3px] size-[7px] rounded-full bg-radio-bullet"
+        className="absolute top-[3px] left-[3px] size-[7px] rounded-full bg-toggle-mark"
       />
     </RadioGroupPrimitive.Item>
   );

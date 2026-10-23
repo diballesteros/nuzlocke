@@ -20,6 +20,8 @@ const buttonVariants = cva(
         // Semantic's `primary` and `color="grey"` buttons, the same in both themes
         primary:
           'bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:bg-primary-focus active:bg-primary-active',
+        // Semantic's `color="blue" inverted={darkMode}`: solid blue, outlined in dark mode
+        blue: 'bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:bg-primary-focus active:bg-primary-active dark:bg-transparent dark:text-blue-inverted dark:shadow-[inset_0_0_0_2px_var(--color-blue-inverted)] dark:hover:bg-blue-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-blue-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-blue-inverted-active dark:active:text-white dark:active:shadow-none',
         grey: 'bg-grey text-white hover:bg-grey-hover focus-visible:bg-grey-focus active:bg-grey-active',
       },
       size: {

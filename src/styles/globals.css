@@ -25,6 +25,7 @@
 @source '../components/Delete';
 @source '../components/Import';
 @source '../components/Report';
+@source '../components/Settings';
 @source '../common/Back';
 @source '../common/DetailSelector';
 @source '../common/EncounterSelector';
@@ -69,10 +70,24 @@
   --grey-focus: #8a8a8a;
   --grey-active: #909090;
 
-  /* Semantic's radio: the ring, the ring once checked, and the bullet */
-  --radio-border: #d4d4d5;
-  --radio-checked-border: rgba(34, 36, 38, 0.35);
-  --radio-bullet: rgba(0, 0, 0, 0.95);
+  /* Semantic's inverted blue button (dark mode), with its hover, focus and active fills */
+  --blue-inverted: #54c8ff;
+  --blue-inverted-hover: #3ac0ff;
+  --blue-inverted-focus: #2bbbff;
+  --blue-inverted-active: #21b8ff;
+
+  /* Semantic's radio and checkbox: the box, the box once checked or hovered, and the mark */
+  --toggle-border: #d4d4d5;
+  --toggle-checked-border: rgba(34, 36, 38, 0.35);
+  --toggle-mark: rgba(0, 0, 0, 0.95);
+
+  /* Semantic's white form fields (input, selection dropdown): border, hover border, text, and the
+     grey label attached to an input */
+  --field-border: rgba(34, 36, 38, 0.15);
+  --field-border-hover: rgba(34, 36, 38, 0.35);
+  --field-foreground: rgba(0, 0, 0, 0.87);
+  --field-label: #e8e8e8;
+  --field-label-foreground: rgba(0, 0, 0, 0.6);
 
   /* Semantic's dropdown menu: its border while open, and the rule between items */
   --dropdown-active-border: #96c8da;
@@ -163,9 +178,18 @@
   --color-grey-hover: var(--grey-hover);
   --color-grey-focus: var(--grey-focus);
   --color-grey-active: var(--grey-active);
-  --color-radio-border: var(--radio-border);
-  --color-radio-checked-border: var(--radio-checked-border);
-  --color-radio-bullet: var(--radio-bullet);
+  --color-blue-inverted: var(--blue-inverted);
+  --color-blue-inverted-hover: var(--blue-inverted-hover);
+  --color-blue-inverted-focus: var(--blue-inverted-focus);
+  --color-blue-inverted-active: var(--blue-inverted-active);
+  --color-toggle-border: var(--toggle-border);
+  --color-toggle-checked-border: var(--toggle-checked-border);
+  --color-toggle-mark: var(--toggle-mark);
+  --color-field-border: var(--field-border);
+  --color-field-border-hover: var(--field-border-hover);
+  --color-field-foreground: var(--field-foreground);
+  --color-field-label: var(--field-label);
+  --color-field-label-foreground: var(--field-label-foreground);
   --color-note-feature: var(--note-feature);
   --color-note-feature-foreground: var(--note-feature-foreground);
   --color-note-update: var(--note-update);
