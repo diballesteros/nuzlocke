@@ -25,6 +25,7 @@
 @source '../components/Delete';
 @source '../components/Import';
 @source '../components/Report';
+@source '../components/Badges';
 @source '../components/Rules';
 @source '../components/Settings';
 @source '../common/Back';
@@ -54,6 +55,10 @@
   --badge: #d46a6a;
   --badgeopac: #d46a6a50;
   --badgeflash: #ffaaaa;
+  /* The badge strip, the same in both themes: badge text, its glow, and the ? button's ring */
+  --badge-foreground: #0a0a0a;
+  --badge-shadow: #999999;
+  --badge-question: #333333;
   --contrast: #333333;
   --contrast-border: #e5e5e5;
 
@@ -187,6 +192,10 @@
   --color-ring: var(--ring);
   --color-header: var(--header);
   --color-badge: var(--badge);
+  --color-badgeflash: var(--badgeflash);
+  --color-badge-foreground: var(--badge-foreground);
+  --color-badge-shadow: var(--badge-shadow);
+  --color-badge-question: var(--badge-question);
   --color-placeholder: var(--placeholder);
   --color-button: var(--button);
   --color-button-hover: var(--button-hover);

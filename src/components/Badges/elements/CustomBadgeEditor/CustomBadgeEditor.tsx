@@ -1,14 +1,20 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
-import styles from 'components/Badges/elements/BadgeEditor/BadgeEditor.module.scss';
+import { HEADER_BUTTON } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
 import buttonStyles from 'assets/styles/Button.module.scss';
-import modalStyles from 'assets/styles/Modal.module.scss';
+import { Button as UIButton } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
 
 interface CustomBadgeEditorProps {
   icon?: boolean;
@@ -28,59 +34,71 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
   };
 
   return selectedGame?.value && Number(selectedGame.value) > MAX_GAME ? (
-    <Modal
-      open={open}
-      trigger={
-        icon ? (
-          <Button
-            icon="pencil"
-            circular
-            className={buttonStyles.iconButton}
-            color="yellow"
-            data-testid="custom-edit-badges"
-            disabled={!selectedGame}
-            onClick={() => setOpen(true)}
-          />
-        ) : (
-          <Button
-            aria-label="editgame"
-            className={styles.button}
-            data-testid="custom-edit-badges"
-            icon="pencil"
-            onClick={() => setOpen(true)}
-          />
-        )
-      }
-    >
-      <Modal.Content className={modalStyles.modal} scrolling>
-        {badges[selectedGame.value] &&
-          badges[selectedGame.value]?.map((val, i) => {
-            return (
-              <div className={styles.custom} key={`custombadge-${Number(i) + 1}`}>
-                <Input
-                  aria-label="custom-badge-level-cap"
-                  data-testid={`custom-badge-input-${i}`}
-                  label={Number(i) + 1}
-                  maxLength={3}
-                  onChange={(e, data) => handleChange(data.value, i)}
-                  value={val}
-                />
-                <Button
-                  data-testid={`remove-custom-badge-${i}`}
-                  icon="minus"
-                  onClick={() => deleteCustomBadge(i)}
-                />
-              </div>
-            );
-          })}
-        <Button data-testid="add-cap" onClick={addCustomBadge}>
-          {t('add_level_cap')} <Icon className="icon plus" />
-        </Button>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>{t('cancel', { ns: 'common' })}</Button>
-      </Modal.Actions>
-    </Modal>
+    <>
+      {icon ? (
+        <Button
+          icon="pencil"
+          circular
+          className={buttonStyles.iconButton}
+          color="yellow"
+          data-testid="custom-edit-badges"
+          disabled={!selectedGame}
+          onClick={() => setOpen(true)}
+        />
+      ) : (
+        <Button
+          aria-label="editgame"
+          className={HEADER_BUTTON}
+          data-testid="custom-edit-badges"
+          icon="pencil"
+          onClick={() => setOpen(true)}
+        />
+      )}
+      {/* No onClose before, so only its own button closes it */}
+      <Dialog open={open} onOpenChange={setOpen}>
+        <DialogContent dismissible={false}>
+          <DialogTitle className="sr-only">{t('edit_level_caps')}</DialogTitle>
+          <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)" scrolling>
+            {badges[selectedGame.value] &&
+              badges[selectedGame.value]?.map((val, i) => {
+                return (
+                  <div
+                    className="mb-(--spacing-2) flex gap-(--spacing-2)"
+                    key={`custombadge-${Number(i) + 1}`}
+                  >
+                    <Input
+                      aria-label="custom-badge-level-cap"
+                      data-testid={`custom-badge-input-${i}`}
+                      label={Number(i) + 1}
+                      maxLength={3}
+                      onChange={(e) => handleChange(e.target.value, i)}
+                      value={val}
+                    />
+                    <UIButton
+                      aria-label={t('remove', { ns: 'common' })}
+                      data-testid={`remove-custom-badge-${i}`}
+                      onClick={() => deleteCustomBadge(i)}
+                      size="icon"
+                      variant="secondary"
+                    >
+                      <MinusIcon className={BUTTON_ICON} />
+                    </UIButton>
+                  </div>
+                );
+              })}
+            <UIButton data-testid="add-cap" onClick={addCustomBadge} variant="secondary">
+              {t('add_level_cap')}{' '}
+              <PlusIcon className="-my-[0.08em] mr-[0.395em] ml-[-0.165em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80" />
+            </UIButton>
+          </DialogBody>
+          <DialogFooter>
+            <UIButton onClick={() => setOpen(false)} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </UIButton>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   ) : null;
 }
 

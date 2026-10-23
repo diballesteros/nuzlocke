@@ -96,7 +96,10 @@ export const expectChecked = (page: Page, id: string, checked: boolean) =>
 export const tabMenu = (page: Page, menu: 'secondary' | 'tabular' | Locator) =>
   typeof menu === 'string'
     ? page.locator(`.ui.${menu}.menu`).first().locator(':scope > .item')
-    : menu.locator('.ui.menu').first().locator(':scope > .item');
+    : menu
+        .locator('.ui.menu, [role="tablist"]')
+        .first()
+        .locator(':scope > .item, :scope > [role="tab"]');
 
 export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: number) =>
   tabMenu(page, menu).nth(n - 1);
@@ -111,7 +114,9 @@ export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialo
 export const clickOutside = (page: Page) => page.mouse.click(2, 2);
 
 export const modalField = (page: Page, n: number) =>
-  page.locator('.ui.modal .content').locator(`:scope > :nth-child(${n}) > input`);
+  page
+    .locator('.ui.modal .content, [data-slot="dialog-body"]')
+    .locator(`:scope > :nth-child(${n}) > input`);
 
 // Semantic's Popup opens on hover (after 50 ms) and toggles on click. A pointer click races the
 // two: when the browser is slow, the hover opens it first and the click closes it again (WebKit's
@@ -119,7 +124,8 @@ export const modalField = (page: Page, n: number) =>
 export const openPopup = (trigger: Locator) => trigger.dispatchEvent('click');
 
 // The help icon next to a widget
-export const helpIcon = (page: Page, id: string) => byTestId(page, id).locator('.question').first();
+export const helpIcon = (page: Page, id: string) =>
+  byTestId(page, id).locator('.question, svg').first();
 
 // Number of encounters the virtualized tracker list renders
 export const encounterRows = (page: Page) =>

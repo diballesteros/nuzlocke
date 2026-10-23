@@ -6,5 +6,6 @@
   "original": "Original",
   "rematch": "Rückkampf",
   "set_default": "Standard setzen",
-  "detail_reminder": "Hinweis: Dies sind die Basiswerte der Pokémon, sie spiegeln möglicherweise nicht die tatsächlichen Werte des Gegners wider."
+  "detail_reminder": "Hinweis: Dies sind die Basiswerte der Pokémon, sie spiegeln möglicherweise nicht die tatsächlichen Werte des Gegners wider.",
+  "edit_level_caps": "Level-Caps bearbeiten"
 }

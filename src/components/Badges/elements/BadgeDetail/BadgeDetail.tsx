@@ -1,8 +1,6 @@
 import { Pokemon } from '@smogon/calc';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
 import { PkmImage } from 'common';
 import { Moves, PokemonType } from 'components';
 import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
@@ -18,7 +16,10 @@ import { POKEMAP } from 'constants/pokemon';
 import type { TDetail } from 'constants/types';
 import { getSmogonName } from 'hooks/useCalculate';
 import useStore from 'store';
-import styles from './BadgeDetail.module.scss';
+import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
+
+// An ability or item: a caption over its value
+const LABEL = 'flex flex-col flex-nowrap items-center gap-(--spacing-1) text-foreground';
 
 interface BadgeDetailProps {
   selectedDetail: TDetail;
@@ -40,31 +41,24 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
   };
   return (
     <>
-      <div className={styles.title}>{selectedDetail?.name}</div>
+      <div className="text-(length:--font-size-6) font-bold text-foreground">
+        {selectedDetail?.name}
+      </div>
       {selectedDetail?.type === 'REMATCH' && (
-        <div className={styles.rematch}>
-          <Radio
-            checked={view === 0}
-            label={t('original')}
-            onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
-              setView(data.value as number)
-            }
-            value={0}
-          />
-          <Radio
-            checked={view === 1}
-            label={t('rematch')}
-            onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
-              setView(data.value as number)
-            }
-            value={1}
-          />
-        </div>
+        <RadioGroup
+          aria-label={selectedDetail?.name}
+          className="mb-(--spacing-1) flex gap-(--spacing-3)"
+          onValueChange={(value) => setView(Number(value))}
+          value={String(view)}
+        >
+          <RadioGroupOption label={t('original')} labelClassName="text-foreground" value="0" />
+          <RadioGroupOption label={t('rematch')} labelClassName="text-foreground" value="1" />
+        </RadioGroup>
       )}
       <div>
-        <span className={styles.detailReminder}>{t('detail_reminder')}</span>
+        <span className="text-foreground">{t('detail_reminder')}</span>
       </div>
-      <div className={styles.gymPokemon}>
+      <div className="flex flex-col flex-nowrap gap-(--spacing-3) overflow-auto">
         {getContent()?.map((pokemon, ind) => {
           const poke = POKEMAP.get(pokemon.id);
           let stats = undefined;
@@ -78,20 +72,20 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
 
           return (
             <div
-              className={styles.pokemon}
+              className="flex flex-col flex-nowrap gap-(--spacing-2) rounded-[4px] p-(--spacing-2)"
               key={`pokemon-${pokemon.id}-${ind + 1}`}
               style={{ border: `2px solid ${TYPE_COLOR[poke?.type]}` }}
             >
-              <div className={styles.pokemonHeader}>
-                <div className={styles.pokemonName}>
+              <div className="flex items-center justify-evenly gap-(--spacing-7)">
+                <div className="flex flex-col flex-nowrap items-center gap-(--spacing-2) text-foreground [&>span]:text-(length:--font-size-4)">
                   {selectedDetail?.type === 'TRIAL' && ind === 0 && (
-                    <span className={styles.totem}>TOTEM</span>
+                    <span className="font-bold underline">TOTEM</span>
                   )}
                   {selectedDetail?.type === 'DYNAMAX' &&
                     ind === (selectedDetail?.content?.length ?? 0) - 1 && (
-                      <span className={styles.totem}>DYNAMAX</span>
+                      <span className="font-bold underline">DYNAMAX</span>
                     )}
-                  <div className={styles.pokemonImage}>
+                  <div className="flex h-[3.5rem] w-[4.5rem] items-center justify-center">
                     <PkmImage name={poke?.text} />
                   </div>
                   <span>
@@ -99,19 +93,19 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
                   </span>
                   <span>Lv. {pokemon?.level}</span>
                 </div>
-                <div className={styles.pokemonDetails}>
+                <div className="flex flex-col flex-nowrap gap-(--spacing-2)">
                   <PokemonType pokemon={poke} />
                   {!!pokemon?.ability && (
-                    <div className={styles.pokemonLabel}>
-                      <span>{t('ability')}:</span>
-                      <span className={styles.value}>{pokemon?.ability}</span>
+                    <div className={LABEL}>
+                      <span className="text-(length:--font-size-2)">{t('ability')}:</span>
+                      <span className="text-(length:--font-size-3)">{pokemon?.ability}</span>
                     </div>
                   )}
                   {!!pokemon?.item && (
-                    <div className={styles.pokemonLabel}>
-                      <span>{t('item')}:</span>
-                      <div className={styles.item}>
-                        <span className={styles.value}>{pokemon?.item}</span>
+                    <div className={LABEL}>
+                      <span className="text-(length:--font-size-2)">{t('item')}:</span>
+                      <div className="flex items-center pl-(--spacing-2)">
+                        <span className="text-(length:--font-size-3)">{pokemon?.item}</span>
                         <div className="pkitem-wrapper">
                           <div className={`pkitem pkitem-${getSmogonItemName(pokemon?.item)}`} />
                         </div>
@@ -120,15 +114,15 @@ function BadgeDetail({ selectedDetail }: BadgeDetailProps): React.JSX.Element {
                   )}
                 </div>
               </div>
-              <div className={styles.extendedDetails}>
+              <div className="flex gap-(--spacing-2) max-sm:flex-col max-sm:flex-nowrap [&>div]:flex-1">
                 {stats?.stats && (
-                  <div className={styles.stats}>
+                  <div className="grid grid-cols-[var(--spacing-6)_var(--spacing-6)_minmax(0,1fr)] gap-(--spacing-2) text-(length:--font-size-3) font-bold">
                     {Object.entries(stats.stats).map(([key, value]) => (
                       <React.Fragment key={`${key}-${value}`}>
-                        <span className={styles.statLabel}>{t(key)}:</span>
+                        <span className="text-foreground">{t(key)}:</span>
                         <span style={{ color: colors[key][0] }}>{value}</span>
                         <div
-                          className={styles.statBar}
+                          className="h-(--spacing-4)"
                           style={{
                             width: `${(value / 450) * 100}%`,
                             backgroundColor: colors[key][0],

@@ -1,10 +1,15 @@
 import { Select as SelectPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { cn } from '@/lib/utils';
+import { buttonVariants } from './button';
 
-// Parity with Semantic UI's `selection` Dropdown without search: a white field showing the value
-// and a caret, opening a white menu attached below it. Radix Select gives the listbox, keyboard
-// handling and positioning (it portals the menu, so it isn't clipped).
+// Parity with Semantic UI's Dropdown without search. Radix Select gives the listbox, keyboard handling
+// and positioning (it portals the menu, so it isn't clipped). Three looks:
+// - `field` (default): the `selection` Dropdown, a white field showing the value and a caret, over a
+//   white menu attached below it;
+// - `inline`: the `inline selection` Dropdown, the same in the page's font with a bold value;
+// - `button`: the `button` Dropdown, a grey button with fixed text (the placeholder; keep `value`
+//   empty) and a caret, over a free-standing menu. Picking an option runs an action.
 
 export interface SelectOption {
   text: string;
@@ -18,8 +23,7 @@ interface SelectProps {
   // it: specs that look for options inside the dropdown keep working
   contained?: boolean;
   'data-testid'?: string;
-  // Semantic's `inline selection` look: the page's font, a bold value and the caret further in
-  inline?: boolean;
+  look?: 'button' | 'field' | 'inline';
   onChange: (value: string) => void;
   options: SelectOption[];
   placeholder?: string;
@@ -31,7 +35,7 @@ function Select({
   className,
   contained = false,
   'data-testid': dataTestId,
-  inline = false,
+  look = 'field',
   onChange,
   options,
   placeholder,
@@ -40,7 +44,12 @@ function Select({
   const content = (
     <SelectPrimitive.Content
       align="start"
-      className="z-1100 w-(--radix-select-trigger-width) overflow-hidden rounded-b-[0.28571429rem] border border-t-0 border-solid border-dropdown-active-border bg-white shadow-[0_2px_3px_0_rgba(34,36,38,0.15)] outline-none"
+      className={cn(
+        'z-1100 overflow-hidden bg-white shadow-[0_2px_3px_0_rgba(34,36,38,0.15)] outline-none',
+        look === 'button'
+          ? 'min-w-(--radix-select-trigger-width) rounded-md border border-solid border-field-border'
+          : 'w-(--radix-select-trigger-width) rounded-b-[0.28571429rem] border border-t-0 border-solid border-dropdown-active-border'
+      )}
       position="popper"
       side="bottom"
     >
@@ -62,23 +71,31 @@ function Select({
     <SelectPrimitive.Trigger
       aria-label={ariaLabel}
       className={cn(
-        // Semantic's reset styles every <button>, so font, size, line height and margin need !
-        'group relative inline-block min-h-[2.71428571em] min-w-[14em] cursor-pointer rounded-[0.28571429rem] border border-solid border-field-border bg-white py-[0.78571429em] pr-[2.1em] pl-[1em] text-left text-[1rem]! leading-[1em]! wrap-break-word whitespace-normal text-field-foreground outline-none m-0! transition-[box-shadow] duration-100 hover:border-field-border-hover focus-visible:border-dropdown-active-border data-[state=open]:z-10 data-[state=open]:rounded-b-none data-[state=open]:border-dropdown-active-border data-[state=open]:shadow-[0_2px_3px_0_rgba(34,36,38,0.15)]',
-        inline ? '[font-family:inherit]! font-bold' : 'font-control!',
+        look === 'button'
+          ? cn(buttonVariants({ variant: 'secondary' }), 'group relative')
+          : cn(
+              // Semantic's reset styles every <button>, so font, size, line height and margin need !
+              'group relative inline-block min-h-[2.71428571em] min-w-[14em] cursor-pointer rounded-[0.28571429rem] border border-solid border-field-border bg-white py-[0.78571429em] pr-[2.1em] pl-[1em] text-left text-[1rem]! leading-[1em]! wrap-break-word whitespace-normal text-field-foreground outline-none m-0! transition-[box-shadow] duration-100 hover:border-field-border-hover focus-visible:border-dropdown-active-border data-[state=open]:z-10 data-[state=open]:rounded-b-none data-[state=open]:border-dropdown-active-border data-[state=open]:shadow-[0_2px_3px_0_rgba(34,36,38,0.15)]',
+              look === 'inline' ? '[font-family:inherit]! font-bold' : 'font-control!'
+            ),
         contained ? 'w-full' : className
       )}
       data-slot="select"
       data-testid={contained ? undefined : dataTestId}
     >
-      <span className="group-data-[state=open]:text-[rgba(0,0,0,0.8)]">
+      <span
+        className={look === 'button' ? undefined : 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'}
+      >
         <SelectPrimitive.Value placeholder={placeholder} />
       </span>
-      {/* Semantic's caret, drawn where its icon font put it */}
+      {/* Semantic's caret, drawn where its icon font put it (after the text on a button) */}
       <svg
         aria-hidden
         className={cn(
-          'absolute top-[16px] opacity-80',
-          inline ? 'right-[25.67px]' : 'right-[13px]'
+          'opacity-80',
+          look === 'button' && 'ml-[1em] inline-block align-middle',
+          look === 'inline' && 'absolute top-[16px] right-[25.67px]',
+          look === 'field' && 'absolute top-[16px] right-[13px]'
         )}
         fill="currentColor"
         height="3.8"
