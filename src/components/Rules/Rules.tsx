@@ -89,7 +89,7 @@ function Rules(): React.JSX.Element {
           className="flex-1"
           contained
           data-testid="rule-select"
-          inline
+          look="inline"
           onChange={changeRuleset}
           options={Object.keys(rules).map((key) => {
             return { text: key, value: key };

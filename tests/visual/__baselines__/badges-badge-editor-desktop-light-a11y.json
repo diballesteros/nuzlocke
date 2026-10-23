@@ -1,10 +1,5 @@
 [
   {
-    "id": "aria-command-name",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
     "id": "aria-required-children",
     "impact": "critical",
     "nodes": 9
@@ -13,15 +8,5 @@
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 3
-  },
-  {
-    "id": "nested-interactive",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "region",
-    "impact": "moderate",
-    "nodes": 1
   }
 ]

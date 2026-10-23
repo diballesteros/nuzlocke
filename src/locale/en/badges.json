@@ -6,5 +6,6 @@
   "original": "Original",
   "rematch": "Rematch",
   "set_default": "Set default",
-  "detail_reminder": "Note: these are the Pokemon's base stats, it may not reflect the opponent's actual stats"
+  "detail_reminder": "Note: these are the Pokemon's base stats, it may not reflect the opponent's actual stats",
+  "edit_level_caps": "Edit level caps"
 }

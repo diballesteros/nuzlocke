@@ -42,3 +42,11 @@ export const PencilIcon = glyph(
 );
 
 export const XIcon = glyph('x', 'M18 6 6 18M6 6l12 12', { strokeWidth: 3 });
+
+export const QuestionIcon = glyph(
+  'question',
+  'M6.5 8.5a5.5 5.5 0 1 1 7.7 5c-1.3.5-2.2 1.3-2.2 2.6v.1M12 20h.01',
+  {
+    strokeWidth: 4.5,
+  }
+);
