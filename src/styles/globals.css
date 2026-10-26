@@ -26,6 +26,9 @@
 @source '../components/Import';
 @source '../components/Report';
 @source '../components/Badges';
+@source '../components/Builder';
+@source '../components/Effectiveness';
+@source '../components/Member';
 @source '../components/Rules';
 @source '../components/Settings';
 @source '../common/Back';

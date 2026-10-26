@@ -61,6 +61,7 @@ function Combobox({
   const rootRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const selected = options.find((option) => option.value === value);
+  const caretWidth = clearable ? 6.5 : 7.5;
 
   const filtered = React.useMemo(() => filterOptions(options, query), [options, query]);
 
@@ -106,7 +107,9 @@ function Combobox({
             aria-expanded={open}
             aria-label={ariaLabel}
             autoComplete="off"
-            className="absolute top-0 left-px z-2 m-0! h-full w-[calc(100%-var(--spacing-8))] cursor-text border-none bg-transparent py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]! text-foreground outline-none"
+            // `search` is Semantic's class for this input; no stylesheet targets it on its own, and
+            // specs still find the input by it
+            className="search absolute top-0 left-px z-2 m-0! h-full w-[calc(100%-var(--spacing-8))] cursor-text border-none bg-transparent py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]! text-foreground outline-none"
             role="combobox"
             type="text"
             value={query}
@@ -157,16 +160,20 @@ function Combobox({
               <X aria-hidden className="size-[0.9em]" strokeWidth={4} />
             </button>
           ) : (
-            // Semantic's caret, drawn where its icon font put it
+            // Semantic's caret, drawn where its icon font put it: a clearable dropdown drew it
+            // narrower (the item selector), the others 7.5px wide (nature, ability)
             <svg
               aria-hidden
-              className="absolute top-[16px] right-[25.9px] z-3 opacity-80"
+              className={cn(
+                'absolute top-[16px] z-3 opacity-80',
+                clearable ? 'right-[25.9px]' : 'right-[25px]'
+              )}
               fill="currentColor"
               height="3.8"
-              viewBox="0 0 6.5 3.8"
-              width="6.5"
+              viewBox={`0 0 ${caretWidth} 3.8`}
+              width={caretWidth}
             >
-              <polygon points="0,0 6.5,0 3.25,3.8" />
+              <polygon points={`0,0 ${caretWidth},0 ${caretWidth / 2},3.8`} />
             </svg>
           )}
           <PopoverPrimitive.Portal>

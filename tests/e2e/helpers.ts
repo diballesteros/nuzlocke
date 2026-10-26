@@ -92,10 +92,14 @@ export const radio = (page: Page, label: string) =>
 export const expectChecked = (page: Page, id: string, checked: boolean) =>
   expect(checkbox(page, id)).toBeChecked({ checked });
 
-// Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace
+// Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace. A string names
+// Semantic's menu class or the Tabs variant (`secondary`, `tabular`)
 export const tabMenu = (page: Page, menu: 'secondary' | 'tabular' | Locator) =>
   typeof menu === 'string'
-    ? page.locator(`.ui.${menu}.menu`).first().locator(':scope > .item')
+    ? page
+        .locator(`.ui.${menu}.menu, [data-slot="tabs-list"][data-variant="${menu}"]`)
+        .first()
+        .locator(':scope > .item, :scope > [role="tab"]')
     : menu
         .locator('.ui.menu, [role="tablist"]')
         .first()
