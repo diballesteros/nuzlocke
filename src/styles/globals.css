@@ -29,6 +29,7 @@
 @source '../components/Builder';
 @source '../components/Effectiveness';
 @source '../components/Member';
+@source '../components/Pokestats';
 @source '../components/Rules';
 @source '../components/Settings';
 @source '../common/Back';
@@ -62,6 +63,24 @@
   --badge-foreground: #0a0a0a;
   --badge-shadow: #999999;
   --badge-question: #333333;
+
+  /* PokéStats, the same in both themes: the Team box (grass, the blue member bar and its rails, the
+     pokéball's ring and halves), the completion ring's track, a grey count label, and the
+     display-settings panel's glow */
+  --team-box: #899928;
+  --team-member: #3790d9;
+  --team-rail: #80c0d6;
+  --pokeball-ring: #333333;
+  --pokeball-top: #b24000;
+  --pokeball-bottom: #b2b8c9;
+  --completion-track: #dddddd;
+  --label-strong: #999999;
+  --panel-glow: #d0d0d0;
+
+  /* Semantic's popup: its border and arrow shadow, and the inverted (dark mode) fill */
+  --popup-border: #d4d4d5;
+  --popup-arrow: #bababc;
+  --popup-inverted: #1b1c1d;
   --contrast: #333333;
   --contrast-border: #e5e5e5;
 
@@ -199,6 +218,18 @@
   --color-badge-foreground: var(--badge-foreground);
   --color-badge-shadow: var(--badge-shadow);
   --color-badge-question: var(--badge-question);
+  --color-team-box: var(--team-box);
+  --color-team-member: var(--team-member);
+  --color-team-rail: var(--team-rail);
+  --color-pokeball-ring: var(--pokeball-ring);
+  --color-pokeball-top: var(--pokeball-top);
+  --color-pokeball-bottom: var(--pokeball-bottom);
+  --color-completion-track: var(--completion-track);
+  --color-label-strong: var(--label-strong);
+  --color-panel-glow: var(--panel-glow);
+  --color-popup-border: var(--popup-border);
+  --color-popup-arrow: var(--popup-arrow);
+  --color-popup-inverted: var(--popup-inverted);
   --color-placeholder: var(--placeholder);
   --color-button: var(--button);
   --color-button-hover: var(--button-hover);

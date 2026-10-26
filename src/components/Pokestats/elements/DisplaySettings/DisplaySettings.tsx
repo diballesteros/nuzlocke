@@ -1,12 +1,16 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import useStore from 'store';
-import styles from './DisplaySettings.module.scss';
+import { Button } from '@/components/ui/button';
+import { CheckboxOption } from '@/components/ui/checkbox';
+import { SettingsIcon, TRAILING_ICON } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import { Select } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
+
+// Each group of settings: a native disclosure with a rule under it
+const SECTION =
+  'border-0 border-b border-solid border-foreground p-(--spacing-1) text-left [&>div]:flex [&>div]:flex-col [&>div]:flex-nowrap [&>div]:gap-(--spacing-1) [&>div]:px-0 [&>div]:py-(--spacing-1)';
 
 function DisplaySettings(): React.JSX.Element {
   const { t } = useTranslation('stats');
@@ -23,115 +27,91 @@ function DisplaySettings(): React.JSX.Element {
   const [show, setShow] = useState(false);
 
   const SUM_STATUS = [
-    {
-      key: 'ongoing',
-      text: t('ongoing'),
-      value: 0,
-    },
-    {
-      key: 'complete',
-      text: t('complete'),
-      value: 1,
-    },
-    {
-      key: 'FAILED',
-      text: t('Failed'),
-      value: 2,
-    },
+    { text: t('ongoing'), value: '0' },
+    { text: t('complete'), value: '1' },
+    { text: t('Failed'), value: '2' },
   ];
 
+  const option = (
+    setting: 'boxed' | 'encounters' | 'fainted' | 'rules' | 'showDescription' | 'stats',
+    testId: string,
+    label: string
+  ) => (
+    <CheckboxOption
+      checked={summary?.[setting]}
+      className="w-full"
+      data-testid={testId}
+      label={label}
+      labelClassName="text-foreground"
+      onCheckedChange={() => toggleSummarySetting(setting)}
+    />
+  );
+
   return (
-    <div className={styles.container}>
+    <div className="relative">
+      {/* Semantic's toggle button: grey, green while its panel is open. On a phone it loses its icon
+          (its padding rule never won over Semantic's) */}
       <Button
-        active={show}
-        color="grey"
+        aria-pressed={show}
+        className={cn(
+          show &&
+            'bg-green hover:bg-green-hover focus-visible:bg-green-hover active:bg-green-active'
+        )}
         data-testid="display-settings"
         onClick={() => setShow((prevState) => !prevState)}
-        toggle
+        variant="grey"
       >
-        {t('settings')} <Icon name="settings" />
+        {t('settings')} <SettingsIcon className={cn(TRAILING_ICON, 'max-xs:[display:none]!')} />
       </Button>
       {show && (
-        <div className={styles.popup}>
-          <details>
+        <div className="absolute top-(--spacing-9) right-0 z-1 flex h-fit w-[17.857rem] min-w-[17.857rem] flex-col flex-nowrap gap-(--spacing-3) rounded-[4px] bg-card p-(--spacing-4) text-center text-foreground shadow-[1px_0_14px_1px_var(--color-panel-glow)]">
+          <details className={SECTION}>
             <summary>{t('header')}</summary>
             <div>
               <Input
+                className="mb-(--spacing-2)"
                 data-testid="summary-title"
                 fluid
                 label={t('title')}
                 maxLength={50}
-                onChange={(e, data) => changeSummaryTitle(data.value)}
-                style={{ marginBottom: 'var(--spacing-2)' }}
+                onChange={(e) => changeSummaryTitle(e.target.value)}
                 value={summary?.title}
               />
               <span>{t('status')}:</span>
-              <Dropdown
-                className={styles.dropdown}
+              <Select
+                aria-label={t('status')}
+                contained
                 data-testid="summary-status"
-                inline
-                onChange={(e, data) => changeSummaryStatus(data.value as number)}
+                look="text"
+                onChange={(value) => changeSummaryStatus(Number(value))}
                 options={SUM_STATUS}
-                value={summary?.status}
+                value={String(summary?.status)}
               />
             </div>
           </details>
-          <details>
+          <details className={SECTION}>
             <summary>{t('encounters')}</summary>
-            <div>
-              <Checkbox
-                checked={summary?.encounters}
-                data-testid="summary-encounters"
-                label={t('show_encounters')}
-                onChange={() => toggleSummarySetting('encounters')}
-              />
-            </div>
+            <div>{option('encounters', 'summary-encounters', t('show_encounters'))}</div>
           </details>
-          <details>
+          <details className={SECTION}>
             <summary>{t('stats')}</summary>
             <div>
-              <Checkbox
-                checked={summary?.stats}
-                data-testid="summary-stats"
-                label={t('show_stats')}
-                onChange={() => toggleSummarySetting('stats')}
-              />
-              <Checkbox
-                checked={summary?.boxed}
-                data-testid="summary-boxed"
-                label={t('show_boxed')}
-                onChange={() => toggleSummarySetting('boxed')}
-              />
-              <Checkbox
-                checked={summary?.fainted}
-                data-testid="summary-fainted"
-                label={t('show_fainted')}
-                onChange={() => toggleSummarySetting('fainted')}
-              />
+              {option('stats', 'summary-stats', t('show_stats'))}
+              {option('boxed', 'summary-boxed', t('show_boxed'))}
+              {option('fainted', 'summary-fainted', t('show_fainted'))}
             </div>
           </details>
-          <details>
+          <details className={SECTION}>
             <summary>{t('rules')}</summary>
-            <div>
-              <Checkbox
-                checked={summary?.rules}
-                data-testid="summary-rules"
-                label={t('show_rules')}
-                onChange={() => toggleSummarySetting('rules')}
-              />
-            </div>
+            <div>{option('rules', 'summary-rules', t('show_rules'))}</div>
           </details>
-          <details>
+          <details className={SECTION}>
             <summary>{t('description')}</summary>
             <div>
-              <Checkbox
-                checked={summary?.showDescription}
-                data-testid="summary-show-description"
-                label={t('show_description')}
-                onChange={() => toggleSummarySetting('showDescription')}
-              />
+              {option('showDescription', 'summary-show-description', t('show_description'))}
               <textarea
-                className={styles.textarea}
+                aria-label={t('description')}
+                className="w-full resize-none"
                 data-testid="summary-description"
                 maxLength={1000}
                 onChange={(e) => changeSummaryDesc(e.target.value)}
