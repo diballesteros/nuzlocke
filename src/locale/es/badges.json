@@ -6,5 +6,6 @@
   "original": "Original",
   "rematch": "Revancha",
   "set_default": "Setear por defecto",
-  "detail_reminder": "Nota: estas son los stats base de los Pokémon, puede que no reflejen los stats reales del oponente."
+  "detail_reminder": "Nota: estas son los stats base de los Pokémon, puede que no reflejen los stats reales del oponente.",
+  "edit_level_caps": "Editar niveles máximos"
 }

@@ -1,9 +1,14 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { BADGE_IMAGES } from 'constants/badges';
 import useStore from 'store';
-import styles from './Badges.module.scss';
+import { QuestionIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+
+// A badge: greyed out until obtained or hovered, flashing on press. Semantic's reset styles every
+// <button>, so font family, size, line height and margin need !
+const BADGE =
+  'relative m-0! flex max-w-[8.571rem] flex-1 cursor-pointer items-center justify-center gap-(--spacing-2) h-[5.714rem] rounded-[3px] border-0 border-r border-solid border-white bg-badge p-(--spacing-3) [font-family:inherit]! text-[length:inherit]! leading-[inherit]! [font-weight:bolder] text-badge-foreground shadow-[0_0_4px_var(--color-badge-shadow)] transition-[background] duration-800 [filter:grayscale(1.1)] last:border-r-0 hover:[filter:none] active:bg-badgeflash active:transition-none';
 
 function Badges(): React.JSX.Element {
   const navigate = useNavigate();
@@ -28,32 +33,41 @@ function Badges(): React.JSX.Element {
     }
   };
 
+  const isActive = (index: number) => {
+    const badgeArr = games[selectedGame?.value]?.badge;
+    return Array.isArray(badgeArr) && badgeArr?.includes(index);
+  };
+
   return (
-    <div className={styles.badges} data-testid="badges">
+    <div
+      className="relative flex w-full flex-row flex-nowrap overflow-y-auto [&::-webkit-scrollbar-thumb]:h-[12px] [&::-webkit-scrollbar-thumb]:bg-[rgba(0,0,0,0.55)]!"
+      data-testid="badges"
+    >
       {!!selectedGame &&
         badges[selectedGame?.value]?.map((badge, index) => {
-          const badgeArr = games[selectedGame?.value]?.badge;
           return (
             <button
-              className={`${styles.badge} ${
-                Array.isArray(badgeArr) && badgeArr?.includes(index) ? styles.active : ''
-              }`}
+              className={cn(BADGE, isActive(index) && '[filter:none]')}
               key={`${badge.name}-${badge.id}`}
               onClick={() => handleClick(index)}
               title={badge.name}
               type="button"
             >
-              <img src={BADGE_IMAGES[selectedGame?.value][index].src} alt={badge.name} />
-              <span className={styles.levelCap}>{badge.levelCap}</span>
+              <img
+                alt={badge.name}
+                className="h-[3.214rem] w-[3.214rem] object-contain"
+                src={BADGE_IMAGES[selectedGame?.value][index].src}
+              />
+              <span className="self-end">{badge.levelCap}</span>
               <div
-                className={styles.question}
+                className="absolute top-(--spacing-1) right-(--spacing-1) m-0 grid size-(--spacing-7) place-items-center rounded-full border-2 border-solid border-badge-question p-0 text-(length:--font-size-2) shadow-[0_8px_15px_rgba(0,0,0,0.1)] hover:bg-badge-question hover:text-white focus:bg-badge-question focus:text-white"
                 data-testid={`badge-detail-${index}`}
                 onClick={(e) => handleOpen(e, index)}
                 onKeyDown={(e) => handleKeyDown(e, index)}
                 role="button"
                 tabIndex={0}
               >
-                <Icon name="question" />
+                <QuestionIcon className="size-[1.2em]" />
               </div>
             </button>
           );
@@ -61,17 +75,14 @@ function Badges(): React.JSX.Element {
       {!!selectedGame &&
         customBadges[selectedGame?.value] &&
         customBadges[selectedGame?.value]?.map((badge, index) => {
-          const badgeArr = games[selectedGame?.value]?.badge;
           return (
             <button
-              className={`${styles.badge} ${
-                Array.isArray(badgeArr) && badgeArr?.includes(index) ? styles.active : ''
-              }`}
+              className={cn(BADGE, isActive(index) && '[filter:none]')}
               key={`${badge}-${Number(index) + 1}`}
               onClick={() => handleClick(index)}
               type="button"
             >
-              <span className={styles.customBadge}>{badge}</span>
+              <span className="text-(length:--font-size-9)">{badge}</span>
             </button>
           );
         })}

@@ -1,12 +1,11 @@
 import { useCallback, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
-import Tab from 'semantic-ui-react/dist/commonjs/modules/Tab';
 import { Page } from 'common';
 import { BadgeDetail } from 'components/Badges/elements';
 import DETAILS from 'constants/details';
 import useStore from 'store';
-import styles from './BadgePage.module.scss';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 function BadgePage(): React.JSX.Element {
   const navigate = useNavigate();
@@ -32,33 +31,33 @@ function BadgePage(): React.JSX.Element {
     }
   }, [game, navigate, selectedDetail]);
 
-  const panes = selectedDetail
-    ? selectedDetail.map((gameDetail) => {
-        return {
-          menuItem: gameDetail.game,
-          render: () => (
-            <Tab.Pane>
-              <BadgeDetail selectedDetail={selectedDetail[tab]} />
-            </Tab.Pane>
-          ),
-        };
-      })
-    : null;
-
-  const handleTabChange = (newIndex: string | number) => {
-    setTab(Number(newIndex));
-  };
-
   return (
     <Page header={t('details')}>
-      <Tab
-        activeIndex={tab}
-        className={styles.tabs}
-        data-testid="badge-details-tabs"
-        menu={{ attached: false, tabular: false }}
-        onTabChange={(e, data) => handleTabChange(data.activeIndex)}
-        panes={panes}
-      />
+      {selectedDetail && (
+        <Tabs
+          className="flex min-h-0 flex-1 flex-col flex-nowrap"
+          data-testid="badge-details-tabs"
+          onValueChange={(value) => setTab(Number(value))}
+          value={String(tab)}
+          variant="menu"
+        >
+          <TabsList>
+            {selectedDetail.map((gameDetail, i) => (
+              <TabsTrigger key={gameDetail.game} value={String(i)}>
+                {gameDetail.game}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+          {/* One panel for whichever tab is active, as Semantic rendered it, so the Original/Rematch
+              choice carries over to the next game */}
+          <TabsContent
+            className="flex min-h-0 flex-1 flex-col flex-nowrap gap-(--spacing-3) p-(--spacing-1)"
+            value={String(tab)}
+          >
+            <BadgeDetail selectedDetail={selectedDetail[tab]} />
+          </TabsContent>
+        </Tabs>
+      )}
     </Page>
   );
 }
