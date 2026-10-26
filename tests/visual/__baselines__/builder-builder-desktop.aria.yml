@@ -17,25 +17,24 @@
       - /url: /builder
     - link "Calculator":
       - /url: /calculator
-  - text: Builder Coverage
-  - img
-  - text: Bulbasaur
-  - button "pokemon type":
+  - tablist:
+    - tab "Builder" [selected]
+    - tab "Coverage"
+  - tabpanel "Builder":
     - img
-    - text: GRASS
-  - button "pokemon type":
-    - img
-    - text: POISON
-  - combobox "nature-selector":
-    - textbox
-    - alert: Select a nature...
-  - button "nature chart"
-  - combobox "ability":
-    - textbox
-    - alert: Select an ability...
-  - combobox "item"
-  - text: Select a move... Select a move... Select a move... Select a move...
-  - button "DELETE"
-  - button:
-    - button
+    - text: Bulbasaur
+    - button "pokemon type":
+      - img
+      - text: GRASS
+    - button "pokemon type":
+      - img
+      - text: POISON
+    - combobox "nature-selector"
+    - button "nature chart"
+    - combobox "ability"
+    - combobox "item"
+    - text: Select a move... Select a move... Select a move... Select a move...
+    - button "DELETE"
+    - button "Add":
+      - button "Add"
 - region "Notifications Alt+T"
