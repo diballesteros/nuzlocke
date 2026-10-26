@@ -50,3 +50,5 @@ export const QuestionIcon = glyph(
     strokeWidth: 4.5,
   }
 );
+
+export const ChevronRightIcon = glyph('chevron-right', 'm9.5 6 6 6-6 6', { strokeWidth: 4 });

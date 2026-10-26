@@ -4,7 +4,10 @@ import { TYPE_COLOR } from 'constants/colors';
 import type { Type } from 'constants/types';
 import { selectBuilderStrong, selectBuilderWeak } from 'selectors';
 import useStore from 'store';
-import styles from './Coverage.module.scss';
+
+const TYPES = 'grid grid-cols-[repeat(4,minmax(0,6.429rem))] gap-x-(--spacing-2) gap-y-(--spacing-2)';
+const TYPE =
+  'h-[1.714rem] min-w-[6.429rem] rounded-[8px] p-(--spacing-1) text-center font-bold text-black';
 
 function Coverage(): React.JSX.Element {
   const { t } = useTranslation('builder');
@@ -12,15 +15,16 @@ function Coverage(): React.JSX.Element {
   const weak = useStore(useShallow(selectBuilderWeak));
 
   return (
-    <section className={styles.container}>
+    // Semantic sets display: block on <section>, so flex needs !
+    <section className="flex! flex-col flex-nowrap gap-(--spacing-2) p-(--spacing-3) [&_h2]:text-foreground">
       <h2>{t('number_of_moves')}</h2>
-      <div className={styles.types}>
+      <div className={TYPES}>
         {Object.entries(strong)
           .sort((a, b) => b[1] - a[1])
           .map((entry) => {
             return (
               <div
-                className={styles.type}
+                className={TYPE}
                 key={`strong-type-${entry[0]}`}
                 style={{ backgroundColor: TYPE_COLOR[entry[0] as Type] }}
               >
@@ -30,13 +34,13 @@ function Coverage(): React.JSX.Element {
           })}
       </div>
       <h2>{t('weak_against')}</h2>
-      <div className={styles.types}>
+      <div className={TYPES}>
         {Object.entries(weak)
           .sort((a, b) => b[1] - a[1])
           .map((entry) => {
             return (
               <div
-                className={styles.type}
+                className={TYPE}
                 key={`weak-type-${entry[0]}`}
                 style={{ backgroundColor: TYPE_COLOR[entry[0] as Type] }}
               >
