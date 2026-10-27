@@ -5,6 +5,7 @@
 - dialog "Select a Pokémon":
   - heading "Select a Pokémon" [level=2]
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - complementary:
     - paragraph: If you don't happen to see the pokémon you're looking for here you can see all pokémon by enabling the option on the settings page. And please report any missing encounters as a bug to help out fellow nuzlockers.

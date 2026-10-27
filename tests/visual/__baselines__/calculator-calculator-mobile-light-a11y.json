@@ -12,7 +12,7 @@
   {
     "id": "button-name",
     "impact": "critical",
-    "nodes": 6
+    "nodes": 2
   },
   {
     "id": "color-contrast",

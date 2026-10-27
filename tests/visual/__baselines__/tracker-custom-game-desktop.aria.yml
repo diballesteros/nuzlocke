@@ -30,6 +30,7 @@
   - button "0"
   - button "search-options"
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - button "SHARE"
   - button "ADD"

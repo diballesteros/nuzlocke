@@ -18,6 +18,7 @@
       - /url: /calculator
   - button "search-options"
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - button "SHARE" [disabled]
   - button "ADD" [disabled]

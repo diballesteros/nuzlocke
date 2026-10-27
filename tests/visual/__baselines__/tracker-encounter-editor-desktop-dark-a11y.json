@@ -1,18 +1,13 @@
 [
   {
-    "id": "aria-command-name",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "aria-input-field-name",
-    "impact": "serious",
+    "id": "aria-required-children",
+    "impact": "critical",
     "nodes": 1
   },
   {
-    "id": "aria-required-children",
+    "id": "button-name",
     "impact": "critical",
-    "nodes": 4
+    "nodes": 1
   },
   {
     "id": "color-contrast",
@@ -20,23 +15,8 @@
     "nodes": 2
   },
   {
-    "id": "label",
-    "impact": "critical",
-    "nodes": 5
-  },
-  {
-    "id": "nested-interactive",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "region",
-    "impact": "moderate",
-    "nodes": 8
-  },
-  {
     "id": "role-img-alt",
     "impact": "serious",
-    "nodes": 8
+    "nodes": 1
   }
 ]
