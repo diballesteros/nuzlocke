@@ -2,6 +2,10 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+The UI migration's status, the user's decisions and the working rules for it are in the handoff below, so every session (on any machine) starts with them:
+
+@docs/ui-migration-handoff.md
+
 ## Project
 
 Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, Semantic UI React and SCSS modules for most components, migrating area by area to shadcn/ui (Radix) and Tailwind v4, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
