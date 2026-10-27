@@ -65,14 +65,26 @@ describe('encounter details', () => {
     expect(store().games).toEqual(before);
   });
 
-  test('changeLevel with details but level 0 resets the level to 1', () => {
+  test('changeLevel never takes the level below 1', () => {
     const { id } = first();
     store().changePokemon(id, 816);
     store().changeNature(id, 'Bold');
     expect(first().details.level).toBe(1);
     store().changeLevel(id, false);
-    expect(first().details.level).toBe(0);
-    // A level of 0 is falsy, so the next step in either direction lands on 1
+    expect(first().details.level).toBe(1);
+    store().changeLevel(id, true);
+    store().changeLevel(id, true);
+    store().changeLevel(id, false);
+    expect(first().details.level).toBe(2);
+  });
+
+  test('changeLevel with a stored level of 0 resets the level to 1', () => {
+    const { id } = first();
+    store().changePokemon(id, 816);
+    store().changeNature(id, 'Bold');
+    useStore.setState((state) => {
+      state.games[SWSH].encounters[0].details.level = 0;
+    });
     store().changeLevel(id, false);
     expect(first().details.level).toBe(1);
   });
