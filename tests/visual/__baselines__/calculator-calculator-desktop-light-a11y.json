@@ -5,14 +5,9 @@
     "nodes": 1
   },
   {
-    "id": "aria-hidden-focus",
-    "impact": "serious",
-    "nodes": 1
-  },
-  {
     "id": "aria-required-children",
     "impact": "critical",
-    "nodes": 4
+    "nodes": 1
   },
   {
     "id": "button-name",
@@ -22,7 +17,7 @@
   {
     "id": "label",
     "impact": "critical",
-    "nodes": 18
+    "nodes": 2
   },
   {
     "id": "nested-interactive",

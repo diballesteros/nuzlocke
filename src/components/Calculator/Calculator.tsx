@@ -12,7 +12,15 @@ import useWindowSize from 'hooks/useWindowSize';
 import { selectCaught } from 'selectors';
 import useStore from 'store';
 import PokeballSVG from 'assets/svg/pokeball.svg?react';
-import styles from './Calculator.module.scss';
+import { cn } from '@/lib/utils';
+
+// A side's panel. Fieldsets keep the browser's own padding and margin, as they did
+const FIELDSET =
+  'flex flex-col flex-nowrap gap-(--spacing-5) overflow-auto rounded-[4px] border-none bg-card max-md:col-span-full';
+
+// A side's tab at the bottom of the screen on mobile
+const TAB =
+  'flex-1 cursor-pointer border-0 border-t border-solid border-tab-border bg-secondary p-(--spacing-2) text-center text-(length:--font-size-4) font-bold text-foreground first:border-r';
 
 function Calculator(): React.JSX.Element {
   const { t } = useTranslation('common');
@@ -36,12 +44,15 @@ function Calculator(): React.JSX.Element {
   };
 
   return (
-    <form className={styles.container} id="calculator">
+    <form
+      className="relative grid h-full min-h-0 grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-(--spacing-2) overflow-auto p-(--spacing-2) max-md:pb-(--spacing-7)"
+      id="calculator"
+    >
       {selectedGame && calc?.form ? (
         <>
           <CalculatorHeader />
           <fieldset
-            className={styles.fieldset}
+            className={FIELDSET}
             style={{ display: selected === 0 || size?.width >= 750 ? 'flex' : 'none' }}
           >
             <General encounters={caught} pokemon="1" />
@@ -53,7 +64,7 @@ function Calculator(): React.JSX.Element {
             <SideField pokemon="1" />
           </fieldset>
           <fieldset
-            className={styles.fieldset}
+            className={FIELDSET}
             style={{ display: selected === 1 || size?.width >= 750 ? 'flex' : 'none' }}
           >
             <General pokemon="2" />
@@ -64,9 +75,9 @@ function Calculator(): React.JSX.Element {
             <Stats pokemon="2" />
             <SideField pokemon="2" />
           </fieldset>
-          <div className={styles.tabs}>
+          <div className="absolute bottom-0 flex w-full flex-row flex-nowrap bg-[grey] md:[display:none]">
             <div
-              className={`${styles.tab} ${selected === 0 ? styles.active : ''}`}
+              className={cn(TAB, selected === 0 && 'text-badge')}
               data-testid="pokemon1-tab"
               onClick={() => setSelected(0)}
               role="button"
@@ -76,7 +87,7 @@ function Calculator(): React.JSX.Element {
               Pokémon 1
             </div>
             <div
-              className={`${styles.tab} ${selected === 1 ? styles.active : ''}`}
+              className={cn(TAB, selected === 1 && 'text-badge')}
               data-testid="pokemon2-tab"
               onClick={() => setSelected(1)}
               role="button"
@@ -88,7 +99,7 @@ function Calculator(): React.JSX.Element {
           </div>
         </>
       ) : (
-        <div className={styles.placeholder}>
+        <div className="col-span-full flex h-full flex-1 flex-col flex-nowrap items-center justify-center gap-(--spacing-5) text-(length:--font-size-4) text-foreground [&>svg]:w-1/2 [&>svg]:max-w-[20rem] [&>svg_path]:fill-foreground">
           <PokeballSVG />
           <span>{t('please_select')}</span>
         </div>

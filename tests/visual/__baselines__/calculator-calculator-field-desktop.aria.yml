@@ -18,40 +18,47 @@
     - link "Calculator":
       - /url: /calculator
   - button "Field"
-  - text: "Game type:"
-  - radio [checked]
-  - text: Singles
-  - radio
-  - text: "Doubles Terrain:"
-  - radio [checked]
-  - text: None
-  - radio
-  - text: Electric
-  - radio
-  - text: Grassy
-  - radio
-  - text: Misty
-  - radio
-  - text: "Psychic Weather:"
-  - radio [checked]
-  - text: None
-  - radio
-  - text: Sun
-  - radio
-  - text: Rain
-  - radio
-  - text: Sand
-  - radio
-  - text: Hail
-  - radio
-  - text: Harsh Sunshine
-  - radio
-  - text: Heavy Rain
-  - radio
-  - text: Strong Winds
+  - radiogroup "Game type":
+    - text: ""
+    - radio "Singles" [checked]
+    - text: Singles
+    - radio "Doubles"
+    - text: Doubles
+  - radiogroup "Terrain":
+    - text: "Terrain:"
+    - radio "None" [checked]
+    - text: None
+    - radio "Electric"
+    - text: Electric
+    - radio "Grassy"
+    - text: Grassy
+    - radio "Misty"
+    - text: Misty
+    - radio "Psychic"
+    - text: Psychic
+  - radiogroup "Weather":
+    - text: "Weather:"
+    - radio "None" [checked]
+    - text: None
+    - radio "Sun"
+    - text: Sun
+    - radio "Rain"
+    - text: Rain
+    - radio "Sand"
+    - text: Sand
+    - radio "Hail"
+    - text: Hail
+    - radio "Harsh Sunshine"
+    - text: Harsh Sunshine
+    - radio "Heavy Rain"
+    - text: Heavy Rain
+    - radio "Strong Winds"
+    - text: Strong Winds
   - button "Gravity"
   - button "Reset"
+  - button "Help"
   - status: "/Lvl \\d+ 0 Atk Bulbasaur Pound vs\\. 0 HP \\/ 0 Def Bulbasaur: 6-8 \\(2\\.5 - 3\\.4%\\)/"
+  - button "All results"
   - text: "Select one to show it as the primary result at the top Attacker:"
   - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
   - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
@@ -71,23 +78,18 @@
     - button "pokemon type":
       - img
       - text: POISON
-    - checkbox [checked]
+    - switch "Show my Pokémon" [checked]
     - text: Show my Pokémon
+    - button "Help"
     - button
     - textbox: /\d+/
     - button
-    - listbox "gender-selector":
-      - alert: Gender...
-    - combobox "nature-selector":
-      - textbox
-      - alert: Select a nature...
-    - combobox "ability":
-      - textbox
-      - alert: Select an ability...
+    - combobox "gender-selector": Gender...
+    - combobox "nature-selector"
+    - combobox "ability"
     - combobox "item"
-    - combobox "status":
-      - textbox
-      - alert: Healthy
+    - combobox "status"
+    - button "Clear"
     - button "pokemon type":
       - img
     - text: Pound
@@ -156,14 +158,15 @@
     - button "Wildfire"
     - button "Switching out"
     - text: "Spikes:"
-    - radio [checked]
-    - text: "0"
-    - radio
-    - text: "1"
-    - radio
-    - text: "2"
-    - radio
-    - text: "3"
+    - radiogroup "Spikes":
+      - radio "0" [checked]
+      - text: "0"
+      - radio "1"
+      - text: "1"
+      - radio "2"
+      - text: "2"
+      - radio "3"
+      - text: "3"
   - group:
     - button "Bulbasaur pokemon type pokemon type":
       - img
@@ -174,25 +177,18 @@
       - button "pokemon type":
         - img
         - text: POISON
-    - listbox "gym-filter" [disabled]:
-      - alert: Select a gym...
-    - checkbox [checked]
+    - combobox "gym-filter" [disabled]: Select a gym...
+    - switch "Show all" [checked]
     - text: Show all
     - button
     - textbox: /\d+/
     - button
-    - listbox "gender-selector":
-      - alert: Gender...
-    - combobox "nature-selector":
-      - textbox
-      - alert: Select a nature...
-    - combobox "ability":
-      - textbox
-      - alert: Select an ability...
+    - combobox "gender-selector": Gender...
+    - combobox "nature-selector"
+    - combobox "ability"
     - combobox "item"
-    - combobox "status":
-      - textbox
-      - alert: Healthy
+    - combobox "status"
+    - button "Clear"
     - button "pokemon type":
       - img
     - text: Pound
@@ -261,12 +257,13 @@
     - button "Wildfire"
     - button "Switching out"
     - text: "Spikes:"
-    - radio [checked]
-    - text: "0"
-    - radio
-    - text: "1"
-    - radio
-    - text: "2"
-    - radio
-    - text: "3"
+    - radiogroup "Spikes":
+      - radio "0" [checked]
+      - text: "0"
+      - radio "1"
+      - text: "1"
+      - radio "2"
+      - text: "2"
+      - radio "3"
+      - text: "3"
 - region "Notifications Alt+T"

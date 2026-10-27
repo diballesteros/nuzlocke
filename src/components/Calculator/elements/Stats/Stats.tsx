@@ -3,7 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { Modifier, Range } from 'components/Calculator/elements';
 import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
-import styles from './Stats.module.scss';
+
+// A stat's sliders and boosts, which sweep in from the right as its details open. Semantic's
+// normalize sets a fieldset's padding outside cascade layers, so it needs !
+const FIELDSET =
+  'grid grid-cols-[2.857rem_minmax(0,1fr)_2.857rem] gap-x-(--spacing-3) gap-y-(--spacing-4) rounded-[4px] p-(--spacing-5)! text-foreground';
 
 interface StatsProps {
   pokemon: '1' | '2';
@@ -39,13 +43,11 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
   }, [pokemon, pokemonOneValue, pokemonTwoValue, update, totalHp]);
 
   return (
-    <section className={styles.container}>
-      <div className={styles.currenthpContainer}>
-        <label className={styles.label} htmlFor={`currenthp${pokemon}`}>
-          {t('current_hp')}:
-        </label>
+    <section className="flex! flex-col flex-nowrap gap-(--spacing-5) text-foreground [&_details[open]_summary~*]:animate-sweep motion-reduce:[&_details[open]_summary~*]:animate-none [&_summary]:relative [&_summary]:cursor-pointer [&_summary]:p-[0.5rem] [&_summary]:select-none">
+      <div className="flex gap-(--spacing-3)">
+        <label htmlFor={`currenthp${pokemon}`}>{t('current_hp')}:</label>
         <input
-          className={styles.currenthp}
+          className="w-[3.429rem]"
           data-testid={`currenthp${pokemon}`}
           id={`currenthp${pokemon}`}
           maxLength={3}
@@ -62,7 +64,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
           HP <output>{totalHp}</output>
         </summary>
         {form.calculatorGen > 2 && (
-          <fieldset className={styles.fieldset}>
+          <fieldset className={FIELDSET}>
             <Range name={`ivhp${pokemon}`} {...IV} />
             <Range name={`evhp${pokemon}`} {...EV} />
           </fieldset>
@@ -72,7 +74,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
         <summary data-testid={`atk${pokemon}-detail`}>
           ATK <output>{currentPokemon?.stats?.atk ?? 0}</output>
         </summary>
-        <fieldset className={styles.fieldset}>
+        <fieldset className={FIELDSET}>
           {form.calculatorGen > 2 ? (
             <>
               <Range name={`ivatk${pokemon}`} {...IV} />
@@ -88,7 +90,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
         <summary data-testid={`def${pokemon}-detail`}>
           DEF <output>{currentPokemon?.stats?.def ?? 0}</output>
         </summary>
-        <fieldset className={styles.fieldset}>
+        <fieldset className={FIELDSET}>
           {form.calculatorGen > 2 ? (
             <>
               <Range name={`ivdef${pokemon}`} {...IV} />
@@ -105,7 +107,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
           {form.calculatorGen > 2 ? 'SP. ATK' : 'SPECIAL'}{' '}
           <output>{currentPokemon?.stats?.spa ?? 0}</output>
         </summary>
-        <fieldset className={styles.fieldset}>
+        <fieldset className={FIELDSET}>
           {form.calculatorGen > 2 ? (
             <>
               <Range name={`ivspatk${pokemon}`} {...IV} />
@@ -122,7 +124,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
           <summary data-testid={`spdef${pokemon}-detail`}>
             SP. DEF <output>{currentPokemon?.stats?.spd ?? 0}</output>
           </summary>
-          <fieldset className={styles.fieldset}>
+          <fieldset className={FIELDSET}>
             <Range name={`ivspdef${pokemon}`} {...IV} />
             <Range name={`evspdef${pokemon}`} {...EV} />
             <Modifier name={`modspdef${pokemon}`} />
@@ -133,7 +135,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
         <summary data-testid={`speed${pokemon}-detail`}>
           SPEED <output>{currentPokemon?.stats?.spe ?? 0}</output>
         </summary>
-        <fieldset className={styles.fieldset}>
+        <fieldset className={FIELDSET}>
           {form.calculatorGen > 2 ? (
             <>
               <Range name={`ivspeed${pokemon}`} {...IV} />

@@ -15,10 +15,11 @@ function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimiti
 }
 
 function PopoverContent({
+  arrowClassName,
   className,
   children,
   ...props
-}: React.ComponentProps<typeof PopoverPrimitive.Content>) {
+}: React.ComponentProps<typeof PopoverPrimitive.Content> & { arrowClassName?: string }) {
   return (
     <PopoverPrimitive.Portal>
       <PopoverPrimitive.Content
@@ -36,11 +37,58 @@ function PopoverContent({
         {/* Semantic's arrow: a rotated square half under the bubble's bottom edge */}
         <span
           aria-hidden
-          className="absolute -bottom-[0.30714286em] left-1/2 -ml-[0.30714286em] size-[0.71428571em] rotate-45 bg-white shadow-[1px_1px_0_0_var(--color-popup-arrow)] dark:bg-popup-inverted dark:shadow-none"
+          className={cn(
+            'absolute -bottom-[0.30714286em] left-1/2 -ml-[0.30714286em] size-[0.71428571em] rotate-45 bg-white shadow-[1px_1px_0_0_var(--color-popup-arrow)] dark:bg-popup-inverted dark:shadow-none',
+            arrowClassName
+          )}
         />
       </PopoverPrimitive.Content>
     </PopoverPrimitive.Portal>
   );
 }
 
-export { Popover, PopoverContent, PopoverTrigger };
+// Semantic's default Popup (`on={['click', 'hover']}`, position "top left"): hovering the trigger
+// opens it after 50 ms and leaving closes it after 70 ms, a click toggles it, and focus stays on the
+// trigger. Its trigger must take a ref (a <button>, so Radix can set aria-expanded on it).
+function HoverPopover({
+  children,
+  content,
+}: {
+  children: React.ReactElement;
+  content: React.ReactNode;
+}) {
+  const [open, setOpen] = React.useState(false);
+  const timer = React.useRef<number>(undefined);
+  const later = (next: boolean, delay: number) => {
+    window.clearTimeout(timer.current);
+    timer.current = window.setTimeout(() => setOpen(next), delay);
+  };
+  React.useEffect(() => () => window.clearTimeout(timer.current), []);
+
+  return (
+    <Popover
+      open={open}
+      onOpenChange={(next) => {
+        window.clearTimeout(timer.current);
+        setOpen(next);
+      }}
+    >
+      <PopoverTrigger
+        asChild
+        onPointerEnter={(e) => e.pointerType === 'mouse' && later(true, 50)}
+        onPointerLeave={(e) => e.pointerType === 'mouse' && later(false, 70)}
+      >
+        {children}
+      </PopoverTrigger>
+      <PopoverContent
+        align="start"
+        arrowClassName="left-[1em] ml-0"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
+        {content}
+      </PopoverContent>
+    </Popover>
+  );
+}
+
+export { HoverPopover, Popover, PopoverContent, PopoverTrigger };

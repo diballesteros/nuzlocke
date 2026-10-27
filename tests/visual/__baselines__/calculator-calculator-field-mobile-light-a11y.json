@@ -5,14 +5,9 @@
     "nodes": 1
   },
   {
-    "id": "aria-hidden-focus",
-    "impact": "serious",
-    "nodes": 1
-  },
-  {
     "id": "aria-required-children",
     "impact": "critical",
-    "nodes": 2
+    "nodes": 1
   },
   {
     "id": "button-name",
@@ -27,7 +22,7 @@
   {
     "id": "label",
     "impact": "critical",
-    "nodes": 24
+    "nodes": 1
   },
   {
     "id": "page-has-heading-one",
