@@ -100,12 +100,46 @@ const waitFor = async (check, timeoutMs, what) => {
   throw new Error(`Timed out after ${timeoutMs / 1000}s waiting for ${what}`);
 };
 
-const killTree = (pid) => {
+// The pid and every descendant, from `ps`. Not a process-group kill: Vite shares the host's group
+// (so -vitePid doesn't exist) and Playwright starts Chromium in a group of its own
+const descendants = (pid) => {
+  const children = new Map();
+  for (const line of execFileSync('ps', ['-A', '-o', 'pid=,ppid='], { encoding: 'utf8' })
+    .trim()
+    .split('\n')) {
+    const [child, parent] = line.trim().split(/\s+/).map(Number);
+    children.set(parent, [...(children.get(parent) ?? []), child]);
+  }
+  const tree = [];
+  const walk = (p) => {
+    tree.push(p);
+    (children.get(p) ?? []).forEach(walk);
+  };
+  walk(pid);
+  return tree;
+};
+
+const signal = (pid, sig) => {
+  try {
+    process.kill(pid, sig);
+  } catch {
+    // Already gone
+  }
+};
+
+const killTree = async (pid) => {
   if (!alive(pid)) return;
   if (process.platform === 'win32') {
     execFileSync('taskkill', ['/pid', String(pid), '/T', '/F'], { stdio: 'ignore' });
-  } else {
-    process.kill(-pid, 'SIGTERM');
+    return;
+  }
+  // Collect the whole tree before signalling: orphans are reparented and would be lost
+  const tree = descendants(pid);
+  tree.forEach((p) => signal(p, 'SIGTERM'));
+  try {
+    await waitFor(() => !tree.some(alive), 5_000, 'processes to exit');
+  } catch {
+    tree.forEach((p) => signal(p, 'SIGKILL'));
   }
 };
 
@@ -228,6 +262,13 @@ const commands = {
   launch: async (args) => {
     const state = readState();
     if (state && alive(state.hostPid)) {
+      // Reusing a session started in the other mode would silently test the wrong build
+      if (state.prod !== args.includes('--prod')) {
+        fail(
+          `A ${state.prod ? 'prod' : 'dev'} session is already running`,
+          'Run `cleanup`, then `launch` again'
+        );
+      }
       return out({ ok: true, alreadyRunning: true, ...state });
     }
     if (await portOpen(APP_PORT)) {
@@ -250,7 +291,7 @@ const commands = {
       );
       if (!fs.existsSync(STATE_FILE)) throw new Error('The host process exited during startup');
     } catch (error) {
-      killTree(host.pid);
+      await killTree(host.pid);
       fail(error.message, 'Read verification/.session/host.log and vite.log');
     }
     out({ ok: true, ...readState() });
@@ -300,8 +341,8 @@ const commands = {
   cleanup: async () => {
     const state = readState();
     if (state) {
-      killTree(state.vitePid);
-      killTree(state.hostPid);
+      await killTree(state.hostPid);
+      await killTree(state.vitePid);
     }
     fs.rmSync(STATE_FILE, { force: true });
     out({ ok: true, stopped: state ? [state.hostPid, state.vitePid] : [], evidence: ARTIFACTS });

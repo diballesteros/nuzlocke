@@ -118,6 +118,50 @@ test.describe('PokéStats', () => {
     expect(fs.statSync(file).size).toBeGreaterThan(1000);
   });
 
+  test('Download Image keeps the completion ring', async ({ page }) => {
+    await navigate(page, 'stats');
+    const download = page.waitForEvent('download');
+    await byTestId(page, 'download-image').click();
+    const png = fs.readFileSync(await (await download).path()).toString('base64');
+    // Sample the exported PNG inside the ring and on its track, and compare with the page's colours
+    const { expected, actual } = await page.evaluate(async (data) => {
+      const root = document.querySelector('[data-testid="image-header-false"]')!.parentElement!;
+      const ring = document.querySelector('[data-testid="image-completion-false"]')!;
+      const card = ring.closest('.bg-card')!;
+      const img = new window.Image();
+      img.src = `data:image/png;base64,${data}`;
+      await img.decode();
+      const canvas = document.createElement('canvas');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      const ctx = canvas.getContext('2d')!;
+      ctx.drawImage(img, 0, 0);
+      const origin = root.getBoundingClientRect();
+      const scale = img.width / origin.width;
+      const box = ring.getBoundingClientRect();
+      const pixel = (x: number, y: number) =>
+        Array.from(
+          ctx
+            .getImageData(
+              Math.round((box.left - origin.left + x) * scale),
+              Math.round((box.top - origin.top + y) * scale),
+              1,
+              1
+            )
+            .data.slice(0, 3)
+        );
+      const rgb = (color: string) => color.match(/\d+/g)!.slice(0, 3).map(Number);
+      return {
+        expected: {
+          inside: rgb(getComputedStyle(card).backgroundColor),
+          track: rgb(getComputedStyle(ring.querySelector('circle')!).stroke),
+        },
+        actual: { inside: pixel(75, 30), track: pixel(7, 75) },
+      };
+    }, png);
+    expect(actual).toEqual(expected);
+  });
+
   test.describe('Share Image', () => {
     const visitWithShare = async (page: Page, canShare: boolean) => {
       await page.addInitScript((supported) => {

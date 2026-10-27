@@ -72,7 +72,7 @@ Built with ReactJS, Typescript, Vite, Zustand and Semantic UI.
 
 - Summary Image:
 
-![Imgur Image](https://i.imgur.com/viBwwxQ.png)
+![Summary image of a Sword run](docs/images/summary.png)
 
 ## Getting started
 

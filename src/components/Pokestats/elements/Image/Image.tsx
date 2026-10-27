@@ -202,28 +202,31 @@ function Image({ forwardedRef, responsive = false }: ImageProps): React.JSX.Elem
               )}
             >
               <div className="mt-(--spacing-3) flex flex-col flex-nowrap items-center justify-center gap-(--spacing-3) [&>b]:text-(length:--font-size-4) [&>b]:text-badge">
-                <svg width="150" height="150" viewBox="0 0 150 150">
+                {/* html-to-image inlines the computed style of the <svg> but not of its children,
+                    so the children take their paint and font from it, by inheritance or currentColor */}
+                <svg
+                  className="fill-none stroke-completion-track text-badge text-(length:--font-size-9) font-bold"
+                  data-testid={`image-completion-${responsive}`}
+                  width="150"
+                  height="150"
+                  viewBox="0 0 150 150"
+                >
+                  <circle cx={75} cy={75} r="70" strokeWidth="10px" />
                   <circle
-                    className="fill-none stroke-completion-track"
                     cx={75}
                     cy={75}
                     r="70"
+                    stroke="currentColor"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
                     strokeWidth="10px"
-                  />
-                  <circle
-                    className="fill-none stroke-badge [stroke-linecap:round] [stroke-linejoin:round]"
-                    cx={75}
-                    cy={75}
-                    r="70"
-                    strokeWidth="10px"
-                    style={{
-                      strokeDasharray: CALC,
-                      strokeDashoffset: CALC - CALC * completion,
-                    }}
+                    strokeDasharray={CALC}
+                    strokeDashoffset={CALC - CALC * completion}
                     transform="rotate(-90 75 75)"
                   />
                   <text
-                    className="fill-badge text-(length:--font-size-9) font-bold"
+                    fill="currentColor"
+                    stroke="none"
                     x="50%"
                     y="50%"
                     dy=".3em"
