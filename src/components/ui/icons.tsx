@@ -1,4 +1,5 @@
 import { Icon, type LucideProps } from 'lucide-react';
+import { useId } from 'react';
 
 // Lucide glyphs redrawn as one path each. Most lucide icons are several paths, and inside a button
 // the text colour is translucent, so wherever two paths cross the stroke painted twice. Square caps
@@ -83,3 +84,25 @@ export const CheckIcon = glyph('check', 'M20 6 9 17l-5-5', { strokeWidth: 3.5 })
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall
 export const TRAILING_ICON =
   '-my-[0.09em] mr-[-0.03em] ml-[0.336em] size-[1.16em] -translate-y-[0.05em] align-[-0.14em] opacity-80';
+
+// FontAwesome's `question circle`: a solid disc with the question mark cut out, so the background
+// shows through it. It's opaque text, never a translucent button's, so a mask is safe here
+export function QuestionCircleIcon(props: React.SVGProps<SVGSVGElement>) {
+  const mask = useId();
+  return (
+    <svg aria-hidden fill="currentColor" viewBox="0 0 24 24" {...props}>
+      <mask id={mask}>
+        <rect fill="white" height="24" width="24" />
+        <path
+          d="M9.3 9.4a2.8 2.8 0 1 1 4.1 2.5c-.9.5-1.4 1.1-1.4 2.1v.4"
+          fill="none"
+          stroke="black"
+          strokeLinecap="round"
+          strokeWidth="2.6"
+        />
+        <circle cx="12" cy="17.4" fill="black" r="1.5" />
+      </mask>
+      <circle cx="12" cy="12" mask={`url(#${mask})`} r="10.3" />
+    </svg>
+  );
+}

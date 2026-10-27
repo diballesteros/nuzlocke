@@ -83,8 +83,13 @@ export const selectGame = async (page: Page, game: string) => {
 export const checkbox = (page: Page, id: string) =>
   byTestId(page, id).locator('input, [role="checkbox"]');
 
+// Clicks the label of a checkbox or radio, or a Radix switch itself (it carries the test id and has
+// no label of its own, like Semantic's `fitted toggle`)
 export const toggle = async (page: Page, id: string) => {
-  await byTestId(page, id).locator('label').click();
+  await byTestId(page, id)
+    .locator('label')
+    .or(page.locator(`[role="switch"][data-testid="${id}"]`))
+    .click();
 };
 
 // A radio button picked by its label (e.g. an evolution in the Evolve modal)

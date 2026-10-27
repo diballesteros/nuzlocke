@@ -1,8 +1,6 @@
 import { ABILITIES } from '@smogon/calc';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import { ItemSelector } from 'common';
 import { PokeController } from 'components/Calculator/elements';
 import { STATUS_EFFECTS } from 'constants/calculator';
@@ -10,8 +8,14 @@ import { GENDERS } from 'constants/constant';
 import NATURES from 'constants/natures';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
-import dropdownStyles from 'assets/styles/Dropdown.module.scss';
-import styles from './General.module.scss';
+import { Button } from '@/components/ui/button';
+import { Combobox } from '@/components/ui/combobox';
+import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { Select } from '@/components/ui/select';
+
+const ABILITY_OPTIONS = [...new Set(ABILITIES[8])].map((smogonAbility) => {
+  return { text: smogonAbility, value: smogonAbility };
+});
 
 interface GeneralProps {
   encounters?: TEncounter[];
@@ -37,17 +41,21 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
   };
 
   return (
-    <div className={styles.general}>
+    <div className="grid grid-cols-[minmax(0,1fr)_minmax(0,1fr)] gap-(--spacing-5)">
       <PokeController encounters={encounters} name={`pokemon${pokemon}`} />
-      <div className={styles.levelContainer}>
+      <div className="flex flex-row flex-nowrap items-center gap-(--spacing-1)">
         <Button
+          className="block"
           data-testid={`minus-level${pokemon}`}
-          icon="minus"
           onClick={decrement}
+          size="icon"
           type="button"
-        />
+          variant="secondary"
+        >
+          <MinusIcon className={BUTTON_ICON} />
+        </Button>
         <input
-          className={styles.level}
+          className="w-[4.286rem] p-(--spacing-1)"
           data-testid={`level-input${pokemon}`}
           id={`level${pokemon}`}
           maxLength={3}
@@ -58,56 +66,51 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
           value={form[`level${pokemon}`] || 0}
         />
         <Button
+          className="block"
           data-testid={`plus-level${pokemon}`}
-          icon="plus"
           onClick={increment}
+          size="icon"
           type="button"
-        />
+          variant="secondary"
+        >
+          <PlusIcon className={BUTTON_ICON} />
+        </Button>
       </div>
-      <Dropdown
+      <Select
         aria-label="gender-selector"
-        className={`${dropdownStyles.dropdown} ${styles.gender}`}
+        caret="font"
+        className="ml-auto w-full [&_[data-slot=select]]:min-w-[8.929rem]"
+        contained
         data-testid={`gender${pokemon}`}
-        inline
-        onChange={(e, data) => update({ [`gender${pokemon}`]: data.value })}
+        look="contrast"
+        onChange={(value) => update({ [`gender${pokemon}`]: value })}
         options={GENDERS}
         placeholder={t('gender')}
-        selection
         value={form[`gender${pokemon}`] ?? ''}
       />
 
       {form.calculatorGen > 2 && (
         <>
-          <Dropdown
+          <Combobox
             aria-label="nature-selector"
-            basic
-            className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
+            className="col-span-full"
+            caret="font"
             clearable
             data-testid={`nature${pokemon}`}
-            inline
-            lazyLoad
-            onChange={(e, data) => update({ [`nature${pokemon}`]: data.value })}
+            onChange={(value) => update({ [`nature${pokemon}`]: value })}
             options={NATURES}
             placeholder={t('select_nature')}
-            search
-            selection
             value={form[`nature${pokemon}`] ?? ''}
           />
-          <Dropdown
+          <Combobox
             aria-label="ability"
-            basic
-            className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
+            className="col-span-full"
+            caret="font"
             clearable
             data-testid={`ability${pokemon}`}
-            inline
-            lazyLoad
-            onChange={(e, data) => update({ [`ability${pokemon}`]: data.value })}
-            options={[...new Set(ABILITIES[8])].map((smogonAbility) => {
-              return { text: smogonAbility, value: smogonAbility };
-            })}
+            onChange={(value) => update({ [`ability${pokemon}`]: value })}
+            options={ABILITY_OPTIONS}
             placeholder={t('select_ability')}
-            search
-            selection
             value={form[`ability${pokemon}`] ?? ''}
           />
         </>
@@ -119,19 +122,15 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
           onChange={(newItem) => update({ [`item${pokemon}`]: newItem })}
         />
       )}
-      <Dropdown
+      <Combobox
         aria-label="status"
-        basic
-        className={`${dropdownStyles.dropdown} ${styles.fullColumn}`}
+        caret="font"
+        className="col-span-full"
         clearable
         data-testid={`status${pokemon}`}
-        inline
-        lazyLoad
-        onChange={(e, data) => update({ [`status${pokemon}`]: data.value })}
+        onChange={(value) => update({ [`status${pokemon}`]: value })}
         options={STATUS_EFFECTS}
         placeholder={t('select_status')}
-        search
-        selection
         value={form[`status${pokemon}`] ?? ''}
       />
     </div>

@@ -1,4 +1,5 @@
 {
+  "all_results": "Todos los resultados",
   "attacker": "Atacador",
   "calculator_help": "[ATK o SPATK EV] [Atacante] [Move] vs. [HP EV] / [DEF o SPDEF EV] [Defensor] [Mín. - Máx.] (Mín. - Máx.%) -- [Cantidad de golpes para noquear] ",
   "defender": "Defensor",
@@ -8,6 +9,7 @@
   "game_type": "Tipo de juego",
   "gender": "Género...",
   "generation": "Generación",
+  "help": "Ayuda",
   "invalid_calculation": "Cálculo inválido",
   "modifier": "Modificador",
   "no_move_selected": "Ningún move seleccionado",

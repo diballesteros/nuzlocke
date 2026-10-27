@@ -1,17 +1,14 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useId, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Checkbox from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import Dropdown from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
-import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
-import { PokemonSlot } from 'components/Calculator/elements';
+import { Help, PokemonSlot } from 'components/Calculator/elements';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
 import DETAILS from 'constants/details';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail, TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
-import styles from './PokeController.module.scss';
+import { Select } from '@/components/ui/select';
+import { Switch } from '@/components/ui/switch';
 
 interface PokeControllerProps {
   encounters?: TEncounter[];
@@ -21,8 +18,8 @@ interface PokeControllerProps {
 function PokeController({ encounters, name }: PokeControllerProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
-  const [selectedDetail, setSelectedDetail] = useState(undefined);
+  const [selectedDetail, setSelectedDetail] = useState<number>(undefined);
+  const showLabel = useId();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
@@ -96,7 +93,7 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
     if (selectedGame && DETAILS[selectedGame?.value]) {
       return DETAILS[selectedGame.value]?.flat().map((gym, i) => {
         return {
-          value: i,
+          value: String(i),
           text: `${gym.name}${gym.name !== gym.game ? ` - ${gym.game}` : ''}`,
         };
       });
@@ -114,7 +111,10 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
   const showGymDetails = name === 'pokemon2' && detailsToOptions?.length > 0;
 
   return (
-    <div className={styles.wrapper} data-testid={`pokecontroller-${name}`}>
+    <div
+      className="col-span-full flex flex-col flex-nowrap items-center gap-(--spacing-2) text-foreground [&>div:first-child]:w-full [&>div:first-child]:flex-1"
+      data-testid={`pokecontroller-${name}`}
+    >
       {derivedShow ? (
         <PokemonSelector handlePokemon={handlePokemon} limitGen={form.calculatorGen}>
           <PokemonSlot pokemon={foundPokemon} />
@@ -137,38 +137,32 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
         </DetailSelector>
       )}
       {(showGymDetails || name === 'pokemon1') && (
-        <div className={styles.showAll}>
+        <div className="flex w-full items-center gap-(--spacing-2) self-end text-foreground">
           {showGymDetails && (
-            <Dropdown
+            <Select
               aria-label="gym-filter"
-              className={styles.dropdown}
+              caret="font"
+              className="mr-auto max-w-[70%] [&_[data-slot=select]]:text-black [&_[data-slot=select][data-placeholder]>span]:text-field-placeholder"
               clearable
+              contained
               data-testid="gym-filter"
               disabled={derivedShow}
-              inline
-              labeled
-              onChange={(e, data) => setSelectedDetail(data.value)}
+              look="inline"
+              onChange={(value) => setSelectedDetail(value === '' ? undefined : Number(value))}
               options={detailsToOptions}
               placeholder={t('select_gym')}
-              selection
-              value={selectedDetail ?? ''}
+              value={selectedDetail === undefined ? '' : String(selectedDetail)}
             />
           )}
-          <Checkbox
+          <Switch
+            aria-labelledby={showLabel}
             checked={showAll}
-            className={styles.checkbox}
+            className="ml-auto!"
             data-testid={`show-all-${name}`}
-            onChange={(e, data) => setShowAll(data.checked)}
-            toggle
+            onCheckedChange={setShowAll}
           />
-          {name === 'pokemon1' ? <span>{t('show_my')}</span> : <span>{t('show_all')}</span>}
-          {name === 'pokemon1' && (
-            <Popup
-              content={<b>{t('show_help')}</b>}
-              inverted={darkMode}
-              trigger={<Icon className={styles.help} name="question circle" />}
-            />
-          )}
+          <span id={showLabel}>{name === 'pokemon1' ? t('show_my') : t('show_all')}</span>
+          {name === 'pokemon1' && <Help content={t('show_help')} />}
         </div>
       )}
     </div>
