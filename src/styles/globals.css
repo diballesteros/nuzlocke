@@ -29,7 +29,10 @@
 @source '../components/Builder';
 @source '../components/Calculator';
 @source '../components/Effectiveness';
+@source '../components/Filter';
 @source '../components/Member';
+@source '../components/MoveSelector';
+@source '../components/Natures';
 @source '../components/Pokestats';
 @source '../components/Rules';
 @source '../components/Settings';
@@ -156,10 +159,18 @@
   --field-label-foreground: rgba(0, 0, 0, 0.6);
   --field-placeholder: rgba(191, 191, 191, 0.87);
   --field-placeholder-focus: rgba(115, 115, 115, 0.87);
+  /* The search filter's placeholder, darker than other fields' */
+  --filter-placeholder: #3f3f3fde;
 
   /* Semantic's dropdown menu: its border while open, and the rule between items */
   --dropdown-active-border: #96c8da;
   --dropdown-item-border: #fafafa;
+
+  /* The nature and ability tables, the same in both themes: the header text on the badge colour,
+     and the increased and decreased stats */
+  --table-head-foreground: #333333;
+  --stat-increased: #d7a7c0;
+  --stat-decreased: #9ccae2;
 
   /* The tracker's rule-breaking warning icon */
   --alert: #ff0000;
@@ -305,6 +316,10 @@
   --color-field-label-foreground: var(--field-label-foreground);
   --color-field-placeholder: var(--field-placeholder);
   --color-field-placeholder-focus: var(--field-placeholder-focus);
+  --color-filter-placeholder: var(--filter-placeholder);
+  --color-table-head-foreground: var(--table-head-foreground);
+  --color-stat-increased: var(--stat-increased);
+  --color-stat-decreased: var(--stat-decreased);
   --color-note-feature: var(--note-feature);
   --color-note-feature-foreground: var(--note-feature-foreground);
   --color-note-update: var(--note-update);

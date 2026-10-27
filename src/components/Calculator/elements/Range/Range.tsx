@@ -4,7 +4,7 @@ import useStore from 'store';
 
 // Semantic's grey track filled in the badge colour up to the value (a background sized by the
 // value), with a round thumb that glows on hover and press
-const SLIDER =
+export const SLIDER =
   'h-(--spacing-2) cursor-pointer appearance-none self-center rounded-[5px] bg-[grey] [background-image:linear-gradient(var(--badge),var(--badge))] bg-no-repeat [&::-webkit-slider-runnable-track]:appearance-none [&::-webkit-slider-runnable-track]:border-none [&::-webkit-slider-runnable-track]:bg-transparent [&::-webkit-slider-runnable-track]:shadow-none [&::-webkit-slider-thumb]:size-[1.429rem] [&::-webkit-slider-thumb]:cursor-pointer [&::-webkit-slider-thumb]:appearance-none [&::-webkit-slider-thumb]:rounded-full [&::-webkit-slider-thumb]:bg-badge [&::-webkit-slider-thumb]:shadow-[0_0_2px_0_var(--color-slider-shadow)] [&::-webkit-slider-thumb]:transition-[background] [&::-webkit-slider-thumb]:duration-300 [&::-webkit-slider-thumb]:ease-in-out [&::-webkit-slider-thumb]:hover:shadow-[0_0_0_8px_var(--color-badgeopac)] [&::-webkit-slider-thumb]:active:shadow-[0_0_0_11px_var(--color-badgeopac)] [&::-webkit-slider-thumb]:active:transition-[box-shadow,left,bottom] [&::-webkit-slider-thumb]:active:duration-350 [&::-webkit-slider-thumb]:active:ease-[cubic-bezier(0.4,0,0.2,1)]';
 
 interface RangeProps {

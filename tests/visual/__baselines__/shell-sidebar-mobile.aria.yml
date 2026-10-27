@@ -43,6 +43,7 @@
     - button
   - button "search-options"
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - list:
     - text: Starter

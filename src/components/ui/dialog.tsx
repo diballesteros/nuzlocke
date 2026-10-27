@@ -11,6 +11,10 @@ function Dialog({ ...props }: React.ComponentProps<typeof DialogPrimitive.Root>)
   return <DialogPrimitive.Root data-slot="dialog" {...props} />;
 }
 
+function DialogTrigger({ ...props }: React.ComponentProps<typeof DialogPrimitive.Trigger>) {
+  return <DialogPrimitive.Trigger data-slot="dialog-trigger" {...props} />;
+}
+
 function DialogContent({
   className,
   children,
@@ -116,4 +120,12 @@ function DialogTitle({ className, ...props }: React.ComponentProps<typeof Dialog
   return <DialogPrimitive.Title data-slot="dialog-title" className={className} {...props} />;
 }
 
-export { Dialog, DialogBody, DialogContent, DialogFooter, DialogHeader, DialogTitle };
+export {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+};

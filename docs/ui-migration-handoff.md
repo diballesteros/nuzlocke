@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-27 (tracker part 1).
+Last updated 2026-10-27 (tracker part 2).
 
 ## Where it stands
 
@@ -22,26 +22,26 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 
 ### Phase 2 areas
 
-| Area                                                                                                       | PR   | Status                                                                                                                          |
-| ---------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------- |
-| `common/` Page and Back                                                                                    | #825 | Merged                                                                                                                          |
-| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                                                                                                          |
-| ItemSelector on the Combobox                                                                               | #831 | Merged                                                                                                                          |
-| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                                                                                                          |
-| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                                                                                                          |
-| @rules                                                                                                     | #838 | Merged                                                                                                                          |
-| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                                                                                                          |
-| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                                                                                                          |
-| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                                                                                                          |
-| @calculator                                                                                                | #845 | Merged                                                                                                                          |
-| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | —    | In progress (`feat/ui-tracker`)                                                                                                 |
-| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | —    | Next. Keep `toTopPosition` until the interaction pin proves Radix portals make it unnecessary, then remove it in its own commit |
-| App shell: header, Sidebar → Sheet, game select                                                            | —    | Last                                                                                                                            |
+| Area                                                                                                       | PR   | Status                                                                                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `common/` Page and Back                                                                                    | #825 | Merged                                                                                                                                                                |
+| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                                                                                                                                                |
+| ItemSelector on the Combobox                                                                               | #831 | Merged                                                                                                                                                                |
+| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                                                                                                                                                |
+| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                                                                                                                                                |
+| @rules                                                                                                     | #838 | Merged                                                                                                                                                                |
+| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                                                                                                                                                |
+| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                                                                                                                                                |
+| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                                                                                                                                                |
+| @calculator                                                                                                | #845 | Merged                                                                                                                                                                |
+| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                                                                                                                                                                |
+| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | —    | In review (`feat/ui-tracker-detail`). Next: Keep `toTopPosition` until the interaction pin proves Radix portals make it unnecessary, then remove it in its own commit |
+| App shell: header, Sidebar → Sheet, game select                                                            | —    | Last                                                                                                                                                                  |
 
 Several pieces are still Semantic because they belong to areas not migrated yet:
 
 - **Header pencil.** `BadgeEditor` and `CustomBadgeEditor` keep the header's Semantic pencil, with its old overrides as important utilities (`HEADER_BUTTON`). Their FAB triggers moved to `FabButton` with the tracker.
-- **Shared components:** `MoveSelector`, `Natures`, `PokemonType`, `PokeInfo`, `Moves`, `Type`, `Filter`, `AddGame`, `Export`, and the tracker's `Detail`.
+- **Shared components:** `PokemonType`, `PokeInfo`, `Moves`, `Move`, `Type`, `AddGame` and `Export` (Sass or Semantic, no Radix conflict).
 - **The tracker was split in two PRs** because it was about three times an area's size. The Detail dialog pulls in `MoveSelector`, `Natures` and `Filter`, which Builder, Calculator and PokéStats also render. A Radix dialog makes Semantic modals opened from it unclickable, so `Detail`, `Abilities`, `Natures`, `MoveSelector` and `Filter` (and `RangeSelector`, whose SCSS moved there from the Calculator) move together in part 2.
 
 Migrate each one with the area that owns it. `node scripts/affected-areas.mjs <files>` shows which area that is.
@@ -104,6 +104,10 @@ These preferences hold across sessions:
 - **Sub-pixel offsets need the container's fonts.** Measure inside the Playwright image against a master worktree (recipe in `CLAUDE.md`). That's how a 0.094px toolbar offset in #843 was traced to a trailing icon's line box.
 
 ### Gotchas met so far
+
+- **normalize styles `details` and `summary` unlayered.** It sets `details { display: block }` and `summary { display: list-item }`, so `flex` or `block` on them needs `!`.
+- **A `<details>` section's children are content-box.** Chrome renders them in the `::details-content` slot, which Semantic's `* { box-sizing: inherit }` can't reach, so they inherit `content-box`. Fields that are border-box elsewhere grow by their padding there (the Detail gender Select needs `box-border!`; Semantic's search inputs there were forced border-box).
+- **`contained` Select and margins.** Its trigger gets `w-full` of a wrapper that already includes the trigger's own margin, so a `look="button"` trigger next to other buttons grows by 0.25em. Pass `triggerClassName="w-auto"`.
 
 - **`cn()` drops line heights.** tailwind-merge treats a font-size class as overriding any earlier `leading-*`, so `cn('leading-[1em]!', 'text-[0.786rem]!')` loses the line height and the reset's 1.15 comes back. Restate it after the size (`MINI_BUTTON`).
 - **Radix rounds popper positions to whole pixels**, where Semantic's menu hung from a field at a fraction of a pixel. `Select` shifts its menu back by the dropped fraction; `PopoverContent edgeAligned` reproduces the non-pinned click Popup, whose bottom edge was rounded instead. Earlier popovers already matched without it, so it's opt-in.

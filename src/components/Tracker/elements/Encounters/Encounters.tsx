@@ -127,7 +127,7 @@ const Encounters = React.memo(function Encounters() {
             <span className="block h-[1.429rem] min-h-[1.429rem] overflow-hidden font-bold text-ellipsis whitespace-nowrap">
               {encounter.location}
             </span>
-            {/* Detail's pencil is still a Semantic button, so its margin and font size need ! */}
+            {/* The pencil and options buttons: no margin, at the row's smaller font size */}
             <div className="flex gap-(--spacing-1) [&>button]:mr-0! [&>button]:text-(length:--font-size-2)!">
               {!!encounter.pokemon && <Detail encounter={encounter} />}
               {/* Semantic's click Popup above the button, its right edge on the button's */}

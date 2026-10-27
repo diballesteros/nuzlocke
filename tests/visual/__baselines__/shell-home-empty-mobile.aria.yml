@@ -6,6 +6,7 @@
 - main:
   - button "search-options"
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - img
   - text: Please select a game

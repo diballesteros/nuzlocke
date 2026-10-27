@@ -1,16 +1,23 @@
+import { Pointer } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, RowComponentProps as RowProps } from 'react-window';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { Filter, Move } from 'components';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import MOVES, { MOVEMAP } from 'constants/moves';
 import useFilter from 'hooks/useFilter';
 import useRemtoPx from 'hooks/useRemToPx';
 import useStore from 'store';
-import styles from './MoveSelector.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { BUTTON_ICON, TrashIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
 
 interface MoveSelectorProps {
   currentMoveId: number;
@@ -56,7 +63,7 @@ function MoveSelector({
     return (
       <div style={style}>
         <div
-          className={styles.row}
+          className="pr-(--spacing-3)"
           data-testid={`move-${move.name}`}
           onClick={() => handleClick(move.id)}
           role="presentation"
@@ -68,44 +75,57 @@ function MoveSelector({
   };
 
   return (
-    <Modal
-      open={open}
-      trigger={
-        currentMoveId ? (
-          <div onClick={() => setOpen(true)} role="presentation" className={styles.currentMove}>
-            <Move moveDetail={currentMove} showStatus={isSplit} />
-            <Button
-              basic
-              className={styles.trash}
-              compact
-              icon="trash"
-              name="trash"
-              onClick={handleClear}
-            />
-          </div>
-        ) : (
-          <div className={styles.selector} onClick={() => setOpen(true)} role="presentation">
-            <b>{t('select_move')}</b> <Icon name="hand pointer outline" />
-          </div>
-        )
-      }
-    >
-      <Modal.Content className={styles.content} scrolling>
-        <div data-testid="move-selector-wrapper">
-          <Filter hideGen={hideGen} values={values} />
+    <>
+      {currentMoveId ? (
+        <div className="relative" onClick={() => setOpen(true)} role="presentation">
+          <Move moveDetail={currentMove} showStatus={isSplit} />
+          {/* Semantic's `basic compact icon` button, its padding cut to --spacing-1 */}
+          <Button
+            aria-label="trash"
+            className="absolute top-(--spacing-1) right-(--spacing-1) p-(--spacing-1)"
+            name="trash"
+            onClick={handleClear}
+            size="icon"
+            variant="basic-plain"
+          >
+            {/* `trash` was the Semantic icon's class, which specs still find */}
+            <TrashIcon className={cn('trash', BUTTON_ICON)} />
+          </Button>
         </div>
-        <List
-          rowComponent={renderRow}
-          rowCount={filteredMoves.length}
-          rowHeight={itemSize}
-          rowProps={{}}
-          style={{ height: 400, width: '100%' }}
-        />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={() => setOpen(false)}>{t('cancel')}</Button>
-      </Modal.Actions>
-    </Modal>
+      ) : (
+        <div
+          className="flex h-[2.143rem] max-h-[2.143rem] cursor-pointer flex-row flex-nowrap items-center justify-center rounded-[4px] border border-dashed border-foreground bg-card p-(--spacing-1) text-(length:--font-size-3) text-foreground"
+          onClick={() => setOpen(true)}
+          role="presentation"
+        >
+          <b>{t('select_move')}</b>{' '}
+          {/* FontAwesome's `hand pointer outline`, in Semantic's 1em × 1.18em icon slot */}
+          <Pointer aria-hidden className="mr-[0.25rem] h-[1em] w-[1.18em]" strokeWidth={2} />
+        </div>
+      )}
+      <Dialog open={open}>
+        <DialogContent dismissible={false}>
+          <DialogTitle className="sr-only">{t('move_list')}</DialogTitle>
+          <DialogBody scrolling>
+            <div className="mb-(--spacing-3)" data-testid="move-selector-wrapper">
+              <Filter hideGen={hideGen} values={values} />
+            </div>
+            <List
+              rowComponent={renderRow}
+              rowCount={filteredMoves.length}
+              rowHeight={itemSize}
+              rowProps={{}}
+              style={{ height: 400, width: '100%' }}
+            />
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={() => setOpen(false)} variant="secondary">
+              {t('cancel')}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

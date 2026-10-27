@@ -31,5 +31,6 @@
   "reset_confirm": "This will reset all encounters for the selected game, delete custom encounters, and unmark all badges. Are you sure?",
   "reset_encounters": "Reset Encounters ",
   "reset_success": "Successfully reset encounters",
-  "share": "Share"
+  "share": "Share",
+  "encounter_details": "Encounter details"
 }

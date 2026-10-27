@@ -94,28 +94,28 @@
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - text: "Current HP:"
@@ -193,28 +193,28 @@
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - button "pokemon type":
       - img
     - text: Pound
     - img "move status"
-    - button
+    - button "trash"
     - button "Crit"
     - button "Z"
     - text: "Current HP:"

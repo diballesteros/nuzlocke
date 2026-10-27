@@ -12,7 +12,7 @@
   {
     "id": "button-name",
     "impact": "critical",
-    "nodes": 12
+    "nodes": 4
   },
   {
     "id": "label",

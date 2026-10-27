@@ -56,6 +56,7 @@
     - button
   - button "search-options"
   - searchbox "search"
+  - button "Help"
   - button "search-filter"
   - button "SHARE"
   - button "ADD"

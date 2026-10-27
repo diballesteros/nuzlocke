@@ -1,7 +1,8 @@
 import { useCallback } from 'react';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import styles from './RangeSelector.module.scss';
+import { SLIDER } from 'components/Calculator/elements/Range/Range';
+import { Button } from '@/components/ui/button';
+import { MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { ROW_ICON } from '../buttons';
 
 interface RangeSelectorProps {
   name: string;
@@ -53,11 +54,11 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX
 
   return (
     <>
-      <label className={styles.label} htmlFor={name}>
+      <label className="grid place-content-center select-none" htmlFor={name}>
         {type.label}:
       </label>
       <input
-        className={styles.input}
+        className={SLIDER}
         data-testid={name}
         id={name}
         style={getBarFill()}
@@ -69,15 +70,16 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX
       />
       <Button
         aria-label="substract"
-        className={styles.button}
         data-testid={`${name}-substract`}
-        icon
         onClick={handleDecrement}
+        size="icon"
+        variant="secondary"
       >
-        <Icon name="minus" />
+        <MinusIcon className={ROW_ICON} />
       </Button>
+      {/* The page's font stays normalize's, as before: only the weight and colours are set */}
       <input
-        className={styles.output}
+        className="grid place-content-center rounded-[4px] border border-solid border-foreground bg-transparent px-(--spacing-1) py-(--spacing-0) text-center font-bold text-foreground select-none"
         data-testid={`input-${name}`}
         inputMode="numeric"
         onChange={(e) => handleTextChange(e.target.value)}
@@ -85,12 +87,12 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX
       />
       <Button
         aria-label="add"
-        className={styles.button}
         data-testid={`${name}-add`}
-        icon
         onClick={handleIncrement}
+        size="icon"
+        variant="secondary"
       >
-        <Icon name="plus" />
+        <PlusIcon className={ROW_ICON} />
       </Button>
     </>
   );
