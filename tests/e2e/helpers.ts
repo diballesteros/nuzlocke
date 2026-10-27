@@ -64,9 +64,9 @@ const menuOpen = (dropdown: Locator) =>
     )
     .count();
 
-// `covered`: the open menu sits under another element (known UI issue: the first row's nature
-// menu opens upward beneath the badge strip), so the click is dispatched to the option directly,
-// as Cypress did for every click
+// `covered`: the open menu sits under another element, so the click is dispatched to the option
+// directly, as Cypress did for every click. The first row's nature menu used to open upward beneath
+// the badge strip; it portals now and is on top, but its spec still passes `covered`
 export const pickOption = async (
   page: Page,
   id: string,
