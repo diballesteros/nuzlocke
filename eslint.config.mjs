@@ -16,6 +16,8 @@ export default tseslint.config(
       'playwright-report/',
       'verification/artifacts/',
       'verification/.session/',
+      // Claude Code's per-session git worktrees: whole other checkouts
+      '.claude/worktrees/',
       'src/constants/locations/*',
     ],
   },
