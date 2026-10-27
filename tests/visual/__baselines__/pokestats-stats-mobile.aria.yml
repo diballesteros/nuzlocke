@@ -4,111 +4,118 @@
     - alert: Sword and Shield
   - button "addgame"
 - main:
-  - img
-  - text: Summary
-  - img
-  - text: Team 1
-  - img
-  - text: Caught 4
-  - img
-  - text: Failed 1
-  - img
-  - text: Fainted 1
-  - button "DOWNLOAD"
-  - button "SETTINGS"
-  - text: Nuzlocke Run Ongoing
-  - img "Grass Badge"
-  - img "Water Badge"
-  - img "Fire Badge"
-  - img "Fighting/Ghost Badge"
-  - img "Fairy Badge"
-  - img "Rock/Ice Badge"
-  - img "Dark Badge"
-  - img "Dragon Badge"
-  - img "Champion Cup"
-  - text: Team
-  - img
-  - text: "Vulpix Met at: Wild Area: Dappled Grove"
-  - button "pokemon type":
+  - tablist:
+    - tab "Summary" [selected]:
+      - img
+      - text: ""
+    - tab "Team 1":
+      - img
+      - text: ""
+    - tab "Caught 4":
+      - img
+      - text: ""
+    - tab "Failed 1":
+      - img
+      - text: ""
+    - tab "Fainted 1":
+      - img
+      - text: ""
+  - tabpanel "Summary":
+    - button "DOWNLOAD"
+    - button "SETTINGS"
+    - text: Nuzlocke Run Ongoing
+    - img "Grass Badge"
+    - img "Water Badge"
+    - img "Fire Badge"
+    - img "Fighting/Ghost Badge"
+    - img "Fairy Badge"
+    - img "Rock/Ice Badge"
+    - img "Dark Badge"
+    - img "Dragon Badge"
+    - img "Champion Cup"
+    - text: Team
     - img
-  - text: Pound
-  - button "pokemon type":
+    - text: "Vulpix Met at: Wild Area: Dappled Grove"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - button "pokemon type":
+      - img
+    - text: Karate Chop
+    - button "pokemon type":
+      - img
+    - text: Surf Encounters
+    - img: /\d+%/
+    - text: COMPLETION All encounters by type NORMAL 0 FIRE 2 WATER 2 GRASS 0 ELECTRIC 0 ICE 1 POISON 0 FIGHTING 0 GROUND 0 FLYING 1 PSYCHIC 1 BUG 2 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0 Stats
     - img
-  - text: Karate Chop
-  - button "pokemon type":
+    - text: Caught 4
     - img
-  - text: Surf Encounters
-  - img: /\d+%/
-  - text: COMPLETION All encounters by type NORMAL 0 FIRE 2 WATER 2 GRASS 0 ELECTRIC 0 ICE 1 POISON 0 FIGHTING 0 GROUND 0 FLYING 1 PSYCHIC 1 BUG 2 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0 Stats
-  - img
-  - text: Caught 4
-  - img
-  - text: Failed 1
-  - img
-  - text: Fainted 1
-  - img
-  - text: Shiny 0 Boxed
-  - img
-  - img
-  - img
-  - text: Fainted
-  - img
-  - text: Rules 1.
-  - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
-  - text: "2."
-  - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
-  - text: "3."
-  - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
-  - text: "4."
-  - paragraph: No items in battle
-  - text: Description
-  - paragraph
-  - text: https://nuzlocke.netlify.app Nuzlocke Run Ongoing
-  - img "Grass Badge"
-  - img "Water Badge"
-  - img "Fire Badge"
-  - img "Fighting/Ghost Badge"
-  - img "Fairy Badge"
-  - img "Rock/Ice Badge"
-  - img "Dark Badge"
-  - img "Dragon Badge"
-  - img "Champion Cup"
-  - text: Team
-  - img
-  - text: "Vulpix Met at: Wild Area: Dappled Grove"
-  - button "pokemon type":
+    - text: Failed 1
     - img
-  - text: Pound
-  - button "pokemon type":
+    - text: Fainted 1
     - img
-  - text: Karate Chop
-  - button "pokemon type":
+    - text: Shiny 0 Boxed
     - img
-  - text: Surf Encounters
-  - img: /\d+%/
-  - text: COMPLETION All encounters by type NORMAL 0 FIRE 2 WATER 2 GRASS 0 ELECTRIC 0 ICE 1 POISON 0 FIGHTING 0 GROUND 0 FLYING 1 PSYCHIC 1 BUG 2 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0 Stats
-  - img
-  - text: Caught 4
-  - img
-  - text: Failed 1
-  - img
-  - text: Fainted 1
-  - img
-  - text: Shiny 0 Boxed
-  - img
-  - img
-  - img
-  - text: Fainted
-  - img
-  - text: Rules 1.
-  - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
-  - text: "2."
-  - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
-  - text: "3."
-  - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
-  - text: "4."
-  - paragraph: No items in battle
-  - text: Description
-  - paragraph
-  - text: https://nuzlocke.netlify.app
+    - img
+    - img
+    - text: Fainted
+    - img
+    - text: Rules 1.
+    - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
+    - text: "2."
+    - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
+    - text: "3."
+    - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
+    - text: "4."
+    - paragraph: No items in battle
+    - text: Description
+    - paragraph
+    - text: https://nuzlocke.netlify.app Nuzlocke Run Ongoing
+    - img "Grass Badge"
+    - img "Water Badge"
+    - img "Fire Badge"
+    - img "Fighting/Ghost Badge"
+    - img "Fairy Badge"
+    - img "Rock/Ice Badge"
+    - img "Dark Badge"
+    - img "Dragon Badge"
+    - img "Champion Cup"
+    - text: Team
+    - img
+    - text: "Vulpix Met at: Wild Area: Dappled Grove"
+    - button "pokemon type":
+      - img
+    - text: Pound
+    - button "pokemon type":
+      - img
+    - text: Karate Chop
+    - button "pokemon type":
+      - img
+    - text: Surf Encounters
+    - img: /\d+%/
+    - text: COMPLETION All encounters by type NORMAL 0 FIRE 2 WATER 2 GRASS 0 ELECTRIC 0 ICE 1 POISON 0 FIGHTING 0 GROUND 0 FLYING 1 PSYCHIC 1 BUG 2 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0 Stats
+    - img
+    - text: Caught 4
+    - img
+    - text: Failed 1
+    - img
+    - text: Fainted 1
+    - img
+    - text: Shiny 0 Boxed
+    - img
+    - img
+    - img
+    - text: Fainted
+    - img
+    - text: Rules 1.
+    - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
+    - text: "2."
+    - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
+    - text: "3."
+    - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
+    - text: "4."
+    - paragraph: No items in battle
+    - text: Description
+    - paragraph
+    - text: https://nuzlocke.netlify.app
 - region "Notifications Alt+T"

@@ -26,6 +26,9 @@ const buttonVariants = cva(
         // Semantic's `color="green" inverted={darkMode}`: solid green, outlined in dark mode
         green:
           'bg-green text-white hover:bg-green-hover focus-visible:bg-green-focus active:bg-green-active dark:bg-transparent dark:text-green-inverted dark:shadow-[inset_0_0_0_2px_var(--color-green-inverted)] dark:hover:bg-green-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-green-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-green-inverted-active dark:active:text-white dark:active:shadow-none',
+        // Semantic's `color="green"` without `inverted`: solid in both themes
+        'solid-green':
+          'bg-green text-white hover:bg-green-hover focus-visible:bg-green-focus active:bg-green-active',
         // Semantic's `color="red" inverted={darkMode}`: solid red, outlined in dark mode
         red: 'bg-destructive text-white hover:bg-red-hover focus-visible:bg-red-focus active:bg-red-active dark:bg-transparent dark:text-red-inverted dark:shadow-[inset_0_0_0_2px_var(--color-red-inverted)] dark:hover:bg-red-inverted-hover dark:hover:text-white dark:hover:shadow-none dark:focus-visible:bg-red-inverted-focus dark:focus-visible:text-white dark:focus-visible:shadow-none dark:active:bg-red-inverted-active dark:active:text-white dark:active:shadow-none',
         // Semantic's `basic inverted={darkMode}`: a thin outline on the page's background

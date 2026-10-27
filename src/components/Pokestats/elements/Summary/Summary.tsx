@@ -2,11 +2,15 @@ import { toBlob, toPng } from 'html-to-image';
 import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { DisplaySettings, Image } from 'components/Pokestats/elements';
 import useStore from 'store';
-import styles from './Summary.module.scss';
+import { Button } from '@/components/ui/button';
+import { DownloadIcon, ShareIcon, TRAILING_ICON } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+
+// On narrower screens the buttons lose their icons and get square padding
+const OPTION = 'max-md:p-(--spacing-3)';
+const OPTION_ICON = cn(TRAILING_ICON, 'max-md:[display:none]!');
 
 function Summary(): React.JSX.Element {
   const { t } = useTranslation('stats');
@@ -58,24 +62,35 @@ function Summary(): React.JSX.Element {
   };
 
   return (
-    <div className={styles.container}>
+    <div className="relative flex flex-col flex-nowrap items-center gap-(--spacing-3) overflow-hidden px-(--spacing-1)">
       {!!selectedGame && (
-        <div className={styles.options}>
-          <Button color="green" data-testid="download-image" onClick={handleDownload}>
-            {t('download')} <Icon name="download" />
+        <div className="relative flex w-[calc(100%-var(--spacing-3))] px-(--spacing-1)">
+          <Button
+            className={OPTION}
+            data-testid="download-image"
+            onClick={handleDownload}
+            variant="solid-green"
+          >
+            {t('download')} <DownloadIcon className={OPTION_ICON} />
           </Button>
           {'share' in navigator && 'canShare' in navigator && (
-            <Button color="blue" data-testid="share-image" onClick={handleShare}>
-              {t('share')} <Icon name="share" />
+            <Button
+              className={OPTION}
+              data-testid="share-image"
+              onClick={handleShare}
+              variant="primary"
+            >
+              {t('share')} <ShareIcon className={OPTION_ICON} />
             </Button>
           )}
           <DisplaySettings />
         </div>
       )}
-      <div className={styles.inner}>
+      <div className="flex w-full flex-row flex-nowrap gap-(--spacing-1) overflow-auto">
         <Image responsive />
       </div>
-      <div className={styles.offscreen}>
+      {/* Rendered off screen at desktop width, so the downloaded image is the same on every device */}
+      <div className="absolute -right-[100000px] -bottom-[100000px] w-[85.714rem] max-w-[85.714rem]">
         <Image forwardedRef={summaryRef} />
       </div>
     </div>

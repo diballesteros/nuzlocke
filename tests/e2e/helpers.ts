@@ -79,7 +79,9 @@ export const selectGame = async (page: Page, game: string) => {
 };
 
 // Checkboxes, toggles and radios
-export const checkbox = (page: Page, id: string) => byTestId(page, id).locator('input');
+// Semantic's hidden <input>, or a Radix checkbox (a button with role="checkbox" and aria-checked)
+export const checkbox = (page: Page, id: string) =>
+  byTestId(page, id).locator('input, [role="checkbox"]');
 
 export const toggle = async (page: Page, id: string) => {
   await byTestId(page, id).locator('label').click();
@@ -109,7 +111,8 @@ export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: numb
   tabMenu(page, menu).nth(n - 1);
 
 // The count label on a tab (PokéStats)
-export const tabCount = (page: Page, n: number) => tab(page, 'secondary', n).locator('.ui.label');
+export const tabCount = (page: Page, n: number) =>
+  tab(page, 'secondary', n).locator('.ui.label, [data-slot="badge"]');
 
 // The open dialog (Semantic's modal until every dialog is on Radix)
 export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialog"]');

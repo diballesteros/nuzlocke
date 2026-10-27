@@ -59,7 +59,12 @@ Porting and harness gotchas:
 
 - Don't guess from a failing check name; read the logs. This `gh` version has no `gh run view --json jobs`, so use `gh api repos/diballesteros/nuzlocke/actions/runs/<run-id>/jobs` and `gh api repos/diballesteros/nuzlocke/actions/jobs/<job-id>/logs`. Failed Playwright jobs upload `playwright-<browser>-<shard>` artifacts with traces; the PR review workflow uploads `visual-report` and `state-report`.
 - To reproduce CI's browsers, use the `mcr.microsoft.com/playwright:v<version>-noble` image (the tag follows `@playwright/test`). `scripts/visual.mjs` shows the recipe: copy the repo's tracked and unignored files into the container (never the Windows `node_modules`), `npm ci`, then `npx playwright test`. Docker Desktop is installed but may be stopped, so start it first. Run raw `docker` commands from Bash with `MSYS_NO_PATHCONV=1`, or Git Bash rewrites `/src` into a Windows path.
-- A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs.
+- A visual diff of a fraction of a pixel (everything below some point re-anti-aliased) only shows with the container's fonts, so Windows measurements can't find it. Measure inside the image instead:
+  - Serve master from a worktree (`git worktree add <dir> origin/master`, then a junction to this checkout's `node_modules` with `mklink /J`) and the branch, each with `npx vite --port <p> --host 0.0.0.0`.
+  - Run a script in `mcr.microsoft.com/playwright:v<version>-noble` that requires the mounted `playwright-core` (it is pure JS) and opens both. Use the host's IP from `dns.lookup('host.docker.internal')`: Vite rejects that hostname.
+  - Compare `getBoundingClientRect()` of the same elements. A row that stays too tall when one icon is hidden may be stretched by a sibling's icon: hide them all at once.
+  - Remove the junction with `rmdir` before `git worktree remove`, so `node_modules` isn't deleted.
+- A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs. This `gh` has no `gh run list --commit`: filter with `--json databaseId,headSha --jq` instead. `gh pr edit` fails on a Projects (classic) deprecation error; edit a PR body with `gh api -X PATCH repos/diballesteros/nuzlocke/pulls/<n> -F body=@<file>`.
 
 ### Security advisories
 
