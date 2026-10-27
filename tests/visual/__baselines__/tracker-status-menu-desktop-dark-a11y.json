@@ -1,13 +1,13 @@
 [
   {
-    "id": "aria-command-name",
+    "id": "aria-hidden-focus",
     "impact": "serious",
-    "nodes": 9
+    "nodes": 16
   },
   {
     "id": "aria-required-children",
     "impact": "critical",
-    "nodes": 16
+    "nodes": 2
   },
   {
     "id": "color-contrast",
@@ -15,14 +15,9 @@
     "nodes": 1
   },
   {
-    "id": "nested-interactive",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 7
+    "id": "page-has-heading-one",
+    "impact": "moderate",
+    "nodes": 1
   },
   {
     "id": "scrollable-region-focusable",

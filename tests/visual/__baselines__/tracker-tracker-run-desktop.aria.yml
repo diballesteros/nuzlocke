@@ -66,12 +66,10 @@
     - 'button "Scorbunny Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Captured
+    - combobox "status-selector": Captured
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -81,12 +79,10 @@
     - 'button "Magikarp Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Gifted
+    - combobox "status-selector": Gifted
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -96,12 +92,10 @@
     - 'button "Caterpie Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Traded
+    - combobox "status-selector": Traded
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -111,11 +105,9 @@
     - 'button "Slowpoke (Galarian) Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Status...
+    - combobox "status-selector"
     - button "evolve"
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -125,10 +117,8 @@
     - 'button /Lapras Lv: \d+/':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Fainted
-    - listbox "Nature":
-      - alert: Bold
+    - combobox "status-selector": Fainted
+    - combobox "Nature": Bold
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -138,11 +128,9 @@
     - 'button "Butterfree Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Failed
+    - combobox "status-selector": Failed
     - button "evolve"
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"
@@ -152,12 +140,10 @@
     - 'button "Vulpix Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Team
+    - combobox "status-selector": Team
     - button "evolve"
     - button "swap": Box
-    - listbox "Nature":
-      - alert: Nature
+    - combobox "Nature"
     - text: "Level:"
     - button "level-up-button"
     - button "level-down-button"

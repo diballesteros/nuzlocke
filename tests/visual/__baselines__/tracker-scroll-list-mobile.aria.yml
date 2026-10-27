@@ -50,73 +50,66 @@
     - 'button "Scorbunny Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Captured
+    - combobox "status-selector": Captured
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature"
+    - combobox "Nature"
     - text: Slumbering Weald
     - button "edit encounter"
     - button "encounter-options"
     - 'button "Magikarp Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Gifted
+    - combobox "status-selector": Gifted
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature"
+    - combobox "Nature"
     - text: Route 1
     - button "edit encounter"
     - button "encounter-options"
     - 'button "Caterpie Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Traded
+    - combobox "status-selector": Traded
     - button "evolve"
     - button "swap": Team
-    - listbox "Nature"
+    - combobox "Nature"
     - text: Wedgehurst
     - button "edit encounter"
     - button "encounter-options"
     - 'button "Slowpoke (Galarian) Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Status...
+    - combobox "status-selector"
     - button "evolve"
-    - listbox "Nature"
+    - combobox "Nature"
     - text: Route 2
     - button "edit encounter"
     - button "encounter-options"
     - 'button /Lapras Lv: \d+/':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Fainted
-    - listbox "Nature"
+    - combobox "status-selector": Fainted
+    - combobox "Nature"
     - text: "Wild Area: Rolling Fields"
     - button "edit encounter"
     - button "encounter-options"
     - 'button "Butterfree Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Failed
+    - combobox "status-selector": Failed
     - button "evolve"
-    - listbox "Nature"
+    - combobox "Nature"
     - text: "Wild Area: Dappled Grove"
     - button "edit encounter"
     - button "encounter-options"
     - 'button "Vulpix Lv: 0"':
       - img
       - text: ""
-    - listbox "status-selector":
-      - alert: Team
+    - combobox "status-selector": Team
     - button "evolve"
     - button "swap": Box
-    - listbox "Nature"
+    - combobox "Nature"
   - navigation:
     - paragraph: Click on any location to scroll to it
     - button "close-scroll-list"

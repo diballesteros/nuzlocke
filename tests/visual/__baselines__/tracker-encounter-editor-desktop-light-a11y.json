@@ -12,7 +12,7 @@
   {
     "id": "aria-required-children",
     "impact": "critical",
-    "nodes": 18
+    "nodes": 4
   },
   {
     "id": "color-contrast",
