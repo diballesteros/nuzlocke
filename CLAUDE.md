@@ -48,6 +48,7 @@ Porting and harness gotchas:
 
 - Cypress `force` clicks dispatch to the element; Playwright's `force` still clicks at coordinates. Ported as `dispatchEvent('click')`.
 - `cy.type` goes through intermediate values (the ruleset-name input warns on a partial match); ported as keystrokes (`typeInto`), and `cy.clear` explicitly. `fill` skips them.
+- `focus()` leaves the caret at the start, so `typeInto` moves it to the end first with `setSelectionRange` (number inputs, which lack it, go through `type = 'text'` and back). Not with an End press: on macOS End scrolls the page, which scrolled the virtualized tracker past `pokemon-1` in Options › Settings.
 - Cypress's Chrome followed the OS dark theme, so e2e projects use `colorScheme: 'dark'`.
 - Cypress `contains` matches CSS-uppercased text; Playwright matches DOM text. Assert a "not present" check's target exists first, or it can never fail (the PokéStats section checks could not).
 - Hovering a badge clears its grayscale filter: move the pointer away before asserting. The first tracker row's nature menu opens under the badge strip (`pickOption(..., { covered: true })`). With several Builder members, the team panel covers the next member's delete button. All three are real UI issues for the redesign.
