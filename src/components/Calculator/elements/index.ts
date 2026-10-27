@@ -1,6 +1,7 @@
 export { default as ButtonController } from './ButtonController/ButtonController';
 export { default as CalculatorHeader } from './CalculatorHeader/CalculatorHeader';
 export { default as General } from './General/General';
+export { default as Help } from './Help/Help';
 export { default as MainField } from './MainField/MainField';
 export { default as Modifier } from './Modifier/Modifier';
 export { default as MoveController } from './MoveController/MoveController';

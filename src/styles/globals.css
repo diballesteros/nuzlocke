@@ -27,6 +27,7 @@
 @source '../components/Report';
 @source '../components/Badges';
 @source '../components/Builder';
+@source '../components/Calculator';
 @source '../components/Effectiveness';
 @source '../components/Member';
 @source '../components/Pokestats';
@@ -76,6 +77,10 @@
   --completion-track: #dddddd;
   --label-strong: #999999;
   --panel-glow: #d0d0d0;
+  /* The Calculator, the same in both themes: the line above its mobile side tabs, and the shadow
+     around a slider's thumb */
+  --tab-border: #cccccc;
+  --slider-shadow: #555555;
 
   /* Semantic's popup: its border and arrow shadow, and the inverted (dark mode) fill */
   --popup-border: #d4d4d5;
@@ -214,6 +219,7 @@
   --color-ring: var(--ring);
   --color-header: var(--header);
   --color-badge: var(--badge);
+  --color-badgeopac: var(--badgeopac);
   --color-badgeflash: var(--badgeflash);
   --color-badge-foreground: var(--badge-foreground);
   --color-badge-shadow: var(--badge-shadow);
@@ -227,6 +233,8 @@
   --color-completion-track: var(--completion-track);
   --color-label-strong: var(--label-strong);
   --color-panel-glow: var(--panel-glow);
+  --color-tab-border: var(--tab-border);
+  --color-slider-shadow: var(--slider-shadow);
   --color-popup-border: var(--popup-border);
   --color-popup-arrow: var(--popup-arrow);
   --color-popup-inverted: var(--popup-inverted);
@@ -301,4 +309,17 @@
   --breakpoint-sm: 39.286rem;
   --breakpoint-md: 53.751rem;
   --breakpoint-lg: 85.714rem;
+
+  /* A Calculator stat's sliders slide in from the right as its details open */
+  --animate-sweep: sweep 0.5s ease-in-out;
+  @keyframes sweep {
+    0% {
+      opacity: 0;
+      margin-left: var(--spacing-3);
+    }
+    100% {
+      opacity: 1;
+      margin-left: 0;
+    }
+  }
 }

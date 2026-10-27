@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import styles from 'components/Calculator/elements/Range/Range.module.scss';
+import styles from './RangeSelector.module.scss';
 
 interface RangeSelectorProps {
   name: string;

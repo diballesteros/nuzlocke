@@ -1,4 +1,5 @@
 {
+  "all_results": "All results",
   "attacker": "Attacker",
   "calculator_help": "[ATK or SPATK EV] [Attacker] [Move] vs. [HP EV] / [DEF or SPDEF EV] [Defender] [Min - Max] (Min - Max %) -- [Amount of hits to knock out]",
   "current_hp": "Current HP",
@@ -8,6 +9,7 @@
   "game_type": "Game type",
   "gender": "Gender...",
   "generation": "Generation",
+  "help": "Help",
   "invalid_calculation": "Invalid calculation",
   "modifier": "Modifier",
   "no_move_selected": "No move selected",

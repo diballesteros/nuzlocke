@@ -4,6 +4,7 @@ import { Popover as PopoverPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
 import { cn } from '@/lib/utils';
+import { FONT_CARET, FONT_CARET_BOX } from './select';
 
 // Parity with Semantic UI's `inline search selection` Dropdown plus the app's Dropdown.module.scss:
 // the search input sits in the trigger, typing filters by substring in the original order, Enter
@@ -18,6 +19,8 @@ export interface ComboboxOption {
 
 interface ComboboxProps {
   'aria-label': string;
+  // Draw the caret at the icon font's own size (8.24 × 4.12px), as the Calculator's dropdowns did
+  caret?: 'font';
   className?: string;
   clearable?: boolean;
   'data-testid'?: string;
@@ -44,6 +47,7 @@ function Avatar({ children }: { children: React.ReactNode }) {
 
 function Combobox({
   'aria-label': ariaLabel,
+  caret,
   className,
   clearable = false,
   'data-testid': dataTestId,
@@ -61,7 +65,8 @@ function Combobox({
   const rootRef = React.useRef<HTMLDivElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
   const selected = options.find((option) => option.value === value);
-  const caretWidth = clearable ? 6.5 : 7.5;
+  const caretWidth = caret === 'font' ? 8.24 : clearable ? 6.5 : 7.5;
+  const caretHeight = caret === 'font' ? 4.12 : 3.8;
 
   const filtered = React.useMemo(() => filterOptions(options, query), [options, query]);
 
@@ -166,14 +171,18 @@ function Combobox({
               aria-hidden
               className={cn(
                 'absolute top-[16px] z-3 opacity-80',
-                clearable ? 'right-[25.9px]' : 'right-[25px]'
+                caret === 'font' ? 'right-[25.61px]' : clearable ? 'right-[25.9px]' : 'right-[25px]'
               )}
               fill="currentColor"
-              height="3.8"
-              viewBox={`0 0 ${caretWidth} 3.8`}
+              height={caretHeight}
+              viewBox={caret === 'font' ? FONT_CARET_BOX : `0 0 ${caretWidth} ${caretHeight}`}
               width={caretWidth}
             >
-              <polygon points={`0,0 ${caretWidth},0 ${caretWidth / 2},3.8`} />
+              {caret === 'font' ? (
+                <path d={FONT_CARET} />
+              ) : (
+                <polygon points={`0,0 ${caretWidth},0 ${caretWidth / 2},${caretHeight}`} />
+              )}
             </svg>
           )}
           <PopoverPrimitive.Portal>

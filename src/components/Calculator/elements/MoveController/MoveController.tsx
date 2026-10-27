@@ -2,7 +2,6 @@ import { useCallback } from 'react';
 import { MoveSelector } from 'components';
 import { ButtonController } from 'components/Calculator/elements';
 import useStore from 'store';
-import styles from './MoveController.module.scss';
 
 interface MoveControllerProps {
   move: '1' | '2' | '3' | '4';
@@ -18,7 +17,7 @@ function MoveController({ move, pokemon }: MoveControllerProps): React.JSX.Eleme
   };
 
   return (
-    <div className={styles.move} data-testid={`move${move}_${pokemon}`}>
+    <div className="[&>div:first-child]:mb-(--spacing-2)" data-testid={`move${move}_${pokemon}`}>
       <MoveSelector
         currentMoveId={form[`move${move}_${pokemon}`]}
         handleMove={handleMove}

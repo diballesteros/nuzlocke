@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import useStore from 'store';
-import styles from './Modifier.module.scss';
+import { Button } from '@/components/ui/button';
+import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
 
 interface ModifierProps {
   name:
@@ -36,11 +36,34 @@ function Modifier({ name }: ModifierProps): React.JSX.Element {
   };
 
   return (
-    <div className={styles.modifier}>
-      <span>{t('modifier')}:</span>
-      <Button data-testid={`minus-${name}`} icon="minus" onClick={decrement} type="button" />
-      <output data-testid={name}>{form[name]}</output>
-      <Button data-testid={`plus-${name}`} icon="plus" onClick={increment} type="button" />
+    <div className="mx-auto my-0 flex w-full flex-row flex-nowrap items-center gap-(--spacing-2) self-center">
+      <span className="mr-(--spacing-2) select-none">{t('modifier')}:</span>
+      <Button
+        className="m-0!"
+        data-testid={`minus-${name}`}
+        onClick={decrement}
+        size="icon"
+        type="button"
+        variant="secondary"
+      >
+        <MinusIcon className={BUTTON_ICON} />
+      </Button>
+      <output
+        className="min-w-[2.143rem] rounded-[4px] border border-solid border-foreground p-(--spacing-2) text-center font-bold select-none"
+        data-testid={name}
+      >
+        {form[name]}
+      </output>
+      <Button
+        className="m-0!"
+        data-testid={`plus-${name}`}
+        onClick={increment}
+        size="icon"
+        type="button"
+        variant="secondary"
+      >
+        <PlusIcon className={BUTTON_ICON} />
+      </Button>
     </div>
   );
 }

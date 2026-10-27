@@ -25,6 +25,7 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
    - With no preflight, a border's width defaults to `medium` (3px): `border-solid` plus `border-t` draws 3px on the other three sides. Set every side (`border-0 border-t border-solid`).
    - Semantic sets `*, *::before, *::after { box-sizing: inherit }`, so `box-border` and `[box-sizing:…]` utilities lose; mark them `!`. An SCSS module that set `box-sizing: unset` made its whole subtree content-box, so padded children grew past their `width`/`min-width` (see `components/Import`).
    - `index.css` and Semantic colour every `a`, so a link styled as a button needs `text-…!` (see the Source link in `components/About`).
+   - Semantic's normalize sets `fieldset { padding: .35em .75em .625em }`, so a padded fieldset needs `p-…!` (see `Calculator/elements/Stats`).
 
    Use `!` only for properties a global rule actually sets, and leave the rest for Phase 3.
 
@@ -77,6 +78,12 @@ The app is moving from Semantic UI React + Sass modules to Tailwind v4 + shadcn/
    - `icons`: one-path lucide glyphs for translucent button text (see below): plus, minus, arrow up and down, trash, pencil, x, question, chevron right, download, share, settings, refresh, check. `TRAILING_ICON` places a glyph after a button's text without growing the line (the button stays exactly 1em + padding tall). `BUTTON_ICON` sizes a glyph alone in an icon button.
    - `radio-group`: `RadioGroup` (the root; it can wrap other content, as on Import), `RadioGroupItem` (Semantic's ring and bullet) and `RadioGroupOption` (an item plus its `<label htmlFor>`, laid out like `<Radio label>`; `data-testid` goes on the wrapper, so the `toggle` helper's `label` click still works).
    - `common/SelectorRow`: the Pokémon row shared by the selector dialogs.
+   - `switch`: Semantic's `fitted toggle` Checkbox on Radix Switch (role="switch", test id on the switch itself; the `toggle` helper clicks it). Name it with `aria-labelledby`.
+   - `popover` also exports `HoverPopover`: Semantic's default Popup (hover opens after 50 ms, leaving closes after 70 ms, a click toggles, position "top left", focus stays put). `Calculator/elements/Help` wraps it with the `question circle` icon (`QuestionCircleIcon` in `ui/icons`).
+   - `select` also has `look="contrast"` (the app's Dropdown.module.scss: transparent, faint border; the Calculator's gender), `clearable`, `disabled` and `text` (fixed text in place of the value). `select` and `combobox` take `caret="font"`, the icon font's caret as the Calculator drew it; the default caret stays as calibrated for the other areas.
+   - Semantic's `toggle` Button is `variant={active ? 'solid-green' : 'secondary'}` with `aria-pressed`. A grey button that Semantic showed focused after a click needs `focus:bg-grey-focus` (the primitive uses `focus-visible`).
+   - An icon-font glyph sits on its line box, not in the middle of its 1em slot. Where the line height isn't 1em, move the SVG by `translate-y-[calc((1lh-1em)/2)]` (Calculator's help icons and chevron). A flex item icon shrinks to its glyph's width when space runs out (`min-w-…` instead of `shrink-0`).
+   - Chrome snaps an absolutely positioned SVG to whole pixels, so sub-pixel `right`/`left` changes do nothing; shift the drawing inside its `viewBox` instead (`FONT_CARET_BOX` in `ui/select`).
    - Inside a button the text colour is translucent (`--button-foreground` is `rgba(0,0,0,0.6)`), so a lucide icon made of several paths paints their overlap darker. Use the one-path glyphs in `ui/icons.tsx`, or lucide's `Icon` with a one-path `iconNode` for a new one. Lucide has no brand logos; draw those as an inline SVG (the GitHub mark in `components/About`).
    - Lucide glyphs draw smaller than FontAwesome's inside the same box. To match an icon, enlarge the SVG and give it negative margins, so it still takes Semantic's 1em × 1.18em slot and the button or line keeps its height (see `common/Back` and `common/PokemonSelector`).
 
