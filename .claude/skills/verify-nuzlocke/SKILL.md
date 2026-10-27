@@ -19,7 +19,12 @@ node .claude/skills/verify-nuzlocke/control-nuzlocke.mjs launch --prod   # vite 
 Ready means the app shell (`[data-testid="app"]`) rendered, not just that the port answers. Launch
 starts a detached host that owns Vite and a Chromium with CDP on :9333. The app starts with empty
 storage, so pick a seed next. Ports 3100/9333 never collide with Playwright tests (3001) or
-`npm run dev` (3000). If the port is taken, launch refuses; don't drive someone else's server.
+`npm run dev` (3000). If the port is taken, launch refuses; don't drive someone else's server. Another
+checkout's session may hold them: set `VERIFY_PORT` and `VERIFY_CDP_PORT` (every command reads them).
+
+In a worktree whose `node_modules` is a symlink to the main checkout, dev mode serves Semantic UI's
+icon fonts from outside Vite's `server.fs.allow`, so they 403 (console errors, missing icons). Use
+`launch --prod` there for anything visual.
 
 ## Doctor
 
@@ -94,8 +99,11 @@ Proof standards:
 node .claude/skills/verify-nuzlocke/control-nuzlocke.mjs cleanup
 ```
 
-Stops only the host and Vite pids that launch recorded (tree kill), never by process name.
-Evidence stays. After a failed iteration, run cleanup before relaunching.
+Stops only the host and Vite pids that launch recorded, with every descendant (Chromium included),
+never by process name: `taskkill /T` on Windows; on macOS and Linux the tree from `ps`, SIGTERM,
+then SIGKILL after 5 s. Evidence stays. After a failed iteration, run cleanup before relaunching.
+`launch` reuses a running session, but refuses one started in the other mode (`--prod` against
+dev, or the reverse): clean up first.
 
 ## Feature map
 
