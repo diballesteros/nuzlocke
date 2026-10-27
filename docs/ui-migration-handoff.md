@@ -82,7 +82,9 @@ These preferences hold across sessions:
 - **Search dropdowns use manual selection** (#840). Only a click or Enter picks an option. Escape, a click elsewhere or Tab closes the list and keeps the value. Semantic's select-on-blur was dropped on purpose; it's pinned in `combobox.test.tsx`.
 - **Escape on dialogs:** a dialog closes on Escape only if its Semantic version had an `onClose`. `tests/e2e/main/Interactions.spec.ts` pins each case.
 - **Accessibility:** new accessible names (aria-labels, tab names, button names) are welcome when they need no visual change. New user-facing strings go in all three locales (en, es, de).
-- **Known a11y item for Phase 5:** the white-on-#2185d0 Edit custom statuses button has too little contrast.
+- **Known a11y items for Phase 5:**
+  - The white-on-#2185d0 Edit custom statuses button has too little contrast.
+  - An open Radix Select hides the rest of the page with `aria-hidden` but leaves it focusable, so axe reports `aria-hidden-focus` (16 nodes with a tracker status menu open, 3 with Settings' language). Making the hidden page `inert` while a menu is open would fix it.
 
 ## Waiting on the user
 
