@@ -24,7 +24,20 @@ export const field = (page: Page, id: string) =>
 // Types at the end of the current value, like cy.type (fill would replace it)
 export const typeInto = async (locator: Locator, value: string) => {
   await locator.focus();
-  await locator.press('End');
+  // Caret to the end like cy.type. Not with End: on macOS it scrolls the page instead.
+  await locator.evaluate((el: HTMLInputElement | HTMLTextAreaElement) => {
+    const end = el.value.length;
+    try {
+      el.setSelectionRange(end, end);
+    } catch (error) {
+      // Number inputs have no selection API; the caret survives a round trip through text.
+      if (!(el instanceof HTMLInputElement)) throw error;
+      const { type } = el;
+      el.type = 'text';
+      el.setSelectionRange(end, end);
+      el.type = type;
+    }
+  });
   await locator.pressSequentially(value);
 };
 
