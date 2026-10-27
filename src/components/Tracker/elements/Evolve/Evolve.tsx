@@ -14,6 +14,7 @@ import {
   DialogHeader,
 } from '@/components/ui/dialog';
 import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
+import { cn } from '@/lib/utils';
 import { OUTLINE_BUTTON, ROW_ICON } from '../buttons';
 
 interface EvolveProps {
@@ -49,7 +50,7 @@ function Evolve({ encounter, evolveIds }: EvolveProps): React.JSX.Element {
         type="button"
         variant="secondary"
       >
-        <Dna className={ROW_ICON} strokeWidth={2.5} />
+        <Dna className={cn(ROW_ICON, '-rotate-45')} strokeWidth={2.5} />
       </Button>
       <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
         <DialogContent>
