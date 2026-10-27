@@ -52,6 +52,7 @@ Porting and harness gotchas:
 - Cypress's Chrome followed the OS dark theme, so e2e projects use `colorScheme: 'dark'`.
 - Cypress `contains` matches CSS-uppercased text; Playwright matches DOM text. Assert a "not present" check's target exists first, or it can never fail (the PokéStats section checks could not).
 - Hovering a badge clears its grayscale filter: move the pointer away before asserting. The first tracker row's nature menu opens under the badge strip (`pickOption(..., { covered: true })`). With several Builder members, the team panel covers the next member's delete button. All three are real UI issues for the redesign.
+- Radix dialogs start listening for outside clicks a task after they open (`setTimeout(0)` in `DismissableLayer`), so a click outside right after opening one can land before the listener and be ignored; the dialog then stays open and its overlay blocks the next click. `clickOutside` lets that task run first. Semantic listened at once.
 - Only dialogs with an `onClose` close on Escape today (pinned in `tests/e2e/main/Interactions.spec.ts`); Radix closes all of them by default.
 - Playwright's own Firefox build won't start on this Windows machine ("side-by-side configuration is incorrect"); Firefox runs in CI's Linux container.
 - From Git Bash, the control CLI accepts routes without a leading slash (`goto rules`); MSYS rewrites `/rules` into a Windows path. Git Bash's GNU `tar` reads `C:` as a remote host, so `scripts/visual.mjs` copies files with Node.

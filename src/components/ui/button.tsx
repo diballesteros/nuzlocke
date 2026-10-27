@@ -50,16 +50,27 @@ const buttonVariants = cva(
   }
 );
 
-function Button({
-  className,
-  variant = 'default',
-  size = 'default',
-  asChild = false,
-  ...props
-}: React.ComponentProps<'button'> &
-  VariantProps<typeof buttonVariants> & {
-    asChild?: boolean;
-  }) {
+// Semantic's `toggle` button while `active`: green whatever its variant, darker on hover. Set
+// aria-pressed on the button
+const TOGGLE_BUTTON =
+  'aria-pressed:bg-green! aria-pressed:text-white! aria-pressed:shadow-none! aria-pressed:hover:bg-green-hover!';
+
+// Semantic's `mini` size: the button's font (and so its padding and icon) at 0.78571429rem. cn()
+// drops the base's line height when a later class sets the font size, so it's restated
+const MINI_BUTTON = 'text-[0.78571429rem]! leading-[1em]!';
+
+// It forwards its ref (React 18 drops refs on plain function components), so it can be a Radix
+// trigger (`<PopoverTrigger asChild>`), which needs the element to position its content
+const Button = React.forwardRef<
+  HTMLButtonElement,
+  React.ComponentProps<'button'> &
+    VariantProps<typeof buttonVariants> & {
+      asChild?: boolean;
+    }
+>(function Button(
+  { className, variant = 'default', size = 'default', asChild = false, ...props },
+  ref
+) {
   const Comp = asChild ? Slot.Root : 'button';
 
   return (
@@ -67,9 +78,10 @@ function Button({
       data-slot="button"
       data-variant={variant}
       className={cn(buttonVariants({ variant, size, className }))}
+      ref={ref}
       {...props}
     />
   );
-}
+});
 
-export { Button, buttonVariants };
+export { Button, buttonVariants, MINI_BUTTON, TOGGLE_BUTTON };

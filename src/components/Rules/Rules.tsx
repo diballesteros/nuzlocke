@@ -24,10 +24,9 @@ import {
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 
-// The toolbar's buttons share its width, up to 12rem each (any width on narrow screens). Share is
-// still a Semantic button, so its icon's margins need !
+// The toolbar's buttons share its width, up to 12rem each (any width on narrow screens)
 const TOOLBAR =
-  'flex flex-row flex-wrap items-center justify-end gap-(--spacing-2) mb-(--spacing-2) [&>button]:max-h-[2.571rem] [&>button]:max-w-[12rem] [&>button]:flex-1 [&>button]:whitespace-nowrap max-[45rem]:[&>button]:max-w-none [&>button>i]:mr-0! [&>button>i]:ml-(--spacing-1)!';
+  'flex flex-row flex-wrap items-center justify-end gap-(--spacing-2) mb-(--spacing-2) [&>button]:max-h-[2.571rem] [&>button]:max-w-[12rem] [&>button]:flex-1 [&>button]:whitespace-nowrap max-[45rem]:[&>button]:max-w-none';
 
 function Rules(): React.JSX.Element {
   const { t } = useTranslation('rules');

@@ -1,14 +1,21 @@
+import { Dna } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Radio from 'semantic-ui-react/dist/commonjs/addons/Radio';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import type { CheckboxProps } from 'semantic-ui-react/dist/commonjs/modules/Checkbox';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import { PkmImage } from 'common';
 import { POKEMAP } from 'constants/pokemon';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
-import styles from './Evolve.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+} from '@/components/ui/dialog';
+import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
+import { cn } from '@/lib/utils';
+import { OUTLINE_BUTTON, ROW_ICON } from '../buttons';
 
 interface EvolveProps {
   encounter: TEncounter;
@@ -26,61 +33,57 @@ function Evolve({ encounter, evolveIds }: EvolveProps): React.JSX.Element {
     setOpen(false);
   };
 
-  const handleChange = (newId: number) => {
-    setSelected(newId);
-  };
-
   const handleEvolve = () => {
     changePokemon(encounter.id, selected);
     setOpen(false);
   };
 
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={handleClose}
-      open={open}
-      trigger={
-        <Button
-          aria-label="evolve"
-          className={styles.button}
-          data-testid={`evolve-${encounter.id}}`}
-          icon="dna"
-          onClick={() => setOpen(true)}
-          title="Evolve"
-          type="button"
-        />
-      }
-    >
-      <Modal.Header>{t('evolution_chain')}</Modal.Header>
-      <Modal.Content>
-        {evolveIds.map((id) => {
-          const foundPokemon = POKEMAP.get(id);
-          return (
-            <div className={styles.option} key={`evolve-${id}`}>
-              <div className={styles.image}>
-                <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />{' '}
-              </div>
-              <Radio
-                className={styles.radio}
-                checked={id === selected}
-                label={foundPokemon?.text}
-                onChange={(e: React.FormEvent<HTMLInputElement>, data: CheckboxProps) =>
-                  handleChange(data.value as number)
-                }
-                value={id}
-              />
-            </div>
-          );
-        })}
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
-        <Button onClick={handleEvolve} primary>
-          {t('save', { ns: 'common' })}
-        </Button>
-      </Modal.Actions>
-    </Modal>
+    <>
+      <Button
+        aria-label="evolve"
+        className={OUTLINE_BUTTON}
+        data-testid={`evolve-${encounter.id}}`}
+        onClick={() => setOpen(true)}
+        size="icon"
+        title="Evolve"
+        type="button"
+        variant="secondary"
+      >
+        <Dna className={cn(ROW_ICON, '-rotate-45')} strokeWidth={2.5} />
+      </Button>
+      <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
+        <DialogContent>
+          <DialogHeader>{t('evolution_chain')}</DialogHeader>
+          <DialogBody>
+            <RadioGroup
+              onValueChange={(value) => setSelected(Number(value))}
+              value={String(selected)}
+            >
+              {evolveIds.map((id) => {
+                const foundPokemon = POKEMAP.get(id);
+                return (
+                  <div className="mt-(--spacing-2) flex items-center" key={`evolve-${id}`}>
+                    <div className="h-[3.5rem] w-[4.8rem]">
+                      <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />{' '}
+                    </div>
+                    <RadioGroupOption label={foundPokemon?.text} value={String(id)} />
+                  </div>
+                );
+              })}
+            </RadioGroup>
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleClose} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+            <Button onClick={handleEvolve} variant="primary">
+              {t('save', { ns: 'common' })}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

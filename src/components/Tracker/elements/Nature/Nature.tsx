@@ -1,37 +1,47 @@
+import { Leaf } from 'lucide-react';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Dropdown, { DropdownProps } from 'semantic-ui-react/dist/commonjs/modules/Dropdown';
 import NATURES from 'constants/natures';
 import type { TEncounter } from 'constants/types';
 import useStore from 'store';
-import styles from './Nature.module.scss';
+import { BUTTON_ICON } from '@/components/ui/icons';
+import { Select } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
+import { OUTLINE_BUTTON } from '../buttons';
 
 interface NatureProps {
   encounter: TEncounter;
 }
 
+const OPTIONS = NATURES.map((nature) => ({ text: nature.text, value: nature.value }));
+
+// Semantic's `button` Dropdown with a leaf in place of the caret, outlined like the row's other
+// buttons and 2.2rem tall. On the narrowest screens only the leaf shows. Its menu, in the button's
+// font, lines up with its right edge (`direction="left"`)
+const TRIGGER = cn(
+  OUTLINE_BUTTON,
+  'm-0! flex! h-[2.2rem] w-fit items-center justify-center data-[state=open]:rounded-b-none [&>span:first-child]:mr-(--spacing-1) max-xs:w-[2.5rem] max-xs:[&>span:first-child]:[display:none]!'
+);
+
 function Nature({ encounter }: NatureProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const changeNature = useStore(useCallback((state) => state.changeNature, []));
 
-  const handleChange = (data: DropdownProps) => {
-    changeNature(encounter.id, data.value as unknown as string);
-  };
-
   return (
-    <Dropdown
-      button
-      className={styles.dropdownButton}
+    <Select
+      align="end"
+      aria-label={t('nature')}
+      className="font-control"
+      contained
       data-testid={`nature-${encounter.id}`}
-      direction="left"
-      lazyLoad
-      icon="leaf"
-      onChange={(e, data) => handleChange(data)}
-      options={NATURES}
+      icon={<Leaf aria-hidden className={cn(BUTTON_ICON, 'opacity-80')} strokeWidth={2.5} />}
+      look="button"
+      onChange={(value) => changeNature(encounter.id, value)}
+      options={OPTIONS}
       scrolling
       text={encounter?.details?.nature ?? t('nature')}
-      title={t('nature')}
-      value={encounter?.details?.nature}
+      triggerClassName={TRIGGER}
+      value={encounter?.details?.nature ?? ''}
     />
   );
 }

@@ -1,8 +1,7 @@
 import React, { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
+import { TriangleAlert } from 'lucide-react';
 import { useShallow } from 'zustand/shallow';
 import { PkmImage, PokemonSelector } from 'common';
 import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
@@ -11,7 +10,12 @@ import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
 import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
-import styles from './Pokemon.module.scss';
+import { HoverPopover } from '@/components/ui/popover';
+
+// The selector's frame. Its SCSS unset box-sizing, so it's content-box (and so is everything inside
+// it, through Semantic's inherited box-sizing); Semantic's own rule beats a plain utility, hence !
+const SELECTOR =
+  'relative box-content! flex h-full w-[calc(100%-var(--spacing-3))] cursor-pointer flex-col flex-nowrap gap-(--spacing-2) rounded-[4px] border border-solid border-contrast-border pl-(--spacing-3) text-foreground hover:border-foreground max-sm:text-(length:--font-size-2)';
 
 interface PokemonProps {
   encounter: TEncounter;
@@ -21,7 +25,6 @@ interface PokemonProps {
 const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: PokemonProps) {
   const { t } = useTranslation('tracker');
   const changePokemon = useStore((state) => state.changePokemon);
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
   const total = useStore(useShallow(selectTotal));
   const showAll = useStore(useCallback((state) => state.showAll, []));
@@ -118,8 +121,8 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
   };
 
   return (
-    <div className={styles.pokemonSelect}>
-      <div aria-label="Pokémon selector" className={styles.container}>
+    <div className="relative row-span-2 flex h-full min-h-[7rem] flex-col flex-nowrap gap-(--spacing-1) font-bold">
+      <div aria-label="Pokémon selector" className="flex flex-1 [&>div]:flex-1">
         <PokemonSelector
           dupes={total?.map((c) => c.pokemon)}
           filter={filter}
@@ -130,19 +133,24 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
           tooltip={showAllTooltip}
         >
           {encounter?.pokemon ? (
-            <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
-              <div className={styles.image}>
+            <div className={SELECTOR} data-testid={`pokemon-${encounter.id}`}>
+              <div className="flex h-[3.5rem] w-[4.8rem] items-end justify-center">
                 <PkmImage name={foundPokemon.text} shiny={encounter?.details?.shiny} />
               </div>
-              <span className={styles.name}>
+              <span className="mt-auto mb-(--spacing-2)">
                 {foundPokemon.text}
                 {getGenderIcon(encounter?.details?.gender)}
               </span>
-              <span className={styles.level}>Lv: {encounter?.details?.level ?? 0}</span>
+              <span className="absolute top-(--spacing-2) right-(--spacing-2)">
+                Lv: {encounter?.details?.level ?? 0}
+              </span>
             </div>
           ) : (
-            <div className={styles.selector} data-testid={`pokemon-${encounter.id}`}>
-              <span data-testid={`encounter-empty-${encounter.id}`} className={styles.placeholder}>
+            <div className={SELECTOR} data-testid={`pokemon-${encounter.id}`}>
+              <span
+                className="m-auto text-placeholder"
+                data-testid={`encounter-empty-${encounter.id}`}
+              >
                 Pokémon...
               </span>
             </div>
@@ -150,17 +158,18 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
         </PokemonSelector>
       </div>
       {!!alertText && (
-        <Popup
-          content={<b>{alertText}</b>}
-          inverted={darkMode}
-          trigger={
-            <Icon
-              className={styles.alert}
-              data-testid={`alert-${encounter.id}`}
-              name="warning sign"
-            />
-          }
-        />
+        <HoverPopover content={<b>{alertText}</b>}>
+          {/* Semantic's red icon in the corner, as a button so the popup can open from it. Semantic's
+              reset styles every <button>, so its font, size, line height and margin need ! */}
+          <button
+            aria-label={alertText}
+            className="absolute top-0 right-0 m-0! ml-(--spacing-1)! inline-block h-[1em] w-[1.18em] cursor-pointer border-0 bg-transparent p-0 text-(length:--font-size-2)! leading-none! text-alert"
+            data-testid={`alert-${encounter.id}`}
+            type="button"
+          >
+            <TriangleAlert aria-hidden className="size-full" strokeWidth={2.5} />
+          </button>
+        </HoverPopover>
       )}
     </div>
   );

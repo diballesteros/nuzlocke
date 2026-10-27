@@ -1,12 +1,18 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
 import useStore from 'store';
-import styles from 'assets/styles/Button.module.scss';
-import modalStyles from 'assets/styles/Modal.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
+import { PlusIcon, TOOLBAR_ICON } from '@/components/ui/icons';
+import { Input } from '@/components/ui/input';
+import { RADIUS } from '../buttons';
 
 interface AddEncounterProps {
   icon?: boolean;
@@ -16,7 +22,6 @@ function AddEncounter({ icon = false }: AddEncounterProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addEncounter = useStore(useCallback((state) => state.addEncounter, []));
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const [open, setOpen] = useState(false);
   const [location, setLocation] = useState('');
 
@@ -32,51 +37,52 @@ function AddEncounter({ icon = false }: AddEncounterProps): React.JSX.Element {
   };
 
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={handleClose}
-      open={open}
-      trigger={
-        icon ? (
-          <Button
-            icon="plus"
-            circular
-            className={styles.iconButton}
-            color="green"
-            data-testid="add-encounter"
-            disabled={!selectedGame}
-            onClick={() => setOpen(true)}
-          />
-        ) : (
-          <Button
-            color="green"
-            data-testid="add-encounter"
-            disabled={!selectedGame}
-            inverted={darkMode}
-            onClick={() => setOpen(true)}
-          >
-            {t('add')}
-            <Icon className="icon plus" />
-          </Button>
-        )
-      }
-    >
-      <Modal.Content className={modalStyles.modal}>
-        {t('please_location')}
-        <Input
-          data-testid="add-encounter-input"
-          maxLength={100}
-          onChange={(e, data) => setLocation(data.value)}
-          value={location}
-        />
-      </Modal.Content>
-      <Modal.Actions>
-        <Button onClick={handleClose}>{t('cancel', { ns: 'common' })}</Button>
-        <Button disabled={location?.length === 0} onClick={handleAdd} primary>
-          {t('save', { ns: 'common' })}
+    <>
+      {icon ? (
+        <FabButton
+          aria-label={t('add_encounter')}
+          colour="green"
+          data-testid="add-encounter"
+          disabled={!selectedGame}
+          onClick={() => setOpen(true)}
+        >
+          <PlusIcon className={FAB_ICON} />
+        </FabButton>
+      ) : (
+        <Button
+          className={RADIUS}
+          data-testid="add-encounter"
+          disabled={!selectedGame}
+          onClick={() => setOpen(true)}
+          variant="green"
+        >
+          {t('add')}
+          <PlusIcon className={TOOLBAR_ICON} />
         </Button>
-      </Modal.Actions>
-    </Modal>
+      )}
+      <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
+        <DialogContent>
+          <DialogTitle className="sr-only">{t('add_encounter')}</DialogTitle>
+          <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)">
+            {t('please_location')}
+            <Input
+              data-testid="add-encounter-input"
+              maxLength={100}
+              onChange={(e) => setLocation(e.target.value)}
+              value={location}
+            />
+          </DialogBody>
+          <DialogFooter>
+            <Button onClick={handleClose} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+            <Button disabled={location?.length === 0} onClick={handleAdd} variant="primary">
+              {t('save', { ns: 'common' })}
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    </>
   );
 }
 

@@ -4,7 +4,6 @@ import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { HEADER_BUTTON } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
-import buttonStyles from 'assets/styles/Button.module.scss';
 import { Button as UIButton } from '@/components/ui/button';
 import {
   Dialog,
@@ -13,7 +12,8 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
+import { BUTTON_ICON, MinusIcon, PencilIcon, PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 
 interface CustomBadgeEditorProps {
@@ -36,15 +36,15 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
   return selectedGame?.value && Number(selectedGame.value) > MAX_GAME ? (
     <>
       {icon ? (
-        <Button
-          icon="pencil"
-          circular
-          className={buttonStyles.iconButton}
-          color="yellow"
+        <FabButton
+          aria-label={t('edit_badges', { ns: 'tracker' })}
+          colour="yellow"
           data-testid="custom-edit-badges"
           disabled={!selectedGame}
           onClick={() => setOpen(true)}
-        />
+        >
+          <PencilIcon className={FAB_ICON} />
+        </FabButton>
       ) : (
         <Button
           aria-label="editgame"

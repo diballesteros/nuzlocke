@@ -5,7 +5,6 @@ import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { LEVEL_CAPS } from 'constants/badges';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
-import buttonStyles from 'assets/styles/Button.module.scss';
 import { Button as UIButton } from '@/components/ui/button';
 import {
   Dialog,
@@ -14,13 +13,14 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
+import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
+import { PencilIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 
 const MULTIPLE_CAPS = ['1', '3', '5', '8'];
 
-// The header's pencil. It stays a Semantic button until the app shell moves (as does the FAB's
-// round one), so only the rules that won over Semantic's are kept, as important utilities: no
+// The header's pencil. It stays a Semantic button until the app shell moves, so only the rules that won over Semantic's are kept, as important utilities: no
 // background, the page's text colour, and hidden on small screens
 export const HEADER_BUTTON =
   'bg-transparent! text-foreground! hover:bg-transparent! hover:text-foreground! max-sm:[display:none]!';
@@ -44,15 +44,15 @@ function BadgeEditor({ icon }: BadgeEditorProps): React.JSX.Element {
   return selectedGame?.value && Number(selectedGame.value) <= MAX_GAME ? (
     <>
       {icon ? (
-        <Button
-          icon="pencil"
-          circular
-          className={buttonStyles.iconButton}
-          color="yellow"
+        <FabButton
+          aria-label={t('edit_badges', { ns: 'tracker' })}
+          colour="yellow"
           data-testid="edit-badges"
           disabled={!selectedGame}
           onClick={() => setOpen(true)}
-        />
+        >
+          <PencilIcon className={FAB_ICON} />
+        </FabButton>
       ) : (
         <Button
           aria-label="editgame"

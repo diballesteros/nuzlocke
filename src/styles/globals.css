@@ -33,6 +33,9 @@
 @source '../components/Pokestats';
 @source '../components/Rules';
 @source '../components/Settings';
+@source '../components/Share';
+@source '../components/Status';
+@source '../components/Tracker';
 @source '../common/Back';
 @source '../common/DetailSelector';
 @source '../common/EncounterSelector';
@@ -126,6 +129,14 @@
   --red-inverted-hover: #ff5144;
   --red-inverted-focus: #ff4335;
   --red-inverted-active: #ff392b;
+  /* Semantic's yellow button (the FAB's badge editor), with its hover, focus and active shades */
+  --yellow: #fbbd08;
+  --yellow-hover: #eaae00;
+  --yellow-focus: #daa300;
+  --yellow-active: #cd9903;
+
+  /* Semantic's inverted (dark mode) button's focus ring, which shows even on a pressed toggle */
+  --inverted-focus: #dcddde;
 
   /* Semantic's basic button: its pressed fill, and its text when inverted (dark mode) */
   --basic-active: #f8f8f8;
@@ -149,6 +160,9 @@
   /* Semantic's dropdown menu: its border while open, and the rule between items */
   --dropdown-active-border: #96c8da;
   --dropdown-item-border: #fafafa;
+
+  /* The tracker's rule-breaking warning icon */
+  --alert: #ff0000;
 
   /* The suggested/dupe tag on a selector row */
   --suggestion: #80c0d690;
@@ -218,6 +232,8 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-header: var(--header);
+  --color-alert: var(--alert);
+  --color-inverted-focus: var(--inverted-focus);
   --color-badge: var(--badge);
   --color-badgeopac: var(--badgeopac);
   --color-badgeflash: var(--badgeflash);
@@ -266,6 +282,10 @@
   --color-green-inverted-hover: var(--green-inverted-hover);
   --color-green-inverted-focus: var(--green-inverted-focus);
   --color-green-inverted-active: var(--green-inverted-active);
+  --color-yellow: var(--yellow);
+  --color-yellow-hover: var(--yellow-hover);
+  --color-yellow-focus: var(--yellow-focus);
+  --color-yellow-active: var(--yellow-active);
   --color-red-hover: var(--red-hover);
   --color-red-focus: var(--red-focus);
   --color-red-active: var(--red-active);
