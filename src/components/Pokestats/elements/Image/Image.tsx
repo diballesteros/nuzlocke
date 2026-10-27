@@ -355,6 +355,4 @@ function Image({ forwardedRef, responsive = false }: ImageProps): React.JSX.Elem
   );
 }
 
-Image.propTypes = {};
-
 export default Image;
