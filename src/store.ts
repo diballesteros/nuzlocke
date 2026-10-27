@@ -169,7 +169,7 @@ const useStore = create<AppState>()(
         evspatk: number,
         evspdef: number,
         evspeed: number,
-        soulink
+        soulink: number
       ) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
