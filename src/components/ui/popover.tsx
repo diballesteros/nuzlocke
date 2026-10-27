@@ -72,12 +72,16 @@ function PopoverContent({
 // Semantic's default Popup (`on={['click', 'hover']}`, position "top left"): hovering the trigger
 // opens it after 50 ms and leaving closes it after 70 ms, a click toggles it, and focus stays on the
 // trigger. Its trigger must take a ref (a <button>, so Radix can set aria-expanded on it).
+// `inverted={false}` keeps the white bubble in dark mode, for Popups that weren't given
+// `inverted={darkMode}`.
 function HoverPopover({
   children,
   content,
+  inverted = true,
 }: {
   children: React.ReactElement;
   content: React.ReactNode;
+  inverted?: boolean;
 }) {
   const [open, setOpen] = React.useState(false);
   const timer = React.useRef<number>(undefined);
@@ -104,7 +108,14 @@ function HoverPopover({
       </PopoverTrigger>
       <PopoverContent
         align="start"
-        arrowClassName="left-[1em] ml-0"
+        arrowClassName={cn(
+          'left-[1em] ml-0',
+          !inverted && 'dark:bg-white dark:shadow-[1px_1px_0_0_var(--color-popup-arrow)]'
+        )}
+        className={cn(
+          !inverted &&
+            'dark:border dark:bg-white dark:text-field-foreground dark:shadow-[0_2px_4px_0_rgba(34,36,38,0.12),0_2px_10px_0_rgba(34,36,38,0.15)]'
+        )}
         onOpenAutoFocus={(e) => e.preventDefault()}
       >
         {content}

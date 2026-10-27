@@ -31,5 +31,6 @@
   "reset_confirm": "Esto restablecerá todos los encuentros para el juego seleccionado, eliminará los encuentros personalizados y desmarcará todas las insignias. ¿Está seguro?",
   "reset_encounters": "Restablecer encuentros",
   "reset_success": "Los encuentros se restablecieron con éxito",
-  "share": "Compartir"
+  "share": "Compartir",
+  "encounter_details": "Detalles del encuentro"
 }

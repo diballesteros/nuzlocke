@@ -193,7 +193,9 @@ export const pokemonDetail = async (page: Page) => {
   await pickOption(page, 'ability', 1);
   await pickOption(page, 'item', 1);
   await pickOption(page, 'gender', 1);
+  // Semantic picked the typed match on blur; the Combobox picks it on Enter (#840)
   await typeInto(byTestId(page, 'nature').locator('input.search'), 'Bold');
+  await page.keyboard.press('Enter');
   await byTestId(page, 'shiny').click();
   await byTestId(page, 'move-summary').click();
   await byTestId(page, 'move-1').locator(':scope > div').click();

@@ -51,5 +51,8 @@
   "types": "Typen",
   "Weak against": "Schwach gegenüber",
   "add": "Hinzufügen",
-  "remove": "Entfernen"
+  "remove": "Entfernen",
+  "nature_chart": "Wesenstabelle",
+  "ability_list": "Fähigkeitenliste",
+  "move_list": "Attackenliste"
 }

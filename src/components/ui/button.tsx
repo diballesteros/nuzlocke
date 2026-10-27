@@ -34,6 +34,9 @@ const buttonVariants = cva(
         // Semantic's `basic inverted={darkMode}`: a thin outline on the page's background
         basic:
           'bg-transparent font-normal text-button-foreground shadow-[inset_0_0_0_1px_var(--color-field-border)] hover:bg-white hover:text-button-hover-foreground hover:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] focus-visible:bg-white focus-visible:text-button-hover-foreground focus-visible:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] active:bg-basic-active dark:text-basic-inverted-foreground dark:shadow-[inset_0_0_0_2px_rgba(255,255,255,0.5)] dark:hover:bg-transparent dark:hover:text-white dark:hover:shadow-[inset_0_0_0_2px_var(--color-white)] dark:focus-visible:bg-transparent dark:focus-visible:text-white dark:focus-visible:shadow-[inset_0_0_0_2px_var(--color-white)] dark:active:bg-[rgba(255,255,255,0.08)]',
+        // Semantic's `basic` button without `inverted`: the same thin outline in both themes
+        'basic-plain':
+          'bg-transparent font-normal text-button-foreground shadow-[inset_0_0_0_1px_var(--color-field-border)] hover:bg-white hover:text-button-hover-foreground hover:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] focus-visible:bg-white focus-visible:text-button-hover-foreground focus-visible:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)] active:bg-basic-active',
       },
       size: {
         default: 'px-[1.5em] py-[0.78571429em]',

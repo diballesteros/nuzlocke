@@ -107,6 +107,13 @@ export const ShuffleIcon = glyph(
 
 export const ArrowRightIcon = glyph('arrow-right', 'M5 12h14M12 5l7 7-7 7', { strokeWidth: 3 });
 
+export const SearchIcon = glyph('search', 'M11 4a7 7 0 1 0 0 14 7 7 0 1 0 0-14zM21 21l-5-5', {
+  strokeWidth: 3,
+});
+
+// FontAwesome's filter is a solid funnel
+export const FilterIcon = glyph('filter', 'M1 2.5h22l-8.5 10v8.5l-5 2.5v-11z', SOLID);
+
 // An icon after a button's text, in Semantic's icon slot: 4px from the text, nothing after it. The
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall
 export const TRAILING_ICON =

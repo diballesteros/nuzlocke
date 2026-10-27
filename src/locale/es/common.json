@@ -51,5 +51,8 @@
   "types": "Tipos",
   "Weak against": "Debil contra",
   "add": "Añadir",
-  "remove": "Quitar"
+  "remove": "Quitar",
+  "nature_chart": "Tabla de naturalezas",
+  "ability_list": "Lista de habilidades",
+  "move_list": "Lista de movimientos"
 }

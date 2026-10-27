@@ -51,5 +51,8 @@
   "types": "Types",
   "Weak against": "Weak against",
   "add": "Add",
-  "remove": "Remove"
+  "remove": "Remove",
+  "nature_chart": "Nature chart",
+  "ability_list": "Ability list",
+  "move_list": "Move list"
 }

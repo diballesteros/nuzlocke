@@ -1,10 +1,17 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Input from 'semantic-ui-react/dist/commonjs/elements/Input';
-import Modal from 'semantic-ui-react/dist/commonjs/modules/Modal';
+import { InfoButton, NAME_CELL, TABLE, TABLE_BODY } from 'components/Natures/Natures';
 import ABILITIES from 'constants/abilities';
-import styles from '../../../../components/Natures/Natures.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog';
+import { Input } from '@/components/ui/input';
 
 interface AbilitiesProps {
   text: string;
@@ -15,30 +22,22 @@ export default function Abilities({ text }: AbilitiesProps) {
   const [open, setOpen] = useState(false);
   const [searchText, setSearchText] = useState(text);
   return (
-    <Modal
-      closeOnDimmerClick
-      onClose={() => setOpen(false)}
-      open={open}
-      trigger={
-        <Button
-          aria-label="ability table"
-          data-testid="ability-info"
-          icon="question"
-          onClick={() => setOpen(true)}
-        />
-      }
-    >
-      <Modal.Content className={styles.container}>
-        <Input
-          data-testid="ability-search"
-          fluid
-          label={t('search')}
-          onChange={(e, data) => setSearchText(data.value)}
-          style={{ marginBottom: '1rem' }}
-          value={searchText}
-        />
-        <div className={styles.table}>
-          <table>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
+        <InfoButton aria-label="ability table" data-testid="ability-info" />
+      </DialogTrigger>
+      <DialogContent>
+        <DialogTitle className="sr-only">{t('ability_list')}</DialogTitle>
+        <DialogBody className={TABLE_BODY}>
+          <Input
+            className="mb-[1rem]"
+            data-testid="ability-search"
+            fluid
+            label={t('search')}
+            onChange={(e) => setSearchText(e.target.value)}
+            value={searchText}
+          />
+          <table className={TABLE}>
             <thead>
               <tr>
                 <th>{t('name')}</th>
@@ -50,8 +49,8 @@ export default function Abilities({ text }: AbilitiesProps) {
                 if (ability.description.includes(searchText) || ability.name.includes(searchText)) {
                   abilityArr.push(
                     <tr key={`${ability.id}-${ability}`}>
-                      <td className={styles.nature}>{ability.name}</td>
-                      <td className={styles.increased}>{ability.description}</td>
+                      <td className={NAME_CELL}>{ability.name}</td>
+                      <td className="text-stat-increased">{ability.description}</td>
                     </tr>
                   );
                 }
@@ -59,13 +58,13 @@ export default function Abilities({ text }: AbilitiesProps) {
               }, [])}
             </tbody>
           </table>
-        </div>
-      </Modal.Content>
-      <Modal.Actions>
-        <Button data-testid="ability-close" onClick={() => setOpen(false)}>
-          {t('cancel')}
-        </Button>
-      </Modal.Actions>
-    </Modal>
+        </DialogBody>
+        <DialogFooter>
+          <Button data-testid="ability-close" onClick={() => setOpen(false)} variant="secondary">
+            {t('cancel')}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }

@@ -91,3 +91,36 @@ test('changing a status keeps the tracker scrolled where it was', async ({ page 
   await expect(row).toBeVisible();
   expect((await row.boundingBox())?.y).toBeCloseTo(before?.y ?? NaN, 0);
 });
+
+// The encounter editor and the dialogs it opens, which stack: Escape closes only the top one, and
+// only the nature and ability tables (which had an onClose); the editor and the move list stay.
+test('Escape in the encounter editor closes only the nature and ability tables', async ({
+  page,
+}) => {
+  await page.goto('/');
+  await selectGame(page, 'Sword and Shield');
+  await byTestId(page, 'pokemon-0').click();
+  await byTestId(page, 'poke-Scorbunny').dispatchEvent('click');
+  await byTestId(page, 'edit-encounter-0').click();
+  const dialogs = modalDialog(page);
+  const twoFrames = () =>
+    page.evaluate(
+      () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
+    );
+  await expect(dialogs).toHaveCount(1);
+  await page.keyboard.press('Escape');
+  await twoFrames();
+  await expect(dialogs).toHaveCount(1);
+  for (const open of ['nature-info', 'ability-info']) {
+    await byTestId(page, open).click();
+    await expect(dialogs).toHaveCount(2);
+    await page.keyboard.press('Escape');
+    await expect(dialogs).toHaveCount(1);
+  }
+  await byTestId(page, 'move-summary').click();
+  await byTestId(page, 'move-1').locator(':scope > div').click();
+  await expect(dialogs).toHaveCount(2);
+  await page.keyboard.press('Escape');
+  await twoFrames();
+  await expect(dialogs).toHaveCount(2);
+});
