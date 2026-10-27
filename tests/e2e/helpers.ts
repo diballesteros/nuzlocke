@@ -49,15 +49,20 @@ export const navigate = async (page: Page, testId: string) => {
 };
 
 // Dropdowns. Semantic UI, a `contained` Select and the MultiSelect render role="option" items
-// inside the element carrying the test id; the Combobox (data-slot="combobox") portals its menu,
-// which carries the test id plus "-options". An open menu's trigger has aria-expanded="true".
+// inside the element carrying the test id; the Combobox (data-slot="combobox") and any other Select
+// portal their menu, which carries the test id plus "-options". An open menu's trigger has
+// aria-expanded="true".
 export const options = (page: Page, id: string) =>
   byTestId(page, id)
     .getByRole('option')
     .or(byTestId(page, `${id}-options`).getByRole('option'));
 
 const menuOpen = (dropdown: Locator) =>
-  dropdown.locator(':scope > .menu.visible, :scope > [aria-expanded="true"]').count();
+  dropdown
+    .locator(
+      ':scope > .menu.visible, :scope > [aria-expanded="true"], :scope[aria-expanded="true"]'
+    )
+    .count();
 
 // `covered`: the open menu sits under another element (known UI issue: the first row's nature
 // menu opens upward beneath the badge strip), so the click is dispatched to the option directly,
@@ -77,11 +82,11 @@ export const pickOption = async (
   else await item.click();
 };
 
-// The value (or placeholder) a dropdown shows. A `contained` Select carries the test id on a wrapper
-// around its trigger, whose first child holds the text
+// The value (or placeholder) a dropdown shows: a Select's trigger holds it in its first child, and a
+// `contained` Select carries the test id on a wrapper around that trigger
 export const dropdownText = (page: Page, id: string) =>
   byTestId(page, id).locator(
-    ':scope > .text, :scope > [data-slot="combobox-value"], :scope > [data-slot="select"] > span:first-child'
+    ':scope > .text, :scope > [data-slot="combobox-value"], :scope[data-slot="select"] > span:first-child, :scope > [data-slot="select"] > span:first-child'
   );
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>

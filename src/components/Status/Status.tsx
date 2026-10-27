@@ -58,7 +58,6 @@ const Status = React.memo(function Status({ encounter }: StatusProps) {
       // Semantic drew this caret 0.48px further right than the Calculator's
       caretShift={0.48}
       className="block w-full min-w-0"
-      contained
       data-testid={`status-${encounter.id}`}
       disabled={!encounter?.pokemon}
       look="contrast"
