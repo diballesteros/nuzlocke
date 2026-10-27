@@ -16,7 +16,6 @@
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
-- [Contact](#contact)
 
 ## About
 
@@ -144,7 +143,3 @@ This project is licensed under the BSD-3-Clause License - see the [LICENSE](http
 ## Legal
 
 Pokémon © 2002-2025 Pokémon. © 1995-2025 Nintendo/Creatures Inc./GAME FREAK inc. TM, ® and Pokémon character names are trademarks of Nintendo.
-
-## Contact
-
-Diego Ballesteros - [@relatablecoder](https://twitter.com/relatablecoder) - diballesteros@gmail.com

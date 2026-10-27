@@ -16,7 +16,6 @@
 - [License](#license)
 - [Acknowledgements](#acknowledgements)
 - [Legal](#legal)
-- [Contact](#contact)
 
 ## About
 
