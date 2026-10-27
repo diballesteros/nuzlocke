@@ -1,13 +1,18 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
 import { Share } from 'components';
 import { BadgeEditor, CustomBadgeEditor } from 'components/Badges/elements';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import { MAX_GAME } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
-import styles from './FAB.module.scss';
+import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
+import { SettingsIcon } from '@/components/ui/icons';
+
+const ITEM = 'flex flex-row flex-nowrap items-center gap-(--spacing-3)';
+// The grey tag naming each button
+const LABEL =
+  'grid h-fit place-items-center rounded-[4px] bg-label-strong px-(--spacing-2) py-(--spacing-1) text-white shadow-[0_0_3px_var(--color-white)]';
 
 function FAB(): React.JSX.Element {
   const { t } = useTranslation('tracker');
@@ -18,11 +23,14 @@ function FAB(): React.JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const games = useStore(useCallback((state) => state.games, []));
   return (
-    <div className={styles.fab} data-testid="fab-tracker">
+    <div
+      className="fixed right-(--spacing-2) bottom-(--spacing-3) z-1 [display:none] max-sm:flex max-sm:flex-col max-sm:flex-nowrap max-sm:items-end max-sm:gap-(--spacing-2)"
+      data-testid="fab-tracker"
+    >
       {open && (
-        <div className={styles.list}>
-          <div className={styles.listItem}>
-            <span className={styles.label}>{t('share')}</span>
+        <div className="flex flex-col flex-nowrap items-end gap-(--spacing-2)">
+          <div className={ITEM}>
+            <span className={LABEL}>{t('share')}</span>
             <Share
               disabled={!selectedGame}
               icon
@@ -40,37 +48,37 @@ function FAB(): React.JSX.Element {
             />
           </div>
           {selectedGame?.value && Number(selectedGame.value) <= MAX_GAME && (
-            <div className={styles.listItem} data-testid="fab-add-edit-badges">
-              <span className={styles.label}>{t('edit_badges')}</span>
+            <div className={ITEM} data-testid="fab-add-edit-badges">
+              <span className={LABEL}>{t('edit_badges')}</span>
               <BadgeEditor icon />
             </div>
           )}
           {selectedGame?.value && Number(selectedGame.value) > MAX_GAME && (
-            <div className={styles.listItem} data-testid="fab-add-edit-badges">
-              <span className={styles.label}>{t('edit_badges')}</span>
+            <div className={ITEM} data-testid="fab-add-edit-badges">
+              <span className={LABEL}>{t('edit_badges')}</span>
               <CustomBadgeEditor icon />
             </div>
           )}
-          <div className={styles.listItem} data-testid="fab-add-encounter">
-            <span className={styles.label}>{t('add_encounter')}</span>
+          <div className={ITEM} data-testid="fab-add-encounter">
+            <span className={LABEL}>{t('add_encounter')}</span>
             <AddEncounter icon />
           </div>
-          <div className={styles.listItem} data-testid="fab-reset-encounters">
-            <span className={styles.label}>{t('reset_encounters', { count: 2 })}</span>
+          <div className={ITEM} data-testid="fab-reset-encounters">
+            <span className={LABEL}>{t('reset_encounters', { count: 2 })}</span>
             <ResetEncounters icon />
           </div>
         </div>
       )}
-      <Button
+      {/* The `ui` class keeps the specs' `fab-tracker > .ui` locator */}
+      <FabButton
         active={open}
         aria-label="tracker-options"
-        className={styles.button}
-        circular
-        icon="cog"
+        className="ui"
+        colour="toggle"
         onClick={handleClick}
-        toggle
-        type="button"
-      />
+      >
+        <SettingsIcon className={FAB_ICON} />
+      </FabButton>
     </div>
   );
 }

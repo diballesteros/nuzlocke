@@ -1,11 +1,13 @@
 import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
+import { Wrench } from 'lucide-react';
 import { Filter, Share } from 'components';
 import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
-import styles from './Options.module.scss';
+import { Button } from '@/components/ui/button';
+import { BUTTON_ICON } from '@/components/ui/icons';
+import { RADIUS } from '../buttons';
 
 const Options = React.memo(function Options() {
   const navigate = useNavigate();
@@ -24,17 +26,18 @@ const Options = React.memo(function Options() {
   };
 
   return (
-    <div className={styles.options}>
-      <div className={styles.searchBar}>
+    <div className="flex flex-wrap items-center justify-between gap-(--spacing-3)">
+      <div className="relative flex w-full max-w-full gap-(--spacing-1)">
         <Button
           aria-label="search-options"
-          className={styles.searchBarButton}
+          className={RADIUS}
           data-testid="search-options"
-          icon="wrench"
-          inverted={darkMode}
           onClick={onSearchOptions}
+          size="icon"
           type="button"
-        />
+        >
+          <Wrench className={BUTTON_ICON} strokeWidth={2.5} />
+        </Button>
         <Filter
           darkMode={darkMode}
           values={{
@@ -47,7 +50,8 @@ const Options = React.memo(function Options() {
           }}
         />
       </div>
-      <div className={styles.buttons}>
+      {/* Share, Add and Reset share the width; on small screens they move to the FAB */}
+      <div className="flex w-full gap-(--spacing-1) font-bold max-sm:[display:none] [&>button]:w-full [&>button]:flex-1">
         <Share
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(

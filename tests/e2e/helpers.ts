@@ -77,9 +77,12 @@ export const pickOption = async (
   else await item.click();
 };
 
-// The value (or placeholder) a dropdown shows
+// The value (or placeholder) a dropdown shows. A `contained` Select carries the test id on a wrapper
+// around its trigger, whose first child holds the text
 export const dropdownText = (page: Page, id: string) =>
-  byTestId(page, id).locator(':scope > .text, :scope > [data-slot="combobox-value"]');
+  byTestId(page, id).locator(
+    ':scope > .text, :scope > [data-slot="combobox-value"], :scope > [data-slot="select"] > span:first-child'
+  );
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>
   byTestId(page, id)
@@ -105,9 +108,12 @@ export const toggle = async (page: Page, id: string) => {
     .click();
 };
 
-// A radio button picked by its label (e.g. an evolution in the Evolve modal)
+// A radio button picked by its label (e.g. an evolution in the Evolve modal): Semantic's, or a
+// RadioGroupOption's <label>
 export const radio = (page: Page, label: string) =>
-  page.locator('.ui.radio.checkbox label').filter({ hasText: new RegExp(`^${label}$`) });
+  page
+    .locator('.ui.radio.checkbox label, [data-slot="radio-group"] label')
+    .filter({ hasText: new RegExp(`^${label}$`) });
 
 export const expectChecked = (page: Page, id: string, checked: boolean) =>
   expect(checkbox(page, id)).toBeChecked({ checked });
@@ -135,8 +141,13 @@ export const tabCount = (page: Page, n: number) =>
 // The open dialog (Semantic's modal until every dialog is on Radix)
 export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialog"]');
 
-// Modals and popovers close when the dimmed page around them is clicked
-export const clickOutside = (page: Page) => page.mouse.click(2, 2);
+// Modals and popovers close when the dimmed page around them is clicked. Radix starts listening
+// for outside clicks a task after a dialog opens (a setTimeout 0), so a click right after opening
+// can come too early; let that task run first
+export const clickOutside = async (page: Page) => {
+  await page.evaluate(() => new Promise((resolve) => setTimeout(resolve, 0)));
+  await page.mouse.click(2, 2);
+};
 
 export const modalField = (page: Page, n: number) =>
   page

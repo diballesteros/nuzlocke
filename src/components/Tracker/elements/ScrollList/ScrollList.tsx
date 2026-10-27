@@ -1,7 +1,6 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon/Icon';
+import { SquareMenu } from 'lucide-react';
 import { useShallow } from 'zustand/shallow';
 import type { TEncounter } from 'constants/types';
 import { selectCaught, selectFailed, selectFainted } from 'selectors';
@@ -10,7 +9,29 @@ import CaughtSVG from 'assets/svg/caught.svg?react';
 import FailedSVG from 'assets/svg/failed.svg?react';
 import FaintedSVG from 'assets/svg/fainted.svg?react';
 import TeamSVG from 'assets/svg/team.svg?react';
-import styles from './ScrollList.module.scss';
+import { Button, MINI_BUTTON, TOGGLE_BUTTON } from '@/components/ui/button';
+import { ArrowRightIcon, EyeIcon, EyeOffIcon, PencilIcon, XIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+import { RADIUS, ROW_ICON } from '../buttons';
+
+// The notes and the location list open above the tracker in the same frame. It's a <nav> for the
+// list, which Semantic's reset makes a block, so its flex needs !
+const PANEL =
+  'flex! h-full flex-col flex-nowrap overflow-auto rounded-[4px] border-2 border-b-0 border-solid border-contrast-border p-(--spacing-2) text-foreground';
+const PANEL_HEADER =
+  'flex flex-col flex-nowrap border-x-0 border-t-0 border-b border-dashed border-contrast-border pb-(--spacing-2)';
+const PANEL_TITLE =
+  'flex items-center justify-between [&>p]:m-0! [&>p]:text-(length:--font-size-3)';
+// The notes and list toggles (Semantic's `mini compact` inverted toggles): pressed and focused in
+// dark mode, they keep Semantic's inverted focus ring
+const PANEL_TOGGLE = cn(
+  MINI_BUTTON,
+  RADIUS,
+  TOGGLE_BUTTON,
+  'dark:aria-pressed:focus:shadow-[inset_0_0_0_2px_var(--color-inverted-focus)]!'
+);
+// Semantic's `mini basic icon` button that closes either panel
+const CLOSE = cn(MINI_BUTTON, RADIUS);
 
 interface ScrollListProps {
   encounters: TEncounter[];
@@ -19,7 +40,6 @@ interface ScrollListProps {
 
 function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const notes = useStore(useCallback((state) => state.notes, []));
   const skipped = useStore(useCallback((state) => state.skipped, []));
   const changeNotes = useStore(useCallback((state) => state.changeNotes, []));
@@ -86,21 +106,22 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
   return (
     <>
       {open === 'SCROLL_LIST' && (
-        <nav className={styles.container}>
-          <div className={styles.header}>
-            <div className={styles.options}>
+        <nav className={PANEL}>
+          <div className={PANEL_HEADER}>
+            <div className={PANEL_TITLE}>
               <p>{t('click_on_any_location')}</p>
               <Button
                 aria-label="close-scroll-list"
-                basic
+                className={CLOSE}
                 data-testid="close-scroll-list"
-                icon="close"
-                inverted={darkMode}
                 onClick={() => setOpen(null)}
-                size="mini"
-              />
+                size="icon"
+                variant="basic"
+              >
+                <XIcon className={ROW_ICON} />
+              </Button>
             </div>
-            <div className={styles.stats}>
+            <div className="flex flex-wrap items-center gap-(--spacing-3) font-bold [&>svg]:size-(--spacing-5)">
               <CaughtSVG />
               {caught?.length || 0}
               <FaintedSVG />
@@ -109,35 +130,46 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
               {failed?.length || 0}
             </div>
           </div>
-          <ol>
+          <ol className="overflow-auto text-(length:--font-size-4)">
             {encounters.map((encounter, index) => {
               const isSkipped = skipped[selectedGame?.value]?.includes(index);
               return (
                 <li
                   aria-label={`scroll-to-encounter-${index}`}
-                  className={index === lastEncounter ? styles.last : ''}
+                  className={cn(
+                    'mb-(--spacing-2) cursor-pointer pl-(--spacing-3) hover:bg-badgeopac hover:font-bold',
+                    index === lastEncounter && 'bg-badgeopac font-bold'
+                  )}
                   data-testid={`scroll-to-encounter-${index}`}
                   key={encounter.id}
                   onClick={() => handleClick(index)}
                   role="menuitem"
                   tabIndex={0}
                 >
-                  <div className={styles.innerListItem}>
-                    <div className={styles.left}>
+                  <div className="flex items-center justify-between">
+                    <div className="[&>span]:mr-(--spacing-2) [&>svg]:size-(--spacing-4)">
                       <span>{encounter.location}</span>
                       {getStatusSVG(encounter)}
                     </div>
+                    {/* Semantic's `basic` button without `inverted`: the light look in both themes */}
                     <Button
-                      active={isSkipped}
                       aria-label={`skip-encounter-${index}`}
-                      basic
-                      className={styles.skip}
+                      aria-pressed={!!isSkipped}
+                      className={cn(
+                        RADIUS,
+                        'dark:text-button-foreground dark:shadow-[inset_0_0_0_1px_var(--color-field-border)] dark:hover:bg-white dark:hover:text-button-hover-foreground dark:hover:shadow-[inset_0_0_0_1px_var(--color-field-border-hover)]',
+                        TOGGLE_BUTTON
+                      )}
                       data-testid={`skip-encounter-${index}`}
-                      icon
                       onClick={isSkipped ? (e) => onDeleteSkip(e, index) : (e) => onSkip(e, index)}
-                      toggle
+                      size="icon"
+                      variant="basic"
                     >
-                      <Icon name={isSkipped ? 'eye slash' : 'eye'} />
+                      {isSkipped ? (
+                        <EyeOffIcon className={ROW_ICON} />
+                      ) : (
+                        <EyeIcon className={ROW_ICON} />
+                      )}
                     </Button>
                   </div>
                 </li>
@@ -147,23 +179,24 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
         </nav>
       )}
       {open === 'NOTES' && (
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <div className={styles.options}>
+        <div className={PANEL}>
+          <div className={PANEL_HEADER}>
+            <div className={PANEL_TITLE}>
               <p>{t('notes')}</p>
               <Button
                 aria-label="close-scroll-list"
-                basic
+                className={CLOSE}
                 data-testid="close-scroll-list"
-                icon="close"
-                inverted={darkMode}
                 onClick={() => setOpen(null)}
-                size="mini"
-              />
+                size="icon"
+                variant="basic"
+              >
+                <XIcon className={ROW_ICON} />
+              </Button>
             </div>
           </div>
           <textarea
-            className={styles.textarea}
+            className="flex-1"
             data-testid="game-notes"
             onChange={(e) => changeNotes(e.target.value)}
             value={notes[selectedGame?.value] ?? ''}
@@ -171,41 +204,43 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
         </div>
       )}
       {selectedGame?.value ? (
-        <div className={styles.scrollList}>
+        <div className="flex items-center gap-(--spacing-2)">
           <Button
             aria-label="open-notes"
+            aria-pressed={open === 'NOTES'}
+            className={PANEL_TOGGLE}
             data-testid="open-notes"
-            inverted={darkMode}
-            type="button"
-            toggle
-            active={open === 'NOTES'}
             onClick={toggleNotes}
-            icon="pencil"
-            size="mini"
+            size="compact-icon"
             title="Open notes"
-            compact
-          />
+            type="button"
+          >
+            <PencilIcon className={ROW_ICON} />
+          </Button>
           <Button
             aria-label="open-scroll-list"
+            aria-pressed={open === 'SCROLL_LIST'}
+            className={PANEL_TOGGLE}
             data-testid="open-scroll-list"
-            inverted={darkMode}
-            type="button"
-            toggle
-            active={open === 'SCROLL_LIST'}
             onClick={toggleScrollList}
-            icon="list alternate outline"
-            size="mini"
-            compact
-          />
+            size="compact-icon"
+            type="button"
+          >
+            <SquareMenu className={ROW_ICON} strokeWidth={2.5} />
+          </Button>
           {lastEncounter > -1 && (
             <button
               aria-label="scroll-to-last-encounter"
-              className={styles.scrollerButton}
+              className="w-fit cursor-pointer rounded-[4px] border-none md:pt-[2px] bg-transparent text-start text-(length:--font-size-7)! text-foreground hover:underline max-md:py-0 max-md:pr-0 max-md:pl-(--spacing-1) max-md:text-(length:--font-size-3)!"
               data-testid={`scroll-to-last-encounter-${lastEncounter}`}
               onClick={() => scrollTo(lastEncounter)}
               type="button"
             >
-              {t('go_to')} {encounters[lastEncounter]?.location} <Icon name="arrow right" />
+              {t('go_to')} {encounters[lastEncounter]?.location}{' '}
+              <ArrowRightIcon
+                aria-hidden
+                className="mr-[0.25rem] inline-block h-[1em] w-[1.18em] align-top md:-mt-px"
+              />
             </button>
           )}
         </div>

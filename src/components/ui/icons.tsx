@@ -1,5 +1,6 @@
 import { Icon, type LucideProps } from 'lucide-react';
 import { useId } from 'react';
+import { cn } from '@/lib/utils';
 
 // Lucide glyphs redrawn as one path each. Most lucide icons are several paths, and inside a button
 // the text colour is translucent, so wherever two paths cross the stroke painted twice. Square caps
@@ -80,10 +81,40 @@ export const RefreshIcon = glyph(
 
 export const CheckIcon = glyph('check', 'M20 6 9 17l-5-5', { strokeWidth: 3.5 });
 
+export const EyeIcon = glyph(
+  'eye',
+  'M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0M15 12a3 3 0 1 1-6 0 3 3 0 1 1 6 0',
+  { strokeWidth: 2.5 }
+);
+
+export const EyeOffIcon = glyph(
+  'eye-off',
+  'M10.733 5.076a10.744 10.744 0 0 1 11.205 6.575 1 1 0 0 1 0 .696 10.747 10.747 0 0 1-1.444 2.49M14.084 14.158a3 3 0 0 1-4.242-4.242M17.479 17.499a10.75 10.75 0 0 1-15.417-5.151 1 1 0 0 1 0-.696 10.75 10.75 0 0 1 4.446-5.143M2 2l20 20',
+  { strokeWidth: 2.5 }
+);
+
+export const RepeatIcon = glyph(
+  'repeat',
+  'm17 2 4 4-4 4M3 11v-1a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 13v1a4 4 0 0 1-4 4H3',
+  { strokeWidth: 2.5 }
+);
+
+export const ShuffleIcon = glyph(
+  'shuffle',
+  'm18 14 4 4-4 4M18 2l4 4-4 4M2 18h1.973a4 4 0 0 0 3.3-1.7l5.454-7.6a4 4 0 0 1 3.3-1.7H22M2 6h1.972a4 4 0 0 1 3.289 1.722l.35.414M22 18h-6.041a4 4 0 0 1-3.3-1.8l-.359-.45',
+  { strokeWidth: 2.5 }
+);
+
+export const ArrowRightIcon = glyph('arrow-right', 'M5 12h14M12 5l7 7-7 7', { strokeWidth: 3 });
+
 // An icon after a button's text, in Semantic's icon slot: 4px from the text, nothing after it. The
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall
 export const TRAILING_ICON =
   '-my-[0.09em] mr-[-0.03em] ml-[0.336em] size-[1.16em] -translate-y-[0.05em] align-[-0.14em] opacity-80';
+
+// A trailing icon set exactly --spacing-1 after the text (the tracker and Rules toolbars' buttons,
+// whose SCSS gave the icon that margin and none after it)
+export const TOOLBAR_ICON = cn(TRAILING_ICON, 'mr-[0.01em] ml-[calc(var(--spacing-1)+0.01em)]');
 
 // FontAwesome's `question circle`: a solid disc with the question mark cut out, so the background
 // shows through it. It's opaque text, never a translucent button's, so a mask is safe here

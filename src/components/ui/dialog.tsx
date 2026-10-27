@@ -63,6 +63,23 @@ function DialogContent({
   );
 }
 
+// Semantic's modal header, a bold Lato line over a --contrast rule (tighter on small screens). It is
+// the dialog's title, as a <div> like Semantic's: index.css styles every <h2>
+function DialogHeader({ className, ...props }: React.ComponentProps<'div'>) {
+  return (
+    <DialogPrimitive.Title asChild>
+      <div
+        data-slot="dialog-header"
+        className={cn(
+          'block rounded-t-[2px] border-x-0 border-t-0 border-b border-solid border-foreground bg-background px-[1.5rem] py-[1.25rem] font-control text-[1.42857143rem] leading-[1.28571429em] font-bold text-foreground max-[767px]:py-[0.75rem] max-[767px]:pr-[2.25rem] max-[767px]:pl-[1rem]',
+          className
+        )}
+        {...props}
+      />
+    </DialogPrimitive.Title>
+  );
+}
+
 // Semantic's modal content. `scrolling`: the dialog grows up to 80% of the viewport, then this scrolls
 function DialogBody({
   className,
@@ -99,4 +116,4 @@ function DialogTitle({ className, ...props }: React.ComponentProps<typeof Dialog
   return <DialogPrimitive.Title data-slot="dialog-title" className={className} {...props} />;
 }
 
-export { Dialog, DialogBody, DialogContent, DialogFooter, DialogTitle };
+export { Dialog, DialogBody, DialogContent, DialogFooter, DialogHeader, DialogTitle };

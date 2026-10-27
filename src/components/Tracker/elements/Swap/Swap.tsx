@@ -1,14 +1,22 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
+import { Crown, Monitor } from 'lucide-react';
 import { useShallow } from 'zustand/shallow';
 import { EncounterSelector } from 'common';
 import STATUSES from 'constants/status';
 import type { TEncounter } from 'constants/types';
 import { selectTeam } from 'selectors';
 import useStore from 'store';
-import styles from './Swap.module.scss';
+import { Button } from '@/components/ui/button';
+import { TRAILING_ICON } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+import { OUTLINE_BUTTON } from '../buttons';
+
+// The icon sits --spacing-2 after the text and hides on the narrowest screens
+const ICON = cn(
+  TRAILING_ICON,
+  'mr-[0.011em] ml-[calc(var(--spacing-2)+0.01em)] max-xs:[display:none]!'
+);
 
 interface SwapProps {
   encounter: TEncounter;
@@ -49,26 +57,32 @@ function Swap({ encounter }: SwapProps): React.JSX.Element {
     <EncounterSelector encounters={team} handleEncounter={handleTeamSwap}>
       <Button
         aria-label="swap"
-        className={styles.button}
+        className={OUTLINE_BUTTON}
         data-testid={`swap-${encounter.id}`}
         title={text}
         type="button"
+        variant="secondary"
       >
         {text}
-        <Icon name="chess king" />
+        <Crown className={ICON} strokeWidth={2.5} />
       </Button>
     </EncounterSelector>
   ) : (
     <Button
       aria-label="swap"
-      className={styles.button}
+      className={OUTLINE_BUTTON}
       data-testid={`swap-${encounter.id}`}
       onClick={handleSwap}
       title={text}
       type="button"
+      variant="secondary"
     >
       {text}
-      <Icon name={encounter?.status?.value === 7 ? 'computer' : 'chess king'} />
+      {encounter?.status?.value === 7 ? (
+        <Monitor className={ICON} strokeWidth={2.5} />
+      ) : (
+        <Crown className={ICON} strokeWidth={2.5} />
+      )}
     </Button>
   );
 }

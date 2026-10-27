@@ -2,10 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { List, RowComponentProps as RowProps, useListRef } from 'react-window';
-import Confirm from 'semantic-ui-react/dist/commonjs/addons/Confirm';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
-import Popup from 'semantic-ui-react/dist/commonjs/modules/Popup';
+import { EllipsisVertical } from 'lucide-react';
 import { Status } from 'components';
 import {
   Detail,
@@ -22,18 +19,36 @@ import useRemtoPx from 'hooks/useRemToPx';
 import { selectNAGeneration } from 'selectors';
 import useStore from 'store';
 import PokeballSVG from 'assets/svg/pokeball.svg?react';
-import styles from './Encounters.module.scss';
+import { Button } from '@/components/ui/button';
+import {
+  Dialog,
+  DialogBody,
+  DialogContent,
+  DialogFooter,
+  DialogTitle,
+} from '@/components/ui/dialog';
+import { ArrowDownIcon, ArrowUpIcon, RepeatIcon, TrashIcon } from '@/components/ui/icons';
+import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
+import { OUTLINE_BUTTON, RADIUS, ROW_ICON } from '../buttons';
 import toTopPosition from './toTopPosition';
 
 const NICKNAME_HEIGHT = 15.714; // 220px
 const NORMAL_HEIGHT = 12.857; // 180px
+
+// A row: the header across both columns, then the Pokémon on the left beside the status and buttons
+const ROW =
+  'relative m-[var(--spacing-0)_var(--spacing-1)_var(--spacing-3)_var(--spacing-0)] grid h-fit grid-cols-[minmax(0,1fr)_minmax(0,1fr)] grid-rows-[auto_minmax(2.286rem,auto)_minmax(3.857rem,auto)] items-center gap-(--spacing-2) rounded-[4px] bg-card p-(--spacing-3) text-foreground shadow-[0_3px_6px_rgba(0,0,0,0.16),0_3px_6px_rgba(0,0,0,0.23)] transition-all duration-500';
+// The options menu's items, each with its icon at the end. The popup's text is translucent, so the
+// icons are the one-path glyphs
+const MENU_ITEM =
+  'flex cursor-pointer gap-(--spacing-2) border-x-0 border-t-0 border-b border-solid border-foreground px-(--spacing-1) py-(--spacing-2) text-(length:--font-size-3) last:border-b-0 hover:bg-[grey] [&>svg]:ml-auto [&>svg]:block [&>svg]:h-[1em] [&>svg]:w-[1.18em]';
 
 const Encounters = React.memo(function Encounters() {
   const { t } = useTranslation('tracker');
   const listRef = useListRef(null);
   const games = useStore(useCallback((state) => state.games, []));
   const text = useStore(useCallback((state) => state.text, []));
-  const darkMode = useStore(useCallback((state) => state.darkMode, []));
   const missing = useStore(useCallback((state) => state.missing, []));
   const gens = useStore(useCallback((state) => state.gens, []));
   const types = useStore(useCallback((state) => state.types, []));
@@ -94,9 +109,11 @@ const Encounters = React.memo(function Encounters() {
     return (
       <div style={toTopPosition(style)}>
         <div
-          className={`${styles.row} ${encounter?.pokemon ? styles.type : ''} ${
-            isGreyedOut ? styles.greyedOut : ''
-          }`}
+          className={cn(
+            ROW,
+            encounter?.pokemon && 'border-[3px] border-solid',
+            isGreyedOut && 'z-1 grayscale'
+          )}
           data-testid={`encounter-${index}`}
           style={{
             borderImage: encounter?.pokemon
@@ -106,75 +123,80 @@ const Encounters = React.memo(function Encounters() {
               : undefined,
           }}
         >
-          <div className={styles.header}>
-            <span className={styles.location}>{encounter.location}</span>
-            <div className={styles.buttons}>
+          <div className="col-span-2 flex justify-between">
+            <span className="block h-[1.429rem] min-h-[1.429rem] overflow-hidden font-bold text-ellipsis whitespace-nowrap">
+              {encounter.location}
+            </span>
+            {/* Detail's pencil is still a Semantic button, so its margin and font size need ! */}
+            <div className="flex gap-(--spacing-1) [&>button]:mr-0! [&>button]:text-(length:--font-size-2)!">
               {!!encounter.pokemon && <Detail encounter={encounter} />}
-              <Popup
-                inverted={darkMode}
-                on="click"
-                trigger={
+              {/* Semantic's click Popup above the button, its right edge on the button's */}
+              <Popover>
+                <PopoverTrigger asChild>
                   <Button
                     aria-label="encounter-options"
-                    basic
-                    compact
+                    className={RADIUS}
                     data-testid={`encounter-options-${index}`}
-                    icon
-                    inverted={darkMode}
+                    size="compact-icon"
                     type="button"
+                    variant="basic"
                   >
-                    <Icon name="ellipsis vertical" />
+                    <EllipsisVertical className={ROW_ICON} strokeWidth={2.5} />
                   </Button>
-                }
-              >
-                <ul className={styles.editOptions} role="menu">
-                  {!!encounter.pokemon && (
-                    <>
-                      <li
-                        aria-label="level up encounter"
-                        data-testid={`level-up-${index}`}
-                        onClick={() => changeLevel(encounter.id, true)}
-                        role="presentation"
-                      >
-                        {t('level_up')} ({encounter?.details?.level ?? 0}) <Icon name="arrow up" />
-                      </li>
-                      {encounter?.details?.level > 1 && (
+                </PopoverTrigger>
+                <PopoverContent align="end" arrowClassName="right-[1em] left-auto ml-0" edgeAligned>
+                  <ul className="m-0 list-none p-0" role="menu">
+                    {!!encounter.pokemon && (
+                      <>
                         <li
-                          aria-label="decrease encounter level"
-                          data-testid={`level-down-${index}`}
-                          onClick={() => changeLevel(encounter.id, false)}
+                          aria-label="level up encounter"
+                          className={MENU_ITEM}
+                          data-testid={`level-up-${index}`}
+                          onClick={() => changeLevel(encounter.id, true)}
                           role="presentation"
                         >
-                          {t('level_down')} ({encounter?.details?.level ?? 0}){' '}
-                          <Icon name="arrow down" />
+                          {t('level_up')} ({encounter?.details?.level ?? 0}) <ArrowUpIcon />
                         </li>
-                      )}
-                    </>
-                  )}
-                  <li
-                    aria-label="reset encounter"
-                    data-testid={`reset-encounter-${index}`}
-                    onClick={() => handleClear(encounter.id)}
-                    role="presentation"
-                  >
-                    {t('reset_2')} <Icon name="repeat" />
-                  </li>
-                  <li
-                    aria-label="delete encounter"
-                    data-testid={`delete-encounter-${index}`}
-                    onClick={() => handleConfirm(encounter.id)}
-                    role="presentation"
-                  >
-                    {t('delete')} <Icon name="trash" />
-                  </li>
-                </ul>
-              </Popup>
+                        {encounter?.details?.level > 1 && (
+                          <li
+                            aria-label="decrease encounter level"
+                            className={MENU_ITEM}
+                            data-testid={`level-down-${index}`}
+                            onClick={() => changeLevel(encounter.id, false)}
+                            role="presentation"
+                          >
+                            {t('level_down')} ({encounter?.details?.level ?? 0}) <ArrowDownIcon />
+                          </li>
+                        )}
+                      </>
+                    )}
+                    <li
+                      aria-label="reset encounter"
+                      className={MENU_ITEM}
+                      data-testid={`reset-encounter-${index}`}
+                      onClick={() => handleClear(encounter.id)}
+                      role="presentation"
+                    >
+                      {t('reset_2')} <RepeatIcon />
+                    </li>
+                    <li
+                      aria-label="delete encounter"
+                      className={MENU_ITEM}
+                      data-testid={`delete-encounter-${index}`}
+                      onClick={() => handleConfirm(encounter.id)}
+                      role="presentation"
+                    >
+                      {t('delete')} <TrashIcon />
+                    </li>
+                  </ul>
+                </PopoverContent>
+              </Popover>
             </div>
           </div>
           {nicknames && <Nickname encounterId={encounter.id} nickname={encounter.nickname} />}
           <Pokemon encounter={encounter} foundPokemon={foundPokemon} />
           <Status encounter={encounter} />
-          <div className={styles.moreOptions}>
+          <div className="flex items-center gap-(--spacing-2) self-center">
             {!!foundPokemon?.evolve && (
               <Evolve encounter={encounter} evolveIds={foundPokemon?.evolve} />
             )}
@@ -182,31 +204,33 @@ const Encounters = React.memo(function Encounters() {
               <Swap encounter={encounter} />
             )}
             {!!foundPokemon && isNatureGen && <Nature encounter={encounter} />}
-            <div className={styles.levelButtons}>
+            <div className="flex items-center gap-(--spacing-2) max-md:[display:none]">
               {!!encounter.pokemon && (
                 <>
                   <span>{t('level', { ns: 'rules' })}:</span>
                   <Button
                     aria-label="level-up-button"
-                    className={styles.button}
+                    className={OUTLINE_BUTTON}
                     data-testid={`level-up-button-${encounter.id}`}
-                    icon
                     onClick={() => changeLevel(encounter.id, true)}
+                    size="icon"
                     title={t('level_up')}
                     type="button"
+                    variant="secondary"
                   >
-                    <Icon name="arrow up" />
+                    <ArrowUpIcon className={ROW_ICON} />
                   </Button>
                   <Button
                     aria-label="level-down-button"
-                    className={styles.button}
+                    className={OUTLINE_BUTTON}
                     data-testid={`level-down-button-${encounter.id}`}
-                    icon
                     onClick={() => changeLevel(encounter.id, false)}
+                    size="icon"
                     title={t('level_down')}
                     type="button"
+                    variant="secondary"
                   >
-                    <Icon name="arrow down" />
+                    <ArrowDownIcon className={ROW_ICON} />
                   </Button>
                 </>
               )}
@@ -218,10 +242,13 @@ const Encounters = React.memo(function Encounters() {
   };
 
   return (
-    <div className={styles.table}>
+    <div className="flex min-h-0 flex-1 flex-col flex-nowrap gap-(--spacing-2)">
       {selectedGame ? (
         <>
-          <div className={styles.list} data-testid="encounters-list">
+          <div
+            className="flex h-full flex-1 flex-col flex-nowrap overflow-hidden"
+            data-testid="encounters-list"
+          >
             <List
               rowComponent={renderRow}
               rowCount={filteredEncounters?.length}
@@ -234,18 +261,28 @@ const Encounters = React.memo(function Encounters() {
           <ScrollList encounters={filteredEncounters} scrollTo={handleScroll} />
         </>
       ) : (
-        <div className={styles.noGame}>
-          <PokeballSVG />
-          <span>{t('please_select', { ns: 'common' })}</span>
+        <div className="flex h-[71.429rem] max-h-[71.429rem] min-h-[71.429rem] flex-1 flex-col flex-nowrap items-center gap-(--spacing-4)">
+          <PokeballSVG className="mt-(--spacing-5) w-1/2 max-w-[25.714rem] [&_path]:fill-foreground" />
+          <span className="text-(length:--font-size-7) font-bold text-foreground">
+            {t('please_select', { ns: 'common' })}
+          </span>
         </div>
       )}
-      <Confirm
-        closeOnDimmerClick
-        content={t('confirm_delete')}
-        open={confirm}
-        onCancel={() => setConfirm(false)}
-        onConfirm={handleDelete}
-      />
+      {/* Semantic's Confirm */}
+      <Dialog open={confirm} onOpenChange={setConfirm}>
+        <DialogContent size="small">
+          <DialogTitle className="sr-only">{t('confirm_delete', { ns: 'common' })}</DialogTitle>
+          <DialogBody>{t('confirm_delete')}</DialogBody>
+          <DialogFooter>
+            <Button onClick={() => setConfirm(false)} variant="secondary">
+              {t('cancel', { ns: 'common' })}
+            </Button>
+            <Button onClick={handleDelete} variant="primary">
+              OK
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 });
