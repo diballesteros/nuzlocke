@@ -2,7 +2,6 @@ import * as Sentry from '@sentry/react';
 import { createRoot } from 'react-dom/client';
 import './styles/globals.css';
 import './index.css';
-import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
 import { requestPersistentStorage } from '@/lib/storage';
