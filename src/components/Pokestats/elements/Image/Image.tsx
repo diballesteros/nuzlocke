@@ -1,4 +1,4 @@
-import { LegacyRef, useCallback, useEffect, useMemo } from 'react';
+import { Ref, useCallback, useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useShallow } from 'zustand/shallow';
 import { PkmImage } from 'common';
@@ -45,7 +45,7 @@ const BOXED = 'size-[3.429rem]';
 const STATUS_ICON = 'mr-[0.25rem] inline-block h-[1em] w-[1.18em] align-top';
 
 interface ImageProps {
-  forwardedRef?: LegacyRef<HTMLDivElement>;
+  forwardedRef?: Ref<HTMLDivElement>;
   // The copy shown on the page: rows, the header and narrow-screen layouts wrap. The other copy is
   // rendered off screen at desktop width for the downloaded image.
   responsive?: boolean;
