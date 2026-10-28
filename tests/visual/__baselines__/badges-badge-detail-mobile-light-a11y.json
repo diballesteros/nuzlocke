@@ -1,10 +1,5 @@
 [
   {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 1
-  },
-  {
     "id": "page-has-heading-one",
     "impact": "moderate",
     "nodes": 1

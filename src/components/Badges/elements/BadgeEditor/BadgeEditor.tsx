@@ -1,11 +1,9 @@
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { LEVEL_CAPS } from 'constants/badges';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
-import { Button as UIButton } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogBody,
@@ -14,16 +12,19 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
-import { PencilIcon } from '@/components/ui/icons';
+import { BUTTON_ICON, PencilIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
+import { cn } from '@/lib/utils';
 
 const MULTIPLE_CAPS = ['1', '3', '5', '8'];
 
-// The header's pencil. It stays a Semantic button until the app shell moves, so only the rules that won over Semantic's are kept, as important utilities: no
-// background, the page's text colour, and hidden on small screens
+// The header's icon buttons (add game, delete game, this pencil): Semantic's `icon` Button with no
+// background and the page's text colour. The pencil is hidden on small screens (HEADER_PENCIL)
 export const HEADER_BUTTON =
-  'bg-transparent! text-foreground! hover:bg-transparent! hover:text-foreground! max-sm:[display:none]!';
+  'bg-transparent text-foreground hover:bg-transparent hover:text-foreground focus-visible:bg-transparent focus-visible:text-foreground';
+
+export const HEADER_PENCIL = cn(HEADER_BUTTON, 'max-sm:[display:none]');
 
 interface BadgeEditorProps {
   icon?: boolean;
@@ -56,12 +57,13 @@ function BadgeEditor({ icon }: BadgeEditorProps): React.JSX.Element {
       ) : (
         <Button
           aria-label="editgame"
-          className={HEADER_BUTTON}
+          className={HEADER_PENCIL}
           data-testid="edit-badges"
-          icon
           onClick={() => setOpen(true)}
+          size="icon"
+          variant="secondary"
         >
-          <Icon name="pencil" />
+          <PencilIcon className={BUTTON_ICON} />
         </Button>
       )}
       <Dialog open={open} onOpenChange={setOpen}>
@@ -83,9 +85,9 @@ function BadgeEditor({ icon }: BadgeEditorProps): React.JSX.Element {
               })}
           </DialogBody>
           <DialogFooter>
-            <UIButton onClick={() => setOpen(false)} variant="secondary">
+            <Button onClick={() => setOpen(false)} variant="secondary">
               {t('cancel', { ns: 'common' })}
-            </UIButton>
+            </Button>
             {MULTIPLE_CAPS.includes(selectedGame?.value) ? (
               <Select
                 className="ml-[0.75em] inline-block max-[768px]:mb-[1rem]"
@@ -101,9 +103,9 @@ function BadgeEditor({ icon }: BadgeEditorProps): React.JSX.Element {
                 value=""
               />
             ) : (
-              <UIButton onClick={() => resetBadges()} variant="primary">
+              <Button onClick={() => resetBadges()} variant="primary">
                 {t('set_default')}
-              </UIButton>
+              </Button>
             )}
           </DialogFooter>
         </DialogContent>

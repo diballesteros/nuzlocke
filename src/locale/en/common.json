@@ -54,5 +54,7 @@
   "remove": "Remove",
   "nature_chart": "Nature chart",
   "ability_list": "Ability list",
-  "move_list": "Move list"
+  "move_list": "Move list",
+  "add_game": "Add game",
+  "menu": "Menu"
 }

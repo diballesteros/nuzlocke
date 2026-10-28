@@ -1,7 +1,6 @@
 - banner:
   - button "sidebar-button": "!"
-  - listbox "games":
-    - alert: Sword and Shield
+  - combobox "games": Sword and Shield
   - button "addgame"
 - main:
   - button "SHARE"

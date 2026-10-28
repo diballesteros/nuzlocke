@@ -1,7 +1,6 @@
 - banner:
   - button "sidebar-button": "!"
-  - listbox "games":
-    - alert: Emerald Kaizo
+  - combobox "games": Emerald Kaizo
   - button "addgame"
   - button "deletegame"
 - main:

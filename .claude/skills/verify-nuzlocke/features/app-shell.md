@@ -38,6 +38,11 @@ Preconditions:
 ## Gotchas
 
 - Sidebar items are `div`s with click handlers, not links; there is no keyboard path to them yet.
+- The sidebar is a non-modal Radix dialog (`[data-slot="sheet-content"]`, role `dialog`), like
+  Semantic's: focus stays put, Escape does nothing, and a click outside closes it and still reaches
+  its target. A click on the game select (or its menu) leaves it open, as Semantic's did. It stays
+  in the page for its 500ms slide-out, so count dialogs without it.
+- The game select's menu is portalled (`game-select-options`); `CLI pick game-select …` finds it.
 - The dark-mode-on-first-visit check runs only when the stored `newVersion` differs from the app
   version.
 - The service worker is blocked in all verification browsers; PWA install/offline behaviour is not
