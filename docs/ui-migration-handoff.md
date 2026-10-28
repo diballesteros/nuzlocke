@@ -4,27 +4,27 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phases 3a and 3b merged; 3c, Vite 8's default `build.target`, in review; backlog decisions recorded).
+Last updated 2026-10-28 (Phase 3 done, #858, #867 and #869; Phase 4 not started; backlog decisions recorded).
 
 ## Where it stands
 
 The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Radix, lucide), then move to React 19, then improve the UI. The order is **parity first, redesign later**. Each area keeps its looks and behaviour until Phase 5.
 
-| Phase | What                                                                                               | Status                    |
-| ----- | -------------------------------------------------------------------------------------------------- | ------------------------- |
-| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI | Done (#821)               |
-| 0     | Remove Auth/Supabase                                                                               | Done (#822)               |
-| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                          | Done (#823)               |
-| 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)          |
-| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | In review (3c), see below |
-| 4     | React 19 and the packages it unblocks, one bump per commit                                         | Not started               |
-| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started               |
-| 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below    |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started               |
-| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started               |
-| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started               |
-| 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started               |
-| 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                          | Not started               |
+| Phase | What                                                                                               | Status                  |
+| ----- | -------------------------------------------------------------------------------------------------- | ----------------------- |
+| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI | Done (#821)             |
+| 0     | Remove Auth/Supabase                                                                               | Done (#822)             |
+| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                          | Done (#823)             |
+| 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)        |
+| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | Done (#858, #867, #869) |
+| 4     | React 19 and the packages it unblocks, one bump per commit                                         | Not started             |
+| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started             |
+| 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
+| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
+| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
+| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
+| 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
+| 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                          | Not started             |
 
 ### Phase 2 areas
 
@@ -52,11 +52,11 @@ With the shared components, no file in `src` imports `semantic-ui-react` and eve
 
 The user approved this sequence (2026-10-28). Each PR waits for the previous one's merge.
 
-| PR  | What                                                                                                                                                                                                                                                                                                                                                                                                   | Status                                    |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| 3a  | Delete the Sass partials (`_index.scss`, `_variables.scss`), the unused `Dropdown.module.scss`, the SCSS injection and `SASS_PATH`; remove `sass`, `semantic-ui-react` and `legacy.inconsistentCjsInterop`. No visual change (ratchet: 0 Sass files).                                                                                                                                                  | Merged (#858)                             |
-| 3b  | Remove the `semantic-ui-css` imports and `index.css`'s dead `.ui` rules, turn on preflight, replace the `@source` list with all of `src`. `cssMinify: 'esbuild'` stays, now for precision (Lightning CSS rounded calibrated values by 1/64px). Every state still matches its baseline (no baseline changes): `legacy-base.css` restores normalize's defaults after preflight. Leave the `!` utilities. | Merged (#867)                             |
-| 3c  | Use Vite 8's default `build.target` (the user's choice: Chrome and Edge 111, Firefox 114, Safari 16.4, which Tailwind v4's CSS already requires) and drop the unused `browserslist`. The built CSS is byte-identical to master's; the only JS change is one class static block in Radix's `OrderedDict` left unlowered.                                                                                | In review (`feat/ui-phase3-build-target`) |
+| PR  | What                                                                                                                                                                                                                                                                                                                                                                                                   | Status        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| 3a  | Delete the Sass partials (`_index.scss`, `_variables.scss`), the unused `Dropdown.module.scss`, the SCSS injection and `SASS_PATH`; remove `sass`, `semantic-ui-react` and `legacy.inconsistentCjsInterop`. No visual change (ratchet: 0 Sass files).                                                                                                                                                  | Merged (#858) |
+| 3b  | Remove the `semantic-ui-css` imports and `index.css`'s dead `.ui` rules, turn on preflight, replace the `@source` list with all of `src`. `cssMinify: 'esbuild'` stays, now for precision (Lightning CSS rounded calibrated values by 1/64px). Every state still matches its baseline (no baseline changes): `legacy-base.css` restores normalize's defaults after preflight. Leave the `!` utilities. | Merged (#867) |
+| 3c  | Use Vite 8's default `build.target` (the user's choice: Chrome and Edge 111, Firefox 114, Safari 16.4, which Tailwind v4's CSS already requires) and drop the unused `browserslist`. The built CSS is byte-identical to master's; the only JS change is one class static block in Radix's `OrderedDict` left unlowered.                                                                                | Merged (#869) |
 
 The harness runs on the dev server, so neither `cssMinify` nor `build.target` can change a baseline. 3b checked the production build by comparing every element's computed style between master's and the branch's `vite preview` (see "Compare computed styles" below). 3c compared the built files instead: its CSS came out byte-identical, so the comparison had nothing to find.
 
