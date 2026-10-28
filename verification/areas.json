@@ -33,7 +33,6 @@
     "src/index.css",
     "src/i18n.ts",
     "src/store.ts",
-    "src/assets/styles/_*.scss",
     "tests/fixtures.ts",
     "tests/e2e/helpers.ts",
     "tests/visual/pages.spec.ts",

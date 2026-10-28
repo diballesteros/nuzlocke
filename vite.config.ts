@@ -100,14 +100,6 @@ export default defineConfig({
     'process.env': {},
   },
 
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/assets/styles" as *;`,
-      },
-    },
-  },
-
   test: {
     globals: true,
     environment: 'jsdom',
@@ -123,12 +115,6 @@ export default defineConfig({
   },
 
   envPrefix: 'REACT_APP_',
-
-  // Components are default-imported from semantic-ui-react/dist/commonjs/* in ~56 files, which
-  // Vite 8's stricter CJS interop resolves to the module object. Remove with Semantic UI
-  legacy: {
-    inconsistentCjsInterop: true,
-  },
 
   server: {
     port: 3000,
