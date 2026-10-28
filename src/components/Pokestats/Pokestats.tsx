@@ -34,7 +34,7 @@ const BOX = 'm-0 p-[1em] object-cover';
 
 // Semantic's reset styles every <button>, so font, size, line height and margin need !
 const UNSTYLED_BUTTON =
-  'm-0! cursor-pointer appearance-none border-0 bg-transparent p-0 [font-family:inherit]! text-[length:inherit]! leading-[inherit]! text-inherit';
+  'm-0! cursor-pointer border-0 bg-transparent p-0 [font-family:inherit]! text-[length:inherit]! leading-[inherit]! text-inherit';
 
 // A boxed Pokémon: hovering outlines it, a click opens its details above it
 function BoxedPokemon({ encounter, testId }: { encounter: TEncounter; testId: string }) {

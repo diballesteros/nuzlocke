@@ -124,10 +124,8 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
-    // Vite 7's default targets; Vite 8 raised them (Chrome 111, Safari 16.4), dropping older browsers
-    target: ['chrome107', 'edge107', 'firefox104', 'safari16'],
-    // Lightning CSS (Vite 8 default) rejects an invalid selector in semantic-ui-css
-    // ("[data-tooltip][data-inverted]:after .header"). Revisit once Semantic UI is gone
+    // Lightning CSS (Vite 8's default) rounds numbers to about six significant digits, so the
+    // calibrated values (1.28571429em…) moved boxes by 1/64px in production. esbuild keeps them
     cssMinify: 'esbuild',
   },
 });

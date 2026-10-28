@@ -1,6 +1,7 @@
 import { forwardRef, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import NATURES from 'constants/natures';
+import { useNatureName } from 'hooks/useNatures';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -34,6 +35,7 @@ export const InfoButton = forwardRef<HTMLButtonElement, React.ComponentProps<typ
 function Natures(): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
+  const natureName = useNatureName();
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
@@ -54,7 +56,7 @@ function Natures(): React.JSX.Element {
               {NATURES.map((nature) => {
                 return (
                   <tr key={nature.nature}>
-                    <td className={NAME_CELL}>{nature.nature}</td>
+                    <td className={NAME_CELL}>{natureName(nature.nature)}</td>
                     <td className="text-stat-increased">{nature.increased}</td>
                     <td className="text-stat-decreased">{nature.decreased}</td>
                   </tr>

@@ -4,9 +4,9 @@ import { useTranslation } from 'react-i18next';
 import { ItemSelector, PkmImage } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
-import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail } from 'constants/types';
+import { useNatureOptions } from 'hooks/useNatures';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { Combobox } from '@/components/ui/combobox';
@@ -24,6 +24,7 @@ interface MemberProps {
 
 function Member({ index, pokemonDetail }: MemberProps): React.JSX.Element {
   const { t } = useTranslation('builder');
+  const natureOptions = useNatureOptions();
   const pokemon = POKEMAP.get(pokemonDetail.id);
   const changeTeamMember = useStore(useCallback((state) => state.changeTeamMember, []));
   const deleteTeamMember = useStore(useCallback((state) => state.deleteTeamMember, []));
@@ -67,7 +68,7 @@ function Member({ index, pokemonDetail }: MemberProps): React.JSX.Element {
             className="inline-block"
             data-testid={`team-nature-${pokemon?.text}`}
             onChange={(nature) => changeTeamMember(index, { ...pokemonDetail, nature })}
-            options={NATURES}
+            options={natureOptions}
             placeholder={t('select_nature', { ns: 'calculator' })}
             value={pokemonDetail.nature ?? ''}
           />

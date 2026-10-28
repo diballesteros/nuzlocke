@@ -20,7 +20,7 @@ function Help({ className, content }: HelpProps): React.JSX.Element {
       <button
         aria-label={t('help')}
         className={cn(
-          'm-0! mr-[0.25rem]! flex cursor-help appearance-none items-center border-0 bg-transparent p-0 [font-family:inherit]! text-[length:inherit]! leading-[inherit]! text-foreground',
+          'm-0! mr-[0.25rem]! flex cursor-help items-center border-0 bg-transparent p-0 [font-family:inherit]! text-[length:inherit]! leading-[inherit]! text-foreground',
           className
         )}
         type="button"

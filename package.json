@@ -27,7 +27,6 @@
     "react-router-dom": "^7.18.4",
     "react-toastify": "^11.1.0",
     "react-window": "^2.4.1",
-    "semantic-ui-css": "^2.5.0",
     "tailwind-merge": "^3.7.0",
     "zustand": "^5.0.15"
   },
@@ -50,18 +49,6 @@
     "coverage": "node scripts/coverage.mjs",
     "verify": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit:cov && npm run build && playwright test --project=chromium --project=state && npm run coverage",
     "verify:fast": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit && npm run build"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
   },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

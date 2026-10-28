@@ -1,0 +1,167 @@
+/*
+ * The element defaults the UI was calibrated against while Semantic UI's reset (normalize.css v7
+ * plus `box-sizing: inherit`) was loaded. Imported into the base layer after Tailwind's preflight,
+ * so utilities override these as they override preflight. Each rule is a parity debt: Phase 5 can
+ * drop one at a time, as an intended diff, to get preflight's own defaults.
+ *
+ * `revert` rolls a property back to the browser's default, undoing preflight where normalize left
+ * the browser's value alone.
+ */
+
+/* Semantic: border-box at the root, inherited below. Content inside <details> stays content-box,
+   because ::details-content doesn't inherit it */
+html {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
+/* Browser margins, paddings and borders (lists, fieldsets, form controls) */
+*,
+::before,
+::after,
+::backdrop,
+::file-selector-button {
+  margin: revert;
+  padding: revert;
+  border: revert;
+}
+
+html {
+  line-height: 1.15;
+  font-family: revert;
+  font-feature-settings: revert;
+  font-variation-settings: revert;
+  tab-size: revert;
+  -webkit-tap-highlight-color: revert;
+}
+
+ol,
+ul,
+menu {
+  list-style: revert;
+}
+
+/* Replaced elements are inline on the baseline, and svg clips its overflow (normalize) */
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+  display: revert;
+  vertical-align: revert;
+}
+img,
+video {
+  max-width: revert;
+  height: revert;
+}
+svg:not(:root) {
+  overflow: hidden;
+}
+
+table {
+  text-indent: revert;
+  border-color: revert;
+  border-collapse: revert;
+}
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  color: revert;
+}
+
+/* Form controls: the browser's colours, fills and corners, with normalize's font */
+button,
+input,
+select,
+optgroup,
+textarea,
+::file-selector-button {
+  font: revert;
+  font-feature-settings: revert;
+  font-variation-settings: revert;
+  letter-spacing: revert;
+  color: revert;
+  border-radius: revert;
+  background-color: revert;
+  opacity: revert;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: sans-serif;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+}
+button,
+input {
+  overflow: visible;
+}
+button,
+select {
+  text-transform: none;
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  appearance: button;
+}
+input[type='email'],
+input[type='password'],
+input[type='search'],
+input[type='text'] {
+  appearance: none;
+}
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  padding: 0;
+}
+[type='search'] {
+  outline-offset: -2px;
+}
+textarea {
+  overflow: auto;
+  resize: revert;
+}
+::placeholder {
+  opacity: revert;
+  color: revert;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box;
+  color: inherit;
+  display: table;
+  max-width: 100%;
+  padding: 0;
+  white-space: normal;
+}
+
+code,
+kbd,
+samp,
+pre {
+  font-family: monospace, monospace;
+  font-feature-settings: revert;
+  font-variation-settings: revert;
+  font-size: 1em;
+}
+a {
+  background-color: transparent;
+}

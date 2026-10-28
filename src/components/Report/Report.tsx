@@ -10,8 +10,11 @@ function Report(): React.JSX.Element {
         className="flex flex-col flex-nowrap gap-(--spacing-1) text-foreground"
         name="contact"
         method="post"
+        data-netlify-honeypot="bot-field"
       >
         <input type="hidden" name="form-name" value="contact" />
+        {/* Netlify's honeypot: it drops any submission that fills this in. People never see it */}
+        <input name="bot-field" type="text" hidden tabIndex={-1} autoComplete="off" />
         <label className="flex flex-col flex-nowrap">
           {t('type')}:
           <select name="type" data-testid="report-type">
@@ -58,7 +61,7 @@ function Report(): React.JSX.Element {
         </label>
         <label className="flex flex-col flex-nowrap">
           {t('description')}:
-          <textarea maxLength={1000} name="description" data-testid="report-description" />
+          <textarea maxLength={1000} name="description" data-testid="report-description" required />
         </label>
         <button className="w-[5.714rem]" type="submit">
           {t('send')}
