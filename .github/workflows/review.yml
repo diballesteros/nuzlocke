@@ -18,8 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       all: ${{ steps.areas.outputs.all }}
-      grep: ${{ steps.areas.outputs.grep }}
-      grep-invert: ${{ steps.areas.outputs.grep-invert }}
+      # Tag pattern of the touched areas; empty when the PR touches every area or none
+      touched: ${{ steps.areas.outputs.touched }}
     steps:
       - uses: actions/checkout@v7
         with:
@@ -35,7 +35,7 @@ jobs:
           node scripts/affected-areas.mjs --base origin/${{ github.base_ref }} --markdown areas.md > areas.json
           cat areas.json
           echo "all=$(node -p "require('./areas.json').all")" >> "$GITHUB_OUTPUT"
-          echo "grep-invert=$(node -p "require('./areas.json').grepInvert ?? ''")" >> "$GITHUB_OUTPUT"
+          echo "touched=$(node -p "require('./areas.json').grepInvert ?? ''")" >> "$GITHUB_OUTPUT"
       - name: Baseline guard
         env:
           STATE_CHANGE_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'state-change-approved') }}
@@ -52,10 +52,17 @@ jobs:
             areas.md
             ratchet.txt
 
-  visual:
+  # Split across shards: on one runner (2 workers) the 100 states took over 4 minutes. Every state runs
+  # exactly once: the two steps use the same tag pattern, one with --grep-invert and one with --grep.
+  visual-shard:
+    name: visual (${{ matrix.shard }}/4)
     needs: affected-areas
     timeout-minutes: 20
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4]
     container:
       # The same image npm run verify:visual renders baselines in
       image: mcr.microsoft.com/playwright:v1.64.1-noble
@@ -70,24 +77,37 @@ jobs:
           cache: npm
       - run: npm ci
       # Hard gate: every state outside the touched areas must match its baseline exactly. Every state
-      # is also tagged @shell, so when a PR touches all of them there is nothing left to run here
-      # (--pass-with-no-tests); the next step still checks them all against their baselines.
+      # is also tagged @shell, so when a PR touches all of them there is nothing to run here. A PR
+      # that touches no area runs every state here. A shard may get no tests (--pass-with-no-tests).
       - name: Untouched areas are unchanged
         if: needs.affected-areas.outputs.all != 'true'
         run: >
-          npx playwright test --project=visual --pass-with-no-tests
-          ${{ needs.affected-areas.outputs.grep-invert && format('--grep-invert "{0}"', needs.affected-areas.outputs.grep-invert) || '' }}
+          npx playwright test --project=visual --shard=${{ matrix.shard }}/4 --pass-with-no-tests
+          ${{ needs.affected-areas.outputs.touched && format('--grep-invert "{0}"', needs.affected-areas.outputs.touched) || '' }}
       # Touched areas must match the baselines committed in this PR (updated ones are logged in
       # verification/approved-diffs.tsv and checked by the baseline guard)
       - name: Touched areas match their committed baselines
-        run: npx playwright test --project=visual
+        if: needs.affected-areas.outputs.all == 'true' || needs.affected-areas.outputs.touched != ''
+        run: >
+          npx playwright test --project=visual --shard=${{ matrix.shard }}/4 --pass-with-no-tests
+          ${{ needs.affected-areas.outputs.touched && format('--grep "{0}"', needs.affected-areas.outputs.touched) || '' }}
       - uses: actions/upload-artifact@v7
         if: failure()
         with:
-          name: visual-report
+          name: visual-report-${{ matrix.shard }}
           path: |
             playwright-report
             test-results
+
+  # The required check. It must run and fail when a shard fails: a skipped required check counts as
+  # passed.
+  visual:
+    needs: visual-shard
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Every shard passed
+        run: test "${{ needs.visual-shard.result }}" = success
 
   state:
     timeout-minutes: 15
