@@ -19,6 +19,12 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`       | In progress, see below |
 | 4     | React 19 and the packages it unblocks, one bump per commit                                            | Not started            |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density), each a separate PR with intended diffs | Not started            |
+| 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)          | In progress, see below |
+| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner           | Not started            |
+| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop            | Not started            |
+| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages      | Not started            |
+| 10    | Features users asked for, ranked by how many asked, one PR each                                       | Not started            |
+| 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                             | Not started            |
 
 ### Phase 2 areas
 
@@ -103,6 +109,132 @@ These preferences hold across sessions:
 
 - **Possible flake:** `Builder › Coverage` failed once in about 60 local runs under parallel load. The Coverage tab click didn't take, and it never reproduced. If CI hits it, read the trace before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
+
+## Phases 6–11
+
+The user approved this roadmap on 2026-10-28. It comes from the review of all 580 GitHub issues (a private report: https://claude.ai/artifact/PbboBKCDJsxkpDQiUH3euc). The user's answers to the review's questions are recorded with the other decisions. Phases 6, 7 and 8 and the SEO quick wins don't touch the CSS and build files that Phases 3–5 change, so they run alongside them. Everything else waits for its phase.
+
+### Phase 6: fixes for user reports
+
+One small PR per fix, each from `master`. A fix that changes results or saved data needs the user's OK first, then a test that pins the new behaviour.
+
+- **Bugs still on `master`:**
+  - the calculator applies one side's field (screens, hazards) to both attack directions (#689);
+  - cancelling the encounter editor keeps IV and EV edits, which the next Save writes (#559).
+- **Game data:**
+  - FireRed/LeafGreen's Koga and Sabrina are swapped between the Marsh and Soul badges (#726, #391);
+  - the Ultra Sun/Ultra Moon starters are listed under Iki Town instead of Route 1 (#791, #461);
+  - encounter gaps: the Valley Windworks honey tree (#803), Olivine fishing (#818), Exeggcute on HGSS Route 35 (#805) and Farthest Hollow (#771).
+- **Version-exclusive encounters:** Yellow, Emerald and Platinum keep one game each; tag their version-exclusive encounters and filter by the chosen version. No new game keys, no persist migration.
+- **Saves:** call `navigator.storage.persist()` at startup (five data-loss reports).
+- **Report form:** a Netlify honeypot field and a required description, against the form's spam (about 20% of reports).
+- **Localisation:** nature names in de and es, not Pokémon names (#518).
+- **PKHeX import (#810, #812):** IVs and EVs arrive empty and sub-areas collapse into one route. Waits on a current PKHeX box export from the user.
+
+### Phase 7: automatic issue triage
+
+- **Flow:**
+  1. A GitHub Action runs on each new issue.
+  2. Claude reads the issue and checks it against the code and earlier issues.
+  3. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
+  4. A Discord webhook alerts the user twice: once when the issue arrives, and again with the planned review.
+  5. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
+- **Safety:** issue text comes from strangers. The triage job gets read access to the code and write access to issues only, never pushes code, and never acts on instructions inside an issue.
+- **Spam signals from the review:**
+  - an empty description;
+  - Type, Device and OS all blank, which the form's UI can't send;
+  - injection strings in fields;
+  - the same text sent two or three times within minutes.
+
+  Gen 9 and version-split requests are planned work, not declined.
+
+- **The user sets up:**
+  - the repository secrets: an Anthropic API key and the Discord webhook URL;
+  - how Report form submissions become GitHub issues. They are created under the user's account, by something outside this repository.
+
+### Phase 8: usage analytics and Sentry
+
+It comes after the triage loop, so that Sentry's reports can feed the loop, and before SEO, so that SEO's effect can be measured.
+
+- **Analytics: an in-house counter (the user chose it on 2026-10-28 over Cloudflare Web Analytics, GoatCounter and Umami).** Basic counts in the style of Plausible, on Netlify's free resources, with nothing leaving Netlify:
+  - **What it counts:**
+    - page views per route, counted on route changes inside the app (it's a PWA), not only on page loads;
+    - daily unique visitors, without cookies or stored ids: a hash of a daily rotating salt, the IP and the user agent, computed in the function and never stored raw (Plausible's method);
+    - referrer host, country (from Netlify's geo header), device class and browser family;
+    - custom events: the selected game, and which pages and features are used.
+
+    No personal data, so no consent banner. The About page says what is collected.
+
+  - **Collect:** a Netlify Function (`netlify/functions/`) takes a small JSON beacon sent with `navigator.sendBeacon`.
+    - It drops bots by user agent, respects `navigator.globalPrivacyControl` and Do Not Track, skips `localhost` and deploy previews, and rate-limits per visitor hash.
+    - It writes to Netlify Blobs.
+    - Blobs has no atomic increment, so avoid lost updates: write one small record per event under a daily prefix, and roll each closed day up into a single daily summary blob. Alternatively, use conditional writes on an ETag; check whether the Blobs version in use supports them.
+  - **Read:** a private stats page served by a second function and gated by a secret token kept in Netlify's environment variables. Netlify's site password is a paid feature. The page isn't in the app's router and isn't cached by the service worker.
+  - **Dashboard, laid out like Plausible's:**
+    - a period picker (today, 7 days, 30 days, this month, 12 months, custom) with comparison to the previous period;
+    - a row of headline numbers: unique visitors, page views, views per visit, bounce rate and visit duration, each with its change;
+    - a line chart of visitors or page views over the period, switched by clicking a headline number;
+    - panels of ranked lists, each row with a bar behind it sized by its share:
+      - sources: referrer hosts;
+      - pages: top, entry and exit;
+      - locations: countries, as a list or a map;
+      - devices: device class, browser and OS;
+      - games and features: the custom events;
+    - clicking any row filters the whole dashboard by it, and a live count shows visitors in the last 5 minutes.
+
+    A small Vite entry (`stats.html`) can build it with the app's Tailwind tokens, light and dark, and a light chart library such as uPlot.
+
+    Filtering across dimensions and bounce rate need event-level data, not just daily totals. Keep each day's events as one compact blob (route, referrer, country, device, browser, OS, event, visitor hash, time) for a retention window, and aggregate on read. The site's volume makes that cheap, and older days keep only their summaries.
+
+  - **Limits:** check Netlify's free plan limits on function invocations and Blobs storage when this starts. Keep summaries, delete raw records once rolled up, and cap retention, such as a year of daily summaries.
+  - **Tests:** unit tests for the beacon, the filters and the roll-up; an e2e check that a route change sends one beacon; state goldens unchanged (nothing is persisted in the store).
+
+- **Sentry:**
+  - The app already runs `@sentry/react` 11, but `Sentry.init` in `src/index.tsx` sets options back to v10's data collection. Move it to v11's defaults where they don't collect personal data.
+  - After Phase 4, add React 19's root error hooks (`Sentry.reactErrorHandler`).
+  - Upload source maps from the Netlify build (the token lives in Netlify's environment, never in the repo).
+  - Tag releases with `REACT_APP_VERSION`.
+  - Consider a tunnel route through a Netlify redirect, so ad blockers don't drop reports.
+  - Consider Sentry's user feedback widget as a second way to report problems.
+- **Into the loop:**
+  - A Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which already exists).
+  - The Phase 7 triage reviews it like any other issue and sends the Discord alert. Sentry's own Discord integration is the fallback.
+  - The free Developer plan's error quota is the limit; rate-limit the alerts so a burst can't flood the issues.
+
+### Phase 9: SEO
+
+- **Today:**
+  - every route serves the same title, description and canonical link (the home page) and an empty `#root` until the JavaScript runs;
+  - `public/sitemap.xml` lists only `/`, dated 2021, and `robots.txt` doesn't point to it;
+  - there's no preview image for shares.
+- **Quick wins (any time; they're more useful once Phase 8 can measure them):**
+  - a sitemap of every public route generated at build time, linked from `robots.txt`;
+  - an Open Graph image;
+  - JSON-LD for the app;
+  - resubmitting the site in Search Console.
+- **After Phase 4:**
+  - per-route titles and descriptions with React 19's built-in metadata;
+  - pre-rendering the public routes to static HTML;
+  - splitting the large game-data files out of the main bundle, for load speed;
+  - a Lighthouse budget in CI.
+- **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
+- **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).
+
+### Phase 10: features
+
+One PR each, in order of how many users asked:
+
+- Soul Link and Wedlocke pairing;
+- Showdown export;
+- Mega Evolution and Hidden Power in the calculator;
+- Elite Four rematch data;
+- fixes for the summary image's Safari and overlap glitches.
+
+Encounter reordering goes into Phase 5 instead: move up and down in the row menu, since encounters are already an ordered array.
+
+### Phase 11: Gen 9
+
+The Gen 9 species come first (the show-all list and the calculator; #814, #817). A Scarlet/Violet game mode follows, modelled on how other Nuzlocke tools handle open-world locations. Check the licence before reusing anyone's data.
 
 ## Techniques that worked for calibration
 
