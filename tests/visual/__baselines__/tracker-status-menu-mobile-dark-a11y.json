@@ -2,12 +2,7 @@
   {
     "id": "aria-hidden-focus",
     "impact": "serious",
-    "nodes": 3
-  },
-  {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 1
+    "nodes": 2
   },
   {
     "id": "landmark-one-main",

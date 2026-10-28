@@ -1,6 +1,3 @@
-- banner:
-  - listbox "games":
-    - alert: FireRed and LeafGreen
 - region "Notifications Alt+T"
 - dialog "Select a Pokémon":
   - heading "Select a Pokémon" [level=2]

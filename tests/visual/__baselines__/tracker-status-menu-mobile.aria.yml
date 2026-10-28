@@ -1,6 +1,3 @@
-- banner:
-  - listbox "games":
-    - alert: Sword and Shield
 - region "Notifications Alt+T"
 - listbox:
   - option "Captured"

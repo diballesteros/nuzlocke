@@ -1,7 +1,6 @@
 - banner:
   - button "sidebar-button": "!"
-  - listbox "games":
-    - alert: Choose a game
+  - combobox "games": Choose a game
   - button "addgame"
 - main:
   - button "search-options"
