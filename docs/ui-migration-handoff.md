@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phase 3 done, #858, #867 and #869; Phase 4 not started; backlog decisions recorded).
+Last updated 2026-10-28 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a open; backlog decisions recorded).
 
 ## Where it stands
 
@@ -17,7 +17,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                          | Done (#823)             |
 | 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)        |
 | 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | Done (#858, #867, #869) |
-| 4     | React 19 and the packages it unblocks, one bump per commit                                         | Not started             |
+| 4     | React 19 and the packages it unblocks, one bump per commit                                         | In progress, see below  |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started             |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
 | 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
@@ -61,6 +61,24 @@ The user approved this sequence (2026-10-28). Each PR waits for the previous one
 The harness runs on the dev server, so neither `cssMinify` nor `build.target` can change a baseline. 3b checked the production build by comparing every element's computed style between master's and the branch's `vite preview` (see "Compare computed styles" below). 3c compared the built files instead: its CSS came out byte-identical, so the comparison had nothing to find.
 
 **`legacy-base.css` is Phase 5's to remove.** Preflight is on, but this file, loaded right after it in the base layer, puts back what the UI was calibrated against: normalize's `box-sizing: inherit`, the browser's margins, paddings, borders and list styles, form controls' fonts and colours, inline baseline `svg` and `img` with svg overflow clipped. Calibrating each of the 43 affected files instead would have been a migration of its own. Each rule can go as an intended diff in a Phase 5 PR.
+
+### Phase 4 PRs
+
+The user approved this sequence (2026-10-28). Each PR waits for the previous one's merge, with one bump per commit.
+
+| PR  | What                                                                                                                                                                                                                                                         | Status      |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| 4a  | Drop `@types/react-router-dom` (react-router 7 ships its types); `react` and `react-dom` 19.3.1 in one commit (`react-dom` pins its `react`); `@types/react` and `@types/react-dom` 19.3 (`LegacyRef` → `Ref` in `Image`); ESLint's React version set to 19. | Open        |
+| 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Not started |
+| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Not started |
+
+What the inventory found (2026-10-28): every installed package's peer range already accepted React 19, so nothing waited on it; the Testing Library packages and the ESLint React plugins were already on their latest versions. The code had none of 19's removed APIs (`ReactDOM.render`, `findDOMNode`, string refs, `defaultProps` or `propTypes`, legacy context, `react-dom/test-utils`, `useRef()` without an argument, the global `JSX` namespace). The app doesn't use `StrictMode`, so 19's dev-only double render and double effects don't apply. Render errors no longer rethrow from the root on 19; they go to `window.reportError`, which Sentry's global handler catches, and `Sentry.ErrorBoundary` catches as before. `Sentry.reactErrorHandler` stays in Phase 8 and the built-in metadata in Phase 9. TypeScript 7 stays held (`typescript-eslint`).
+
+How 4a was checked: the built CSS is byte-identical to master's, and the bundle grows 3.3% gzipped (React 19 itself; the budget is 5%). A comparison of the production previews (every element's attributes, computed style and box; 5 seeds × desktop and mobile × 12 routes, with transitions off) found only invisible changes:
+
+- `useId` values look like `_r_d_` instead of `:rd:` (they show up in ids, `aria-controls` and the lucide icons' `mask` urls);
+- React 19 writes some attributes in another order (`type` and `name` last on inputs);
+- on desktop `/calculator`, master's live `main` reports `margin-left: 0px` for its `mx-auto` while it sits at x = 40, the same box as the branch's. A fresh copy of master's element reports 40px, so master's resolved value was stale.
 
 ## How the user wants the work done
 
@@ -122,6 +140,7 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 
 ## Watch for
 
+- **Report states under load:** the visual suite's `report` states can time out in `waitForLoadState('networkidle')` when the machine is busy, because the dev server stops answering module requests. It happens on master too: with `--grep report --repeat-each=3`, master failed 8 of 12 in one run while the React 19 branch passed. The page makes no requests of its own. Rerun on a quiet machine before suspecting a change.
 - **Possible flake:** `Builder › Coverage` failed once in about 60 local runs under parallel load. The Coverage tab click didn't take, and it never reproduced. If CI hits it, read the trace before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
