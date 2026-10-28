@@ -48,7 +48,7 @@ function Filter({ darkMode = false, hideGen = false, values }: FilterProps): Rea
           <HoverPopover content={<b>{t('search_help')}</b>} inverted={darkMode}>
             <button
               aria-label={t('help', { ns: 'calculator' })}
-              className="absolute top-[0.47214286em] left-[1.49571429em] z-1 m-0! flex size-[0.73469388em] cursor-help appearance-none items-center border-0 bg-transparent p-0 text-field-label-foreground"
+              className="absolute top-[0.47214286em] left-[1.49571429em] z-1 m-0! flex size-[0.73469388em] cursor-help items-center border-0 bg-transparent p-0 text-field-label-foreground"
               type="button"
             >
               <QuestionCircleIcon className="-m-[0.1em] size-[calc(100%+0.2em)] max-w-none" />
