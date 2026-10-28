@@ -156,13 +156,38 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 It comes after the triage loop, so that Sentry's reports can feed the loop, and before SEO, so that SEO's effect can be measured.
 
-- **Analytics:** basic counts in the style of Plausible: page views per route, visitors, referrers, countries, devices, and which games are tracked. No cookies and no personal data, so no consent banner. It must stay on free resources. Options, best first (check each free tier when this starts, since they change):
-  - Cloudflare Web Analytics: free, cookieless, a single script tag; the site doesn't need Cloudflare DNS.
-  - GoatCounter: free for non-commercial sites, open source, hosted for you.
-  - Umami Cloud's free hobby tier (open source; can be self-hosted later).
-  - A small in-house counter: a Netlify Function that increments daily counts per route in Netlify Blobs, plus a private stats page. Nothing leaves Netlify, but it's code to maintain.
+- **Analytics: an in-house counter (the user chose it on 2026-10-28 over Cloudflare Web Analytics, GoatCounter and Umami).** Basic counts in the style of Plausible, on Netlify's free resources, with nothing leaving Netlify:
+  - **What it counts:**
+    - page views per route, counted on route changes inside the app (it's a PWA), not only on page loads;
+    - daily unique visitors, without cookies or stored ids: a hash of a daily rotating salt, the IP and the user agent, computed in the function and never stored raw (Plausible's method);
+    - referrer host, country (from Netlify's geo header), device class and browser family;
+    - custom events: the selected game, and which pages and features are used.
 
-  Custom events, such as which games and features are used, need the last two options. The app is a PWA, so count route changes inside the app rather than only page loads. The service worker must not cache the script. The About page says what is collected.
+    No personal data, so no consent banner. The About page says what is collected.
+
+  - **Collect:** a Netlify Function (`netlify/functions/`) takes a small JSON beacon sent with `navigator.sendBeacon`.
+    - It drops bots by user agent, respects `navigator.globalPrivacyControl` and Do Not Track, skips `localhost` and deploy previews, and rate-limits per visitor hash.
+    - It writes to Netlify Blobs.
+    - Blobs has no atomic increment, so avoid lost updates: write one small record per event under a daily prefix, and roll each closed day up into a single daily summary blob. Alternatively, use conditional writes on an ETag; check whether the Blobs version in use supports them.
+  - **Read:** a private stats page served by a second function and gated by a secret token kept in Netlify's environment variables. Netlify's site password is a paid feature. The page isn't in the app's router and isn't cached by the service worker.
+  - **Dashboard, laid out like Plausible's:**
+    - a period picker (today, 7 days, 30 days, this month, 12 months, custom) with comparison to the previous period;
+    - a row of headline numbers: unique visitors, page views, views per visit, bounce rate and visit duration, each with its change;
+    - a line chart of visitors or page views over the period, switched by clicking a headline number;
+    - panels of ranked lists, each row with a bar behind it sized by its share:
+      - sources: referrer hosts;
+      - pages: top, entry and exit;
+      - locations: countries, as a list or a map;
+      - devices: device class, browser and OS;
+      - games and features: the custom events;
+    - clicking any row filters the whole dashboard by it, and a live count shows visitors in the last 5 minutes.
+
+    A small Vite entry (`stats.html`) can build it with the app's Tailwind tokens, light and dark, and a light chart library such as uPlot.
+
+    Filtering across dimensions and bounce rate need event-level data, not just daily totals. Keep each day's events as one compact blob (route, referrer, country, device, browser, OS, event, visitor hash, time) for a retention window, and aggregate on read. The site's volume makes that cheap, and older days keep only their summaries.
+
+  - **Limits:** check Netlify's free plan limits on function invocations and Blobs storage when this starts. Keep summaries, delete raw records once rolled up, and cap retention, such as a year of daily summaries.
+  - **Tests:** unit tests for the beacon, the filters and the roll-up; an e2e check that a route change sends one beacon; state goldens unchanged (nothing is persisted in the store).
 
 - **Sentry:**
   - The app already runs `@sentry/react` 11, but `Sentry.init` in `src/index.tsx` sets options back to v10's data collection. Move it to v11's defaults where they don't collect personal data.
