@@ -17,7 +17,8 @@ const OPTIONS = NATURES.map((nature) => ({ text: nature.text, value: nature.valu
 
 // Semantic's `button` Dropdown with a leaf in place of the caret, outlined like the row's other
 // buttons and 2.2rem tall. On the narrowest screens only the leaf shows. Its menu, in the button's
-// font, lines up with its right edge (`direction="left"`)
+// font, lines up with its right edge (`direction="left"`). The menu is portalled: inside the row
+// it would sit under the next one, which react-window 2 positions with a transform
 const TRIGGER = cn(
   OUTLINE_BUTTON,
   'm-0! flex! h-[2.2rem] w-fit items-center justify-center data-[state=open]:rounded-b-none [&>span:first-child]:mr-(--spacing-1) max-xs:w-[2.5rem] max-xs:[&>span:first-child]:[display:none]!'
@@ -32,10 +33,10 @@ function Nature({ encounter }: NatureProps): React.JSX.Element {
       align="end"
       aria-label={t('nature')}
       className="font-control"
-      contained
       data-testid={`nature-${encounter.id}`}
       icon={<Leaf aria-hidden className={cn(BUTTON_ICON, 'opacity-80')} strokeWidth={2.5} />}
       look="button"
+      menuClassName="font-control"
       onChange={(value) => changeNature(encounter.id, value)}
       options={OPTIONS}
       scrolling
