@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (shared components in review; Phase 2 complete once merged).
+Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review).
 
 ## Where it stands
 
@@ -15,36 +15,44 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI    | Done (#821)            |
 | 0     | Remove Auth/Supabase                                                                                  | Done (#822)            |
 | 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                             | Done (#823)            |
-| 2     | Migrate shared primitives, then one area per PR                                                       | In progress, see below |
-| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`       | Not started            |
+| 2     | Migrate shared primitives, then one area per PR                                                       | Done (#825–#857)       |
+| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`       | In progress, see below |
 | 4     | React 19 and the packages it unblocks, one bump per commit                                            | Not started            |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density), each a separate PR with intended diffs | Not started            |
 
 ### Phase 2 areas
 
-| Area                                                                                                       | PR   | Status                                  |
-| ---------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------- |
-| `common/` Page and Back                                                                                    | #825 | Merged                                  |
-| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                  |
-| ItemSelector on the Combobox                                                                               | #831 | Merged                                  |
-| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                  |
-| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                  |
-| @rules                                                                                                     | #838 | Merged                                  |
-| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                  |
-| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                  |
-| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                  |
-| @calculator                                                                                                | #845 | Merged                                  |
-| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                                  |
-| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | #851 | Merged                                  |
-| `toTopPosition` removed: the row status and nature menus portal                                            | #853 | Merged                                  |
-| App shell: header, Sidebar → Sheet, game select                                                            | #856 | Merged                                  |
-| Shared components: `Type`, `PokemonType`, `Move`, `Moves`, `PokeInfo` and the gender icons                 | —    | In review (`feat/ui-shared-components`) |
+| Area                                                                                                       | PR   | Status |
+| ---------------------------------------------------------------------------------------------------------- | ---- | ------ |
+| `common/` Page and Back                                                                                    | #825 | Merged |
+| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged |
+| ItemSelector on the Combobox                                                                               | #831 | Merged |
+| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged |
+| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged |
+| @rules                                                                                                     | #838 | Merged |
+| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged |
+| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged |
+| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged |
+| @calculator                                                                                                | #845 | Merged |
+| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged |
+| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | #851 | Merged |
+| `toTopPosition` removed: the row status and nature menus portal                                            | #853 | Merged |
+| App shell: header, Sidebar → Sheet, game select                                                            | #856 | Merged |
+| Shared components: `Type`, `PokemonType`, `Move`, `Moves`, `PokeInfo` and the gender icons                 | #857 | Merged |
 
-With the shared components, no file in `src` imports `semantic-ui-react` and every component module's Sass is gone (ratchet: 0 Semantic files, 3 Sass files). What Phase 3 still removes:
+With the shared components, no file in `src` imports `semantic-ui-react` and every component module's Sass is gone.
 
-- the `semantic-ui-css` stylesheet import in `src/index.tsx`, and with it the unlayered reset that so many `!` utilities work around;
-- the global Sass partials `src/assets/styles/_index.scss` and `_variables.scss` (injected into every SCSS module by `vite.config.ts`), and `Dropdown.module.scss`, which nothing imports any more;
-- the Vite shims for Semantic and `semantic-ui-react` itself in `package.json`.
+### Phase 3 PRs
+
+The user approved this sequence (2026-10-28). Each PR waits for the previous one's merge.
+
+| PR  | What                                                                                                                                                                                                                                                                                        | Status                            |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
+| 3a  | Delete the Sass partials (`_index.scss`, `_variables.scss`), the unused `Dropdown.module.scss`, the SCSS injection and `SASS_PATH`; remove `sass`, `semantic-ui-react` and `legacy.inconsistentCjsInterop`. No visual change (ratchet: 0 Sass files).                                       | In review (`feat/ui-phase3-sass`) |
+| 3b  | Remove the `semantic-ui-css` imports and `index.css`'s dead `.ui` rules, turn on preflight, replace the `@source` list with automatic detection, drop `cssMinify: 'esbuild'`. Calibrate every state back to its baseline; update the `nuzlocke-ui` skill's rule 2. Leave the `!` utilities. | Not started                       |
+| 3c  | Raise `build.target` (proposed: Vite 8's defaults, which Tailwind v4's CSS already requires) and drop the unused `browserslist`. The user decides the targets.                                                                                                                              | Not started                       |
+
+The harness runs on the dev server, so neither `cssMinify` nor `build.target` can change a baseline. 3b and 3c check the production build separately (CSS output, and a visual run against `vite preview`).
 
 ## How the user wants the work done
 

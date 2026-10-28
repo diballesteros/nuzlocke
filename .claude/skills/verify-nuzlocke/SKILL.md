@@ -35,8 +35,7 @@ node .claude/skills/verify-nuzlocke/control-nuzlocke.mjs doctor
 Run it before the first drive, after any failed drive, and whenever something looks off. It checks
 the host and Vite pids, both ports, that the app rendered, and that the persisted store version
 matches `version` in `src/store.ts`. `consoleErrors` counts errors since launch; read them with
-`console`. Expected noise while Semantic UI is still in use: React's `findDOMNode` and
-`defaultProps` warnings.
+`console`.
 
 ## Drive
 
