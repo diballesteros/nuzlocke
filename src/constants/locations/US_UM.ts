@@ -16,13 +16,6 @@ const US_UM: TEncounter[] = [
     filterKey: 'usum-1',
   },
   {
-    id: 2,
-    pokemon: null,
-    location: 'Iki Town',
-    status: null,
-    filterKey: 'usum-2',
-  },
-  {
     id: 3,
     pokemon: null,
     location: 'Route 1',
@@ -65,13 +58,6 @@ const US_UM: TEncounter[] = [
     filterKey: 'usum-9',
   },
   {
-    id: 59,
-    pokemon: null,
-    location: 'Berry Fields',
-    status: null,
-    filterKey: 'usum-59',
-  },
-  {
     id: 10,
     pokemon: null,
     location: 'Route 3',
@@ -105,6 +91,13 @@ const US_UM: TEncounter[] = [
     location: 'Ten Carat Hill',
     status: null,
     filterKey: 'usum-14',
+  },
+  {
+    id: 62,
+    pokemon: null,
+    location: 'Ten Carat Hill (Farthest Hollow)',
+    status: null,
+    filterKey: 'usum-62',
   },
   {
     id: 60,
