@@ -150,21 +150,14 @@ export const tabCount = (page: Page, n: number) =>
 export const modalDialog = (page: Page) =>
   page.locator('.ui.modal, [role="dialog"]:not([data-slot="sheet-content"])');
 
-// Modals and popovers close when the dimmed page around them is clicked. Radix starts listening
-// for outside clicks a task after a dialog opens (a setTimeout 0), so a click right after opening
-// can come too early; let that task run first
-export const clickOutside = async (page: Page) => {
-  await page.evaluate(() => new Promise((resolve) => setTimeout(resolve, 0)));
-  await page.mouse.click(2, 2);
-};
-
-// Radix listens for Escape only on the top dialog, and only two React updates after it appears: the
-// mount adds it to the layer stack, a re-render (a scheduler task) makes it the top layer, and that
-// render's effects (often another task) move the keydown listener to it. Chrome runs input before
-// those tasks, so under load an Escape pressed as soon as a dialog shows reaches the one below. Wait
-// for the re-render (the top dialog's pointer-events turn `auto`), then for a posted message, which
-// runs after the scheduler task that holds its effects
-export const pressEscape = async (page: Page) => {
+// Radix listens to the top dialog only two React updates after it appears: the mount adds it to the
+// layer stack, a re-render (a scheduler task) makes it the top layer, and that render's effects
+// (often another task) move the keydown listener to it and register its outside-click listener
+// again. Browsers run input before those tasks, so under load an Escape or a click sent as soon as a
+// dialog shows reaches the one below, or nothing. Wait for the re-render (the top dialog's
+// pointer-events turn `auto`), then for a posted message, which runs after the scheduler task that
+// holds its effects
+const waitForTopLayer = async (page: Page) => {
   await page.waitForFunction(() => {
     const open = document.querySelectorAll<HTMLElement>(
       '[role="dialog"]:not([data-slot="sheet-content"])'
@@ -179,6 +172,21 @@ export const pressEscape = async (page: Page) => {
         channel.port2.postMessage(null);
       })
   );
+};
+
+// Modals close when the dimmed page around them is clicked. The re-render that makes a dialog the
+// top layer changes `DismissableLayer`'s outside-click check, so its effect removes the pointerdown
+// listener and adds it back in a setTimeout 0. Wait for that effect, then for a timeout queued after
+// its own
+export const clickOutside = async (page: Page) => {
+  await waitForTopLayer(page);
+  await page.evaluate(() => new Promise((resolve) => setTimeout(resolve, 0)));
+  await page.mouse.click(2, 2);
+};
+
+// Radix listens for Escape only on the top dialog (see `waitForTopLayer`)
+export const pressEscape = async (page: Page) => {
+  await waitForTopLayer(page);
   await page.keyboard.press('Escape');
 };
 
