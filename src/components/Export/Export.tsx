@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
-import Menu from 'semantic-ui-react/dist/commonjs/collections/Menu';
-import Icon from 'semantic-ui-react/dist/commonjs/elements/Icon';
 import { selectExport } from 'selectors';
 import useStore from 'store';
+import { DownloadIcon } from '@/components/ui/icons';
+import { SHEET_ICON, SheetItem } from '@/components/ui/sheet';
 
 function Export(): React.JSX.Element {
   const { t } = useTranslation('common');
@@ -19,10 +19,10 @@ function Export(): React.JSX.Element {
   };
 
   return (
-    <Menu.Item as="div" data-testid="export" onClick={handleExport}>
-      <Icon name="download" />
+    <SheetItem data-testid="export" onClick={handleExport}>
+      <DownloadIcon className={SHEET_ICON} />
       {t('export')}
-    </Menu.Item>
+    </SheetItem>
   );
 }
 

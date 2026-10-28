@@ -96,7 +96,9 @@ export const typeInDropdown = (page: Page, id: string, value: string) =>
 
 export const selectGame = async (page: Page, game: string) => {
   await byTestId(page, 'game-select').click();
-  await byTestId(page, 'game-select').getByRole('option', { name: game, exact: true }).click();
+  await byTestId(page, 'game-select-options')
+    .getByRole('option', { name: game, exact: true })
+    .click();
 };
 
 // Checkboxes, toggles and radios
@@ -143,8 +145,10 @@ export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: numb
 export const tabCount = (page: Page, n: number) =>
   tab(page, 'secondary', n).locator('.ui.label, [data-slot="badge"]');
 
-// The open dialog (Semantic's modal until every dialog is on Radix)
-export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialog"]');
+// The open dialog (Semantic's modal until every dialog is on Radix). The sidebar is a non-modal
+// dialog too, and stays in the page while it slides out, so it doesn't count
+export const modalDialog = (page: Page) =>
+  page.locator('.ui.modal, [role="dialog"]:not([data-slot="sheet-content"])');
 
 // Modals and popovers close when the dimmed page around them is clicked. Radix starts listening
 // for outside clicks a task after a dialog opens (a setTimeout 0), so a click right after opening

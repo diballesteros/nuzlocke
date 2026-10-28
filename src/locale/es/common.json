@@ -54,5 +54,7 @@
   "remove": "Quitar",
   "nature_chart": "Tabla de naturalezas",
   "ability_list": "Lista de habilidades",
-  "move_list": "Lista de movimientos"
+  "move_list": "Lista de movimientos",
+  "add_game": "Añadir juego",
+  "menu": "Menú"
 }
