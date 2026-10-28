@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (App shell in review).
+Last updated 2026-10-28 (shared components in review; Phase 2 complete once merged).
 
 ## Where it stands
 
@@ -22,29 +22,29 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 
 ### Phase 2 areas
 
-| Area                                                                                                       | PR   | Status                          |
-| ---------------------------------------------------------------------------------------------------------- | ---- | ------------------------------- |
-| `common/` Page and Back                                                                                    | #825 | Merged                          |
-| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                          |
-| ItemSelector on the Combobox                                                                               | #831 | Merged                          |
-| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                          |
-| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                          |
-| @rules                                                                                                     | #838 | Merged                          |
-| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                          |
-| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                          |
-| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                          |
-| @calculator                                                                                                | #845 | Merged                          |
-| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                          |
-| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | #851 | Merged                          |
-| `toTopPosition` removed: the row status and nature menus portal                                            | #853 | Merged                          |
-| App shell: header, Sidebar → Sheet, game select                                                            | —    | In review (`feat/ui-app-shell`) |
+| Area                                                                                                       | PR   | Status                                  |
+| ---------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------- |
+| `common/` Page and Back                                                                                    | #825 | Merged                                  |
+| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                  |
+| ItemSelector on the Combobox                                                                               | #831 | Merged                                  |
+| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                  |
+| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                  |
+| @rules                                                                                                     | #838 | Merged                                  |
+| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                  |
+| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                  |
+| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                  |
+| @calculator                                                                                                | #845 | Merged                                  |
+| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                                  |
+| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | #851 | Merged                                  |
+| `toTopPosition` removed: the row status and nature menus portal                                            | #853 | Merged                                  |
+| App shell: header, Sidebar → Sheet, game select                                                            | #856 | Merged                                  |
+| Shared components: `Type`, `PokemonType`, `Move`, `Moves`, `PokeInfo` and the gender icons                 | —    | In review (`feat/ui-shared-components`) |
 
-Several pieces are still Semantic because they belong to areas not migrated yet:
+With the shared components, no file in `src` imports `semantic-ui-react` and every component module's Sass is gone (ratchet: 0 Semantic files, 3 Sass files). What Phase 3 still removes:
 
-- **Shared components:** `PokemonType`, `PokeInfo`, `Moves`, `Move` and `Type` (Sass or Semantic, no Radix conflict).
-- **The tracker was split in two PRs** because it was about three times an area's size. The Detail dialog pulls in `MoveSelector`, `Natures` and `Filter`, which Builder, Calculator and PokéStats also render. A Radix dialog makes Semantic modals opened from it unclickable, so `Detail`, `Abilities`, `Natures`, `MoveSelector` and `Filter` (and `RangeSelector`, whose SCSS moved there from the Calculator) move together in part 2.
-
-Migrate each one with the area that owns it. `node scripts/affected-areas.mjs <files>` shows which area that is.
+- the `semantic-ui-css` stylesheet import in `src/index.tsx`, and with it the unlayered reset that so many `!` utilities work around;
+- the global Sass partials `src/assets/styles/_index.scss` and `_variables.scss` (injected into every SCSS module by `vite.config.ts`), and `Dropdown.module.scss`, which nothing imports any more;
+- the Vite shims for Semantic and `semantic-ui-react` itself in `package.json`.
 
 ## How the user wants the work done
 
@@ -107,6 +107,7 @@ These preferences hold across sessions:
 
 - **Transforms and layout offsets rasterize differently.** A menu nudged by a sub-pixel `translate` blends its borders, where Semantic's menu, offset by layout in its field's layer, snapped them to whole pixels. A sub-pixel margin instead snapped the borders but changed the text inside Radix's scrolling viewport. Translating only the viewport (`menuShift="content"`) matched both.
 - **A `<button>` centres its content; a `<div>` doesn't.** In dark mode the header bar has no border, so the game select stretches 2px taller than its content. Semantic's div kept the text at the top; the Select's button centred it, 1px lower. Extra bottom padding in dark mode puts it back.
+- **Icon-font glyphs sit on the baseline.** Semantic's `<i class="icon">` is an inline-block whose glyph is placed by the icon font's baseline, so FontAwesome's gender marks sat about 0.45em above the baseline whatever the line height. An svg on `align-top` matched the box on one line height but drew the glyph 1.5px high on mobile's smaller font. The gender icon sits on the baseline instead, with its drawing nudged by a translate. Measure the ink (its rows and centre in the Docker PNGs), not just the box: FontAwesome's venus is a small glyph that hangs below its box, unlike the nav icons `ICON_SLOT` scales up.
 - **Semantic previews the highlighted option.** With no game chosen, opening Semantic's dropdown showed its first option in the field. Radix keeps the placeholder. It only shows while the menu is open, and no baseline state covers it.
 - **Focus under a dialog.** Semantic left focus on the button that opened a Confirm, so the header's delete button showed its grey `:focus` fill under the dimmer. Radix moves focus into the dialog, as in every migrated dialog, so the fill is gone.
 - **normalize styles `details` and `summary` unlayered.** It sets `details { display: block }` and `summary { display: list-item }`, so `flex` or `block` on them needs `!`.

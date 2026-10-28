@@ -3,7 +3,6 @@ import { TYPE_COLOR } from 'constants/colors';
 import TYPE_ICON from 'constants/icons';
 import type { Type as TType } from 'constants/types';
 import useStore from 'store';
-import styles from './Type.module.scss';
 
 interface TypeProps {
   hideName?: boolean;
@@ -22,13 +21,17 @@ function Type({ hideName = false, type }: TypeProps): React.JSX.Element {
   return (
     <button
       aria-label="pokemon type"
-      className={styles.type}
+      className="flex h-[2.143rem] min-h-[2.143rem] cursor-pointer items-center rounded-[4px] border-0 p-0 font-bold box-content! [font-family:inherit]! text-[length:inherit]! leading-[inherit]! [&>svg]:w-[1.714rem] [&>svg]:px-(--spacing-0)"
       onClick={handleClick}
       style={{ backgroundColor: TYPE_COLOR[type] }}
       type="button"
     >
       {TYPE_ICON[type]}
-      {!hideName && <div className={styles.text}>{type}</div>}
+      {!hideName && (
+        <div className="grid h-full flex-1 place-items-center rounded-r-[3px] bg-type-name px-(--spacing-1) text-white">
+          {type}
+        </div>
+      )}
     </button>
   );
 }
