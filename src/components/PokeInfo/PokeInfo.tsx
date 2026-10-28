@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import { MarsIcon, VenusIcon } from '@/components/ui/icons';
 import type { Gender, TEncounter, TPokemon } from 'constants/types';
+import { useNatureName } from 'hooks/useNatures';
 
 interface PokeInfoProps {
   encounter: TEncounter;
@@ -25,6 +26,7 @@ export const getGenderIcon = (gender: Gender) => {
 
 function PokeInfo({ encounter, pokemon }: PokeInfoProps): React.JSX.Element {
   const { t } = useTranslation('stats');
+  const natureName = useNatureName();
 
   return (
     <div className="flex flex-col flex-wrap [&>span]:max-w-[16.071rem] max-[39.286rem]:[&>span]:max-w-[8.929rem]">
@@ -37,7 +39,9 @@ function PokeInfo({ encounter, pokemon }: PokeInfoProps): React.JSX.Element {
         {t('met_at')}: {encounter.location}
         {!!encounter?.details?.metLevel && `,  ${t('at')} lv. ${encounter.details.metLevel}`}
       </span>
-      {encounter?.details?.nature && <span>{encounter.details.nature} nature</span>}
+      {encounter?.details?.nature && (
+        <span>{t('nature_of', { nature: natureName(encounter.details.nature) })}</span>
+      )}
       {encounter?.details?.ability && <span>{encounter.details.ability}</span>}
       {encounter?.details?.item && <span>Item: {encounter.details.item}</span>}
       {encounter?.details?.faint && encounter.status.value === 2 && (

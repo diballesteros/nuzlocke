@@ -5,6 +5,7 @@ import './index.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
+import { requestPersistentStorage } from '@/lib/storage';
 import 'assets/styles/pokemon.css';
 import 'assets/styles/item.css';
 import App from './App';
@@ -42,6 +43,8 @@ Sentry.init({
     frameContextLines: 7,
   },
 });
+
+requestPersistentStorage();
 
 root.render(
   <>
