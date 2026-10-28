@@ -125,6 +125,58 @@ export function getResults(
   });
 }
 
+// Each side keeps its own screens and hazards: Pokémon 1 attacks with its side as the attacker's,
+// Pokémon 2 attacks on the swapped field
+export function getFields(all: TCalculatorForm): [Field, Field] {
+  const field = new Field({
+    attackerSide: {
+      cannonade: all?.cannonade1,
+      isAuroraVeil: all?.isAuroraVeil1,
+      isBattery: all?.isBattery1,
+      isForesight: all?.isForesight1,
+      isFriendGuard: all?.isFriendGuard1,
+      isHelpingHand: all?.isHelpingHand1,
+      isLightScreen: all?.isLightScreen1,
+      isProtected: all?.isProtected1,
+      isReflect: all?.isReflect1,
+      isSeeded: all?.isSeeded1,
+      isSR: all?.isSR1,
+      isSwitching: all?.isSwitching1 ? 'out' : undefined,
+      isTailwind: all?.isTailwind1,
+      spikes: all?.spikes1,
+      steelsurge: all?.steelsurge1,
+      vinelash: all?.vinelash1,
+      volcalith: all?.volcalith1,
+      wildfire: all?.wildfire1,
+    },
+    defenderSide: {
+      cannonade: all?.cannonade2,
+      isAuroraVeil: all?.isAuroraVeil2,
+      isBattery: all?.isBattery2,
+      isForesight: all?.isForesight2,
+      isFriendGuard: all?.isFriendGuard2,
+      isHelpingHand: all?.isHelpingHand2,
+      isLightScreen: all?.isLightScreen2,
+      isProtected: all?.isProtected2,
+      isReflect: all?.isReflect2,
+      isSeeded: all?.isSeeded2,
+      isSR: all?.isSR2,
+      isSwitching: all?.isSwitching2 ? 'out' : undefined,
+      isTailwind: all?.isTailwind2,
+      spikes: all?.spikes2,
+      steelsurge: all?.steelsurge2,
+      vinelash: all?.vinelash2,
+      volcalith: all?.volcalith2,
+      wildfire: all?.wildfire2,
+    },
+    gameType: all?.gameType,
+    isGravity: all?.isGravity,
+    terrain: all?.terrain === 'None' ? undefined : all?.terrain,
+    weather: all?.weather === 'None' ? undefined : all?.weather,
+  });
+  return [field, field.clone().swap()];
+}
+
 function useCalculate(): {
   pokemon1: Pokemon;
   pokemon2: Pokemon;
@@ -141,57 +193,10 @@ function useCalculate(): {
     return getPokemon(all, 2);
   }, [all]);
 
-  const field = useMemo(() => {
-    return new Field({
-      attackerSide: {
-        cannonade: all?.cannonade1,
-        isAuroraVeil: all?.isAuroraVeil1,
-        isBattery: all?.isBattery1,
-        isForesight: all?.isForesight1,
-        isFriendGuard: all?.isFriendGuard1,
-        isHelpingHand: all?.isHelpingHand1,
-        isLightScreen: all?.isLightScreen1,
-        isProtected: all?.isProtected1,
-        isReflect: all?.isReflect1,
-        isSeeded: all?.isSeeded1,
-        isSR: all?.isSR1,
-        isSwitching: all?.isSwitching1 ? 'out' : undefined,
-        isTailwind: all?.isTailwind1,
-        spikes: all?.spikes1,
-        steelsurge: all?.steelsurge1,
-        vinelash: all?.vinelash1,
-        volcalith: all?.volcalith1,
-        wildfire: all?.wildfire1,
-      },
-      defenderSide: {
-        cannonade: all?.cannonade2,
-        isAuroraVeil: all?.isAuroraVeil2,
-        isBattery: all?.isBattery2,
-        isForesight: all?.isForesight2,
-        isFriendGuard: all?.isFriendGuard2,
-        isHelpingHand: all?.isHelpingHand2,
-        isLightScreen: all?.isLightScreen2,
-        isProtected: all?.isProtected2,
-        isReflect: all?.isReflect2,
-        isSeeded: all?.isSeeded2,
-        isSR: all?.isSR2,
-        isSwitching: all?.isSwitching2 ? 'out' : undefined,
-        isTailwind: all?.isTailwind2,
-        spikes: all?.spikes2,
-        steelsurge: all?.steelsurge2,
-        vinelash: all?.vinelash2,
-        volcalith: all?.volcalith2,
-        wildfire: all?.wildfire2,
-      },
-      gameType: all?.gameType,
-      isGravity: all?.isGravity,
-      terrain: all?.terrain === 'None' ? undefined : all?.terrain,
-      weather: all?.weather === 'None' ? undefined : all?.weather,
-    });
-  }, [all]);
+  const [attackerField, defenderField] = useMemo(() => getFields(all), [all]);
 
-  const attackerResults = getResults(all, pokemon1, pokemon2, field, 1);
-  const defenderResults = getResults(all, pokemon2, pokemon1, field, 2);
+  const attackerResults = getResults(all, pokemon1, pokemon2, attackerField, 1);
+  const defenderResults = getResults(all, pokemon2, pokemon1, defenderField, 2);
 
   assertResult(attackerResults);
   assertResult(defenderResults);
