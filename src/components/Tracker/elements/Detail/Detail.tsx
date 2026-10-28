@@ -6,9 +6,9 @@ import { ItemSelector, PkmImage, PokemonSelector } from 'common';
 import { MoveSelector, Natures, PokemonType } from 'components';
 import { Abilities, RangeSelector } from 'components/Tracker/elements';
 import { GAME_GENERATION, GENDERS } from 'constants/constant';
-import NATURES from 'constants/natures';
 import { POKEMAP } from 'constants/pokemon';
 import type { Gender, TEncounter } from 'constants/types';
+import { useNatureOptions } from 'hooks/useNatures';
 import { selectItemGeneration, selectNAGeneration } from 'selectors';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
@@ -57,6 +57,7 @@ interface DetailProps {
 
 function Detail({ encounter }: DetailProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
+  const natureOptions = useNatureOptions();
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
   const exportTeamMember = useStore(useCallback((state) => state.exportTeamMember, []));
   const exportToGame = useStore(useCallback((state) => state.exportToGame, []));
@@ -110,6 +111,18 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
     setMoveThree(encounter?.details?.moves[2]);
     setMoveFour(encounter?.details?.moves[3]);
     setShiny(encounter?.details?.shiny);
+    setIvhp(encounter?.details?.ivhp);
+    setIvatk(encounter?.details?.ivatk);
+    setIvdef(encounter?.details?.ivdef);
+    setIvspatk(encounter?.details?.ivspatk);
+    setIvspeed(encounter?.details?.ivspeed);
+    setIvspdef(encounter?.details?.ivspdef);
+    setEvhp(encounter?.details?.evhp);
+    setEvatk(encounter?.details?.evatk);
+    setEvdef(encounter?.details?.evdef);
+    setEvspatk(encounter?.details?.evspatk);
+    setEvspeed(encounter?.details?.evspeed);
+    setEvspdef(encounter?.details?.evspdef);
     setSoulLink(encounter?.details?.soulink);
   };
 
@@ -284,7 +297,7 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
                       clearable
                       data-testid="nature"
                       onChange={(value) => setNature(value)}
-                      options={NATURES}
+                      options={natureOptions}
                       placeholder={t('select_nature', { ns: 'calculator' })}
                       value={nature ?? ''}
                     />

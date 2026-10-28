@@ -1,8 +1,8 @@
 import { Leaf } from 'lucide-react';
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import NATURES from 'constants/natures';
 import type { TEncounter } from 'constants/types';
+import { useNatureName, useNatureOptions } from 'hooks/useNatures';
 import useStore from 'store';
 import { BUTTON_ICON } from '@/components/ui/icons';
 import { Select } from '@/components/ui/select';
@@ -12,8 +12,6 @@ import { OUTLINE_BUTTON } from '../buttons';
 interface NatureProps {
   encounter: TEncounter;
 }
-
-const OPTIONS = NATURES.map((nature) => ({ text: nature.text, value: nature.value }));
 
 // Semantic's `button` Dropdown with a leaf in place of the caret, outlined like the row's other
 // buttons and 2.2rem tall. On the narrowest screens only the leaf shows. Its menu, in the button's
@@ -27,6 +25,8 @@ const TRIGGER = cn(
 function Nature({ encounter }: NatureProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const changeNature = useStore(useCallback((state) => state.changeNature, []));
+  const natureName = useNatureName();
+  const options = useNatureOptions();
 
   return (
     <Select
@@ -38,9 +38,9 @@ function Nature({ encounter }: NatureProps): React.JSX.Element {
       look="button"
       menuClassName="font-control"
       onChange={(value) => changeNature(encounter.id, value)}
-      options={OPTIONS}
+      options={options}
       scrolling
-      text={encounter?.details?.nature ?? t('nature')}
+      text={encounter?.details?.nature ? natureName(encounter.details.nature) : t('nature')}
       triggerClassName={TRIGGER}
       value={encounter?.details?.nature ?? ''}
     />

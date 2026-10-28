@@ -13,6 +13,8 @@ import { FONT_CARET, FONT_CARET_BOX } from './select';
 
 export interface ComboboxOption {
   image?: React.ReactNode;
+  // Other names the search matches, besides `text`
+  keywords?: string[];
   text: string;
   value: string;
 }
@@ -33,7 +35,11 @@ interface ComboboxProps {
 // Like Semantic's search: a case-insensitive substring match that keeps the original order
 const filterOptions = (options: ComboboxOption[], search: string) =>
   search
-    ? options.filter((option) => option.text.toLowerCase().includes(search.toLowerCase()))
+    ? options.filter((option) =>
+        [option.text, ...(option.keywords ?? [])].some((name) =>
+          name.toLowerCase().includes(search.toLowerCase())
+        )
+      )
     : options;
 
 // Semantic's `.ui.avatar.image` inside a dropdown: a 2em image that doesn't grow the line
