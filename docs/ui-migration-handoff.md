@@ -122,7 +122,6 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 
 ## Watch for
 
-- **Possible flake:** `Builder › Coverage` failed once in about 60 local runs under parallel load. The Coverage tab click didn't take, and it never reproduced. If CI hits it, read the trace before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
 ## Phases 6–11
