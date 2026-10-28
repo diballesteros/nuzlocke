@@ -8,7 +8,7 @@ The UI migration's status, the user's decisions and the working rules for it are
 
 ## Project
 
-Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, Semantic UI React and SCSS modules for most components, migrating area by area to shadcn/ui (Radix) and Tailwind v4, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
+Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, shadcn/ui (Radix) and Tailwind v4 for components (Semantic UI's stylesheet stays loaded until Phase 3 of the UI migration removes it), i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
 
 ## Commands
 
@@ -83,14 +83,14 @@ Prettier: single quotes, 100 col, es5 trailing commas, `quoteProps: preserve`.
 Every change, and especially every dependency bump, must pass `npm run verify` before it's committed. Behaviour must stay the same unless the user asks otherwise.
 
 - **Coverage** comes from Vitest (`coverage/unit`) plus Playwright (via `vite-plugin-istanbul`; raw data per worker in `coverage/playwright/raw/`, cleared at the start of each run), merged by `scripts/coverage.mjs` (`coverage-lib.mjs`). The script remaps the raw e2e data with Vitest's own remapper (`@vitest/istanbul-lib-source-maps`), so both sides get identical statement, branch and function maps. The instrumented server (`REACT_APP_COVERAGE=true`) turns HMR off so no Fast Refresh code is instrumented. If unit and e2e maps ever drift apart, the merge double-counts or under-counts. Exclusions (static data tables, tests) live in `COVERAGE_EXCLUDE` in `vite.config.ts` and are shared by both tools. Thresholds in `scripts/coverage.mjs` are a ratchet: raise them, never lower them.
-- **Vite 8 compatibility shims** in `vite.config.ts`, all to be removed with Semantic UI: `legacy.inconsistentCjsInterop` (default imports from `semantic-ui-react/dist/commonjs/*`) and `build.cssMinify: 'esbuild'` (Lightning CSS rejects an invalid semantic-ui-css selector). `build.target` is pinned to Vite 7's defaults to keep browser support unchanged.
+- **Vite 8 compatibility shim** in `vite.config.ts`, to be removed with `semantic-ui-css`: `build.cssMinify: 'esbuild'` (Lightning CSS rejects an invalid semantic-ui-css selector). `legacy.inconsistentCjsInterop` went with `semantic-ui-react`. `build.target` is pinned to Vite 7's defaults to keep browser support unchanged.
 - **CI** (`.github/workflows/main.yml`) runs the static checks and unit coverage, a Playwright browser × shard matrix (chromium, firefox, webkit × 3) in the `mcr.microsoft.com/playwright` image, then a `coverage` job that merges every report and checks changed-line coverage. `review.yml` runs the blast-radius checks on PRs.
 - **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), `src/constants/data.test.ts`, `src/i18n.test.ts` (stored language applied at startup by the custom async detector, fallback, plurals), and `src/hooks/useCalculate.golden.test.ts` (snapshot of damage ranges for gens 1–8; a calc upgrade that changes any number fails it).
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
 - Accounts (Supabase auth and cloud saves) were removed in Phase 0. Runs live only in localStorage; `/delete` stays as a notice that accounts were discontinued, because outside links may point to it.
-- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (semantic-ui-react needs `findDOMNode`); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
+- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (Phase 4 of the UI migration does them, one bump per commit); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
-- Sass and Semantic UI React are being replaced by Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, `@source`, primitives and locators. Keep changes to unmigrated Semantic/Sass code minimal. semantic-ui-react 2.x needs React ≤ 18 (it uses `findDOMNode`), so React 19 waits for that replacement.
+- Components use Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, `@source`, primitives and locators. Sass and `semantic-ui-react` are gone; `semantic-ui-css` (its reset and component styles) is still imported in `src/index.tsx` until Phase 3 removes it.
 
 ## Known issues (left as-is while behaviour is frozen)
 
@@ -104,7 +104,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 
 ### Imports
 
-`vite.config.ts` defines bare-path aliases: `components`, `common`, `constants`, `hooks`, `store`, `selectors`, `assets`, `locale`, `error`, `routes`, and `@` → `src` (also a tsconfig path, so shadcn's `@/lib/utils` imports type-check). Use these (e.g. `import useStore from 'store'`) rather than relative paths. Every SCSS module automatically gets `@use "@/assets/styles" as *;` injected. Env vars must be prefixed `REACT_APP_` (`envPrefix`) and are read via `import.meta.env`.
+`vite.config.ts` defines bare-path aliases: `components`, `common`, `constants`, `hooks`, `store`, `selectors`, `assets`, `locale`, `error`, `routes`, and `@` → `src` (also a tsconfig path, so shadcn's `@/lib/utils` imports type-check). Use these (e.g. `import useStore from 'store'`) rather than relative paths. Env vars must be prefixed `REACT_APP_` (`envPrefix`) and are read via `import.meta.env`.
 
 ### State (`src/store.ts`)
 
@@ -131,7 +131,7 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 - `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind without preflight. Tailwind only generates utilities for directories in its `@source` list, because automatic detection would restyle Semantic markup that uses words like `container` or `hidden` as class names. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
-- `src/components/<Name>/<Name>.tsx` + `<Name>.module.scss`, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.
+- `src/components/<Name>/<Name>.tsx`, styled with Tailwind utilities, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.
 - `src/common/` — reusable selectors/widgets (Pokemon, item, encounter selectors, page wrapper, etc.).
 - Translations: `src/locale/{en,es,de}/<namespace>.json`, registered in `src/i18n.ts`. Any new user-facing string must be added to all three locales.
 
