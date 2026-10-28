@@ -8,6 +8,7 @@ import {
   modalDialog,
   navigate,
   options,
+  pressEscape,
   selectGame,
   typeInDropdown,
 } from '../helpers';
@@ -47,7 +48,7 @@ for (const { dialog, route, open, closes } of ESCAPE) {
     await byTestId(page, open).click();
     const modal = modalDialog(page);
     await expect(modal).toBeVisible();
-    await page.keyboard.press('Escape');
+    await pressEscape(page);
     if (closes) {
       await expect(modal).toHaveCount(0);
     } else {
@@ -108,19 +109,19 @@ test('Escape in the encounter editor closes only the nature and ability tables',
       () => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)))
     );
   await expect(dialogs).toHaveCount(1);
-  await page.keyboard.press('Escape');
+  await pressEscape(page);
   await twoFrames();
   await expect(dialogs).toHaveCount(1);
   for (const open of ['nature-info', 'ability-info']) {
     await byTestId(page, open).click();
     await expect(dialogs).toHaveCount(2);
-    await page.keyboard.press('Escape');
+    await pressEscape(page);
     await expect(dialogs).toHaveCount(1);
   }
   await byTestId(page, 'move-summary').click();
   await byTestId(page, 'move-1').locator(':scope > div').click();
   await expect(dialogs).toHaveCount(2);
-  await page.keyboard.press('Escape');
+  await pressEscape(page);
   await twoFrames();
   await expect(dialogs).toHaveCount(2);
 });
