@@ -27,7 +27,6 @@
     "react-router-dom": "^7.18.4",
     "react-toastify": "^11.1.0",
     "react-window": "^2.4.1",
-    "semantic-ui-css": "^2.5.0",
     "tailwind-merge": "^3.7.0",
     "zustand": "^5.0.15"
   },

@@ -1,4 +1,4 @@
-// The only place e2e specs touch UI-library markup. When a widget moves off Semantic UI, change the
+// The only place e2e specs touch UI-library markup. When a widget's markup changes, change the
 // helper body here and leave the specs alone.
 import path from 'node:path';
 import { expect, type Locator, type Page } from '@playwright/test';
@@ -48,7 +48,7 @@ export const navigate = async (page: Page, testId: string) => {
   await byTestId(page, testId).click();
 };
 
-// Dropdowns. Semantic UI, a `contained` Select and the MultiSelect render role="option" items
+// Dropdowns. A `contained` Select and the MultiSelect render role="option" items
 // inside the element carrying the test id; the Combobox (data-slot="combobox") and any other Select
 // portal their menu, which carries the test id plus "-options". An open menu's trigger has
 // aria-expanded="true".
@@ -58,11 +58,7 @@ export const options = (page: Page, id: string) =>
     .or(byTestId(page, `${id}-options`).getByRole('option'));
 
 const menuOpen = (dropdown: Locator) =>
-  dropdown
-    .locator(
-      ':scope > .menu.visible, :scope > [aria-expanded="true"], :scope[aria-expanded="true"]'
-    )
-    .count();
+  dropdown.locator(':scope > [aria-expanded="true"], :scope[aria-expanded="true"]').count();
 
 // `covered`: the open menu sits under another element, so the click is dispatched to the option
 // directly, as Cypress did for every click. The first row's nature menu used to open upward beneath
@@ -86,13 +82,11 @@ export const pickOption = async (
 // `contained` Select carries the test id on a wrapper around that trigger
 export const dropdownText = (page: Page, id: string) =>
   byTestId(page, id).locator(
-    ':scope > .text, :scope > [data-slot="combobox-value"], :scope[data-slot="select"] > span:first-child, :scope > [data-slot="select"] > span:first-child'
+    ':scope > [data-slot="combobox-value"], :scope[data-slot="select"] > span:first-child, :scope > [data-slot="select"] > span:first-child'
   );
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>
-  byTestId(page, id)
-    .locator(':scope > input.search, :scope > input[role="combobox"]')
-    .pressSequentially(value);
+  byTestId(page, id).locator(':scope > input[role="combobox"]').pressSequentially(value);
 
 export const selectGame = async (page: Page, game: string) => {
   await byTestId(page, 'game-select').click();
@@ -115,40 +109,34 @@ export const toggle = async (page: Page, id: string) => {
     .click();
 };
 
-// A radio button picked by its label (e.g. an evolution in the Evolve modal): Semantic's, or a
-// RadioGroupOption's <label>
+// A radio button picked by its label (e.g. an evolution in the Evolve modal): a RadioGroupOption's
+// <label>
 export const radio = (page: Page, label: string) =>
-  page
-    .locator('.ui.radio.checkbox label, [data-slot="radio-group"] label')
-    .filter({ hasText: new RegExp(`^${label}$`) });
+  page.locator('[data-slot="radio-group"] label').filter({ hasText: new RegExp(`^${label}$`) });
 
 export const expectChecked = (page: Page, id: string, checked: boolean) =>
   expect(checkbox(page, id)).toBeChecked({ checked });
 
-// Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace. A string names
-// Semantic's menu class or the Tabs variant (`secondary`, `tabular`)
+// Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace. A string names the
+// Tabs variant (`secondary`, `tabular`)
 export const tabMenu = (page: Page, menu: 'secondary' | 'tabular' | Locator) =>
   typeof menu === 'string'
     ? page
-        .locator(`.ui.${menu}.menu, [data-slot="tabs-list"][data-variant="${menu}"]`)
+        .locator(`[data-slot="tabs-list"][data-variant="${menu}"]`)
         .first()
-        .locator(':scope > .item, :scope > [role="tab"]')
-    : menu
-        .locator('.ui.menu, [role="tablist"]')
-        .first()
-        .locator(':scope > .item, :scope > [role="tab"]');
+        .locator(':scope > [role="tab"]')
+    : menu.locator('[role="tablist"]').first().locator(':scope > [role="tab"]');
 
 export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: number) =>
   tabMenu(page, menu).nth(n - 1);
 
 // The count label on a tab (PokéStats)
 export const tabCount = (page: Page, n: number) =>
-  tab(page, 'secondary', n).locator('.ui.label, [data-slot="badge"]');
+  tab(page, 'secondary', n).locator('[data-slot="badge"]');
 
-// The open dialog (Semantic's modal until every dialog is on Radix). The sidebar is a non-modal
-// dialog too, and stays in the page while it slides out, so it doesn't count
+// The open dialog. The sidebar is a non-modal dialog too, and stays in the page while it slides out, so it doesn't count
 export const modalDialog = (page: Page) =>
-  page.locator('.ui.modal, [role="dialog"]:not([data-slot="sheet-content"])');
+  page.locator('[role="dialog"]:not([data-slot="sheet-content"])');
 
 // Radix listens to the top dialog only two React updates after it appears: the mount adds it to the
 // layer stack, a re-render (a scheduler task) makes it the top layer, and that render's effects
@@ -191,9 +179,7 @@ export const pressEscape = async (page: Page) => {
 };
 
 export const modalField = (page: Page, n: number) =>
-  page
-    .locator('.ui.modal .content, [data-slot="dialog-body"]')
-    .locator(`:scope > :nth-child(${n}) > input`);
+  page.locator('[data-slot="dialog-body"]').locator(`:scope > :nth-child(${n}) > input`);
 
 // Semantic's Popup opens on hover (after 50 ms) and toggles on click. A pointer click races the
 // two: when the browser is slow, the hover opens it first and the click closes it again (WebKit's
@@ -201,8 +187,7 @@ export const modalField = (page: Page, n: number) =>
 export const openPopup = (trigger: Locator) => trigger.dispatchEvent('click');
 
 // The help icon next to a widget
-export const helpIcon = (page: Page, id: string) =>
-  byTestId(page, id).locator('.question, svg').first();
+export const helpIcon = (page: Page, id: string) => byTestId(page, id).locator('svg').first();
 
 // Number of encounters the virtualized tracker list renders
 export const encounterRows = (page: Page) =>

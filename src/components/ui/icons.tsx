@@ -116,7 +116,7 @@ export const FilterIcon = glyph('filter', 'M1 2.5h22l-8.5 10v8.5l-5 2.5v-11z', S
 
 // Semantic's icon slot, 1.18em × 1em, with the glyph drawn 1.16em tall like BUTTON_ICON's. Here the
 // box keeps the icon font's exact size and only the drawing is scaled, so nothing around it moves
-export const ICON_SLOT = 'h-[1em] w-[1.18em] overflow-visible scale-[1.16]';
+export const ICON_SLOT = 'h-[1em] w-[1.18em] scale-[1.16]';
 
 // The app shell's glyphs (the sidebar's text is translucent too): lucide's, merged into one path
 export const MenuIcon = glyph('menu', 'M4 5h16M4 12h16M4 19h16', { strokeWidth: 3 });
