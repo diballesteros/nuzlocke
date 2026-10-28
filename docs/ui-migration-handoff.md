@@ -4,27 +4,27 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review).
+Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review; backlog decisions recorded).
 
 ## Where it stands
 
 The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Radix, lucide), then move to React 19, then improve the UI. The order is **parity first, redesign later**. Each area keeps its looks and behaviour until Phase 5.
 
-| Phase | What                                                                                                  | Status                 |
-| ----- | ----------------------------------------------------------------------------------------------------- | ---------------------- |
-| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI    | Done (#821)            |
-| 0     | Remove Auth/Supabase                                                                                  | Done (#822)            |
-| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                             | Done (#823)            |
-| 2     | Migrate shared primitives, then one area per PR                                                       | Done (#825–#857)       |
-| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`       | In progress, see below |
-| 4     | React 19 and the packages it unblocks, one bump per commit                                            | Not started            |
-| 5     | UI improvements (contrast, a11y, navigation, tracker density), each a separate PR with intended diffs | Not started            |
-| 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)          | In progress, see below |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner           | Not started            |
-| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop            | Not started            |
-| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages      | Not started            |
-| 10    | Features users asked for, ranked by how many asked, one PR each                                       | Not started            |
-| 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                             | Not started            |
+| Phase | What                                                                                               | Status                 |
+| ----- | -------------------------------------------------------------------------------------------------- | ---------------------- |
+| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI | Done (#821)            |
+| 0     | Remove Auth/Supabase                                                                               | Done (#822)            |
+| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                          | Done (#823)            |
+| 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)       |
+| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | In progress, see below |
+| 4     | React 19 and the packages it unblocks, one bump per commit                                         | Not started            |
+| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started            |
+| 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below |
+| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started            |
+| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started            |
+| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started            |
+| 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started            |
+| 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                          | Not started            |
 
 ### Phase 2 areas
 
@@ -99,6 +99,19 @@ These preferences hold across sessions:
 - **Known a11y items for Phase 5:**
   - The white-on-#2185d0 Edit custom statuses button has too little contrast.
   - An open Radix Select hides the rest of the page with `aria-hidden` but leaves it focusable, so axe reports `aria-hidden-focus` (3 nodes with a tracker status menu or Settings' language open). Making the hidden page `inert` while a menu is open would fix it.
+- **Encounter reordering goes into Phase 5:** Move up and Move down items in the tracker row's menu. It reorders the existing encounter list, so it needs no store migration.
+
+### Backlog decisions (2026-10-28)
+
+The user's answers to the questions in the [backlog review](https://claude.ai/artifact/PbboBKCDJsxkpDQiUH3euc). The work they lead to is in Phases 6–11 below.
+
+- **Storage:** call `navigator.storage.persist()` at startup (`src/lib/storage.ts`), with no reminder to export.
+- **Report form:** Netlify's honeypot (`bot-field`) and a required description. The game field stays free text.
+- **Natures:** localise their names in de and es only.
+- **Yellow, Emerald and Platinum:** version-tagged encounters inside their base games, not separate games.
+- **Gen 9:** a later phase (Phase 11), the species first, then a Scarlet/Violet mode.
+- **Encounter reordering:** Phase 5 (above).
+- **#737** stays closed.
 
 ## Waiting on the user
 
