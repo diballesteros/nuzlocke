@@ -149,6 +149,8 @@ function Select({
           : 'min-w-(--radix-select-trigger-width) rounded-md border border-solid border-field-border data-[side=top]:rounded-b-none data-[side=top]:shadow-[0_0_3px_0_rgba(0,0,0,0.08)]',
         menuClassName
       )}
+      // A portalled menu carries the `-options` test id, which the helpers look in as well
+      data-testid={!contained && dataTestId ? `${dataTestId}-options` : undefined}
       position="popper"
       side="bottom"
       sideOffset={menuOffset}

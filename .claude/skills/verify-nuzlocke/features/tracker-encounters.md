@@ -49,8 +49,9 @@ Preconditions:
 ## Gotchas
 
 - Only rendered rows have test ids; scroll first (`open-scroll-list` → `scroll-to-encounter-N`).
-- The first row's nature menu opens upward under the badge strip; its top options are covered.
+- The row status and nature menus portal (test id plus `-options`), so they sit above the next row
+  and the badge strip.
 - The evolve button's test id really ends in a brace: `evolve-0}`.
-- Encounter rows use a transform workaround (`toTopPosition`) so open dropdowns aren't clipped by
-  the next row.
+- react-window 2 positions rows with a transform, so anything rendered inside a row is painted
+  under the next row. Menus in a row must portal.
 - Added encounters get timestamp ids (`Date.now()`), so ids differ between runs.
