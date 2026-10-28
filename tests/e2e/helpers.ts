@@ -146,6 +146,30 @@ export const clickOutside = async (page: Page) => {
   await page.mouse.click(2, 2);
 };
 
+// Radix listens for Escape only on the top dialog, and only two React updates after it appears: the
+// mount adds it to the layer stack, a re-render (a scheduler task) makes it the top layer, and that
+// render's effects (often another task) move the keydown listener to it. Chrome runs input before
+// those tasks, so under load an Escape pressed as soon as a dialog shows reaches the one below. Wait
+// for the re-render (the top dialog's pointer-events turn `auto`), then for a posted message, which
+// runs after the scheduler task that holds its effects
+export const pressEscape = async (page: Page) => {
+  await page.waitForFunction(() => {
+    const open = document.querySelectorAll<HTMLElement>(
+      '[role="dialog"]:not([data-slot="sheet-content"])'
+    );
+    return !open.length || open[open.length - 1].style.pointerEvents === 'auto';
+  });
+  await page.evaluate(
+    () =>
+      new Promise((resolve) => {
+        const channel = new MessageChannel();
+        channel.port1.onmessage = resolve;
+        channel.port2.postMessage(null);
+      })
+  );
+  await page.keyboard.press('Escape');
+};
+
 export const modalField = (page: Page, n: number) =>
   page.locator('[data-slot="dialog-body"]').locator(`:scope > :nth-child(${n}) > input`);
 
