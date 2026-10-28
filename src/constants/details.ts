@@ -2314,39 +2314,6 @@ const DETAILS: { [key: string]: TDetail[][] } = {
       {
         content: [
           {
-            ability: 'Levitate',
-            id: 109,
-            level: 37,
-            moves: [120, 124, 108, 92],
-          },
-          {
-            ability: 'Sticky Hold',
-            id: 89,
-            level: 39,
-            moves: [107, 124, 151, 92],
-          },
-          {
-            ability: 'Levitate',
-            id: 109,
-            level: 37,
-            moves: [120, 124, 108, 92],
-          },
-          {
-            ability: 'Levitate',
-            id: 110,
-            level: 43,
-            moves: [33, 124, 108, 92],
-          },
-        ],
-        game: 'FireRed and LeafGreen',
-        name: 'Koga',
-        type: 'GYM',
-      },
-    ],
-    [
-      {
-        content: [
-          {
             ability: 'Synchronize',
             id: 64,
             level: 38,
@@ -2373,6 +2340,39 @@ const DETAILS: { [key: string]: TDetail[][] } = {
         ],
         game: 'FireRed and LeafGreen',
         name: 'Sabrina',
+        type: 'GYM',
+      },
+    ],
+    [
+      {
+        content: [
+          {
+            ability: 'Levitate',
+            id: 109,
+            level: 37,
+            moves: [120, 124, 108, 92],
+          },
+          {
+            ability: 'Sticky Hold',
+            id: 89,
+            level: 39,
+            moves: [107, 124, 151, 92],
+          },
+          {
+            ability: 'Levitate',
+            id: 109,
+            level: 37,
+            moves: [120, 124, 108, 92],
+          },
+          {
+            ability: 'Levitate',
+            id: 110,
+            level: 43,
+            moves: [33, 124, 108, 92],
+          },
+        ],
+        game: 'FireRed and LeafGreen',
+        name: 'Koga',
         type: 'GYM',
       },
     ],
