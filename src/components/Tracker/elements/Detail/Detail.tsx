@@ -111,6 +111,18 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
     setMoveThree(encounter?.details?.moves[2]);
     setMoveFour(encounter?.details?.moves[3]);
     setShiny(encounter?.details?.shiny);
+    setIvhp(encounter?.details?.ivhp);
+    setIvatk(encounter?.details?.ivatk);
+    setIvdef(encounter?.details?.ivdef);
+    setIvspatk(encounter?.details?.ivspatk);
+    setIvspeed(encounter?.details?.ivspeed);
+    setIvspdef(encounter?.details?.ivspdef);
+    setEvhp(encounter?.details?.evhp);
+    setEvatk(encounter?.details?.evatk);
+    setEvdef(encounter?.details?.evdef);
+    setEvspatk(encounter?.details?.evspatk);
+    setEvspeed(encounter?.details?.evspeed);
+    setEvspdef(encounter?.details?.evspdef);
     setSoulLink(encounter?.details?.soulink);
   };
 
