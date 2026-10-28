@@ -175,6 +175,19 @@ export const ClipboardIcon = glyph(
   { strokeWidth: 2.5 }
 );
 
+// The gender marks, lucide's mars and venus merged into one path each
+export const MarsIcon = glyph(
+  'mars',
+  'M16 3h5v5M21 3l-6.75 6.75M10 8a6 6 0 1 0 0 12 6 6 0 1 0 0-12z',
+  {
+    strokeWidth: 2.6,
+  }
+);
+
+export const VenusIcon = glyph('venus', 'M12 15v7M9 19h6M12 3a6 6 0 1 0 0 12 6 6 0 1 0 0-12z', {
+  strokeWidth: 2.6,
+});
+
 // An icon after a button's text, in Semantic's icon slot: 4px from the text, nothing after it. The
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall
 export const TRAILING_ICON =

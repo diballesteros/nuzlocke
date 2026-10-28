@@ -49,6 +49,11 @@
 @source '../App.tsx';
 @source '../components/AddGame';
 @source '../components/Export';
+@source '../components/Move';
+@source '../components/Moves';
+@source '../components/PokeInfo';
+@source '../components/PokemonType';
+@source '../components/Type';
 @source not '../**/*.test.ts';
 /*
  * Listed files are scanned whole, so words in code and comments become utilities too (`.filter(`
@@ -155,6 +160,9 @@
 
   /* Semantic's attached menu (the header bar): its border, solid where a field's is translucent */
   --attached-border: #d4d4d5;
+
+  /* A type tag's name strip (the same in both themes) */
+  --type-name: #595645;
 
   /* Semantic's white form fields (input, selection dropdown): border, hover border, text, and the
      grey label attached to an input */
@@ -314,6 +322,7 @@
   --color-basic-inverted-foreground: var(--basic-inverted-foreground);
   --color-toggle-border: var(--toggle-border);
   --color-attached-border: var(--attached-border);
+  --color-type-name: var(--type-name);
   --color-toggle-checked-border: var(--toggle-checked-border);
   --color-toggle-mark: var(--toggle-mark);
   --color-field-border: var(--field-border);
