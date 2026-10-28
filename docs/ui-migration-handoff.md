@@ -4,21 +4,21 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review).
+Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review; backlog decisions recorded).
 
 ## Where it stands
 
 The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Radix, lucide), then move to React 19, then improve the UI. The order is **parity first, redesign later**. Each area keeps its looks and behaviour until Phase 5.
 
-| Phase | What                                                                                                  | Status                 |
-| ----- | ----------------------------------------------------------------------------------------------------- | ---------------------- |
-| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI    | Done (#821)            |
-| 0     | Remove Auth/Supabase                                                                                  | Done (#822)            |
-| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                             | Done (#823)            |
-| 2     | Migrate shared primitives, then one area per PR                                                       | Done (#825–#857)       |
-| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`       | In progress, see below |
-| 4     | React 19 and the packages it unblocks, one bump per commit                                            | Not started            |
-| 5     | UI improvements (contrast, a11y, navigation, tracker density), each a separate PR with intended diffs | Not started            |
+| Phase | What                                                                                               | Status                 |
+| ----- | -------------------------------------------------------------------------------------------------- | ---------------------- |
+| V     | Playwright harness replaces Cypress: state goldens, visual + ARIA + axe baselines, blast-radius CI | Done (#821)            |
+| 0     | Remove Auth/Supabase                                                                               | Done (#822)            |
+| 1     | Tailwind v4 + shadcn foundation, coexisting with Semantic                                          | Done (#823)            |
+| 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)       |
+| 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | In progress, see below |
+| 4     | React 19 and the packages it unblocks, one bump per commit                                         | Not started            |
+| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started            |
 
 ### Phase 2 areas
 
@@ -93,6 +93,19 @@ These preferences hold across sessions:
 - **Known a11y items for Phase 5:**
   - The white-on-#2185d0 Edit custom statuses button has too little contrast.
   - An open Radix Select hides the rest of the page with `aria-hidden` but leaves it focusable, so axe reports `aria-hidden-focus` (3 nodes with a tracker status menu or Settings' language open). Making the hidden page `inert` while a menu is open would fix it.
+- **Encounter reordering goes into Phase 5:** Move up and Move down items in the tracker row's menu. It reorders the existing encounter list, so it needs no store migration.
+
+### Backlog decisions (2026-10-28)
+
+The user went through the open issues in the [backlog review](https://claude.ai/artifact/PbboBKCDJsxkpDQiUH3euc) and decided:
+
+- **Storage:** the app calls `navigator.storage.persist()` at startup (`src/lib/storage.ts`). No reminder to export.
+- **Report form:** Netlify's honeypot (`bot-field`) and a required description. The game field stays free text.
+- **Natures:** localise their names in de and es only.
+- **Gen 9:** a later phase. First the Gen 9 species (the show-all list and the calculator, #814 and #817), then a Scarlet/Violet game mode modelled on how other Nuzlocke variants handle open-world locations.
+- **Yellow, Emerald and Platinum:** version-tagged encounters inside their base games, not separate games.
+- **Encounter reordering:** Phase 5 (above).
+- **#737** stays closed.
 
 ## Waiting on the user
 
