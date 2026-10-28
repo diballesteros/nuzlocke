@@ -34,5 +34,5 @@ Preconditions:
 
 ## Gotchas
 
-- Settings toggles are Semantic UI checkboxes: click the label (`toggle` does).
+- Settings toggles are `CheckboxOption`s from `ui/checkbox`: click the label (`toggle` does).
 - The Spanish locale's `syncing` key is misspelled (`sincronizando`); see `KNOWN_ISSUES`.

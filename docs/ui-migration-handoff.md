@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phase 2 done; Phase 3a, dead Sass and the CommonJS shim, in review).
+Last updated 2026-10-28 (Phase 3a merged; 3b, Semantic's CSS out and preflight on, in review).
 
 ## Where it stands
 
@@ -46,13 +46,15 @@ With the shared components, no file in `src` imports `semantic-ui-react` and eve
 
 The user approved this sequence (2026-10-28). Each PR waits for the previous one's merge.
 
-| PR  | What                                                                                                                                                                                                                                                                                        | Status                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------- |
-| 3a  | Delete the Sass partials (`_index.scss`, `_variables.scss`), the unused `Dropdown.module.scss`, the SCSS injection and `SASS_PATH`; remove `sass`, `semantic-ui-react` and `legacy.inconsistentCjsInterop`. No visual change (ratchet: 0 Sass files).                                       | In review (`feat/ui-phase3-sass`) |
-| 3b  | Remove the `semantic-ui-css` imports and `index.css`'s dead `.ui` rules, turn on preflight, replace the `@source` list with automatic detection, drop `cssMinify: 'esbuild'`. Calibrate every state back to its baseline; update the `nuzlocke-ui` skill's rule 2. Leave the `!` utilities. | Not started                       |
-| 3c  | Raise `build.target` (proposed: Vite 8's defaults, which Tailwind v4's CSS already requires) and drop the unused `browserslist`. The user decides the targets.                                                                                                                              | Not started                       |
+| PR  | What                                                                                                                                                                                                                                                                                                                                                                                                   | Status                                 |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------- |
+| 3a  | Delete the Sass partials (`_index.scss`, `_variables.scss`), the unused `Dropdown.module.scss`, the SCSS injection and `SASS_PATH`; remove `sass`, `semantic-ui-react` and `legacy.inconsistentCjsInterop`. No visual change (ratchet: 0 Sass files).                                                                                                                                                  | Merged (#858)                          |
+| 3b  | Remove the `semantic-ui-css` imports and `index.css`'s dead `.ui` rules, turn on preflight, replace the `@source` list with all of `src`. `cssMinify: 'esbuild'` stays, now for precision (Lightning CSS rounded calibrated values by 1/64px). Every state still matches its baseline (no baseline changes): `legacy-base.css` restores normalize's defaults after preflight. Leave the `!` utilities. | In review (`feat/ui-phase3-preflight`) |
+| 3c  | Raise `build.target` (proposed: Vite 8's defaults, which Tailwind v4's CSS already requires) and drop the unused `browserslist`. The user decides the targets.                                                                                                                                                                                                                                         | Not started                            |
 
-The harness runs on the dev server, so neither `cssMinify` nor `build.target` can change a baseline. 3b and 3c check the production build separately (CSS output, and a visual run against `vite preview`).
+The harness runs on the dev server, so neither `cssMinify` nor `build.target` can change a baseline. 3b checked the production build by comparing every element's computed style between master's and the branch's `vite preview` (see "Compare computed styles" below); 3c should do the same.
+
+**`legacy-base.css` is Phase 5's to remove.** Preflight is on, but this file, loaded right after it in the base layer, puts back what the UI was calibrated against: normalize's `box-sizing: inherit`, the browser's margins, paddings, borders and list styles, form controls' fonts and colours, inline baseline `svg` and `img` with svg overflow clipped. Calibrating each of the 43 affected files instead would have been a migration of its own. Each rule can go as an intended diff in a Phase 5 PR.
 
 ## How the user wants the work done
 
@@ -111,7 +113,13 @@ These preferences hold across sessions:
 - **Read diffs at pixel level.** After `npm run verify:visual`, the `-expected`, `-actual` and `-diff` PNGs are in `verification/artifacts/visual/test-results/`. Crop and enlarge the regions side by side to see whether a change is a glyph, an offset or a size.
 - **Sub-pixel offsets need the container's fonts.** Measure inside the Playwright image against a master worktree (recipe in `CLAUDE.md`). That's how a 0.094px toolbar offset in #843 was traced to a trailing icon's line box.
 
+- **Compare computed styles.** For a change that should alter nothing (a reset, a build setting), pair every element on both sides by document order and diff `getComputedStyle` plus `getBoundingClientRect`. Run it per visual state (seed, theme, viewport, action) with a Playwright spec kept in the ignored `verification/artifacts/`. Filter out custom properties, `tab-size` and the style or colour of zero-width borders, and ignore values caught mid-transition (500ms background fades, the Builder's expand). 3b used it twice: master against the branch (preflight), and master's production build against the branch's, which showed Lightning CSS rounding calibrated values (so esbuild still minifies CSS). Run each preview from its own checkout; the full run takes about 15 minutes with 4 workers, and a case that times out under load passes on its own. It names the property behind a diff, where a screenshot only shows pixels.
+
 ### Gotchas met so far
+
+- **Utilities that never applied.** Semantic's unlayered reset beat some utilities, so they did nothing on master (`appearance-none` on three buttons, `overflow-visible` on `ICON_SLOT`). Once the reset was layered they would have applied, so 3b removed them. When a diff appears in code nobody touched, look for one of these first.
+- **`../nz-master` shares `node_modules`.** It's a symlink to this checkout's, so removing a package here removes it for the master server too. 3b reinstalled `semantic-ui-css` with `npm install --no-save` so master kept loading; `npm ci` restores the lockfile's set.
+- **Ports held by other sessions.** Other sessions' Vite servers may still be running on 3100, 3110 or 3200. Check with `lsof -nP -iTCP:<port> -sTCP:LISTEN`, leave them alone and pick another port (`VERIFY_PORT` for the control CLI).
 
 - **Transforms and layout offsets rasterize differently.** A menu nudged by a sub-pixel `translate` blends its borders, where Semantic's menu, offset by layout in its field's layer, snapped them to whole pixels. A sub-pixel margin instead snapped the borders but changed the text inside Radix's scrolling viewport. Translating only the viewport (`menuShift="content"`) matched both.
 - **A `<button>` centres its content; a `<div>` doesn't.** In dark mode the header bar has no border, so the game select stretches 2px taller than its content. Semantic's div kept the text at the top; the Select's button centred it, 1px lower. Extra bottom padding in dark mode puts it back.
