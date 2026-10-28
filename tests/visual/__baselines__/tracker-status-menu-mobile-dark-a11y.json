@@ -2,17 +2,22 @@
   {
     "id": "aria-hidden-focus",
     "impact": "serious",
-    "nodes": 16
+    "nodes": 2
   },
   {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 2
+    "id": "landmark-one-main",
+    "impact": "moderate",
+    "nodes": 1
   },
   {
     "id": "page-has-heading-one",
     "impact": "moderate",
     "nodes": 1
+  },
+  {
+    "id": "region",
+    "impact": "moderate",
+    "nodes": 7
   },
   {
     "id": "scrollable-region-focusable",

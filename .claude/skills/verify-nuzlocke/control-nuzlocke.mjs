@@ -401,7 +401,10 @@ const commands = {
     const picked = await withPage(async (page) => {
       const dropdown = page.locator(`[data-testid="${testid}"]`).first();
       await dropdown.click();
-      const items = dropdown.getByRole('option');
+      // A portalled menu (the Combobox, most Selects) carries the test id plus "-options"
+      const items = dropdown
+        .getByRole('option')
+        .or(page.locator(`[data-testid="${testid}-options"]`).getByRole('option'));
       const item = /^\d+$/.test(option)
         ? items.nth(Number(option))
         : items.filter({ hasText: option }).first();

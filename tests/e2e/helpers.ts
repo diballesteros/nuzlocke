@@ -49,19 +49,24 @@ export const navigate = async (page: Page, testId: string) => {
 };
 
 // Dropdowns. Semantic UI, a `contained` Select and the MultiSelect render role="option" items
-// inside the element carrying the test id; the Combobox (data-slot="combobox") portals its menu,
-// which carries the test id plus "-options". An open menu's trigger has aria-expanded="true".
+// inside the element carrying the test id; the Combobox (data-slot="combobox") and any other Select
+// portal their menu, which carries the test id plus "-options". An open menu's trigger has
+// aria-expanded="true".
 export const options = (page: Page, id: string) =>
   byTestId(page, id)
     .getByRole('option')
     .or(byTestId(page, `${id}-options`).getByRole('option'));
 
 const menuOpen = (dropdown: Locator) =>
-  dropdown.locator(':scope > .menu.visible, :scope > [aria-expanded="true"]').count();
+  dropdown
+    .locator(
+      ':scope > .menu.visible, :scope > [aria-expanded="true"], :scope[aria-expanded="true"]'
+    )
+    .count();
 
-// `covered`: the open menu sits under another element (known UI issue: the first row's nature
-// menu opens upward beneath the badge strip), so the click is dispatched to the option directly,
-// as Cypress did for every click
+// `covered`: the open menu sits under another element, so the click is dispatched to the option
+// directly, as Cypress did for every click. The first row's nature menu used to open upward beneath
+// the badge strip; it portals now and is on top, but its spec still passes `covered`
 export const pickOption = async (
   page: Page,
   id: string,
@@ -77,11 +82,11 @@ export const pickOption = async (
   else await item.click();
 };
 
-// The value (or placeholder) a dropdown shows. A `contained` Select carries the test id on a wrapper
-// around its trigger, whose first child holds the text
+// The value (or placeholder) a dropdown shows: a Select's trigger holds it in its first child, and a
+// `contained` Select carries the test id on a wrapper around that trigger
 export const dropdownText = (page: Page, id: string) =>
   byTestId(page, id).locator(
-    ':scope > .text, :scope > [data-slot="combobox-value"], :scope > [data-slot="select"] > span:first-child'
+    ':scope > .text, :scope > [data-slot="combobox-value"], :scope[data-slot="select"] > span:first-child, :scope > [data-slot="select"] > span:first-child'
   );
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>
@@ -91,7 +96,9 @@ export const typeInDropdown = (page: Page, id: string, value: string) =>
 
 export const selectGame = async (page: Page, game: string) => {
   await byTestId(page, 'game-select').click();
-  await byTestId(page, 'game-select').getByRole('option', { name: game, exact: true }).click();
+  await byTestId(page, 'game-select-options')
+    .getByRole('option', { name: game, exact: true })
+    .click();
 };
 
 // Checkboxes, toggles and radios
@@ -138,8 +145,10 @@ export const tab = (page: Page, menu: 'secondary' | 'tabular' | Locator, n: numb
 export const tabCount = (page: Page, n: number) =>
   tab(page, 'secondary', n).locator('.ui.label, [data-slot="badge"]');
 
-// The open dialog (Semantic's modal until every dialog is on Radix)
-export const modalDialog = (page: Page) => page.locator('.ui.modal, [role="dialog"]');
+// The open dialog (Semantic's modal until every dialog is on Radix). The sidebar is a non-modal
+// dialog too, and stays in the page while it slides out, so it doesn't count
+export const modalDialog = (page: Page) =>
+  page.locator('.ui.modal, [role="dialog"]:not([data-slot="sheet-content"])');
 
 // Modals and popovers close when the dimmed page around them is clicked. Radix starts listening
 // for outside clicks a task after a dialog opens (a setTimeout 0), so a click right after opening

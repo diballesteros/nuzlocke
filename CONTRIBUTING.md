@@ -7,7 +7,9 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Pull Request Process
 
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
-   build.
-2. You may merge the Pull Request in once you have the sign-off of Github Repo owner.
-3. Make the pull request to the current milestone version branch. These branches have the name: **version/VERSION_NUMBER**
+1. Branch from an up-to-date `master`, using a descriptive name such as `feat/<short-name>` or
+   `fix/<short-name>`.
+2. Make the pull request to `master`. Release bumps are the exception: they are done on
+   `version/X.Y.Z` branches that are merged into `master`.
+3. Run `npm run verify` before you push. It must pass.
+4. You may merge the Pull Request in once you have the sign-off of the GitHub repo owner.

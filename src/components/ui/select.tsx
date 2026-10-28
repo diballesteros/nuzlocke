@@ -55,6 +55,12 @@ const CARET: Record<SelectLook, string> = {
   text: 'mx-[0.21428571em] inline-block align-middle',
 };
 
+// A Semantic selection menu that hits its max height (a long list, like the games): the max height
+// counts its bottom border, and its first item keeps the rule above it. The viewport inside is
+// clipped by that pixel. Pass it as menuClassName (the header's game select, Add game's template)
+export const SELECTION_MENU =
+  'max-h-[8.01428571rem] min-[768px]:max-h-[10.68571429rem] min-[992px]:max-h-[16.02857143rem] min-[1920px]:max-h-[21.37142857rem] [&_[role=option]:first-child]:border-t!';
+
 // The selection looks' menu hangs from the field; the others float below their trigger
 const ATTACHED = (look: SelectLook) => look === 'contrast' || look === 'field' || look === 'inline';
 
@@ -85,6 +91,10 @@ interface SelectProps {
   // hang 2px lower)
   menuClassName?: string;
   menuOffset?: number;
+  // What takes up the fraction of a pixel Radix dropped: the whole menu (the default), or only its
+  // content, so the menu's borders stay on whole pixels as a Semantic menu's did when it hung from
+  // its field in the same layer (the header's game select)
+  menuShift?: 'content' | 'menu';
   onChange: (value: string) => void;
   options: SelectOption[];
   placeholder?: string;
@@ -109,6 +119,7 @@ function Select({
   look = 'field',
   menuClassName,
   menuOffset = 0,
+  menuShift = 'menu',
   onChange,
   options,
   placeholder,
@@ -133,10 +144,15 @@ function Select({
         const dy = above
           ? field.top - menuOffset - menu.bottom
           : field.bottom + menuOffset - menu.top;
-        if (Math.abs(dx) < 1 && Math.abs(dy) < 1) node.style.translate = `${dx}px ${dy}px`;
+        if (Math.abs(dx) >= 1 || Math.abs(dy) >= 1) return;
+        const target =
+          menuShift === 'content'
+            ? node.querySelector<HTMLElement>('[data-radix-select-viewport]')
+            : node;
+        if (target) target.style.translate = `${dx}px ${dy}px`;
       });
     },
-    [align, menuOffset]
+    [align, menuOffset, menuShift]
   );
   const content = (
     <SelectPrimitive.Content
@@ -149,6 +165,8 @@ function Select({
           : 'min-w-(--radix-select-trigger-width) rounded-md border border-solid border-field-border data-[side=top]:rounded-b-none data-[side=top]:shadow-[0_0_3px_0_rgba(0,0,0,0.08)]',
         menuClassName
       )}
+      // A portalled menu carries the `-options` test id, which the helpers look in as well
+      data-testid={!contained && dataTestId ? `${dataTestId}-options` : undefined}
       position="popper"
       side="bottom"
       sideOffset={menuOffset}

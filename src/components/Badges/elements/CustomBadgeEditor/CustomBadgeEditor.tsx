@@ -1,10 +1,9 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button from 'semantic-ui-react/dist/commonjs/elements/Button';
-import { HEADER_BUTTON } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
+import { HEADER_PENCIL } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
-import { Button as UIButton } from '@/components/ui/button';
+import { Button } from '@/components/ui/button';
 import {
   Dialog,
   DialogBody,
@@ -48,11 +47,14 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
       ) : (
         <Button
           aria-label="editgame"
-          className={HEADER_BUTTON}
+          className={HEADER_PENCIL}
           data-testid="custom-edit-badges"
-          icon="pencil"
           onClick={() => setOpen(true)}
-        />
+          size="icon"
+          variant="secondary"
+        >
+          <PencilIcon className={BUTTON_ICON} />
+        </Button>
       )}
       {/* No onClose before, so only its own button closes it */}
       <Dialog open={open} onOpenChange={setOpen}>
@@ -74,7 +76,7 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
                       onChange={(e) => handleChange(e.target.value, i)}
                       value={val}
                     />
-                    <UIButton
+                    <Button
                       aria-label={t('remove', { ns: 'common' })}
                       data-testid={`remove-custom-badge-${i}`}
                       onClick={() => deleteCustomBadge(i)}
@@ -82,19 +84,19 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
                       variant="secondary"
                     >
                       <MinusIcon className={BUTTON_ICON} />
-                    </UIButton>
+                    </Button>
                   </div>
                 );
               })}
-            <UIButton data-testid="add-cap" onClick={addCustomBadge} variant="secondary">
+            <Button data-testid="add-cap" onClick={addCustomBadge} variant="secondary">
               {t('add_level_cap')}{' '}
               <PlusIcon className="-my-[0.08em] mr-[0.395em] ml-[-0.165em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80" />
-            </UIButton>
+            </Button>
           </DialogBody>
           <DialogFooter>
-            <UIButton onClick={() => setOpen(false)} variant="secondary">
+            <Button onClick={() => setOpen(false)} variant="secondary">
               {t('cancel', { ns: 'common' })}
-            </UIButton>
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>

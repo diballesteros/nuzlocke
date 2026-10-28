@@ -114,6 +114,67 @@ export const SearchIcon = glyph('search', 'M11 4a7 7 0 1 0 0 14 7 7 0 1 0 0-14zM
 // FontAwesome's filter is a solid funnel
 export const FilterIcon = glyph('filter', 'M1 2.5h22l-8.5 10v8.5l-5 2.5v-11z', SOLID);
 
+// Semantic's icon slot, 1.18em × 1em, with the glyph drawn 1.16em tall like BUTTON_ICON's. Here the
+// box keeps the icon font's exact size and only the drawing is scaled, so nothing around it moves
+export const ICON_SLOT = 'h-[1em] w-[1.18em] overflow-visible scale-[1.16]';
+
+// The app shell's glyphs (the sidebar's text is translucent too): lucide's, merged into one path
+export const MenuIcon = glyph('menu', 'M4 5h16M4 12h16M4 19h16', { strokeWidth: 3 });
+
+export const MapIcon = glyph(
+  'map',
+  'M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0zM15 5.764v15M9 3.236v15',
+  { strokeWidth: 2.5 }
+);
+
+export const BookIcon = glyph(
+  'book',
+  'M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20',
+  { strokeWidth: 2.5 }
+);
+
+export const ChartPieIcon = glyph(
+  'chart-pie',
+  'M21 12c.552 0 1.005-.449.95-.998a10 10 0 0 0-8.953-8.951c-.55-.055-.998.398-.998.95v8a1 1 0 0 0 1 1zM21.21 15.89A10 10 0 1 1 8 2.83',
+  { strokeWidth: 2.5 }
+);
+
+export const GavelIcon = glyph(
+  'gavel',
+  'm14 13-8.381 8.38a1 1 0 0 1-3.001-3l8.384-8.381M16 16l6-6M21.5 10.5l-8-8M8 8l6-6M8.5 7.5l8 8',
+  { strokeWidth: 2.5 }
+);
+
+export const CalculatorIcon = glyph(
+  'calculator',
+  'M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zM8 6h8M16 14v4M16 10h.01M12 10h.01M8 10h.01M12 14h.01M8 14h.01M12 18h.01M8 18h.01',
+  { strokeWidth: 2.5 }
+);
+
+export const WrenchIcon = glyph(
+  'wrench',
+  'M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z',
+  { strokeWidth: 2.5 }
+);
+
+export const UploadIcon = glyph(
+  'upload',
+  'M12 3v12M17 8l-5-5-5 5M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4',
+  { strokeWidth: 3 }
+);
+
+export const BugIcon = glyph(
+  'bug',
+  'M12 20v-9M14 7a4 4 0 0 1 4 4v3a6 6 0 0 1-12 0v-3a4 4 0 0 1 4-4zM14.12 3.88 16 2M21 21a4 4 0 0 0-3.81-4M21 5a4 4 0 0 1-3.55 3.97M22 13h-4M3 21a4 4 0 0 1 3.81-4M3 5a4 4 0 0 0 3.55 3.97M6 13H2M8 2l1.88 1.88M9 7.13V6a3 3 0 1 1 6 0v1.13',
+  { strokeWidth: 2.5 }
+);
+
+export const ClipboardIcon = glyph(
+  'clipboard',
+  'M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2',
+  { strokeWidth: 2.5 }
+);
+
 // An icon after a button's text, in Semantic's icon slot: 4px from the text, nothing after it. The
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall
 export const TRAILING_ICON =

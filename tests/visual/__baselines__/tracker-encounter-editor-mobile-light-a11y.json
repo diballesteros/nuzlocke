@@ -1,10 +1,5 @@
 [
   {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 1
-  },
-  {
     "id": "button-name",
     "impact": "critical",
     "nodes": 1

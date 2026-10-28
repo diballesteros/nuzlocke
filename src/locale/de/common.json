@@ -54,5 +54,7 @@
   "remove": "Entfernen",
   "nature_chart": "Wesenstabelle",
   "ability_list": "Fähigkeitenliste",
-  "move_list": "Attackenliste"
+  "move_list": "Attackenliste",
+  "add_game": "Spiel hinzufügen",
+  "menu": "Menü"
 }

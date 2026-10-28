@@ -31,7 +31,6 @@ import { ArrowDownIcon, ArrowUpIcon, RepeatIcon, TrashIcon } from '@/components/
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { OUTLINE_BUTTON, RADIUS, ROW_ICON } from '../buttons';
-import toTopPosition from './toTopPosition';
 
 const NICKNAME_HEIGHT = 15.714; // 220px
 const NORMAL_HEIGHT = 12.857; // 180px
@@ -107,7 +106,7 @@ const Encounters = React.memo(function Encounters() {
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     const isGreyedOut = encounter?.status?.value === 2;
     return (
-      <div style={toTopPosition(style)}>
+      <div style={style}>
         <div
           className={cn(
             ROW,

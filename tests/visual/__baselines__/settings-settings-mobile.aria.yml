@@ -1,7 +1,6 @@
 - banner:
   - button "sidebar-button": "!"
-  - listbox "games":
-    - alert: FireRed and LeafGreen
+  - combobox "games": FireRed and LeafGreen
   - button "addgame"
 - main:
   - heading "Settings" [level=2]

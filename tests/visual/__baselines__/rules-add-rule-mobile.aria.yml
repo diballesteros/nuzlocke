@@ -1,6 +1,3 @@
-- banner:
-  - listbox "games":
-    - alert: FireRed and LeafGreen
 - region "Notifications Alt+T"
 - dialog "ADD RULE":
   - heading "ADD RULE" [level=2]

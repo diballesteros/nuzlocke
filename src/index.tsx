@@ -19,7 +19,6 @@ import 'semantic-ui-css/components/label.min.css';
 import 'semantic-ui-css/components/item.min.css';
 import 'semantic-ui-css/components/transition.min.css';
 import 'semantic-ui-css/components/reset.min.css';
-import 'semantic-ui-css/components/sidebar.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
