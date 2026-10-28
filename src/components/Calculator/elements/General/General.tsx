@@ -5,8 +5,8 @@ import { ItemSelector } from 'common';
 import { PokeController } from 'components/Calculator/elements';
 import { STATUS_EFFECTS } from 'constants/calculator';
 import { GENDERS } from 'constants/constant';
-import NATURES from 'constants/natures';
 import type { TEncounter } from 'constants/types';
+import { useNatureOptions } from 'hooks/useNatures';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { Combobox } from '@/components/ui/combobox';
@@ -24,6 +24,7 @@ interface GeneralProps {
 
 function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
   const { t } = useTranslation('calculator');
+  const natureOptions = useNatureOptions();
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const increment = () => {
@@ -98,7 +99,7 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
             clearable
             data-testid={`nature${pokemon}`}
             onChange={(value) => update({ [`nature${pokemon}`]: value })}
-            options={NATURES}
+            options={natureOptions}
             placeholder={t('select_nature')}
             value={form[`nature${pokemon}`] ?? ''}
           />

@@ -108,14 +108,19 @@ describe('useCalculate', () => {
     expect(field.defenderSide.isSwitching).toBeUndefined();
   });
 
-  // The field isn't swapped for the defender's moves, so side 2's screens still guard the
-  // defender's target: here Reflect on Charizard's side halves Charizard's own Tackle
-  test("the defender's moves use the same field, not a swapped one", () => {
+  // The defender's moves use the swapped field, so each side's screens guard only that side:
+  // Reflect on Charizard's side leaves its own Tackle alone, Reflect on Pikachu's halves it
+  test("the defender's moves use the swapped field", () => {
     const { result, rerender } = renderHook(() => useCalculate());
     const plain = maxDamage(result.current.defenderResults[0]);
-    expect(result.current.defenderResults[0].field.attackerSide.isReflect).toBeFalsy();
 
     update({ isReflect2: true });
+    rerender();
+    expect(result.current.defenderResults[0].field.attackerSide.isReflect).toBe(true);
+    expect(result.current.defenderResults[0].field.defenderSide.isReflect).toBeFalsy();
+    expect(maxDamage(result.current.defenderResults[0])).toBe(plain);
+
+    update({ isReflect1: true, isReflect2: false });
     rerender();
     expect(result.current.defenderResults[0].field.defenderSide.isReflect).toBe(true);
     expect(maxDamage(result.current.defenderResults[0])).toBeLessThan(plain);
