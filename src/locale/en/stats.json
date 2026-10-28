@@ -37,5 +37,6 @@
   "unable_download": "Unable to download image",
   "unable_generate": "Unable to generate image",
   "unable_share": "Unable to share",
-  "validating_share": "Validating sharing options"
+  "validating_share": "Validating sharing options",
+  "nature_of": "{{nature}} nature"
 }

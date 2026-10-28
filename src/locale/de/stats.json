@@ -37,5 +37,6 @@
   "unable_download": "Download nicht möglich",
   "unable_generate": "Generieren nicht möglich",
   "unable_share": "Teilen nicht möglich",
-  "validating_share": "Freigabeoptionen überprüfen"
+  "validating_share": "Freigabeoptionen überprüfen",
+  "nature_of": "Wesen: {{nature}}"
 }
