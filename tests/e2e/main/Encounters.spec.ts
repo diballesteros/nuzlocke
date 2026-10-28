@@ -104,6 +104,21 @@ test.describe('Encounters', () => {
     await expect(dropdownText(page, 'status-0')).toHaveText('Status...');
   });
 
+  test('Cancelling the detail drops IV and EV edits', async ({ page }) => {
+    await byTestId(page, 'pokemon-0').click();
+    await byTestId(page, 'poke-Scorbunny').dispatchEvent('click');
+    await byTestId(page, 'edit-encounter-0').click();
+    await byTestId(page, 'stats-summary').click();
+    await typeInto(byTestId(page, 'input-ivhp'), '10');
+    await typeInto(byTestId(page, 'input-evhp'), '20');
+    await expect(byTestId(page, 'input-ivhp')).toHaveValue('10');
+    await text(page, 'Cancel').click();
+
+    await byTestId(page, 'edit-encounter-0').click();
+    await expect(byTestId(page, 'input-ivhp')).toHaveValue('0');
+    await expect(byTestId(page, 'input-evhp')).toHaveValue('0');
+  });
+
   test('Reset all encounters', async ({ page }) => {
     await byTestId(page, 'pokemon-0').click();
     await byTestId(page, 'poke-Scorbunny').dispatchEvent('click');
