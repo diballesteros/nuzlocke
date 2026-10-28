@@ -1,14 +1,12 @@
 - banner:
   - listbox "games":
     - alert: Sword and Shield
-- main:
-  - list:
-    - listbox:
-      - option "Captured"
-      - option "Fainted"
-      - option "Gifted" [selected]
-      - option "Traded"
-      - option "Failed"
-      - option "Team"
-      - option "Traded"
 - region "Notifications Alt+T"
+- listbox:
+  - option "Captured"
+  - option "Fainted"
+  - option "Gifted" [selected]
+  - option "Traded"
+  - option "Failed"
+  - option "Team"
+  - option "Traded"

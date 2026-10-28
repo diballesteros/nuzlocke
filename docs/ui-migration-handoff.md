@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-27 (tracker part 2).
+Last updated 2026-10-27 (toTopPosition removed).
 
 ## Where it stands
 
@@ -22,21 +22,22 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 
 ### Phase 2 areas
 
-| Area                                                                                                       | PR   | Status                                                                                                                                                                |
-| ---------------------------------------------------------------------------------------------------------- | ---- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `common/` Page and Back                                                                                    | #825 | Merged                                                                                                                                                                |
-| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                                                                                                                                                |
-| ItemSelector on the Combobox                                                                               | #831 | Merged                                                                                                                                                                |
-| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                                                                                                                                                |
-| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                                                                                                                                                |
-| @rules                                                                                                     | #838 | Merged                                                                                                                                                                |
-| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                                                                                                                                                |
-| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                                                                                                                                                |
-| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                                                                                                                                                |
-| @calculator                                                                                                | #845 | Merged                                                                                                                                                                |
-| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                                                                                                                                                                |
-| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | —    | In review (`feat/ui-tracker-detail`). Next: Keep `toTopPosition` until the interaction pin proves Radix portals make it unnecessary, then remove it in its own commit |
-| App shell: header, Sidebar → Sheet, game select                                                            | —    | Last                                                                                                                                                                  |
+| Area                                                                                                       | PR   | Status                                     |
+| ---------------------------------------------------------------------------------------------------------- | ---- | ------------------------------------------ |
+| `common/` Page and Back                                                                                    | #825 | Merged                                     |
+| Selector dialogs, Effectiveness on a Radix Dialog                                                          | #830 | Merged                                     |
+| ItemSelector on the Combobox                                                                               | #831 | Merged                                     |
+| @misc (About, Changelog, Delete, Import, Report)                                                           | #833 | Merged                                     |
+| @settings (Settings, CustomStatuses)                                                                       | #837 | Merged                                     |
+| @rules                                                                                                     | #838 | Merged                                     |
+| @badges (strip, BadgePage, BadgeDetail, editor dialogs)                                                    | #839 | Merged                                     |
+| @builder (Builder, Coverage, Member, Effectiveness tabs)                                                   | #840 | Merged                                     |
+| @pokestats (Pokestats, Summary, Image, DisplaySettings, Tip)                                               | #843 | Merged                                     |
+| @calculator                                                                                                | #845 | Merged                                     |
+| @tracker, part 1: the list (rows, Status, Options, ScrollList, FAB, Share, Add/Reset)                      | #850 | Merged                                     |
+| @tracker, part 2: the Detail dialog with `MoveSelector`, `Natures`, `Abilities`, `RangeSelector`, `Filter` | #851 | Merged                                     |
+| `toTopPosition` removed: the row status and nature menus portal                                            | —    | In review (`feat/ui-remove-totopposition`) |
+| App shell: header, Sidebar → Sheet, game select                                                            | —    | Next                                       |
 
 Several pieces are still Semantic because they belong to areas not migrated yet:
 
@@ -84,7 +85,7 @@ These preferences hold across sessions:
 - **Accessibility:** new accessible names (aria-labels, tab names, button names) are welcome when they need no visual change. New user-facing strings go in all three locales (en, es, de).
 - **Known a11y items for Phase 5:**
   - The white-on-#2185d0 Edit custom statuses button has too little contrast.
-  - An open Radix Select hides the rest of the page with `aria-hidden` but leaves it focusable, so axe reports `aria-hidden-focus` (16 nodes with a tracker status menu open, 3 with Settings' language). Making the hidden page `inert` while a menu is open would fix it.
+  - An open Radix Select hides the rest of the page with `aria-hidden` but leaves it focusable, so axe reports `aria-hidden-focus` (3 nodes with a tracker status menu or Settings' language open). Making the hidden page `inert` while a menu is open would fix it.
 
 ## Waiting on the user
 
@@ -107,6 +108,7 @@ These preferences hold across sessions:
 
 - **normalize styles `details` and `summary` unlayered.** It sets `details { display: block }` and `summary { display: list-item }`, so `flex` or `block` on them needs `!`.
 - **A `<details>` section's children are content-box.** Chrome renders them in the `::details-content` slot, which Semantic's `* { box-sizing: inherit }` can't reach, so they inherit `content-box`. Fields that are border-box elsewhere grow by their padding there (the Detail gender Select needs `box-border!`; Semantic's search inputs there were forced border-box).
+- **No `contained` menus in tracker rows.** react-window 2 positions rows with a transform, which makes each row the containing block of a menu's fixed popper. A menu rendered inside a row is painted under the next row, and Radix's `scrollIntoView` on open scrolls the list. The row Status and Nature Selects portal, which let `toTopPosition` go. The interaction pin couldn't catch it: an open Radix Select turns off pointer events on `body`, so `elementFromPoint` sees through the next row (details in `CLAUDE.md`).
 - **`contained` Select and margins.** Its trigger gets `w-full` of a wrapper that already includes the trigger's own margin, so a `look="button"` trigger next to other buttons grows by 0.25em. Pass `triggerClassName="w-auto"`.
 
 - **`cn()` drops line heights.** tailwind-merge treats a font-size class as overriding any earlier `leading-*`, so `cn('leading-[1em]!', 'text-[0.786rem]!')` loses the line height and the reset's 1.15 comes back. Restate it after the size (`MINI_BUTTON`).
