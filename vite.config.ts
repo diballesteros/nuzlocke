@@ -59,6 +59,8 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        // The share preview is for crawlers (index.html's og:image), not the offline app
+        globIgnores: ['**/node_modules/**/*', 'og-image.png'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB limit
         runtimeCaching: [
           {
