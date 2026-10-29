@@ -8,7 +8,7 @@ The UI migration's status, the user's decisions and the working rules for it are
 
 ## Project
 
-Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 18 + TypeScript + Vite 8, Zustand (with immer + persist) for state, shadcn/ui (Radix) and Tailwind v4 for components, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
+Nuzlocke Tracker (https://nuzlocke.netlify.app) — a client-side PWA for tracking Pokémon Nuzlocke runs. React 19 + TypeScript + Vite 8, Zustand (with immer + persist) for state, shadcn/ui (Radix) and Tailwind v4 for components, i18next for translations (en/es/de), Sentry for error reporting. Deployed to Netlify automatically from `master`. Node version is pinned in `.node-version`.
 
 ## Commands
 
@@ -90,7 +90,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Unit tests** that act as upgrade safety nets: `src/store.test.ts` (persist key/version, `migrate` for every version, rehydration), `src/store.actions.test.ts`, `src/selectors.test.ts` (inline snapshots of type maths), `src/constants/data.test.ts`, `src/i18n.test.ts` (stored language applied at startup by the custom async detector, fallback, plurals), and `src/hooks/useCalculate.golden.test.ts` (snapshot of damage ranges for gens 1–8; a calc upgrade that changes any number fails it).
 - `src/constants/data.test.ts` checks game data and locale integrity against an exact `KNOWN_ISSUES` list of existing data bugs (misspelled names, missing tables, locale key drift). A new problem fails the test. When fixing a known one, delete its entry.
 - Accounts (Supabase auth and cloud saves) were removed in Phase 0. Runs live only in localStorage; `/delete` stays as a notice that accounts were discontinued, because outside links may point to it.
-- **Held or pinned dependencies (deliberate, don't "fix" them):** React 19 and `@types/react*` 19 (Phase 4 of the UI migration does them, one bump per commit); TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
+- **Held or pinned dependencies (deliberate, don't "fix" them):** TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); `scrollToRow` is clamped; `Sentry.init` sets v11 options back to v10 data-collection and telemetry behaviour.
 - Components use Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, the cascade, primitives and locators. Semantic UI and Sass are gone. `src/styles/legacy-base.css`, loaded after Tailwind's preflight, keeps the element defaults the UI was calibrated against under Semantic's reset.
 
