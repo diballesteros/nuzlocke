@@ -88,3 +88,40 @@ describe('Select', () => {
     expect(onChange).toHaveBeenCalledWith('2');
   });
 });
+
+describe('Select inert', () => {
+  test('makes the rest of the page inert while the menu is open, and only what it changed', async () => {
+    render(
+      <>
+        <Select
+          aria-label="status"
+          onChange={vi.fn()}
+          options={[{ text: 'Fainted', value: '2' }]}
+          value=""
+        />
+        <button type="button">outside</button>
+        <div aria-live="polite" data-testid="live">
+          <span data-testid="announcement" />
+        </div>
+        <div data-testid="already" inert />
+      </>
+    );
+    const user = userEvent.setup();
+    const trigger = screen.getByRole('combobox', { name: 'status' });
+    const outside = screen.getByText('outside');
+    await user.click(trigger);
+    expect(screen.getByRole('listbox')).toBeTruthy();
+    expect(trigger.hasAttribute('inert')).toBe(true);
+    expect(outside.hasAttribute('inert')).toBe(true);
+    // Live regions keep announcing, as with Radix's aria-hidden
+    expect(screen.getByTestId('live').hasAttribute('inert')).toBe(false);
+    expect(screen.getByTestId('announcement').hasAttribute('inert')).toBe(false);
+    expect(screen.getByRole('listbox').closest('[inert]')).toBeNull();
+    await user.keyboard('{Escape}');
+    expect(screen.queryByRole('listbox')).toBeNull();
+    expect(trigger.hasAttribute('inert')).toBe(false);
+    expect(outside.hasAttribute('inert')).toBe(false);
+    // An element that was inert before stays inert
+    expect(screen.getByTestId('already').hasAttribute('inert')).toBe(true);
+  });
+});
