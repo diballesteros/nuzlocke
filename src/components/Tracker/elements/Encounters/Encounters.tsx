@@ -27,7 +27,14 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { ArrowDownIcon, ArrowUpIcon, RepeatIcon, TrashIcon } from '@/components/ui/icons';
+import {
+  ArrowDownIcon,
+  ArrowUpIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  RepeatIcon,
+  TrashIcon,
+} from '@/components/ui/icons';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { cn } from '@/lib/utils';
 import { OUTLINE_BUTTON, RADIUS, ROW_ICON } from '../buttons';
@@ -70,6 +77,7 @@ const Encounters = React.memo(function Encounters() {
   const clearEncounter = useStore(useCallback((state) => state.clearEncounter, []));
   const deleteEncounter = useStore(useCallback((state) => state.deleteEncounter, []));
   const changeLevel = useStore(useCallback((state) => state.changeLevel, []));
+  const moveEncounter = useStore(useCallback((state) => state.moveEncounter, []));
   const [encounterToDelete, setEncounterToDelete] = useState<number>(null);
   const [confirm, setConfirm] = useState(false);
   const itemSize = useRemtoPx(nicknames ? NICKNAME_HEIGHT : NORMAL_HEIGHT);
@@ -118,6 +126,9 @@ const Encounters = React.memo(function Encounters() {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     const isGreyedOut = encounter?.status?.value === 2;
+    // Moving swaps places with the neighbour shown in the list, so it works while filtering too
+    const previous = filteredEncounters[index - 1];
+    const next = filteredEncounters[index + 1];
     return (
       <div style={style} {...ariaAttributes}>
         <div
@@ -179,6 +190,26 @@ const Encounters = React.memo(function Encounters() {
                           </li>
                         )}
                       </>
+                    )}
+                    {!!previous && (
+                      <li
+                        aria-label="move encounter up"
+                        className={MENU_ITEM}
+                        data-testid={`move-up-${index}`}
+                        {...menuItem(() => moveEncounter(encounter.id, previous.id))}
+                      >
+                        {t('move_up', { ns: 'rules' })} <ChevronUpIcon />
+                      </li>
+                    )}
+                    {!!next && (
+                      <li
+                        aria-label="move encounter down"
+                        className={MENU_ITEM}
+                        data-testid={`move-down-${index}`}
+                        {...menuItem(() => moveEncounter(encounter.id, next.id))}
+                      >
+                        {t('move_down', { ns: 'rules' })} <ChevronDownIcon />
+                      </li>
                     )}
                     <li
                       aria-label="reset encounter"

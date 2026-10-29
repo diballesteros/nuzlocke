@@ -51,6 +51,15 @@ test('tracker encounters', async ({ page }) => {
   await expectGolden(page, 'game-selected', 'tracker-encounters');
 });
 
+test('encounter order', async ({ page }) => {
+  await openWithSeed(page, 'game-selected');
+  await byTestId(page, 'encounter-options-0').click();
+  await byTestId(page, 'move-down-0').click();
+  await byTestId(page, 'encounter-options-3').click();
+  await byTestId(page, 'move-up-3').click();
+  await expectGolden(page, 'game-selected', 'encounter-order');
+});
+
 test('encounter detail editor', async ({ page }) => {
   await openWithSeed(page, 'game-selected');
   await selectGame(page, 'Sword and Shield');

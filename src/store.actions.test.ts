@@ -58,6 +58,26 @@ describe('encounters', () => {
     expect(first().details.level).toBe(2);
   });
 
+  test('moving an encounter puts it in its target place', () => {
+    const [a, b, c, d] = encounters().map((enc) => enc.id);
+    store().moveEncounter(c, a);
+    expect(
+      encounters()
+        .slice(0, 4)
+        .map((enc) => enc.id)
+    ).toEqual([c, a, b, d]);
+    store().moveEncounter(c, d);
+    expect(
+      encounters()
+        .slice(0, 4)
+        .map((enc) => enc.id)
+    ).toEqual([a, b, d, c]);
+    const before = structuredClone(encounters());
+    store().moveEncounter(-1, a);
+    store().moveEncounter(a, -1);
+    expect(encounters()).toEqual(before);
+  });
+
   test('nature creates details when missing', () => {
     const { id } = first();
     store().changePokemon(id, 816);

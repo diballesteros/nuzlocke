@@ -1,0 +1,13 @@
+[
+  {
+    "path": "$.state.games.4.encounters.order",
+    "before": {
+      "sha256": "8fb242994b730c91",
+      "size": 568
+    },
+    "after": {
+      "sha256": "a166aa2b8538022c",
+      "size": 568
+    }
+  }
+]
