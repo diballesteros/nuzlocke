@@ -139,4 +139,30 @@ describe('Combobox', () => {
     expect(onChange).toHaveBeenCalledWith('');
     expect(input.getAttribute('aria-expanded')).toBe('false');
   });
+
+  test('also matches an option by its keywords', async () => {
+    const onChange = vi.fn();
+    render(
+      <Combobox
+        aria-label="nature"
+        data-testid="nature"
+        onChange={onChange}
+        options={[
+          { keywords: ['Adamant'], text: 'Hart', value: 'Adamant' },
+          { keywords: ['Bold'], text: 'Kühn', value: 'Bold' },
+        ]}
+        placeholder="Select a nature..."
+        value=""
+      />
+    );
+    const user = userEvent.setup();
+    const input = screen.getByRole('combobox', { name: 'nature' });
+    await user.type(input, 'küh');
+    expect(shown()).toEqual(['Kühn']);
+    await user.clear(input);
+    await user.type(input, 'adam');
+    expect(shown()).toEqual(['Hart']);
+    await user.keyboard('{Enter}');
+    expect(onChange).toHaveBeenCalledWith('Adamant');
+  });
 });

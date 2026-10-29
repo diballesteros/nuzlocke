@@ -116,7 +116,7 @@ export const FilterIcon = glyph('filter', 'M1 2.5h22l-8.5 10v8.5l-5 2.5v-11z', S
 
 // Semantic's icon slot, 1.18em × 1em, with the glyph drawn 1.16em tall like BUTTON_ICON's. Here the
 // box keeps the icon font's exact size and only the drawing is scaled, so nothing around it moves
-export const ICON_SLOT = 'h-[1em] w-[1.18em] overflow-visible scale-[1.16]';
+export const ICON_SLOT = 'h-[1em] w-[1.18em] scale-[1.16]';
 
 // The app shell's glyphs (the sidebar's text is translucent too): lucide's, merged into one path
 export const MenuIcon = glyph('menu', 'M4 5h16M4 12h16M4 19h16', { strokeWidth: 3 });
@@ -174,6 +174,19 @@ export const ClipboardIcon = glyph(
   'M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2',
   { strokeWidth: 2.5 }
 );
+
+// The gender marks, lucide's mars and venus merged into one path each
+export const MarsIcon = glyph(
+  'mars',
+  'M16 3h5v5M21 3l-6.75 6.75M10 8a6 6 0 1 0 0 12 6 6 0 1 0 0-12z',
+  {
+    strokeWidth: 2.6,
+  }
+);
+
+export const VenusIcon = glyph('venus', 'M12 15v7M9 19h6M12 3a6 6 0 1 0 0 12 6 6 0 1 0 0-12z', {
+  strokeWidth: 2.6,
+});
 
 // An icon after a button's text, in Semantic's icon slot: 4px from the text, nothing after it. The
 // margins and alignment keep its box inside the line, so the button stays 1em + padding tall

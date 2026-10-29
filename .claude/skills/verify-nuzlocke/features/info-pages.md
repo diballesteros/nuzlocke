@@ -26,7 +26,7 @@ Preconditions:
 - **Changelog.** Run `CLI goto changelog`. Three release headings show; `CLI click --testid see-more`
   shows more. Going back, the "!" marker is gone.
 - **Report.** Run `CLI goto report`, then fill the selects with Playwright's `selectOption` (the CLI
-  `pick` is for Semantic dropdowns; these are native `<select>`s).
+  `pick` drives the app's Select and Combobox menus; these are native `<select>`s).
 
 ## Gotchas
 

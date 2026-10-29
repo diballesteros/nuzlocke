@@ -22,9 +22,9 @@ storage, so pick a seed next. Ports 3100/9333 never collide with Playwright test
 `npm run dev` (3000). If the port is taken, launch refuses; don't drive someone else's server. Another
 checkout's session may hold them: set `VERIFY_PORT` and `VERIFY_CDP_PORT` (every command reads them).
 
-In a worktree whose `node_modules` is a symlink to the main checkout, dev mode serves Semantic UI's
-icon fonts from outside Vite's `server.fs.allow`, so they 403 (console errors, missing icons). Use
-`launch --prod` there for anything visual.
+In a worktree whose `node_modules` is a symlink to the main checkout, dev mode refuses files served
+from outside Vite's `server.fs.allow` (it used to 403 Semantic UI's icon fonts). If anything is
+missing there, use `launch --prod`.
 
 ## Doctor
 
@@ -35,8 +35,7 @@ node .claude/skills/verify-nuzlocke/control-nuzlocke.mjs doctor
 Run it before the first drive, after any failed drive, and whenever something looks off. It checks
 the host and Vite pids, both ports, that the app rendered, and that the persisted store version
 matches `version` in `src/store.ts`. `consoleErrors` counts errors since launch; read them with
-`console`. Expected noise while Semantic UI is still in use: React's `findDOMNode` and
-`defaultProps` warnings.
+`console`.
 
 ## Drive
 

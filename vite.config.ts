@@ -6,7 +6,10 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import istanbul from 'vite-plugin-istanbul';
 import svgr from 'vite-plugin-svgr';
+import { execFileSync } from 'child_process';
 import path from 'path';
+import type { Plugin } from 'vite';
+import { buildSitemap } from './src/routes/sitemap';
 
 // Tests and static data tables are left out of coverage. Shared by Playwright (istanbul) and Vitest
 const COVERAGE_EXCLUDE = [
@@ -17,11 +20,30 @@ const COVERAGE_EXCLUDE = [
   'src/constants/{abilities,badges,changelog,changelog_2,details,filters,moves,nicknames,pokemon}.ts',
 ];
 
+// Writes sitemap.xml into the build, dated by the commit being built (the build date without git)
+function sitemap(): Plugin {
+  return {
+    name: 'sitemap',
+    apply: 'build',
+    generateBundle() {
+      let lastmod = '';
+      try {
+        lastmod = execFileSync('git', ['log', '-1', '--format=%cs'], { encoding: 'utf8' }).trim();
+      } catch {
+        // No git in this build environment
+      }
+      lastmod ||= new Date().toISOString().slice(0, 10);
+      this.emitFile({ type: 'asset', fileName: 'sitemap.xml', source: buildSitemap(lastmod) });
+    },
+  };
+}
+
 export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
     svgr(),
+    sitemap(),
     // Instruments src only when REACT_APP_COVERAGE=true (npm run dev:cov, the Playwright web server).
     // The plugin reads <envPrefix>COVERAGE, hence the REACT_APP_ prefix
     istanbul({
@@ -37,6 +59,8 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        // The share preview is for crawlers (index.html's og:image), not the offline app
+        globIgnores: ['**/node_modules/**/*', 'og-image.png'],
         maximumFileSizeToCacheInBytes: 3 * 1024 * 1024, // 3MB limit
         runtimeCaching: [
           {
@@ -100,14 +124,6 @@ export default defineConfig({
     'process.env': {},
   },
 
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "@/assets/styles" as *;`,
-      },
-    },
-  },
-
   test: {
     globals: true,
     environment: 'jsdom',
@@ -124,12 +140,6 @@ export default defineConfig({
 
   envPrefix: 'REACT_APP_',
 
-  // Components are default-imported from semantic-ui-react/dist/commonjs/* in ~56 files, which
-  // Vite 8's stricter CJS interop resolves to the module object. Remove with Semantic UI
-  legacy: {
-    inconsistentCjsInterop: true,
-  },
-
   server: {
     port: 3000,
     // Without HMR, plugin-react skips Fast Refresh code so e2e coverage lines up with Vitest's
@@ -138,10 +148,8 @@ export default defineConfig({
 
   build: {
     sourcemap: true,
-    // Vite 7's default targets; Vite 8 raised them (Chrome 111, Safari 16.4), dropping older browsers
-    target: ['chrome107', 'edge107', 'firefox104', 'safari16'],
-    // Lightning CSS (Vite 8 default) rejects an invalid selector in semantic-ui-css
-    // ("[data-tooltip][data-inverted]:after .header"). Revisit once Semantic UI is gone
+    // Lightning CSS (Vite 8's default) rounds numbers to about six significant digits, so the
+    // calibrated values (1.28571429em…) moved boxes by 1/64px in production. esbuild keeps them
     cssMinify: 'esbuild',
   },
 });

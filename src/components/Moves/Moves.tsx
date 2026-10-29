@@ -1,6 +1,5 @@
 import { Move } from 'components';
 import { MOVEMAP } from 'constants/moves';
-import styles from './Moves.module.scss';
 
 interface MovesProps {
   moves?: number[];
@@ -9,7 +8,7 @@ interface MovesProps {
 
 function Moves({ moves = [], showStatus = false }: MovesProps): React.JSX.Element {
   return (
-    <div className={styles.moves}>
+    <div className="flex flex-col flex-nowrap gap-(--spacing-1)">
       {moves?.map((move, i) => {
         const moveDetail = MOVEMAP.get(move);
         return (

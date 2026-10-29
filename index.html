@@ -18,13 +18,35 @@
       property="og:description"
       content="The best online app to track and record nuzlocke encounters and pokemon. Including level caps, custom games, all routes, and pokémon up to generation 8."
     />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="Nuzlocke Tracker" />
+    <meta property="og:image" content="https://nuzlocke.netlify.app/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Nuzlocke Tracker: a Sword and Shield run with its encounters, statuses and badges"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@relatablecoder" />
     <meta name="twitter:creator" content="@relatablecoder" />
     <link rel="canonical" href="https://nuzlocke.netlify.app" />
     <link rel="apple-touch-icon" href="/logo192.png" />
     <link rel="manifest" href="/manifest.json" />
     <title>Nuzlocke Tracker - Track pokemon encounters</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Nuzlocke Tracker",
+        "url": "https://nuzlocke.netlify.app",
+        "description": "The best online app to track and record nuzlocke encounters and pokemon. Including level caps, custom games, all routes, and pokémon up to generation 8.",
+        "applicationCategory": "GameApplication",
+        "operatingSystem": "Web",
+        "image": "https://nuzlocke.netlify.app/og-image.png",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
+      }
+    </script>
   </head>
 
   <body>
@@ -32,6 +54,7 @@
     <div id="root"></div>
     <script type="module" src="/src/index.tsx"></script>
     <form name="contact" netlify netlify-honeypot="bot-field" aria-hidden="true" hidden>
+      <input name="bot-field" />
       <select name="type">
         <option value="bug">Bug</option>
         <option value="suggestion">Suggestion</option>

@@ -21,14 +21,12 @@
     "lodash": "^4.18.1",
     "lucide-react": "^1.61.0",
     "radix-ui": "^1.8.1",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
     "react-i18next": "^17.1.0",
     "react-router-dom": "^7.18.4",
     "react-toastify": "^11.1.0",
     "react-window": "^2.4.1",
-    "semantic-ui-css": "^2.5.0",
-    "semantic-ui-react": "^2.1.5",
     "tailwind-merge": "^3.7.0",
     "zustand": "^5.0.15"
   },
@@ -52,18 +50,6 @@
     "verify": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit:cov && npm run build && playwright test --project=chromium --project=state && npm run coverage",
     "verify:fast": "npm run typecheck && npm run lint && npm run format:check && npm run test:unit && npm run build"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",
     "@eslint/eslintrc": "^3.3.7",
@@ -78,9 +64,8 @@
     "@types/istanbul-lib-coverage": "^2.0.6",
     "@types/lodash": "^4.17.26",
     "@types/node": "^24.19.2",
-    "@types/react": "^18.3.31",
-    "@types/react-dom": "^18.2.24",
-    "@types/react-router-dom": "^5.3.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.2",
     "@vitest/coverage-istanbul": "^5.0.5",
     "@vitest/istanbul-lib-coverage": "^1.0.2",
@@ -100,7 +85,6 @@
     "istanbul-reports": "^3.2.0",
     "jsdom": "^30.1.3",
     "prettier": "^3.9.10",
-    "sass": "^1.106.0",
     "start-server-and-test": "^3.0.13",
     "tailwindcss": "^4.3.3",
     "tw-animate-css": "^1.4.0",

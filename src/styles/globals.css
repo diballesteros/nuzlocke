@@ -1,61 +1,26 @@
 /*
- * Design tokens and Tailwind v4. While Semantic UI is still in the app, this file must not change
- * how anything looks:
- * - no preflight: Tailwind's reset would restyle every Semantic component (Phase 3 turns it on);
- * - Tailwind sits in cascade layers, and unlayered CSS (Semantic, index.css, SCSS modules) always
- *   beats layered CSS, so migrated components rely on utilities and nothing else targets them;
- * - utilities come only from the @source list below.
+ * Design tokens and Tailwind v4.
+ * - Preflight is on, followed by legacy-base.css, which restores the element defaults the UI was
+ *   calibrated against under Semantic UI's reset (normalize.css).
+ * - Tailwind sits in cascade layers, and unlayered CSS (index.css, pokemon.css, item.css) still
+ *   beats layered CSS, so a utility for a property those set needs `!`.
  * The ratchet in scripts/migration-ratchet.mjs leaves this file out of its hex count: tokens are
  * where colours belong.
  */
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/preflight.css' layer(base);
+@import './legacy-base.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities) source(none);
 @import 'tw-animate-css';
 
 /*
- * Utilities are generated only from migrated code. Automatic detection would also read class-like
- * words in unmigrated code (container, hidden, visible, fixed…) and emit utilities that restyle
- * Semantic markup. Phase 2 adds each area here as it moves to Tailwind; Phase 3 drops the list.
+ * Utilities come from the app's source only (not tests, docs or scripts). Files are scanned whole,
+ * so words in code, comments and game data become utilities too (`.filter(` emits `.filter`);
+ * that's harmless now that no markup carries Semantic's bare class names.
  */
-@source '../components/ui';
-@source '../lib';
-@source '../components/About';
-@source '../components/Changelog';
-@source '../components/Delete';
-@source '../components/Import';
-@source '../components/Report';
-@source '../components/Badges';
-@source '../components/Builder';
-@source '../components/Calculator';
-@source '../components/Effectiveness';
-@source '../components/Filter';
-@source '../components/Member';
-@source '../components/MoveSelector';
-@source '../components/Natures';
-@source '../components/Pokestats';
-@source '../components/Rules';
-@source '../components/Settings';
-@source '../components/Share';
-@source '../components/Status';
-@source '../components/Tracker';
-@source '../common/Back';
-@source '../common/DetailSelector';
-@source '../common/EncounterSelector';
-@source '../common/ItemSelector';
-@source '../common/Page';
-@source '../common/PokemonSelector';
-@source '../common/SelectorRow';
-@source '../App.tsx';
-@source '../components/AddGame';
-@source '../components/Export';
-@source not '../**/*.test.ts';
-/*
- * Listed files are scanned whole, so words in code and comments become utilities too (`.filter(`
- * emits `.filter`). These names are also Semantic class names (`filter icon`, `square outline`,
- * `ui container`…), so they must never be generated while Semantic is in the app.
- */
-@source not inline('container filter ring outline hidden visible invisible collapse table');
+@source '..';
+@source not '../**/*.test.{ts,tsx}';
 
 /* `dark:` follows the store's darkMode, which App.tsx mirrors as a class on <html> */
 @custom-variant dark (&:where(.dark, .dark *));
@@ -155,6 +120,9 @@
 
   /* Semantic's attached menu (the header bar): its border, solid where a field's is translucent */
   --attached-border: #d4d4d5;
+
+  /* A type tag's name strip (the same in both themes) */
+  --type-name: #595645;
 
   /* Semantic's white form fields (input, selection dropdown): border, hover border, text, and the
      grey label attached to an input */
@@ -314,6 +282,7 @@
   --color-basic-inverted-foreground: var(--basic-inverted-foreground);
   --color-toggle-border: var(--toggle-border);
   --color-attached-border: var(--attached-border);
+  --color-type-name: var(--type-name);
   --color-toggle-checked-border: var(--toggle-checked-border);
   --color-toggle-mark: var(--toggle-mark);
   --color-field-border: var(--field-border);
