@@ -18,7 +18,7 @@
       - /url: /calculator
   - heading "Changelog" [level=2]
   - button "Back"
-  - heading /Version 6\.1\.0 Tue, Jul \d+, \d+/ [level=4]:
+  - heading /Version 6\.1\.0 Tue, Jul \d+, \d+/ [level=3]:
     - text: ""
     - time: /Tue, Jul \d+, \d+/
   - list:
@@ -26,12 +26,12 @@
     - listitem: FIX Fixed Kyurem's dual type from Dragon/Flying to Dragon/Ice
     - listitem: /FIX Updated Platinum Relic Badge level cap from \d+ to \d+/
     - listitem: FIX Fixed various encounter lists and gym leader details across multiple games
-  - heading /Version 6\.0\.0 Tue, Jul \d+, \d+/ [level=4]:
+  - heading /Version 6\.0\.0 Tue, Jul \d+, \d+/ [level=3]:
     - text: ""
     - time: /Tue, Jul \d+, \d+/
   - list:
     - listitem: FEATURE Major under-the-hood improvements including faster build times, improved performance, and modernized development infrastructure
-  - heading /Version 5\.6\.0 Wed, Apr \d+, \d+/ [level=4]:
+  - heading /Version 5\.6\.0 Wed, Apr \d+, \d+/ [level=3]:
     - text: ""
     - time: /Wed, Apr \d+, \d+/
   - list:

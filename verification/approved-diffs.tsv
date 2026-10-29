@@ -79,3 +79,6 @@ pokestats-stats-*	4f600a8	Sprites are named (10), and the mobile h1 is sr-only. 
 misc-*-mobile-*	4f600a8	The shell's mobile h1 is sr-only instead of display: none. Pixels: none. ARIA: the h1 appears. axe: page-has-heading-one goes
 rules-rules-mobile-*	4f600a8	The shell's mobile h1 is sr-only instead of display: none. Pixels: none. ARIA: the h1 appears. axe: page-has-heading-one goes
 settings-settings-mobile-*	4f600a8	The shell's mobile h1 is sr-only instead of display: none. Pixels: none. ARIA: the h1 appears. axe: page-has-heading-one goes
+calculator-calculator-*	a2d89d5	Names and labels in the calculator. Pixels: none. ARIA: the level inputs are textbox "Level" and their buttons "Level down" and "Level up". axe: button-name (4 desktop, 2 mobile), label (2 desktop, 1 mobile) and aria-allowed-attr (aria-expanded on the results panel, now on its toggle) go; nested-interactive (the Pokémon selector around its type buttons) stays for a follow-up
+misc-import-*	a2d89d5	The file input sits in a span drawn as the button, named Select file. Pixels: none. ARIA: the button that held the input becomes text and the input is button "Select a file". axe: label and nested-interactive go
+misc-changelog-*	a2d89d5	Releases are h3 under the page's h2 instead of h4 (same size, set by the class). Pixels: none. ARIA: headings are level 3. axe: heading-order goes
