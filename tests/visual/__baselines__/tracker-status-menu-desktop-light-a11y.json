@@ -1,15 +1,5 @@
 [
   {
-    "id": "aria-hidden-focus",
-    "impact": "serious",
-    "nodes": 2
-  },
-  {
-    "id": "color-contrast",
-    "impact": "serious",
-    "nodes": 2
-  },
-  {
     "id": "landmark-one-main",
     "impact": "moderate",
     "nodes": 1
