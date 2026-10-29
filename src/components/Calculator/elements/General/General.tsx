@@ -46,6 +46,7 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
       <PokeController encounters={encounters} name={`pokemon${pokemon}`} />
       <div className="flex flex-row flex-nowrap items-center gap-(--spacing-1)">
         <Button
+          aria-label={t('level_down', { ns: 'tracker' })}
           className="block"
           data-testid={`minus-level${pokemon}`}
           onClick={decrement}
@@ -56,6 +57,7 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
           <MinusIcon className={BUTTON_ICON} />
         </Button>
         <input
+          aria-label={t('level', { ns: 'rules' })}
           className="w-[4.286rem] p-(--spacing-1)"
           data-testid={`level-input${pokemon}`}
           id={`level${pokemon}`}
@@ -67,6 +69,7 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
           value={form[`level${pokemon}`] || 0}
         />
         <Button
+          aria-label={t('level_up', { ns: 'tracker' })}
           className="block"
           data-testid={`plus-level${pokemon}`}
           onClick={increment}

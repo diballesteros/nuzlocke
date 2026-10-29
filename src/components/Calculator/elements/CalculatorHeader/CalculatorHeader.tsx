@@ -1,6 +1,6 @@
 import { GenerationNum, Result } from '@smogon/calc';
 import type { TFunction } from 'i18next';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Help, MainField } from 'components/Calculator/elements';
 import { DEFAULT_VALUES } from 'constants/calculator';
@@ -36,6 +36,7 @@ export function getDesc(result: Result, t: TFunction): string {
 function CalculatorHeader(): React.JSX.Element {
   const { t } = useTranslation('calculator');
   const [expanded, setExpanded] = useState(false);
+  const resultsId = useId();
   const [primary, setPrimary] = useState<[position: 'attacker' | 'defender', index: number]>([
     'attacker',
     0,
@@ -107,6 +108,7 @@ function CalculatorHeader(): React.JSX.Element {
             : getDesc(defenderResults[primary[1]], t)}
         </output>
         <div
+          aria-controls={resultsId}
           aria-expanded={expanded}
           aria-label={t('all_results')}
           className="mr-[0.25rem] flex h-[1em] w-[1.18em] min-w-[0.7417em] cursor-pointer items-center justify-center justify-self-end text-(length:--font-size-7) transition-transform duration-150 ease-in-out"
@@ -121,7 +123,7 @@ function CalculatorHeader(): React.JSX.Element {
         </div>
       </div>
       <div
-        aria-expanded={expanded}
+        id={resultsId}
         className={cn(
           'col-span-full mt-(--spacing-3) flex h-0 w-full flex-col flex-nowrap gap-(--spacing-2) px-(--spacing-2) text-foreground [clip-path:inset(0)]',
           expanded && 'h-fit [clip-path:inset(-100vh,-100vw)]'

@@ -31,9 +31,9 @@
     - switch "Show my Pokémon" [checked]
     - text: Show my Pokémon
     - button "Help"
-    - button
-    - textbox: /\d+/
-    - button
+    - button "Level down"
+    - textbox "Level": /\d+/
+    - button "Level up"
     - combobox "gender-selector": Gender...
     - combobox "nature-selector"
     - combobox "ability"

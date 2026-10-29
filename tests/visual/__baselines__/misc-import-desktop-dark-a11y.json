@@ -3,15 +3,5 @@
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 3
-  },
-  {
-    "id": "label",
-    "impact": "critical",
-    "nodes": 1
-  },
-  {
-    "id": "nested-interactive",
-    "impact": "serious",
-    "nodes": 1
   }
 ]
