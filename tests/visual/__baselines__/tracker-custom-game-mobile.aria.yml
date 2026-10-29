@@ -3,6 +3,7 @@
   - combobox "games": Emerald Kaizo
   - button "addgame"
   - button "deletegame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
   - button /\d+/
   - button /\d+/
@@ -19,34 +20,41 @@
   - button "Help"
   - button "search-filter"
   - list:
-    - text: Starter
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Pallet Town
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Route 1
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Viridian City
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: /Route \d+/
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Route 2
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Viridian Forest
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Starter
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Pallet Town
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Route 1
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Viridian City
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: /Route \d+/
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Route 2
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Viridian Forest
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
   - button "open-notes"
   - button "open-scroll-list"
   - button "scroll-to-last-encounter": Go to Starter

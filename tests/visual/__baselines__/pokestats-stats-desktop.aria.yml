@@ -46,7 +46,7 @@
     - img "Dragon Badge"
     - img "Champion Cup"
     - text: Team
-    - img
+    - img "Vulpix"
     - text: "Vulpix Met at: Wild Area: Dappled Grove"
     - button "pokemon type":
       - img
@@ -67,11 +67,11 @@
     - text: Fainted 1
     - img
     - text: Shiny 0 Boxed
-    - img
-    - img
-    - img
+    - img "Scorbunny"
+    - img "Magikarp"
+    - img "Caterpie"
     - text: Fainted
-    - img
+    - img "Lapras"
     - text: Rules 1.
     - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
     - text: "2."
@@ -93,7 +93,7 @@
     - img "Dragon Badge"
     - img "Champion Cup"
     - text: Team
-    - img
+    - img "Vulpix"
     - text: "Vulpix Met at: Wild Area: Dappled Grove"
     - button "pokemon type":
       - img
@@ -114,11 +114,11 @@
     - text: Fainted 1
     - img
     - text: Shiny 0 Boxed
-    - img
-    - img
-    - img
+    - img "Scorbunny"
+    - img "Magikarp"
+    - img "Caterpie"
     - text: Fainted
-    - img
+    - img "Lapras"
     - text: Rules 1.
     - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
     - text: "2."

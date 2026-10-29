@@ -2,79 +2,78 @@
   - button "sidebar-button" [expanded]: "!"
   - combobox "games": FireRed and LeafGreen
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - dialog "Menu":
   - heading "Menu" [level=2]
   - text: Tracker Rules Stats Builder Damage Calculator Settings Export Import Report Changelog ! About
 - main:
-  - button /Boulder Badge \d+/:
-    - img "Boulder Badge"
-    - text: ""
-    - button
-  - button /Cascade Badge \d+/:
-    - img "Cascade Badge"
-    - text: ""
-    - button
-  - button /Thunder Badge \d+/:
-    - img "Thunder Badge"
-    - text: ""
-    - button
-  - button /Rainbow Badge \d+/:
-    - img "Rainbow Badge"
-    - text: ""
-    - button
-  - button /Marsh Badge \d+/:
-    - img "Marsh Badge"
-    - text: ""
-    - button
-  - button /Soul Badge \d+/:
-    - img "Soul Badge"
-    - text: ""
-    - button
-  - button /Volcano Badge \d+/:
-    - img "Volcano Badge"
-    - text: ""
-    - button
-  - button /Earth Badge \d+/:
-    - img "Earth Badge"
-    - text: ""
-    - button
-  - button /Elite 4 \d+/:
-    - img "Elite 4"
-    - text: ""
-    - button
+  - text: /\d+/
+  - button "Boulder Badge"
+  - button "Boulder Badge details"
+  - text: /\d+/
+  - button "Cascade Badge"
+  - button "Cascade Badge details"
+  - text: /\d+/
+  - button "Thunder Badge"
+  - button "Thunder Badge details"
+  - text: /\d+/
+  - button "Rainbow Badge"
+  - button "Rainbow Badge details"
+  - text: /\d+/
+  - button "Marsh Badge"
+  - button "Marsh Badge details"
+  - text: /\d+/
+  - button "Soul Badge"
+  - button "Soul Badge details"
+  - text: /\d+/
+  - button "Volcano Badge"
+  - button "Volcano Badge details"
+  - text: /\d+/
+  - button "Earth Badge"
+  - button "Earth Badge details"
+  - text: /\d+/
+  - button "Elite 4"
+  - button "Elite 4 details"
   - button "search-options"
   - searchbox "search"
   - button "Help"
   - button "search-filter"
   - list:
-    - text: Starter
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Pallet Town
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Route 1
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Viridian City
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: /Route \d+/
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Route 2
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
-    - text: Viridian Forest
-    - button "encounter-options"
-    - button "Pokémon..."
-    - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Starter
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Pallet Town
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Route 1
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Viridian City
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: /Route \d+/
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Route 2
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
+    - listitem:
+      - text: Viridian Forest
+      - button "encounter-options"
+      - button "Pokémon..."
+      - combobox "status-selector" [disabled]: Status...
   - button "open-notes"
   - button "open-scroll-list"
   - button "scroll-to-last-encounter": Go to Starter

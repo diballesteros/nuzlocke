@@ -1,7 +1,7 @@
 - region "Notifications Alt+T"
 - dialog "Encounter details":
   - heading "Encounter details" [level=2]
-  - img
+  - img "Scorbunny"
   - text: Scorbunny
   - button "pokemon type":
     - img
@@ -25,5 +25,5 @@
   - group: Stats
   - button "Cancel"
   - button "Export to Builder"
-  - combobox: Export to game and close
+  - combobox "Export to game and close"
   - button "Save"

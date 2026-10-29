@@ -8,10 +8,5 @@
     "id": "nested-interactive",
     "impact": "serious",
     "nodes": 1
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 1
   }
 ]

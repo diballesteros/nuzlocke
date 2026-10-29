@@ -56,11 +56,12 @@ function DetailSelector({
     setOpen(false);
   };
 
-  const renderRow = ({ index, style }: RowProps) => {
+  const renderRow = ({ ariaAttributes, index, style }: RowProps) => {
     const detail = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(detail.id);
     return (
       <SelectorRow
+        ariaAttributes={ariaAttributes}
         name={foundPokemon.text}
         onClick={() => handleClick(detail)}
         pokemon={foundPokemon}

@@ -3,10 +3,5 @@
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 7
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 10
   }
 ]

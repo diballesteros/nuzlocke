@@ -58,10 +58,10 @@ function MoveSelector({
     handleMove(null);
   };
 
-  const renderRow = ({ index, style }: RowProps) => {
+  const renderRow = ({ ariaAttributes, index, style }: RowProps) => {
     const move = filteredMoves[index];
     return (
-      <div style={style}>
+      <div style={style} {...ariaAttributes}>
         <div
           className="pr-(--spacing-3)"
           data-testid={`move-${move.name}`}

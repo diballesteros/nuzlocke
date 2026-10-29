@@ -56,11 +56,12 @@ function EncounterSelector({
     setOpen(false);
   };
 
-  const renderRow = ({ index, style }: RowProps) => {
+  const renderRow = ({ ariaAttributes, index, style }: RowProps) => {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     return (
       <SelectorRow
+        ariaAttributes={ariaAttributes}
         name={encounter.nickname || foundPokemon.text}
         onClick={() => handleClick(encounter)}
         pokemon={foundPokemon}

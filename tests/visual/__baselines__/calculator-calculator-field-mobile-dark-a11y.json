@@ -18,15 +18,5 @@
     "id": "label",
     "impact": "critical",
     "nodes": 1
-  },
-  {
-    "id": "page-has-heading-one",
-    "impact": "moderate",
-    "nodes": 1
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 1
   }
 ]

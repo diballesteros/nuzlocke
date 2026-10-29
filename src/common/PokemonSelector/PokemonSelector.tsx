@@ -79,13 +79,14 @@ function PokemonSelector({
     setOpen(false);
   };
 
-  const renderRow = ({ index, style }: RowProps) => {
+  const renderRow = ({ ariaAttributes, index, style }: RowProps) => {
     const pokemon = filteredPokemon[index];
     const dupe = pokemon?.evolve
       ? pokemon.evolve.some((evoId) => dupes?.includes(evoId))
       : dupes?.includes(pokemon?.value);
     return (
       <SelectorRow
+        ariaAttributes={ariaAttributes}
         dupe={dupe}
         name={pokemon.text}
         onClick={() => handleClick(pokemon.value)}

@@ -2,6 +2,7 @@
   "ability": "Habilidad",
   "add_level_cap": "Agregar límite de nivel",
   "details": "Detalles",
+  "badge_details": "Detalles de {{badge}}",
   "item": "Item",
   "original": "Original",
   "rematch": "Revancha",

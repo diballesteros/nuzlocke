@@ -168,7 +168,7 @@ function App(): React.JSX.Element {
                 </DialogContent>
               </Dialog>
             </div>
-            <div className="mx-auto flex text-foreground max-[85.714rem]:mr-[unset] max-[85.714rem]:ml-(--spacing-7) max-[53.125rem]:ml-(--spacing-4) max-[53.751rem]:[&>h1]:[display:none]">
+            <div className="mx-auto flex text-foreground max-[85.714rem]:mr-[unset] max-[85.714rem]:ml-(--spacing-7) max-[53.125rem]:ml-(--spacing-4) max-[53.751rem]:[&>h1]:sr-only">
               <h1>Nuzlocke Tracker</h1>
             </div>
           </div>

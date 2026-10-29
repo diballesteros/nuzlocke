@@ -1,42 +1,7 @@
 [
   {
-    "id": "aria-command-name",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 1
-  },
-  {
-    "id": "aria-required-parent",
-    "impact": "critical",
-    "nodes": 38
-  },
-  {
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 1
-  },
-  {
-    "id": "landmark-unique",
-    "impact": "moderate",
-    "nodes": 1
-  },
-  {
-    "id": "list",
-    "impact": "serious",
-    "nodes": 1
-  },
-  {
-    "id": "nested-interactive",
-    "impact": "serious",
-    "nodes": 9
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 7
   }
 ]

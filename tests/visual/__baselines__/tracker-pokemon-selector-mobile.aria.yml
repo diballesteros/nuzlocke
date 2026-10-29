@@ -8,22 +8,25 @@
     - paragraph: If you don't happen to see the pokémon you're looking for here you can see all pokémon by enabling the option on the settings page. And please report any missing encounters as a bug to help out fellow nuzlockers.
     - button "Close"
   - list:
-    - img
-    - text: Bulbasaur
-    - button "pokemon type":
-      - img
-      - text: GRASS
-    - button "pokemon type":
-      - img
-      - text: POISON
-    - img
-    - text: Charmander
-    - button "pokemon type":
-      - img
-      - text: FIRE
-    - img
-    - text: Squirtle
-    - button "pokemon type":
-      - img
-      - text: WATER
+    - listitem:
+      - img "Bulbasaur"
+      - text: Bulbasaur
+      - button "pokemon type":
+        - img
+        - text: GRASS
+      - button "pokemon type":
+        - img
+        - text: POISON
+    - listitem:
+      - img "Charmander"
+      - text: Charmander
+      - button "pokemon type":
+        - img
+        - text: FIRE
+    - listitem:
+      - img "Squirtle"
+      - text: Squirtle
+      - button "pokemon type":
+        - img
+        - text: WATER
   - button "Cancel"

@@ -2,6 +2,7 @@
   "ability": "Ability",
   "add_level_cap": "Add level cap",
   "details": "Details",
+  "badge_details": "{{badge}} details",
   "item": "Item",
   "original": "Original",
   "rematch": "Rematch",

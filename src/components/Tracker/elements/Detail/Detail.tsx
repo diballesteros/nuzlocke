@@ -479,6 +479,7 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
               {t('export_to_builder')}
             </Button>
             <Select
+              aria-label={t('export_to_game')}
               className="ml-[0.75em] inline-block max-[768px]:mb-[1rem]"
               contained
               data-testid="export-to-game"

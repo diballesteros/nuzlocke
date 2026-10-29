@@ -2,114 +2,113 @@
   - button "sidebar-button": "!"
   - combobox "games": Sword and Shield
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
-  - button /Grass Badge \d+/:
-    - img "Grass Badge"
-    - text: ""
-    - button
-  - button /Water Badge \d+/:
-    - img "Water Badge"
-    - text: ""
-    - button
-  - button /Fire Badge \d+/:
-    - img "Fire Badge"
-    - text: ""
-    - button
-  - button /Fighting\/Ghost Badge \d+/:
-    - img "Fighting/Ghost Badge"
-    - text: ""
-    - button
-  - button /Fairy Badge \d+/:
-    - img "Fairy Badge"
-    - text: ""
-    - button
-  - button /Rock\/Ice Badge \d+/:
-    - img "Rock/Ice Badge"
-    - text: ""
-    - button
-  - button /Dark Badge \d+/:
-    - img "Dark Badge"
-    - text: ""
-    - button
-  - button /Dragon Badge \d+/:
-    - img "Dragon Badge"
-    - text: ""
-    - button
-  - button /Champion Cup \d+/:
-    - img "Champion Cup"
-    - text: ""
-    - button
+  - text: /\d+/
+  - button "Grass Badge" [pressed]
+  - button "Grass Badge details"
+  - text: /\d+/
+  - button "Water Badge" [pressed]
+  - button "Water Badge details"
+  - text: /\d+/
+  - button "Fire Badge"
+  - button "Fire Badge details"
+  - text: /\d+/
+  - button "Fighting/Ghost Badge"
+  - button "Fighting/Ghost Badge details"
+  - text: /\d+/
+  - button "Fairy Badge"
+  - button "Fairy Badge details"
+  - text: /\d+/
+  - button "Rock/Ice Badge"
+  - button "Rock/Ice Badge details"
+  - text: /\d+/
+  - button "Dark Badge"
+  - button "Dark Badge details"
+  - text: /\d+/
+  - button "Dragon Badge"
+  - button "Dragon Badge details"
+  - text: /\d+/
+  - button "Champion Cup"
+  - button "Champion Cup details"
   - button "search-options"
   - searchbox "search"
   - button "Help"
   - button "search-filter"
   - list:
-    - text: Starter
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Scorbunny Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Captured
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: Slumbering Weald
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Magikarp Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Gifted
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: Route 1
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Caterpie Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Traded
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: Wedgehurst
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Slowpoke (Galarian) Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector"
-    - button "evolve"
-    - combobox "Nature"
-    - text: Route 2
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button /Lapras Lv: \d+/':
-      - img
-      - text: ""
-    - combobox "status-selector": Fainted
-    - combobox "Nature"
-    - text: "Wild Area: Rolling Fields"
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Butterfree Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Failed
-    - button "evolve"
-    - combobox "Nature"
-    - text: "Wild Area: Dappled Grove"
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Vulpix Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Team
-    - button "evolve"
-    - button "swap": Box
-    - combobox "Nature"
+    - listitem:
+      - text: Starter
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Scorbunny Scorbunny Lv: 0"':
+        - img "Scorbunny"
+        - text: ""
+      - combobox "status-selector": Captured
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+    - listitem:
+      - text: Slumbering Weald
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Magikarp Magikarp Lv: 0"':
+        - img "Magikarp"
+        - text: ""
+      - combobox "status-selector": Gifted
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+    - listitem:
+      - text: Route 1
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Caterpie Caterpie Lv: 0"':
+        - img "Caterpie"
+        - text: ""
+      - combobox "status-selector": Traded
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+    - listitem:
+      - text: Wedgehurst
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Slowpoke (Galarian) Slowpoke (Galarian) Lv: 0"':
+        - img "Slowpoke (Galarian)"
+        - text: ""
+      - combobox "status-selector"
+      - button "evolve"
+      - combobox "Nature"
+    - listitem:
+      - text: Route 2
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button /Lapras Lapras Lv: \d+/':
+        - img "Lapras"
+        - text: ""
+      - combobox "status-selector": Fainted
+      - combobox "Nature"
+    - listitem:
+      - text: "Wild Area: Rolling Fields"
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Butterfree Butterfree Lv: 0"':
+        - img "Butterfree"
+        - text: ""
+      - combobox "status-selector": Failed
+      - button "evolve"
+      - combobox "Nature"
+    - listitem:
+      - text: "Wild Area: Dappled Grove"
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Vulpix Vulpix Lv: 0"':
+        - img "Vulpix"
+        - text: ""
+      - combobox "status-selector": Team
+      - button "evolve"
+      - button "swap": Box
+      - combobox "Nature"
   - button "open-notes"
   - button "open-scroll-list"
   - button "scroll-to-last-encounter": "Go to Wild Area: West Lake Axewell"

@@ -2,6 +2,7 @@
   - button "sidebar-button": "!"
   - combobox "games": Sword and Shield
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
   - button "Field"
   - radiogroup "Game type":
@@ -56,7 +57,7 @@
   - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
   - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
   - group:
-    - img
+    - img "Bulbasaur"
     - text: Bulbasaur
     - button "pokemon type":
       - img

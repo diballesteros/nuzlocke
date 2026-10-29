@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useId, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SquareMenu } from 'lucide-react';
 import { useShallow } from 'zustand/shallow';
@@ -50,6 +50,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
   const failed = useStore(useShallow(selectFailed));
   const caught = useStore(useShallow(selectCaught));
   const [open, setOpen] = useState<'SCROLL_LIST' | 'NOTES' | null>(null);
+  const listTitle = useId();
 
   const lastEncounter = useMemo(() => {
     const index = encounters?.findIndex(
@@ -106,10 +107,10 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
   return (
     <>
       {open === 'SCROLL_LIST' && (
-        <nav className={PANEL}>
+        <nav aria-labelledby={listTitle} className={PANEL}>
           <div className={PANEL_HEADER}>
             <div className={PANEL_TITLE}>
-              <p>{t('click_on_any_location')}</p>
+              <p id={listTitle}>{t('click_on_any_location')}</p>
               <Button
                 aria-label="close-scroll-list"
                 className={CLOSE}
@@ -133,6 +134,8 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
           <ol className="overflow-auto text-(length:--font-size-4)">
             {encounters.map((encounter, index) => {
               const isSkipped = skipped[selectedGame?.value]?.includes(index);
+              // A click anywhere on the item scrolls to it, as before; the location is a button
+              // so the keyboard can reach it, and its click bubbles up to here
               return (
                 <li
                   aria-label={`scroll-to-encounter-${index}`}
@@ -143,14 +146,15 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
                   data-testid={`scroll-to-encounter-${index}`}
                   key={encounter.id}
                   onClick={() => handleClick(index)}
-                  role="menuitem"
-                  tabIndex={0}
                 >
                   <div className="flex items-center justify-between">
-                    <div className="[&>span]:mr-(--spacing-2) [&>svg]:size-(--spacing-4)">
+                    <button
+                      className="m-0 cursor-pointer appearance-none border-0 bg-transparent p-0 text-start [font:inherit] [letter-spacing:inherit] text-inherit [&>span]:mr-(--spacing-2) [&>svg]:size-(--spacing-4)"
+                      type="button"
+                    >
                       <span>{encounter.location}</span>
                       {getStatusSVG(encounter)}
-                    </div>
+                    </button>
                     {/* Semantic's `basic` button without `inverted`: the light look in both themes */}
                     <Button
                       aria-label={`skip-encounter-${index}`}
