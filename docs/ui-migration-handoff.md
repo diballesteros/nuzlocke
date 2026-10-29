@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-28 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a open (#875); backlog decisions recorded).
+Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a merged (#875), 4b open; backlog decisions recorded).
 
 ## Where it stands
 
@@ -66,11 +66,11 @@ The harness runs on the dev server, so neither `cssMinify` nor `build.target` ca
 
 The user approved this sequence (2026-10-28). Each PR waits for the previous one's merge, with one bump per commit.
 
-| PR  | What                                                                                                                                                                                                                                                         | Status      |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
-| 4a  | Drop `@types/react-router-dom` (react-router 7 ships its types); `react` and `react-dom` 19.3.1 in one commit (`react-dom` pins its `react`); `@types/react` and `@types/react-dom` 19.3 (`LegacyRef` → `Ref` in `Image`); ESLint's React version set to 19. | Open (#875) |
-| 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Not started |
-| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Not started |
+| PR  | What                                                                                                                                                                                                                                                         | Status        |
+| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
+| 4a  | Drop `@types/react-router-dom` (react-router 7 ships its types); `react` and `react-dom` 19.3.1 in one commit (`react-dom` pins its `react`); `@types/react` and `@types/react-dom` 19.3 (`LegacyRef` → `Ref` in `Image`); ESLint's React version set to 19. | Merged (#875) |
+| 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Open          |
+| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Not started   |
 
 What the inventory found (2026-10-28): every installed package's peer range already accepted React 19, so nothing waited on it; the Testing Library packages and the ESLint React plugins were already on their latest versions. The code had none of 19's removed APIs (`ReactDOM.render`, `findDOMNode`, string refs, `defaultProps` or `propTypes`, legacy context, `react-dom/test-utils`, `useRef()` without an argument, the global `JSX` namespace). The app doesn't use `StrictMode`, so 19's dev-only double render and double effects don't apply. Render errors no longer rethrow from the root on 19; they go to `window.reportError`, which Sentry's global handler catches, and `Sentry.ErrorBoundary` catches as before. `Sentry.reactErrorHandler` stays in Phase 8 and the built-in metadata in Phase 9. TypeScript 7 stays held (`typescript-eslint`).
 
@@ -79,6 +79,8 @@ How 4a was checked: the built CSS is byte-identical to master's, and the bundle 
 - `useId` values look like `_r_d_` instead of `:rd:` (they show up in ids, `aria-controls` and the lucide icons' `mask` urls);
 - React 19 writes some attributes in another order (`type` and `name` last on inputs);
 - on desktop `/calculator`, master's live `main` reports `margin-left: 0px` for its `mx-auto` while it sits at x = 40, the same box as the branch's. A fresh copy of master's element reports 40px, so master's resolved value was stale.
+
+How 4b was checked: each bump got its own commit after typecheck, lint and the unit tests passed. The 22 lucide icons the app uses, and lucide's `Icon`, `createLucideIcon` and default attributes, are identical between 1.61 and 1.64 apart from the version in the license header. The built CSS is byte-identical to master's, the bundle grows 0.4% gzipped, and every visual state matches its baseline. The production preview comparison found one difference: react-window 2.5 writes the tracker list's inline style declarations in another order (the same declarations, the same computed style and box).
 
 ## How the user wants the work done
 
