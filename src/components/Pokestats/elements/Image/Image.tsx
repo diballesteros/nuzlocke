@@ -45,13 +45,13 @@ const BOXED = 'size-[3.429rem]';
 const STATUS_ICON = 'mr-[0.25rem] inline-block h-[1em] w-[1.18em] align-top';
 
 interface ImageProps {
-  forwardedRef?: Ref<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
   // The copy shown on the page: rows, the header and narrow-screen layouts wrap. The other copy is
   // rendered off screen at desktop width for the downloaded image.
   responsive?: boolean;
 }
 
-function Image({ forwardedRef, responsive = false }: ImageProps): React.JSX.Element {
+function Image({ ref, responsive = false }: ImageProps): React.JSX.Element {
   const { t } = useTranslation('stats');
   const badges = useStore(useCallback((state) => state.badges, []));
   const rules = useStore(useCallback((state) => state.rules, []));
@@ -128,7 +128,7 @@ function Image({ forwardedRef, responsive = false }: ImageProps): React.JSX.Elem
         'flex flex-1 flex-col flex-nowrap gap-(--spacing-3) bg-secondary p-(--spacing-2)',
         responsive && 'w-full'
       )}
-      ref={forwardedRef}
+      ref={ref}
     >
       <div
         className={cn(

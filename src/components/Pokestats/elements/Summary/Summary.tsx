@@ -91,7 +91,7 @@ function Summary(): React.JSX.Element {
       </div>
       {/* Rendered off screen at desktop width, so the downloaded image is the same on every device */}
       <div className="absolute -right-[100000px] -bottom-[100000px] w-[85.714rem] max-w-[85.714rem]">
-        <Image forwardedRef={summaryRef} />
+        <Image ref={summaryRef} />
       </div>
     </div>
   );
