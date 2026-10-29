@@ -7,7 +7,7 @@ import reports from 'istanbul-reports';
 import { findSources, mergeSources, OUT_DIR } from './coverage-lib.mjs';
 
 // Ratchet: raise these to the latest achieved numbers (rounded down), never lower them
-const THRESHOLDS = { lines: 99, statements: 99, functions: 99, branches: 93 };
+const THRESHOLDS = { lines: 99, statements: 99, functions: 99, branches: 96 };
 
 const SOURCES = findSources();
 if (!SOURCES.length) {
