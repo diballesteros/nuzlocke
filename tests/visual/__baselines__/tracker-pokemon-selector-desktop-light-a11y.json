@@ -1,17 +1,7 @@
 [
   {
-    "id": "aria-required-children",
-    "impact": "critical",
-    "nodes": 1
-  },
-  {
     "id": "color-contrast",
     "impact": "serious",
     "nodes": 2
-  },
-  {
-    "id": "role-img-alt",
-    "impact": "serious",
-    "nodes": 3
   }
 ]

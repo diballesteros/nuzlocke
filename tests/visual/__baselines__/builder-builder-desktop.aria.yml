@@ -20,7 +20,7 @@
     - tab "Builder" [selected]
     - tab "Coverage"
   - tabpanel "Builder":
-    - img
+    - img "Bulbasaur"
     - text: Bulbasaur
     - button "pokemon type":
       - img

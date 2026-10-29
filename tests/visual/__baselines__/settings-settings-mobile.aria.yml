@@ -2,6 +2,7 @@
   - button "sidebar-button": "!"
   - combobox "games": FireRed and LeafGreen
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
   - heading "Settings" [level=2]
   - button "Back"

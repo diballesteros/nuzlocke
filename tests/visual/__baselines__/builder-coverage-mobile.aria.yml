@@ -2,6 +2,7 @@
   - button "sidebar-button": "!"
   - combobox "games": Sword and Shield
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
   - tablist:
     - tab "Builder"

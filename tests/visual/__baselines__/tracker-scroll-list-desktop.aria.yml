@@ -16,42 +16,33 @@
       - /url: /builder
     - link "Calculator":
       - /url: /calculator
-  - button /Grass Badge \d+/:
-    - img "Grass Badge"
-    - text: ""
-    - button
-  - button /Water Badge \d+/:
-    - img "Water Badge"
-    - text: ""
-    - button
-  - button /Fire Badge \d+/:
-    - img "Fire Badge"
-    - text: ""
-    - button
-  - button /Fighting\/Ghost Badge \d+/:
-    - img "Fighting/Ghost Badge"
-    - text: ""
-    - button
-  - button /Fairy Badge \d+/:
-    - img "Fairy Badge"
-    - text: ""
-    - button
-  - button /Rock\/Ice Badge \d+/:
-    - img "Rock/Ice Badge"
-    - text: ""
-    - button
-  - button /Dark Badge \d+/:
-    - img "Dark Badge"
-    - text: ""
-    - button
-  - button /Dragon Badge \d+/:
-    - img "Dragon Badge"
-    - text: ""
-    - button
-  - button /Champion Cup \d+/:
-    - img "Champion Cup"
-    - text: ""
-    - button
+  - text: /\d+/
+  - button "Grass Badge" [pressed]
+  - button "Grass Badge details"
+  - text: /\d+/
+  - button "Water Badge" [pressed]
+  - button "Water Badge details"
+  - text: /\d+/
+  - button "Fire Badge"
+  - button "Fire Badge details"
+  - text: /\d+/
+  - button "Fighting/Ghost Badge"
+  - button "Fighting/Ghost Badge details"
+  - text: /\d+/
+  - button "Fairy Badge"
+  - button "Fairy Badge details"
+  - text: /\d+/
+  - button "Rock/Ice Badge"
+  - button "Rock/Ice Badge details"
+  - text: /\d+/
+  - button "Dark Badge"
+  - button "Dark Badge details"
+  - text: /\d+/
+  - button "Dragon Badge"
+  - button "Dragon Badge details"
+  - text: /\d+/
+  - button "Champion Cup"
+  - button "Champion Cup details"
   - button "search-options"
   - searchbox "search"
   - button "Help"
@@ -60,94 +51,101 @@
   - button "ADD"
   - button "RESET"
   - list:
-    - text: Starter
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Scorbunny Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Captured
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: Slumbering Weald
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Magikarp Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Gifted
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: Route 1
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Caterpie Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Traded
-    - button "evolve"
-    - button "swap": Team
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: Wedgehurst
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Slowpoke (Galarian) Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector"
-    - button "evolve"
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: Route 2
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button /Lapras Lv: \d+/':
-      - img
-      - text: ""
-    - combobox "status-selector": Fainted
-    - combobox "Nature": Bold
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: "Wild Area: Rolling Fields"
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Butterfree Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Failed
-    - button "evolve"
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-    - text: "Wild Area: Dappled Grove"
-    - button "edit encounter"
-    - button "encounter-options"
-    - 'button "Vulpix Lv: 0"':
-      - img
-      - text: ""
-    - combobox "status-selector": Team
-    - button "evolve"
-    - button "swap": Box
-    - combobox "Nature"
-    - text: "Level:"
-    - button "level-up-button"
-    - button "level-down-button"
-  - navigation:
+    - listitem:
+      - text: Starter
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Scorbunny Scorbunny Lv: 0"':
+        - img "Scorbunny"
+        - text: ""
+      - combobox "status-selector": Captured
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: Slumbering Weald
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Magikarp Magikarp Lv: 0"':
+        - img "Magikarp"
+        - text: ""
+      - combobox "status-selector": Gifted
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: Route 1
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Caterpie Caterpie Lv: 0"':
+        - img "Caterpie"
+        - text: ""
+      - combobox "status-selector": Traded
+      - button "evolve"
+      - button "swap": Team
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: Wedgehurst
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Slowpoke (Galarian) Slowpoke (Galarian) Lv: 0"':
+        - img "Slowpoke (Galarian)"
+        - text: ""
+      - combobox "status-selector"
+      - button "evolve"
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: Route 2
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button /Lapras Lapras Lv: \d+/':
+        - img "Lapras"
+        - text: ""
+      - combobox "status-selector": Fainted
+      - combobox "Nature": Bold
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: "Wild Area: Rolling Fields"
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Butterfree Butterfree Lv: 0"':
+        - img "Butterfree"
+        - text: ""
+      - combobox "status-selector": Failed
+      - button "evolve"
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+    - listitem:
+      - text: "Wild Area: Dappled Grove"
+      - button "edit encounter"
+      - button "encounter-options"
+      - 'button "Vulpix Vulpix Lv: 0"':
+        - img "Vulpix"
+        - text: ""
+      - combobox "status-selector": Team
+      - button "evolve"
+      - button "swap": Box
+      - combobox "Nature"
+      - text: "Level:"
+      - button "level-up-button"
+      - button "level-down-button"
+  - navigation "Click on any location to scroll to it":
     - paragraph: Click on any location to scroll to it
     - button "close-scroll-list"
     - img
@@ -157,126 +155,132 @@
     - img
     - text: "1"
     - list:
-      - menuitem "scroll-to-encounter-0":
-        - text: Starter
-        - img
+      - listitem "scroll-to-encounter-0":
+        - button "Starter":
+          - text: ""
+          - img
         - button "skip-encounter-0"
-      - menuitem "scroll-to-encounter-1":
-        - text: Slumbering Weald
-        - img
+      - listitem "scroll-to-encounter-1":
+        - button "Slumbering Weald":
+          - text: ""
+          - img
         - button "skip-encounter-1"
-      - menuitem "scroll-to-encounter-2":
-        - text: Route 1
-        - img
+      - listitem "scroll-to-encounter-2":
+        - button "Route 1":
+          - text: ""
+          - img
         - button "skip-encounter-2"
-      - menuitem "scroll-to-encounter-3":
-        - text: Wedgehurst
+      - listitem "scroll-to-encounter-3":
+        - button "Wedgehurst"
         - button "skip-encounter-3"
-      - menuitem "scroll-to-encounter-4":
-        - text: Route 2
-        - img
+      - listitem "scroll-to-encounter-4":
+        - button "Route 2":
+          - text: ""
+          - img
         - button "skip-encounter-4"
-      - menuitem "scroll-to-encounter-5":
-        - text: "Wild Area: Rolling Fields"
-        - img
+      - listitem "scroll-to-encounter-5":
+        - 'button "Wild Area: Rolling Fields"':
+          - text: ""
+          - img
         - button "skip-encounter-5"
-      - menuitem "scroll-to-encounter-6":
-        - text: "Wild Area: Dappled Grove"
-        - img
-        - img
+      - listitem "scroll-to-encounter-6":
+        - 'button "Wild Area: Dappled Grove"':
+          - text: ""
+          - img
+          - img
         - button "skip-encounter-6"
-      - menuitem "scroll-to-encounter-7":
-        - text: "Wild Area: West Lake Axewell"
+      - listitem "scroll-to-encounter-7":
+        - 'button "Wild Area: West Lake Axewell"'
         - button "skip-encounter-7"
-      - menuitem "scroll-to-encounter-8":
-        - text: "WildArea: East Lake Axewell"
+      - listitem "scroll-to-encounter-8":
+        - 'button "WildArea: East Lake Axewell"'
         - button "skip-encounter-8"
-      - menuitem "scroll-to-encounter-9":
-        - text: "Wild Area: North Lake Miloch"
+      - listitem "scroll-to-encounter-9":
+        - 'button "Wild Area: North Lake Miloch"'
         - button "skip-encounter-9"
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: South Lake Miloch"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: South Lake Miloch"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Watchtower Ruins"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Watchtower Ruins"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Giant's Seat"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Giant''s Seat"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Axew's Eye"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Axew''s Eye"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Motostoke
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Motostoke"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 3
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 3"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Galar Mine
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Galar Mine"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 4
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 4"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 5
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 5"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Hulbury
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Hulbury"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Galar Mine No. 2
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Galar Mine No. 2"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Motostoke Outskirts
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Motostoke Outskirts"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Motostoke Stadium
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Motostoke Stadium"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Motostoke Riverbank"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Motostoke Riverbank"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Bridge Field"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Bridge Field"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Stony Wilderness"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Stony Wilderness"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Dusty Bowl"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Dusty Bowl"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Hammerlocke Hills"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Hammerlocke Hills"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Giant's Cap"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Giant''s Cap"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Giant's Mirror"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Giant''s Mirror"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: "Wild Area: Lake of Outrage"
+      - listitem /scroll-to-encounter-\d+/:
+        - 'button "Wild Area: Lake of Outrage"'
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 6
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 6"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Glimwood Tangle
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Glimwood Tangle"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 7
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 7"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 8
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 8"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Route 9
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Route 9"
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: /Route \d+/
+      - listitem /scroll-to-encounter-\d+/:
+        - button /Route \d+/
         - button /skip-encounter-\d+/
-      - menuitem /scroll-to-encounter-\d+/:
-        - text: Energy Plant
+      - listitem /scroll-to-encounter-\d+/:
+        - button "Energy Plant"
         - button /skip-encounter-\d+/
   - button "open-notes"
   - button "open-scroll-list" [pressed]

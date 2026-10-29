@@ -22,7 +22,7 @@
     - tab "FireRed and LeafGreen" [selected]
   - tabpanel "FireRed and LeafGreen":
     - text: "Brock Note: these are the Pokemon's base stats, it may not reflect the opponent's actual stats"
-    - img
+    - img "Geodude"
     - text: /Geodude Lv\. \d+/
     - button "pokemon type":
       - img
@@ -39,7 +39,7 @@
       - img
     - text: Defense Curl
     - img "move status"
-    - img
+    - img "Onix"
     - text: /Onix Lv\. \d+/
     - button "pokemon type":
       - img

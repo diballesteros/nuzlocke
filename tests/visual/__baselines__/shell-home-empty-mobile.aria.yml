@@ -2,6 +2,7 @@
   - button "sidebar-button": "!"
   - combobox "games": Choose a game
   - button "addgame"
+  - heading "Nuzlocke Tracker" [level=1]
 - main:
   - button "search-options"
   - searchbox "search"
