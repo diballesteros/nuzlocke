@@ -1,4 +1,4 @@
-import { forwardRef, useState } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import NATURES from 'constants/natures';
 import { useNatureName } from 'hooks/useNatures';
@@ -21,16 +21,14 @@ export const TABLE =
   'relative w-full border-collapse [&_thead_tr]:h-[4.286rem] [&_thead_tr]:text-center [&_thead_tr]:text-(length:--font-size-4) [&_thead_tr]:font-bold [&_thead_tr]:text-table-head-foreground [&_th]:sticky [&_th]:top-[calc(-1*var(--spacing-6))] [&_th]:bg-badge [&_th]:px-(--spacing-2) [&_th]:py-0 [&_tbody_tr]:h-[3.429rem] [&_tbody_tr]:text-center';
 export const NAME_CELL = 'px-(--spacing-2) py-0 text-(length:--font-size-4)';
 
-// Semantic's `icon="question"` button beside a field. It forwards its ref, as a dialog trigger
-export const InfoButton = forwardRef<HTMLButtonElement, React.ComponentProps<typeof Button>>(
-  function InfoButton(props, ref) {
-    return (
-      <Button ref={ref} size="icon" type="button" variant="secondary" {...props}>
-        <QuestionIcon className={BUTTON_ICON} />
-      </Button>
-    );
-  }
-);
+// Semantic's `icon="question"` button beside a field. Its ref reaches the button, as a dialog trigger
+export function InfoButton(props: React.ComponentProps<typeof Button>): React.JSX.Element {
+  return (
+    <Button size="icon" type="button" variant="secondary" {...props}>
+      <QuestionIcon className={BUTTON_ICON} />
+    </Button>
+  );
+}
 
 function Natures(): React.JSX.Element {
   const { t } = useTranslation('common');

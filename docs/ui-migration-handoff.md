@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a merged (#875), 4b open (#878); backlog decisions recorded).
+Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a merged (#875), 4b merged (#878), 4c open (#879); backlog decisions recorded).
 
 ## Where it stands
 
@@ -69,8 +69,8 @@ The user approved this sequence (2026-10-28). Each PR waits for the previous one
 | PR  | What                                                                                                                                                                                                                                                         | Status        |
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | 4a  | Drop `@types/react-router-dom` (react-router 7 ships its types); `react` and `react-dom` 19.3.1 in one commit (`react-dom` pins its `react`); `@types/react` and `@types/react-dom` 19.3 (`LegacyRef` → `Ref` in `Image`); ESLint's React version set to 19. | Merged (#875) |
-| 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Open (#878)   |
-| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Not started   |
+| 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Merged (#878) |
+| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Open (#879)   |
 
 What the inventory found (2026-10-28): every installed package's peer range already accepted React 19, so nothing waited on it; the Testing Library packages and the ESLint React plugins were already on their latest versions. The code had none of 19's removed APIs (`ReactDOM.render`, `findDOMNode`, string refs, `defaultProps` or `propTypes`, legacy context, `react-dom/test-utils`, `useRef()` without an argument, the global `JSX` namespace). The app doesn't use `StrictMode`, so 19's dev-only double render and double effects don't apply. Render errors no longer rethrow from the root on 19; they go to `window.reportError`, which Sentry's global handler catches, and `Sentry.ErrorBoundary` catches as before. `Sentry.reactErrorHandler` stays in Phase 8 and the built-in metadata in Phase 9. TypeScript 7 stays held (`typescript-eslint`).
 
@@ -81,6 +81,8 @@ How 4a was checked: the built CSS is byte-identical to master's, and the bundle 
 - on desktop `/calculator`, master's live `main` reports `margin-left: 0px` for its `mx-auto` while it sits at x = 40, the same box as the branch's. A fresh copy of master's element reports 40px, so master's resolved value was stale.
 
 How 4b was checked: each bump got its own commit after typecheck, lint and the unit tests passed. The 22 lucide icons the app uses, and lucide's `Icon`, `createLucideIcon` and default attributes, are identical between 1.61 and 1.64 apart from the version in the license header. The built CSS is byte-identical to master's, the bundle grows 0.4% gzipped, and every visual state matches its baseline. The production preview comparison found one difference: react-window 2.5 writes the tracker list's inline style declarations in another order (the same declarations, the same computed style and box).
+
+How 4c was checked: `npm run verify` and the visual suite pass with the goldens and baselines unchanged. The built CSS is byte-identical to master's and the gzipped JS is 35 bytes smaller. The production preview comparison found no difference in any of its 120 cases.
 
 ## How the user wants the work done
 
@@ -298,7 +300,7 @@ The Gen 9 species come first (the show-all list and the calculator; #814, #817).
 - **`cn()` drops line heights.** tailwind-merge treats a font-size class as overriding any earlier `leading-*`, so `cn('leading-[1em]!', 'text-[0.786rem]!')` loses the line height and the reset's 1.15 comes back. Restate it after the size (`MINI_BUTTON`).
 - **Radix rounds popper positions to whole pixels**, where Semantic's menu hung from a field at a fraction of a pixel. `Select` shifts its menu back by the dropped fraction; `PopoverContent edgeAligned` reproduces the non-pinned click Popup, whose bottom edge was rounded instead. Earlier popovers already matched without it, so it's opt-in.
 - **`DialogTitle` is an `<h2>`**, and index.css styles every heading. `DialogHeader` is the title itself, as a div.
-- **A trigger needs a ref.** `<PopoverTrigger asChild>` around a component without `forwardRef` can't position its content on React 18 (it lands off screen). `Button` forwards its ref now.
+- **A trigger needs a ref.** `<PopoverTrigger asChild>` around a component that drops its ref can't position its content (it lands off screen). React 18 dropped refs on function components without `forwardRef`; on React 19 `ref` is an ordinary prop, so a component must pass it on (`Button` and `InfoButton` spread it with their other props).
 - **`p` keeps Semantic's margin** (`0 0 1em`, unlayered), so `[&>p]:m-0` needs `!`.
 - **Descendant selectors catch new icons.** An SCSS `.header svg` rule became `[&_svg]:size-…`, which also sized the lucide icon in a button inside that header (the Semantic `<i>` it replaced wasn't an svg). Scope such selectors to the original children.
 
