@@ -58,9 +58,13 @@ test.describe('Options', () => {
     await text(page, 'Back').click();
     await navigate(page, 'changelog');
     await expect(text(page, 'Changelog')).toBeAttached();
-    await expect(byTestId(page, 'changelog-list').locator('h4')).toHaveCount(3);
+    await expect(byTestId(page, 'changelog-list').getByRole('heading', { level: 3 })).toHaveCount(
+      3
+    );
     await byTestId(page, 'see-more').click();
-    expect(await byTestId(page, 'changelog-list').locator('h4').count()).toBeGreaterThan(3);
+    expect(
+      await byTestId(page, 'changelog-list').getByRole('heading', { level: 3 }).count()
+    ).toBeGreaterThan(3);
     await text(page, 'Back').click();
     await expect(text(page, '!')).toHaveCount(0);
   });

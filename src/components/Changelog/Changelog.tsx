@@ -40,7 +40,7 @@ function Changelog(): React.JSX.Element {
         {CHANGELOG.slice(0, logs).map((release, i) => {
           return (
             <React.Fragment key={`release-${i + 1}`}>
-              <h4 className="text-(length:--font-size-7)!">
+              <h3 className="text-(length:--font-size-7)!">
                 {release.name}{' '}
                 <time className="text-(length:--font-size-3)">
                   {new Date(release.date).toLocaleDateString(i18n.language, {
@@ -50,7 +50,7 @@ function Changelog(): React.JSX.Element {
                     day: 'numeric',
                   })}
                 </time>
-              </h4>
+              </h3>
               <ul className="[&>li]:mb-(--spacing-2) [&>li]:text-(length:--font-size-3)">
                 {release.notes.map((note) => {
                   return (

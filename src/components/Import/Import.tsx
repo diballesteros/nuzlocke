@@ -202,21 +202,19 @@ function Import(): React.JSX.Element {
           <div className="flex h-full min-w-1/2 items-center rounded-l-[4px] bg-file-field px-(--spacing-2) text-white">
             <span>{file?.name || `${t('select_file')}...`}</span>
           </div>
-          <Button
-            className="relative rounded-l-none"
-            data-testid="attach-file"
-            type="button"
-            variant="grey"
-          >
-            {t('select_file')}
-            <input
-              accept=".json, text/json"
-              aria-labelledby="import"
-              className="absolute top-0 right-0 h-full w-full opacity-0"
-              data-testid="import-file-input"
-              onChange={(e) => setFile(e.target.files[0])}
-              type="file"
-            />
+          {/* A span drawn as the button, so the file input it holds isn't nested in a button */}
+          <Button asChild className="relative rounded-l-none" variant="grey">
+            <span data-testid="attach-file">
+              {t('select_file')}
+              <input
+                accept=".json, text/json"
+                aria-label={t('select_file')}
+                className="absolute top-0 right-0 h-full w-full opacity-0"
+                data-testid="import-file-input"
+                onChange={(e) => setFile(e.target.files[0])}
+                type="file"
+              />
+            </span>
           </Button>
         </div>
         <b style={{ color: 'red' }}>{t('important_helper')}</b>
