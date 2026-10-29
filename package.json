@@ -28,7 +28,7 @@
     "react-toastify": "^11.2.0",
     "react-window": "^2.5.1",
     "tailwind-merge": "^3.7.0",
-    "zustand": "^5.0.15"
+    "zustand": "^5.0.16"
   },
   "scripts": {
     "dev": "vite",
