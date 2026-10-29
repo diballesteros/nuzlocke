@@ -2,6 +2,7 @@
   "ability": "Können",
   "add_level_cap": "Level-Cap hinzufügen",
   "details": "Einzelheiten",
+  "badge_details": "Details zu {{badge}}",
   "item": "Item",
   "original": "Original",
   "rematch": "Rückkampf",

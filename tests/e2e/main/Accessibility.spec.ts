@@ -32,4 +32,32 @@ test.describe('Accessibility', () => {
     await pressEnter('pokemon2-tab');
     await pressEnter('pokemon1-tab');
   });
+
+  test('Row menu and location list by keyboard', async ({ page }) => {
+    await byTestId(page, 'pokemon-0').click();
+    await byTestId(page, 'poke-Scorbunny').dispatchEvent('click');
+
+    // The row menu's items are menuitems that Enter and Space act on. Leveling re-renders the row,
+    // which closes its menu (as a click does), so it's opened again each time
+    const levelUp = page.getByRole('menuitem', { name: 'level up encounter' });
+    for (const [key, level] of [
+      ['Enter', '(1)'],
+      [' ', '(2)'],
+    ]) {
+      await byTestId(page, 'encounter-options-0').click();
+      await levelUp.focus();
+      await levelUp.press(key);
+      await byTestId(page, 'encounter-options-0').click();
+      await expect(levelUp).toContainText(level);
+      await byTestId(page, 'encounter-options-0').click();
+      await expect(levelUp).toHaveCount(0);
+    }
+
+    // Each location in the list is a button; Enter scrolls to it and closes the list
+    await byTestId(page, 'open-scroll-list').click();
+    const location = byTestId(page, 'scroll-to-encounter-5').getByRole('button').first();
+    await location.focus();
+    await location.press('Enter');
+    await expect(byTestId(page, 'scroll-to-encounter-5')).toHaveCount(0);
+  });
 });

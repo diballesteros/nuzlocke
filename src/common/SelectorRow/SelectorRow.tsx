@@ -2,9 +2,12 @@ import { PkmImage } from 'common';
 import { PokemonType } from 'components';
 import { TYPE_COLOR } from 'constants/colors';
 import type { TPokemon } from 'constants/types';
+import type { RowComponentProps as RowProps } from 'react-window';
 import { cn } from '@/lib/utils';
 
 interface SelectorRowProps {
+  // react-window's listitem role and position, for the list it renders in
+  ariaAttributes?: RowProps['ariaAttributes'];
   // A tag pinned to the row's top-left corner (suggested, dupe)
   tag?: React.ReactNode;
   dupe?: boolean;
@@ -17,6 +20,7 @@ interface SelectorRowProps {
 
 // One Pokémon in a selector dialog's virtualized list, tinted with its primary type's colour
 function SelectorRow({
+  ariaAttributes,
   tag,
   dupe = false,
   name,
@@ -26,7 +30,7 @@ function SelectorRow({
   style,
 }: SelectorRowProps): React.JSX.Element {
   return (
-    <div className="rounded-[4px] pr-(--spacing-3)" style={style}>
+    <div className="rounded-[4px] pr-(--spacing-3)" style={style} {...ariaAttributes}>
       <div
         className={cn(
           'flex h-[calc(100%-var(--spacing-3))] cursor-pointer flex-row flex-nowrap items-center justify-between rounded-[4px] px-(--spacing-3) hover:scale-[1.01] [&>div:last-child]:flex-col [&>div:last-child]:flex-nowrap',

@@ -16,6 +16,7 @@ const getParsedName = (name: string) => {
 const PkmImage = React.memo(function PkmImage({ name, shiny = false }: PkmImageProps) {
   return (
     <div
+      aria-label={name}
       className={`pkm ${shiny ? 'shiny' : ''} pkm-${getParsedName(name)}`}
       role="img"
       style={{ transform: 'scale(1.25)' }}

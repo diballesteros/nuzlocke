@@ -43,6 +43,19 @@ const ROW =
 const MENU_ITEM =
   'flex cursor-pointer gap-(--spacing-2) border-x-0 border-t-0 border-b border-solid border-foreground px-(--spacing-1) py-(--spacing-2) text-(length:--font-size-3) last:border-b-0 hover:bg-[grey] [&>svg]:ml-auto [&>svg]:block [&>svg]:h-[1em] [&>svg]:w-[1.18em]';
 
+// A row menu item acts on a click, Enter or Space
+const menuItem = (action: () => void) => ({
+  onClick: action,
+  onKeyDown: (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      action();
+    }
+  },
+  role: 'menuitem',
+  tabIndex: 0,
+});
+
 const Encounters = React.memo(function Encounters() {
   const { t } = useTranslation('tracker');
   const listRef = useListRef(null);
@@ -101,12 +114,12 @@ const Encounters = React.memo(function Encounters() {
     listRef.current?.scrollToRow({ index: Math.min(index + 1, lastRow), align: 'center' });
   };
 
-  const renderRow = ({ index, style }: RowProps) => {
+  const renderRow = ({ ariaAttributes, index, style }: RowProps) => {
     const encounter = filteredEncounters[index];
     const foundPokemon = POKEMAP.get(encounter.pokemon);
     const isGreyedOut = encounter?.status?.value === 2;
     return (
-      <div style={style}>
+      <div style={style} {...ariaAttributes}>
         <div
           className={cn(
             ROW,
@@ -151,8 +164,7 @@ const Encounters = React.memo(function Encounters() {
                           aria-label="level up encounter"
                           className={MENU_ITEM}
                           data-testid={`level-up-${index}`}
-                          onClick={() => changeLevel(encounter.id, true)}
-                          role="presentation"
+                          {...menuItem(() => changeLevel(encounter.id, true))}
                         >
                           {t('level_up')} ({encounter?.details?.level ?? 0}) <ArrowUpIcon />
                         </li>
@@ -161,8 +173,7 @@ const Encounters = React.memo(function Encounters() {
                             aria-label="decrease encounter level"
                             className={MENU_ITEM}
                             data-testid={`level-down-${index}`}
-                            onClick={() => changeLevel(encounter.id, false)}
-                            role="presentation"
+                            {...menuItem(() => changeLevel(encounter.id, false))}
                           >
                             {t('level_down')} ({encounter?.details?.level ?? 0}) <ArrowDownIcon />
                           </li>
@@ -173,8 +184,7 @@ const Encounters = React.memo(function Encounters() {
                       aria-label="reset encounter"
                       className={MENU_ITEM}
                       data-testid={`reset-encounter-${index}`}
-                      onClick={() => handleClear(encounter.id)}
-                      role="presentation"
+                      {...menuItem(() => handleClear(encounter.id))}
                     >
                       {t('reset_2')} <RepeatIcon />
                     </li>
@@ -182,8 +192,7 @@ const Encounters = React.memo(function Encounters() {
                       aria-label="delete encounter"
                       className={MENU_ITEM}
                       data-testid={`delete-encounter-${index}`}
-                      onClick={() => handleConfirm(encounter.id)}
-                      role="presentation"
+                      {...menuItem(() => handleConfirm(encounter.id))}
                     >
                       {t('delete')} <TrashIcon />
                     </li>
