@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 done, #875, #878 and #879; backlog decisions recorded).
+Last updated 2026-10-29 (Phase 4 done, #875, #878 and #879; Phase 5 plan approved and started).
 
 ## Where it stands
 
@@ -18,7 +18,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 2     | Migrate shared primitives, then one area per PR                                                    | Done (#825–#857)        |
 | 3     | Remove `semantic-ui-*` and `sass`, turn on preflight, drop the Vite shims, raise `build.target`    | Done (#858, #867, #869) |
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
-| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | Not started             |
+| 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
 | 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
@@ -83,6 +83,27 @@ How 4a was checked: the built CSS is byte-identical to master's, and the bundle 
 How 4b was checked: each bump got its own commit after typecheck, lint and the unit tests passed. The 22 lucide icons the app uses, and lucide's `Icon`, `createLucideIcon` and default attributes, are identical between 1.61 and 1.64 apart from the version in the license header. The built CSS is byte-identical to master's, the bundle grows 0.4% gzipped, and every visual state matches its baseline. The production preview comparison found one difference: react-window 2.5 writes the tracker list's inline style declarations in another order (the same declarations, the same computed style and box).
 
 How 4c was checked: `npm run verify` and the visual suite pass with the goldens and baselines unchanged. The built CSS is byte-identical to master's and the gzipped JS is 35 bytes smaller. The production preview comparison found no difference in any of its 120 cases.
+
+### Phase 5 PRs
+
+The user approved this sequence (2026-10-29). Each PR waits for the previous one's merge. Phase 5 changes looks on purpose, but each PR still changes only its own areas and logs every diff.
+
+| PR    | What                                                                                                                                                                                                                                                                                                                            | Status      |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| 5a    | Contrast: the Edit custom statuses button only (the user's choice over darkening `--primary` everywhere). In light mode each state takes the next darker Semantic blue (`#1678c2` at rest, 4.67:1). The settings area.                                                                                                          | In review   |
+| 5b    | The page is `inert` while a Radix Select is open, which fixes axe's `aria-hidden-focus`. No pixel change.                                                                                                                                                                                                                       | Not started |
+| 5c    | Names and roles with no visual change, two PRs. (1) Shell and tracker: sidebar items and the tracker row menu get real roles and keyboard access, the mobile `h1` becomes sr-only instead of `display: none`, sprites get alt text. (2) Calculator, Import and Changelog: button names, labels, ARIA attributes, heading order. | Not started |
+| 5d    | Encounter reordering: Move up and Move down in the tracker row's menu, strings in en, es and de, an e2e pin and a new state-golden journey. No store migration.                                                                                                                                                                 | Not started |
+| 5e–5k | Remove `legacy-base.css` one group per PR, each an intended, logged diff: box-sizing; list styles; replaced elements (`svg` and `img` display, svg overflow); `html` line height and font; form-control fonts and colours; margins, paddings and borders (may split); table, `hr` and the rest.                                 | Not started |
+| 5l    | Navigation: the inline nav at every width (today it's hidden between 571px and 1148px), and a bottom tab bar on mobile.                                                                                                                                                                                                         | Not started |
+| 5m    | Tracker redesign and density (see the decisions below).                                                                                                                                                                                                                                                                         | Not started |
+
+**The user's Phase 5 decisions (2026-10-29):**
+
+- **Order:** small wins first (5a–5d), then `legacy-base.css`, then the redesigns, so they're built on preflight's defaults.
+- **Contrast:** fix only the Edit custom statuses button. The other `color-contrast` nodes axe reports stay for now.
+- **Navigation** means the inline nav at all widths plus a mobile bottom tab bar. Sidebar items as real links and moving more pages into the inline nav weren't chosen.
+- **Tracker density** means: the list fills the viewport (it's a fixed 690px today), tighter rows, and a compact-mode setting. Two columns on wide screens wasn't chosen. The user also wants the tracker redesigned: better looking and more intuitive, while keeping quick access to everything and staying easy to use in desktop browsers and on mobile. Propose that design (mockups) before building it.
 
 ## How the user wants the work done
 
