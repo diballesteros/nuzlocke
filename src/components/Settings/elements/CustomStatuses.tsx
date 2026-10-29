@@ -27,9 +27,11 @@ function CustomStatuses(): React.JSX.Element {
 
   return (
     <>
+      {/* White on the primary blue is 3.94:1, short of AA's 4.5:1, so in light mode each state
+          takes the next darker shade (the hover blue is 4.67:1). Dark mode's outline already passes */}
       <Button
         aria-label="Edit custom statuses"
-        className="max-w-fit"
+        className="max-w-fit bg-primary-hover hover:bg-primary-focus focus-visible:bg-primary-active active:bg-primary-active"
         data-testid="edit-custom-statuses"
         onClick={() => setOpen(true)}
         variant="blue"
