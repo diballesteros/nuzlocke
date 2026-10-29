@@ -104,4 +104,42 @@ describe('MultiSelect', () => {
     await user.click(screen.getByRole('button', { name: 'outside' }));
     expect(field.getAttribute('aria-expanded')).toBe('false');
   });
+
+  test('with nothing left to add, Enter changes nothing; Backspace on no values neither', async () => {
+    const { field, onChange, user } = setup(['FIRE', 'WATER', 'GRASS']);
+    field.focus();
+    await user.keyboard('{Enter}');
+    expect(field.getAttribute('aria-expanded')).toBe('true');
+    expect(shown()).toEqual([]);
+    await user.keyboard('{Enter}');
+    expect(onChange).not.toHaveBeenCalled();
+    await user.keyboard('{Backspace}{Backspace}{Backspace}');
+    expect(onChange).toHaveBeenLastCalledWith([]);
+    onChange.mockClear();
+    await user.keyboard('{Backspace}');
+    expect(onChange).not.toHaveBeenCalled();
+  });
+
+  test('Escape on a closed menu reaches the dialog around it; other keys do nothing', async () => {
+    const onKeyDown = vi.fn();
+    const user = userEvent.setup();
+    render(
+      <div onKeyDown={(e) => onKeyDown(e.key)} role="presentation">
+        <Harness onChange={vi.fn()} />
+      </div>
+    );
+    const field = screen.getByRole('combobox', { name: 'types' });
+    field.focus();
+    await user.keyboard('a');
+    expect(field.getAttribute('aria-expanded')).toBe('false');
+    await user.keyboard('{ArrowDown}{Escape}');
+    expect(onKeyDown.mock.calls.filter(([key]) => key === 'Escape')).toHaveLength(0);
+    await user.keyboard('{Escape}');
+    expect(onKeyDown.mock.calls.filter(([key]) => key === 'Escape')).toHaveLength(1);
+  });
+
+  test('a value that is not an option shows as itself', () => {
+    setup(['ELECTRIC']);
+    expect(screen.getByRole('combobox', { name: 'types' }).textContent).toContain('ELECTRIC');
+  });
 });
