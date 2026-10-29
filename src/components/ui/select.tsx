@@ -61,6 +61,33 @@ const CARET: Record<SelectLook, string> = {
 export const SELECTION_MENU =
   'max-h-[8.01428571rem] min-[768px]:max-h-[10.68571429rem] min-[992px]:max-h-[16.02857143rem] min-[1920px]:max-h-[21.37142857rem] [&_[role=option]:first-child]:border-t!';
 
+// Radix hides the rest of the page from assistive tech while a menu is open (aria-hidden's
+// hideOthers) but leaves it focusable, which axe reports as aria-hidden-focus. This makes the same
+// elements inert: everything outside the menu's ancestors, except aria-live regions and scripts.
+// Not aria-hidden's own inertOthers: it shares one counter with hideOthers, so whichever undo ran
+// first would leave the other's attribute behind
+function inertOthers(menu: Element) {
+  const body = menu.ownerDocument.body;
+  const targets = new Set([menu, ...body.querySelectorAll('[aria-live], script')]);
+  const keep = new Set<Element>();
+  for (const target of targets) {
+    for (let el: Element | null = target; el && !keep.has(el); el = el.parentElement) keep.add(el);
+  }
+  const made: Element[] = [];
+  const walk = (parent: Element) => {
+    if (targets.has(parent)) return;
+    for (const child of parent.children) {
+      if (keep.has(child)) walk(child);
+      else if (!child.hasAttribute('inert')) {
+        child.setAttribute('inert', '');
+        made.push(child);
+      }
+    }
+  };
+  walk(body);
+  return () => made.forEach((el) => el.removeAttribute('inert'));
+}
+
 // The selection looks' menu hangs from the field; the others float below their trigger
 const ATTACHED = (look: SelectLook) => look === 'contrast' || look === 'field' || look === 'inline';
 
@@ -131,10 +158,11 @@ function Select({
   const t = useTranslation('common').t;
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   // Radix places the menu on whole pixels; Semantic's hung exactly from the field, which in a row
-  // can sit at a fraction of a pixel. Shift the menu by what the rounding dropped
-  const alignToTrigger = React.useCallback(
+  // can sit at a fraction of a pixel. Shift the menu by what the rounding dropped. While the menu is
+  // open the rest of the page is inert, until the ref's cleanup runs as it closes
+  const onMenu = React.useCallback(
     (node: HTMLDivElement | null) => {
-      if (!node || !triggerRef.current) return;
+      if (!node) return undefined;
       requestAnimationFrame(() => {
         const field = triggerRef.current?.getBoundingClientRect();
         const menu = node.getBoundingClientRect();
@@ -151,12 +179,13 @@ function Select({
             : node;
         if (target) target.style.translate = `${dx}px ${dy}px`;
       });
+      return inertOthers(node);
     },
     [align, menuOffset, menuShift]
   );
   const content = (
     <SelectPrimitive.Content
-      ref={alignToTrigger}
+      ref={onMenu}
       align={align}
       className={cn(
         'z-1100 overflow-hidden bg-white shadow-[0_2px_3px_0_rgba(34,36,38,0.15)] outline-none',
