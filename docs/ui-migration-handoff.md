@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a merged (#875), 4b merged (#878), 4c open; backlog decisions recorded).
+Last updated 2026-10-29 (Phase 3 done, #858, #867 and #869; Phase 4 in progress, 4a merged (#875), 4b merged (#878), 4c open (#879); backlog decisions recorded).
 
 ## Where it stands
 
@@ -70,7 +70,7 @@ The user approved this sequence (2026-10-28). Each PR waits for the previous one
 | --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------- |
 | 4a  | Drop `@types/react-router-dom` (react-router 7 ships its types); `react` and `react-dom` 19.3.1 in one commit (`react-dom` pins its `react`); `@types/react` and `@types/react-dom` 19.3 (`LegacyRef` → `Ref` in `Image`); ESLint's React version set to 19. | Merged (#875) |
 | 4b  | In-range updates of the React packages, one per commit: `@sentry/react` with `@sentry/vite-plugin`, `react-router-dom`, `react-i18next`, `react-toastify`, `react-window`, `zustand`, `lucide-react`.                                                        | Merged (#878) |
-| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Open          |
+| 4c  | Refs as props: drop `forwardRef` from `Button` and `InfoButton`, and pass `Image`'s `forwardedRef` as `ref`. A refactor with no visual change.                                                                                                               | Open (#879)   |
 
 What the inventory found (2026-10-28): every installed package's peer range already accepted React 19, so nothing waited on it; the Testing Library packages and the ESLint React plugins were already on their latest versions. The code had none of 19's removed APIs (`ReactDOM.render`, `findDOMNode`, string refs, `defaultProps` or `propTypes`, legacy context, `react-dom/test-utils`, `useRef()` without an argument, the global `JSX` namespace). The app doesn't use `StrictMode`, so 19's dev-only double render and double effects don't apply. Render errors no longer rethrow from the root on 19; they go to `window.reportError`, which Sentry's global handler catches, and `Sentry.ErrorBoundary` catches as before. `Sentry.reactErrorHandler` stays in Phase 8 and the built-in metadata in Phase 9. TypeScript 7 stays held (`typescript-eslint`).
 
