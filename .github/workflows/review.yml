@@ -76,6 +76,10 @@ jobs:
           node-version-file: .node-version
           cache: npm
       - run: npm ci
+      # The steps below pass with no tests, so a suite that lost its tests would pass too. --list
+      # without that flag exits 1 when it finds none.
+      - name: The visual suite has tests
+        run: npx playwright test --project=visual --list > /dev/null
       # Hard gate: every state outside the touched areas must match its baseline exactly. Every state
       # is also tagged @shell, so when a PR touches all of them there is nothing to run here. A PR
       # that touches no area runs every state here. A shard may get no tests (--pass-with-no-tests).
