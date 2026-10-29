@@ -169,7 +169,7 @@ const useStore = create<AppState>()(
         evspatk: number,
         evspdef: number,
         evspeed: number,
-        soulink
+        soulink: number
       ) =>
         set((state) => {
           const index = state.games[state.selectedGame?.value].encounters.findIndex((enc) => {
@@ -225,7 +225,10 @@ const useStore = create<AppState>()(
             } else if (increase) {
               state.games[state.selectedGame?.value].encounters[index].details.level = level + 1;
             } else {
-              state.games[state.selectedGame?.value].encounters[index].details.level = level - 1;
+              state.games[state.selectedGame?.value].encounters[index].details.level = Math.max(
+                1,
+                level - 1
+              );
             }
           }
         }),
