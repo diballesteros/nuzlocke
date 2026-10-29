@@ -141,7 +141,6 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 ## Watch for
 
 - **Report states under load:** the visual suite's `report` states can time out in `waitForLoadState('networkidle')` when the machine is busy, because the dev server stops answering module requests. It happens on master too: with `--grep report --repeat-each=3`, master failed 8 of 12 in one run while the React 19 branch passed. The page makes no requests of its own. Rerun on a quiet machine before suspecting a change.
-- **Possible flake:** `Builder › Coverage` failed once in about 60 local runs under parallel load. The Coverage tab click didn't take, and it never reproduced. If CI hits it, read the trace before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
 ## Phases 6–11

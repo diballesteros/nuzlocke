@@ -204,10 +204,14 @@ export const stepTo = (locator: Locator, target: number) =>
     el.dispatchEvent(new Event('change', { bubbles: true }));
   }, target);
 
+// Apply reads the file with a FileReader and imports it in its load event, a task that can come after
+// the next clicks (Builder ignored a Coverage tab click while it had no team yet). Its toast follows
+// the import, so wait for that
 export const importFile = async (page: Page, name: string) => {
   await navigate(page, 'import');
   await byTestId(page, 'import-file-input').setInputFiles(fixture(name));
   await byTestId(page, 'apply-import').click();
+  await expect(text(page, 'File successfully imported')).toBeAttached();
 };
 
 // Fills a Pokémon's details in the encounter editor (was cy.pokemondetail)
