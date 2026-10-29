@@ -240,19 +240,18 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 
 - **Today:**
   - every route serves the same title, description and canonical link (the home page) and an empty `#root` until the JavaScript runs;
-  - `public/sitemap.xml` lists only `/`, dated 2021, and `robots.txt` doesn't point to it;
   - there's no preview image for shares.
 - **Quick wins (any time; they're more useful once Phase 8 can measure them):**
-  - a sitemap of every public route generated at build time, linked from `robots.txt`;
+  - a sitemap of every public route generated at build time, linked from `robots.txt` (done, #873);
   - an Open Graph image;
-  - JSON-LD for the app;
-  - resubmitting the site in Search Console.
+  - JSON-LD for the app.
 - **After Phase 4:**
   - per-route titles and descriptions with React 19's built-in metadata;
   - pre-rendering the public routes to static HTML;
   - splitting the large game-data files out of the main bundle, for load speed;
   - a Lighthouse budget in CI.
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
+- **The user submits the sitemap in Search Console:** `https://nuzlocke.netlify.app/sitemap.xml`, now that #873 is live, and again after pre-rendering or the per-game pages change which URLs exist. Search Console is the user's account, so an agent can only remind them.
 - **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).
 
 ### Phase 10: features
