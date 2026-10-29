@@ -62,18 +62,18 @@ const TOGGLE_BUTTON =
 // drops the base's line height when a later class sets the font size, so it's restated
 const MINI_BUTTON = 'text-[0.78571429rem]! leading-[1em]!';
 
-// It forwards its ref (React 18 drops refs on plain function components), so it can be a Radix
-// trigger (`<PopoverTrigger asChild>`), which needs the element to position its content
-const Button = React.forwardRef<
-  HTMLButtonElement,
-  React.ComponentProps<'button'> &
-    VariantProps<typeof buttonVariants> & {
-      asChild?: boolean;
-    }
->(function Button(
-  { className, variant = 'default', size = 'default', asChild = false, ...props },
-  ref
-) {
+// On React 19 a function component takes `ref` as a prop, so it can be a Radix trigger
+// (`<PopoverTrigger asChild>`), which needs the element to position its content
+function Button({
+  className,
+  variant = 'default',
+  size = 'default',
+  asChild = false,
+  ...props
+}: React.ComponentProps<'button'> &
+  VariantProps<typeof buttonVariants> & {
+    asChild?: boolean;
+  }) {
   const Comp = asChild ? Slot.Root : 'button';
 
   return (
@@ -81,10 +81,9 @@ const Button = React.forwardRef<
       data-slot="button"
       data-variant={variant}
       className={cn(buttonVariants({ variant, size, className }))}
-      ref={ref}
       {...props}
     />
   );
-});
+}
 
 export { Button, buttonVariants, MINI_BUTTON, TOGGLE_BUTTON };
