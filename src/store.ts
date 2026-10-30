@@ -452,6 +452,14 @@ const useStore = create<AppState>()(
             state.games[state.selectedGame?.value].encounters[index] = { ...newEnc };
           });
         }),
+      moveEncounter: (encounterId: number, targetId: number) =>
+        set((state) => {
+          const encounters = state.games[state.selectedGame?.value]?.encounters;
+          const from = encounters?.findIndex((enc) => enc.id === encounterId) ?? -1;
+          const to = encounters?.findIndex((enc) => enc.id === targetId) ?? -1;
+          // The encounter takes the target's place: before it when moving up, after it when down
+          if (from !== -1 && to !== -1) encounters.splice(to, 0, ...encounters.splice(from, 1));
+        }),
       removeNew: () =>
         set((state) => {
           state.newVersion = import.meta.env.REACT_APP_VERSION;

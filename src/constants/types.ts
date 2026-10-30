@@ -95,6 +95,7 @@ export interface AppState {
   exportToGame: (encounter: TEncounter, game: string, location: string) => void;
   importState: (newAppState: Partial<AppState>) => void;
   massImport: (encounters: TEncounter[]) => void;
+  moveEncounter: (encounterId: number, targetId: number) => void;
   removeNew: () => void;
   reorderRule: (destinationId: number, rule: TRuleEntry, sourceId: number) => void;
   resetAll: () => void;

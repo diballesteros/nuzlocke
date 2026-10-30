@@ -55,6 +55,10 @@ export const QuestionIcon = glyph(
 
 export const ChevronRightIcon = glyph('chevron-right', 'm9.5 6 6 6-6 6', { strokeWidth: 4 });
 
+export const ChevronUpIcon = glyph('chevron-up', 'm6 15 6-6 6 6', { strokeWidth: 3 });
+
+export const ChevronDownIcon = glyph('chevron-down', 'm6 9 6 6 6-6', { strokeWidth: 3 });
+
 export const DownloadIcon = glyph(
   'download',
   'M12 15V3M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5',

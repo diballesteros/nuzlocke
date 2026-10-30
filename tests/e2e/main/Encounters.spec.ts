@@ -185,6 +185,48 @@ test.describe('Encounters', () => {
     await byTestId(page, 'level-down-button-0').click();
   });
 
+  test('Move encounters up and down', async ({ page }) => {
+    const location = (index: number) =>
+      byTestId(page, `encounter-${index}`).locator('span').first();
+    const option = async (id: string, index: number) => {
+      await byTestId(page, `encounter-options-${index}`).click();
+      await byTestId(page, `${id}-${index}`).click();
+    };
+    const [first, second, third] = await Promise.all([0, 1, 2].map((i) => location(i).innerText()));
+
+    // The first row can't move up
+    await byTestId(page, 'encounter-options-0').click();
+    await expect(byTestId(page, 'move-down-0')).toBeVisible();
+    await expect(byTestId(page, 'move-up-0')).toHaveCount(0);
+    await byTestId(page, 'encounter-options-0').click();
+
+    await option('move-down', 0);
+    await expect(location(0)).toHaveText(second);
+    await expect(location(1)).toHaveText(first);
+    await option('move-up', 1);
+    await expect(location(0)).toHaveText(first);
+    await expect(location(1)).toHaveText(second);
+
+    // While filtering, a row moves past its visible neighbour, and the last one can't move down
+    for (const index of [0, 2]) {
+      await byTestId(page, `pokemon-${index}`).click();
+      await page.locator('[data-testid^="poke-"]').first().dispatchEvent('click');
+      await pickOption(page, `status-${index}`, 'Fainted');
+    }
+    await typeInto(field(page, 'filter'), 'Fainted');
+    await expect(encounterRows(page)).toHaveCount(2);
+    await byTestId(page, 'encounter-options-1').click();
+    await expect(byTestId(page, 'move-up-1')).toBeVisible();
+    await expect(byTestId(page, 'move-down-1')).toHaveCount(0);
+    await byTestId(page, 'encounter-options-1').click();
+    await option('move-down', 0);
+    await expect(location(0)).toHaveText(third);
+    await field(page, 'filter').clear();
+    await expect(location(0)).toHaveText(second);
+    await expect(location(1)).toHaveText(third);
+    await expect(location(2)).toHaveText(first);
+  });
+
   test('Swap & Scroll & Nature & Notes', async ({ page }) => {
     await importFile(page, 'over6.json');
     await navigate(page, 'tracker');
