@@ -131,7 +131,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
               {failed?.length || 0}
             </div>
           </div>
-          <ol className="overflow-auto text-(length:--font-size-4)">
+          <ol className="list-decimal overflow-auto text-(length:--font-size-4)">
             {encounters.map((encounter, index) => {
               const isSkipped = skipped[selectedGame?.value]?.includes(index);
               // A click anywhere on the item scrolls to it, as before; the location is a button

@@ -168,7 +168,7 @@ const Encounters = React.memo(function Encounters() {
                   </Button>
                 </PopoverTrigger>
                 <PopoverContent align="end" arrowClassName="right-[1em] left-auto ml-0" edgeAligned>
-                  <ul className="m-0 list-none p-0" role="menu">
+                  <ul className="m-0 p-0" role="menu">
                     {!!encounter.pokemon && (
                       <>
                         <li
