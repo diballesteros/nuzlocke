@@ -39,7 +39,7 @@ function About(): React.JSX.Element {
           </a>
         </p>
         <h3 className="m-0! text-(length:--font-size-6)!">{t('credits')}:</h3>
-        <ul className="m-0 flex max-h-[45%] flex-col flex-nowrap gap-(--spacing-2) overflow-auto">
+        <ul className="m-0 flex list-disc max-h-[45%] flex-col flex-nowrap gap-(--spacing-2) overflow-auto">
           <li>Google Play and the Google Play logo are trademarks of Google LLC.</li>
           <li>
             {t('images_provided')}

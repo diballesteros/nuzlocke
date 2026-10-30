@@ -28,12 +28,6 @@ html {
   -webkit-tap-highlight-color: revert;
 }
 
-ol,
-ul,
-menu {
-  list-style: revert;
-}
-
 /* Replaced elements are inline on the baseline, and svg clips its overflow (normalize) */
 img,
 svg,

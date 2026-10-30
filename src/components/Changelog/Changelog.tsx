@@ -51,7 +51,7 @@ function Changelog(): React.JSX.Element {
                   })}
                 </time>
               </h3>
-              <ul className="[&>li]:mb-(--spacing-2) [&>li]:text-(length:--font-size-3)">
+              <ul className="list-disc [&>li]:mb-(--spacing-2) [&>li]:text-(length:--font-size-3)">
                 {release.notes.map((note) => {
                   return (
                     <li key={note.description}>
