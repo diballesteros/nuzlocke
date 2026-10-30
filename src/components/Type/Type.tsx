@@ -21,7 +21,7 @@ function Type({ hideName = false, type }: TypeProps): React.JSX.Element {
   return (
     <button
       aria-label="pokemon type"
-      className="flex h-[2.143rem] min-h-[2.143rem] cursor-pointer items-center rounded-[4px] border-0 p-0 font-bold box-content! [font-family:inherit]! text-[length:inherit]! leading-[inherit]! [&>svg]:w-[1.714rem] [&>svg]:px-(--spacing-0)"
+      className="flex h-[2.143rem] min-h-[2.143rem] cursor-pointer items-center rounded-[4px] border-0 p-0 font-bold box-content! [font-family:inherit]! text-[length:inherit]! leading-[inherit]! [&>svg]:box-content [&>svg]:w-[1.714rem] [&>svg]:px-(--spacing-0)"
       onClick={handleClick}
       style={{ backgroundColor: TYPE_COLOR[type] }}
       type="button"

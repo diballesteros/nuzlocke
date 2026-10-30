@@ -282,15 +282,11 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
                     onChange={(value) => setGender(value as unknown as Gender)}
                     options={GENDERS}
                     placeholder={t('gender', { ns: 'calculator' })}
-                    // A <details> section's children are content-box (they inherit from its
-                    // content slot); the field was 38px tall as it is elsewhere
-                    triggerClassName="box-border!"
                     value={gender ?? ''}
                   />
                 )}
-                {/* The search inputs were border-box here, unlike the rest of the section */}
                 {isNatureAbilityGen && (
-                  <div className="flex gap-(--spacing-1) [&_input]:box-border!">
+                  <div className="flex gap-(--spacing-1)">
                     <Combobox
                       aria-label="nature-selector"
                       caret="font"
@@ -305,7 +301,7 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
                   </div>
                 )}
                 {isNatureAbilityGen && (
-                  <div className="flex gap-(--spacing-1) [&_input]:box-border!">
+                  <div className="flex gap-(--spacing-1)">
                     <Combobox
                       aria-label="ability"
                       caret="font"

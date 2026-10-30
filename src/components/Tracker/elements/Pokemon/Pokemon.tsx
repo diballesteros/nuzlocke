@@ -12,8 +12,7 @@ import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import { HoverPopover } from '@/components/ui/popover';
 
-// The selector's frame. Its SCSS unset box-sizing, so it's content-box (and so is everything inside
-// it, through Semantic's inherited box-sizing); Semantic's own rule beats a plain utility, hence !
+// The selector's frame, content-box as its SCSS left it
 const SELECTOR =
   'relative box-content! flex h-full w-[calc(100%-var(--spacing-3))] cursor-pointer flex-col flex-nowrap gap-(--spacing-2) rounded-[4px] border border-solid border-contrast-border pl-(--spacing-3) text-foreground hover:border-foreground max-sm:text-(length:--font-size-2)';
 
