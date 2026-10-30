@@ -10,8 +10,7 @@ function RadioGroup({
 }
 
 // Parity with Semantic UI's radio checkbox: a 15px white ring, 1px below the top of the label's
-// 17px line, and a 7px bullet. Like Semantic's, the ring inherits box-sizing, so it grows to 17px
-// inside a content-box parent, and the bullet then sits 1px up and left of centre, as it did.
+// 17px line, and a 7px bullet centred in it.
 // Label it with a sibling <label htmlFor> (see RadioGroupOption).
 function RadioGroupItem({
   className,

@@ -8,17 +8,6 @@
  * the browser's value alone.
  */
 
-/* Semantic: border-box at the root, inherited below. Content inside <details> stays content-box,
-   because ::details-content doesn't inherit it */
-html {
-  box-sizing: border-box;
-}
-*,
-::before,
-::after {
-  box-sizing: inherit;
-}
-
 /* Browser margins, paddings and borders (lists, fieldsets, form controls) */
 *,
 ::before,
