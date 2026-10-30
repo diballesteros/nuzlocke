@@ -11,7 +11,8 @@ interface PokeInfoProps {
 // Semantic's icon slot after a name: 1.18em × 1em with 0.25rem after it. FontAwesome drew its
 // gender glyphs about 0.45em above the baseline whatever the line height, so the svg sits on the
 // baseline like the icon font did, with its drawing nudged down to the same place
-const GENDER_ICON = 'mr-[0.25rem] inline-block h-[1em] w-[1.18em] translate-y-[0.1em]';
+const GENDER_ICON =
+  'mr-[0.25rem] inline-block h-[1em] w-[1.18em] translate-y-[0.1em] align-baseline';
 
 export const getGenderIcon = (gender: Gender) => {
   switch (gender) {

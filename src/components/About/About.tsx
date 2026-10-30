@@ -194,7 +194,12 @@ function About(): React.JSX.Element {
           </li>
         </ul>
         <a href="https://ko-fi.com/X8X05XBDC" rel="noreferrer" target="_blank">
-          <img style={{ border: 0, height: 36 }} src={kofi} alt="Buy Me a Coffee at ko-fi.com" />
+          <img
+            className="inline align-baseline"
+            style={{ border: 0, height: 36 }}
+            src={kofi}
+            alt="Buy Me a Coffee at ko-fi.com"
+          />
         </a>
         <div className="flex flex-row flex-wrap items-center gap-(--spacing-3)">
           <a
@@ -203,14 +208,14 @@ function About(): React.JSX.Element {
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img alt="Get it on Google Play" src={google} />
+            <img alt="Get it on Google Play" className="inline align-baseline" src={google} />
           </a>
           <a
             href="https://www.amazon.com/dp/B09GFF7VCB/ref=apps_sf_sta"
             rel="noopener noreferrer"
             target="_blank"
           >
-            <img alt="Get it on Amazon appstore" src={amazon} />
+            <img alt="Get it on Amazon appstore" className="inline align-baseline" src={amazon} />
           </a>
           {/* <a
             href="https://apps.apple.com/us/app/nuzlocke-tracker/id1595977751"
