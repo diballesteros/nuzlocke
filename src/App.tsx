@@ -116,7 +116,10 @@ function App(): React.JSX.Element {
               type="button"
             >
               <MenuIcon
-                className={cn(ICON_SLOT, 'inline-block mr-[0.25rem] translate-y-[0.12em]')}
+                className={cn(
+                  ICON_SLOT,
+                  'inline-block mr-[0.25rem] translate-y-[0.12em] align-baseline'
+                )}
               />
               {isNewVersion && <span className={EXCLAMATION}>!</span>}
             </SheetTrigger>

@@ -236,7 +236,11 @@ function Import(): React.JSX.Element {
           target="_blank"
         >
           {t('how_to')}{' '}
-          <Link aria-hidden className="inline-block h-[1em] w-[1.18em]" strokeWidth={3} />
+          <Link
+            aria-hidden
+            className="inline-block h-[1em] w-[1.18em] align-baseline"
+            strokeWidth={3}
+          />
         </a>
         <textarea
           className="h-[7.143rem] min-h-[7.143rem] resize-none"

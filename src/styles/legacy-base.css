@@ -28,27 +28,6 @@ html {
   -webkit-tap-highlight-color: revert;
 }
 
-/* Replaced elements are inline on the baseline, and svg clips its overflow (normalize) */
-img,
-svg,
-video,
-canvas,
-audio,
-iframe,
-embed,
-object {
-  display: revert;
-  vertical-align: revert;
-}
-img,
-video {
-  max-width: revert;
-  height: revert;
-}
-svg:not(:root) {
-  overflow: hidden;
-}
-
 table {
   text-indent: revert;
   border-color: revert;

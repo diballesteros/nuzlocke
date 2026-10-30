@@ -52,7 +52,7 @@ function Badges(): React.JSX.Element {
             >
               <img
                 alt=""
-                className="h-[3.214rem] w-[3.214rem] object-contain"
+                className="h-[3.214rem] w-[3.214rem] max-w-none object-contain"
                 src={BADGE_IMAGES[selectedGame?.value][index].src}
               />
               <span className="self-end">{badge.levelCap}</span>

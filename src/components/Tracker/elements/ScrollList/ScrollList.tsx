@@ -149,7 +149,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
                 >
                   <div className="flex items-center justify-between">
                     <button
-                      className="m-0 cursor-pointer appearance-none border-0 bg-transparent p-0 text-start [font:inherit] [letter-spacing:inherit] text-inherit [&>span]:mr-(--spacing-2) [&>svg]:size-(--spacing-4)"
+                      className="m-0 cursor-pointer appearance-none border-0 bg-transparent p-0 text-start [font:inherit] [letter-spacing:inherit] text-inherit [&>span]:mr-(--spacing-2) [&>svg]:inline [&>svg]:size-(--spacing-4) [&>svg]:align-baseline"
                       type="button"
                     >
                       <span>{encounter.location}</span>
