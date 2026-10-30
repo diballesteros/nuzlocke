@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Modifier, Range } from 'components/Calculator/elements';
 import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
+import { NATIVE_FIELD } from '@/components/ui/input';
 
 // A stat's sliders and boosts, which sweep in from the right as its details open. Semantic's
 // normalize sets a fieldset's padding outside cascade layers, so it needs !
@@ -47,7 +48,7 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
       <div className="flex gap-(--spacing-3)">
         <label htmlFor={`currenthp${pokemon}`}>{t('current_hp')}:</label>
         <input
-          className="w-[3.429rem]"
+          className={`${NATIVE_FIELD} w-[3.429rem]`}
           data-testid={`currenthp${pokemon}`}
           id={`currenthp${pokemon}`}
           maxLength={3}

@@ -37,7 +37,7 @@ function Nickname({ encounterId, nickname }: NicknameProps): React.JSX.Element {
     >
       <input
         aria-label="nickname"
-        className="m-0! w-0 max-w-full flex-[1_0_auto] rounded-l-[0.28571429rem] rounded-r-none border border-solid border-contrast-border bg-transparent px-[1em] py-[0.67857143em] text-left font-control! text-[1em]! leading-[1.21428571em]! text-foreground outline-none transition-[box-shadow,border-color] duration-100 placeholder:text-placeholder"
+        className="m-0! w-0 max-w-full flex-[1_0_auto] appearance-none rounded-l-[0.28571429rem] rounded-r-none border border-solid border-contrast-border bg-transparent px-[1em] py-[0.67857143em] text-left font-control! text-[1em]! leading-[1.21428571em]! text-foreground outline-none transition-[box-shadow,border-color] duration-100 placeholder:text-placeholder"
         id={`nickname-${encounterId}`}
         maxLength={12}
         onBlur={handleBlur}

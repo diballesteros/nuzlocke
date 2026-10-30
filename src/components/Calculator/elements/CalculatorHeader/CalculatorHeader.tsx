@@ -99,7 +99,10 @@ function CalculatorHeader(): React.JSX.Element {
             className={cn(TRAILING_ICON, 'mr-[0.0512em] ml-[calc(var(--spacing-2)-0.03em)]')}
           />
         </Button>
-        <Help className="text-(length:--font-size-4)!" content={t('calculator_help')} />
+        <Help
+          className="text-(length:--font-size-4)! leading-[1.15]!"
+          content={t('calculator_help')}
+        />
       </div>
       <div className="col-span-full flex w-full items-center gap-(--spacing-1) font-bold text-foreground">
         <output className="m-auto justify-self-center text-center" data-testid="primary-damage">

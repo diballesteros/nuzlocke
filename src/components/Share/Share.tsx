@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
 import { ShareIcon, TOOLBAR_ICON } from '@/components/ui/icons';
+import { NATIVE_FIELD } from '@/components/ui/input';
 
 interface ShareProps {
   disabled: boolean;
@@ -87,7 +88,12 @@ function Share({ disabled, icon = false, text }: ShareProps): React.JSX.Element 
         <DialogContent>
           <DialogTitle className="sr-only">{t('share', { ns: 'tracker' })}</DialogTitle>
           <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)" scrolling>
-            <textarea data-testid="share-textarea" defaultValue={text} rows={5} />
+            <textarea
+              className={`${NATIVE_FIELD} [resize:revert]`}
+              data-testid="share-textarea"
+              defaultValue={text}
+              rows={5}
+            />
           </DialogBody>
           <DialogFooter>
             <Button onClick={() => setShow(false)} variant="secondary">

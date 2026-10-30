@@ -120,7 +120,7 @@ function Combobox({
             autoComplete="off"
             // `search` is Semantic's class for this input; no stylesheet targets it on its own, and
             // specs still find the input by it
-            className="search absolute top-0 left-px z-2 m-0! h-full w-[calc(100%-var(--spacing-8))] cursor-text border-none bg-transparent py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]! text-foreground outline-none"
+            className="search absolute top-0 left-px z-2 m-0! h-full appearance-none w-[calc(100%-var(--spacing-8))] cursor-text border-none bg-transparent py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]! text-foreground outline-none"
             role="combobox"
             type="text"
             value={query}
