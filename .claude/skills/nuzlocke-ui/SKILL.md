@@ -10,7 +10,7 @@ The app moved from Semantic UI React + Sass modules to Tailwind v4 + shadcn/ui, 
 ## Where things live
 
 - `src/styles/globals.css`: Tailwind (theme, preflight, utilities), the design tokens, the `dark` variant and `@source`.
-- `src/styles/legacy-base.css`: loaded in the base layer right after preflight. It restores the element defaults the UI was calibrated against under Semantic's reset (normalize.css v7, `box-sizing: inherit`, the browser's margins, borders, list styles, form-control fonts and colours, inline baseline `svg`/`img`). Each rule is a parity debt for Phase 5 to remove as an intended diff.
+- `src/styles/legacy-base.css`: loaded in the base layer right after preflight. It restores the element defaults the UI was calibrated against under Semantic's reset (normalize.css v7: the browser's margins, paddings and borders, tables, `hr`, monospace fonts). Each rule is a parity debt for Phase 5 to remove as an intended diff; box-sizing, list styles, replaced elements, `html`'s font and form controls already went (5e–5i), so preflight's defaults apply there.
 - `src/components/ui/`: shadcn primitives, generated with `npx shadcn@4.22.1 add <name>` (config in `components.json`). They're our code after generation, so edit them freely, but keep the file names. After every `add`, check the result: the CLI has written `import { cn } from "cn"` and installed an unrelated npm package called `cn`. Fix the import to `@/lib/utils`, `npm uninstall cn`, and review any other dependency it added (`radix-ui` is expected). Then run Prettier, since it writes double quotes.
 - `src/lib/utils.ts`: `cn()` for class merging.
 - The `@/` import alias maps to `src/` (Vite and `tsconfig.json`). The bare aliases (`components`, `common`, `store`…) still work.
@@ -24,7 +24,7 @@ The app moved from Semantic UI React + Sass modules to Tailwind v4 + shadcn/ui, 
 
    The many `!` utilities written against Semantic's unlayered reset (fonts, margins and `display` on form controls and sectioning elements, `box-sizing`, fieldset padding) still work, so leave them; new code doesn't need them. Two defaults from `legacy-base.css` still shape new code:
    - Borders are the browser's (`none`, `medium`): `border-solid` plus `border-t` draws 3px on the other three sides. Set every side (`border-0 border-t border-solid`).
-   - `box-sizing` is inherited from `html`'s `border-box`, except inside `<details>` (its `::details-content` doesn't inherit it). An element that sets `content-box` makes its whole subtree content-box.
+   - Preflight's defaults hold for the rest: every element is `border-box`; lists have no markers (declare `list-disc`/`list-decimal`); `img` and `svg` are blocks on the middle with `img` at `max-width: 100%` (an icon in a line of text needs `inline-block align-baseline`); form controls inherit their font and colour on a transparent fill. A native field with no design of its own takes `NATIVE_FIELD` (`components/ui/input.tsx`) for the browser's look, or `NATIVE_TEXT_FIELD` for a `type="text"` input.
 
    Removing Semantic's reset showed utilities that had never applied, because the reset beat them (`appearance-none` on buttons, `overflow-visible` on `ICON_SLOT`). With everything layered they would suddenly apply, so the PR removed them. When a diff appears in code nobody touched, look for a utility like that first.
 
