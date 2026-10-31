@@ -263,7 +263,10 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 
 - **Today:**
   - every route serves the same title, description and canonical link (the home page) and an empty `#root` until the JavaScript runs;
-  - there's no preview image for shares.
+  - there's no preview image for shares;
+  - deep links return 200 through `netlify.toml`'s SPA fallback, but with that shared canonical link they still point crawlers at the home page, until per-route metadata lands;
+  - an unknown URL also returns 200, with the app's shell and an empty page (a soft 404), because `AppRouter` has no catch-all route. Fix it when routes are pre-rendered: add a not-found route and a real 404 response.
+- **Pre-rendering and the fallback:** the fallback isn't forced, so a pre-rendered `dist/rules/index.html` is served ahead of it with no rule change. Check that on a deploy preview.
 - **Quick wins (any time; they're more useful once Phase 8 can measure them):**
   - a sitemap of every public route generated at build time, linked from `robots.txt` (done, #873);
   - an Open Graph image;
