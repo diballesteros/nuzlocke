@@ -74,7 +74,7 @@ Porting and harness gotchas:
   - Run a script in `mcr.microsoft.com/playwright:v<version>-noble` that requires the mounted `playwright-core` (it is pure JS) and opens both. Use the host's IP from `dns.lookup('host.docker.internal')`: Vite rejects that hostname.
   - Compare `getBoundingClientRect()` of the same elements. A row that stays too tall when one icon is hidden may be stretched by a sibling's icon: hide them all at once.
   - Remove the junction with `rmdir` before `git worktree remove`, so `node_modules` isn't deleted.
-- A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs. This `gh` has no `gh run list --commit`: filter with `--json databaseId,headSha --jq` instead. `gh pr edit` fails on a Projects (classic) deprecation error; edit a PR body with `gh api -X PATCH repos/diballesteros/nuzlocke/pulls/<n> -F body=@<file>`.
+- A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; Netlify's checks build a real deploy preview on PRs, and its log needs a Netlify login (`https://api.netlify.com/api/v1/deploys/<id>` shows only the state, which is public). This `gh` has no `gh run list --commit`: filter with `--json databaseId,headSha --jq` instead. `gh pr edit` fails on a Projects (classic) deprecation error; edit a PR body with `gh api -X PATCH repos/diballesteros/nuzlocke/pulls/<n> -F body=@<file>`.
 
 ### Security advisories
 
@@ -134,7 +134,7 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 
 - `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight, followed by `legacy-base.css`. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
-- `netlify/functions/` holds the Netlify Functions and `netlify/lib/` their shared code. Their unit tests and coverage run with the app's (`vite.config.ts`), and `tsconfig.json` type-checks them.
+- `netlify/functions/` holds the Netlify Functions and `netlify/lib/` their shared code and tests. Netlify deploys every file in `netlify/functions/` as a function, tests included, so keep anything else out of it. Their unit tests and coverage run with the app's (`vite.config.ts`), and `tsconfig.json` type-checks them.
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
 - `src/components/<Name>/<Name>.tsx`, styled with Tailwind utilities, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.
 - `src/common/` — reusable selectors/widgets (Pokemon, item, encounter selectors, page wrapper, etc.).

@@ -1,10 +1,10 @@
 // @vitest-environment node
 import { getStore } from '@netlify/blobs';
 import type { Context } from '@netlify/functions';
-import { parseEventKey } from '../lib/records';
-import { createFakeStore } from '../lib/store.fake';
-import rollup, { config as rollupConfig } from './analytics-rollup';
-import event, { config } from './event';
+import rollup, { config as rollupConfig } from '../functions/analytics-rollup';
+import event, { config } from '../functions/event';
+import { parseEventKey } from './records';
+import { createFakeStore } from './store.fake';
 
 vi.mock('@netlify/blobs', () => ({ getStore: vi.fn() }));
 
