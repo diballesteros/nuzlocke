@@ -1,0 +1,113 @@
+name: Approved fix
+# Phase 7: when the owner adds triage:approved, Claude drafts the reviewed fix and a draft PR goes
+# through the normal gates. Two jobs keep the model away from write access: `draft` runs the model
+# and can't push; `open-pr` can push, runs no model and no code from the patch, and checks the patch
+# first. Never add a github.event.issue expression holding user text to a run step.
+on:
+  issues:
+    types: [labeled]
+
+permissions: {}
+
+concurrency:
+  group: triage-fix-${{ github.event.issue.number }}
+
+jobs:
+  gate:
+    # Only the owner's label counts. triage.yml can't add it: it isn't in REVIEW_LABELS, and a
+    # label added with the workflow token starts no workflow.
+    if: github.event.label.name == 'triage:approved' && github.event.sender.login == github.repository_owner
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          ENABLED: ${{ secrets.ANTHROPIC_API_KEY != '' && secrets.TRIAGE_PR_TOKEN != '' }}
+          GH_TOKEN: ${{ github.token }}
+          NUMBER: ${{ github.event.issue.number }}
+        run: |
+          echo "enabled=$ENABLED" >> "$GITHUB_OUTPUT"
+          if [ "$ENABLED" != "true" ]; then
+            gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "Approved, but no fix was started: ANTHROPIC_API_KEY or TRIAGE_PR_TOKEN isn't set."
+          fi
+
+  draft:
+    needs: gate
+    if: needs.gate.outputs.enabled == 'true'
+    timeout-minutes: 30
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: read
+    outputs:
+      has_patch: ${{ steps.fix.outputs.has_patch }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Draft the fix
+        id: fix
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/triage/fix.mjs "$RUNNER_TEMP/fix"
+      - uses: actions/upload-artifact@v7
+        if: steps.fix.outputs.has_patch == 'true'
+        with:
+          name: triage-fix
+          path: ${{ runner.temp }}/fix
+          retention-days: 7
+
+  open-pr:
+    needs: draft
+    timeout-minutes: 10
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      NUMBER: ${{ github.event.issue.number }}
+    steps:
+      - name: Say so when there is nothing to open
+        if: needs.draft.outputs.has_patch != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "$NUMBER" --repo "$GITHUB_REPOSITORY" --body "Approved, but the automatic fix made no change. See the workflow run for why."
+      # A PR opened with the workflow token starts no workflows, so the gates need this token
+      - uses: actions/checkout@v7
+        if: needs.draft.outputs.has_patch == 'true'
+        with:
+          token: ${{ secrets.TRIAGE_PR_TOKEN }}
+      - uses: actions/setup-node@v7
+        if: needs.draft.outputs.has_patch == 'true'
+        with:
+          node-version-file: .node-version
+      - uses: actions/download-artifact@v8
+        if: needs.draft.outputs.has_patch == 'true'
+        with:
+          name: triage-fix
+          path: ${{ runner.temp }}/fix
+      - name: Check the patch
+        if: needs.draft.outputs.has_patch == 'true'
+        run: node scripts/triage/check-patch.mjs "$RUNNER_TEMP/fix/fix.patch"
+      - name: Open a draft PR
+        if: needs.draft.outputs.has_patch == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.TRIAGE_PR_TOKEN }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          branch="triage/issue-$NUMBER-$RUN_ID"
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git switch -c "$branch"
+          git apply --index "$RUNNER_TEMP/fix/fix.patch"
+          git commit -m "fix: address #$NUMBER" -m "Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>"
+          git push origin "$branch"
+          gh pr create --draft --base "$GITHUB_REF_NAME" --head "$branch" --title "fix: address #$NUMBER" --body-file "$RUNNER_TEMP/fix/body.md"
