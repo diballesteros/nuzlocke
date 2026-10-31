@@ -15,6 +15,7 @@ export default tseslint.config(
       'test-results/',
       'playwright-report/',
       'verification/artifacts/',
+      '.lighthouseci/',
       'verification/.session/',
       // Claude Code's per-session git worktrees: whole other checkouts
       '.claude/worktrees/',
@@ -62,6 +63,12 @@ export default tseslint.config(
   {
     files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],
     languageOptions: { globals: globals.node },
+  },
+  // Lighthouse CI only loads CommonJS config
+  {
+    files: ['lighthouserc.cjs'],
+    languageOptions: { globals: { ...globals.node, ...globals.commonjs } },
+    rules: { '@typescript-eslint/no-require-imports': 'off' },
   },
   // Node scripts whose page.evaluate callbacks run in the browser
   {
