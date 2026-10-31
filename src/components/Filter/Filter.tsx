@@ -21,7 +21,7 @@ interface FilterProps {
 // keeps the white field in both themes; a search turns its border into a thick badge-coloured one.
 // Semantic's reset styles every <input> and <button>, so font, size, line height and margin need !
 const INPUT =
-  'm-0! w-0 max-w-full flex-[1_0_auto] rounded-[0.28571429rem] border border-solid border-field-border bg-white py-[0.67857143em] pr-[3.25em] pl-[2.67142857em] text-left font-control! text-[1em]! leading-[1.21428571em]! text-field-foreground outline-none transition-[box-shadow,border-color] duration-100 placeholder:text-filter-placeholder focus:border-ring focus:text-[rgba(0,0,0,0.8)]';
+  'm-0! w-0 max-w-full flex-[1_0_auto] appearance-none rounded-[0.28571429rem] border border-solid border-field-border bg-white py-[0.67857143em] pr-[3.25em] pl-[2.67142857em] text-left font-control! text-[1em]! leading-[1.21428571em]! text-field-foreground outline-none transition-[box-shadow,border-color] duration-100 placeholder:text-filter-placeholder focus:border-ring focus:text-[rgba(0,0,0,0.8)]';
 
 function Filter({ darkMode = false, hideGen = false, values }: FilterProps): React.JSX.Element {
   const { t } = useTranslation('common');

@@ -4,7 +4,7 @@ import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { CheckboxOption } from '@/components/ui/checkbox';
 import { SettingsIcon, TRAILING_ICON } from '@/components/ui/icons';
-import { Input } from '@/components/ui/input';
+import { Input, NATIVE_FIELD } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
@@ -111,7 +111,7 @@ function DisplaySettings(): React.JSX.Element {
               {option('showDescription', 'summary-show-description', t('show_description'))}
               <textarea
                 aria-label={t('description')}
-                className="w-full resize-none"
+                className={`${NATIVE_FIELD} w-full resize-none`}
                 data-testid="summary-description"
                 maxLength={1000}
                 onChange={(e) => changeSummaryDesc(e.target.value)}

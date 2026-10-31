@@ -10,6 +10,7 @@ import { useNatureOptions } from 'hooks/useNatures';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { Combobox } from '@/components/ui/combobox';
+import { NATIVE_FIELD } from '@/components/ui/input';
 import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
 import { Select } from '@/components/ui/select';
 
@@ -58,7 +59,7 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
         </Button>
         <input
           aria-label={t('level', { ns: 'rules' })}
-          className="w-[4.286rem] p-(--spacing-1)"
+          className={`${NATIVE_FIELD} w-[4.286rem] p-(--spacing-1)`}
           data-testid={`level-input${pokemon}`}
           id={`level${pokemon}`}
           maxLength={3}

@@ -8,6 +8,7 @@ import POKEMON from 'constants/pokemon';
 import type { AppState, Gender, TEncounter } from 'constants/types';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
+import { NATIVE_FIELD } from '@/components/ui/input';
 import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
 
 // The two options' labels, as Import's old `.ui.radio.checkbox > label` override drew them
@@ -243,7 +244,7 @@ function Import(): React.JSX.Element {
           />
         </a>
         <textarea
-          className="h-[7.143rem] min-h-[7.143rem] resize-none"
+          className={`${NATIVE_FIELD} h-[7.143rem] min-h-[7.143rem] resize-none`}
           data-testid="table-import-textarea"
           onChange={(e) => setText(e.target.value)}
           placeholder={t('copy_table')}

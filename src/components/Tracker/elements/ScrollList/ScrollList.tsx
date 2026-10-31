@@ -235,7 +235,7 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
           {lastEncounter > -1 && (
             <button
               aria-label="scroll-to-last-encounter"
-              className="w-fit cursor-pointer rounded-[4px] border-none md:pt-[2px] bg-transparent text-start text-(length:--font-size-7)! text-foreground hover:underline max-md:py-0 max-md:pr-0 max-md:pl-(--spacing-1) max-md:text-(length:--font-size-3)!"
+              className="w-fit cursor-pointer rounded-[4px] border-none md:pt-[2px] bg-transparent font-[sans-serif] leading-[1.15] text-start text-(length:--font-size-7)! text-foreground hover:underline max-md:py-0 max-md:pr-0 max-md:pl-(--spacing-1) max-md:text-(length:--font-size-3)!"
               data-testid={`scroll-to-last-encounter-${lastEncounter}`}
               onClick={() => scrollTo(lastEncounter)}
               type="button"

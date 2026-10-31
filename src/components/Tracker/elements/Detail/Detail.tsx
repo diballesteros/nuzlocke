@@ -22,7 +22,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { BUTTON_ICON, PencilIcon, TrashIcon } from '@/components/ui/icons';
-import { Input } from '@/components/ui/input';
+import { Input, NATIVE_FIELD } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { RADIUS, ROW_ICON } from '../buttons';
 
@@ -457,7 +457,7 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
               <label>
                 <div>{t('cause_of_fainting')}:</div>
                 <textarea
-                  className="w-full resize-none"
+                  className={`${NATIVE_FIELD} w-full resize-none`}
                   data-testid="cause of fainting"
                   maxLength={250}
                   onChange={(e) => setFaint(e.target.value)}
