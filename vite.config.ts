@@ -14,6 +14,7 @@ import { buildSitemap } from './src/routes/sitemap';
 // Tests and static data tables are left out of coverage. Shared by Playwright (istanbul) and Vitest
 const COVERAGE_EXCLUDE = [
   'src/**/*.test.{ts,tsx}',
+  'netlify/**/*.{test,fake}.ts',
   'src/setupTests.ts',
   'src/vite-env.d.ts',
   'src/constants/locations/**',
@@ -128,10 +129,10 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['src/setupTests.ts'],
-    include: ['src/**/*.test.{ts,tsx}'],
+    include: ['src/**/*.test.{ts,tsx}', 'netlify/**/*.test.ts'],
     coverage: {
       provider: 'istanbul',
-      include: ['src/**/*.{ts,tsx}'],
+      include: ['src/**/*.{ts,tsx}', 'netlify/**/*.ts'],
       exclude: COVERAGE_EXCLUDE,
       reporter: ['json', 'json-summary', 'text-summary'],
       reportsDirectory: 'coverage/unit',

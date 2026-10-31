@@ -62,6 +62,8 @@ Porting and harness gotchas:
 - Only dialogs with an `onClose` close on Escape today (pinned in `tests/e2e/main/Interactions.spec.ts`); Radix closes all of them by default.
 - Playwright's own Firefox build won't start on this Windows machine ("side-by-side configuration is incorrect"); Firefox runs in CI's Linux container.
 - From Git Bash, the control CLI accepts routes without a leading slash (`goto rules`); MSYS rewrites `/rules` into a Windows path. Git Bash's GNU `tar` reads `C:` as a remote host, so `scripts/visual.mjs` copies files with Node.
+- Beacon specs: Firefox and WebKit don't show `sendBeacon` to `page.route`, so `tests/e2e/other/Analytics.spec.ts` replaces `navigator.sendBeacon` in an init script. Analytics counts only on the production host, so the spec serves the dev server under that host through `page.route`. Firefox's `route.fetch` keeps the original `Host`, and Vite answers 403 unless `host` is set.
+- The local Blobs server (`@netlify/blobs/server`) stores each key as a file and answers 500 when a path segment passes 255 bytes, so `eventKey` splits long keys.
 
 ### Debugging CI failures
 
@@ -132,6 +134,7 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 
 - `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight, followed by `legacy-base.css`. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
+- `netlify/functions/` holds the Netlify Functions and `netlify/lib/` their shared code. Their unit tests and coverage run with the app's (`vite.config.ts`), and `tsconfig.json` type-checks them.
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
 - `src/components/<Name>/<Name>.tsx`, styled with Tailwind utilities, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.
 - `src/common/` — reusable selectors/widgets (Pokemon, item, encounter selectors, page wrapper, etc.).
