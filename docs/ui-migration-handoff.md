@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-29 (Phase 5: 5a–5h merged, 5i in review).
+Last updated 2026-10-31 (Phase 5: 5a–5h merged, 5i in review; Phase 8's collector in review).
 
 ## Where it stands
 
@@ -21,7 +21,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
 | 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
-| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
+| 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | In progress, see below  |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
 | 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                          | Not started             |
@@ -213,6 +213,15 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 ### Phase 8: usage analytics and Sentry
 
 It comes after the triage loop, so that Sentry's reports can feed the loop, and before SEO, so that SEO's effect can be measured.
+
+- **Analytics status (2026-10-31):**
+  - **8a, collector and storage:** in review. `netlify/functions/event.ts` takes the beacon, `netlify/functions/analytics-rollup.ts` compacts hourly, and `src/lib/analytics.ts` sends from the app.
+  - **8b, stats dashboard:** starts after 8a's merge. Read `days/<date>` plus the raw `events/<date>/` keys for today, and `summaries/<date>` beyond the 90 days of event data. The service worker's precache and navigation fallback must leave `stats.html` out. A period's visitors are a sum of daily uniques, because the salt rotates.
+  - **Follow-up:** the About page's note on what's collected. It changes a visual baseline, so it waits until Phase 5's restyling is done.
+  - **What was checked (2026-10-31):** Blobs has `onlyIfNew` and `onlyIfMatch`; Netlify warns against building counters on them, and the compact blob's single hourly writer doesn't. On credit plans a Free account gets 300 credits a month: 15 per production deploy, 2 per 10,000 requests, 10 per GB-hour of compute. Running out pauses every site on the account until the next cycle. Netlify's billing page doesn't list Blobs. Accounts from before September 2025 may be on the older limits; only the user's account page shows which applies.
+  - **Off switches:** `ANALYTICS_DISABLED=true` makes the collector store nothing, but requests still count. `REACT_APP_ANALYTICS_DISABLED=true` stops the beacons from the next build on.
+  - **Custom domain:** `PRODUCTION_HOST` in `netlify/lib/contract.ts` must change with it, or counting stops.
+  - **New routes:** add them to `ROUTE_PATTERNS` in the same file, or their views are dropped. `records.test.ts` fails when a route in `src/routes/sitemap.ts` isn't covered.
 
 - **Analytics: an in-house counter (the user chose it on 2026-10-28 over Cloudflare Web Analytics, GoatCounter and Umami).** Basic counts in the style of Plausible, on Netlify's free resources, with nothing leaving Netlify:
   - **What it counts:**
