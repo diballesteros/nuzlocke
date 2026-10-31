@@ -27,6 +27,7 @@ npm run verify:state  # persisted-store goldens (tests/state)
 npm run verify:visual # visual + ARIA + a11y baselines, inside the pinned Playwright Docker image
 npm run seeds         # regenerate verification/seeds by driving the app
 npm run coverage      # merges unit + raw e2e coverage → coverage/merged, enforces thresholds
+npm run lighthouse    # Lighthouse budget on dist/ (run npm run build first); LHCI_PORT if 4173 is taken
 ```
 
 - Single unit test: `npx vitest run src/store.test.ts` (or `-t "<test name>"`).
@@ -62,6 +63,15 @@ Porting and harness gotchas:
 - Only dialogs with an `onClose` close on Escape today (pinned in `tests/e2e/main/Interactions.spec.ts`); Radix closes all of them by default.
 - Playwright's own Firefox build won't start on this Windows machine ("side-by-side configuration is incorrect"); Firefox runs in CI's Linux container.
 - From Git Bash, the control CLI accepts routes without a leading slash (`goto rules`); MSYS rewrites `/rules` into a Windows path. Git Bash's GNU `tar` reads `C:` as a remote host, so `scripts/visual.mjs` copies files with Node.
+
+### Lighthouse budget
+
+`lighthouserc.cjs` holds the budget and the `lighthouse` job in `main.yml` enforces it: 3 runs of each sitemap route (mobile, simulated throttling) against `vite preview` of the build, in Playwright's Chromium, judged on the median run. Each route has minimum scores for the four categories, plus maximum script and total transfer sizes. **It's a ratchet like the coverage thresholds: raise the scores and lower the byte limits as the app improves, never the other way round.** A PR that fixes `/rules`' or `/about`'s known failures should raise their entries. If a feature really can't fit, that's the user's call.
+
+- **Running it locally:** `npm run build && npm run lighthouse`. Only the byte budgets and the non-performance categories mean much on a laptop. Performance depends on the machine: at load 100+ it fell to 0.31 where CI measures 0.53. Check `uptime` first, and trust CI's number over a local one. Scores can also differ for real: `/rules` got 1.0 for accessibility locally and 0.95 in every CI run.
+- **Reading a failure:** the job log lists each route's failed assertion with the expected value, the median and all the runs' values. For the reason, download the `lighthouse` artifact and open the route's HTML report in `verification/artifacts/lighthouse` (the `lhr-*.json` files in `.lighthouseci` have every run). If performance fails, look at `environment.benchmarkIndex` in the JSON: runners come in two speeds, and the floor is set for the slower one, so a value far below 2000 is a slow runner. Rerun the job before you read anything into it.
+- **`@lhci/cli` isn't a dev dependency, on purpose.** It's run through `npx` at a pinned version, because its tree brings 50 advisories (15 high) that `dependency-review` in `review.yml` rejects (`fail-on-severity: moderate`). `npm audit fix` can't fix them. Bump the version in the `lighthouse` script in `package.json`.
+- **A rerun's artifact:** `gh run download <run> --name lighthouse` returned attempt 1's files after a job rerun. Take the newer artifact's id from `actions/runs/<run>/artifacts` and fetch `actions/artifacts/<id>/zip`.
 
 ### Debugging CI failures
 
