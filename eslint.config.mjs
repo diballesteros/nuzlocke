@@ -15,6 +15,7 @@ export default tseslint.config(
       'test-results/',
       'playwright-report/',
       'verification/artifacts/',
+      '.lighthouseci/',
       'verification/.session/',
       // Claude Code's per-session git worktrees: whole other checkouts
       '.claude/worktrees/',
