@@ -1,0 +1,52 @@
+name: Issue triage
+# Phase 7: alerts the owner on Discord, reviews each new issue with Claude and posts one comment.
+# Issue text comes from strangers. It reaches the script through GITHUB_EVENT_PATH, so never add a
+# github.event.issue expression to a run step. The job can read code and write issues, and nothing else.
+on:
+  issues:
+    types: [opened]
+
+permissions: {}
+
+concurrency:
+  group: triage-${{ github.event.issue.number }}
+
+jobs:
+  # Secrets can't be read in a job's `if`. Without them the workflow stays green and does nothing.
+  check-secrets:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        env:
+          ENABLED: ${{ secrets.ANTHROPIC_API_KEY != '' && secrets.DISCORD_WEBHOOK_URL != '' }}
+        run: |
+          echo "enabled=$ENABLED" >> "$GITHUB_OUTPUT"
+          if [ "$ENABLED" != "true" ]; then
+            echo "::notice::Triage skipped: ANTHROPIC_API_KEY or DISCORD_WEBHOOK_URL isn't set."
+          fi
+
+  triage:
+    needs: check-secrets
+    if: needs.check-secrets.outputs.enabled == 'true'
+    timeout-minutes: 15
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Review the issue
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/triage/triage.mjs

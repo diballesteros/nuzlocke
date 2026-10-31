@@ -74,6 +74,12 @@ Porting and harness gotchas:
   - Remove the junction with `rmdir` before `git worktree remove`, so `node_modules` isn't deleted.
 - A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs. This `gh` has no `gh run list --commit`: filter with `--json databaseId,headSha --jq` instead. `gh pr edit` fails on a Projects (classic) deprecation error; edit a PR body with `gh api -X PATCH repos/diballesteros/nuzlocke/pulls/<n> -F body=@<file>`.
 
+### Issue triage (`scripts/triage/`)
+
+- `triage.yml` runs on `issues: opened`: Discord alert, then one Claude review (`triage.mjs`), one comment and labels, then a second alert. `triage-fix.yml` runs when the repository owner adds `triage:approved`: `draft` runs the model and can't push, and `open-pr` holds `TRIAGE_PR_TOKEN`, runs no model and checks the patch (`check-patch.mjs`). Without their secrets both stay green and do nothing.
+- Issue text comes from strangers. Keep these true when changing it: no `github.event.issue` text in a `run:` step (scripts read `GITHUB_EVENT_PATH`); the model has no shell tool; everything it or a reporter wrote goes through `neutralize` (no mentions, issue references, HTML, images or outside links); labels come from `REVIEW_LABELS` and must already exist, because adding an unknown label creates it; `triage:approved` is never in that list.
+- Tests are `scripts/**/*.test.mjs`, run by Vitest with the unit tests. `lib.mjs` is pure and `runLoop` takes its client as an argument. To run an entry point without spending anything, stub `globalThis.fetch` in a file passed to `node --import` (the SDK uses it too) and point `GITHUB_EVENT_PATH` at a JSON event.
+
 ### Security advisories
 
 - Check Dependabot alerts with `gh api --paginate repos/diballesteros/nuzlocke/dependabot/alerts?state=open --jq '.[]'` (the `--jq` is needed; plain `--paginate` concatenates JSON arrays). Compare each alert's vulnerable range against `package-lock.json` with semver, using `origin/master` after a `git fetch` (local `master` can be stale).

@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
+| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | In review               |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -190,6 +190,14 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 - **PKHeX import (#810, #812):** IVs and EVs arrive empty and sub-areas collapse into one route. Waits on a current PKHeX box export from the user.
 
 ### Phase 7: automatic issue triage
+
+**Built, waiting on the user's setup and a first live run.** `.github/workflows/triage.yml` and `triage-fix.yml` run `scripts/triage/`; `CLAUDE.md` says how they work. Choices made while building it:
+
+- Claude gets read-only tools written for this (no shell, no agent action), and a structured answer. Labels, duplicates and files are checked against what really exists.
+- An empty description or two spam signals skip the model: the issue gets a comment and `invalid`, and nothing is closed. More than 10 issues in an hour also skips the review, to cap its cost.
+- Approved fixes are drafted by a job that can't push, as a patch limited to `src/` and `tests/e2e/`. A second job with no model checks the patch and opens a draft PR. The PR needs the `TRIAGE_PR_TOKEN` secret, because PRs opened with the workflow token start no CI.
+
+The original plan:
 
 - **Flow:**
   1. A GitHub Action runs on each new issue.
