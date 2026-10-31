@@ -111,7 +111,7 @@ function App(): React.JSX.Element {
           <div className="mx-[-1px] my-0 flex min-h-[2.85714286em] w-full rounded-t-md border border-solid border-attached-border bg-header font-control text-[1rem] leading-[1.4285em] text-[rgba(0,0,0,0.87)] dark:border-0">
             <SheetTrigger
               aria-label="sidebar-button"
-              className="relative block cursor-pointer border-none bg-header px-(--spacing-4) font-[sans-serif] leading-[1.15] text-foreground"
+              className="relative block cursor-pointer border-none bg-header px-(--spacing-4) py-px font-[sans-serif] leading-[1.15] text-foreground"
               data-testid="options"
               type="button"
             >

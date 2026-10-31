@@ -8,17 +8,6 @@
  * the browser's value alone.
  */
 
-/* Browser margins, paddings and borders (lists, fieldsets, form controls) */
-*,
-::before,
-::after,
-::backdrop,
-::file-selector-button {
-  margin: revert;
-  padding: revert;
-  border: revert;
-}
-
 table {
   text-indent: revert;
   border-color: revert;

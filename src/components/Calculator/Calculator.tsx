@@ -14,9 +14,9 @@ import useStore from 'store';
 import PokeballSVG from 'assets/svg/pokeball.svg?react';
 import { cn } from '@/lib/utils';
 
-// A side's panel. Fieldsets keep the browser's own padding and margin, as they did
+// A side's panel, with the browser's own fieldset padding and margin
 const FIELDSET =
-  'flex flex-col flex-nowrap gap-(--spacing-5) overflow-auto rounded-[4px] border-none bg-card max-md:col-span-full';
+  '[margin:revert] [padding:revert] flex flex-col flex-nowrap gap-(--spacing-5) overflow-auto rounded-[4px] border-none bg-card max-md:col-span-full';
 
 // A side's tab at the bottom of the screen on mobile
 const TAB =
