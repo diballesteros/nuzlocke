@@ -5,10 +5,10 @@ import useCalculate from 'hooks/useCalculate';
 import useStore from 'store';
 import { NATIVE_FIELD } from '@/components/ui/input';
 
-// A stat's sliders and boosts, which sweep in from the right as its details open. Semantic's
-// normalize sets a fieldset's padding outside cascade layers, so it needs !
+// A stat's sliders and boosts, which sweep in from the right as its details open. The fieldset
+// keeps the browser's margin and groove border
 const FIELDSET =
-  'grid grid-cols-[2.857rem_minmax(0,1fr)_2.857rem] gap-x-(--spacing-3) gap-y-(--spacing-4) rounded-[4px] p-(--spacing-5)! text-foreground';
+  'grid grid-cols-[2.857rem_minmax(0,1fr)_2.857rem] gap-x-(--spacing-3) gap-y-(--spacing-4) [margin:revert] [border:revert] rounded-[4px] p-(--spacing-5) text-foreground';
 
 interface StatsProps {
   pokemon: '1' | '2';
