@@ -55,11 +55,12 @@ function Input({
 
 // The browser's own field, for the native controls the app never designed (Report's form, the
 // calculator's number inputs, plain textareas). Preflight makes controls inherit their font and
-// colour on a transparent fill; `revert` brings back the browser's fill, text colour, corners and
-// placeholder (keeping the native appearance, which an author fill would turn off), with normalize's
-// font. Text inputs also drop their native appearance, as normalize did.
+// colour on a transparent fill with no border or padding; `revert` brings back the browser's
+// border, padding, fill, text colour, corners and placeholder (keeping the native appearance, which
+// an author fill would turn off), with normalize's font. Text inputs also drop their native
+// appearance, as normalize did.
 const NATIVE_FIELD =
-  'm-0 [background-color:revert] [border-radius:revert] font-[sans-serif] text-[100%] leading-[1.15] font-normal tracking-normal [color:revert] placeholder:[color:revert] placeholder:[opacity:revert]';
+  'm-0 [padding:revert] [border:revert] [background-color:revert] [border-radius:revert] font-[sans-serif] text-[100%] leading-[1.15] font-normal tracking-normal [color:revert] placeholder:[color:revert] placeholder:[opacity:revert]';
 const NATIVE_TEXT_FIELD = `${NATIVE_FIELD} appearance-none`;
 
 export { Input, NATIVE_FIELD, NATIVE_TEXT_FIELD };
