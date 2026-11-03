@@ -49,7 +49,7 @@ function assertions(overrides) {
 module.exports = {
   ci: {
     collect: {
-      startServerCommand: `npx vite preview --port ${PORT} --strictPort`,
+      startServerCommand: `node scripts/lighthouse-server.mjs ${PORT}`,
       startServerReadyPattern: 'Local:',
       url: Object.keys(ROUTES).map((route) => `http://localhost:${PORT}${route}`),
       numberOfRuns: 3,
