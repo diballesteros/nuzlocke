@@ -248,12 +248,9 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - **Tests:** unit tests for the beacon, the filters and the roll-up; an e2e check that a route change sends one beacon; state goldens unchanged (nothing is persisted in the store).
 
 - **Sentry:**
-  - The app already runs `@sentry/react` 11, but `Sentry.init` in `src/index.tsx` sets options back to v10's data collection. Move it to v11's defaults where they don't collect personal data.
-  - After Phase 4, add React 19's root error hooks (`Sentry.reactErrorHandler`).
-  - Upload source maps from the Netlify build (the token lives in Netlify's environment, never in the repo).
-  - Tag releases with `REACT_APP_VERSION`.
-  - Consider a tunnel route through a Netlify redirect, so ad blockers don't drop reports.
-  - Consider Sentry's user feedback widget as a second way to report problems.
+  - Done (`feat/sentry-react19`): `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel. Plugin and SDK name the same release, `REACT_APP_VERSION`. See `CLAUDE.md`.
+  - The user sets `SENTRY_AUTH_TOKEN` in Netlify's environment for the source map upload.
+  - Waits for Phase 5, because it changes the UI: Sentry's user feedback widget as a second way to report problems.
 - **Into the loop:**
   - A Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which already exists).
   - The Phase 7 triage reviews it like any other issue and sends the Discord alert. Sentry's own Discord integration is the fallback.
