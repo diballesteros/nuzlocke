@@ -166,6 +166,7 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 ## Watch for
 
 - **Report states under load:** the visual suite's `report` states can time out in `waitForLoadState('networkidle')` when the machine is busy, because the dev server stops answering module requests. It happens on master too: with `--grep report --repeat-each=3`, master failed 8 of 12 in one run while the React 19 branch passed. The page makes no requests of its own. Rerun on a quiet machine before suspecting a change.
+- **Possible flake, `Options › Narrow › Custom Status` (chromium, CI run 41659339824 on #896, a CI-only PR):** the click on `pokemon-0` came 15 ms after picking Sword and Shield in the game Select. Playwright reported the click done and the row showed its hover border, but the selector dialog never painted, so `poke-Scorbunny` timed out. That suggests the closing Select swallowed the click, or the dialog closed as soon as it opened (Select hands focus back to its trigger). It's the first such failure in the last 25 failed CI runs. If it recurs, reproduce it with the delayed `postMessage` init script from `CLAUDE.md` before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
 ## Phases 6–11
@@ -269,7 +270,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - per-route titles and descriptions with React 19's built-in metadata;
   - pre-rendering the public routes to static HTML;
   - splitting the large game-data files out of the main bundle, for load speed;
-  - a Lighthouse budget in CI.
+  - a Lighthouse budget in CI (done: `lighthouserc.cjs`, see `CLAUDE.md`).
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
 - **The user submits the sitemap in Search Console:** `https://nuzlocke.netlify.app/sitemap.xml`, now that #873 is live, and again after pre-rendering or the per-game pages change which URLs exist. Search Console is the user's account, so an agent can only remind them.
 - **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).
