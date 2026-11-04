@@ -84,6 +84,12 @@ Porting and harness gotchas:
   - Remove the junction with `rmdir` before `git worktree remove`, so `node_modules` isn't deleted.
 - A fix isn't done until the CI run is green. Watch it in the background with `gh run watch <run-id> --repo diballesteros/nuzlocke`, then `gh pr checks <pr>`; the 3 Netlify checks are always skipped on PRs. This `gh` has no `gh run list --commit`: filter with `--json databaseId,headSha --jq` instead. `gh pr edit` fails on a Projects (classic) deprecation error; edit a PR body with `gh api -X PATCH repos/diballesteros/nuzlocke/pulls/<n> -F body=@<file>`.
 
+### Issue triage (`scripts/triage/`)
+
+- `triage.yml` runs on `issues: opened` and calls no model: `triage.mjs` checks the spam signals, gives likely spam one comment and `invalid` (never closing it), and sends one Discord alert. Without `DISCORD_WEBHOOK_URL` it stays green and does nothing. The script uses only Node's built-ins, so the job installs nothing.
+- Issue text comes from strangers. Keep these true when changing it: no `github.event.issue` text in a `run:` step (the script reads `GITHUB_EVENT_PATH`); anything a reporter wrote goes through `neutralize` (no mentions, issue references, HTML, images or outside links) before GitHub or Discord shows it; only add labels that already exist, because adding an unknown one creates it.
+- Tests are `scripts/**/*.test.mjs`, run by Vitest with the unit tests. `lib.mjs` is pure. To run `triage.mjs` without touching GitHub or Discord, stub `globalThis.fetch` in a file passed to `node --import` and point `GITHUB_EVENT_PATH` at a JSON event.
+
 ### Security advisories
 
 - Check Dependabot alerts with `gh api --paginate repos/diballesteros/nuzlocke/dependabot/alerts?state=open --jq '.[]'` (the `--jq` is needed; plain `--paginate` concatenates JSON arrays). Compare each alert's vulnerable range against `package-lock.json` with semver, using `origin/master` after a `git fetch` (local `master` can be stale).
