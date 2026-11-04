@@ -192,7 +192,7 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 ### Phase 7: automatic issue triage
 
-**Built, waiting on the user's setup and a first live run.** `.github/workflows/triage.yml` and `triage-fix.yml` run `scripts/triage/`; `CLAUDE.md` says how they work. Choices made while building it:
+**Built, waiting on the user's setup and a first live run.** `.github/workflows/triage.yml` and `triage-fix.yml` run `scripts/triage/`; `CLAUDE.md` says how they work. **The user chose to run it without a model for now (2026-11-04), to spend nothing:** only `DISCORD_WEBHOOK_URL` is set, so issues get the arrival alert and the spam checks, and the review and approved fixes stay off until an `ANTHROPIC_API_KEY` is added. The free options looked at: GitHub Models (retired 2026-07-30), the user's Claude subscription through `claude-code-action` (a rework of the review step) and Gemini's free tier (it may train on what it's sent). Choices made while building it:
 
 - Claude gets read-only tools written for this (no shell, no agent action), and a structured answer. Labels, duplicates and files are checked against what really exists.
 - An empty description or two spam signals skip the model: the issue gets a comment and `invalid`, and nothing is closed. More than 10 issues in an hour also skips the review, to cap its cost.
@@ -219,7 +219,7 @@ The original plan:
   Gen 9 and version-split requests are planned work, not declined.
 
 - **The user sets up:**
-  - the repository secrets: an Anthropic API key and the Discord webhook URL;
+  - the repository secrets: the Discord webhook URL, and later, if wanted, an Anthropic API key;
   - for step 1: a fine-grained GitHub token (issues: write on this repository only) and the Discord webhook URL in Netlify's environment variables, and turning the Zapier zap off once the function is live.
 
 #### Report form → GitHub issue (Zapier until step 1)

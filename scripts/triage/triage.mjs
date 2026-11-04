@@ -1,4 +1,5 @@
-// Entry point of .github/workflows/triage.yml: alerts, reviews and labels one new issue.
+// Entry point of .github/workflows/triage.yml: alerts on one new issue, flags likely spam and,
+// when ANTHROPIC_API_KEY is set, reviews and labels it.
 // The issue comes from GITHUB_EVENT_PATH, never through the workflow's expressions.
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
@@ -72,13 +73,30 @@ const main = async () => {
   const existingLabels = await github.labels();
 
   const skip = shouldSkipReview(issue, signals);
-  if (skip || isFlood(recent, Date.now())) {
-    const reason = skip
-      ? 'the automatic signals below mark this as likely spam. Nothing was closed.'
-      : 'too many issues arrived in the last hour, so the review was skipped to cap its cost.';
+  if (skip) {
+    const reason = 'the automatic signals below mark this as likely spam. Nothing was closed.';
     await github.comment(issue.number, formatSkippedComment({ signals, reason }));
-    const labels = skip ? pickLabels(['invalid'], existingLabels) : [];
+    const labels = pickLabels(['invalid'], existingLabels);
     if (labels.length) await github.addLabels(issue.number, labels);
+    await alert(reviewAlert({ issue, signals, reason: `Not reviewed: ${reason}` }, options));
+    return;
+  }
+
+  // The review is optional: without a key, the arrival alert and the spam checks still run.
+  if (!process.env.ANTHROPIC_API_KEY) {
+    console.info('ANTHROPIC_API_KEY is not set: no review.');
+    if (signals.length) {
+      await alert(
+        reviewAlert({ issue, signals, reason: 'Not reviewed: no model is set up.' }, options)
+      );
+    }
+    return;
+  }
+
+  if (isFlood(recent, Date.now())) {
+    const reason =
+      'too many issues arrived in the last hour, so the review was skipped to cap its cost.';
+    await github.comment(issue.number, formatSkippedComment({ signals, reason }));
     await alert(reviewAlert({ issue, signals, reason: `Not reviewed: ${reason}` }, options));
     return;
   }
