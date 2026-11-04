@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
+| 7     | Report form issues via a Netlify function, then triage: an Action reviews issues, Discord alerts   | Not started             |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -193,11 +193,12 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 ### Phase 7: automatic issue triage
 
 - **Flow:**
-  1. A GitHub Action runs on each new issue.
-  2. Claude reads the issue and checks it against the code and earlier issues.
-  3. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
-  4. A Discord webhook alerts the user twice: once when the issue arrives, and again with the planned review.
-  5. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
+  1. **Its own PR, before the triage Action:** a Netlify `submission-created` function replaces the Zapier zap. It turns each Report form submission into a GitHub issue in the same format as today, applies the spam signals below before an issue exists, and sends the first Discord alert for form reports. Details in "Report form → GitHub issue" below.
+  2. A GitHub Action runs on each new issue.
+  3. Claude reads the issue and checks it against the code and earlier issues.
+  4. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
+  5. A Discord webhook alerts the user twice: once when the issue arrives (for form reports, step 1 already sent it), and again with the planned review.
+  6. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
 - **Safety:** issue text comes from strangers. The triage job gets read access to the code and write access to issues only, never pushes code, and never acts on instructions inside an issue.
 - **Spam signals from the review:**
   - an empty description;
@@ -209,7 +210,24 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 - **The user sets up:**
   - the repository secrets: an Anthropic API key and the Discord webhook URL;
-  - how Report form submissions become GitHub issues. They are created under the user's account, by something outside this repository.
+  - for step 1: a fine-grained GitHub token (issues: write on this repository only) and the Discord webhook URL in Netlify's environment variables, and turning the Zapier zap off once the function is live.
+
+#### Report form → GitHub issue (Zapier until step 1)
+
+- **What exists:** the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
+  1. Netlify › **New Form Submission** (an instant trigger).
+  2. GitHub (app 1.1.0) › **Create Issue** on `diballesteros/nuzlocke`, mapping the submission's fields.
+- **Issue format** (the zap's configuration, and #815–#819):
+  - title `User Submitted Issue: # ` followed by Netlify's `Submission Number`;
+  - body: one `Field: value` line per form field, separated by blank lines, in the order `Type` (`Data Type`), `Device` (`Data Device`), `OS` (`Data Os`), `Browser` (`Data Browser`), `Selected Game` (`Data Selectedgame`), `Description` (`Data Description`). Empty fields stay as `Type: ` with nothing after them;
+  - label `netlify`, set in the Create Issue step's Labels field (GitHub shows it added by the user's account about 2 seconds after the issue is created). No assignee.
+- **Spam:** submissions that pass Netlify's filter and the `bot-field` honeypot still become issues (#816 and #819 are sales pitches). Each one gets closed by hand.
+- **Phase 7, step 1:** replace the zap with a Netlify `submission-created` function (`netlify/functions/submission-created.ts`). Netlify runs it for every submission that passes its spam filter.
+  - It calls the GitHub API with a fine-grained token (issues: write on this repository only), kept in Netlify's environment variables, never in the repo.
+  - It can apply the spam signals above before an issue exists (drop or label), set labels, and send the first Discord alert. The code is versioned and unit-tested, and Zapier's free-plan task limits go away.
+  - Keep the title, label and body format above, so the triage job and earlier issues read the same.
+  - **Don't route it through a GitHub Action using `GITHUB_TOKEN`** (for example with `repository_dispatch`): issues created with that token don't trigger other workflows, so the triage workflow on `issues: opened` would never run. Issues created with the user's token, as the zap does now, do trigger it.
+  - Turn the zap off in the same step the function goes live, or every report arrives twice.
 
 ### Phase 8: usage analytics and Sentry
 
