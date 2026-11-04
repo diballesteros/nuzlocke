@@ -5,3 +5,10 @@
   to = "https://o1049034.ingest.sentry.io/api/6030383/envelope/"
   status = 200
   force = true
+
+# SPA fallback, so a direct request to a client-side route gets the app. Keep it last: the first
+# match wins. It isn't forced, so files in the build (and any pre-rendered page) are served first
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
