@@ -1,7 +1,7 @@
 /*
  * Design tokens and Tailwind v4.
- * - Preflight is on, followed by legacy-base.css, which restores the element defaults the UI was
- *   calibrated against under Semantic UI's reset (normalize.css).
+ * - Preflight is on, with nothing after it: an element that needs a default preflight resets
+ *   declares it with a utility.
  * - Tailwind sits in cascade layers, and unlayered CSS (index.css, pokemon.css, item.css) still
  *   beats layered CSS, so a utility for a property those set needs `!`.
  * The ratchet in scripts/migration-ratchet.mjs leaves this file out of its hex count: tokens are
@@ -10,7 +10,6 @@
 @layer theme, base, components, utilities;
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
-@import './legacy-base.css' layer(base);
 @import 'tailwindcss/utilities.css' layer(utilities) source(none);
 @import 'tw-animate-css';
 

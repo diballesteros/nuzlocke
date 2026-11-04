@@ -116,7 +116,7 @@ Every change, and especially every dependency bump, must pass `npm run verify` b
 - **Root error handlers:** React calls `onCaughtError` before the boundary's `componentDidCatch`, and Sentry drops a second capture of the same error. So `onCaughtError` skips errors caught by a `Sentry.ErrorBoundary`; reporting them at the root would give `showDialog` the id of an event that was never sent. Custom root handlers replace React's logging, so each one logs too.
 - **Held or pinned dependencies (deliberate, don't "fix" them):** TypeScript 7 (`typescript-eslint` supports `<6.1`); `@types/node` 24 (matches the Node 24 runtime); `@vitest/istanbul-lib-*` on the same version `@vitest/coverage-istanbul` depends on, so e2e and unit remapping stay identical. The `overrides` let `eslint-plugin-react` and `jsx-a11y` run on ESLint 10 before they declare support.
 - **Behaviour shims from upgrades** (each keeps the old behaviour and is tested): `getPokemon` passes 252 EVs in Gens 1–2 (no EV inputs; calc ≥ 0.11 reads EVs); `scrollToRow` is clamped.
-- Components use Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, the cascade, primitives and locators. Semantic UI and Sass are gone. `src/styles/legacy-base.css`, loaded after Tailwind's preflight, keeps the element defaults the UI was calibrated against under Semantic's reset.
+- Components use Tailwind v4 + shadcn/ui; follow the `nuzlocke-ui` skill (`.claude/skills/nuzlocke-ui/`) for tokens, the cascade, primitives and locators. Semantic UI and Sass are gone, and so is `legacy-base.css` (Phase 5): Tailwind's preflight is the only element reset, and an element that needs a browser default declares it.
 
 ## Known issues (left as-is while behaviour is frozen)
 
@@ -153,7 +153,7 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 
 ### UI
 
-- `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight, followed by `legacy-base.css`. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
+- `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
 - `netlify/functions/` holds the Netlify Functions and `netlify/lib/` their shared code and tests. Netlify deploys every file in `netlify/functions/` as a function, tests included, so keep anything else out of it. Their unit tests and coverage run with the app's (`vite.config.ts`), and `tsconfig.json` type-checks them.
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
