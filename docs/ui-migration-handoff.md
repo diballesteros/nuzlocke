@@ -160,7 +160,6 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 
 ## Waiting on the user
 
-- Dependabot alert 227 (sprintf-js, medium) sits in the `vite-plugin-istanbul` test-tooling chain. It's left on purpose, like the other istanbul moderates (see `CLAUDE.md`).
 - `docs/agent-tasks.md` holds small tasks for a simpler agent. On the original machine it had uncommitted local edits that Claude didn't make. Check whether they need committing from there.
 
 ## Watch for
