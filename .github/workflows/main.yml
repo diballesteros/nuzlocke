@@ -74,6 +74,39 @@ jobs:
           if-no-files-found: ignore
           path: coverage/playwright/raw
 
+  lighthouse:
+    timeout-minutes: 20
+    runs-on: ubuntu-latest
+    container:
+      # The same Chromium as e2e, so a browser update can't move the scores on its own
+      image: mcr.microsoft.com/playwright:v1.64.1-noble
+      options: --user 1001
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .node-version
+          cache: npm
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Lighthouse budget
+        run: npm run lighthouse
+
+      - name: Save Lighthouse reports
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse
+          if-no-files-found: ignore
+          include-hidden-files: true
+          path: |
+            .lighthouseci
+            verification/artifacts/lighthouse
+
   coverage:
     runs-on: ubuntu-latest
     needs: [checks, playwright]

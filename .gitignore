@@ -38,6 +38,7 @@ yarn-error.log*
 /playwright-report
 /blob-report
 /verification/artifacts
+/.lighthouseci
 /verification/.session
 
 # Personal Claude Code settings

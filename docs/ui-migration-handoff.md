@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | Not started             |
+| 7     | Report form issues via a Netlify function, then triage: an Action reviews issues, Discord alerts   | Not started             |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | In progress, see below  |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -166,6 +166,7 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 ## Watch for
 
 - **Report states under load:** the visual suite's `report` states can time out in `waitForLoadState('networkidle')` when the machine is busy, because the dev server stops answering module requests. It happens on master too: with `--grep report --repeat-each=3`, master failed 8 of 12 in one run while the React 19 branch passed. The page makes no requests of its own. Rerun on a quiet machine before suspecting a change.
+- **Possible flake, `Options › Narrow › Custom Status` (chromium, CI run 41659339824 on #896, a CI-only PR):** the click on `pokemon-0` came 15 ms after picking Sword and Shield in the game Select. Playwright reported the click done and the row showed its hover border, but the selector dialog never painted, so `poke-Scorbunny` timed out. That suggests the closing Select swallowed the click, or the dialog closed as soon as it opened (Select hands focus back to its trigger). It's the first such failure in the last 25 failed CI runs. If it recurs, reproduce it with the delayed `postMessage` init script from `CLAUDE.md` before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
 ## Phases 6–11
@@ -192,11 +193,12 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 ### Phase 7: automatic issue triage
 
 - **Flow:**
-  1. A GitHub Action runs on each new issue.
-  2. Claude reads the issue and checks it against the code and earlier issues.
-  3. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
-  4. A Discord webhook alerts the user twice: once when the issue arrives, and again with the planned review.
-  5. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
+  1. **Its own PR, before the triage Action:** a Netlify `submission-created` function replaces the Zapier zap. It turns each Report form submission into a GitHub issue in the same format as today, applies the spam signals below before an issue exists, and sends the first Discord alert for form reports. Details in "Report form → GitHub issue" below.
+  2. A GitHub Action runs on each new issue.
+  3. Claude reads the issue and checks it against the code and earlier issues.
+  4. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
+  5. A Discord webhook alerts the user twice: once when the issue arrives (for form reports, step 1 already sent it), and again with the planned review.
+  6. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
 - **Safety:** issue text comes from strangers. The triage job gets read access to the code and write access to issues only, never pushes code, and never acts on instructions inside an issue.
 - **Spam signals from the review:**
   - an empty description;
@@ -208,7 +210,24 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 - **The user sets up:**
   - the repository secrets: an Anthropic API key and the Discord webhook URL;
-  - how Report form submissions become GitHub issues. They are created under the user's account, by something outside this repository.
+  - for step 1: a fine-grained GitHub token (issues: write on this repository only) and the Discord webhook URL in Netlify's environment variables, and turning the Zapier zap off once the function is live.
+
+#### Report form → GitHub issue (Zapier until step 1)
+
+- **What exists:** the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
+  1. Netlify › **New Form Submission** (an instant trigger).
+  2. GitHub (app 1.1.0) › **Create Issue** on `diballesteros/nuzlocke`, mapping the submission's fields.
+- **Issue format** (the zap's configuration, and #815–#819):
+  - title `User Submitted Issue: # ` followed by Netlify's `Submission Number`;
+  - body: one `Field: value` line per form field, separated by blank lines, in the order `Type` (`Data Type`), `Device` (`Data Device`), `OS` (`Data Os`), `Browser` (`Data Browser`), `Selected Game` (`Data Selectedgame`), `Description` (`Data Description`). Empty fields stay as `Type: ` with nothing after them;
+  - label `netlify`, set in the Create Issue step's Labels field (GitHub shows it added by the user's account about 2 seconds after the issue is created). No assignee.
+- **Spam:** submissions that pass Netlify's filter and the `bot-field` honeypot still become issues (#816 and #819 are sales pitches). Each one gets closed by hand.
+- **Phase 7, step 1:** replace the zap with a Netlify `submission-created` function (`netlify/functions/submission-created.ts`). Netlify runs it for every submission that passes its spam filter.
+  - It calls the GitHub API with a fine-grained token (issues: write on this repository only), kept in Netlify's environment variables, never in the repo.
+  - It can apply the spam signals above before an issue exists (drop or label), set labels, and send the first Discord alert. The code is versioned and unit-tested, and Zapier's free-plan task limits go away.
+  - Keep the title, label and body format above, so the triage job and earlier issues read the same.
+  - **Don't route it through a GitHub Action using `GITHUB_TOKEN`** (for example with `repository_dispatch`): issues created with that token don't trigger other workflows, so the triage workflow on `issues: opened` would never run. Issues created with the user's token, as the zap does now, do trigger it.
+  - Turn the zap off in the same step the function goes live, or every report arrives twice.
 
 ### Phase 8: usage analytics and Sentry
 
@@ -269,7 +288,10 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 
 - **Today:**
   - every route serves the same title, description and canonical link (the home page) and an empty `#root` until the JavaScript runs;
-  - there's no preview image for shares.
+  - there's no preview image for shares;
+  - deep links return 200 through `netlify.toml`'s SPA fallback, but with that shared canonical link they still point crawlers at the home page, until per-route metadata lands;
+  - an unknown URL also returns 200, with the app's shell and an empty page (a soft 404), because `AppRouter` has no catch-all route. Fix it when routes are pre-rendered: add a not-found route and a real 404 response.
+- **Pre-rendering and the fallback:** the fallback isn't forced, so a pre-rendered `dist/rules/index.html` is served ahead of it with no rule change. Check that on a deploy preview.
 - **Quick wins (any time; they're more useful once Phase 8 can measure them):**
   - a sitemap of every public route generated at build time, linked from `robots.txt` (done, #873);
   - an Open Graph image;
@@ -278,7 +300,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - per-route titles and descriptions with React 19's built-in metadata;
   - pre-rendering the public routes to static HTML;
   - splitting the large game-data files out of the main bundle, for load speed;
-  - a Lighthouse budget in CI.
+  - a Lighthouse budget in CI (done: `lighthouserc.cjs`, see `CLAUDE.md`).
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
 - **The user submits the sitemap in Search Console:** `https://nuzlocke.netlify.app/sitemap.xml`, now that #873 is live, and again after pre-rendering or the per-game pages change which URLs exist. Search Console is the user's account, so an agent can only remind them.
 - **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).
