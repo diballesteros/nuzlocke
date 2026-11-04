@@ -194,7 +194,7 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 **Built, waiting on its merge and a first live run.** `.github/workflows/triage.yml` runs `scripts/triage/triage.mjs` on every new issue; `CLAUDE.md` says how it works. The user has set `DISCORD_WEBHOOK_URL`.
 
-- **No model review (the user's decision, 2026-11-04).** The plan had Claude review each issue (type, area, duplicates, cause, planned fix and cost) and draft a fix once the owner approved it with a label. The user didn't want to pay for an API key, so the review and approved-fix parts were removed before the merge. The free options looked at: GitHub Models (retired 2026-07-30), the user's Claude subscription through `claude-code-action`, and Gemini's free tier (it may train on what it's sent). Don't bring the review back without asking.
+- **No model review (the user's decision, 2026-11-04).** The original plan's Claude review of each issue and its approved fixes were dropped. Don't bring them back without asking.
 - **What runs:** one Discord alert per issue with its title, link and any spam signals. An empty description or two signals mark an issue as likely spam: it gets one comment and the `invalid` label, and nothing is closed.
 - **Spam signals from the backlog review:**
   - an empty description;
