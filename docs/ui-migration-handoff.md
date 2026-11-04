@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-10-29 (Phase 5: 5a–5h merged, 5i in review).
+Last updated 2026-10-31 (Phase 5: 5a–5i merged, 5j in review).
 
 ## Where it stands
 
@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Automatic issue triage: a GitHub Action reviews each new issue and Discord alerts the owner        | In review               |
+| 7     | Report form issues via a Netlify function, then triage: an Action reviews issues, Discord alerts   | Steps 2–6 in review     |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -88,15 +88,15 @@ How 4c was checked: `npm run verify` and the visual suite pass with the goldens 
 
 The user approved this sequence (2026-10-29). Each PR waits for the previous one's merge. Phase 5 changes looks on purpose, but each PR still changes only its own areas and logs every diff.
 
-| PR    | What                                                                                                                                                                                                                                                                                                                            | Status                                                 |
-| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| 5a    | Contrast: the Edit custom statuses button only (the user's choice over darkening `--primary` everywhere). In light mode each state takes the next darker Semantic blue (`#1678c2` at rest, 4.67:1). The settings area.                                                                                                          | Merged (#881)                                          |
-| 5b    | The page is `inert` while a Radix Select is open, which fixes axe's `aria-hidden-focus`. No pixel change.                                                                                                                                                                                                                       | Merged (#882)                                          |
-| 5c    | Names and roles with no visual change, two PRs. (1) Shell and tracker: sidebar items and the tracker row menu get real roles and keyboard access, the mobile `h1` becomes sr-only instead of `display: none`, sprites get alt text. (2) Calculator, Import and Changelog: button names, labels, ARIA attributes, heading order. | Merged (#883, #884)                                    |
-| 5d    | Encounter reordering: Move up and Move down in the tracker row's menu, reusing the Rules page's strings (already in en, es and de), an e2e pin and a new state-golden journey. A row moves past its visible neighbour, so it works while filtering. No store migration.                                                         | Merged (#885)                                          |
-| 5e–5k | Remove `legacy-base.css` one group per PR, each an intended, logged diff: box-sizing; list styles; replaced elements (`svg` and `img` display, svg overflow); `html` line height and font; form-control fonts and colours; margins, paddings and borders (may split); table, `hr` and the rest.                                 | 5e–5h merged (#886–#889); 5i (form controls) in review |
-| 5l    | Navigation: the inline nav at every width (today it's hidden between 571px and 1148px), and a bottom tab bar on mobile.                                                                                                                                                                                                         | Not started                                            |
-| 5m    | Tracker redesign and density (see the decisions below).                                                                                                                                                                                                                                                                         | Not started                                            |
+| PR    | What                                                                                                                                                                                                                                                                                                                            | Status                                                              |
+| ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| 5a    | Contrast: the Edit custom statuses button only (the user's choice over darkening `--primary` everywhere). In light mode each state takes the next darker Semantic blue (`#1678c2` at rest, 4.67:1). The settings area.                                                                                                          | Merged (#881)                                                       |
+| 5b    | The page is `inert` while a Radix Select is open, which fixes axe's `aria-hidden-focus`. No pixel change.                                                                                                                                                                                                                       | Merged (#882)                                                       |
+| 5c    | Names and roles with no visual change, two PRs. (1) Shell and tracker: sidebar items and the tracker row menu get real roles and keyboard access, the mobile `h1` becomes sr-only instead of `display: none`, sprites get alt text. (2) Calculator, Import and Changelog: button names, labels, ARIA attributes, heading order. | Merged (#883, #884)                                                 |
+| 5d    | Encounter reordering: Move up and Move down in the tracker row's menu, reusing the Rules page's strings (already in en, es and de), an e2e pin and a new state-golden journey. A row moves past its visible neighbour, so it works while filtering. No store migration.                                                         | Merged (#885)                                                       |
+| 5e–5k | Remove `legacy-base.css` one group per PR, each an intended, logged diff: box-sizing; list styles; replaced elements (`svg` and `img` display, svg overflow); `html` line height and font; form-control fonts and colours; margins, paddings and borders (may split); table, `hr` and the rest.                                 | 5e–5i merged (#886–#890); 5j (margins, paddings, borders) in review |
+| 5l    | Navigation: the inline nav at every width (today it's hidden between 571px and 1148px), and a bottom tab bar on mobile.                                                                                                                                                                                                         | Not started                                                         |
+| 5m    | Tracker redesign and density (see the decisions below).                                                                                                                                                                                                                                                                         | Not started                                                         |
 
 **The user's Phase 5 decisions (2026-10-29):**
 
@@ -166,6 +166,7 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 ## Watch for
 
 - **Report states under load:** the visual suite's `report` states can time out in `waitForLoadState('networkidle')` when the machine is busy, because the dev server stops answering module requests. It happens on master too: with `--grep report --repeat-each=3`, master failed 8 of 12 in one run while the React 19 branch passed. The page makes no requests of its own. Rerun on a quiet machine before suspecting a change.
+- **Possible flake, `Options › Narrow › Custom Status` (chromium, CI run 41659339824 on #896, a CI-only PR):** the click on `pokemon-0` came 15 ms after picking Sword and Shield in the game Select. Playwright reported the click done and the row showed its hover border, but the selector dialog never painted, so `poke-Scorbunny` timed out. That suggests the closing Select swallowed the click, or the dialog closed as soon as it opened (Select hands focus back to its trigger). It's the first such failure in the last 25 failed CI runs. If it recurs, reproduce it with the delayed `postMessage` init script from `CLAUDE.md` before changing anything.
 - **Stuck CI job:** GitHub has twice left a finished job "in progress", which blocks the PR. Rerunning the job reproduces it. An empty commit (`ci: rerun checks`) gets a clean run.
 
 ## Phases 6–11
@@ -197,14 +198,17 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 - An empty description or two spam signals skip the model: the issue gets a comment and `invalid`, and nothing is closed. More than 10 issues in an hour also skips the review, to cap its cost.
 - Approved fixes are drafted by a job that can't push, as a patch limited to `src/` and `tests/e2e/`. A second job with no model checks the patch and opens a draft PR. The PR needs the `TRIAGE_PR_TOKEN` secret, because PRs opened with the workflow token start no CI.
 
+Step 1 (the Netlify function) isn't part of it. Once that function sends the first alert for form reports, make `triage.mjs` skip its arrival alert for them (title `User Submitted Issue: # `), or form reports alert twice. Until then, the Zapier zap creates the issues and `triage.mjs` sends both alerts.
+
 The original plan:
 
 - **Flow:**
-  1. A GitHub Action runs on each new issue.
-  2. Claude reads the issue and checks it against the code and earlier issues.
-  3. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
-  4. A Discord webhook alerts the user twice: once when the issue arrives, and again with the planned review.
-  5. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
+  1. **Its own PR, before the triage Action:** a Netlify `submission-created` function replaces the Zapier zap. It turns each Report form submission into a GitHub issue in the same format as today, applies the spam signals below before an issue exists, and sends the first Discord alert for form reports. Details in "Report form → GitHub issue" below.
+  2. A GitHub Action runs on each new issue.
+  3. Claude reads the issue and checks it against the code and earlier issues.
+  4. It posts one triage comment and adds labels. The comment gives the type, the affected area (`scripts/affected-areas.mjs`), duplicates, the likely cause, a planned fix and its cost.
+  5. A Discord webhook alerts the user twice: once when the issue arrives (for form reports, step 1 already sent it), and again with the planned review.
+  6. A fix starts only after the user approves it (for example with a label). Claude then opens a PR, which goes through the same gates as any other PR.
 - **Safety:** issue text comes from strangers. The triage job gets read access to the code and write access to issues only, never pushes code, and never acts on instructions inside an issue.
 - **Spam signals from the review:**
   - an empty description;
@@ -216,7 +220,24 @@ The original plan:
 
 - **The user sets up:**
   - the repository secrets: an Anthropic API key and the Discord webhook URL;
-  - how Report form submissions become GitHub issues. They are created under the user's account, by something outside this repository.
+  - for step 1: a fine-grained GitHub token (issues: write on this repository only) and the Discord webhook URL in Netlify's environment variables, and turning the Zapier zap off once the function is live.
+
+#### Report form → GitHub issue (Zapier until step 1)
+
+- **What exists:** the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
+  1. Netlify › **New Form Submission** (an instant trigger).
+  2. GitHub (app 1.1.0) › **Create Issue** on `diballesteros/nuzlocke`, mapping the submission's fields.
+- **Issue format** (the zap's configuration, and #815–#819):
+  - title `User Submitted Issue: # ` followed by Netlify's `Submission Number`;
+  - body: one `Field: value` line per form field, separated by blank lines, in the order `Type` (`Data Type`), `Device` (`Data Device`), `OS` (`Data Os`), `Browser` (`Data Browser`), `Selected Game` (`Data Selectedgame`), `Description` (`Data Description`). Empty fields stay as `Type: ` with nothing after them;
+  - label `netlify`, set in the Create Issue step's Labels field (GitHub shows it added by the user's account about 2 seconds after the issue is created). No assignee.
+- **Spam:** submissions that pass Netlify's filter and the `bot-field` honeypot still become issues (#816 and #819 are sales pitches). Each one gets closed by hand.
+- **Phase 7, step 1:** replace the zap with a Netlify `submission-created` function (`netlify/functions/submission-created.ts`). Netlify runs it for every submission that passes its spam filter.
+  - It calls the GitHub API with a fine-grained token (issues: write on this repository only), kept in Netlify's environment variables, never in the repo.
+  - It can apply the spam signals above before an issue exists (drop or label), set labels, and send the first Discord alert. The code is versioned and unit-tested, and Zapier's free-plan task limits go away.
+  - Keep the title, label and body format above, so the triage job and earlier issues read the same.
+  - **Don't route it through a GitHub Action using `GITHUB_TOKEN`** (for example with `repository_dispatch`): issues created with that token don't trigger other workflows, so the triage workflow on `issues: opened` would never run. Issues created with the user's token, as the zap does now, do trigger it.
+  - Turn the zap off in the same step the function goes live, or every report arrives twice.
 
 ### Phase 8: usage analytics and Sentry
 
@@ -256,12 +277,9 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - **Tests:** unit tests for the beacon, the filters and the roll-up; an e2e check that a route change sends one beacon; state goldens unchanged (nothing is persisted in the store).
 
 - **Sentry:**
-  - The app already runs `@sentry/react` 11, but `Sentry.init` in `src/index.tsx` sets options back to v10's data collection. Move it to v11's defaults where they don't collect personal data.
-  - After Phase 4, add React 19's root error hooks (`Sentry.reactErrorHandler`).
-  - Upload source maps from the Netlify build (the token lives in Netlify's environment, never in the repo).
-  - Tag releases with `REACT_APP_VERSION`.
-  - Consider a tunnel route through a Netlify redirect, so ad blockers don't drop reports.
-  - Consider Sentry's user feedback widget as a second way to report problems.
+  - Done (`feat/sentry-react19`): `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel. Plugin and SDK name the same release, `REACT_APP_VERSION`. See `CLAUDE.md`.
+  - The user sets `SENTRY_AUTH_TOKEN` in Netlify's environment for the source map upload.
+  - Waits for Phase 5, because it changes the UI: Sentry's user feedback widget as a second way to report problems.
 - **Into the loop:**
   - A Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which already exists).
   - The Phase 7 triage reviews it like any other issue and sends the Discord alert. Sentry's own Discord integration is the fallback.
@@ -271,7 +289,10 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 
 - **Today:**
   - every route serves the same title, description and canonical link (the home page) and an empty `#root` until the JavaScript runs;
-  - there's no preview image for shares.
+  - there's no preview image for shares;
+  - deep links return 200 through `netlify.toml`'s SPA fallback, but with that shared canonical link they still point crawlers at the home page, until per-route metadata lands;
+  - an unknown URL also returns 200, with the app's shell and an empty page (a soft 404), because `AppRouter` has no catch-all route. Fix it when routes are pre-rendered: add a not-found route and a real 404 response.
+- **Pre-rendering and the fallback:** the fallback isn't forced, so a pre-rendered `dist/rules/index.html` is served ahead of it with no rule change. Check that on a deploy preview.
 - **Quick wins (any time; they're more useful once Phase 8 can measure them):**
   - a sitemap of every public route generated at build time, linked from `robots.txt` (done, #873);
   - an Open Graph image;
@@ -280,7 +301,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - per-route titles and descriptions with React 19's built-in metadata;
   - pre-rendering the public routes to static HTML;
   - splitting the large game-data files out of the main bundle, for load speed;
-  - a Lighthouse budget in CI.
+  - a Lighthouse budget in CI (done: `lighthouserc.cjs`, see `CLAUDE.md`).
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
 - **The user submits the sitemap in Search Console:** `https://nuzlocke.netlify.app/sitemap.xml`, now that #873 is live, and again after pre-rendering or the per-game pages change which URLs exist. Search Console is the user's account, so an agent can only remind them.
 - **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).
@@ -325,6 +346,8 @@ The Gen 9 species come first (the show-all list and the calculator; #814, #817).
 - **A `<details>` section's children were content-box.** Chrome renders them in the `::details-content` slot, which normalize's `* { box-sizing: inherit }` can't reach, so they inherited `content-box` and fields there grew by their padding. 5e dropped the inherited rule: preflight sets `border-box` on every element directly, so the editor's `box-border!` workarounds went. An element that needs `content-box` for its own design declares it (`Type`'s icon).
 - **Preflight's replaced elements are blocks centred on the middle.** 5g dropped the rule that kept `img` and `svg` inline on the baseline. Inside flex and grid nothing changes; the few icons and images that sit in a line of text declare `inline`/`inline-block` with `align-baseline`. Preflight's `max-width: 100%` on `img` squeezed the mobile badge strip, whose images opt out with `max-w-none`. normalize's `svg:not(:root) { overflow: hidden }` was already Chrome's default. To find what such a rule affects beyond the baselines, list every `img` and `svg` outside a flex or grid parent that computes to `display: block` or `vertical-align: middle` on each route.
 - **Preflight's form controls inherit their font and colour on a transparent fill.** 5i dropped the rules that gave every control the browser's fill, colour and corners with normalize's `sans-serif` at 1.15. Designed controls set their own; the native fields the app never designed (Report's form, the calculator's number inputs, the plain textareas) take `NATIVE_FIELD`, which brings the browser's look back with `revert` (an author fill would turn off the native appearance). normalize's `appearance: none` only matched `input[type='text']`, so an input with no `type` kept the native look and takes `NATIVE_FIELD`, not `NATIVE_TEXT_FIELD`. To find what such a rule affects beyond the baselines, inject the removed rules back in a `<style>` (`@layer base { … }` lands after preflight) and diff each control's computed style and box with and without them, per route: it found the tracker's Go to button changing font, which the Docker image renders with the same face either way.
+
+- **Preflight's zero margins, paddings and borders.** 5j dropped the rule that gave every element the browser's. What leaned on it: native fields (`NATIVE_FIELD` now reverts padding and border too), the Calculator's fieldsets (`[margin:revert]`, `[padding:revert]`, `[border:revert]`), the list indents (`pl-[40px]`, not `pl-10`, which came out narrower and moved every line) and two header and tracker buttons' padding. The inject-the-rule audit can't check an element you've already given a utility, because the utility beats the injected base rule, so it only finds what's left untreated; the baselines check the values. It also only sees what's open on each route, so popups and dialogs rely on the baselines too.
 - **No `contained` menus in tracker rows.** react-window 2 positions rows with a transform, which makes each row the containing block of a menu's fixed popper. A menu rendered inside a row is painted under the next row, and Radix's `scrollIntoView` on open scrolls the list. The row Status and Nature Selects portal, which let `toTopPosition` go. The interaction pin couldn't catch it: an open Radix Select turns off pointer events on `body`, so `elementFromPoint` sees through the next row (details in `CLAUDE.md`).
 - **`contained` Select and margins.** Its trigger gets `w-full` of a wrapper that already includes the trigger's own margin, so a `look="button"` trigger next to other buttons grows by 0.25em. Pass `triggerClassName="w-auto"`.
 

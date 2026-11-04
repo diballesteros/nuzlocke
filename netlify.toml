@@ -1,0 +1,14 @@
+# Sentry tunnel (src/lib/sentry.ts). The target is fixed to this project's ingest URL, so the route
+# can't reach anything else. src/lib/sentry.test.ts keeps it in step with .env.production's DSN
+[[redirects]]
+  from = "/diag"
+  to = "https://o1049034.ingest.sentry.io/api/6030383/envelope/"
+  status = 200
+  force = true
+
+# SPA fallback, so a direct request to a client-side route gets the app. Keep it last: the first
+# match wins. It isn't forced, so files in the build (and any pre-rendered page) are served first
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
