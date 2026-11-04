@@ -133,7 +133,7 @@ export default defineConfig({
     globals: true,
     environment: 'jsdom',
     setupFiles: ['src/setupTests.ts'],
-    include: ['src/**/*.test.{ts,tsx}', 'netlify/**/*.test.ts'],
+    include: ['src/**/*.test.{ts,tsx}', 'netlify/**/*.test.ts', 'scripts/**/*.test.mjs'],
     coverage: {
       provider: 'istanbul',
       include: ['src/**/*.{ts,tsx}', 'netlify/**/*.ts'],
