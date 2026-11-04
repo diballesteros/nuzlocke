@@ -50,14 +50,30 @@ const EXCLAMATION =
 // Semantic's inline selection menu, in the header's Lato and rounded on top too
 const GAME_MENU = cn(SELECTION_MENU, 'font-control rounded-t-[0.28571429rem]');
 
-// The nav's icons, with a quarter rem after them
-const NAV_ICON = cn(ICON_SLOT, 'mr-[0.25rem] shrink-0');
+// The page nav, one list at every width: a column beside the page from 1148px, a row above it
+// down to 571px, and a tab bar at the bottom of the screen below that. The page's height leaves
+// room for the row (--nav-top) or the tab bar (--nav-bottom, set on the app for the toasts too)
+const MAIN =
+  'mx-auto grid! max-w-(--screen-lg) gap-x-(--spacing-8) [--nav-bottom:0px] [--nav-top:0px] min-[35.714rem]:max-[71.714rem]:[--nav-top:3.571rem] max-[35.643rem]:[--nav-bottom:var(--tab-bar)] min-[71.786rem]:grid-cols-[auto_minmax(auto,var(--screen-lg))]';
+const NAV = cn(
+  'flex! flex-col flex-nowrap gap-(--spacing-9) px-(--spacing-3) pt-(--spacing-10)',
+  'min-[35.714rem]:max-[71.714rem]:h-(--nav-top) min-[35.714rem]:max-[71.714rem]:flex-row min-[35.714rem]:max-[71.714rem]:items-center min-[35.714rem]:max-[71.714rem]:justify-center min-[35.714rem]:max-[71.714rem]:gap-(--spacing-8) min-[35.714rem]:max-[71.714rem]:py-0',
+  'max-[35.643rem]:order-last max-[35.643rem]:h-(--nav-bottom) max-[35.643rem]:flex-row max-[35.643rem]:gap-0 max-[35.643rem]:border-t max-[35.643rem]:border-solid max-[35.643rem]:border-attached-border max-[35.643rem]:bg-header max-[35.643rem]:p-0 max-[35.643rem]:pb-[env(safe-area-inset-bottom)]'
+);
+
+// The nav's icons, with a quarter rem after them; a tab's sits above its label
+const NAV_ICON = cn(
+  ICON_SLOT,
+  'mr-[0.25rem] shrink-0 max-[35.643rem]:mr-0 max-[35.643rem]:text-(length:--font-size-6)'
+);
 
 // index.css colours every link, so the nav's colours are important
 const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   cn(
     'flex flex-row flex-nowrap gap-(--spacing-2) text-(length:--font-size-7) font-bold text-foreground! hover:text-badge!',
-    isActive && 'text-badge!'
+    'min-[35.714rem]:max-[71.714rem]:items-center min-[35.714rem]:max-[71.714rem]:text-(length:--font-size-4)',
+    'max-[35.643rem]:min-w-0 max-[35.643rem]:flex-1 max-[35.643rem]:flex-col max-[35.643rem]:items-center max-[35.643rem]:justify-center max-[35.643rem]:gap-(--spacing-1) max-[35.643rem]:text-(length:--font-size-1) max-[35.643rem]:[&>span]:max-w-full max-[35.643rem]:[&>span]:truncate',
+    isActive && 'text-badge! max-[71.714rem]:text-nav-active!'
   );
 
 function App(): React.JSX.Element {
@@ -104,7 +120,10 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <div className="h-fit overflow-auto bg-background [transition:all_500ms]" data-testid="app">
+    <div
+      className="h-fit overflow-auto bg-background [transition:all_500ms] [--tab-bar:calc(4rem+env(safe-area-inset-bottom))]"
+      data-testid="app"
+    >
       <Sheet open={visible} onOpenChange={setVisible}>
         <header>
           {/* Semantic's top attached menu: bordered in light mode, inverted in dark mode */}
@@ -238,8 +257,8 @@ function App(): React.JSX.Element {
               visible && 'after:size-full! after:opacity-100!'
             )}
           >
-            <main className="mx-auto grid! max-w-(--screen-lg) gap-x-(--spacing-8) min-[71.786rem]:grid-cols-[auto_minmax(auto,var(--screen-lg))]">
-              <nav className="flex! flex-col flex-nowrap gap-(--spacing-9) px-(--spacing-3) pt-(--spacing-10) max-[35.643rem]:[display:none]! min-[35.714rem]:max-[71.714rem]:[display:none]!">
+            <main className={MAIN}>
+              <nav className={NAV}>
                 <NavLink className={navLinkClass} end to="/">
                   <MapIcon className={NAV_ICON} /> <span>Tracker</span>
                 </NavLink>
@@ -256,7 +275,7 @@ function App(): React.JSX.Element {
                   <CalculatorIcon className={NAV_ICON} /> <span>{t('calculator')}</span>
                 </NavLink>
               </nav>
-              <div className="h-[calc(100vh-40px)] min-w-0 bg-secondary py-(--spacing-3)">
+              <div className="h-[calc(100dvh-40px-var(--nav-top)-var(--nav-bottom))] min-w-0 bg-secondary py-(--spacing-3)">
                 <AppRouter />
               </div>
             </main>
@@ -273,7 +292,9 @@ function App(): React.JSX.Element {
         <br />® and Pokémon character names are trademarks of Nintendo.
       </footer>
       <Effectiveness />
+      {/* Toasts rise above the tab bar; react-toastify's own CSS is unlayered */}
       <ToastContainer
+        className="max-[35.643rem]:bottom-(--tab-bar)!"
         stacked
         limit={3}
         pauseOnFocusLoss={false}
