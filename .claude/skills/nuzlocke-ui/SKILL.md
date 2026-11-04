@@ -10,7 +10,7 @@ The app moved from Semantic UI React + Sass modules to Tailwind v4 + shadcn/ui, 
 ## Where things live
 
 - `src/styles/globals.css`: Tailwind (theme, preflight, utilities), the design tokens, the `dark` variant and `@source`.
-- `src/styles/legacy-base.css`: loaded in the base layer right after preflight. It restores the element defaults the UI was calibrated against under Semantic's reset (normalize.css v7: tables, `hr`, monospace fonts, links' transparent fill). Each rule is a parity debt for Phase 5 to remove as an intended diff; box-sizing, list styles, replaced elements, `html`'s font, form controls and the browser's margins, paddings and borders already went (5e–5j), so preflight's defaults apply there.
+- There's no `legacy-base.css` any more: Phase 5 (5e–5k) removed the normalize defaults it restored after preflight, so preflight's defaults apply everywhere. An element that needs a browser default declares it (`[padding:revert]`, `pl-[40px]` for a list's indent, `NATIVE_FIELD`).
 - `src/components/ui/`: shadcn primitives, generated with `npx shadcn@4.22.1 add <name>` (config in `components.json`). They're our code after generation, so edit them freely, but keep the file names. After every `add`, check the result: the CLI has written `import { cn } from "cn"` and installed an unrelated npm package called `cn`. Fix the import to `@/lib/utils`, `npm uninstall cn`, and review any other dependency it added (`radix-ui` is expected). Then run Prettier, since it writes double quotes.
 - `src/lib/utils.ts`: `cn()` for class merging.
 - The `@/` import alias maps to `src/` (Vite and `tsconfig.json`). The bare aliases (`components`, `common`, `store`…) still work.
@@ -18,7 +18,7 @@ The app moved from Semantic UI React + Sass modules to Tailwind v4 + shadcn/ui, 
 ## Rules
 
 1. **Utilities come from all of `src`** except test files (`@source '..'` in `globals.css`). Files are scanned whole, so words in code, comments and game data emit utilities too (`.filter(` emits `.filter`). That's harmless as long as no markup uses a bare utility name as a plain class name, so don't add classes like `container` or `hidden` for anything but their utility.
-2. **The cascade.** Tailwind's preflight and `legacy-base.css` sit in the base layer, so any utility overrides them. Unlayered CSS still wins over every utility, whatever its specificity; only an important utility (`mt-0!`) beats it. What's left unlayered:
+2. **The cascade.** Tailwind's preflight sits in the base layer, so any utility overrides it. Unlayered CSS still wins over every utility, whatever its specificity; only an important utility (`mt-0!`) beats it. What's left unlayered:
    - `index.css`: `body`, `h1`–`h5` (margins, sizes, font), `p` (margin `0 0 1em`), `a` (colour) and the scrollbars. So `[&>p]:m-0` needs `!`, and a link styled as a button needs `text-…!` (see the Source link in `components/About`).
    - `assets/styles/pokemon.css` and `item.css`: the sprite classes.
 
