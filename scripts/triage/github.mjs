@@ -23,10 +23,6 @@ export const createGitHub = ({ token, repository, fetchImpl = fetch }) => {
   return {
     recentIssues: (since) =>
       request(`${repo}/issues?state=all&per_page=50&since=${encodeURIComponent(since)}`),
-    searchIssues: async (words) => {
-      const q = encodeURIComponent(`repo:${repository} is:issue ${words}`);
-      return (await request(`/search/issues?per_page=10&q=${q}`)).items;
-    },
     comments: (number) => request(`${repo}/issues/${number}/comments?per_page=100`),
     comment: (number, body) =>
       request(`${repo}/issues/${number}/comments`, { method: 'POST', body: { body } }),
@@ -36,7 +32,7 @@ export const createGitHub = ({ token, repository, fetchImpl = fetch }) => {
   };
 };
 
-// An alert that fails must not cost the review, so this warns instead of throwing.
+// An alert that fails must not fail the run, so this warns instead of throwing.
 export const sendDiscord = async (url, payload, fetchImpl = fetch) => {
   try {
     const response = await fetchImpl(url, {

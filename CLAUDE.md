@@ -86,9 +86,9 @@ Porting and harness gotchas:
 
 ### Issue triage (`scripts/triage/`)
 
-- `triage.yml` runs on `issues: opened`: Discord alert, then one Claude review (`triage.mjs`), one comment and labels, then a second alert. `triage-fix.yml` runs when the repository owner adds `triage:approved`: `draft` runs the model and can't push, and `open-pr` holds `TRIAGE_PR_TOKEN`, runs no model and checks the patch (`check-patch.mjs`). Without `DISCORD_WEBHOOK_URL`, `triage.yml` stays green and does nothing; without `ANTHROPIC_API_KEY` it still alerts and labels spam, but skips the review (and the flood cap, which only limits its cost). `triage-fix.yml` needs `ANTHROPIC_API_KEY` and `TRIAGE_PR_TOKEN`, and only comments without them. GitHub Models, a free alternative, was retired on 2026-07-30.
-- Issue text comes from strangers. Keep these true when changing it: no `github.event.issue` text in a `run:` step (scripts read `GITHUB_EVENT_PATH`); the model has no shell tool; everything it or a reporter wrote goes through `neutralize` (no mentions, issue references, HTML, images or outside links); labels come from `REVIEW_LABELS` and must already exist, because adding an unknown label creates it; `triage:approved` is never in that list.
-- Tests are `scripts/**/*.test.mjs`, run by Vitest with the unit tests. `lib.mjs` is pure and `runLoop` takes its client as an argument. To run an entry point without spending anything, stub `globalThis.fetch` in a file passed to `node --import` (the SDK uses it too) and point `GITHUB_EVENT_PATH` at a JSON event.
+- `triage.yml` runs on `issues: opened` and calls no model: `triage.mjs` checks the spam signals, gives likely spam one comment and `invalid` (never closing it), and sends one Discord alert. Without `DISCORD_WEBHOOK_URL` it stays green and does nothing. The script uses only Node's built-ins, so the job installs nothing.
+- Issue text comes from strangers. Keep these true when changing it: no `github.event.issue` text in a `run:` step (the script reads `GITHUB_EVENT_PATH`); anything a reporter wrote goes through `neutralize` (no mentions, issue references, HTML, images or outside links) before GitHub or Discord shows it; only add labels that already exist, because adding an unknown one creates it.
+- Tests are `scripts/**/*.test.mjs`, run by Vitest with the unit tests. `lib.mjs` is pure. To run `triage.mjs` without touching GitHub or Discord, stub `globalThis.fetch` in a file passed to `node --import` and point `GITHUB_EVENT_PATH` at a JSON event.
 
 ### Security advisories
 

@@ -1,6 +1,6 @@
 name: Issue triage
-# Phase 7: alerts the owner on Discord about each new issue and flags likely spam. With
-# ANTHROPIC_API_KEY set, Claude also reviews the issue and posts one comment.
+# Phase 7: alerts the owner on Discord about each new issue, and flags likely spam with a comment
+# and the invalid label. No model runs.
 # Issue text comes from strangers. It reaches the script through GITHUB_EVENT_PATH, so never add a
 # github.event.issue expression to a run step. The job can read code and write issues, and nothing else.
 on:
@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   # Secrets can't be read in a job's `if`. Without the webhook the workflow stays green and does
-  # nothing; without the API key it alerts and flags spam but doesn't review.
+  # nothing.
   check-secrets:
     runs-on: ubuntu-latest
     outputs:
@@ -44,11 +44,9 @@ jobs:
       - uses: actions/setup-node@v7
         with:
           node-version-file: .node-version
-          cache: npm
-      - run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Review the issue
+      # The script uses Node's built-ins only, so there is nothing to install
+      - name: Check the issue
         env:
-          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
           GITHUB_TOKEN: ${{ github.token }}
         run: node scripts/triage/triage.mjs
