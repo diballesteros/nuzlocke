@@ -73,7 +73,7 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
   cn(
     'flex flex-row flex-nowrap gap-(--spacing-2) text-(length:--font-size-7) font-bold text-foreground! hover:text-badge!',
     'min-[35.714rem]:max-[71.714rem]:items-center min-[35.714rem]:max-[71.714rem]:text-(length:--font-size-4)',
-    'max-[35.643rem]:min-w-0 max-[35.643rem]:flex-1 max-[35.643rem]:flex-col max-[35.643rem]:items-center max-[35.643rem]:justify-center max-[35.643rem]:gap-(--spacing-1) max-[35.643rem]:text-(length:--font-size-1) max-[35.643rem]:[&>span]:max-w-full max-[35.643rem]:[&>span]:truncate',
+    'max-[35.643rem]:min-w-0 max-[35.643rem]:flex-1 max-[35.643rem]:flex-col max-[35.643rem]:items-center max-[35.643rem]:justify-center max-[35.643rem]:gap-(--spacing-1) max-[35.643rem]:text-(length:--font-size-2) max-[35.643rem]:[&>span]:max-w-full max-[35.643rem]:[&>span]:truncate',
     isActive && 'text-badge! max-[71.714rem]:text-nav-active!'
   );
 
