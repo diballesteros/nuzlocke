@@ -52,13 +52,14 @@ const GAME_MENU = cn(SELECTION_MENU, 'font-control rounded-t-[0.28571429rem]');
 
 // The page nav, one list at every width: a column beside the page from 1148px, a row above it
 // down to 571px, and a tab bar at the bottom of the screen below that. The page's height leaves
-// room for the row (--nav-top) or the tab bar (--nav-bottom, set on the app for the toasts too)
+// room for the row (--nav-top) or the tab bar (--nav-bottom, set on the app for the toasts too). The tab bar
+// comes first in the DOM, so it stacks above pages that overflow (the empty tracker is 1000px tall)
 const MAIN =
   'mx-auto grid! max-w-(--screen-lg) gap-x-(--spacing-8) [--nav-bottom:0px] [--nav-top:0px] min-[35.714rem]:max-[71.714rem]:[--nav-top:3.571rem] max-[35.643rem]:[--nav-bottom:var(--tab-bar)] min-[71.786rem]:grid-cols-[auto_minmax(auto,var(--screen-lg))]';
 const NAV = cn(
   'flex! flex-col flex-nowrap gap-(--spacing-9) px-(--spacing-3) pt-(--spacing-10)',
   'min-[35.714rem]:max-[71.714rem]:h-(--nav-top) min-[35.714rem]:max-[71.714rem]:flex-row min-[35.714rem]:max-[71.714rem]:items-center min-[35.714rem]:max-[71.714rem]:justify-center min-[35.714rem]:max-[71.714rem]:gap-(--spacing-8) min-[35.714rem]:max-[71.714rem]:py-0',
-  'max-[35.643rem]:order-last max-[35.643rem]:h-(--nav-bottom) max-[35.643rem]:flex-row max-[35.643rem]:gap-0 max-[35.643rem]:border-t max-[35.643rem]:border-solid max-[35.643rem]:border-attached-border max-[35.643rem]:bg-header max-[35.643rem]:p-0 max-[35.643rem]:pb-[env(safe-area-inset-bottom)]'
+  'max-[35.643rem]:relative max-[35.643rem]:z-1 max-[35.643rem]:order-last max-[35.643rem]:h-(--nav-bottom) max-[35.643rem]:flex-row max-[35.643rem]:gap-0 max-[35.643rem]:border-t max-[35.643rem]:border-solid max-[35.643rem]:border-attached-border max-[35.643rem]:bg-header max-[35.643rem]:p-0 max-[35.643rem]:pb-[env(safe-area-inset-bottom)]'
 );
 
 // The nav's icons, with a quarter rem after them; a tab's sits above its label
