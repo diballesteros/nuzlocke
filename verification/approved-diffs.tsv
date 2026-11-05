@@ -91,3 +91,4 @@ badges-badge-editor-*	3a63ce1	Phase 5m: the tracker redesign behind the badge ed
 shell-home-empty-*	3a63ce1	Phase 5m: the tracker's search row with no game selected now holds Share, Add and Reset as small outlined buttons (they were full-width coloured bars below it). Pixels only; ARIA and axe unchanged
 shell-sidebar-*	3a63ce1	Phase 5m: the tracker redesign behind the sidebar (rows, toolbar and Go to bar as in tracker-*). ARIA as in tracker-*; axe unchanged
 settings-*	3a63ce1	Phase 5m: Settings gains a Compact tracker rows checkbox after Show nicknames, which moves the rows below it down one line. ARIA: checkbox "Compact tracker rows"; axe unchanged
+*-desktop-*	635ff18	The header title sits in the middle of the bar from 1200px (it followed the game controls, off centre). Desktop states only: the title moves right; pixels only, ARIA and axe unchanged
