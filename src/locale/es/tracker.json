@@ -32,5 +32,12 @@
   "reset_encounters": "Restablecer encuentros",
   "reset_success": "Los encuentros se restablecieron con éxito",
   "share": "Compartir",
-  "encounter_details": "Detalles del encuentro"
+  "encounter_details": "Detalles del encuentro",
+  "change_pokemon": "Cambiar Pokémon",
+  "confirm_reset": "{{location}} vuelve a quedar vacío: se borran su Pokémon, su estado y sus detalles.",
+  "confirm_reset_title": "¿Restablecer este encuentro?",
+  "edit_details": "Editar detalles",
+  "encounter_options": "Opciones del encuentro",
+  "evolve": "Evolucionar",
+  "randomize": "Aleatorio"
 }

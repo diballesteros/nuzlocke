@@ -2,21 +2,34 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import NICKNAMES from 'constants/nicknames';
 import useStore from 'store';
-import { Button } from '@/components/ui/button';
-import { BUTTON_ICON, ShuffleIcon } from '@/components/ui/icons';
+import { ShuffleIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+import { ROW_GHOST, TALL } from '../buttons';
 
 interface NicknameProps {
+  className?: string;
   encounterId: number;
   nickname?: string;
+  // 40px tall on phones
+  tall?: boolean;
 }
 
-// Semantic's `fluid action` Input: a transparent field in the page's colours with the randomize
-// button attached on its right. Semantic's reset styles every <input> and <button>, so their font,
-// size, line height and margin are marked important (!)
-function Nickname({ encounterId, nickname }: NicknameProps): React.JSX.Element {
+// The nickname field with its Randomize button beside it, at the row's control height
+function Nickname({
+  className,
+  encounterId,
+  nickname,
+  tall = false,
+}: NicknameProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changeNickname = useStore((state) => state.changeNickname);
   const [nick, setNick] = useState(nickname ?? '');
+  // The field follows the stored nickname when it changes elsewhere (Randomize, an import)
+  const [stored, setStored] = useState(nickname);
+  if (nickname !== stored) {
+    setStored(nickname);
+    setNick(nickname ?? '');
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNick(e.target.value);
@@ -32,12 +45,15 @@ function Nickname({ encounterId, nickname }: NicknameProps): React.JSX.Element {
 
   return (
     <div
-      className="relative col-span-2 flex w-full text-[1rem] text-field-foreground"
+      className={cn('flex min-w-0 items-center gap-(--spacing-1)', className)}
       data-testid={`nickname-${encounterId}`}
     >
       <input
-        aria-label="nickname"
-        className="m-0! w-0 max-w-full flex-[1_0_auto] appearance-none rounded-l-[0.28571429rem] rounded-r-none border border-solid border-contrast-border bg-transparent px-[1em] py-[0.67857143em] text-left font-control! text-[1em]! leading-[1.21428571em]! text-foreground outline-none transition-[box-shadow,border-color] duration-100 placeholder:text-placeholder"
+        aria-label={t('nickname')}
+        className={cn(
+          'm-0! h-[1.857rem] w-0 min-w-0 flex-1 rounded-md border border-solid border-contrast-border bg-transparent px-(--spacing-2) font-[inherit]! text-(length:--font-size-2)! leading-none! text-foreground outline-none placeholder:text-row-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring',
+          tall && TALL
+        )}
         id={`nickname-${encounterId}`}
         maxLength={12}
         onBlur={handleBlur}
@@ -46,16 +62,15 @@ function Nickname({ encounterId, nickname }: NicknameProps): React.JSX.Element {
         value={nick}
       />
       {/* The `ui` class keeps the specs' `nickname-… > .ui` locator */}
-      <Button
-        aria-label="randomize"
-        className="ui mr-0! rounded-l-none rounded-r-[0.28571429rem] max-sm:p-(--spacing-2)"
+      <button
+        aria-label={t('randomize')}
+        className={cn('ui', ROW_GHOST, tall ? 'size-[2.857rem]' : 'size-[1.857rem]')}
         onClick={handleRandomize}
-        size="icon"
-        title="Randomize"
+        title={t('randomize')}
         type="button"
       >
-        <ShuffleIcon className={BUTTON_ICON} />
-      </Button>
+        <ShuffleIcon aria-hidden />
+      </button>
     </div>
   );
 }

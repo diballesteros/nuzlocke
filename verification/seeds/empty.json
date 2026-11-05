@@ -8486,6 +8486,7 @@
     "missing": false,
     "newVersion": "1",
     "nicknames": false,
+    "compact": false,
     "notes": {},
     "rules": {
       "Nuzlocke": [
@@ -8842,5 +8843,5 @@
     "types": [],
     "typeModal": null
   },
-  "version": 8
+  "version": 9
 }

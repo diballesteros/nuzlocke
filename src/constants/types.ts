@@ -7,6 +7,7 @@ export interface AppState {
   customBadges: TCustomBadgeDictionary;
   customStatuses: TStatus[];
   darkMode: boolean;
+  compact: boolean;
   duplicates: boolean;
   games: Games;
   gamesList: TGame[];
@@ -112,6 +113,7 @@ export interface AppState {
   summary: TSummaryDictionary;
   toggleMissing: () => void;
   toggleMode: () => void;
+  toggleCompact: () => void;
   toggleNickname: () => void;
   toggleShowAll: () => void;
   toggleShowAllTooltip: () => void;

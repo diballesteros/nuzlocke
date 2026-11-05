@@ -4,25 +4,20 @@ import { useTranslation } from 'react-i18next';
 import type { TEncounter } from 'constants/types';
 import { useNatureName, useNatureOptions } from 'hooks/useNatures';
 import useStore from 'store';
-import { BUTTON_ICON } from '@/components/ui/icons';
 import { Select } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { OUTLINE_BUTTON } from '../buttons';
 
 interface NatureProps {
   encounter: TEncounter;
+  // Phones show the leaf only, named by the field's label
+  iconOnly?: boolean;
+  triggerClassName?: string;
 }
 
-// Semantic's `button` Dropdown with a leaf in place of the caret, outlined like the row's other
-// buttons and 2.2rem tall. On the narrowest screens only the leaf shows. Its menu, in the button's
-// font, lines up with its right edge (`direction="left"`). The menu is portalled: inside the row
-// it would sit under the next one, which react-window 2 positions with a transform
-const TRIGGER = cn(
-  OUTLINE_BUTTON,
-  'm-0! flex! h-[2.2rem] w-fit items-center justify-center data-[state=open]:rounded-b-none [&>span:first-child]:mr-(--spacing-1) max-xs:w-[2.5rem] max-xs:[&>span:first-child]:[display:none]!'
-);
-
-function Nature({ encounter }: NatureProps): React.JSX.Element {
+// The row's Nature field: an outlined control with the nature (or "Nature") and a leaf, in a fixed
+// slot so the row's columns line up. Its menu is portalled: inside the row it would sit under the
+// next one, which react-window 2 positions with a transform
+function Nature({ encounter, iconOnly = false, triggerClassName }: NatureProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const changeNature = useStore(useCallback((state) => state.changeNature, []));
   const natureName = useNatureName();
@@ -32,16 +27,21 @@ function Nature({ encounter }: NatureProps): React.JSX.Element {
     <Select
       align="end"
       aria-label={t('nature')}
-      className="font-control"
       data-testid={`nature-${encounter.id}`}
-      icon={<Leaf aria-hidden className={cn(BUTTON_ICON, 'opacity-80')} strokeWidth={2.5} />}
-      look="button"
-      menuClassName="font-control"
+      // The leaf leads, like the row's other buttons' icons, and there's no caret
+      icon={<span aria-hidden />}
+      leading={<Leaf aria-hidden className="size-[1.143rem] shrink-0" strokeWidth={2.5} />}
+      look="row"
       onChange={(value) => changeNature(encounter.id, value)}
       options={options}
       scrolling
       text={encounter?.details?.nature ? natureName(encounter.details.nature) : t('nature')}
-      triggerClassName={TRIGGER}
+      triggerClassName={cn(
+        iconOnly
+          ? 'w-[2.857rem] justify-center px-0 [&>[data-select-text]]:sr-only'
+          : 'w-[7.857rem]',
+        triggerClassName
+      )}
       value={encounter?.details?.nature ?? ''}
     />
   );

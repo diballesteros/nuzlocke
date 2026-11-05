@@ -42,6 +42,7 @@ test('tracker encounters', async ({ page }) => {
   await pickOption(page, 'status-1', 'Fainted');
   await byTestId(page, 'encounter-options-1').click();
   await byTestId(page, 'reset-encounter-1').click();
+  await byTestId(page, 'confirm-reset-encounter').click();
   await byTestId(page, 'encounter-options-2').click();
   await byTestId(page, 'delete-encounter-2').click();
   await text(page, 'OK').click();

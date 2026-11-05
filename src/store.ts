@@ -55,6 +55,7 @@ const useStore = create<AppState>()(
       missing: INITIAL_STATE.missing,
       newVersion: INITIAL_STATE.newVersion,
       nicknames: INITIAL_STATE.nicknames,
+      compact: INITIAL_STATE.compact,
       notes: INITIAL_STATE.notes,
       rules: INITIAL_STATE.rules,
       rulesets: null as TRuleset[] | null, // No longer used
@@ -433,6 +434,7 @@ const useStore = create<AppState>()(
           state.duplicates = !!newAppState.duplicates;
           state.missing = !!newAppState.missing;
           state.nicknames = !!newAppState.nicknames;
+          state.compact = !!newAppState.compact;
           state.showAll = !!newAppState.showAll;
           state.suggestions = !!newAppState.suggestions;
           if (newAppState.badges) state.badges = newAppState.badges;
@@ -556,6 +558,11 @@ const useStore = create<AppState>()(
           state.darkMode = !state.darkMode;
         });
       },
+      toggleCompact: () => {
+        set((state) => {
+          state.compact = !state.compact;
+        });
+      },
       toggleNickname: () => {
         set((state) => {
           state.nicknames = !state.nicknames;
@@ -602,7 +609,7 @@ const useStore = create<AppState>()(
     })),
     {
       name: 'pokemon-tracker',
-      version: 8,
+      version: 9,
       migrate: (persistedState, version) => {
         assertAppState(persistedState);
         const gameMigration = persistedState.games;
@@ -704,6 +711,11 @@ const useStore = create<AppState>()(
           Object.keys(gameMigration).forEach((key) => {
             gameMigration[key].badge = [];
           });
+        }
+
+        // The tracker's compact rows (5m)
+        if (version < 9) {
+          persistedState.compact = false;
         }
 
         return {

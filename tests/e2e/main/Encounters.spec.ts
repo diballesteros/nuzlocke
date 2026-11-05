@@ -100,6 +100,7 @@ test.describe('Encounters', () => {
     await expect(text(page, 'Raboot')).toBeAttached();
     await byTestId(page, 'encounter-options-0').click();
     await byTestId(page, 'reset-encounter-0').click();
+    await byTestId(page, 'confirm-reset-encounter').click();
     await expect(byTestId(page, 'encounter-empty-0')).toBeAttached();
     await expect(dropdownText(page, 'status-0')).toHaveText('Status...');
   });
@@ -174,6 +175,7 @@ test.describe('Encounters', () => {
     await option('level-up-0');
     await option('level-down-0');
     await option('reset-encounter-0');
+    await byTestId(page, 'confirm-reset-encounter').click();
     await byTestId(page, 'pokemon-0').click();
     await byTestId(page, 'poke-Scorbunny').dispatchEvent('click');
     await byTestId(page, 'edit-encounter-0').click();

@@ -14,31 +14,14 @@ function PopoverTrigger({ ...props }: React.ComponentProps<typeof PopoverPrimiti
   return <PopoverPrimitive.Trigger data-slot="popover-trigger" {...props} />;
 }
 
-// Semantic's non-pinned click Popup (the tracker's options) put the bubble's bottom edge on a whole
-// pixel and its right edge exactly on the trigger's; Radix rounds its top-left corner instead.
-// `edgeAligned` shifts the bubble to where Semantic's sat (only for side="top" and align="end")
-const alignEdges = (node: HTMLDivElement | null) => {
-  if (!node) return;
-  requestAnimationFrame(() => {
-    const trigger = document.querySelector(`[aria-controls="${node.id}"]`)?.getBoundingClientRect();
-    if (!trigger) return;
-    const bubble = node.getBoundingClientRect();
-    const dx = trigger.right - bubble.right;
-    const dy = Math.round(trigger.top - Number(node.dataset.offset)) - bubble.bottom;
-    if (Math.abs(dx) < 1 && Math.abs(dy) < 1) node.style.translate = `${dx}px ${dy}px`;
-  });
-};
-
 function PopoverContent({
   arrowClassName,
   className,
   children,
-  edgeAligned = false,
   sideOffset = 10,
   ...props
 }: React.ComponentProps<typeof PopoverPrimitive.Content> & {
   arrowClassName?: string;
-  edgeAligned?: boolean;
 }) {
   return (
     <PopoverPrimitive.Portal>
@@ -46,7 +29,6 @@ function PopoverContent({
         data-slot="popover-content"
         align="center"
         data-offset={sideOffset}
-        ref={edgeAligned ? alignEdges : undefined}
         side="top"
         sideOffset={sideOffset}
         className={cn(

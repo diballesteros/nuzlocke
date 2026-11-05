@@ -11,8 +11,9 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
-import { TOOLBAR_ICON, XIcon } from '@/components/ui/icons';
-import { RADIUS } from '../buttons';
+import { XIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+import { TOOLBAR_BUTTON, TOOLBAR_DANGER } from '../buttons';
 
 interface ResetEncounterProps {
   icon?: boolean;
@@ -43,16 +44,16 @@ function ResetEncounters({ icon = false }: ResetEncounterProps): React.JSX.Eleme
           <XIcon className={FAB_ICON} />
         </FabButton>
       ) : (
-        <Button
-          className={RADIUS}
+        <button
+          className={cn(TOOLBAR_BUTTON, TOOLBAR_DANGER)}
           data-testid="reset-all"
           disabled={!selectedGame}
           onClick={() => setOpen(true)}
-          variant="red"
+          type="button"
         >
-          {t('reset')}
-          <XIcon className={TOOLBAR_ICON} />
-        </Button>
+          <XIcon aria-hidden />
+          <span>{t('reset')}</span>
+        </button>
       )}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>

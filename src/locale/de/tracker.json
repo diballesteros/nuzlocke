@@ -19,7 +19,7 @@
   "export_to_builder": "In Builder exportieren",
   "export_to_game": "Ins Spiel exportieren und schließen",
   "go_to": "Gehe zu",
-  "level_down": "Einebnen",
+  "level_down": "Level senken",
   "level_up": "Aufleveln",
   "met_level": "Level gefunden",
   "nickname": "Spitzname",
@@ -32,5 +32,12 @@
   "reset_encounters": "Begegnungen zurücksetzen",
   "reset_success": "Begegnungen wurden erfolgreich zurückgesetzt",
   "share": "Teilen",
-  "encounter_details": "Begegnungsdetails"
+  "encounter_details": "Begegnungsdetails",
+  "change_pokemon": "Pokémon ändern",
+  "confirm_reset": "{{location}} wird wieder leer: Pokémon, Status und Details werden gelöscht.",
+  "confirm_reset_title": "Diese Begegnung zurücksetzen?",
+  "edit_details": "Details bearbeiten",
+  "encounter_options": "Begegnungsoptionen",
+  "evolve": "Entwickeln",
+  "randomize": "Zufällig"
 }

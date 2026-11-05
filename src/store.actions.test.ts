@@ -254,6 +254,7 @@ describe('settings', () => {
     ['toggleMode', 'darkMode'],
     ['changeDupe', 'duplicates'],
     ['toggleMissing', 'missing'],
+    ['toggleCompact', 'compact'],
     ['toggleNickname', 'nicknames'],
     ['toggleShowAll', 'showAll'],
     ['toggleSoulink', 'soulink'],
@@ -272,11 +273,13 @@ describe('settings', () => {
       selectedGame: store().gamesList[0],
       darkMode: undefined,
       nicknames: true,
+      compact: true,
     });
     expect(store()).toMatchObject({
       selectedGame: store().gamesList[0],
       darkMode: false,
       nicknames: true,
+      compact: true,
     });
   });
 

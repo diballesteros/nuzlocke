@@ -22,7 +22,7 @@ import { buttonVariants } from './button';
 // `align="end"` lines the menu up with the trigger's right edge (`direction="left"`), and `scrolling`
 // is Semantic's `scrolling` menu: no rules between items, which don't wrap, and a taller cap.
 
-type SelectLook = 'button' | 'contrast' | 'field' | 'inline' | 'text';
+type SelectLook = 'button' | 'contrast' | 'field' | 'inline' | 'row' | 'text';
 
 // Semantic's reset styles every <button>, so font, size, line height and margin need !
 const FIELD =
@@ -39,6 +39,9 @@ const TRIGGER: Record<SelectLook, string> = {
   ),
   field: cn(FIELD, 'font-control!'),
   inline: cn(FIELD, '[font-family:inherit]! font-bold'),
+  // The tracker row's fields (5m): one line at the row's control height, the text truncated before
+  // the caret, and the rows' focus ring
+  row: 'group relative m-0! flex h-[2.286rem] w-full min-w-0 cursor-pointer items-center justify-between gap-(--spacing-2) rounded-md border border-solid border-contrast-border bg-transparent pr-(--spacing-2) pl-(--spacing-3) text-left [font-family:inherit]! text-(length:--font-size-2)! leading-none! font-bold text-foreground outline-none hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring data-[state=open]:border-foreground',
   text: 'group relative m-0! inline-block cursor-pointer border-0 bg-transparent p-0 text-left [font-family:inherit]! text-[1rem]! leading-[1em]! font-bold text-inherit outline-none',
 };
 
@@ -52,6 +55,7 @@ const CARET: Record<SelectLook, string> = {
   contrast: 'absolute top-[16px] right-[25.67px]',
   field: 'absolute top-[16px] right-[13px]',
   inline: 'absolute top-[16px] right-[25.67px]',
+  row: 'shrink-0',
   text: 'mx-[0.21428571em] inline-block align-middle',
 };
 
@@ -113,6 +117,8 @@ interface SelectProps {
   'data-testid'?: string;
   disabled?: boolean;
   icon?: React.ReactNode;
+  // Drawn before the trigger's text (the row look's status dot and Nature's leaf)
+  leading?: React.ReactNode;
   look?: SelectLook;
   // Extra classes for the menu, and its gap below the trigger (Semantic's `basic labeled` menus
   // hang 2px lower)
@@ -143,6 +149,7 @@ function Select({
   'data-testid': dataTestId,
   disabled = false,
   icon,
+  leading,
   look = 'field',
   menuClassName,
   menuOffset = 0,
@@ -239,12 +246,16 @@ function Select({
       data-slot="select"
       data-testid={contained ? undefined : dataTestId}
     >
+      {leading}
       <span
         className={
-          ATTACHED(look) && look !== 'contrast'
-            ? 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'
-            : undefined
+          look === 'row'
+            ? 'min-w-0 flex-1 truncate'
+            : ATTACHED(look) && look !== 'contrast'
+              ? 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'
+              : undefined
         }
+        data-select-text
       >
         {text ?? <SelectPrimitive.Value placeholder={placeholder} />}
       </span>
