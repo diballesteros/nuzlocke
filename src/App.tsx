@@ -128,7 +128,7 @@ function App(): React.JSX.Element {
       <Sheet open={visible} onOpenChange={setVisible}>
         <header>
           {/* Semantic's top attached menu: bordered in light mode, inverted in dark mode */}
-          <div className="mx-[-1px] my-0 flex min-h-[2.85714286em] w-full rounded-t-md border border-solid border-attached-border bg-header font-control text-[1rem] leading-[1.4285em] text-[rgba(0,0,0,0.87)] dark:border-0">
+          <div className="relative mx-[-1px] my-0 flex min-h-[2.85714286em] w-full rounded-t-md border border-solid border-attached-border bg-header font-control text-[1rem] leading-[1.4285em] text-[rgba(0,0,0,0.87)] dark:border-0">
             <SheetTrigger
               aria-label="sidebar-button"
               className="relative block cursor-pointer border-none bg-header px-(--spacing-4) py-px font-[sans-serif] leading-[1.15] text-foreground"
@@ -191,7 +191,8 @@ function App(): React.JSX.Element {
                 </DialogContent>
               </Dialog>
             </div>
-            <div className="mx-auto flex text-foreground max-[85.714rem]:mr-[unset] max-[85.714rem]:ml-(--spacing-7) max-[53.125rem]:ml-(--spacing-4) max-[53.751rem]:[&>h1]:sr-only">
+            {/* From 1200px the title sits in the middle of the bar; below, after the game controls */}
+            <div className="mx-auto flex text-foreground max-[85.714rem]:mr-[unset] max-[85.714rem]:ml-(--spacing-7) max-[53.125rem]:ml-(--spacing-4) max-[53.751rem]:[&>h1]:sr-only min-[75rem]:absolute min-[75rem]:inset-y-0 min-[75rem]:left-1/2 min-[75rem]:m-0! min-[75rem]:-translate-x-1/2 min-[75rem]:items-center">
               <h1>Nuzlocke Tracker</h1>
             </div>
           </div>
