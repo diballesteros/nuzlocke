@@ -24,6 +24,8 @@
   - text: Duplicate clause (Show alert on duplicate pokémon)
   - checkbox "Show nicknames"
   - text: Show nicknames
+  - checkbox "Compact tracker rows"
+  - text: Compact tracker rows
   - checkbox "Show only missing encounters"
   - text: Show only missing encounters
   - checkbox "Show all pokémon in every encounter"

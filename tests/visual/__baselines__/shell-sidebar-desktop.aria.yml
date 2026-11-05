@@ -54,41 +54,66 @@
   - button "ADD"
   - button "RESET"
   - list:
-    - listitem:
-      - text: Starter
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: Pallet Town
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: Route 1
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: Viridian City
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: /Route \d+/
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: Route 2
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
-    - listitem:
-      - text: Viridian Forest
-      - button "encounter-options"
-      - button "Pokémon..."
-      - combobox "status-selector" [disabled]: Status...
+    - listitem "Starter":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Pallet Town":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Route 1":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Viridian City":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem /Route \d+/:
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Route 2":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Viridian Forest":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Route 3":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Route 4":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Mt. Moon":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem "Cerulean City":
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - listitem /Route \d+/:
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
   - button "open-notes"
   - button "open-scroll-list"
   - button "scroll-to-last-encounter": Go to Starter
