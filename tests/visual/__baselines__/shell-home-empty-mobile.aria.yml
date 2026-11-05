@@ -4,6 +4,17 @@
   - button "addgame"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
   - button "search-options"
   - searchbox "search"
   - button "Help"

@@ -24,7 +24,7 @@ function FAB(): React.JSX.Element {
   const games = useStore(useCallback((state) => state.games, []));
   return (
     <div
-      className="fixed right-(--spacing-2) bottom-(--spacing-3) z-1 [display:none] max-sm:flex max-sm:flex-col max-sm:flex-nowrap max-sm:items-end max-sm:gap-(--spacing-2)"
+      className="fixed right-(--spacing-2) bottom-[calc(var(--nav-bottom,0px)+var(--spacing-3))] z-1 [display:none] max-sm:flex max-sm:flex-col max-sm:flex-nowrap max-sm:items-end max-sm:gap-(--spacing-2)"
       data-testid="fab-tracker"
     >
       {open && (

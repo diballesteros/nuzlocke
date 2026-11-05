@@ -7,6 +7,17 @@
   - heading "Menu" [level=2]
   - text: Tracker Rules Stats Builder Damage Calculator Settings Export Import Report Changelog ! About
 - main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
   - text: /\d+/
   - button "Boulder Badge"
   - button "Boulder Badge details"

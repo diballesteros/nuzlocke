@@ -33,6 +33,9 @@
   --badge: #d46a6a;
   --badgeopac: #d46a6a50;
   --badgeflash: #ffaaaa;
+  /* The current page in the nav's row and tab bar, whose text is smaller than the column's: the
+     badge colour darkened to 4.7:1 on white */
+  --nav-active: #c04e4e;
   /* The badge strip, the same in both themes: badge text, its glow, and the ? button's ring */
   --badge-foreground: #0a0a0a;
   --badge-shadow: #999999;
@@ -191,6 +194,7 @@
   --badge: #c395fe;
   --badgeopac: #c395fe50;
   --badgeflash: #ffffff;
+  --nav-active: var(--badge);
   --contrast: #ffffff;
   --contrast-border: #525252;
   --placeholder: #d9d9d9;
@@ -221,6 +225,7 @@
   --color-badge: var(--badge);
   --color-badgeopac: var(--badgeopac);
   --color-badgeflash: var(--badgeflash);
+  --color-nav-active: var(--nav-active);
   --color-badge-foreground: var(--badge-foreground);
   --color-badge-shadow: var(--badge-shadow);
   --color-badge-question: var(--badge-question);
