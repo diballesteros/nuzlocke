@@ -4,6 +4,17 @@
   - button "addgame"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
+  - navigation:
+    - link "Tracker":
+      - /url: /
+    - link "Rules":
+      - /url: /rules
+    - link "Stats":
+      - /url: /stats
+    - link "Builder":
+      - /url: /builder
+    - link "Calculator":
+      - /url: /calculator
   - heading "Changelog" [level=2]
   - button "Back"
   - heading /Version 6\.1\.0 Tue, Jul \d+, \d+/ [level=3]:

@@ -36,8 +36,17 @@ const BOX = 'm-0 p-[1em] object-cover';
 const UNSTYLED_BUTTON =
   'm-0! cursor-pointer border-0 bg-transparent p-0 [font-family:inherit]! text-[length:inherit]! leading-[inherit]! text-inherit';
 
-// A boxed Pokémon: hovering outlines it, a click opens its details above it
-function BoxedPokemon({ encounter, testId }: { encounter: TEncounter; testId: string }) {
+// A boxed Pokémon: hovering outlines it, a click opens its details above it. The details stay
+// inside the tab's panel (`boundary`), flipping below the Pokémon rather than covering the tabs
+function BoxedPokemon({
+  boundary,
+  encounter,
+  testId,
+}: {
+  boundary: HTMLElement | null;
+  encounter: TEncounter;
+  testId: string;
+}) {
   const foundPokemon = POKEMAP.get(encounter.pokemon);
   return (
     <Popover>
@@ -54,7 +63,7 @@ function BoxedPokemon({ encounter, testId }: { encounter: TEncounter; testId: st
           <PkmImage name={foundPokemon?.text} shiny={encounter?.details?.shiny} />
         </button>
       </PopoverTrigger>
-      <PopoverContent>
+      <PopoverContent collisionBoundary={boundary}>
         <PokeInfo encounter={encounter} pokemon={foundPokemon} />
       </PopoverContent>
     </Popover>
@@ -68,6 +77,8 @@ function Pokestats(): React.JSX.Element {
   const caughtPokemon = useStore(useShallow(selectCaught));
   const failedPokemon = useStore(useShallow(selectFailed));
   const [tab, setTab] = useState('overview');
+  // The open status tab's panel, which the Pokémon's details stay inside
+  const [panel, setPanel] = useState<HTMLDivElement | null>(null);
 
   // The status tabs: a tiled box wallpaper behind the Pokémon
   const boxes = [
@@ -137,6 +148,7 @@ function Pokestats(): React.JSX.Element {
             BOX,
             'relative flex w-full flex-1 flex-col flex-nowrap gap-(--spacing-4) bg-team-box'
           )}
+          ref={setPanel}
           value="Team"
         >
           {teamPokemon?.length > 0 ? (
@@ -165,7 +177,7 @@ function Pokestats(): React.JSX.Element {
                         <div className="absolute top-[48%] z-1 h-[0.714rem] w-full bg-pokeball-ring" />
                       </button>
                     </PopoverTrigger>
-                    <PopoverContent>
+                    <PopoverContent collisionBoundary={panel}>
                       <PokeInfo encounter={enc} pokemon={foundPokemon} />
                     </PopoverContent>
                   </Popover>
@@ -189,12 +201,14 @@ function Pokestats(): React.JSX.Element {
           <TabsContent
             className={cn(BOX, 'flex-1')}
             key={box.key}
+            ref={setPanel}
             style={{ background: `url(${box.wallpaper}) repeat` }}
             value={box.key}
           >
             {box.list?.length > 0 ? (
               box.list.map((enc, i) => (
                 <BoxedPokemon
+                  boundary={panel}
                   encounter={enc}
                   key={`${box.prefix}-${enc.id}-${Number(i) + 1}`}
                   testId={`${box.prefix}-${enc.id}`}
