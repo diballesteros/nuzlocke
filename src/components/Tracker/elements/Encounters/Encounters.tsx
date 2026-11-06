@@ -237,7 +237,8 @@ function EncounterRow({
         {location('text-(length:--font-size-2) text-row-muted')}
         <div className="flex min-w-0 items-center gap-(--spacing-2)">
           {pokemon({ compact: true })}
-          {hasPokemon && nickname('w-[9rem] shrink-0')}
+          {/* At the column's end, so the fields line up whatever the name's length */}
+          {hasPokemon && nickname('ml-auto w-[9rem] shrink-0')}
         </div>
         {slot(hasPokemon, <LevelStepper encounter={encounter} />, 'w-[7.143rem]')}
         <Status encounter={encounter} />

@@ -116,6 +116,19 @@ test.describe('Tracker rows', () => {
     await pressEscape(page);
   });
 
+  test('Wide compact rows line up their nickname fields', async ({ page }) => {
+    await navigate(page, 'settings');
+    await byTestId(page, 'settings-compact').click();
+    await byTestId(page, 'settings-nickname').click();
+    await navigate(page, 'tracker');
+    await pickScorbunny(page);
+    await byTestId(page, 'pokemon-1').click();
+    await byTestId(page, 'poke-Weezing (Galarian)').dispatchEvent('click');
+    const short = await byTestId(page, 'nickname-0').boundingBox();
+    const long = await byTestId(page, 'nickname-1').boundingBox();
+    expect(long.x).toBe(short.x);
+  });
+
   test('Phone rows stack the level and actions under the Pokémon', async ({ page }) => {
     await navigate(page, 'settings');
     await byTestId(page, 'settings-nickname').click();
