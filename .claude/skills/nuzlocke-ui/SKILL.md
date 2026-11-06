@@ -99,6 +99,14 @@ The app moved from Semantic UI React + Sass modules to Tailwind v4 + shadcn/ui, 
 11. **Behaviour changes are explicit.** Radix dialogs close on Escape and on an outside click by default. Today only dialogs with an `onClose` do (pinned in `tests/e2e/main/Interactions.spec.ts`). Keep the old behaviour unless the PR says otherwise, and update that pin in the same PR when it does. A Radix dialog makes everything outside it inert (`pointer-events: none` on `body`, `aria-hidden` on the rest), so any Semantic modal or popup that a migrated dialog opens, portalled to `body`, can't be clicked. Migrate those in the same PR (the selectors brought `Effectiveness` along: clicking a type inside a selector opens it).
 12. **Strings:** every new user-facing string goes in `src/locale/{en,es,de}/<namespace>.json`.
 
+## The tracker's rows (5m)
+
+- Row controls share the classes in `components/Tracker/elements/buttons.ts`: `ROW_CONTROL` (outlined, 32px), `ROW_ICON_CONTROL`, `ROW_GHOST` (borderless icon), `TALL` (40px on phones), and `TOOLBAR_BUTTON`/`TOOLBAR_DANGER` for Share, Add and Reset. Focus shows `outline-row-ring`, offset 2px.
+- Row tokens: `text-row-muted` (5.3:1 on the card), `text-row-link` (4.9:1 on the page's grey), `outline-row-ring`.
+- `Select` has a `row` look (one line, truncated text) and a `leading` slot drawn before its text; Nature's leaf and the status dot use it.
+- Each action keeps a fixed slot (an empty span when hidden), so the columns line up; change a slot's width in both the control and the empty span.
+- The row heights live in `HEIGHTS` in `Encounters.tsx`; a control that makes a row taller needs its height there too.
+
 ## Checklist for an area PR
 
 1. List the area's files and consumers (`node scripts/affected-areas.mjs <files>`).

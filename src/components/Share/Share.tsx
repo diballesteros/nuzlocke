@@ -12,14 +12,17 @@ import {
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
 import { ShareIcon, TOOLBAR_ICON } from '@/components/ui/icons';
 import { NATIVE_FIELD } from '@/components/ui/input';
+import { TOOLBAR_BUTTON } from 'components/Tracker/elements/buttons';
 
 interface ShareProps {
   disabled: boolean;
   icon?: boolean;
   text: string;
+  // The tracker's toolbar look
+  toolbar?: boolean;
 }
 
-function Share({ disabled, icon = false, text }: ShareProps): React.JSX.Element {
+function Share({ disabled, icon = false, text, toolbar = false }: ShareProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
 
@@ -71,6 +74,17 @@ function Share({ disabled, icon = false, text }: ShareProps): React.JSX.Element 
         >
           <ShareIcon className={FAB_ICON} />
         </FabButton>
+      ) : toolbar ? (
+        <button
+          className={TOOLBAR_BUTTON}
+          data-testid="share-encounters"
+          disabled={disabled}
+          onClick={handleClick}
+          type="button"
+        >
+          <ShareIcon aria-hidden />
+          <span>{t('share', { ns: 'stats' })}</span>
+        </button>
       ) : (
         // Semantic's exact 4px radius: rounded-md's 3.9998px shows on the dark-mode ring's corners
         <Button

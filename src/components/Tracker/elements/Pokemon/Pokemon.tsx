@@ -11,17 +11,35 @@ import type { TEncounter, TPokemon } from 'constants/types';
 import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import { HoverPopover } from '@/components/ui/popover';
+import { cn } from '@/lib/utils';
 
-// The selector's frame, content-box as its SCSS left it
-const SELECTOR =
-  'relative box-content! flex h-full w-[calc(100%-var(--spacing-3))] cursor-pointer flex-col flex-nowrap gap-(--spacing-2) rounded-[4px] border border-solid border-contrast-border pl-(--spacing-3) text-foreground hover:border-foreground max-sm:text-(length:--font-size-2)';
+// The row's Pokémon (5m): the sprite on a faint tile of its first type (the row sets --t1) and the
+// name, as one button that opens the selector. Fainted greys and dims the sprite and strikes the name
+const BUTTON =
+  'm-0! flex min-w-0 flex-1 cursor-pointer items-center rounded-md border border-solid border-transparent bg-transparent p-[2px] pr-(--spacing-2) text-left [font-family:inherit]! text-(length:--font-size-3)! leading-tight! text-foreground outline-none hover:border-contrast-border hover:bg-foreground/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring';
+const SPRITE =
+  '[&>div]:[transform:none]! flex shrink-0 items-center justify-center rounded-md bg-[color-mix(in_srgb,var(--t1,transparent)_12%,transparent)] dark:bg-[color-mix(in_srgb,var(--t1,transparent)_6%,transparent)]';
 
 interface PokemonProps {
+  // Compact rows: a smaller sprite
+  compact?: boolean;
   encounter: TEncounter;
+  fainted?: boolean;
   foundPokemon: TPokemon;
+  // Shown after the name (the level, on phones in compact mode)
+  level?: boolean;
+  // A second line under the name (the location, on phones in compact mode)
+  sub?: React.ReactNode;
 }
 
-const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: PokemonProps) {
+const Pokemon = React.memo(function Pokemon({
+  compact = false,
+  encounter,
+  fainted = false,
+  foundPokemon,
+  level = false,
+  sub,
+}: PokemonProps) {
   const { t } = useTranslation('tracker');
   const changePokemon = useStore((state) => state.changePokemon);
   const duplicates = useStore(useCallback((state) => state.duplicates, []));
@@ -119,54 +137,77 @@ const Pokemon = React.memo(function Pokemon({ encounter, foundPokemon }: Pokemon
     }
   };
 
+  const sprite = cn(
+    SPRITE,
+    compact ? 'size-[2.143rem]' : 'size-[2.857rem]',
+    fainted && 'bg-transparent! opacity-45 grayscale',
+    !encounter?.pokemon && 'border border-dashed border-contrast-border bg-transparent'
+  );
+
   return (
-    <div className="relative row-span-2 flex h-full min-h-[7rem] flex-col flex-nowrap gap-(--spacing-1) font-bold">
-      <div aria-label="Pokémon selector" className="flex flex-1 [&>div]:flex-1">
-        <PokemonSelector
-          dupes={total?.map((c) => c.pokemon)}
-          filter={filter}
-          handlePokemon={onChange}
-          suggestions={
-            filter && suggestions && suggestionsSettings && !showAll ? suggestions : false
-          }
-          tooltip={showAllTooltip}
+    <div className="flex min-w-0 items-center gap-(--spacing-1)">
+      <PokemonSelector
+        button={{
+          'aria-label': `${encounter?.pokemon ? foundPokemon.text : 'Pokémon...'}, ${t('change_pokemon')}`,
+          className: BUTTON,
+        }}
+        dupes={total?.map((c) => c.pokemon)}
+        filter={filter}
+        handlePokemon={onChange}
+        suggestions={filter && suggestions && suggestionsSettings && !showAll ? suggestions : false}
+        tooltip={showAllTooltip}
+      >
+        <span
+          className="flex min-w-0 flex-1 items-center gap-(--spacing-2)"
+          data-testid={`pokemon-${encounter.id}`}
         >
           {encounter?.pokemon ? (
-            <div className={SELECTOR} data-testid={`pokemon-${encounter.id}`}>
-              <div className="flex h-[3.5rem] w-[4.8rem] items-end justify-center">
+            <>
+              <span className={sprite}>
                 <PkmImage name={foundPokemon.text} shiny={encounter?.details?.shiny} />
-              </div>
-              <span className="mt-auto mb-(--spacing-2)">
-                {foundPokemon.text}
-                {getGenderIcon(encounter?.details?.gender)}
               </span>
-              <span className="absolute top-(--spacing-2) right-(--spacing-2)">
-                Lv: {encounter?.details?.level ?? 0}
+              <span className="flex min-w-0 flex-col">
+                <span className="truncate font-bold">
+                  <span className={cn(fainted && 'text-row-muted line-through')}>
+                    {foundPokemon.text}
+                  </span>
+                  <span className={cn('font-normal', fainted && 'text-row-muted')}>
+                    {getGenderIcon(encounter?.details?.gender)}
+                    {level && (
+                      <span className="ml-(--spacing-1) text-(length:--font-size-1) text-row-muted">
+                        Lv {encounter?.details?.level ?? 0}
+                      </span>
+                    )}
+                  </span>
+                </span>
+                {sub}
               </span>
-            </div>
+            </>
           ) : (
-            <div className={SELECTOR} data-testid={`pokemon-${encounter.id}`}>
-              <span
-                className="m-auto text-placeholder"
-                data-testid={`encounter-empty-${encounter.id}`}
-              >
-                Pokémon...
+            <>
+              <span className={sprite} />
+              <span className="flex min-w-0 flex-col">
+                <span
+                  className="truncate text-row-muted italic"
+                  data-testid={`encounter-empty-${encounter.id}`}
+                >
+                  Pokémon...
+                </span>
+                {sub}
               </span>
-            </div>
+            </>
           )}
-        </PokemonSelector>
-      </div>
+        </span>
+      </PokemonSelector>
       {!!alertText && (
         <HoverPopover content={<b>{alertText}</b>}>
-          {/* Semantic's red icon in the corner, as a button so the popup can open from it. Semantic's
-              reset styles every <button>, so its font, size, line height and margin need ! */}
           <button
             aria-label={alertText}
-            className="absolute top-0 right-0 m-0! ml-(--spacing-1)! inline-block h-[1em] w-[1.18em] cursor-pointer border-0 bg-transparent p-0 text-(length:--font-size-2)! leading-none! text-alert"
+            className="m-0! inline-flex size-[1.714rem] shrink-0 cursor-pointer items-center justify-center rounded-md border-0 bg-transparent p-0 text-alert outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
             data-testid={`alert-${encounter.id}`}
             type="button"
           >
-            <TriangleAlert aria-hidden className="size-full" strokeWidth={2.5} />
+            <TriangleAlert aria-hidden className="size-[1.143rem]" strokeWidth={2.5} />
           </button>
         </HoverPopover>
       )}

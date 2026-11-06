@@ -26,18 +26,19 @@ const Options = React.memo(function Options() {
   };
 
   return (
-    <div className="flex flex-wrap items-center justify-between gap-(--spacing-3)">
-      <div className="relative flex w-full max-w-full gap-(--spacing-1)">
-        <Button
-          aria-label="search-options"
-          className={RADIUS}
-          data-testid="search-options"
-          onClick={onSearchOptions}
-          size="icon"
-          type="button"
-        >
-          <Wrench className={BUTTON_ICON} strokeWidth={2.5} />
-        </Button>
+    // The search row, with Share, Add and Reset at its end from 550px (below, they're in the FAB)
+    <div className="flex w-full max-w-full items-center gap-(--spacing-2)">
+      <Button
+        aria-label="search-options"
+        className={RADIUS}
+        data-testid="search-options"
+        onClick={onSearchOptions}
+        size="icon"
+        type="button"
+      >
+        <Wrench className={BUTTON_ICON} strokeWidth={2.5} />
+      </Button>
+      <div className="relative flex min-w-0 flex-1">
         <Filter
           darkMode={darkMode}
           values={{
@@ -50,8 +51,7 @@ const Options = React.memo(function Options() {
           }}
         />
       </div>
-      {/* Share, Add and Reset share the width; on small screens they move to the FAB */}
-      <div className="flex w-full gap-(--spacing-1) font-bold max-sm:[display:none] [&>button]:w-full [&>button]:flex-1">
+      <div className="flex shrink-0 gap-(--spacing-2) max-sm:[display:none]">
         <Share
           disabled={!selectedGame}
           text={games[selectedGame?.value]?.encounters?.reduce(
@@ -65,6 +65,7 @@ const Options = React.memo(function Options() {
             `Nuzlocke Encounter List
         `
           )}
+          toolbar
         />
         <AddEncounter />
         <ResetEncounters />

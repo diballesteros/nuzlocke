@@ -39,7 +39,7 @@ test.describe('Accessibility', () => {
 
     // The row menu's items are menuitems that Enter and Space act on. Leveling re-renders the row,
     // which closes its menu (as a click does), so it's opened again each time
-    const levelUp = page.getByRole('menuitem', { name: 'level up encounter' });
+    const levelUp = page.getByRole('menuitem', { name: /Level up/ });
     for (const [key, level] of [
       ['Enter', '(1)'],
       [' ', '(2)'],

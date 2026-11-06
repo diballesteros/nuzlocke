@@ -30,7 +30,8 @@ const openTrackerRun = async (page: Page) => {
 // Today only dialogs given an onClose close on Escape (and on a click outside); the rest close only
 // from their buttons. Component libraries usually close every dialog on Escape, so a migration
 // must keep each row's behaviour, or change it on purpose and update this table.
-const ESCAPE: { dialog: string; route: string; open: string; closes: boolean }[] = [
+// `open` is the test id clicked to open the dialog, or the ids clicked in turn (a row menu's item)
+const ESCAPE: { dialog: string; route: string; open: string | string[]; closes: boolean }[] = [
   { dialog: 'add encounter', route: '/', open: 'add-encounter', closes: true },
   { dialog: 'reset all', route: '/', open: 'reset-all', closes: true },
   { dialog: 'share', route: '/rules', open: 'share-encounters', closes: true },
@@ -38,6 +39,12 @@ const ESCAPE: { dialog: string; route: string; open: string; closes: boolean }[]
   { dialog: 'add rule', route: '/rules', open: 'add-rule', closes: false },
   { dialog: 'add ruleset', route: '/rules', open: 'add-ruleset', closes: true },
   { dialog: 'custom statuses', route: '/settings', open: 'edit-custom-statuses', closes: false },
+  {
+    dialog: 'reset encounter',
+    route: '/',
+    open: ['encounter-options-0', 'reset-encounter-0'],
+    closes: true,
+  },
 ];
 
 for (const { dialog, route, open, closes } of ESCAPE) {
@@ -45,7 +52,7 @@ for (const { dialog, route, open, closes } of ESCAPE) {
     await page.goto('/');
     await selectGame(page, 'Sword and Shield');
     if (route !== '/') await navigate(page, route.slice(1));
-    await byTestId(page, open).click();
+    for (const id of [open].flat()) await byTestId(page, id).click();
     const modal = modalDialog(page);
     await expect(modal).toBeVisible();
     await pressEscape(page);

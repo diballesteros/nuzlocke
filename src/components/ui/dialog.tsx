@@ -19,6 +19,7 @@ function DialogContent({
   className,
   children,
   dismissible = true,
+  instant = false,
   onEscapeKeyDown,
   onInteractOutside,
   size = 'default',
@@ -26,6 +27,8 @@ function DialogContent({
 }: React.ComponentProps<typeof DialogPrimitive.Content> & {
   // false: only the dialog's own buttons close it, not Escape or a click outside
   dismissible?: boolean;
+  // Close at once, without the fade and zoom out
+  instant?: boolean;
   // Semantic's modal widths: the default, or `small` (Confirm's)
   size?: 'default' | 'small';
 }) {
@@ -33,7 +36,8 @@ function DialogContent({
     <DialogPrimitive.Portal data-slot="dialog-portal">
       <DialogPrimitive.Overlay
         data-slot="dialog-overlay"
-        className="fixed inset-0 z-1000 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.85)] leading-none will-change-[opacity] data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0"
+        className="fixed inset-0 z-1000 flex flex-col items-center justify-center bg-[rgba(0,0,0,0.85)] leading-none will-change-[opacity] data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[instant]:data-[state=closed]:animate-none"
+        data-instant={instant || undefined}
       >
         <DialogPrimitive.Content
           data-slot="dialog-content"

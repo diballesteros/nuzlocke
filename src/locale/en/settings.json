@@ -9,5 +9,6 @@
   "show_missing": "Show only missing encounters",
   "show_nicknames": "Show nicknames",
   "show_soulink": "Show option to select a Soul Link pokémon from the details",
-  "show_suggestions": "Show suggestions"
+  "show_suggestions": "Show suggestions",
+  "compact_mode": "Compact tracker rows"
 }
