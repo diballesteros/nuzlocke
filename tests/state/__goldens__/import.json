@@ -13,8 +13,8 @@
   {
     "path": "$.state.games",
     "before": {
-      "sha256": "d5f60935a4d6d33e",
-      "size": 72168
+      "sha256": "837922c7c98bd80f",
+      "size": 72107
     },
     "after": {
       "sha256": "1128c41a2f5a7210",

@@ -33,7 +33,7 @@ import {
   TrashIcon,
 } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
-import { ROW_GHOST } from '../buttons';
+import { focusBack, ROW_GHOST } from '../buttons';
 import Detail from '../Detail/Detail';
 import Evolve from '../Evolve/Evolve';
 import { SWAPPABLE, useSwap } from '../Swap/Swap';
@@ -83,6 +83,23 @@ function RowMenu({
   const [natures, setNatures] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
   const back = useRef<HTMLDivElement>(null);
+  // Rows are keyed by their place in the list, so after a move this ⋮ belongs to the neighbour
+  // that took the row's place. Focus follows the moved row to its ⋮ one place up or down instead
+  const movedTo = useRef<number>(null);
+  const move = (targetId: number, to: number) => {
+    movedTo.current = to;
+    moveEncounter(encounter.id, targetId);
+  };
+  const onCloseAutoFocus = (e: Event) => {
+    const to = movedTo.current;
+    movedTo.current = null;
+    if (to == null) return;
+    focusBack(
+      e,
+      boundary?.querySelector<HTMLElement>(`[data-testid="encounter-options-${to}"]`) ??
+        trigger.current
+    );
+  };
   useEffect(() => {
     if (natures) back.current?.focus();
   }, [natures]);
@@ -112,6 +129,7 @@ function RowMenu({
           align="end"
           collisionBoundary={boundary}
           collisionPadding={4}
+          onCloseAutoFocus={onCloseAutoFocus}
           // The menu is named by its row
           aria-label={encounter.location}
         >
@@ -207,7 +225,7 @@ function RowMenu({
               {!!previous && (
                 <DropdownMenuItem
                   data-testid={`move-up-${index}`}
-                  onSelect={() => moveEncounter(encounter.id, previous.id)}
+                  onSelect={() => move(previous.id, index - 1)}
                 >
                   <ChevronUpIcon aria-hidden />
                   {t('move_up', { ns: 'rules' })}
@@ -216,7 +234,7 @@ function RowMenu({
               {!!next && (
                 <DropdownMenuItem
                   data-testid={`move-down-${index}`}
-                  onSelect={() => moveEncounter(encounter.id, next.id)}
+                  onSelect={() => move(next.id, index + 1)}
                 >
                   <ChevronDownIcon aria-hidden />
                   {t('move_down', { ns: 'rules' })}
