@@ -51,6 +51,27 @@ test.describe('Tracker rows', () => {
     await expect(byTestId(page, 'encounter-options-0')).toBeFocused();
   });
 
+  // 5n: rows are keyed by their place, so focus used to stay where the row was, on its neighbour
+  test('Moving a row from the keyboard keeps focus on it', async ({ page }) => {
+    const location = (index: number) =>
+      byTestId(page, `encounter-${index}`).locator('[id^="encounter-location-"]');
+    const moved = await location(1).textContent();
+
+    await byTestId(page, 'encounter-options-1').press('Enter');
+    await expect(byTestId(page, 'move-up-1')).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('menu')).toHaveCount(0);
+    await expect(location(0)).toHaveText(moved);
+    await expect(byTestId(page, 'encounter-options-0')).toBeFocused();
+
+    await byTestId(page, 'encounter-options-0').press('Enter');
+    await expect(byTestId(page, 'move-down-0')).toBeFocused();
+    await page.keyboard.press('Enter');
+    await expect(page.getByRole('menu')).toHaveCount(0);
+    await expect(location(1)).toHaveText(moved);
+    await expect(byTestId(page, 'encounter-options-1')).toBeFocused();
+  });
+
   test('Cancelling Reset leaves the row as it was', async ({ page }) => {
     await pickScorbunny(page);
     await byTestId(page, 'encounter-options-0').click();
