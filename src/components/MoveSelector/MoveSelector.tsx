@@ -28,6 +28,8 @@ interface MoveSelectorProps {
   // `tile`: the encounter editor's look (5m): a 40px field with the move's type as a stripe, a
   // button that opens the list, and the delete button at its end
   look?: 'tile';
+  // The tile's slot ("Move 1"), read before its move so the four tiles can be told apart
+  slot?: string;
 }
 
 // The tile's focus ring and hover, as the tracker rows' controls
@@ -40,6 +42,7 @@ function MoveSelector({
   hideGen,
   limitGen,
   look,
+  slot,
 }: MoveSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
@@ -96,6 +99,7 @@ function MoveSelector({
         title={currentMove?.type}
         type="button"
       >
+        {slot && <span className="sr-only">{slot}: </span>}
         {currentMove ? (
           <span className="truncate font-bold">
             {currentMove.name}

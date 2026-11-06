@@ -57,7 +57,10 @@ const INFO = cn(ROW_ICON_CONTROL, 'text-row-muted shadow-none');
 // A stat's row: its name, then IV and EV; on phones IV over EV beside the name
 const STAT_ROW =
   'grid grid-cols-[2.857rem_minmax(0,1fr)_minmax(0,1fr)] items-center gap-x-(--spacing-4) gap-y-(--spacing-1) max-sm:grid-cols-[2.857rem_minmax(0,1fr)]';
-const FOOTER_BUTTON = cn(ROW_CONTROL, 'h-[2.571rem] px-(--spacing-3)');
+const FOOTER_BUTTON = cn(
+  ROW_CONTROL,
+  'h-[2.571rem] px-(--spacing-3) max-sm:h-auto max-sm:min-h-[2.857rem] max-sm:whitespace-normal'
+);
 
 const STATS = [
   { iv: 'ivhp', ev: 'evhp', label: 'HP' },
@@ -533,6 +536,7 @@ function DetailDialog({
                       handleMove={(newMove: number) => setMove(newMove)}
                       limitGen={limitGen}
                       look="tile"
+                      slot={t('move_slot', { n: index + 1 })}
                     />
                   </div>
                 ))}
@@ -584,13 +588,13 @@ function DetailDialog({
             )}
           </DialogBody>
           <DialogFooter className="flex shrink-0 flex-wrap items-center gap-(--spacing-2) rounded-b-md border-contrast-border px-(--spacing-5) py-(--spacing-3) text-left max-[768px]:pb-(--spacing-3) max-sm:px-(--spacing-4)">
-            <div className="flex items-center gap-(--spacing-2) max-sm:w-full">
+            <div className="flex items-center gap-(--spacing-2) max-sm:grid max-sm:w-full max-sm:grid-cols-2">
               <button className={FOOTER_BUTTON} onClick={handleExport} type="button">
                 {t('export_to_builder')}
               </button>
               <Select
                 aria-label={t('export_to_game')}
-                className="min-w-0 max-sm:flex-1"
+                className="min-w-0 max-sm:w-full"
                 contained
                 data-testid="export-to-game"
                 icon={
@@ -602,7 +606,7 @@ function DetailDialog({
                 text={t('export_to_game')}
                 triggerClassName={cn(
                   FOOTER_BUTTON,
-                  'w-auto max-sm:w-full justify-between text-left pr-(--spacing-2) whitespace-normal [&>[data-select-text]]:whitespace-normal max-sm:h-auto max-sm:min-h-[2.857rem] max-sm:py-(--spacing-1)'
+                  'w-auto max-sm:w-full justify-between text-left pr-(--spacing-2) whitespace-normal max-sm:h-auto max-sm:[&>[data-select-text]]:overflow-visible max-sm:[&>[data-select-text]]:whitespace-normal max-sm:[&>[data-select-text]]:[text-overflow:clip] max-sm:min-h-[2.857rem] max-sm:py-(--spacing-1)'
                 )}
                 value={selectedGame?.value}
               />

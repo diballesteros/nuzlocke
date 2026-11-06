@@ -47,5 +47,6 @@
   "moves": "Movimientos",
   "nature": "Naturaleza",
   "raise": "Subir {{name}}",
-  "stat": "Estadística"
+  "stat": "Estadística",
+  "move_slot": "Movimiento {{n}}"
 }

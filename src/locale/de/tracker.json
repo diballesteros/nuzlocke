@@ -47,5 +47,6 @@
   "moves": "Attacken",
   "nature": "Natur",
   "raise": "{{name}} erhöhen",
-  "stat": "Wert"
+  "stat": "Wert",
+  "move_slot": "Attacke {{n}}"
 }

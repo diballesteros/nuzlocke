@@ -23,7 +23,16 @@ const IV = {
   max: 31,
 };
 
-const STEP = cn(ROW_GHOST, 'size-[1.857rem] [&_svg]:size-[1rem]');
+// The steppers draw muted so the number reads first; 36px on phones, the rows' touch floor
+const STEP = cn(
+  ROW_GHOST,
+  'size-[1.857rem] text-row-muted hover:text-foreground max-sm:size-[2.571rem] [&_svg]:size-[1rem]'
+);
+// The Calculator's slider in the editor's primary blue: the filled track and the thumb
+const EDITOR_SLIDER = cn(
+  SLIDER,
+  'min-w-[3rem] flex-1 bg-contrast-border [background-image:linear-gradient(var(--color-primary),var(--color-primary))] [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:hover:shadow-[0_0_0_8px_color-mix(in_srgb,var(--color-primary)_20%,transparent)] [&::-webkit-slider-thumb]:active:shadow-[0_0_0_11px_color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
+);
 
 // One IV or EV (5m): the slider, then the value between its − and + steppers. On phones a tag in
 // front says which it is; wider, the stats table's column header does
@@ -71,7 +80,7 @@ function RangeSelector({ name, onChange, stat, value }: RangeSelectorProps): Rea
       </span>
       <input
         aria-label={label}
-        className={cn(SLIDER, 'min-w-[3rem] flex-1')}
+        className={EDITOR_SLIDER}
         data-testid={name}
         id={name}
         style={getBarFill()}
@@ -93,7 +102,7 @@ function RangeSelector({ name, onChange, stat, value }: RangeSelectorProps): Rea
       </button>
       <input
         aria-label={label}
-        className="h-[2.143rem] w-[3rem] shrink-0 rounded-md border border-solid border-contrast-border bg-transparent p-0 text-center text-(length:--font-size-2) font-bold text-foreground tabular-nums outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
+        className="h-[2.143rem] w-[3rem] shrink-0 max-sm:h-[2.571rem] rounded-md border border-solid border-contrast-border bg-transparent p-0 text-center text-(length:--font-size-2) font-bold text-foreground tabular-nums outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
         data-testid={`input-${name}`}
         inputMode="numeric"
         onChange={(e) => handleTextChange(e.target.value)}

@@ -47,5 +47,6 @@
   "moves": "Moves",
   "nature": "Nature",
   "raise": "Raise {{name}}",
-  "stat": "Stat"
+  "stat": "Stat",
+  "move_slot": "Move {{n}}"
 }
