@@ -15,18 +15,43 @@ import {
 } from '@/components/ui/dialog';
 import { RadioGroup, RadioGroupOption } from '@/components/ui/radio-group';
 import { cn } from '@/lib/utils';
-import { OUTLINE_BUTTON, ROW_ICON } from '../buttons';
+import { returnFocusTo, ROW_ICON_CONTROL } from '../buttons';
 
 interface EvolveProps {
+  className?: string;
   encounter: TEncounter;
   evolveIds: number[];
+  // Opened from the row's menu in compact mode: no button of its own
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
+  returnFocus?: React.RefObject<HTMLElement | null>;
+  trigger?: boolean;
 }
 
-function Evolve({ encounter, evolveIds }: EvolveProps): React.JSX.Element {
+function Evolve({
+  className,
+  encounter,
+  evolveIds,
+  onOpenChange,
+  open: openProp,
+  returnFocus,
+  trigger = true,
+}: EvolveProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const changePokemon = useStore(useCallback((state) => state.changePokemon, []));
   const [selected, setSelected] = useState(encounter.pokemon);
-  const [open, setOpen] = useState(false);
+  const [openState, setOpenState] = useState(false);
+  const open = openProp ?? openState;
+  // Each opening starts from the Pokémon the encounter has now
+  const [wasOpen, setWasOpen] = useState(open);
+  if (open !== wasOpen) {
+    setWasOpen(open);
+    if (open) setSelected(encounter.pokemon);
+  }
+  const setOpen = (next: boolean) => {
+    setOpenState(next);
+    onOpenChange?.(next);
+  };
 
   const handleClose = () => {
     setSelected(encounter?.pokemon);
@@ -40,20 +65,21 @@ function Evolve({ encounter, evolveIds }: EvolveProps): React.JSX.Element {
 
   return (
     <>
-      <Button
-        aria-label="evolve"
-        className={OUTLINE_BUTTON}
-        data-testid={`evolve-${encounter.id}}`}
-        onClick={() => setOpen(true)}
-        size="icon"
-        title="Evolve"
-        type="button"
-        variant="secondary"
-      >
-        <Dna className={cn(ROW_ICON, '-rotate-45')} strokeWidth={2.5} />
-      </Button>
+      {trigger && (
+        // The test id's stray brace is what the specs click
+        <button
+          aria-label={t('evolve')}
+          className={cn(ROW_ICON_CONTROL, className)}
+          data-testid={`evolve-${encounter.id}}`}
+          onClick={() => setOpen(true)}
+          title={t('evolve')}
+          type="button"
+        >
+          <Dna aria-hidden className="-rotate-45" strokeWidth={2.5} />
+        </button>
+      )}
       <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
-        <DialogContent>
+        <DialogContent {...returnFocusTo(returnFocus)}>
           <DialogHeader>{t('evolution_chain')}</DialogHeader>
           <DialogBody>
             <RadioGroup

@@ -10,9 +10,9 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
-import { PlusIcon, TOOLBAR_ICON } from '@/components/ui/icons';
+import { PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
-import { RADIUS } from '../buttons';
+import { TOOLBAR_BUTTON } from '../buttons';
 
 interface AddEncounterProps {
   icon?: boolean;
@@ -49,16 +49,16 @@ function AddEncounter({ icon = false }: AddEncounterProps): React.JSX.Element {
           <PlusIcon className={FAB_ICON} />
         </FabButton>
       ) : (
-        <Button
-          className={RADIUS}
+        <button
+          className={TOOLBAR_BUTTON}
           data-testid="add-encounter"
           disabled={!selectedGame}
           onClick={() => setOpen(true)}
-          variant="green"
+          type="button"
         >
-          {t('add')}
-          <PlusIcon className={TOOLBAR_ICON} />
-        </Button>
+          <PlusIcon aria-hidden />
+          <span>{t('add')}</span>
+        </button>
       )}
       <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
         <DialogContent>

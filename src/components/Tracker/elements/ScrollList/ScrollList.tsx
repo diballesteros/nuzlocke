@@ -208,7 +208,9 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
         </div>
       )}
       {selectedGame?.value ? (
-        <div className="flex items-center gap-(--spacing-2)">
+        // The Go to bar (5m): 40px, its text at the page's size. On phones it ends before the
+        // floating button
+        <div className="flex h-[2.857rem] shrink-0 items-center gap-(--spacing-2) border-x-0 border-t border-b-0 border-solid border-contrast-border max-sm:pr-[4.857rem]">
           <Button
             aria-label="open-notes"
             aria-pressed={open === 'NOTES'}
@@ -235,16 +237,14 @@ function ScrollList({ encounters, scrollTo }: ScrollListProps): React.JSX.Elemen
           {lastEncounter > -1 && (
             <button
               aria-label="scroll-to-last-encounter"
-              className="w-fit cursor-pointer rounded-[4px] border-none px-[6px] pb-px md:pt-[2px] bg-transparent font-[sans-serif] leading-[1.15] text-start text-(length:--font-size-7)! text-foreground hover:underline max-md:py-0 max-md:pr-0 max-md:pl-(--spacing-1) max-md:text-(length:--font-size-3)!"
+              className="m-0! flex min-w-0 cursor-pointer items-center gap-(--spacing-1) rounded-md border-0 bg-transparent px-(--spacing-2) py-(--spacing-1) [font-family:inherit]! text-(length:--font-size-3)! leading-tight! text-row-link outline-none hover:underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
               data-testid={`scroll-to-last-encounter-${lastEncounter}`}
               onClick={() => scrollTo(lastEncounter)}
               type="button"
             >
-              {t('go_to')} {encounters[lastEncounter]?.location}{' '}
-              <ArrowRightIcon
-                aria-hidden
-                className="mr-[0.25rem] inline-block h-[1em] w-[1.18em] align-top md:-mt-px"
-              />
+              <span className="shrink-0">{t('go_to')}</span>
+              <b className="truncate">{encounters[lastEncounter]?.location}</b>
+              <ArrowRightIcon aria-hidden className="size-[1.143rem] shrink-0" />
             </button>
           )}
         </div>

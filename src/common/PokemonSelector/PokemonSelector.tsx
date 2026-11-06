@@ -19,6 +19,10 @@ import {
 } from '@/components/ui/dialog';
 
 interface PokemonSelectorProps {
+  // Opt-in (the tracker's rows): the trigger is a real <button> with these classes and name, in place
+  // of the role="button" wrapper the editor, Calculator and Builder keep. Its children must be
+  // phrasing content, with no controls inside
+  button?: { 'aria-label'?: string; className?: string };
   children: React.ReactNode;
   dupes?: number[];
   filter?: number[] | false;
@@ -29,6 +33,7 @@ interface PokemonSelectorProps {
 }
 
 function PokemonSelector({
+  button,
   children,
   dupes,
   filter = false,
@@ -113,17 +118,31 @@ function PokemonSelector({
 
   return (
     <>
-      <div
-        data-testid="pokemon-selector"
-        onClick={() => setOpen(true)}
-        onKeyDown={onKeyDown}
-        role="button"
-        tabIndex={0}
-      >
-        {children}
-      </div>
+      {button ? (
+        <button
+          aria-label={button['aria-label']}
+          className={button.className}
+          data-testid="pokemon-selector"
+          onClick={() => setOpen(true)}
+          type="button"
+        >
+          {children}
+        </button>
+      ) : (
+        <div
+          data-testid="pokemon-selector"
+          onClick={() => setOpen(true)}
+          onKeyDown={onKeyDown}
+          role="button"
+          tabIndex={0}
+        >
+          {children}
+        </div>
+      )}
       <Dialog open={open}>
-        <DialogContent dismissible={false}>
+        {/* The tracker's selector closes at once when a Pokémon is picked, as it always did (its
+            row used to remount), so what's under it is usable straight away */}
+        <DialogContent dismissible={false} instant={!!button}>
           <DialogTitle className="sr-only">{t('select_pokemon')}</DialogTitle>
           <DialogBody className="[&>div:first-child]:mb-(--spacing-3)" scrolling>
             <Filter hideGen={!!limitGen} values={values} />

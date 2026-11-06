@@ -36,6 +36,11 @@
   /* The current page in the nav's row and tab bar, whose text is smaller than the column's: the
      badge colour darkened to 4.7:1 on white */
   --nav-active: #c04e4e;
+  /* The tracker rows (5m): secondary text at 5.3:1 on the card, the Go to link at 4.9:1 on
+     the page's grey, and the focus ring of the row's controls */
+  --row-muted: #6b6b6b;
+  --row-link: #17639b;
+  --row-ring: #1a69a4;
   /* The badge strip, the same in both themes: badge text, its glow, and the ? button's ring */
   --badge-foreground: #0a0a0a;
   --badge-shadow: #999999;
@@ -195,6 +200,9 @@
   --badgeopac: #c395fe50;
   --badgeflash: #ffffff;
   --nav-active: var(--badge);
+  --row-muted: #b5b5b5;
+  --row-link: #6cb4ff;
+  --row-ring: #6cb4ff;
   --contrast: #ffffff;
   --contrast-border: #525252;
   --placeholder: #d9d9d9;
@@ -226,6 +234,9 @@
   --color-badgeopac: var(--badgeopac);
   --color-badgeflash: var(--badgeflash);
   --color-nav-active: var(--nav-active);
+  --color-row-muted: var(--row-muted);
+  --color-row-link: var(--row-link);
+  --color-row-ring: var(--row-ring);
   --color-badge-foreground: var(--badge-foreground);
   --color-badge-shadow: var(--badge-shadow);
   --color-badge-question: var(--badge-question);

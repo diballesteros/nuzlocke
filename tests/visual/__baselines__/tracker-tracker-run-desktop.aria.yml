@@ -51,100 +51,125 @@
   - button "ADD"
   - button "RESET"
   - list:
-    - listitem:
-      - text: Starter
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Scorbunny Scorbunny Lv: 0"':
+    - listitem "Starter":
+      - text: ""
+      - button "Scorbunny, Change Pokémon":
         - img "Scorbunny"
         - text: ""
-      - combobox "status-selector": Captured
-      - button "evolve"
-      - button "swap": Team
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status": Captured
+      - button "Team"
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: Slumbering Weald
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Magikarp Magikarp Lv: 0"':
+      - button "Edit details"
+      - button "Encounter options"
+    - listitem "Slumbering Weald":
+      - text: ""
+      - button "Magikarp, Change Pokémon":
         - img "Magikarp"
         - text: ""
-      - combobox "status-selector": Gifted
-      - button "evolve"
-      - button "swap": Team
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status": Gifted
+      - button "Team"
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: Route 1
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Caterpie Caterpie Lv: 0"':
+      - button "Edit details"
+      - button "Encounter options"
+    - listitem "Route 1":
+      - text: ""
+      - button "Caterpie, Change Pokémon":
         - img "Caterpie"
         - text: ""
-      - combobox "status-selector": Traded
-      - button "evolve"
-      - button "swap": Team
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status": Traded
+      - button "Team"
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: Wedgehurst
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Slowpoke (Galarian) Slowpoke (Galarian) Lv: 0"':
+      - button "Edit details"
+      - button "Encounter options"
+    - listitem "Wedgehurst":
+      - text: ""
+      - button "Slowpoke (Galarian), Change Pokémon":
         - img "Slowpoke (Galarian)"
         - text: ""
-      - combobox "status-selector"
-      - button "evolve"
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status"
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: Route 2
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button /Lapras Lapras Lv: \d+/':
+      - button "Edit details"
+      - button "Encounter options"
+    - listitem "Route 2":
+      - text: ""
+      - button "Lapras, Change Pokémon":
         - img "Lapras"
         - text: ""
-      - combobox "status-selector": Fainted
+      - button "Level down"
+      - status: /Lv \d+/
+      - button "Level up"
+      - combobox "Status": Fainted
       - combobox "Nature": Bold
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: "Wild Area: Rolling Fields"
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Butterfree Butterfree Lv: 0"':
+      - button "Edit details"
+      - button "Encounter options"
+    - 'listitem "Wild Area: Rolling Fields"':
+      - text: ""
+      - button "Butterfree, Change Pokémon":
         - img "Butterfree"
         - text: ""
-      - combobox "status-selector": Failed
-      - button "evolve"
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status": Failed
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
-    - listitem:
-      - text: "Wild Area: Dappled Grove"
-      - button "edit encounter"
-      - button "encounter-options"
-      - 'button "Vulpix Vulpix Lv: 0"':
+      - button "Edit details"
+      - button "Encounter options"
+    - 'listitem "Wild Area: Dappled Grove"':
+      - text: ""
+      - button "Vulpix, Change Pokémon":
         - img "Vulpix"
         - text: ""
-      - combobox "status-selector": Team
-      - button "evolve"
-      - button "swap": Box
+      - button "Level down"
+      - status: Lv 0
+      - button "Level up"
+      - combobox "Status": Team
+      - button "Box"
+      - button "Evolve"
       - combobox "Nature"
-      - text: "Level:"
-      - button "level-up-button"
-      - button "level-down-button"
+      - button "Edit details"
+      - button "Encounter options"
+    - 'listitem "Wild Area: West Lake Axewell"':
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - 'listitem "WildArea: East Lake Axewell"':
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - 'listitem "Wild Area: North Lake Miloch"':
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - 'listitem "Wild Area: South Lake Miloch"':
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
+    - 'listitem "Wild Area: Watchtower Ruins"':
+      - text: ""
+      - button "Pokémon..., Change Pokémon"
+      - combobox "Status" [disabled]: Status...
+      - button "Encounter options"
   - button "open-notes"
   - button "open-scroll-list"
   - button "scroll-to-last-encounter": "Go to Wild Area: West Lake Axewell"
