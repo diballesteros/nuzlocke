@@ -32,5 +32,12 @@
   "reset_encounters": "Reset Encounters ",
   "reset_success": "Successfully reset encounters",
   "share": "Share",
-  "encounter_details": "Encounter details"
+  "encounter_details": "Encounter details",
+  "change_pokemon": "Change Pokémon",
+  "confirm_reset": "{{location}} goes back to empty: its Pokémon, status and details are cleared.",
+  "confirm_reset_title": "Reset this encounter?",
+  "edit_details": "Edit details",
+  "encounter_options": "Encounter options",
+  "evolve": "Evolve",
+  "randomize": "Randomize"
 }

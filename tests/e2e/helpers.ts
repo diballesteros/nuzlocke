@@ -78,11 +78,12 @@ export const pickOption = async (
   else await item.click();
 };
 
-// The value (or placeholder) a dropdown shows: a Select's trigger holds it in its first child, and a
-// `contained` Select carries the test id on a wrapper around that trigger
+// The value (or placeholder) a dropdown shows: a Select's trigger holds it in its text span (after a
+// leading dot or icon, in the tracker's rows), and a `contained` Select carries the test id on a
+// wrapper around that trigger
 export const dropdownText = (page: Page, id: string) =>
   byTestId(page, id).locator(
-    ':scope > [data-slot="combobox-value"], :scope[data-slot="select"] > span:first-child, :scope > [data-slot="select"] > span:first-child'
+    ':scope > [data-slot="combobox-value"], :scope[data-slot="select"] > [data-select-text], :scope > [data-slot="select"] > [data-select-text]'
   );
 
 export const typeInDropdown = (page: Page, id: string, value: string) =>

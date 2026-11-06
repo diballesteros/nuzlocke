@@ -9,5 +9,6 @@
   "show_missing": "Mostrar solo los encuentros perdidos",
   "show_nicknames": "Mostrar apodos",
   "show_soulink": "Mostrar opción para seleccionar un pokémon Soul Link en los detalles",
-  "show_suggestions": "Mostrar sugerencias"
+  "show_suggestions": "Mostrar sugerencias",
+  "compact_mode": "Filas compactas en el registro"
 }

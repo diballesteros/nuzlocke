@@ -36,6 +36,12 @@ function Settings(): React.JSX.Element {
       onChange: appState.toggleNickname,
     },
     {
+      id: 'settings-compact',
+      label: t('compact_mode'),
+      checked: appState.compact,
+      onChange: appState.toggleCompact,
+    },
+    {
       id: 'settings-missing',
       label: t('show_missing'),
       checked: appState.missing,

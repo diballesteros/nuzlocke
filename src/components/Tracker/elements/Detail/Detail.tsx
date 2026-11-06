@@ -24,7 +24,8 @@ import {
 import { BUTTON_ICON, PencilIcon, TrashIcon } from '@/components/ui/icons';
 import { Input, NATIVE_FIELD } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
-import { RADIUS, ROW_ICON } from '../buttons';
+import { cn } from '@/lib/utils';
+import { returnFocusTo, ROW_GHOST } from '../buttons';
 
 const ABILITY_OPTIONS = [...new Set(ABILITIES[8])].map((smogonAbility) => {
   return { text: smogonAbility, value: smogonAbility };
@@ -52,10 +53,77 @@ const SOUL_LINK =
   'relative flex h-auto w-[calc(100%-var(--spacing-3))] cursor-pointer flex-col flex-nowrap items-start gap-(--spacing-2) rounded-[4px] border border-solid border-contrast-border pl-(--spacing-3) text-foreground [box-sizing:content-box]! hover:border-foreground max-sm:text-(length:--font-size-2)';
 
 interface DetailProps {
+  className?: string;
   encounter?: TEncounter;
+  // Opened from the row's menu in compact mode: no button of its own
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
+  returnFocus?: React.RefObject<HTMLElement | null>;
+  trigger?: boolean;
 }
 
-function Detail({ encounter }: DetailProps): React.JSX.Element {
+// The editor's form copies the encounter into its state when it mounts, so it mounts afresh for
+// each opening (the row itself stays mounted, and with it the focus on its buttons)
+function Detail({
+  className,
+  encounter,
+  onOpenChange,
+  open,
+  returnFocus,
+  trigger = true,
+}: DetailProps): React.JSX.Element {
+  const { t } = useTranslation('tracker');
+  const [showState, setShowState] = useState(false);
+  const show = open ?? showState;
+  const [session, setSession] = useState(0);
+  const [wasShown, setWasShown] = useState(show);
+  if (show !== wasShown) {
+    setWasShown(show);
+    if (show) setSession(session + 1);
+  }
+  const setShow = (next: boolean) => {
+    setShowState(next);
+    onOpenChange?.(next);
+  };
+
+  return (
+    <>
+      {trigger && (
+        <button
+          aria-label={t('edit_details')}
+          className={cn(ROW_GHOST, className)}
+          data-testid={`edit-encounter-${encounter.id}`}
+          onClick={() => setShow(true)}
+          title={t('edit_details')}
+          type="button"
+        >
+          <PencilIcon aria-hidden />
+        </button>
+      )}
+      <DetailDialog
+        encounter={encounter}
+        key={session}
+        onOpenChange={setShow}
+        open={show}
+        returnFocus={returnFocus}
+      />
+    </>
+  );
+}
+
+interface DetailDialogProps {
+  encounter: TEncounter;
+  onOpenChange: (open: boolean) => void;
+  open: boolean;
+  returnFocus?: React.RefObject<HTMLElement | null>;
+}
+
+function DetailDialog({
+  encounter,
+  onOpenChange,
+  open,
+  returnFocus,
+}: DetailDialogProps): React.JSX.Element {
   const { t } = useTranslation('tracker');
   const natureOptions = useNatureOptions();
   const changeDetails = useStore(useCallback((state) => state.changeDetails, []));
@@ -67,7 +135,8 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
   const isNatureAbilityGen = useStore(selectNAGeneration);
   const isItemGenderGen = useStore(selectItemGeneration);
   const foundPokemon = POKEMAP.get(encounter.pokemon);
-  const [show, setShow] = useState(false);
+  const show = open;
+  const setShow = onOpenChange;
   const [level, setLevel] = useState(encounter?.details?.level);
   const [metLevel, setMetLevel] = useState(encounter?.details?.metLevel);
   const [gender, setGender] = useState(encounter?.details?.gender);
@@ -186,19 +255,8 @@ function Detail({ encounter }: DetailProps): React.JSX.Element {
 
   return (
     <>
-      <Button
-        aria-label="edit encounter"
-        className={RADIUS}
-        data-testid={`edit-encounter-${encounter.id}`}
-        onClick={() => setShow(true)}
-        size="compact-icon"
-        type="button"
-        variant="basic"
-      >
-        <PencilIcon className={ROW_ICON} />
-      </Button>
       <Dialog open={show}>
-        <DialogContent dismissible={false}>
+        <DialogContent dismissible={false} {...returnFocusTo(returnFocus)}>
           <DialogTitle className="sr-only">{t('encounter_details')}</DialogTitle>
           <DialogBody
             className="flex flex-col flex-nowrap gap-(--spacing-3) [&_details[open]_summary~*]:animate-sweep motion-reduce:[&_details[open]_summary~*]:animate-none"
