@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-11-05 (Phase 5: 5a–5l merged, 5m in review).
+Last updated 2026-11-06 (Phase 5: 5a–5m merged, 5n in review).
 
 ## Where it stands
 
@@ -96,8 +96,8 @@ The user approved this sequence (2026-10-29). Each PR waits for the previous one
 | 5d    | Encounter reordering: Move up and Move down in the tracker row's menu, reusing the Rules page's strings (already in en, es and de), an e2e pin and a new state-golden journey. A row moves past its visible neighbour, so it works while filtering. No store migration.                                                         | Merged (#885)                  |
 | 5e–5k | Remove `legacy-base.css` one group per PR, each an intended, logged diff: box-sizing; list styles; replaced elements (`svg` and `img` display, svg overflow); `html` line height and font; form-control fonts and colours; margins, paddings and borders (may split); table, `hr` and the rest.                                 | Merged (#886–#890, #894, #901) |
 | 5l    | Navigation: the inline nav at every width (it was hidden below 1148px), and a bottom tab bar on mobile. One `nav`: the column from 1148px, a row above the page from 571px, a tab bar below. Pages leave room for it, and the tracker FAB and toasts rise above the bar.                                                        | Merged (#902)                  |
-| 5m    | Tracker redesign and density (see the decisions below): the list fills the page, flat rows (64px desktop, 120px phone; compact 40/56px, a new setting), a level stepper in every row, a keyboard ⋮ menu, translated control names, and a Reset confirm.                                                                         | In review                      |
-| 5n    | 5m follow-up: after Move up or Move down from the keyboard, focus follows the moved row (react-window keys rows by index, so focus stays at the old position, which now holds the neighbour). Builds on #903.                                                                                                                   | Built, waits on #903           |
+| 5m    | Tracker redesign and density (see the decisions below): the list fills the page, flat rows (64px desktop, 120px phone; compact 40/56px, a new setting), a level stepper in every row, a keyboard ⋮ menu, translated control names, and a Reset confirm.                                                                         | Merged (#903)                  |
+| 5n    | 5m follow-up: after Move up or Move down from the keyboard, focus follows the moved row (react-window keys rows by index, so focus stays at the old position, which now holds the neighbour). Builds on #903.                                                                                                                   | In review                      |
 | 5o    | 5m follow-up: PokéStats' team image logs a duplicate React key (`team-1`) with a team of more than six (`Pokestats/elements/Image/Image.tsx`, ``key={`team-${enc.id}`}``).                                                                                                                                                      | Not started                    |
 | 5p    | 5m follow-up: regenerate `verification/seeds` so they carry master's newer Ultra Sun/Ultra Moon locations. It changes the `import a backup` golden's `before` hash, so the PR needs the `state-change-approved` label (create it if missing) and the user's OK.                                                                 | Not started                    |
 
