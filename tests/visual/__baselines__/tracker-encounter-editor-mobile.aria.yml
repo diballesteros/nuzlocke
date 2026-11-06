@@ -6,24 +6,25 @@
   - button "pokemon type":
     - img
     - text: FIRE
+  - text: Starter · Captured
   - group:
     - text: Details Level
     - textbox "Level"
     - text: Met Level
     - textbox "Met Level"
-    - combobox "gender-selector":
+    - combobox "Gender":
       - text: FEMALE
       - button "Clear"
-    - combobox "nature-selector"
-    - button "nature chart"
-    - combobox "ability"
-    - button "ability table"
-    - combobox "item"
     - checkbox "Shiny"
     - text: Shiny
+    - combobox "Nature"
+    - button "Nature chart"
+    - combobox "Ability"
+    - button "Ability list"
+    - combobox "Held item"
   - group: Moves
   - group: Stats
-  - button "Cancel"
   - button "Export to Builder"
   - combobox "Export to game and close"
+  - button "Cancel"
   - button "Save"
