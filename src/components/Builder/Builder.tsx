@@ -55,7 +55,10 @@ function Builder(): React.JSX.Element {
           {team?.length > 0 ? (
             <div className="flex flex-1 flex-col flex-nowrap overflow-auto">
               {team?.map((poke, i) => {
-                return <Member index={i} key={`team-${poke.id}`} pokemonDetail={poke} />;
+                // A member's id is its species, and a team may hold a species more than once, so
+                // the key counts the earlier members of the same species
+                const nth = team.slice(0, i).filter((other) => other.id === poke.id).length;
+                return <Member index={i} key={`team-${poke.id}-${nth}`} pokemonDetail={poke} />;
               })}
             </div>
           ) : (

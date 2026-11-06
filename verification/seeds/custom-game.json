@@ -7411,13 +7411,6 @@
             "filterKey": "usum-1"
           },
           {
-            "id": 2,
-            "pokemon": null,
-            "location": "Iki Town",
-            "status": null,
-            "filterKey": "usum-2"
-          },
-          {
             "id": 3,
             "pokemon": null,
             "location": "Route 1",
@@ -7460,13 +7453,6 @@
             "filterKey": "usum-9"
           },
           {
-            "id": 59,
-            "pokemon": null,
-            "location": "Berry Fields",
-            "status": null,
-            "filterKey": "usum-59"
-          },
-          {
             "id": 10,
             "pokemon": null,
             "location": "Route 3",
@@ -7500,6 +7486,13 @@
             "location": "Ten Carat Hill",
             "status": null,
             "filterKey": "usum-14"
+          },
+          {
+            "id": 62,
+            "pokemon": null,
+            "location": "Ten Carat Hill (Farthest Hollow)",
+            "status": null,
+            "filterKey": "usum-62"
           },
           {
             "id": 60,
@@ -8875,7 +8868,7 @@
             "filterKey": "rby-48"
           },
           {
-            "id": 1792584955391,
+            "id": 1793895507366,
             "location": "Secret Base",
             "pokemon": null,
             "status": null
@@ -8957,7 +8950,7 @@
       {
         "value": "14.1",
         "text": "Emerald Kaizo",
-        "key": "custom-game-Emerald Kaizo-Wed Oct 21 2026 12:15:55 GMT+0000 (Coordinated Universal Time)"
+        "key": "custom-game-Emerald Kaizo-Thu Nov 05 2026 16:18:26 GMT+0000 (Coordinated Universal Time)"
       }
     ],
     "gens": [],
@@ -9157,7 +9150,7 @@
     "selectedGame": {
       "value": "14.1",
       "text": "Emerald Kaizo",
-      "key": "custom-game-Emerald Kaizo-Wed Oct 21 2026 12:15:55 GMT+0000 (Coordinated Universal Time)"
+      "key": "custom-game-Emerald Kaizo-Thu Nov 05 2026 16:18:26 GMT+0000 (Coordinated Universal Time)"
     },
     "selectedRuleset": "Nuzlocke",
     "showAll": false,
