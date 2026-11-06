@@ -105,7 +105,7 @@ function Combobox({
           data-testid={dataTestId}
           className={cn(
             row
-              ? 'relative flex h-[2.286rem] min-w-0 cursor-pointer items-center rounded-md border border-solid border-contrast-border bg-transparent pr-[2.286rem] pl-(--spacing-3) text-left text-(length:--font-size-2) leading-none text-foreground outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-row-ring hover:border-foreground'
+              ? 'relative flex h-[2.286rem] min-w-0 cursor-pointer items-center rounded-md border border-solid border-contrast-border bg-transparent pr-[2.286rem] pl-(--spacing-3) text-left text-(length:--font-size-2) leading-[1.4] text-foreground outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-row-ring hover:border-foreground'
               : 'relative block min-w-[14em] cursor-pointer rounded-[4px] border border-solid border-contrast-border bg-transparent py-[0.78571429em] pr-[2.1em] pl-[1em] text-left text-[1rem] leading-[1em] text-foreground outline-none hover:border-foreground',
             open &&
               'z-10 rounded-b-none shadow-[0_2px_3px_0_rgba(34,36,38,0.15)] [&>[data-slot=combobox-value]]:font-normal [&>[data-slot=combobox-value]]:text-[rgba(115,115,115,0.87)]',
@@ -130,7 +130,7 @@ function Combobox({
             className={cn(
               'search absolute top-0 left-px z-2 m-0! h-full appearance-none cursor-text border-none bg-transparent text-foreground outline-none',
               row
-                ? 'w-[calc(100%-2.286rem)] py-0 pr-0 pl-(--spacing-3) leading-none!'
+                ? 'w-[calc(100%-2.286rem)] py-0 pr-0 pl-(--spacing-3) leading-[1.4]!'
                 : 'w-[calc(100%-var(--spacing-8))] py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]!'
             )}
             role="combobox"

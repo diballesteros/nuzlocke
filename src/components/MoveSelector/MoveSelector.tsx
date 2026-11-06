@@ -95,7 +95,7 @@ function MoveSelector({
         style={currentMove ? { background: TYPE_COLOR[currentMove.type] } : undefined}
       />
       <button
-        className="flex h-full min-w-0 flex-1 cursor-pointer items-center border-0 bg-transparent p-0 text-left text-(length:--font-size-2) leading-none outline-none"
+        className="flex h-full min-w-0 flex-1 cursor-pointer items-center border-0 bg-transparent p-0 text-left text-(length:--font-size-2) leading-[1.4] outline-none"
         title={currentMove?.type}
         type="button"
       >
