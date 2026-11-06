@@ -39,5 +39,13 @@
   "edit_details": "Editar detalles",
   "encounter_options": "Opciones del encuentro",
   "evolve": "Evolucionar",
-  "randomize": "Aleatorio"
+  "randomize": "Aleatorio",
+  "ability": "Habilidad",
+  "gender": "Género",
+  "held_item": "Objeto equipado",
+  "lower": "Bajar {{name}}",
+  "moves": "Movimientos",
+  "nature": "Naturaleza",
+  "raise": "Subir {{name}}",
+  "stat": "Estadística"
 }

@@ -83,5 +83,6 @@
     "Sassy": "Sassy",
     "Careful": "Careful",
     "Quirky": "Quirky"
-  }
+  },
+  "delete_move": "Delete {{move}}"
 }

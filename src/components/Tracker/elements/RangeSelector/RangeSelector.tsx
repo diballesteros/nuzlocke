@@ -1,12 +1,15 @@
 import { useCallback } from 'react';
+import { useTranslation } from 'react-i18next';
 import { SLIDER } from 'components/Calculator/elements/Range/Range';
-import { Button } from '@/components/ui/button';
 import { MinusIcon, PlusIcon } from '@/components/ui/icons';
-import { ROW_ICON } from '../buttons';
+import { cn } from '@/lib/utils';
+import { ROW_GHOST } from '../buttons';
 
 interface RangeSelectorProps {
   name: string;
   onChange: (newValue: number) => void;
+  // The stat's short name ("HP", "Atk"), which the controls' names start with
+  stat: string;
   value: number;
 }
 
@@ -20,8 +23,14 @@ const IV = {
   max: 31,
 };
 
-function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX.Element {
+const STEP = cn(ROW_GHOST, 'size-[1.857rem] [&_svg]:size-[1rem]');
+
+// One IV or EV (5m): the slider, then the value between its − and + steppers. On phones a tag in
+// front says which it is; wider, the stats table's column header does
+function RangeSelector({ name, onChange, stat, value }: RangeSelectorProps): React.JSX.Element {
+  const { t } = useTranslation('tracker');
   const type = name.includes('ev') ? EV : IV;
+  const label = `${stat} ${type.label}`;
 
   const getBarFill = useCallback(() => {
     return { backgroundSize: `${(value * 100) / type.max || 0}% 100%` };
@@ -53,12 +62,16 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX
   };
 
   return (
-    <>
-      <label className="grid place-content-center select-none" htmlFor={name}>
-        {type.label}:
-      </label>
+    <div className="flex min-w-0 items-center gap-(--spacing-1)">
+      <span
+        aria-hidden
+        className="w-[1.714rem] shrink-0 text-(length:--font-size-1) font-bold text-row-muted sm:hidden"
+      >
+        {type.label}
+      </span>
       <input
-        className={SLIDER}
+        aria-label={label}
+        className={cn(SLIDER, 'min-w-[3rem] flex-1')}
         data-testid={name}
         id={name}
         style={getBarFill()}
@@ -68,33 +81,35 @@ function RangeSelector({ name, onChange, value }: RangeSelectorProps): React.JSX
         onChange={(e) => onChange(Number(e.target.value))}
         value={value}
       />
-      <Button
-        aria-label="substract"
+      <button
+        aria-label={t('lower', { name: label })}
+        className={cn(STEP, 'ml-(--spacing-1)')}
         data-testid={`${name}-substract`}
         onClick={handleDecrement}
-        size="icon"
-        variant="secondary"
+        title={t('lower', { name: label })}
+        type="button"
       >
-        <MinusIcon className={ROW_ICON} />
-      </Button>
-      {/* The page's font stays normalize's, as before: only the weight and colours are set */}
+        <MinusIcon aria-hidden />
+      </button>
       <input
-        className="grid place-content-center rounded-[4px] border border-solid border-foreground bg-transparent px-(--spacing-1) py-(--spacing-0) text-center font-bold text-foreground select-none"
+        aria-label={label}
+        className="h-[2.143rem] w-[3rem] shrink-0 rounded-md border border-solid border-contrast-border bg-transparent p-0 text-center text-(length:--font-size-2) font-bold text-foreground tabular-nums outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
         data-testid={`input-${name}`}
         inputMode="numeric"
         onChange={(e) => handleTextChange(e.target.value)}
         value={value}
       />
-      <Button
-        aria-label="add"
+      <button
+        aria-label={t('raise', { name: label })}
+        className={STEP}
         data-testid={`${name}-add`}
         onClick={handleIncrement}
-        size="icon"
-        variant="secondary"
+        title={t('raise', { name: label })}
+        type="button"
       >
-        <PlusIcon className={ROW_ICON} />
-      </Button>
-    </>
+        <PlusIcon aria-hidden />
+      </button>
+    </div>
   );
 }
 
