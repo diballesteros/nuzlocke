@@ -17,10 +17,15 @@ import {
 } from '@/components/ui/dialog';
 
 interface EncounterSelectorProps {
-  children: React.ReactNode;
+  // Without children, the picker is opened from elsewhere (the tracker row's menu) through `open`
+  children?: React.ReactNode;
   encounters: TEncounter[];
   handleEncounter: (encounter: TEncounter) => void;
   limitGen?: number;
+  onOpenChange?: (open: boolean) => void;
+  open?: boolean;
+  // Where focus goes when the picker closes, when it was opened from elsewhere
+  returnFocus?: React.RefObject<HTMLElement | null>;
 }
 
 function EncounterSelector({
@@ -28,9 +33,17 @@ function EncounterSelector({
   encounters,
   handleEncounter,
   limitGen,
+  onOpenChange,
+  open: openProp,
+  returnFocus,
 }: EncounterSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
-  const [open, setOpen] = useState(false);
+  const [openState, setOpenState] = useState(false);
+  const open = openProp ?? openState;
+  const setOpen = (next: boolean) => {
+    setOpenState(next);
+    onOpenChange?.(next);
+  };
   const itemSize = useRemtoPx();
   const values = useFilter();
   const filteredEncounters = encounters.filter((p) => {
@@ -72,11 +85,24 @@ function EncounterSelector({
 
   return (
     <>
-      <div onClick={() => setOpen(true)} role="presentation">
-        {children}
-      </div>
+      {children && (
+        <div onClick={() => setOpen(true)} role="presentation">
+          {children}
+        </div>
+      )}
       <Dialog open={open}>
-        <DialogContent dismissible={false}>
+        <DialogContent
+          dismissible={false}
+          onCloseAutoFocus={
+            returnFocus
+              ? (e) => {
+                  e.preventDefault();
+                  const active = document.activeElement;
+                  if (!active || active === document.body) returnFocus.current?.focus();
+                }
+              : undefined
+          }
+        >
           <DialogTitle className="sr-only">{t('select_pokemon')}</DialogTitle>
           <DialogBody className="[&>div:first-child]:mb-(--spacing-3)" scrolling>
             <Filter hideGen={!!limitGen} values={values} />

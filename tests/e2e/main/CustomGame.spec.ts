@@ -33,6 +33,7 @@ test.describe('Custom game', () => {
       await text(page, 'Fainted').dispatchEvent('click');
       await byTestId(page, 'encounter-options-0').click();
       await byTestId(page, 'reset-encounter-0').click();
+      await byTestId(page, 'confirm-reset-encounter').click();
       await expect(text(page, 'Status...')).toBeAttached();
       await byTestId(page, 'encounter-options-0').click();
       await byTestId(page, 'delete-encounter-0').click();

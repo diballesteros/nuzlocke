@@ -20,12 +20,12 @@ const encounterAt = (state: AppState, game: string, index: number): TEncounter =
   state.games[game].encounters[index];
 
 describe('Persisted store', () => {
-  test('uses the pokemon-tracker key at version 8', () => {
+  test('uses the pokemon-tracker key at version 9', () => {
     expect(useStore.persist.getOptions().name).toBe(STORAGE_KEY);
-    expect(useStore.persist.getOptions().version).toBe(8);
+    expect(useStore.persist.getOptions().version).toBe(9);
   });
 
-  test('rehydrates a current (v8) snapshot from localStorage as-is', async () => {
+  test('rehydrates a current (v9) snapshot from localStorage as-is', async () => {
     const state = persistedState();
     state.darkMode = true;
     state.selectedGame = state.gamesList[0];
@@ -34,7 +34,7 @@ describe('Persisted store', () => {
       pokemon: 25,
       nickname: 'Sparky',
     };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify({ state, version: 8 }));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({ state, version: 9 }));
 
     await useStore.persist.rehydrate();
 
@@ -48,7 +48,7 @@ describe('Persisted store', () => {
   test('writes state changes back to localStorage', () => {
     useStore.getState().toggleNickname();
     const stored = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    expect(stored.version).toBe(8);
+    expect(stored.version).toBe(9);
     expect(stored.state.nicknames).toBe(useStore.getState().nicknames);
     localStorage.clear();
   });
@@ -161,6 +161,18 @@ describe('Store migrations', () => {
     const state = persistedState();
     state.games['1'].badge = [0, 1];
     expect(migrate(state, 8).games['1'].badge).toEqual([0, 1]);
+  });
+
+  test('v9: a v8 state gets compact rows off', () => {
+    const state = persistedState();
+    delete state.compact;
+    expect(migrate(state, 8).compact).toBe(false);
+  });
+
+  test('v9: a current state keeps its compact setting', () => {
+    const state = persistedState();
+    state.compact = true;
+    expect(migrate(state, 9).compact).toBe(true);
   });
 
   test('v5: legacy status 6 becomes Fainted + shiny, and Soulocke rules are added', () => {
