@@ -14,17 +14,25 @@ import {
 import { Input } from '@/components/ui/input';
 
 interface AbilitiesProps {
+  // The trigger's look and name where the field beside it has its own (the encounter editor)
+  className?: string;
+  label?: string;
   text: string;
 }
 
-export default function Abilities({ text }: AbilitiesProps) {
+export default function Abilities({ className, label, text }: AbilitiesProps) {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const [searchText, setSearchText] = useState(text);
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <InfoButton aria-label="ability table" data-testid="ability-info" />
+        <InfoButton
+          aria-label={label ?? 'ability table'}
+          className={className}
+          data-testid="ability-info"
+          title={label}
+        />
       </DialogTrigger>
       <DialogContent>
         <DialogTitle className="sr-only">{t('ability_list')}</DialogTitle>

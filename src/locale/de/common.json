@@ -83,5 +83,6 @@
     "Sassy": "Forsch",
     "Careful": "Sacht",
     "Quirky": "Kauzig"
-  }
+  },
+  "delete_move": "{{move}} löschen"
 }

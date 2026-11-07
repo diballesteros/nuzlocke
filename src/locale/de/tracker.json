@@ -39,5 +39,14 @@
   "edit_details": "Details bearbeiten",
   "encounter_options": "Begegnungsoptionen",
   "evolve": "Entwickeln",
-  "randomize": "Zufällig"
+  "randomize": "Zufällig",
+  "ability": "Fähigkeit",
+  "gender": "Geschlecht",
+  "held_item": "Getragenes Item",
+  "lower": "{{name}} senken",
+  "moves": "Attacken",
+  "nature": "Natur",
+  "raise": "{{name}} erhöhen",
+  "stat": "Wert",
+  "move_slot": "Attacke {{n}}"
 }

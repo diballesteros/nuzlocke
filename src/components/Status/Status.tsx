@@ -35,7 +35,7 @@ const ICON =
   'mr-[0.78571429em] inline-block h-[1em] w-[1.18em] align-top text-black opacity-87 group-data-highlighted/item:opacity-95 group-data-[state=checked]/item:opacity-95';
 
 // The row's status dot, so a column of statuses scans at a glance (custom statuses get a neutral one)
-const DOT: Record<number, string> = {
+export const STATUS_DOT: Record<number, string> = {
   1: 'bg-green',
   2: 'bg-destructive',
   3: 'bg-violet-500',
@@ -75,7 +75,7 @@ const Status = React.memo(function Status({ encounter, triggerClassName }: Statu
             aria-hidden
             className={cn(
               'size-[0.571rem] shrink-0 rounded-full',
-              DOT[encounter.status.value] ?? 'bg-contrast-border'
+              STATUS_DOT[encounter.status.value] ?? 'bg-contrast-border'
             )}
           />
         ) : undefined

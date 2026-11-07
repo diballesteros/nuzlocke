@@ -39,5 +39,14 @@
   "edit_details": "Edit details",
   "encounter_options": "Encounter options",
   "evolve": "Evolve",
-  "randomize": "Randomize"
+  "randomize": "Randomize",
+  "ability": "Ability",
+  "gender": "Gender",
+  "held_item": "Held item",
+  "lower": "Lower {{name}}",
+  "moves": "Moves",
+  "nature": "Nature",
+  "raise": "Raise {{name}}",
+  "stat": "Stat",
+  "move_slot": "Move {{n}}"
 }
