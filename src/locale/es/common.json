@@ -83,5 +83,6 @@
     "Sassy": "Grosera",
     "Careful": "Cauta",
     "Quirky": "Rara"
-  }
+  },
+  "delete_move": "Borrar {{move}}"
 }

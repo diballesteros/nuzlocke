@@ -30,14 +30,25 @@ export function InfoButton(props: React.ComponentProps<typeof Button>): React.JS
   );
 }
 
-function Natures(): React.JSX.Element {
+interface NaturesProps {
+  // The trigger's look and name where the field beside it has its own (the encounter editor)
+  className?: string;
+  label?: string;
+}
+
+function Natures({ className, label }: NaturesProps = {}): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
   const natureName = useNatureName();
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <InfoButton aria-label="nature chart" data-testid="nature-info" />
+        <InfoButton
+          aria-label={label ?? 'nature chart'}
+          className={className}
+          data-testid="nature-info"
+          title={label}
+        />
       </DialogTrigger>
       <DialogContent>
         <DialogTitle className="sr-only">{t('nature_chart')}</DialogTitle>

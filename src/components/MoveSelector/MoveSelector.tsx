@@ -3,6 +3,7 @@ import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { List, RowComponentProps as RowProps } from 'react-window';
 import { Filter, Move } from 'components';
+import { TYPE_COLOR } from 'constants/colors';
 import { PHYS_SPEC_SPLIT } from 'constants/constant';
 import MOVES, { MOVEMAP } from 'constants/moves';
 import useFilter from 'hooks/useFilter';
@@ -24,13 +25,24 @@ interface MoveSelectorProps {
   handleMove: (moveId: number) => void;
   hideGen?: boolean;
   limitGen?: number;
+  // `tile`: the encounter editor's look (5m): a 40px field with the move's type as a stripe, a
+  // button that opens the list, and the delete button at its end
+  look?: 'tile';
+  // The tile's slot ("Move 1"), read before its move so the four tiles can be told apart
+  slot?: string;
 }
+
+// The tile's focus ring and hover, as the tracker rows' controls
+const TILE =
+  'relative flex h-[2.857rem] min-w-0 cursor-pointer items-center gap-(--spacing-2) rounded-md border border-solid border-contrast-border bg-transparent py-0 pr-(--spacing-1) pl-(--spacing-1) text-foreground has-[>button:first-of-type:focus-visible]:outline-2 has-[>button:first-of-type:focus-visible]:outline-offset-2 has-[>button:first-of-type:focus-visible]:outline-row-ring hover:border-foreground';
 
 function MoveSelector({
   currentMoveId,
   handleMove,
   hideGen,
   limitGen,
+  look,
+  slot,
 }: MoveSelectorProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [open, setOpen] = useState(false);
@@ -74,9 +86,49 @@ function MoveSelector({
     );
   };
 
+  const tile = (
+    // The tile opens the list on a click anywhere (specs click it), its button on Enter or Space
+    <div className={TILE} onClick={() => setOpen(true)} role="presentation">
+      <span
+        aria-hidden
+        className="my-(--spacing-1) w-[6px] self-stretch rounded-[3px] bg-contrast-border"
+        style={currentMove ? { background: TYPE_COLOR[currentMove.type] } : undefined}
+      />
+      <button
+        className="flex h-full min-w-0 flex-1 cursor-pointer items-center border-0 bg-transparent p-0 text-left text-(length:--font-size-2) leading-[1.4] outline-none"
+        title={currentMove?.type}
+        type="button"
+      >
+        {slot && <span className="sr-only">{slot}: </span>}
+        {currentMove ? (
+          <span className="truncate font-bold">
+            {currentMove.name}
+            <span className="sr-only">, {currentMove.type}</span>
+          </span>
+        ) : (
+          <span className="truncate text-row-muted">{t('select_move')}</span>
+        )}
+      </button>
+      {currentMove && (
+        <Button
+          aria-label={t('delete_move', { move: currentMove.name })}
+          className="size-[2.286rem] p-0 text-row-muted hover:text-foreground"
+          name="trash"
+          onClick={handleClear}
+          size="icon"
+          variant="basic-plain"
+        >
+          <TrashIcon className={cn('trash', BUTTON_ICON)} />
+        </Button>
+      )}
+    </div>
+  );
+
   return (
     <>
-      {currentMoveId ? (
+      {look === 'tile' ? (
+        tile
+      ) : currentMoveId ? (
         <div className="relative" onClick={() => setOpen(true)} role="presentation">
           <Move moveDetail={currentMove} showStatus={isSplit} />
           {/* Semantic's `basic compact icon` button, its padding cut to --spacing-1 */}

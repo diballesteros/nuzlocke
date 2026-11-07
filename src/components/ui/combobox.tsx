@@ -1,5 +1,5 @@
 import { Command as CommandPrimitive } from 'cmdk';
-import { X } from 'lucide-react';
+import { ChevronDown, X } from 'lucide-react';
 import { Popover as PopoverPrimitive } from 'radix-ui';
 import * as React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -26,6 +26,9 @@ interface ComboboxProps {
   className?: string;
   clearable?: boolean;
   'data-testid'?: string;
+  // `row`: the tracker's field look (5m), as Select's `row` look: one line at the rows' control
+  // height, the value truncated before a chevron, the rows' focus ring
+  look?: 'row';
   onChange: (value: string) => void;
   options: ComboboxOption[];
   placeholder: string;
@@ -57,11 +60,13 @@ function Combobox({
   className,
   clearable = false,
   'data-testid': dataTestId,
+  look,
   onChange,
   options,
   placeholder,
   value,
 }: ComboboxProps) {
+  const row = look === 'row';
   const { t } = useTranslation('common');
   const [open, setOpen] = React.useState(false);
   const [query, setQuery] = React.useState('');
@@ -99,7 +104,9 @@ function Combobox({
           data-slot="combobox"
           data-testid={dataTestId}
           className={cn(
-            'relative block min-w-[14em] cursor-pointer rounded-[4px] border border-solid border-contrast-border bg-transparent py-[0.78571429em] pr-[2.1em] pl-[1em] text-left text-[1rem] leading-[1em] text-foreground outline-none hover:border-foreground',
+            row
+              ? 'relative flex h-[2.286rem] min-w-0 cursor-pointer items-center rounded-md border border-solid border-contrast-border bg-transparent pr-[2.286rem] pl-(--spacing-3) text-left text-(length:--font-size-2) leading-[1.4] text-foreground outline-none focus-within:outline-2 focus-within:outline-offset-2 focus-within:outline-row-ring hover:border-foreground'
+              : 'relative block min-w-[14em] cursor-pointer rounded-[4px] border border-solid border-contrast-border bg-transparent py-[0.78571429em] pr-[2.1em] pl-[1em] text-left text-[1rem] leading-[1em] text-foreground outline-none hover:border-foreground',
             open &&
               'z-10 rounded-b-none shadow-[0_2px_3px_0_rgba(34,36,38,0.15)] [&>[data-slot=combobox-value]]:font-normal [&>[data-slot=combobox-value]]:text-[rgba(115,115,115,0.87)]',
             className
@@ -120,7 +127,12 @@ function Combobox({
             autoComplete="off"
             // `search` is Semantic's class for this input; no stylesheet targets it on its own, and
             // specs still find the input by it
-            className="search absolute top-0 left-px z-2 m-0! h-full appearance-none w-[calc(100%-var(--spacing-8))] cursor-text border-none bg-transparent py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]! text-foreground outline-none"
+            className={cn(
+              'search absolute top-0 left-px z-2 m-0! h-full appearance-none cursor-text border-none bg-transparent text-foreground outline-none',
+              row
+                ? 'w-[calc(100%-2.286rem)] py-0 pr-0 pl-(--spacing-3) leading-[1.4]!'
+                : 'w-[calc(100%-var(--spacing-8))] py-[0.67857143em] pr-[2.1em] pl-[1em] leading-[1.21428571em]!'
+            )}
             role="combobox"
             type="text"
             value={query}
@@ -146,6 +158,8 @@ function Combobox({
             data-slot="combobox-value"
             className={cn(
               'pointer-events-none relative left-px z-3 inline-block font-bold',
+              row && 'min-w-0 truncate',
+              row && !selected && 'font-normal text-row-muted',
               query && '[visibility:hidden]'
             )}
           >
@@ -161,7 +175,10 @@ function Combobox({
           {clearable && selected ? (
             <button
               aria-label={t('clear')}
-              className="absolute top-0 right-[12px] z-3 m-0! flex h-full w-[31px] cursor-pointer items-center justify-center border-none bg-transparent p-0 text-foreground opacity-80 hover:opacity-100"
+              className={cn(
+                'absolute top-0 z-3 m-0! flex h-full cursor-pointer items-center justify-center border-none bg-transparent p-0 text-foreground opacity-80 hover:opacity-100',
+                row ? 'right-0 w-[2.286rem]' : 'right-[12px] w-[31px]'
+              )}
               onClick={(e) => {
                 e.stopPropagation();
                 pick('');
@@ -170,6 +187,12 @@ function Combobox({
             >
               <X aria-hidden className="size-[0.9em]" strokeWidth={4} />
             </button>
+          ) : row ? (
+            <ChevronDown
+              aria-hidden
+              className="pointer-events-none absolute right-(--spacing-2) z-3 size-[1.143rem]"
+              strokeWidth={2.5}
+            />
           ) : (
             // Semantic's caret, drawn where its icon font put it: a clearable dropdown drew it
             // narrower (the item selector), the others 7.5px wide (nature, ability)
