@@ -1,8 +1,14 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import useStore from 'store';
-import { Button } from '@/components/ui/button';
-import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { ROW_ICON_CONTROL } from 'components/Tracker/elements/buttons';
+import { MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
+
+const STEP = cn(
+  ROW_ICON_CONTROL,
+  'size-[2rem] text-row-muted hover:text-foreground [&_svg]:size-[0.857rem]'
+);
 
 interface ModifierProps {
   name:
@@ -36,35 +42,37 @@ function Modifier({ name }: ModifierProps): React.JSX.Element {
   };
 
   return (
-    <div className="mx-auto my-0 flex w-full flex-row flex-nowrap items-center gap-(--spacing-2) self-center">
-      <span className="mr-(--spacing-2) select-none">{t('modifier')}:</span>
-      <Button
-        className="m-0!"
-        data-testid={`minus-${name}`}
-        onClick={decrement}
-        size="icon"
-        type="button"
-        variant="secondary"
-      >
-        <MinusIcon className={BUTTON_ICON} />
-      </Button>
-      <output
-        className="min-w-[2.143rem] rounded-[4px] border border-solid border-foreground p-(--spacing-2) text-center font-bold select-none"
-        data-testid={name}
-      >
-        {form[name]}
-      </output>
-      <Button
-        className="m-0!"
-        data-testid={`plus-${name}`}
-        onClick={increment}
-        size="icon"
-        type="button"
-        variant="secondary"
-      >
-        <PlusIcon className={BUTTON_ICON} />
-      </Button>
-    </div>
+    <>
+      <span className="text-(length:--font-size-1) font-bold text-row-muted select-none">
+        {t('modifier')}
+      </span>
+      <div className="col-span-2 flex items-center gap-(--spacing-1)">
+        <button
+          aria-label={t('lower_boost')}
+          className={STEP}
+          data-testid={`minus-${name}`}
+          onClick={decrement}
+          type="button"
+        >
+          <MinusIcon aria-hidden />
+        </button>
+        <output
+          className="min-w-[2.286rem] text-center text-(length:--font-size-2) font-bold tabular-nums select-none"
+          data-testid={name}
+        >
+          {form[name]}
+        </output>
+        <button
+          aria-label={t('raise_boost')}
+          className={STEP}
+          data-testid={`plus-${name}`}
+          onClick={increment}
+          type="button"
+        >
+          <PlusIcon aria-hidden />
+        </button>
+      </div>
+    </>
   );
 }
 

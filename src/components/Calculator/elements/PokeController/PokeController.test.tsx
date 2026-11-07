@@ -170,7 +170,7 @@ describe('defender', () => {
     expect(screen.getByText('detail-selector').dataset.count).toBe('0');
 
     const trainers = DETAILS[USUM].flat();
-    await user.click(screen.getByRole('combobox', { name: 'gym-filter' }));
+    await user.click(screen.getByRole('combobox', { name: 'select_gym' }));
     const options = screen.getAllByRole('option');
     expect(options).toHaveLength(trainers.length);
     expect(options[0].textContent).toBe(`${trainers[0].name} - ${trainers[0].game}`);
