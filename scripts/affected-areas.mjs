@@ -185,7 +185,8 @@ const result = {
   all,
   areas,
   files,
-  // For `playwright test --grep-invert`: every visual state outside the touched areas
+  // With `playwright test --grep-invert`, every visual state outside the touched areas; review.yml
+  // also passes it to `--grep` for the touched ones
   grepInvert: all ? null : areas.length ? `@(${areas.join('|')})\\b` : null,
 };
 console.info(JSON.stringify(result, null, 2));
