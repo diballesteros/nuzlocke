@@ -30,7 +30,9 @@ function MainField(): React.JSX.Element {
   const ids = { gameType: useId(), terrain: useId(), weather: useId() };
 
   return (
-    <div className="relative">
+    // Below 750px (one side at a time, the result stuck to the top) the panel opens in the page
+    // flow on its own row under the toolbar, so it never covers the result
+    <div className="relative max-[749px]:contents">
       <button
         aria-controls={show ? panelId : undefined}
         aria-expanded={show}
@@ -50,7 +52,7 @@ function MainField(): React.JSX.Element {
       {show && (
         <div
           aria-label={t('field')}
-          className="absolute top-[calc(100%+var(--spacing-2))] left-0 z-6 grid w-[30rem] max-w-[calc(100vw-2*var(--spacing-3))] grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-(--spacing-4) gap-y-(--spacing-3) rounded-lg border border-solid border-contrast-border bg-card p-(--spacing-4) text-foreground shadow-[0_10px_30px_rgb(0_0_0/0.25)] max-sm:grid-cols-1 max-sm:gap-y-(--spacing-1)"
+          className="absolute top-[calc(100%+var(--spacing-2))] left-0 z-6 grid w-[30rem] max-w-[calc(100vw-2*var(--spacing-3))] max-[749px]:static max-[749px]:order-last max-[749px]:w-auto max-[749px]:max-w-none max-[749px]:basis-full max-[749px]:shadow-none grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-(--spacing-4) gap-y-(--spacing-3) rounded-lg border border-solid border-contrast-border bg-card p-(--spacing-4) text-foreground shadow-[0_10px_30px_rgb(0_0_0/0.25)] max-sm:grid-cols-1 max-sm:gap-y-(--spacing-1)"
           id={panelId}
           role="group"
         >

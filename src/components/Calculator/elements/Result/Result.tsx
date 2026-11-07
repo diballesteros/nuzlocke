@@ -112,7 +112,7 @@ function Result({ compact = false, primary, setPrimary }: ResultProps): React.JS
           </output>
         </div>
         <span className="shrink-0 text-(length:--font-size-1) text-row-muted">
-          <span className="max-md:hidden">
+          <span className="max-md:sr-only">
             {primary[0] === 'attacker' ? 'Pokémon 1 → Pokémon 2' : 'Pokémon 2 → Pokémon 1'}
           </span>
           <span aria-hidden className="font-bold md:hidden">
