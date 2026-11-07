@@ -50,7 +50,7 @@ function MainField(): React.JSX.Element {
       {show && (
         <div
           aria-label={t('field')}
-          className="absolute top-[calc(100%+var(--spacing-2))] left-0 z-3 grid w-[30rem] max-w-[calc(100vw-2*var(--spacing-3))] grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-(--spacing-4) gap-y-(--spacing-3) rounded-lg border border-solid border-contrast-border bg-card p-(--spacing-4) text-foreground shadow-[0_10px_30px_rgb(0_0_0/0.25)] max-sm:grid-cols-1 max-sm:gap-y-(--spacing-1)"
+          className="absolute top-[calc(100%+var(--spacing-2))] left-0 z-6 grid w-[30rem] max-w-[calc(100vw-2*var(--spacing-3))] grid-cols-[6.5rem_minmax(0,1fr)] items-center gap-x-(--spacing-4) gap-y-(--spacing-3) rounded-lg border border-solid border-contrast-border bg-card p-(--spacing-4) text-foreground shadow-[0_10px_30px_rgb(0_0_0/0.25)] max-sm:grid-cols-1 max-sm:gap-y-(--spacing-1)"
           id={panelId}
           role="group"
         >

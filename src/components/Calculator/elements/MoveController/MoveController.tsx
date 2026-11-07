@@ -49,7 +49,7 @@ function MoveController({
               data-testid={`move${move}_${pokemon}`}
               key={move}
             >
-              <label className="flex size-[2.286rem] shrink-0 cursor-pointer items-center justify-center rounded-md has-[:disabled]:cursor-default has-[:disabled]:opacity-40 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-row-ring">
+              <label className="flex size-[2.286rem] shrink-0 max-sm:size-[2.571rem] cursor-pointer items-center justify-center rounded-md has-[:disabled]:cursor-default has-[:disabled]:opacity-40 has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-row-ring">
                 <input
                   aria-label={t('show_result', { move: name ?? slot })}
                   checked={primary[0] === position && primary[1] === i}

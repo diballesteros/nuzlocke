@@ -18,9 +18,11 @@ interface RangeProps {
   label: string;
   name: keyof TCalculatorForm;
   max: number;
+  // The stat's name, which the slider's name starts with ("Atk IV")
+  stat: string;
 }
 
-function Range({ label, name, max }: RangeProps): React.JSX.Element {
+function Range({ label, name, max, stat }: RangeProps): React.JSX.Element {
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
   const fieldValue = form[name] as number;
@@ -38,6 +40,7 @@ function Range({ label, name, max }: RangeProps): React.JSX.Element {
         {label}
       </label>
       <input
+        aria-label={`${stat} ${label}`}
         className={PRIMARY_SLIDER}
         data-testid={name}
         id={name}

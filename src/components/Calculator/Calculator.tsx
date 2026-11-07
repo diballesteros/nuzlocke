@@ -38,6 +38,8 @@ function Calculator(): React.JSX.Element {
   const [primary, setPrimary] = useState<Primary>(['attacker', 0]);
   const [stuck, setStuck] = useState(false);
   const sentinel = useRef<HTMLDivElement>(null);
+  const stickyRef = useRef<HTMLDivElement>(null);
+  const [stickyHeight, setStickyHeight] = useState(0);
   const calc = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value], []));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const setDefaultCalculator = useStore(useCallback((state) => state.setDefaultCalculator, []));
@@ -61,6 +63,19 @@ function Calculator(): React.JSX.Element {
       return undefined;
     }
     const observer = new IntersectionObserver(([entry]) => setStuck(!entry.isIntersecting));
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [narrow, ready]);
+
+  // A field reached with Tab scrolls clear of the stuck block: the scroller's padding follows its
+  // measured height (it grows while the results list is open)
+  useEffect(() => {
+    const node = stickyRef.current;
+    if (!narrow || !node || typeof ResizeObserver === 'undefined') {
+      setStickyHeight(0);
+      return undefined;
+    }
+    const observer = new ResizeObserver(() => setStickyHeight(node.offsetHeight));
     observer.observe(node);
     return () => observer.disconnect();
   }, [narrow, ready]);
@@ -118,17 +133,20 @@ function Calculator(): React.JSX.Element {
   return (
     <form
       className={cn(
-        'relative flex h-full min-h-0 flex-col gap-(--spacing-3) overflow-auto p-(--spacing-3) max-sm:p-(--spacing-2)',
-        narrow && '[scroll-padding-top:8.5rem]'
+        'relative flex h-full min-h-0 flex-col gap-(--spacing-3) overflow-auto p-(--spacing-3) max-sm:p-(--spacing-2)'
       )}
       id="calculator"
+      style={narrow && stickyHeight ? { scrollPaddingTop: stickyHeight } : undefined}
     >
       {ready ? (
         <>
           <CalculatorHeader />
           <div aria-hidden className="-mb-(--spacing-3) h-px shrink-0" ref={sentinel} />
           {narrow ? (
-            <div className="sticky -top-(--spacing-2) z-2 -mx-(--spacing-2) -mt-(--spacing-2) flex shrink-0 flex-col gap-(--spacing-2) bg-background px-(--spacing-2) py-(--spacing-2) shadow-[0_6px_8px_-6px_rgb(0_0_0/0.25)]">
+            <div
+              className="sticky -top-(--spacing-2) z-5 -mx-(--spacing-2) -mt-(--spacing-2) flex shrink-0 flex-col gap-(--spacing-2) bg-background px-(--spacing-2) py-(--spacing-2) shadow-[0_6px_8px_-6px_rgb(0_0_0/0.25)]"
+              ref={stickyRef}
+            >
               <Result compact={stuck} primary={primary} setPrimary={setPrimary} />
               <div
                 aria-label={t('pokemon', { ns: 'calculator' })}

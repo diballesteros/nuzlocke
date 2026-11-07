@@ -18,7 +18,7 @@ interface ResultProps {
 
 // A move's result in the list: the pinned one is bold and coloured
 const RESULT =
-  'flex cursor-pointer items-start gap-(--spacing-2) rounded-md px-(--spacing-2) py-(--spacing-1) outline-none hover:bg-foreground/8 focus-visible:outline-2 focus-visible:outline-row-ring';
+  'flex cursor-pointer max-sm:py-(--spacing-2) items-start gap-(--spacing-2) rounded-md px-(--spacing-2) py-(--spacing-1) outline-none hover:bg-foreground/8 focus-visible:outline-2 focus-visible:outline-row-ring';
 const ACTIVE_RESULT = 'font-bold text-row-link';
 
 // "Lvl 12 Scorbunny Ember vs. Lvl 11 Rookidee: 9-11 (28.1 - 34.4%) -- guaranteed 4HKO" → the
@@ -111,8 +111,13 @@ function Result({ compact = false, primary, setPrimary }: ResultProps): React.JS
             {desc}
           </output>
         </div>
-        <span className="shrink-0 text-(length:--font-size-1) text-row-muted max-md:hidden">
-          {primary[0] === 'attacker' ? 'Pokémon 1 → Pokémon 2' : 'Pokémon 2 → Pokémon 1'}
+        <span className="shrink-0 text-(length:--font-size-1) text-row-muted">
+          <span className="max-md:hidden">
+            {primary[0] === 'attacker' ? 'Pokémon 1 → Pokémon 2' : 'Pokémon 2 → Pokémon 1'}
+          </span>
+          <span aria-hidden className="font-bold md:hidden">
+            {primary[0] === 'attacker' ? '1 → 2' : '2 → 1'}
+          </span>
         </span>
         <div
           aria-controls={resultsId}
@@ -134,7 +139,9 @@ function Result({ compact = false, primary, setPrimary }: ResultProps): React.JS
       <div
         className={cn(
           'flex-col flex-nowrap gap-(--spacing-3) pt-(--spacing-3) text-(length:--font-size-2)',
-          expanded ? 'flex' : 'hidden'
+          expanded ? 'flex' : 'hidden',
+          // On phones the card is stuck to the top, so the list scrolls inside it
+          'max-sm:max-h-[40dvh] max-sm:overflow-y-auto'
         )}
         id={resultsId}
       >

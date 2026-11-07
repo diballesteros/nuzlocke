@@ -132,11 +132,19 @@ function Stats({ pokemon }: StatsProps): React.JSX.Element {
               <div aria-label={label} className={PANEL} role="group">
                 {modern ? (
                   <>
-                    <Range name={`iv${key}${pokemon}` as keyof TCalculatorForm} {...IV} />
-                    <Range name={`ev${key}${pokemon}` as keyof TCalculatorForm} {...EV} />
+                    <Range
+                      stat={label}
+                      name={`iv${key}${pokemon}` as keyof TCalculatorForm}
+                      {...IV}
+                    />
+                    <Range
+                      stat={label}
+                      name={`ev${key}${pokemon}` as keyof TCalculatorForm}
+                      {...EV}
+                    />
                   </>
                 ) : (
-                  <Range name={`dv${dv}${pokemon}` as keyof TCalculatorForm} {...DV} />
+                  <Range stat={label} name={`dv${dv}${pokemon}` as keyof TCalculatorForm} {...DV} />
                 )}
                 {key !== 'hp' && (
                   <Modifier
