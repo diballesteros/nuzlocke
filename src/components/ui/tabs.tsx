@@ -9,9 +9,14 @@ import { cn } from '@/lib/utils';
 // - `menu`: a plain `ui menu` (a white bar of items with dividers, the active one shaded) over a
 //   borderless panel;
 // - `secondary`: a `secondary` menu (borderless items, the active one on the card colour) over a
-//   panel with Semantic's segment shadow.
+//   panel with Semantic's segment shadow;
+// - `segmented` (Phase 5): the redesign's segmented control, like the Calculator's Field rows: the
+//   current tab tinted and underlined in the primary colour, its text in the foreground colour (a
+//   tinted fill under link-blue text fails contrast in dark mode), over a plain panel. A tab with
+//   `aria-disabled` (set by the caller; Radix's `disabled` would take it out of the arrow keys) is
+//   dimmed.
 
-type TabsVariant = 'menu' | 'secondary' | 'tabular';
+type TabsVariant = 'menu' | 'secondary' | 'segmented' | 'tabular';
 
 const VariantContext = React.createContext<TabsVariant>('tabular');
 
@@ -39,6 +44,8 @@ function TabsList({ className, ...props }: React.ComponentProps<typeof TabsPrimi
           'mb-[1rem] overflow-auto rounded-[0.28571429rem] border border-solid border-field-border bg-white text-field-foreground shadow-[0_1px_2px_0_var(--color-field-border)]',
         variant === 'secondary' &&
           '-mx-[0.35714286em] mb-[1rem] flex-row flex-nowrap overflow-auto px-(--spacing-2) py-(--spacing-0)',
+        variant === 'segmented' &&
+          'min-h-0 w-fit max-w-full shrink-0 gap-px overflow-x-auto rounded-md border border-solid border-contrast-border bg-contrast-border/60',
         className
       )}
       {...props}
@@ -63,6 +70,8 @@ function TabsTrigger({ className, ...props }: React.ComponentProps<typeof TabsPr
         // still looked the same here
         variant === 'secondary' &&
           'mx-[0.35714286em]! self-center rounded-[0.28571429rem] border-0 px-[0.92857143em] py-[0.78571429em] text-foreground transition-[color] hover:bg-[rgba(0,0,0,0.05)] data-[state=active]:bg-card data-[state=active]:transition-all data-[state=active]:duration-500 data-[state=active]:hover:bg-[rgba(0,0,0,0.05)] data-disabled:cursor-default data-disabled:hover:bg-transparent',
+        variant === 'segmented' &&
+          'h-[2.429rem] gap-(--spacing-2) border-0 bg-card px-(--spacing-3) text-(length:--font-size-2)! leading-[1.4]! font-bold whitespace-nowrap text-row-muted hover:text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-row-ring aria-disabled:cursor-default aria-disabled:opacity-60 aria-disabled:hover:text-row-muted data-[state=active]:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] data-[state=active]:text-foreground data-[state=active]:shadow-[inset_0_-2px_0_var(--color-primary)]',
         className
       )}
       {...props}

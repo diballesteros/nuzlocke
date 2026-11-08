@@ -93,6 +93,12 @@ const languageDetector = {
   cacheUserLanguage: NOTHING,
 };
 
+// The page states its language, so screen readers read it right and browsers only offer to
+// translate a page the user can't read (translation rewrites the DOM under React)
+i18n.on('languageChanged', (lng) => {
+  document.documentElement.lang = lng;
+});
+
 i18n
   .use(initReactI18next)
   .use(languageDetector as Module)

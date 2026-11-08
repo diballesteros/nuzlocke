@@ -5,6 +5,7 @@ import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
 import { ROOT_ERROR_HANDLERS, SENTRY_OPTIONS } from '@/lib/sentry';
+import { registerServiceWorker } from '@/lib/serviceWorker';
 import { requestPersistentStorage } from '@/lib/storage';
 import 'assets/styles/pokemon.css';
 import 'assets/styles/item.css';
@@ -17,6 +18,7 @@ const container = document.getElementById('root');
 const root = createRoot(container, ROOT_ERROR_HANDLERS);
 
 requestPersistentStorage();
+registerServiceWorker();
 
 root.render(
   <>
