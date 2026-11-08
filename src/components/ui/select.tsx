@@ -226,7 +226,12 @@ function Select({
             value={option.value}
           >
             {option.icon}
-            <SelectPrimitive.ItemText>{option.text}</SelectPrimitive.ItemText>
+            {/* ItemText also renders its children into the trigger. Browser translation swaps each text
+                node for <font> elements, and React could then no longer remove a bare text node there
+                when the value changed (removeChild threw); it removes this span instead */}
+            <SelectPrimitive.ItemText>
+              <span>{option.text}</span>
+            </SelectPrimitive.ItemText>
           </SelectPrimitive.Item>
         ))}
       </SelectPrimitive.Viewport>
