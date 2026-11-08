@@ -18,21 +18,18 @@
   - button "Field"
   - button "Reset"
   - button "Help"
-  - status: "/Lvl \\d+ 0 Atk Bulbasaur Pound vs\\. 0 HP \\/ 0 Def Bulbasaur: 6-8 \\(2\\.5 - 3\\.4%\\)/"
-  - button "All results"
-  - text: "Select one to show it as the primary result at the top Attacker:"
-  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
-  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
-  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
-  - 'button /Lvl \d+ 0 Atk Bulbasaur Pound vs\. 0 HP \/ 0 Def Bulbasaur: 6-8 \(2\.5 - 3\.4%\)/'
-  - text: "Defender:"
-  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
-  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
-  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
-  - 'button /0 Atk Bulbasaur Pound vs\. Lvl \d+ 0 HP \/ 0 Def Bulbasaur: \d+-\d+ \(\d+\.\d+ - \d+\.\d+%\) -- guaranteed 2HKO/'
-  - group:
-    - img "Bulbasaur"
-    - text: Bulbasaur
+  - region "Result":
+    - status: "/Lvl \\d+ 0 Atk Bulbasaur Pound vs\\. 0 HP \\/ 0 Def Bulbasaur: 6-8 \\(2\\.5 - 3\\.4%\\)/"
+    - text: Pokémon 1 → Pokémon 2
+    - button "All results"
+  - group "Pokémon":
+    - button "Pokémon 1" [pressed]
+    - button "Pokémon 2"
+  - group "Pokémon 1":
+    - text: ""
+    - button "Bulbasaur, Change Pokémon":
+      - img "Bulbasaur"
+      - text: ""
     - button "pokemon type":
       - img
       - text: GRASS
@@ -42,63 +39,58 @@
     - switch "Show my Pokémon" [checked]
     - text: Show my Pokémon
     - button "Help"
-    - button "Level down"
-    - textbox "Level": /\d+/
-    - button "Level up"
-    - combobox "gender-selector": Gender...
-    - combobox "nature-selector"
-    - combobox "ability"
-    - combobox "item"
-    - combobox "status"
+    - group "Level":
+      - text: ""
+      - button "Level down"
+      - textbox "Level": /\d+/
+      - button "Level up"
+    - combobox "Gender": –
+    - combobox "Nature"
+    - combobox "Ability"
+    - combobox "Item"
+    - combobox "Status"
     - button "Clear"
-    - button "pokemon type":
-      - img
-    - text: Pound
-    - img "move status"
-    - button "trash"
-    - button "Crit"
-    - button "Z"
-    - button "pokemon type":
-      - img
-    - text: Pound
-    - img "move status"
-    - button "trash"
-    - button "Crit"
-    - button "Z"
-    - button "pokemon type":
-      - img
-    - text: Pound
-    - img "move status"
-    - button "trash"
-    - button "Crit"
-    - button "Z"
-    - button "pokemon type":
-      - img
-    - text: Pound
-    - img "move status"
-    - button "trash"
-    - button "Crit"
-    - button "Z"
-    - text: "Current HP:"
-    - textbox "Current HP:": /\d+/
-    - status: /\/\d+/
+    - radiogroup "Pokémon 1 moves":
+      - radio "Show the result of Pound" [checked]
+      - 'button "Move 1: Pound , NORMAL"'
+      - button "Delete Pound"
+      - button "Crit, Pound"
+      - button "Z, Pound"
+      - radio "Show the result of Pound"
+      - 'button "Move 2: Pound , NORMAL"'
+      - button "Delete Pound"
+      - button "Crit, Pound"
+      - button "Z, Pound"
+      - radio "Show the result of Pound"
+      - 'button "Move 3: Pound , NORMAL"'
+      - button "Delete Pound"
+      - button "Crit, Pound"
+      - button "Z, Pound"
+      - radio "Show the result of Pound"
+      - 'button "Move 4: Pound , NORMAL"'
+      - button "Delete Pound"
+      - button "Crit, Pound"
+      - button "Z, Pound"
+    - text: Current HP
+    - textbox "Current HP": /\d+/
+    - status: /\/ \d+/
     - group:
-      - text: HP
+      - text: /HP IV \d+ · EV 0/
       - status: /\d+/
     - group:
-      - text: ATK
+      - text: /Atk IV \d+ · EV 0/
       - status: /\d+/
     - group:
-      - text: DEF
+      - text: /Def IV \d+ · EV 0/
       - status: /\d+/
     - group:
-      - text: SP. ATK
+      - text: /Sp\. Atk IV \d+ · EV 0/
       - status: /\d+/
     - group:
-      - text: SP. DEF
+      - text: /Sp\. Def IV \d+ · EV 0/
       - status: /\d+/
     - group:
-      - text: SPEED
+      - text: /Speed IV \d+ · EV 0/
       - status: /\d+/
     - button "Dynamax"
     - button "Light Screen"
@@ -118,7 +110,7 @@
     - button "Volcalith"
     - button "Wildfire"
     - button "Switching out"
-    - text: "Spikes:"
+    - text: Spikes
     - radiogroup "Spikes":
       - radio "0" [checked]
       - text: "0"
@@ -128,6 +120,4 @@
       - text: "2"
       - radio "3"
       - text: "3"
-  - button "Pokémon 1"
-  - button "Pokémon 2"
 - region "Notifications Alt+T"
