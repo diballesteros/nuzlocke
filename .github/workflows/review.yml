@@ -40,6 +40,9 @@ jobs:
         env:
           STATE_CHANGE_APPROVED: ${{ contains(github.event.pull_request.labels.*.name, 'state-change-approved') }}
         run: node scripts/baseline-guard.mjs --base origin/${{ github.base_ref }} --areas areas.json
+      - name: Change file
+        if: always()
+        run: node scripts/changes-check.mjs --base origin/${{ github.base_ref }} --markdown changes.md
       - name: Migration ratchet
         if: always()
         run: set -o pipefail; node scripts/migration-ratchet.mjs 2>&1 | tee ratchet.txt
@@ -50,6 +53,7 @@ jobs:
           path: |
             areas.json
             areas.md
+            changes.md
             ratchet.txt
 
   visual:
@@ -168,6 +172,8 @@ jobs:
             echo '## Blast radius'
             echo
             cat areas.md 2>/dev/null || echo 'Affected areas: not computed'
+            echo
+            cat changes.md 2>/dev/null || true
             echo
             echo "| Check | Result |"
             echo "|---|---|"

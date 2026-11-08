@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Page } from 'common';
-import CHANGELOG from 'constants/changelog';
-import type { TReleaseGroup } from 'constants/types';
+import type { TReleaseGroup, TReleaseNotes } from 'constants/types';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { PlusIcon } from '@/components/ui/icons';
@@ -10,7 +9,19 @@ import { PlusIcon } from '@/components/ui/icons';
 function Changelog(): React.JSX.Element {
   const { t, i18n } = useTranslation('common');
   const [logs, setLogs] = useState(3);
+  const [releases, setReleases] = useState<TReleaseNotes>([]);
   const removeNew = useStore((state) => state.removeNew);
+
+  // The notes load with this page, not with the app
+  useEffect(() => {
+    let active = true;
+    import('constants/releases.json').then(({ default: data }) => {
+      if (active) setReleases(data as TReleaseNotes);
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   useEffect(() => {
     removeNew();
@@ -28,7 +39,7 @@ function Changelog(): React.JSX.Element {
   };
 
   const onSeeMore = () => {
-    setLogs(CHANGELOG.length);
+    setLogs(releases.length);
   };
 
   return (
@@ -37,7 +48,7 @@ function Changelog(): React.JSX.Element {
         className="flex flex-1 flex-col flex-nowrap overflow-auto pr-(--spacing-2) text-foreground"
         data-testid="changelog-list"
       >
-        {CHANGELOG.slice(0, logs).map((release, i) => {
+        {releases.slice(0, logs).map((release, i) => {
           return (
             <React.Fragment key={`release-${i + 1}`}>
               <h3 className="text-(length:--font-size-7)!">
@@ -68,7 +79,7 @@ function Changelog(): React.JSX.Element {
             </React.Fragment>
           );
         })}
-        {logs < CHANGELOG.length && (
+        {logs < releases.length && (
           <Button
             className="h-[3.429rem] min-h-[3.429rem] w-fit self-center"
             data-testid="see-more"

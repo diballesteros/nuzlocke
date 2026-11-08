@@ -43,6 +43,7 @@
     "test:unit:cov": "vitest run --coverage",
     "pw:e2e": "playwright test --project=chromium",
     "pw:e2e:all": "playwright test --project=chromium --project=firefox --project=webkit",
+    "release": "node scripts/release.mjs",
     "seeds": "cross-env SEEDS=1 playwright test --project=seeds --workers=1",
     "verify:state": "playwright test --project=state",
     "verify:visual": "node scripts/visual.mjs",
