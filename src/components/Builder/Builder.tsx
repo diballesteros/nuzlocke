@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PokemonSelector } from 'common';
 import { Member } from 'components';
@@ -21,6 +21,7 @@ function Builder(): React.JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addTeamMember = useStore(useCallback((state) => state.addTeamMember, []));
   const [tab, setTab] = useState('builder');
+  const coverageHint = useId();
   const noTeam = !team?.length;
   const handlePokemon = (id: number) => {
     addTeamMember(id);
@@ -36,8 +37,8 @@ function Builder(): React.JSX.Element {
   return (
     <Tabs
       className="flex h-full w-full flex-col flex-nowrap gap-(--spacing-3) px-(--spacing-3) pt-(--spacing-3)"
-      // Coverage needs a team: without one it's dimmed and a click on it does nothing. It isn't
-      // disabled for the browser (nor aria-disabled, which Playwright won't click), as before
+      // Coverage needs a team: without one it's aria-disabled (still focusable with the arrow keys,
+      // with a hint saying why) and choosing it does nothing
       onValueChange={(value) => {
         if (value !== 'coverage' || !noTeam) setTab(value);
       }}
@@ -46,10 +47,19 @@ function Builder(): React.JSX.Element {
     >
       <TabsList>
         <TabsTrigger value="builder">Builder</TabsTrigger>
-        <TabsTrigger data-disabled={noTeam ? '' : undefined} value="coverage">
+        <TabsTrigger
+          aria-describedby={noTeam ? coverageHint : undefined}
+          aria-disabled={noTeam || undefined}
+          value="coverage"
+        >
           {t('coverage')}
         </TabsTrigger>
       </TabsList>
+      {noTeam && (
+        <span className="sr-only" id={coverageHint}>
+          {t('coverage_needs_team')}
+        </span>
+      )}
       <TabsContent className="min-h-0 flex-1" value="builder">
         <div className="relative flex h-full p-0">
           {team?.length > 0 ? (

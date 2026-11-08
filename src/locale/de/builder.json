@@ -1,5 +1,6 @@
 {
   "coverage": "Abdeckung",
+  "coverage_needs_team": "Füge zuerst ein Teammitglied hinzu",
   "delete_member": "{{name}} löschen",
   "number_of_moves": "# Züge stark gegen",
   "press_plus": "Drücken Sie +, um mit dem Aufbau eines Teams zu beginnen",

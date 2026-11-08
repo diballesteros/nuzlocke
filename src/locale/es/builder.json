@@ -1,5 +1,6 @@
 {
   "coverage": "Cobertura",
+  "coverage_needs_team": "Primero añade un miembro al equipo",
   "delete_member": "Eliminar a {{name}}",
   "number_of_moves": "# de movimientos fuertes contra",
   "press_plus": "Presione + para comenzar a construir un equipo",

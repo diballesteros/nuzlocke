@@ -13,7 +13,8 @@ import { cn } from '@/lib/utils';
 // - `segmented` (Phase 5): the redesign's segmented control, like the Calculator's Field rows: the
 //   current tab tinted and underlined in the primary colour, its text in the foreground colour (a
 //   tinted fill under link-blue text fails contrast in dark mode), over a plain panel. A tab with
-//   `data-disabled` (set by the caller, as for `secondary`) is dimmed.
+//   `aria-disabled` (set by the caller; Radix's `disabled` would take it out of the arrow keys) is
+//   dimmed.
 
 type TabsVariant = 'menu' | 'secondary' | 'segmented' | 'tabular';
 
@@ -70,7 +71,7 @@ function TabsTrigger({ className, ...props }: React.ComponentProps<typeof TabsPr
         variant === 'secondary' &&
           'mx-[0.35714286em]! self-center rounded-[0.28571429rem] border-0 px-[0.92857143em] py-[0.78571429em] text-foreground transition-[color] hover:bg-[rgba(0,0,0,0.05)] data-[state=active]:bg-card data-[state=active]:transition-all data-[state=active]:duration-500 data-[state=active]:hover:bg-[rgba(0,0,0,0.05)] data-disabled:cursor-default data-disabled:hover:bg-transparent',
         variant === 'segmented' &&
-          'h-[2.429rem] gap-(--spacing-2) border-0 bg-card px-(--spacing-3) text-(length:--font-size-2)! leading-[1.4]! font-bold whitespace-nowrap text-row-muted hover:text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-row-ring data-disabled:cursor-default data-disabled:opacity-60 data-disabled:hover:text-row-muted data-[state=active]:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] data-[state=active]:text-foreground data-[state=active]:shadow-[inset_0_-2px_0_var(--color-primary)]',
+          'h-[2.429rem] gap-(--spacing-2) border-0 bg-card px-(--spacing-3) text-(length:--font-size-2)! leading-[1.4]! font-bold whitespace-nowrap text-row-muted hover:text-foreground focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-row-ring aria-disabled:cursor-default aria-disabled:opacity-60 aria-disabled:hover:text-row-muted data-[state=active]:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] data-[state=active]:text-foreground data-[state=active]:shadow-[inset_0_-2px_0_var(--color-primary)]',
         className
       )}
       {...props}
