@@ -57,9 +57,8 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-      },
+      // src/lib/serviceWorker.ts registers the worker and handles a failed registration
+      injectRegister: false,
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         // The share preview is for crawlers (index.html's og:image), not the offline app
