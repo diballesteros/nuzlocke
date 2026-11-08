@@ -53,7 +53,7 @@ function CalculatorHeader(): React.JSX.Element {
           options={GENERATIONS}
           placeholder={t('select')}
           text={t('generation')}
-          triggerClassName="h-[2.571rem] w-auto"
+          triggerClassName="h-[2.571rem] w-auto leading-[1.4]!"
           value={form?.calculatorGen ? String(form.calculatorGen) : ''}
         />
       )}
