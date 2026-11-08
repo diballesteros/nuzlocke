@@ -61,7 +61,8 @@ function Rules(): React.JSX.Element {
   const list = useRef<HTMLOListElement>(null);
   // Rows are keyed by their place, so after a move focus would stay with the neighbour that took
   // the rule's place. It follows the rule instead: to the same arrow (or the other one at an end)
-  // from the row's buttons, to its ⋮ from the menu
+  // from the row's buttons, to its ⋮ from the menu. These lookups and handleDelete's go by test id
+  // and DOM position after the re-render; RulesKeyboard.spec.ts fails if the row's markup breaks them
   const movedTo = useRef<number>(null);
   const ruleset = rules[selectedRuleset];
   const takeMovedTo = () => {
