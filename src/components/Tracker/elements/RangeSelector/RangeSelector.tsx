@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SLIDER } from 'components/Calculator/elements/Range/Range';
+import { PRIMARY_SLIDER } from 'components/Calculator/elements/Range/Range';
 import { MinusIcon, PlusIcon } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
 import { ROW_GHOST } from '../buttons';
@@ -28,12 +28,6 @@ const STEP = cn(
   ROW_GHOST,
   'size-[1.857rem] text-row-muted hover:text-foreground max-sm:size-[2.571rem] [&_svg]:size-[1rem]'
 );
-// The Calculator's slider in the editor's primary blue: the filled track and the thumb
-const EDITOR_SLIDER = cn(
-  SLIDER,
-  'min-w-[3rem] flex-1 bg-contrast-border [background-image:linear-gradient(var(--color-primary),var(--color-primary))] [&::-webkit-slider-thumb]:bg-primary [&::-webkit-slider-thumb]:hover:shadow-[0_0_0_8px_color-mix(in_srgb,var(--color-primary)_20%,transparent)] [&::-webkit-slider-thumb]:active:shadow-[0_0_0_11px_color-mix(in_srgb,var(--color-primary)_20%,transparent)]'
-);
-
 // One IV or EV (5m): the slider, then the value between its − and + steppers. On phones a tag in
 // front says which it is; wider, the stats table's column header does
 function RangeSelector({ name, onChange, stat, value }: RangeSelectorProps): React.JSX.Element {
@@ -80,7 +74,7 @@ function RangeSelector({ name, onChange, stat, value }: RangeSelectorProps): Rea
       </span>
       <input
         aria-label={label}
-        className={EDITOR_SLIDER}
+        className={PRIMARY_SLIDER}
         data-testid={name}
         id={name}
         style={getBarFill()}

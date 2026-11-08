@@ -17,6 +17,9 @@ import {
 } from '@/components/ui/dialog';
 
 interface EncounterSelectorProps {
+  // Opt-in (the Calculator): the trigger is a real <button> with these classes and name, in place of
+  // the click-only wrapper. Its children must be phrasing content, with no controls inside
+  button?: { 'aria-label'?: string; className?: string };
   // Without children, the picker is opened from elsewhere (the tracker row's menu) through `open`
   children?: React.ReactNode;
   encounters: TEncounter[];
@@ -29,6 +32,7 @@ interface EncounterSelectorProps {
 }
 
 function EncounterSelector({
+  button,
   children,
   encounters,
   handleEncounter,
@@ -85,11 +89,21 @@ function EncounterSelector({
 
   return (
     <>
-      {children && (
-        <div onClick={() => setOpen(true)} role="presentation">
-          {children}
-        </div>
-      )}
+      {children &&
+        (button ? (
+          <button
+            aria-label={button['aria-label']}
+            className={button.className}
+            onClick={() => setOpen(true)}
+            type="button"
+          >
+            {children}
+          </button>
+        ) : (
+          <div onClick={() => setOpen(true)} role="presentation">
+            {children}
+          </div>
+        ))}
       <Dialog open={open}>
         <DialogContent
           dismissible={false}
