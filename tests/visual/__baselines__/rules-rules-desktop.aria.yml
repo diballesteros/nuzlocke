@@ -16,24 +16,25 @@
       - /url: /builder
     - link "Calculator":
       - /url: /calculator
-  - button "SHARE"
+  - combobox "Ruleset": Nuzlocke
+  - button "New ruleset"
   - button "ADD RULE"
-  - combobox "rules": Nuzlocke
-  - button "addruleset"
-  - button "Move down"
-  - text: "1."
-  - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
-  - button "Move up"
-  - button "Move down"
-  - text: "2."
-  - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
-  - button "Move up"
-  - button "Move down"
-  - text: "3."
-  - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
-  - button "Move up"
-  - text: "4."
-  - paragraph: No items in battle
-  - button "delete rule"
-  - button "edit rule"
+  - button "SHARE"
+  - list:
+    - listitem:
+      - paragraph: Any Pokémon that faints is considered dead, and must be released or put in the Pokémon Storage System permanently
+      - button "Move rule 1 down"
+    - listitem:
+      - paragraph: The player may only catch the first wild Pokémon encountered in each area, and none else. If the first wild Pokémon encountered faints or flees, there are no second chances. If the first encounter in the area is a double battle, the player is free to choose which of the two wild Pokémon they would like to catch but may only catch one of them.
+      - button "Move rule 2 up"
+      - button "Move rule 2 down"
+    - listitem:
+      - paragraph: The player must nickname all of their Pokémon, for the sake of forming stronger emotional bonds
+      - button "Move rule 3 up"
+      - button "Move rule 3 down"
+    - listitem:
+      - paragraph: No items in battle
+      - button "Move rule 4 up"
+      - button "Edit rule 4"
+      - button "Delete rule 4"
 - region "Notifications Alt+T"
