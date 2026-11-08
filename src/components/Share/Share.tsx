@@ -11,10 +11,13 @@ import {
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
 import { ShareIcon, TOOLBAR_ICON } from '@/components/ui/icons';
+import { cn } from '@/lib/utils';
 import { NATIVE_FIELD } from '@/components/ui/input';
 import { TOOLBAR_BUTTON } from 'components/Tracker/elements/buttons';
 
 interface ShareProps {
+  // Added to the toolbar look's button (the Rules page draws it on the card colour)
+  className?: string;
   disabled: boolean;
   icon?: boolean;
   text: string;
@@ -22,7 +25,13 @@ interface ShareProps {
   toolbar?: boolean;
 }
 
-function Share({ disabled, icon = false, text, toolbar = false }: ShareProps): React.JSX.Element {
+function Share({
+  className,
+  disabled,
+  icon = false,
+  text,
+  toolbar = false,
+}: ShareProps): React.JSX.Element {
   const { t } = useTranslation('common');
   const [show, setShow] = useState(false);
 
@@ -76,7 +85,7 @@ function Share({ disabled, icon = false, text, toolbar = false }: ShareProps): R
         </FabButton>
       ) : toolbar ? (
         <button
-          className={TOOLBAR_BUTTON}
+          className={cn(TOOLBAR_BUTTON, className)}
           data-testid="share-encounters"
           disabled={disabled}
           onClick={handleClick}

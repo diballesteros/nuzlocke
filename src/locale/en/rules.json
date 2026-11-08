@@ -20,5 +20,13 @@
   "text": "Text",
   "type": "Type",
   "move_down": "Move down",
-  "move_up": "Move up"
+  "move_up": "Move up",
+  "delete_rule": "Delete rule {{n}}",
+  "delete_ruleset": "Delete ruleset",
+  "edit_rule": "Edit rule {{n}}",
+  "move_rule_down": "Move rule {{n}} down",
+  "move_rule_up": "Move rule {{n}} up",
+  "new_ruleset": "New ruleset",
+  "rule_options": "Rule {{n}} options",
+  "ruleset": "Ruleset"
 }

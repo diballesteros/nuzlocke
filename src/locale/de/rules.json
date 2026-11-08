@@ -20,5 +20,13 @@
   "text": "Text",
   "type": "Typ",
   "move_down": "Nach unten",
-  "move_up": "Nach oben"
+  "move_up": "Nach oben",
+  "delete_rule": "Regel {{n}} löschen",
+  "delete_ruleset": "Regelwerk löschen",
+  "edit_rule": "Regel {{n}} bearbeiten",
+  "move_rule_down": "Regel {{n}} nach unten",
+  "move_rule_up": "Regel {{n}} nach oben",
+  "new_ruleset": "Neues Regelwerk",
+  "rule_options": "Optionen für Regel {{n}}",
+  "ruleset": "Regelwerk"
 }
