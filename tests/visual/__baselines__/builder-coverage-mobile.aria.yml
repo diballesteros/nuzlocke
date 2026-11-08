@@ -19,8 +19,45 @@
     - tab "Builder"
     - tab "Coverage" [selected]
   - tabpanel "Coverage":
-    - heading "# of moves strong against" [level=2]
-    - text: NORMAL 0 FIRE 0 WATER 0 GRASS 0 ELECTRIC 0 ICE 0 POISON 0 FIGHTING 0 GROUND 0 FLYING 0 PSYCHIC 0 BUG 0 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0
-    - heading "Weak against" [level=2]
-    - text: FIRE 1 ICE 1 FLYING 1 PSYCHIC 1 NORMAL 0 WATER 0 GRASS 0 ELECTRIC 0 POISON 0 FIGHTING 0 GROUND 0 BUG 0 ROCK 0 GHOST 0 DARK 0 DRAGON 0 STEEL 0 FAIRY 0
+    - region "Coverage":
+      - heading "# of moves strong against" [level=2]
+      - list:
+        - listitem: NORMAL 0
+        - listitem: FIRE 0
+        - listitem: WATER 0
+        - listitem: GRASS 0
+        - listitem: ELECTRIC 0
+        - listitem: ICE 0
+        - listitem: POISON 0
+        - listitem: FIGHTING 0
+        - listitem: GROUND 0
+        - listitem: FLYING 0
+        - listitem: PSYCHIC 0
+        - listitem: BUG 0
+        - listitem: ROCK 0
+        - listitem: GHOST 0
+        - listitem: DARK 0
+        - listitem: DRAGON 0
+        - listitem: STEEL 0
+        - listitem: FAIRY 0
+      - heading "Weak against" [level=2]
+      - list:
+        - listitem: FIRE 1
+        - listitem: ICE 1
+        - listitem: FLYING 1
+        - listitem: PSYCHIC 1
+        - listitem: NORMAL 0
+        - listitem: WATER 0
+        - listitem: GRASS 0
+        - listitem: ELECTRIC 0
+        - listitem: POISON 0
+        - listitem: FIGHTING 0
+        - listitem: GROUND 0
+        - listitem: BUG 0
+        - listitem: ROCK 0
+        - listitem: GHOST 0
+        - listitem: DARK 0
+        - listitem: DRAGON 0
+        - listitem: STEEL 0
+        - listitem: FAIRY 0
 - region "Notifications Alt+T"

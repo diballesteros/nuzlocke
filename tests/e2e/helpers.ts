@@ -119,11 +119,18 @@ export const expectChecked = (page: Page, id: string, checked: boolean) =>
   expect(checkbox(page, id)).toBeChecked({ checked });
 
 // Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace. A string names the
-// Tabs variant (`secondary`, `tabular`)
+// Tabs variant (`secondary`, `tabular`); the redesign's `segmented` menus (Builder, 5t) replace
+// Semantic's secondary menus, so `secondary` finds them too. With both on one page, the first in
+// document order wins
+const TAB_VARIANTS = { secondary: ['secondary', 'segmented'], tabular: ['tabular'] };
 export const tabMenu = (page: Page, menu: 'secondary' | 'tabular' | Locator) =>
   typeof menu === 'string'
     ? page
-        .locator(`[data-slot="tabs-list"][data-variant="${menu}"]`)
+        .locator(
+          TAB_VARIANTS[menu]
+            .map((variant) => `[data-slot="tabs-list"][data-variant="${variant}"]`)
+            .join(', ')
+        )
         .first()
         .locator(':scope > [role="tab"]')
     : menu.locator('[role="tablist"]').first().locator(':scope > [role="tab"]');
