@@ -180,17 +180,17 @@ function Member({ index, pokemonDetail }: MemberProps): React.JSX.Element {
         <button
           className={DELETE}
           data-testid={`delete-team-${index}`}
-          onClick={() => {
+          onClick={(e) => {
+            // The team list, found before the card leaves it
+            const list = e.currentTarget.closest('[data-testid^="team-poke-"]')?.parentElement;
             deleteTeamMember(index);
             // The button goes with its card: focus moves to the card that takes its place, else
-            // the one before, else the + button
+            // the one before, else the + button (pinned in BuilderKeyboard.spec.ts)
             setTimeout(() => {
-              const heads = document.querySelectorAll<HTMLElement>(
-                'button[data-testid^="expand-"]'
-              );
+              const heads = list?.querySelectorAll<HTMLElement>('button[data-testid^="expand-"]');
               (
-                heads[index] ??
-                heads[index - 1] ??
+                heads?.[index] ??
+                heads?.[index - 1] ??
                 document.querySelector<HTMLElement>('[data-testid="builder-add"]')
               )?.focus();
             });
