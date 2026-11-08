@@ -170,4 +170,8 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 
 ## Releases
 
-Versions follow SemVer and are done on `version/X.Y.Z` branches merged into `master`. A release bump touches: `package.json` version (exposed to the app as `REACT_APP_VERSION` via `.env`, which triggers the in-app "new version" notice), `CHANGELOG.md`, and a new entry at the top of `src/constants/changelog_2.ts` (the in-app changelog). Commit messages use the form `feat(X.Y.Z): <description>`.
+Versions follow SemVer and are done on `version/X.Y.Z` branches merged into `master`.
+
+- **Change files.** A PR that users can notice adds a file to `.changes/` with a `type` (`feature`, `update`, `fix`, or `internal` for `CHANGELOG.md` only) and a note written for players; the format is in `.changes/README.md`. One file per change, so PRs never conflict over the changelog. `review.yml` warns (never fails) when `src/` or `public/` changes without one.
+- **Cutting a release.** On the `version/X.Y.Z` branch, `npm run release -- <major|minor|patch|X.Y.Z>` (`--dry-run` to preview) bumps `package.json` and `package-lock.json`, adds the release to the top of `src/constants/releases.json` (the in-app changelog, dated now) and `CHANGELOG.md`, and deletes the change files. The new version is exposed to the app as `REACT_APP_VERSION` via `.env`, which turns on the in-app "new version" notice. Commit it as `feat(X.Y.Z): <description>`.
+- **The in-app changelog** is `src/constants/releases.json`, which the Changelog page imports dynamically, so it isn't in the main bundle. Older releases were moved there word for word from `changelog.ts` and `changelog_2.ts`; `CHANGELOG.md`'s older sections are more detailed and differ, and stay as they are. `scripts/release-lib.test.mjs` checks the file's shape and order, that every change file parses, and that the latest release is `package.json`'s version.

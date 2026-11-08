@@ -17,7 +17,7 @@ const COVERAGE_EXCLUDE = [
   'src/setupTests.ts',
   'src/vite-env.d.ts',
   'src/constants/locations/**',
-  'src/constants/{abilities,badges,changelog,changelog_2,details,filters,moves,nicknames,pokemon}.ts',
+  'src/constants/{abilities,badges,details,filters,moves,nicknames,pokemon}.ts',
 ];
 
 // Writes sitemap.xml into the build, dated by the commit being built (the build date without git)
