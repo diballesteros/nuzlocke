@@ -35,14 +35,14 @@ function Builder(): React.JSX.Element {
 
   return (
     <Tabs
-      className="flex h-full w-full flex-col flex-nowrap"
-      // Semantic's disabled Coverage item ignored clicks; it isn't disabled for the browser, so
-      // the click lands and does nothing, as before
+      className="flex h-full w-full flex-col flex-nowrap gap-(--spacing-3) px-(--spacing-3) pt-(--spacing-3)"
+      // Coverage needs a team: without one it's dimmed and a click on it does nothing. It isn't
+      // disabled for the browser (nor aria-disabled, which Playwright won't click), as before
       onValueChange={(value) => {
         if (value !== 'coverage' || !noTeam) setTab(value);
       }}
       value={tab}
-      variant="secondary"
+      variant="segmented"
     >
       <TabsList>
         <TabsTrigger value="builder">Builder</TabsTrigger>
@@ -50,10 +50,12 @@ function Builder(): React.JSX.Element {
           {t('coverage')}
         </TabsTrigger>
       </TabsList>
-      <TabsContent className="flex-1" value="builder">
+      <TabsContent className="min-h-0 flex-1" value="builder">
         <div className="relative flex h-full p-0">
           {team?.length > 0 ? (
-            <div className="flex flex-1 flex-col flex-nowrap overflow-auto">
+            // The list ends with room for the + button (4rem, --spacing-3 from the bottom) and
+            // 8px more, so the last card scrolls clear of it
+            <div className="flex flex-1 flex-col flex-nowrap gap-(--spacing-3) overflow-auto pb-[calc(4rem+var(--spacing-3)+var(--spacing-2))]">
               {team?.map((poke, i) => {
                 // A member's id is its species, and a team may hold a species more than once, so
                 // the key counts the earlier members of the same species
@@ -68,7 +70,7 @@ function Builder(): React.JSX.Element {
             <PokemonSelector handlePokemon={handlePokemon}>
               <Button
                 aria-label={t('add', { ns: 'common' })}
-                className="absolute right-(--spacing-2) bottom-(--spacing-3) size-[4rem] rounded-[10em] bg-badge p-[0.78571429em] text-white transition-all duration-500 hover:bg-badge hover:text-white"
+                className="absolute right-(--spacing-2) bottom-(--spacing-3) size-[4rem] rounded-[10em] bg-badge p-[0.78571429em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-500 hover:bg-badge hover:text-white"
                 data-testid="builder-add"
                 disabled={team?.length === 6}
                 type="button"
@@ -82,7 +84,7 @@ function Builder(): React.JSX.Element {
           )}
         </div>
       </TabsContent>
-      <TabsContent className="flex-1" value="coverage">
+      <TabsContent className="min-h-0 flex-1" value="coverage">
         {team?.length > 0 ? (
           <Coverage />
         ) : (

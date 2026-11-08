@@ -1,6 +1,6 @@
 {
   "coverage": "Coverage",
-  "delete": "DELETE",
+  "delete_member": "Delete {{name}}",
   "number_of_moves": "# of moves strong against",
   "press_plus": "Press + to begin building a team",
   "weak_against": "Weak against"
