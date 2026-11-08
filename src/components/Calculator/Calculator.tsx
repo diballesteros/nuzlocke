@@ -136,7 +136,8 @@ function Calculator(): React.JSX.Element {
         'relative flex h-full min-h-0 flex-col gap-(--spacing-3) overflow-auto p-(--spacing-3) max-sm:p-(--spacing-2)'
       )}
       id="calculator"
-      style={narrow && stickyHeight ? { scrollPaddingTop: stickyHeight } : undefined}
+      // 8px of room under the block: WebKit stops a focused field a few pixels short of the padding
+      style={narrow && stickyHeight ? { scrollPaddingTop: stickyHeight + 8 } : undefined}
     >
       {ready ? (
         <>
