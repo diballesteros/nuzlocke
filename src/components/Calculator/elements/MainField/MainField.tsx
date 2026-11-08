@@ -15,9 +15,9 @@ import { Sun } from 'lucide-react';
 export const SEGMENTS =
   'flex flex-wrap gap-px overflow-hidden rounded-md border border-solid border-contrast-border bg-contrast-border/60';
 export const SEGMENT =
-  'relative min-h-0 flex-[1_0_auto] bg-card text-(length:--font-size-1) leading-[1.2] has-[button:focus-visible]:outline-2 has-[button:focus-visible]:-outline-offset-2 has-[button:focus-visible]:outline-row-ring has-[[data-state=checked]]:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] has-[[data-state=checked]]:text-row-link has-[[data-state=checked]]:shadow-[inset_0_-2px_0_var(--color-primary)] [&>button]:inset-0 [&>button]:top-0 [&>button]:size-full [&>button]:rounded-none [&>button]:opacity-0';
+  'relative min-h-0 flex-[1_0_auto] bg-card text-(length:--font-size-1) leading-[1.2] has-[button:focus-visible]:outline-2 has-[button:focus-visible]:-outline-offset-2 has-[button:focus-visible]:outline-row-ring has-[[data-state=checked]]:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] has-[[data-state=checked]]:shadow-[inset_0_-2px_0_var(--color-primary)] [&>button]:inset-0 [&>button]:top-0 [&>button]:size-full [&>button]:rounded-none [&>button]:opacity-0';
 export const SEGMENT_LABEL =
-  'relative z-1 px-(--spacing-2) py-(--spacing-2) text-center font-bold text-row-muted hover:text-foreground';
+  'relative z-1 px-(--spacing-2) py-(--spacing-2) text-center font-bold text-row-muted hover:text-foreground peer-data-[state=checked]:text-foreground';
 const ROW_LABEL = 'text-(length:--font-size-1) font-bold text-row-muted';
 
 // The Field panel (5s): one labelled segmented row per setting, under the toolbar's Field button

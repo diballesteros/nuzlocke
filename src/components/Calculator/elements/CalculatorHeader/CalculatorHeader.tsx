@@ -59,7 +59,12 @@ function CalculatorHeader(): React.JSX.Element {
       )}
       <MainField />
       <button
-        className={cn(TOOLBAR_BUTTON, TOOLBAR_DANGER)}
+        // The tracker's red outline, darker (lighter in dark mode) for the grey page under it
+        className={cn(
+          TOOLBAR_BUTTON,
+          TOOLBAR_DANGER,
+          'text-[color-mix(in_srgb,var(--color-destructive)_78%,black)] dark:text-[color-mix(in_srgb,var(--color-red-inverted)_80%,white)]'
+        )}
         data-testid="reset-calculator"
         onClick={() => {
           update({ ...DEFAULT_VALUES });
