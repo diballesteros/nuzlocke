@@ -20,20 +20,22 @@
     - tab "Builder" [selected]
     - tab "Coverage"
   - tabpanel "Builder":
-    - img "Bulbasaur"
-    - text: Bulbasaur
+    - button "Bulbasaur" [expanded]
     - button "pokemon type":
       - img
       - text: GRASS
     - button "pokemon type":
       - img
       - text: POISON
-    - combobox "nature-selector"
-    - button "nature chart"
-    - combobox "ability"
-    - combobox "item"
-    - text: Select a move... Select a move... Select a move... Select a move...
-    - button "DELETE"
+    - combobox "Nature"
+    - button "Nature chart"
+    - combobox "Ability"
+    - combobox "Item"
+    - 'button "Move 1: Select a move..."'
+    - 'button "Move 2: Select a move..."'
+    - 'button "Move 3: Select a move..."'
+    - 'button "Move 4: Select a move..."'
+    - button "Delete Bulbasaur"
     - button "Add":
       - button "Add"
 - region "Notifications Alt+T"
