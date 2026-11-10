@@ -17,7 +17,6 @@
     - link "Calculator":
       - /url: /calculator
   - heading "Settings" [level=2]
-  - button "Back"
   - region "Appearance":
     - heading "Appearance" [level=3]
     - text: Dark mode

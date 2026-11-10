@@ -17,7 +17,6 @@
     - link "Calculator":
       - /url: /calculator
   - heading "Details" [level=2]
-  - button "Back"
   - tablist:
     - tab "FireRed and LeafGreen" [selected]
   - tabpanel "FireRed and LeafGreen":
