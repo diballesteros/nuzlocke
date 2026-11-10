@@ -24,12 +24,7 @@
     - tab "Fainted, 1": Fainted 1
   - tabpanel "Summary":
     - button "Download"
-    - button "Settings" [pressed]
-    - group: Header
-    - group: Encounters
-    - group: Stats
-    - group: Rules
-    - group: Description
+    - button "Settings" [expanded] [pressed]
     - text: Nuzlocke Run Ongoing
     - img "Grass Badge"
     - img "Water Badge"
@@ -126,3 +121,9 @@
     - paragraph
     - text: https://nuzlocke.netlify.app
 - region "Notifications Alt+T"
+- dialog "Settings":
+  - group: Header
+  - group: Encounters
+  - group: Stats
+  - group: Rules
+  - group: Description
