@@ -1,8 +1,8 @@
 - banner:
-  - button "sidebar-button": "!"
-  - combobox "games": Sword and Shield
-  - button "addgame"
-  - button "editgame"
+  - button "Menu, new version"
+  - combobox "Game": Sword and Shield
+  - button "Add game"
+  - button "Edit level caps"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
   - navigation:
