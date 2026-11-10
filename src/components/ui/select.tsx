@@ -117,6 +117,8 @@ interface SelectProps {
   'data-testid'?: string;
   disabled?: boolean;
   icon?: React.ReactNode;
+  // The trigger's id, for a visible <label htmlFor> (Settings' language)
+  id?: string;
   // Drawn before the trigger's text (the row look's status dot and Nature's leaf)
   leading?: React.ReactNode;
   look?: SelectLook;
@@ -149,6 +151,7 @@ function Select({
   'data-testid': dataTestId,
   disabled = false,
   icon,
+  id,
   leading,
   look = 'field',
   menuClassName,
@@ -241,6 +244,7 @@ function Select({
   const trigger = (
     <SelectPrimitive.Trigger
       aria-label={ariaLabel}
+      id={id}
       ref={triggerRef}
       className={cn(
         TRIGGER[look],
