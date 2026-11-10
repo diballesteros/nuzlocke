@@ -17,7 +17,6 @@
     - link "Calculator":
       - /url: /calculator
   - heading "Report a bug or suggest a feature" [level=2]
-  - button "Back"
   - text: "Type:"
   - combobox "Type:":
     - option "Bug" [selected]

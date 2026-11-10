@@ -15,7 +15,7 @@ Static and form pages: the changelog, about, bug/suggestion report, and account 
 ## How to get to it (user POV)
 
 - Sidebar → Changelog (`changelog`), About (`about`), Report (`report`); `/delete` by URL only.
-- Each page has a Back button.
+- No page has a Back button (removed in 2026-11): leave through the page nav or the sidebar.
 
 ## Driving it with control-nuzlocke
 

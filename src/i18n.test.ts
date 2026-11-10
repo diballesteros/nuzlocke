@@ -11,7 +11,7 @@ describe('i18n', () => {
     localStorage.setItem('pokemon-tracker', JSON.stringify({ state, version: 8 }));
     const { default: i18n } = await import('./i18n');
     await vi.waitFor(() => expect(i18n.language).toBe('es'));
-    expect(i18n.t('back', { ns: 'common' })).toBe('Atrás');
+    expect(i18n.t('cancel', { ns: 'common' })).toBe('Cancelar');
   });
 
   test('falls back to English for missing keys', async () => {
