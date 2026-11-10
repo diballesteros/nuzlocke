@@ -370,8 +370,9 @@ function DetailDialog({
                 )}
               </span>
               {foundPokemon && <PokemonType pokemon={foundPokemon} />}
-              {/* Dialogs set a line of 1, which the truncated caption would cut its glyphs to */}
-              <span className="flex max-w-full items-center gap-(--spacing-2) text-(length:--font-size-1) leading-[1.4] text-row-muted">
+              {/* Dialogs set a line of 1, which would cut the truncated caption's glyphs. The
+                  margins take back the taller line, so the header keeps its height */}
+              <span className="-my-[0.2em] flex max-w-full items-center gap-(--spacing-2) text-(length:--font-size-1) leading-[1.4] text-row-muted">
                 {statusDot && (
                   <span
                     aria-hidden

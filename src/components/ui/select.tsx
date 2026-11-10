@@ -40,10 +40,8 @@ const TRIGGER: Record<SelectLook, string> = {
   field: cn(FIELD, 'font-control!'),
   inline: cn(FIELD, '[font-family:inherit]! font-bold'),
   // The tracker row's fields (5m): one line at the row's control height, the text truncated before
-  // the caret, and the rows' focus ring. The truncated span clips at its line box, so the line is
-  // 1.4 high: a line of 1 cuts off descenders (g, y, p). Centred in the fixed height, the glyphs sit
-  // where they would on a line of 1 (tests/e2e/main/Descenders.spec.ts guards it)
-  row: 'group relative m-0! flex h-[2.286rem] w-full min-w-0 cursor-pointer items-center justify-between gap-(--spacing-2) rounded-md border border-solid border-contrast-border bg-transparent pr-(--spacing-2) pl-(--spacing-3) text-left [font-family:inherit]! text-(length:--font-size-2)! leading-[1.4]! font-bold text-foreground outline-none hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring data-[state=open]:border-foreground',
+  // the caret, and the rows' focus ring
+  row: 'group relative m-0! flex h-[2.286rem] w-full min-w-0 cursor-pointer items-center justify-between gap-(--spacing-2) rounded-md border border-solid border-contrast-border bg-transparent pr-(--spacing-2) pl-(--spacing-3) text-left [font-family:inherit]! text-(length:--font-size-2)! leading-none! font-bold text-foreground outline-none hover:border-foreground focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring data-[state=open]:border-foreground',
   text: 'group relative m-0! inline-block cursor-pointer border-0 bg-transparent p-0 text-left [font-family:inherit]! text-[1rem]! leading-[1em]! font-bold text-inherit outline-none',
 };
 
@@ -261,7 +259,10 @@ function Select({
       <span
         className={
           look === 'row'
-            ? 'min-w-0 flex-1 truncate'
+            ? // The span clips at its own box, so it has its own line, 1.4 high: the trigger's line
+              // of 1 (or one a caller passes) would cut off descenders (g, y, p). Centred in the
+              // trigger, the glyphs sit where a line of 1 puts them (tests/e2e/main/Descenders.spec.ts)
+              'min-w-0 flex-1 truncate leading-[1.4]'
             : ATTACHED(look) && look !== 'contrast'
               ? 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'
               : undefined
