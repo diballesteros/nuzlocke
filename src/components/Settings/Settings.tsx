@@ -102,7 +102,9 @@ function Settings(): React.JSX.Element {
               </label>
               <Select
                 aria-label={t('language')}
-                className="w-[14.286rem] max-w-full"
+                // The row look's line is the font's height, which its truncated text clips (the g
+                // in English), so it takes a 1.4 line height as the Calculator's row Selects do
+                className="w-[14.286rem] max-w-full leading-[1.4]!"
                 data-testid="settings-language"
                 id={languageId}
                 look="row"
