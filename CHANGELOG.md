@@ -1,3 +1,70 @@
+## Version 7.0.0
+
+🚀 New features
+
+- Encounters can be moved up and down from the ⋮ menu on each tracker row, also while the list is filtered
+- Nature names are shown in German and Spanish when the app is in those languages. Searching by the English name still works
+- The Tracker, Rules, Stats, Builder and Calculator links now show at every screen width, as a row above the page on tablets and a tab bar at the bottom on phones
+- Redesigned tracker: the encounter list fills the screen and each row is about a third of its old height, so many more encounters fit at once
+- Every tracker row now has a level stepper, including on phones
+- New Compact tracker rows setting for an even denser list, with the rest of each row's options in its ⋮ menu
+- Resetting an encounter now asks for confirmation first, like deleting one
+
+💅 Enhancement
+
+- Accounts and cloud saves have been removed. Your runs are saved in your browser on this device; use Export in the sidebar to keep a backup or move them to another device
+- Refreshed look across the whole app, with new icons, menus and dialogs
+- Redesigned Edit details window: a header with the Pokémon, its types, location and status, a label over every field, move tiles, and IV and EV steppers for each stat
+- The Calculator has a new look: the result sits in a card at the top (on phones it stays in view, with a switch between Pokémon 1 and 2), the Field options are labelled rows, each Pokémon's fields have captions, and a button beside each move puts that move's result at the top
+- The Builder has a new look: each team member is a card you open from its header, with captioned fields, the moves as tiles and a clear Delete button, and Coverage shows every type as a chip with its count
+- The Rules page has a new look: a cleaner toolbar, rules as numbered rows with their actions always in the same place, a ⋮ menu for each rule on phones, and clearer button names for screen readers
+- The Stats page's tabs and buttons have a new look: the tabs show each status's count and fit on one row on phones, and Download and Settings match the rest of the app. The summary image you download is unchanged
+- The Settings page has a new look: settings are grouped into Appearance, Tracker, and Rules and details, each with a short description and a switch you can flip by tapping anywhere on its row. The language menu has a label, and Edit custom statuses shows how many you have
+- The header is tidier: the game picker matches the rest of the app, Add game and Edit level caps are outlined buttons with tooltips, and Edit level caps is back on phones
+- The menu is wider and grouped (pages; Settings, Export and Import; Report, Changelog and About) and marks the page you're on. Its items can be reached with Tab, and choosing one with the keyboard puts focus back on the menu button
+- The new-version mark on the menu button is a small red dot with an "!", and screen readers hear "Menu, new version"
+- On phones, long page names in the bottom bar wrap instead of being cut off (German "Taschenrechner")
+- The Back button is gone from Settings, About, Report a bug, Changelog, Import and the badge details pages. Use the page links (the tab bar on phones) or the menu to move between pages
+- The damage calculator's results now show the base power of Max moves and list IVs other than 31
+- Better screen reader support: buttons, fields, sprites and menus are named, in English, Spanish and German
+- More of the app works from the keyboard, including the tracker row menu, the location list and the move slots in Edit details
+- Pinch-to-zoom works on phones
+- Higher contrast for the Edit custom statuses button and the current page in the navigation
+- The app now asks your browser to keep its saved data, so your runs are less likely to be cleared when the device runs low on space
+- The site no longer loads a third-party analytics script (Plausible)
+- The Report form now needs a description before it can be sent
+- Links to the tracker now show a preview image when shared on social media and chat apps
+
+🐛 Bug Fix
+
+- The damage calculator applies each side's screens and entry hazards only to the damage that side takes, instead of to both directions
+- The bottoms of letters like g, y and p are no longer cut off in the tracker's status and nature fields, the encounter editor, the Calculator, Rules and Settings
+- Opening a link to a page such as Rules or Calculator directly no longer shows a page-not-found error on a first visit
+- Cancelling Edit details now discards IV and EV changes too; before, the next Save kept them
+- Fixed a crash when changing the game while the browser was translating the page
+- FireRed/LeafGreen: Koga's and Sabrina's teams show under the right badges (they were swapped)
+- Ultra Sun/Ultra Moon: the starters are on Route 1 instead of Iki Town, and Ten Carat Hill's Farthest Hollow is a location of its own (in new runs). Iki Town and Berry Fields, which have no encounters, are left out of new runs
+- Platinum: added the honey tree Pokémon at Valley Windworks
+- Gold/Silver/Crystal: added Shellder, Chinchou and Lanturn from fishing at Olivine City
+- HeartGold/SoulSilver: added the Headbutt tree Pokémon on Route 35
+- Fixed misspelled Pokémon names in encounter lists, which kept those Pokémon from showing up at their locations
+- An encounter's level can no longer be lowered below 1
+- The summary image downloaded from the Stats page shows the encounter completion ring instead of a black circle
+- Filled in missing Spanish and German translations
+
+🏠 Internal
+
+- Release notes come from change files in `.changes/`, gathered by `npm run release`; the in-app changelog loads with its page instead of with the app
+- Playwright replaces Cypress, with state goldens, visual, ARIA and accessibility baselines, and checks that limit each PR to the areas it touches
+- CI runs Chromium, Firefox and WebKit, merged unit and e2e coverage, a bundle-size budget and a Lighthouse budget
+- Sentry modernised for v11, reporting through a same-origin proxy with no personal data
+- The sitemap is generated at build time, and the app has Open Graph tags and structured data
+- New issues are checked for spam signals and announced on Discord
+- The app registers its service worker itself, and a failed registration (offline support only) is logged instead of reported as an error
+- Rebuilt the interface on Tailwind CSS and shadcn/ui (Radix), replacing Semantic UI and Sass, one area at a time with pixel-level checks
+- React 19, Vite 8 and Node 24, with every dependency updated one at a time
+- Accounts and Supabase removed; `/delete` now explains that accounts were discontinued
+
 ## Version 6.1.0
 
 🚀 New Features
