@@ -5,8 +5,8 @@
 // each text's glyph box (a Range's rects: ascent to descent) against every clipping box around it.
 //
 // It visits each page from the seeds the visual suite uses, at desktop and phone widths, with the
-// main menus and dialogs open, and fails on any text whose own box fits a non-scrolling clip box
-// while its glyphs stick out of it, by less than 40% of the font size (the top edge too: accents on
+// main menus and dialogs open, and fails on any text with a line under 1.2 times its font size
+// whose own box fits a non-scrolling clip box while its glyphs stick out of it, by less than 40% of the font size (the top edge too: accents on
 // capitals, as in de and es). Text cut with its box (a list's half-visible row, a collapsed
 // section) is not a descender, and fully hidden text is skipped.
 import fs from 'node:fs';
@@ -180,7 +180,22 @@ const clippedText = (page: Page) =>
       const rects = [...range.getClientRects()].filter((r) => r.width > 0 && r.height > 0);
       if (!rects.length) continue;
       const fontSize = parseFloat(style.fontSize);
-      const own = element.getBoundingClientRect();
+      // A line of 1.2 or more holds the glyphs in every engine. Below it, the glyph box decides;
+      // above it, Firefox's taller glyph boxes stick out of 1.25 lines by under a pixel of
+      // empty space, with no ink lost. ('normal' parses to NaN, which passes.)
+      // The line's box: an inline element's box is its glyph box, so start from the block (or
+      // inline-block, flex item…) that holds the line. Its line is at least as tall as the strut
+      // of that block and as the inline's own line height
+      let holder: Element = element;
+      while (holder.parentElement && getComputedStyle(holder).display === 'inline') {
+        holder = holder.parentElement;
+      }
+      const line = Math.max(
+        parseFloat(style.lineHeight),
+        parseFloat(getComputedStyle(holder).lineHeight)
+      );
+      if (!(line < 1.2 * fontSize)) continue;
+      const own = holder.getBoundingClientRect();
       for (let box: Element | null = element; box && box !== document.body;) {
         const s = getComputedStyle(box);
         const r = box.getBoundingClientRect();
