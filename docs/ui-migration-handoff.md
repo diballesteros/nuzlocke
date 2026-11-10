@@ -127,7 +127,9 @@ The user approved this sequence (2026-10-29). Each PR waits for the previous one
 - Builder keeps the specs' anchors: the nine fields stay the direct children of `team-details-*` in today's order (nature, ability, item, moves 1–4, delete), laid out by a grid on that element with each caption inside its child; every move slot keeps a `<b>` around its name, empty ones included (a Builder-only tile option). Coverage keeps all 18 types in today's order (by count) under today's headings, zeros muted.
 - Rules' ⋮ menu (phones) lists exactly the row's actions and hides the rest; default rules never offer Edit or Delete.
 - Settings' switches keep the `settings-*` test ids on the switch, are named by the row's title with the hint as their description, and draw a 3:1 border when off; `checkbox`/`expectChecked` gain `[role=switch]`.
-- The user decides: whether Settings loses its Back button (it stays until they say), and whether the exported summary image gets its two contrast fixes (yellow ONGOING, black text on dark type chips), which would change the downloaded PNG.
+- The user decides whether Settings loses its Back button (it stays until they say; every page with the shared `Page` header has one, so dropping it only on Settings would make it the odd one out).
+- The exported summary image gets its two contrast fixes, the yellow ONGOING and black text on the dark type chips (the user's OK, 2026-11-10). It changes the downloaded PNG, so it's its own PR, in a new session.
+- Release 7.0.0 comes right after 5x (the user confirmed, 2026-11-10).
 
 ## How the user wants the work done
 
