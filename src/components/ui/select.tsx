@@ -259,7 +259,10 @@ function Select({
       <span
         className={
           look === 'row'
-            ? 'min-w-0 flex-1 truncate'
+            ? // The span clips at its own box, so it has its own line, 1.4 high: the trigger's line
+              // of 1 (or one a caller passes) would cut off descenders (g, y, p). Centred in the
+              // trigger, the glyphs sit where a line of 1 puts them (tests/e2e/main/Descenders.spec.ts)
+              'min-w-0 flex-1 truncate leading-[1.4]'
             : ATTACHED(look) && look !== 'contrast'
               ? 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'
               : undefined

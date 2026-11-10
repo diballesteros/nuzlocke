@@ -138,7 +138,7 @@ function Rules(): React.JSX.Element {
           })}
           icon={<ChevronDown aria-hidden className="size-[1.143rem] shrink-0" strokeWidth={2.5} />}
           placeholder={t('choose_ruleset')}
-          triggerClassName="h-[2.571rem] bg-card leading-[1.4]!"
+          triggerClassName="h-[2.571rem] bg-card"
           value={selectedRuleset}
         />
         <button
