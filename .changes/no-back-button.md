@@ -2,4 +2,4 @@
 type: update
 ---
 
-Settings, About, Report, Changelog, Import, Delete and the badge pages no longer have a Back button: the page links and the menu take you anywhere from every page
+The Back button is gone from Settings, About, Report a bug, Changelog, Import and the badge details pages. Use the page links (the tab bar on phones) or the menu to move between pages
