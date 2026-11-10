@@ -57,6 +57,10 @@
   "move_list": "Lista de movimientos",
   "add_game": "Añadir juego",
   "menu": "Menú",
+  "game": "Juego",
+  "menu_new_version": "Menú, nueva versión",
+  "changelog_new_version": "Changelog, nueva versión",
+  "delete_game": "Eliminar juego",
   "natures": {
     "Hardy": "Fuerte",
     "Lonely": "Huraña",

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { selectExport } from 'selectors';
 import useStore from 'store';
 import { DownloadIcon } from '@/components/ui/icons';
-import { SHEET_ICON, SheetItem } from '@/components/ui/sheet';
+import { SheetItem } from '@/components/ui/sheet';
 
 function Export(): React.JSX.Element {
   const { t } = useTranslation('common');
@@ -20,7 +20,7 @@ function Export(): React.JSX.Element {
 
   return (
     <SheetItem data-testid="export" onClick={handleExport}>
-      <DownloadIcon className={SHEET_ICON} />
+      <DownloadIcon />
       {t('export')}
     </SheetItem>
   );

@@ -1,8 +1,8 @@
 - banner:
-  - button "sidebar-button"
-  - combobox "games": FireRed and LeafGreen
-  - button "addgame"
-  - button "editgame"
+  - button "Menu"
+  - combobox "Game": FireRed and LeafGreen
+  - button "Add game"
+  - button "Edit level caps"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
   - navigation:

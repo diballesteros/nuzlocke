@@ -1,11 +1,22 @@
 - banner:
-  - button "sidebar-button" [expanded]: "!"
-  - combobox "games": FireRed and LeafGreen
-  - button "addgame"
+  - button "Menu, new version" [expanded]
+  - combobox "Game": FireRed and LeafGreen
+  - button "Add game"
+  - button "Edit level caps"
   - heading "Nuzlocke Tracker" [level=1]
 - dialog "Menu":
   - heading "Menu" [level=2]
-  - text: Tracker Rules Stats Builder Damage Calculator Settings Export Import Report Changelog ! About
+  - button "Tracker"
+  - button "Rules"
+  - button "Stats"
+  - button "Builder"
+  - button "Damage Calculator"
+  - button "Settings"
+  - button "Export"
+  - button "Import"
+  - button "Report"
+  - button "Changelog, new version"
+  - button "About"
 - main:
   - navigation:
     - link "Tracker":
