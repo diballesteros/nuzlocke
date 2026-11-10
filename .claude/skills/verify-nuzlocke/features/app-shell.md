@@ -1,23 +1,27 @@
 # App shell and navigation
 
-The frame around every page: a header with the sidebar button, game picker, game actions and
-title; a slide-in sidebar with every page; a left nav on wide screens; a dark/light theme; and a
-"!" marker when the installed version has unseen changelog entries.
+The frame around every page: a 48px header with the menu button, game picker, game actions
+(outlined + and ✎, and a red trash for custom games, at every width) and title; a slide-in 260px
+menu with every page in three groups; the page nav; a dark/light theme; and a red "!" mark when the
+installed version has unseen changelog entries.
 
 ## Sub-features
 
-- `shell-sidebar`: the sidebar opens from the header button and lists Tracker, Rules, Stats,
-  Builder, Calculator, Settings, Export, Import, Report, Changelog, About.
-- `shell-nav`: the left nav (Tracker, Rules, Stats, Builder, Calculator) shows at widths ≥ 1005px.
+- `shell-sidebar`: the menu opens from the header button and lists Tracker, Rules, Stats,
+  Builder, Calculator | Settings, Export, Import | Report, Changelog, About. Items are buttons; the
+  current page's has `aria-current="page"`.
+- `shell-nav`: the page nav (Tracker, Rules, Stats, Builder, Calculator): a column from 1148px, a
+  row above the page from 571px, a tab bar below. Tab names wrap and hyphenate.
 - `shell-theme`: dark mode follows the system theme on first visit, then the Settings toggle.
-- `shell-version`: a red "!" on the sidebar button and the Changelog item until the changelog is
-  opened.
-- `shell-title`: the "Nuzlocke Tracker" title, hidden at ≤ 750px.
+- `shell-version`: a red "!" on the menu button and the Changelog item until the changelog is
+  opened; both buttons' names add ", new version".
+- `shell-title`: the "Nuzlocke Tracker" title, centred from 1200px; below 860px it is visually
+  hidden (sr-only) and taken out of the bar's flow.
 
 ## How to get to it (user POV)
 
-- Click the header button (accessible name "sidebar-button") to open the sidebar; click outside to
-  close it.
+- Click the header button (accessible name "Menu", or "Menu, new version") to open the menu; click
+  outside to close it.
 - On a wide screen, use the left nav.
 
 ## Driving it with control-nuzlocke
@@ -37,7 +41,11 @@ Preconditions:
 
 ## Gotchas
 
-- Sidebar items are `div`s with click handlers, not links; there is no keyboard path to them yet.
+- Menu items are buttons, not links. The menu isn't modal and doesn't take focus, so the keyboard
+  reaches its items by tabbing on from the header. Choosing an item with focus inside the menu
+  puts focus back on the menu button.
+- The custom-game trash keeps the `aria-label="deletegame"` attribute that `CustomGame.spec.ts`
+  selects by; its accessible name is "Delete game" (`aria-labelledby`).
 - The sidebar is a non-modal Radix dialog (`[data-slot="sheet-content"]`, role `dialog`), like
   Semantic's: focus stays put, Escape does nothing, and a click outside closes it and still reaches
   its target. A click on the game select (or its menu) leaves it open, as Semantic's did. It stays

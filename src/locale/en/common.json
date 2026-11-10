@@ -57,6 +57,10 @@
   "move_list": "Move list",
   "add_game": "Add game",
   "menu": "Menu",
+  "game": "Game",
+  "menu_new_version": "Menu, new version",
+  "changelog_new_version": "Changelog, new version",
+  "delete_game": "Delete game",
   "natures": {
     "Hardy": "Hardy",
     "Lonely": "Lonely",

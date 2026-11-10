@@ -176,7 +176,7 @@ describe('game select', () => {
   test('selects the chosen game', async () => {
     const user = renderApp();
     expect(store().selectedGame).toBeNull();
-    await user.click(screen.getByRole('combobox', { name: 'games' }));
+    await user.click(screen.getByRole('combobox', { name: 'game' }));
     const swsh = store().gamesList.find((game) => game.value === SWSH);
     await user.click(screen.getByRole('option', { name: swsh.text }));
     expect(store().selectedGame).toEqual(swsh);
@@ -187,10 +187,10 @@ describe('delete custom game', () => {
   test('only custom games can be deleted', () => {
     useStore.setState({ selectedGame: store().gamesList.find((game) => game.value === SWSH) });
     renderApp();
-    expect(screen.queryByRole('button', { name: 'deletegame' })).toBeNull();
+    expect(screen.queryByRole('button', { name: 'delete_game' })).toBeNull();
 
     act(() => store().addGame('My run', null));
-    expect(screen.getByRole('button', { name: 'deletegame' })).toBeTruthy();
+    expect(screen.getByRole('button', { name: 'delete_game' })).toBeTruthy();
   });
 
   test('cancel keeps the game, OK deletes it and says so', async () => {
@@ -199,13 +199,13 @@ describe('delete custom game', () => {
     expect(custom.value).toBe('14.1');
     const user = renderApp();
 
-    await user.click(screen.getByRole('button', { name: 'deletegame' }));
+    await user.click(screen.getByRole('button', { name: 'delete_game' }));
     expect(screen.getByRole('dialog', { name: 'confirm_delete' })).toBeTruthy();
     await user.click(screen.getByRole('button', { name: 'cancel' }));
     expect(screen.queryByRole('dialog')).toBeNull();
     expect(store().selectedGame).toEqual(custom);
 
-    await user.click(screen.getByRole('button', { name: 'deletegame' }));
+    await user.click(screen.getByRole('button', { name: 'delete_game' }));
     await user.click(screen.getByRole('button', { name: 'OK' }));
     expect(screen.queryByRole('dialog')).toBeNull();
     expect(store().selectedGame).toBeNull();

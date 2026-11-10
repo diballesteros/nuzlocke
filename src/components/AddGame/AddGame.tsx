@@ -11,7 +11,7 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { BUTTON_ICON, PlusIcon } from '@/components/ui/icons';
+import { PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Select, SELECTION_MENU } from '@/components/ui/select';
 
@@ -39,16 +39,16 @@ function AddGame(): React.JSX.Element {
 
   return (
     <>
-      <Button
-        aria-label="addgame"
+      <button
+        aria-label={t('add_game')}
         className={HEADER_BUTTON}
         data-testid="add-game"
         onClick={() => setOpen(true)}
-        size="icon"
-        variant="secondary"
+        title={t('add_game')}
+        type="button"
       >
-        <PlusIcon className={BUTTON_ICON} />
-      </Button>
+        <PlusIcon />
+      </button>
       <Dialog open={open} onOpenChange={(next) => !next && handleClose()}>
         <DialogContent>
           <DialogTitle className="sr-only">{t('add_game')}</DialogTitle>
