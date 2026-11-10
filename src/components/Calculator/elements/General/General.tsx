@@ -114,7 +114,6 @@ function General({ encounters, pokemon }: GeneralProps): React.JSX.Element {
           onChange={(value) => update({ [`gender${pokemon}`]: value })}
           options={GENDERS}
           placeholder="–"
-          triggerClassName="leading-[1.4]!"
           value={form[`gender${pokemon}`] ?? ''}
         />
       </div>

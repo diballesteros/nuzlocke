@@ -17,13 +17,14 @@ export const OUTLINE_BUTTON =
 export const ROW_ICON = cn(BUTTON_ICON, '-my-[0.0805em]');
 
 // The redesigned row's controls (5m): one outlined style at the row's 32px control height (40px on
-// phones, `TALL`), and borderless icon buttons for the editor and the options menu. Focus shows the
+// phones, `TALL`), and borderless icon buttons for the editor and the options menu. The line is 1.4
+// high, so a Select or truncated label built on it keeps its descenders. Focus shows the
 // rows' ring, offset by 2px, which the row's padding leaves room for
 const FOCUS =
   'outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring';
 export const ROW_CONTROL = cn(
   FOCUS,
-  'm-0! inline-flex h-[2.286rem] shrink-0 cursor-pointer items-center justify-center gap-(--spacing-1) rounded-md border border-solid border-contrast-border bg-transparent px-(--spacing-2) [font-family:inherit]! text-(length:--font-size-2)! leading-none! font-bold whitespace-nowrap text-foreground hover:bg-foreground/8 disabled:cursor-default disabled:opacity-45 [&_svg]:size-[1.143rem] [&_svg]:shrink-0'
+  'm-0! inline-flex h-[2.286rem] shrink-0 cursor-pointer items-center justify-center gap-(--spacing-1) rounded-md border border-solid border-contrast-border bg-transparent px-(--spacing-2) [font-family:inherit]! text-(length:--font-size-2)! leading-[1.4]! font-bold whitespace-nowrap text-foreground hover:bg-foreground/8 disabled:cursor-default disabled:opacity-45 [&_svg]:size-[1.143rem] [&_svg]:shrink-0'
 );
 export const ROW_ICON_CONTROL = cn(ROW_CONTROL, 'w-[2.286rem] px-0');
 export const ROW_GHOST = cn(

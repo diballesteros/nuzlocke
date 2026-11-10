@@ -180,8 +180,6 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
               onChange={(value) => setSelectedDetail(value === '' ? undefined : Number(value))}
               options={detailsToOptions}
               placeholder={t('select_gym')}
-              // The row look's line is the font's height, which the truncated text clips (g, y)
-              triggerClassName="leading-[1.4]!"
               value={selectedDetail === undefined ? '' : String(selectedDetail)}
             />
           )}
