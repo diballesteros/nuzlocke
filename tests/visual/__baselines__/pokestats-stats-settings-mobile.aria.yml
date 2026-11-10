@@ -16,29 +16,14 @@
     - link "Calculator":
       - /url: /calculator
   - tablist:
-    - tab "Summary" [selected]:
-      - img
-      - text: ""
-    - tab "Team 1":
-      - img
-      - text: ""
-    - tab "Caught 4":
-      - img
-      - text: ""
-    - tab "Failed 1":
-      - img
-      - text: ""
-    - tab "Fainted 1":
-      - img
-      - text: ""
+    - tab "Summary" [selected]
+    - tab "Team, 1": Team 1
+    - tab "Caught, 4": Caught 4
+    - tab "Failed, 1": Failed 1
+    - tab "Fainted, 1": Fainted 1
   - tabpanel "Summary":
-    - button "DOWNLOAD"
-    - button "SETTINGS" [pressed]
-    - group: Header
-    - group: Encounters
-    - group: Stats
-    - group: Rules
-    - group: Description
+    - button "Download"
+    - button "Settings" [expanded] [pressed]
     - text: Nuzlocke Run Ongoing
     - img "Grass Badge"
     - img "Water Badge"
@@ -135,3 +120,9 @@
     - paragraph
     - text: https://nuzlocke.netlify.app
 - region "Notifications Alt+T"
+- dialog "Settings":
+  - group: Header
+  - group: Encounters
+  - group: Stats
+  - group: Rules
+  - group: Description
