@@ -97,9 +97,12 @@ export const selectGame = async (page: Page, game: string) => {
 };
 
 // Checkboxes, toggles and radios
-// Semantic's hidden <input>, or a Radix checkbox (a button with role="checkbox" and aria-checked)
+// Semantic's hidden <input>, a Radix checkbox (a button with role="checkbox" and aria-checked), or
+// a Radix switch that carries the test id itself (Settings' rows, 5w)
 export const checkbox = (page: Page, id: string) =>
-  byTestId(page, id).locator('input, [role="checkbox"]');
+  byTestId(page, id)
+    .locator('input, [role="checkbox"]')
+    .or(page.locator(`[role="switch"][data-testid="${id}"]`));
 
 // Clicks the label of a checkbox or radio, or a Radix switch itself (it carries the test id and has
 // no label of its own, like Semantic's `fitted toggle`)

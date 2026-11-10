@@ -17,22 +17,30 @@
       - /url: /calculator
   - heading "Settings" [level=2]
   - button "Back"
-  - checkbox "Dark mode" [checked]
-  - text: Dark mode
-  - checkbox "Duplicate clause (Show alert on duplicate pokémon)"
-  - text: Duplicate clause (Show alert on duplicate pokémon)
-  - checkbox "Show nicknames"
-  - text: Show nicknames
-  - checkbox "Compact tracker rows"
-  - text: Compact tracker rows
-  - checkbox "Show only missing encounters"
-  - text: Show only missing encounters
-  - checkbox "Show all pokémon in every encounter"
-  - text: Show all pokémon in every encounter
-  - checkbox "Show suggestions" [checked]
-  - text: Show suggestions
-  - checkbox "Show option to select a Soul Link pokémon from the details"
-  - text: "Show option to select a Soul Link pokémon from the details Language:"
-  - combobox "Language": English
-  - button "Edit custom statuses"
+  - region "Appearance":
+    - heading "Appearance" [level=3]
+    - text: Dark mode
+    - switch "Dark mode" [checked]
+    - text: Language
+    - combobox "Language": English
+  - region "Tracker":
+    - heading "Tracker" [level=3]
+    - text: Show nicknames Under each Pokémon in the tracker
+    - switch "Show nicknames"
+    - text: Compact tracker rows Fit more encounters on screen
+    - switch "Compact tracker rows"
+    - text: Show only missing encounters Hide locations you have filled in
+    - switch "Show only missing encounters"
+    - text: Show all Pokémon in every encounter Not only the ones found there
+    - switch "Show all Pokémon in every encounter"
+    - text: Show suggestions Suggested Pokémon first in the Pokémon picker
+    - switch "Show suggestions" [checked]
+    - text: Custom statuses None yet
+    - button "Edit custom statuses"
+  - region "Rules and details":
+    - heading "Rules and details" [level=3]
+    - text: Duplicate clause Show an alert on a duplicate Pokémon
+    - switch "Duplicate clause"
+    - text: Soul Link Pick a linked Pokémon in the encounter details
+    - switch "Soul Link"
 - region "Notifications Alt+T"
