@@ -3,14 +3,18 @@ import { useCallback, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import { DisplaySettings, Image } from 'components/Pokestats/elements';
+import { TOOLBAR_BUTTON } from 'components/Tracker/elements/buttons';
 import useStore from 'store';
-import { Button } from '@/components/ui/button';
-import { DownloadIcon, ShareIcon, TRAILING_ICON } from '@/components/ui/icons';
+import { DownloadIcon, ShareIcon } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
 
 // On narrower screens the buttons lose their icons and get square padding
-const OPTION = 'max-md:p-(--spacing-3)';
-const OPTION_ICON = cn(TRAILING_ICON, 'max-md:[display:none]!');
+// The toolbar (5v): Download in the primary colour (the darker blue, as the Edit custom statuses
+// button, for contrast), Share and Settings outlined, as on the tracker
+const DOWNLOAD = cn(
+  TOOLBAR_BUTTON,
+  'border-primary-hover bg-primary-hover text-white hover:bg-primary-hover hover:brightness-110'
+);
 
 function Summary(): React.JSX.Element {
   const { t } = useTranslation('stats');
@@ -62,26 +66,28 @@ function Summary(): React.JSX.Element {
   };
 
   return (
-    <div className="relative flex flex-col flex-nowrap items-center gap-(--spacing-3) overflow-hidden px-(--spacing-1)">
+    <div className="relative flex flex-col flex-nowrap items-center gap-(--spacing-3) overflow-hidden">
       {!!selectedGame && (
-        <div className="relative flex w-[calc(100%-var(--spacing-3))] px-(--spacing-1)">
-          <Button
-            className={OPTION}
+        <div className="relative flex w-full flex-wrap gap-(--spacing-2)">
+          <button
+            className={DOWNLOAD}
             data-testid="download-image"
             onClick={handleDownload}
-            variant="solid-green"
+            type="button"
           >
-            {t('download')} <DownloadIcon className={OPTION_ICON} />
-          </Button>
+            <DownloadIcon aria-hidden />
+            <span>{t('download')}</span>
+          </button>
           {'share' in navigator && 'canShare' in navigator && (
-            <Button
-              className={OPTION}
+            <button
+              className={cn(TOOLBAR_BUTTON, 'bg-card')}
               data-testid="share-image"
               onClick={handleShare}
-              variant="primary"
+              type="button"
             >
-              {t('share')} <ShareIcon className={OPTION_ICON} />
-            </Button>
+              <ShareIcon aria-hidden />
+              <span>{t('share')}</span>
+            </button>
           )}
           <DisplaySettings />
         </div>

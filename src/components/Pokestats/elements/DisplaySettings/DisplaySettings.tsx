@@ -1,9 +1,9 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { TOOLBAR_BUTTON } from 'components/Tracker/elements/buttons';
 import useStore from 'store';
-import { Button } from '@/components/ui/button';
 import { CheckboxOption } from '@/components/ui/checkbox';
-import { SettingsIcon, TRAILING_ICON } from '@/components/ui/icons';
+import { SettingsIcon } from '@/components/ui/icons';
 import { Input, NATIVE_FIELD } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
@@ -48,23 +48,25 @@ function DisplaySettings(): React.JSX.Element {
   );
 
   return (
-    <div className="relative">
-      {/* Semantic's toggle button: grey, green while its panel is open. On a phone it loses its icon
-          (its padding rule never won over Semantic's) */}
-      <Button
+    // The panel hangs from the toolbar's left edge (the toolbar is its positioned parent), so it
+    // stays on screen wherever the button sits
+    <div>
+      {/* Outlined like the toolbar's other buttons (5v); pressed while its panel is open */}
+      <button
         aria-pressed={show}
         className={cn(
-          show &&
-            'bg-green hover:bg-green-hover focus-visible:bg-green-hover active:bg-green-active'
+          TOOLBAR_BUTTON,
+          'bg-card aria-pressed:bg-[color-mix(in_srgb,var(--color-primary)_12%,var(--color-card))] aria-pressed:shadow-[inset_0_-2px_0_var(--color-primary)]'
         )}
         data-testid="display-settings"
         onClick={() => setShow((prevState) => !prevState)}
-        variant="grey"
+        type="button"
       >
-        {t('settings')} <SettingsIcon className={cn(TRAILING_ICON, 'max-xs:[display:none]!')} />
-      </Button>
+        <SettingsIcon aria-hidden />
+        <span>{t('settings')}</span>
+      </button>
       {show && (
-        <div className="absolute top-(--spacing-9) right-0 z-1 flex h-fit w-[17.857rem] min-w-[17.857rem] flex-col flex-nowrap gap-(--spacing-3) rounded-[4px] bg-card p-(--spacing-4) text-center text-foreground shadow-[1px_0_14px_1px_var(--color-panel-glow)]">
+        <div className="absolute top-(--spacing-9) left-0 z-1 flex h-fit w-[17.857rem] min-w-[17.857rem] flex-col flex-nowrap gap-(--spacing-3) rounded-[4px] bg-card p-(--spacing-4) text-center text-foreground shadow-[1px_0_14px_1px_var(--color-panel-glow)]">
           <details className={SECTION}>
             <summary>{t('header')}</summary>
             <div>

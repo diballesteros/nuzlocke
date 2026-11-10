@@ -12,22 +12,19 @@ import useStore from 'store';
 import crag from 'assets/img/boxes/Crag.JPG?url';
 import grass from 'assets/img/boxes/Grass.JPG?url';
 import sky from 'assets/img/boxes/Sky.JPG?url';
-import CaughtSVG from 'assets/svg/caught.svg?react';
-import FailedSVG from 'assets/svg/failed.svg?react';
-import FaintedSVG from 'assets/svg/fainted.svg?react';
-import SummarySVG from 'assets/svg/summary.svg?react';
-import TeamSVG from 'assets/svg/team.svg?react';
 import { Badge } from '@/components/ui/badge';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { cn } from '@/lib/utils';
 
-// The tab icons: the failed and fainted ones are a little larger
-const ICON = 'mr-(--spacing-1) size-[1.571rem]';
-const LARGE_ICON = 'mr-(--spacing-1) size-[1.857rem]';
-
-// A count in a tab, as Semantic drew a label inside a menu item
-const COUNT = 'ml-[1em] bg-label-strong px-[0.78571429em] py-[0.3em] text-white';
+// The tabs (5v): the segmented control with each status's count as a small chip. On phones the
+// five tabs are equal columns with the count under the name, so all of them fit at 375px. Long
+// names wrap and hyphenate there ("In Ohnmacht gefallen") rather than widen a column
+const TAB_LIST = 'max-sm:grid max-sm:w-full max-sm:grid-cols-5';
+const TAB =
+  'max-sm:h-auto max-sm:min-h-[3.429rem] max-sm:min-w-0 max-sm:flex-col max-sm:justify-center max-sm:gap-[0.143rem] max-sm:px-(--spacing-1) max-sm:py-(--spacing-1) max-sm:text-center max-sm:text-(length:--font-size-1)! max-sm:leading-[1.2]! max-sm:whitespace-normal max-sm:[hyphens:auto] max-sm:[overflow-wrap:anywhere]';
+const COUNT =
+  'mx-0 min-w-[1.571rem] rounded-full text-center border-0 bg-foreground/10 px-(--spacing-2) py-0 text-(length:--font-size-1) leading-[1.4] font-bold text-foreground tabular-nums max-sm:bg-transparent max-sm:font-normal';
 
 // A status tab's panel
 const BOX = 'm-0 p-[1em] object-cover';
@@ -80,6 +77,13 @@ function Pokestats(): React.JSX.Element {
   // The open status tab's panel, which the Pokémon's details stay inside
   const [panel, setPanel] = useState<HTMLDivElement | null>(null);
 
+  const counted = [
+    { count: teamPokemon?.length || 0, label: t('Team'), value: 'Team' },
+    { count: caughtPokemon?.length || 0, label: t('Caught'), value: 'Caught' },
+    { count: failedPokemon?.length || 0, label: t('Failed'), value: 'failed' },
+    { count: faintedPokemon?.length || 0, label: t('Fainted'), value: 'fainted' },
+  ];
+
   // The status tabs: a tiled box wallpaper behind the Pokémon
   const boxes = [
     {
@@ -108,39 +112,29 @@ function Pokestats(): React.JSX.Element {
   return (
     <div className="flex h-full max-w-[100vw] flex-col flex-nowrap overflow-auto">
       <Tabs
-        className="flex h-full w-[calc(100%-var(--spacing-2))] flex-col flex-nowrap"
+        className="flex h-full w-full flex-col flex-nowrap gap-(--spacing-3) px-(--spacing-3) pt-(--spacing-3)"
         onValueChange={setTab}
         value={tab}
-        variant="secondary"
+        variant="segmented"
       >
-        <TabsList>
-          <TabsTrigger value="overview">
-            <SummarySVG className={ICON} />
+        <TabsList className={TAB_LIST}>
+          <TabsTrigger className={TAB} value="overview">
             {t('summary')}
           </TabsTrigger>
-          <TabsTrigger value="Team">
-            <TeamSVG className={ICON} />
-            {t('Team')}
-            <Badge className={COUNT}>{teamPokemon?.length || 0}</Badge>
-          </TabsTrigger>
-          <TabsTrigger value="Caught">
-            <CaughtSVG className={ICON} />
-            {t('Caught')}
-            <Badge className={COUNT}>{caughtPokemon?.length || 0}</Badge>
-          </TabsTrigger>
-          <TabsTrigger value="failed">
-            <FailedSVG className={LARGE_ICON} />
-            {t('Failed')}
-            <Badge className={COUNT}>{failedPokemon?.length || 0}</Badge>
-          </TabsTrigger>
-          <TabsTrigger value="fainted">
-            <FaintedSVG className={LARGE_ICON} />
-            {t('Fainted')}
-            <Badge className={COUNT}>{faintedPokemon?.length || 0}</Badge>
-          </TabsTrigger>
+          {counted.map(({ count, label, value }) => (
+            // Named with its count ("Caught, 4"), which the chip shows
+            <TabsTrigger
+              aria-label={`${label}, ${count}`}
+              className={TAB}
+              key={value}
+              value={value}
+            >
+              {label}
+              <Badge className={COUNT}>{count}</Badge>
+            </TabsTrigger>
+          ))}
         </TabsList>
-        {/* Semantic attached the summary's pane under the menu: no shadow, flush sides */}
-        <TabsContent className="-mx-px flex-1 rounded-t-none p-[1em] shadow-none" value="overview">
+        <TabsContent className="flex-1" value="overview">
           <Summary />
         </TabsContent>
         <TabsContent
