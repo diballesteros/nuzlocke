@@ -17,6 +17,53 @@
     - link "Calculator":
       - /url: /calculator
   - heading "Changelog" [level=2]
+  - heading /Version 7\.0\.0 Tue, Nov \d+, \d+/ [level=3]:
+    - text: ""
+    - time: /Tue, Nov \d+, \d+/
+  - list:
+    - listitem: FEATURE Encounters can be moved up and down from the ⋮ menu on each tracker row, also while the list is filtered
+    - listitem: FEATURE Nature names are shown in German and Spanish when the app is in those languages. Searching by the English name still works
+    - listitem: FEATURE The Tracker, Rules, Stats, Builder and Calculator links now show at every screen width, as a row above the page on tablets and a tab bar at the bottom on phones
+    - listitem: "FEATURE Redesigned tracker: the encounter list fills the screen and each row is about a third of its old height, so many more encounters fit at once"
+    - listitem: FEATURE Every tracker row now has a level stepper, including on phones
+    - listitem: FEATURE New Compact tracker rows setting for an even denser list, with the rest of each row's options in its ⋮ menu
+    - listitem: FEATURE Resetting an encounter now asks for confirmation first, like deleting one
+    - listitem: UPDATE Accounts and cloud saves have been removed. Your runs are saved in your browser on this device; use Export in the sidebar to keep a backup or move them to another device
+    - listitem: UPDATE Refreshed look across the whole app, with new icons, menus and dialogs
+    - listitem: "UPDATE Redesigned Edit details window: a header with the Pokémon, its types, location and status, a label over every field, move tiles, and IV and EV steppers for each stat"
+    - listitem: "UPDATE The Calculator has a new look: the result sits in a card at the top (on phones it stays in view, with a switch between Pokémon 1 and 2), the Field options are labelled rows, each Pokémon's fields have captions, and a button beside each move puts that move's result at the top"
+    - listitem: "UPDATE The Builder has a new look: each team member is a card you open from its header, with captioned fields, the moves as tiles and a clear Delete button, and Coverage shows every type as a chip with its count"
+    - listitem: "UPDATE The Rules page has a new look: a cleaner toolbar, rules as numbered rows with their actions always in the same place, a ⋮ menu for each rule on phones, and clearer button names for screen readers"
+    - listitem: "UPDATE The Stats page's tabs and buttons have a new look: the tabs show each status's count and fit on one row on phones, and Download and Settings match the rest of the app. The summary image you download is unchanged"
+    - listitem: "UPDATE The Settings page has a new look: settings are grouped into Appearance, Tracker, and Rules and details, each with a short description and a switch you can flip by tapping anywhere on its row. The language menu has a label, and Edit custom statuses shows how many you have"
+    - listitem: "UPDATE The header is tidier: the game picker matches the rest of the app, Add game and Edit level caps are outlined buttons with tooltips, and Edit level caps is back on phones"
+    - listitem: UPDATE The menu is wider and grouped (pages; Settings, Export and Import; Report, Changelog and About) and marks the page you're on. Its items can be reached with Tab, and choosing one with the keyboard puts focus back on the menu button
+    - listitem: UPDATE The new-version mark on the menu button is a small red dot with an "!", and screen readers hear "Menu, new version"
+    - listitem: UPDATE On phones, long page names in the bottom bar wrap instead of being cut off (German "Taschenrechner")
+    - listitem: UPDATE The Back button is gone from Settings, About, Report a bug, Changelog, Import and the badge details pages. Use the page links (the tab bar on phones) or the menu to move between pages
+    - listitem: /UPDATE The damage calculator's results now show the base power of Max moves and list IVs other than \d+/
+    - listitem: "UPDATE Better screen reader support: buttons, fields, sprites and menus are named, in English, Spanish and German"
+    - listitem: UPDATE More of the app works from the keyboard, including the tracker row menu, the location list and the move slots in Edit details
+    - listitem: UPDATE Pinch-to-zoom works on phones
+    - listitem: UPDATE Higher contrast for the Edit custom statuses button and the current page in the navigation
+    - listitem: UPDATE The app now asks your browser to keep its saved data, so your runs are less likely to be cleared when the device runs low on space
+    - listitem: UPDATE The site no longer loads a third-party analytics script (Plausible)
+    - listitem: UPDATE The Report form now needs a description before it can be sent
+    - listitem: UPDATE Links to the tracker now show a preview image when shared on social media and chat apps
+    - listitem: FIX The damage calculator applies each side's screens and entry hazards only to the damage that side takes, instead of to both directions
+    - listitem: FIX The bottoms of letters like g, y and p are no longer cut off in the tracker's status and nature fields, the encounter editor, the Calculator, Rules and Settings
+    - listitem: FIX Opening a link to a page such as Rules or Calculator directly no longer shows a page-not-found error on a first visit
+    - listitem: FIX Cancelling Edit details now discards IV and EV changes too; before, the next Save kept them
+    - listitem: FIX Fixed a crash when changing the game while the browser was translating the page
+    - listitem: "FIX FireRed/LeafGreen: Koga's and Sabrina's teams show under the right badges (they were swapped)"
+    - listitem: "FIX Ultra Sun/Ultra Moon: the starters are on Route 1 instead of Iki Town, and Ten Carat Hill's Farthest Hollow is a location of its own (in new runs). Iki Town and Berry Fields, which have no encounters, are left out of new runs"
+    - listitem: "FIX Platinum: added the honey tree Pokémon at Valley Windworks"
+    - listitem: "FIX Gold/Silver/Crystal: added Shellder, Chinchou and Lanturn from fishing at Olivine City"
+    - listitem: "/FIX HeartGold\\/SoulSilver: added the Headbutt tree Pokémon on Route \\d+/"
+    - listitem: FIX Fixed misspelled Pokémon names in encounter lists, which kept those Pokémon from showing up at their locations
+    - listitem: FIX An encounter's level can no longer be lowered below 1
+    - listitem: FIX The summary image downloaded from the Stats page shows the encounter completion ring instead of a black circle
+    - listitem: FIX Filled in missing Spanish and German translations
   - heading /Version 6\.1\.0 Tue, Jul \d+, \d+/ [level=3]:
     - text: ""
     - time: /Tue, Jul \d+, \d+/
@@ -30,13 +77,5 @@
     - time: /Tue, Jul \d+, \d+/
   - list:
     - listitem: FEATURE Major under-the-hood improvements including faster build times, improved performance, and modernized development infrastructure
-  - heading /Version 5\.6\.0 Wed, Apr \d+, \d+/ [level=3]:
-    - text: ""
-    - time: /Wed, Apr \d+, \d+/
-  - list:
-    - listitem: FEATURE Added button to delete account from the account settings, note this is permanent
-    - listitem: FIX Fixed Totem Gumshoos moveset in Ultra Sun and Ultra Moon
-    - listitem: FIX Fixed the levels for Olivia's pokemon in Sun and Moon
-    - listitem: /FIX Removed Larvesta from Route \d+ encounters and added it to Treasure Hunter in Black and White/
   - button "See more"
 - region "Notifications Alt+T"
