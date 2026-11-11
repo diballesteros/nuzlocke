@@ -135,6 +135,24 @@ describe('games', () => {
     expect(store().calcs[CUSTOM]).toBeDefined();
   });
 
+  test('a version is stored on its game, and every version removes it', () => {
+    store().selectGame(store().gamesList.find((game) => game.value === '1'));
+    store().setVersion('yellow');
+    expect(store().games['1'].version).toBe('yellow');
+    store().resetAll();
+    expect(store().games['1'].version).toBe('yellow');
+    store().setVersion();
+    expect(store().games['1']).not.toHaveProperty('version');
+    expect(store().games['3']).not.toHaveProperty('version');
+  });
+
+  test('a version without a selected game is ignored', () => {
+    useStore.setState({ selectedGame: null });
+    const before = structuredClone(store().games);
+    store().setVersion('red');
+    expect(store().games).toEqual(before);
+  });
+
   test('an empty custom game has no encounters', () => {
     store().addGame('Blank');
     expect(encounters(CUSTOM)).toEqual([]);

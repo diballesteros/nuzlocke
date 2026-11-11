@@ -109,6 +109,7 @@ export interface AppState {
   setGens: (genId: number) => void;
   setLanguage: (language: TLanguage) => void;
   setTypes: (typeId: Type) => void;
+  setVersion: (version?: TVersion) => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
   toggleMissing: () => void;
@@ -128,7 +129,44 @@ export type Games = { [key: string]: TrackData };
 export type TrackData = {
   badge: number[];
   encounters: TEncounter[];
+  // The version a combined game's run is played on (constants/versions). Absent means every
+  // version: saves from before it existed load unchanged, so it needs no persist migration.
+  version?: TVersion;
 };
+
+export type TVersion =
+  | 'red'
+  | 'blue'
+  | 'yellow'
+  | 'gold'
+  | 'silver'
+  | 'crystal'
+  | 'ruby'
+  | 'sapphire'
+  | 'emerald'
+  | 'firered'
+  | 'leafgreen'
+  | 'diamond'
+  | 'pearl'
+  | 'platinum'
+  | 'heartgold'
+  | 'soulsilver'
+  | 'black'
+  | 'white'
+  | 'black2'
+  | 'white2'
+  | 'x'
+  | 'y'
+  | 'omegaruby'
+  | 'alphasapphire'
+  | 'sun'
+  | 'moon'
+  | 'ultrasun'
+  | 'ultramoon'
+  | 'sword'
+  | 'shield'
+  | 'brilliantdiamond'
+  | 'shiningpearl';
 
 export type TGame = {
   value: string;
