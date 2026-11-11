@@ -135,7 +135,36 @@ export type TrackData = {
 };
 
 export type TVersion =
-  'red' | 'blue' | 'yellow' | 'ruby' | 'sapphire' | 'emerald' | 'diamond' | 'pearl' | 'platinum';
+  | 'red'
+  | 'blue'
+  | 'yellow'
+  | 'gold'
+  | 'silver'
+  | 'crystal'
+  | 'ruby'
+  | 'sapphire'
+  | 'emerald'
+  | 'firered'
+  | 'leafgreen'
+  | 'diamond'
+  | 'pearl'
+  | 'platinum'
+  | 'heartgold'
+  | 'soulsilver'
+  | 'black'
+  | 'white'
+  | 'black2'
+  | 'white2'
+  | 'x'
+  | 'y'
+  | 'omegaruby'
+  | 'alphasapphire'
+  | 'sun'
+  | 'moon'
+  | 'ultrasun'
+  | 'ultramoon'
+  | 'sword'
+  | 'shield';
 
 export type TGame = {
   value: string;

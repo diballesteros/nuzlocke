@@ -22,12 +22,18 @@ test.describe('Versions', () => {
     await expect(byTestId(page, 'poke-Weedle')).toHaveCount(0);
     await text(page, 'Cancel').click();
 
-    // Each game keeps its own; games without versions have no menu
+    // Each game keeps its own; Brilliant Diamond and Shining Pearl have no tags, so no menu
     await page.reload();
     await expect(dropdownText(page, 'version')).toHaveText('Yellow');
-    await selectGame(page, 'FireRed and LeafGreen');
-    await expect(byTestId(page, 'game-select')).toContainText('FireRed and LeafGreen');
+    await selectGame(page, 'Brilliant Diamond and Shining Pearl');
+    await expect(byTestId(page, 'game-select')).toContainText(
+      'Brilliant Diamond and Shining Pearl'
+    );
     await expect(byTestId(page, 'version')).toHaveCount(0);
+    await selectGame(page, 'Sword and Shield');
+    await expect(dropdownText(page, 'version')).toHaveText('All versions');
+    await pickOption(page, 'version', 'Shield');
+    await expect(dropdownText(page, 'version')).toHaveText('Shield');
     await selectGame(page, 'Ruby, Sapphire and Emerald');
     await expect(dropdownText(page, 'version')).toHaveText('All versions');
 

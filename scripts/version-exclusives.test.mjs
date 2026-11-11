@@ -1,11 +1,17 @@
 import { describe, expect, test } from 'vitest';
-import { exclusives, speciesId } from './version-exclusives.mjs';
+import { ALIASES, exclusives, locationKey, speciesId } from './version-exclusives.mjs';
 
 describe('version-exclusives', () => {
   test("species ids follow PokéAPI's identifiers", () => {
     expect(
       ['Nidoran♀', 'Nidoran♂', 'Mr. Mime', "Farfetch'd", 'Mime Jr.', 'Flabébé'].map(speciesId)
     ).toEqual(['nidoran-f', 'nidoran-m', 'mr-mime', 'farfetchd', 'mime-jr', 'flabebe']);
+  });
+
+  test('location names match across spellings', () => {
+    expect(
+      ['Diglett’s Tunnel', 'Pokémon Mansion', 'Wild Area: Dusty Bowl', 'Mt. Moon'].map(locationKey)
+    ).toEqual(['digletts tunnel', 'pokemon mansion', 'dusty bowl', 'mount moon']);
   });
 
   test('tags what appears in some versions, and reports what the tables lack', () => {
@@ -21,16 +27,16 @@ describe('version-exclusives', () => {
       'rby-99': ['Ditto'],
     };
     const tables = {
-      'Viridian Forest': {
+      'viridian forest': {
         caterpie: new Set(all),
         weedle: new Set(['red', 'blue']),
         pidgey: new Set(['yellow']),
         pikachu: new Set(['red', 'blue']),
       },
       // The alias finds it under PokéAPI's spelling
-      'Vermilion City': { krabby: new Set(['yellow']) },
+      'vermilion city': { krabby: new Set(['yellow']) },
     };
-    const { tags, missing } = exclusives(encounters, filters, tables, all);
+    const { tags, missing } = exclusives(encounters, filters, tables, all, ALIASES['1']);
     // Mew isn't in PokéAPI's table, and Nowhere has none: both stay untagged
     expect(tags).toEqual({
       'rby-6': { Weedle: ['red', 'blue'], Pidgey: ['yellow'] },

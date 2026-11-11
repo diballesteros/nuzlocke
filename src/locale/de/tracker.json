@@ -48,16 +48,5 @@
   "nature": "Natur",
   "raise": "{{name}} erhöhen",
   "stat": "Wert",
-  "move_slot": "Attacke {{n}}",
-  "version": "Edition",
-  "all_versions": "Alle Editionen",
-  "version_red": "Rot",
-  "version_blue": "Blau",
-  "version_yellow": "Gelb",
-  "version_ruby": "Rubin",
-  "version_sapphire": "Saphir",
-  "version_emerald": "Smaragd",
-  "version_diamond": "Diamant",
-  "version_pearl": "Perl",
-  "version_platinum": "Platin"
+  "move_slot": "Attacke {{n}}"
 }
