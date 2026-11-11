@@ -1,0 +1,63 @@
+{
+  "checked": "2026-11-11",
+  "overrides": {
+    "rby-11": { "Jynx": ["red", "blue"] },
+    "rby-16": { "Shellder": ["red", "blue"], "Farfetch'd": ["red", "blue"] },
+    "gsc-26": { "Rattata": ["gold", "crystal"] },
+    "gsc-27": { "Rattata": ["gold", "crystal"] },
+    "gsc-51": { "Raticate": ["crystal"] },
+    "gsc-56": { "Magikarp": ["gold", "silver"] },
+    "gsc-71": { "Rapidash": ["gold", "silver"] },
+    "gsc-84": { "Quagsire": ["gold", "silver"] },
+    "rse-8": { "Makuhita": ["ruby", "sapphire"] },
+    "rse-33": { "Skitty": ["ruby", "sapphire"] },
+    "rse-41": { "Electrode": ["ruby"] },
+    "dpp-66": { "Cranidos": ["diamond", "platinum"], "Shieldon": ["pearl", "platinum"] },
+    "dpp-49": { "Teddiursa": ["diamond", "pearl"] },
+    "hgss-71": { "Latias": ["soulsilver"], "Latios": ["heartgold"] },
+    "bw-7": { "Illumise": ["white"] },
+    "bw-9": { "Cottonee": ["white"] },
+    "bw2-11": { "Cottonee": ["white2"] },
+    "xy-16": { "Omanyte": ["y"], "Kabuto": ["y"], "Lileep": ["x"], "Anorith": ["x"] },
+    "oras-26": {
+      "Lombre": ["alphasapphire"],
+      "Nuzleaf": ["omegaruby"],
+      "Zangoose": ["omegaruby"],
+      "Seviper": ["alphasapphire"]
+    },
+    "oras-28": { "Lunatone": ["alphasapphire"], "Solrock": ["omegaruby"] },
+    "oras-52": { "Sableye": ["alphasapphire"], "Mawile": ["omegaruby"] },
+    "oras-57": { "Mawile": ["omegaruby"], "Sableye": ["alphasapphire"] },
+    "oras-68": { "Sableye": ["alphasapphire"], "Mawile": ["omegaruby"] },
+    "sm-8": { "Rattata (Alolan)": ["moon"], "Yungoos": ["sun"] },
+    "sm-25": { "Cranidos": ["sun"], "Shieldon": ["moon"], "Tirtouga": ["sun"], "Archen": ["moon"] },
+    "swsh-5": { "Lotad": ["shield"] },
+    "gsc-20": {
+      "Caterpie": ["gold", "silver", "crystal"],
+      "Metapod": ["gold", "silver", "crystal"],
+      "Weedle": ["gold", "silver", "crystal"],
+      "Kakuna": ["gold", "silver", "crystal"],
+      "Venonat": ["gold", "silver", "crystal"]
+    },
+    "gsc-36": { "Noctowl": ["gold", "silver", "crystal"] },
+    "gsc-39": { "Zubat": ["gold", "silver", "crystal"] },
+    "rse-3": {
+      "Seedot": ["ruby", "sapphire", "emerald"],
+      "Surskit": ["ruby", "sapphire", "emerald"]
+    },
+    "rse-20": { "Seedot": ["sapphire", "emerald"], "Surskit": ["ruby", "sapphire", "emerald"] },
+    "rse-26": {
+      "Nuzleaf": ["ruby", "sapphire", "emerald"],
+      "Surskit": ["ruby", "sapphire", "emerald"]
+    },
+    "rse-34": { "Seedot": ["sapphire", "emerald"], "Surskit": ["ruby", "sapphire", "emerald"] },
+    "rse-51": { "Tentacool": ["ruby", "sapphire", "emerald"] },
+    "oras-24": {
+      "Grimer": ["omegaruby", "alphasapphire"],
+      "Koffing": ["omegaruby", "alphasapphire"]
+    },
+    "swsh-19": { "Binacle": ["sword", "shield"] },
+    "swsh-26": { "Duskull": ["sword", "shield"] },
+    "swsh-27": { "Trapinch": ["sword", "shield"], "Axew": ["sword", "shield"] }
+  }
+}

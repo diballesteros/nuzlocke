@@ -90,6 +90,14 @@ export const locationKey = (name) =>
     .replace(/\bmt\. /, 'mount ')
     .trim();
 
+// Bulbapedia is the source of truth where it and PokéAPI disagree: these are its answers for every
+// table entry where they differed, from scripts/bulbapedia-check.browser.js (run in a Bulbapedia tab;
+// Bulbapedia refuses requests from scripts). Entries Bulbapedia's pages don't place (gifts, our
+// own place names) keep PokéAPI's answer.
+export const BULBAPEDIA = JSON.parse(
+  readFileSync(join(ROOT, 'scripts/bulbapedia-overrides.json'), 'utf8')
+).overrides;
+
 // Tags PokéAPI can't give (starters and gifts aren't in its encounter tables), checked by hand
 // against Bulbapedia. They replace whatever the CSVs say for that Pokémon at that location.
 export const HAND = {
@@ -181,7 +189,8 @@ export function exclusives(encounters, filters, tables, all, aliases = {}) {
     const table = tables[locationKey(aliases[location] ?? location)];
     const names = filters[filterKey] ?? [];
     names.forEach((name) => {
-      const found = HAND[filterKey]?.[name] ?? [...(table?.[speciesId(name)] ?? [])];
+      const found = BULBAPEDIA[filterKey]?.[name] ??
+        HAND[filterKey]?.[name] ?? [...(table?.[speciesId(name)] ?? [])];
       const versions = all.filter((version) => found.includes(version));
       if (versions.length > 0 && versions.length < all.length) {
         tags[filterKey] ??= {};
