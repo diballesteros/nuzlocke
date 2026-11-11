@@ -5,25 +5,31 @@ import { GAME_VERSIONS, inVersion } from 'constants/versions';
 
 describe('inVersion', () => {
   test('without a version, every Pokémon in a table appears', () => {
-    expect(inVersion('rby-6', 'Weedle')).toBe(true);
-    expect(inVersion('rby-6', 'Pidgey', undefined)).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Weedle')).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Pidgey', undefined)).toBe(true);
+  });
+
+  test('before the tags have loaded, nothing is filtered', () => {
+    expect(inVersion(null, 'rby-6', 'Weedle', 'yellow')).toBe(true);
   });
 
   test('a tagged Pokémon appears only in its versions', () => {
     // Viridian Forest: Weedle in Red and Blue, Pidgey in Yellow
-    expect(inVersion('rby-6', 'Weedle', 'red')).toBe(true);
-    expect(inVersion('rby-6', 'Weedle', 'yellow')).toBe(false);
-    expect(inVersion('rby-6', 'Pidgey', 'yellow')).toBe(true);
-    expect(inVersion('rby-6', 'Pidgey', 'blue')).toBe(false);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Weedle', 'red')).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Weedle', 'yellow')).toBe(false);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Pidgey', 'yellow')).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Pidgey', 'blue')).toBe(false);
   });
 
   test('an untagged Pokémon or location appears in every version', () => {
-    expect(inVersion('rby-6', 'Caterpie', 'yellow')).toBe(true);
-    expect(inVersion('frlg-3', 'Pidgey', 'red')).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'rby-6', 'Caterpie', 'yellow')).toBe(true);
+    expect(inVersion(EXCLUSIVES, 'frlg-3', 'Pidgey', 'red')).toBe(true);
   });
 
   test("Yellow's only starter is Pikachu", () => {
-    const starters = FILTERS['rby-0'].filter((name) => inVersion('rby-0', name, 'yellow'));
+    const starters = FILTERS['rby-0'].filter((name) =>
+      inVersion(EXCLUSIVES, 'rby-0', name, 'yellow')
+    );
     expect(starters).toEqual(['Pikachu']);
   });
 });
@@ -61,7 +67,8 @@ describe('version tags', () => {
     const empty = Object.keys(EXCLUSIVES).flatMap((filterKey) =>
       GAME_VERSIONS[gameOf(filterKey)]
         .filter(
-          (version) => !FILTERS[filterKey].some((name) => inVersion(filterKey, name, version))
+          (version) =>
+            !FILTERS[filterKey].some((name) => inVersion(EXCLUSIVES, filterKey, name, version))
         )
         .map((version) => `${filterKey} ${version}`)
     );

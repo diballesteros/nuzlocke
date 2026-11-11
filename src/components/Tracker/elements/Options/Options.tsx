@@ -1,13 +1,17 @@
-import React, { useCallback } from 'react';
+import React, { lazy, Suspense, useCallback } from 'react';
 import { useNavigate } from 'react-router';
 import { Wrench } from 'lucide-react';
 import { Filter, Share } from 'components';
-import { AddEncounter, ResetEncounters, Version } from 'components/Tracker/elements';
+import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
 import { POKEMAP } from 'constants/pokemon';
+import { GAME_VERSIONS } from 'constants/versions';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import { BUTTON_ICON } from '@/components/ui/icons';
 import { RADIUS } from '../buttons';
+
+// Only three games have versions, so the menu is its own chunk, outside the main bundle's budget
+const Version = lazy(() => import('../Version/Version'));
 
 const Options = React.memo(function Options() {
   const navigate = useNavigate();
@@ -51,7 +55,11 @@ const Options = React.memo(function Options() {
           }}
         />
       </div>
-      <Version />
+      {GAME_VERSIONS[selectedGame?.value] && (
+        <Suspense fallback={null}>
+          <Version />
+        </Suspense>
+      )}
       <div className="flex shrink-0 gap-(--spacing-2) max-sm:[display:none]">
         <Share
           disabled={!selectedGame}
