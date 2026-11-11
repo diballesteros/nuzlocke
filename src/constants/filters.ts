@@ -1093,7 +1093,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Magikarp',
     'Quagsire',
   ],
-  'gsc-54': ['Zubat', 'Machop', 'Machoke', 'Geodude', 'Haunter', 'Cubone', 'Marowak'],
+  'gsc-54': ['Zubat', 'Machop', 'Machoke', 'Geodude', 'Haunter', 'Cubone', 'Marowak', 'Golbat'],
   'gsc-55': [
     'Rattata',
     'Raticate',
@@ -1161,6 +1161,11 @@ const FILTERS: { [key in string]: string[] } = {
     'Magikarp',
     'Hoothoot',
     'Noctowl',
+    'Jigglypuff',
+    'Ekans',
+    'Arbok',
+    'Raticate',
+    'Clefairy',
   ],
   'gsc-60': [
     'Caterpie',
@@ -1345,6 +1350,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Ekans',
     'Exeggcute',
     'Hoothoot',
+    'Dodrio',
   ],
   'rse-0': ['Treecko', 'Mudkip', 'Torchic'],
   'rse-1': ['Treecko', 'Mudkip', 'Torchic', 'Chikorita', 'Cyndaquil', 'Totodile'],
@@ -1808,7 +1814,17 @@ const FILTERS: { [key in string]: string[] } = {
     'Gyarados',
     "Farfetch'd",
   ],
-  'frlg-17': ['Gyarados', 'Horsea', 'Krabby', 'Magikarp', 'Psyduck', 'Shellder', 'Tentacool'],
+  'frlg-17': [
+    'Gyarados',
+    'Horsea',
+    'Krabby',
+    'Magikarp',
+    'Psyduck',
+    'Shellder',
+    'Tentacool',
+    'Staryu',
+    'Slowpoke',
+  ],
   'frlg-18': [
     'Spearow',
     'Ekans',
@@ -3779,6 +3795,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Seaking',
     'Magikarp',
     'Buizel',
+    'Sableye',
+    'Mawile',
   ],
   'hgss-56': ['Goldeen', 'Seaking', 'Magikarp'],
   'hgss-57': [
@@ -3880,7 +3898,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Ariados',
   ],
   'hgss-71': ['Xatu', 'Hoothoot', 'Pineco', 'Wurmple', 'Starly', 'Latias', 'Latios'],
-  'hgss-73': ['Rattata', 'Spearow', 'Ekans', 'Arbok', 'Jigglypuff', 'Zubat'],
+  'hgss-73': ['Rattata', 'Spearow', 'Ekans', 'Arbok', 'Jigglypuff', 'Zubat', 'Baltoy', 'Gulpin'],
   'hgss-74': [
     'Sandshrew',
     'Sandslash',
@@ -3965,6 +3983,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Pupitar',
     'Aipom',
     'Moltres',
+    'Teddiursa',
   ],
   'hgss-86': [
     'Raticate',
@@ -5756,6 +5775,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Seaking',
     'Magikarp',
     'Gyarados',
+    'Celesteela',
+    'Kartana',
   ],
   'sm-36': [
     'Fearow',
@@ -5855,6 +5876,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Castform',
     'Goomy',
     'Crabrawler',
+    'Kartana',
   ],
   'sm-49': ['Magikarp', 'Gyarados', 'Wailmer', 'Wailord', 'Dhelmise', 'Aerodactyl', 'Steenee'],
   'sm-50': [
@@ -7419,6 +7441,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Orbeetle',
     'Doublade',
     'Aegislash',
+    'Gothorita',
   ],
   'swsh-29': [
     'Diglett',
@@ -7489,6 +7512,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Vileplume',
     'Bellossom',
     'Gastrodon',
+    'Scraggy',
+    'Sableye',
   ],
   'swsh-30': [
     'Dugtrio',

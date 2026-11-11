@@ -102,8 +102,18 @@ export const HAND = {
   },
 };
 
-// PokéAPI's species identifier for one of our Pokémon names
-export const speciesId = (name) =>
+// Our regional forms, "Vulpix (Alolan)", and PokéAPI's suffixes for them
+const FORMS = { alolan: 'alola', galarian: 'galar' };
+
+// PokéAPI's identifier for one of our Pokémon names: the species for its usual form
+// ("wormadam", not "wormadam-plant"), the form's own for a regional form ("vulpix-alola")
+export const speciesId = (name) => {
+  const [, base, form] = name.match(/^(.*?)\s*(?:\((\w+)\))?$/);
+  const id = speciesBase(base);
+  return form && FORMS[form.toLowerCase()] ? `${id}-${FORMS[form.toLowerCase()]}` : id;
+};
+
+const speciesBase = (name) =>
   name
     .toLowerCase()
     .replace('♀', '-f')
@@ -129,7 +139,12 @@ export function pokeapiTables(dir, versions) {
     readCsv(join(dir, 'pokemon_species.csv')).map((r) => [r.id, r.identifier])
   );
   const pokemon = new Map(
-    readCsv(join(dir, 'pokemon.csv')).map((r) => [r.id, species.get(r.species_id)])
+    // Each encounter's Pokémon by speciesId's key: a regional form by its own id, every other form
+    // by its species (the app has one Basculin, one Indeedee)
+    readCsv(join(dir, 'pokemon.csv')).map((r) => [
+      r.id,
+      /-(alola|galar)$/.test(r.identifier) ? r.identifier : species.get(r.species_id),
+    ])
   );
   const names = new Map(
     readCsv(join(dir, 'location_names.csv'))

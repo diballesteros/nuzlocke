@@ -4,8 +4,26 @@ import { ALIASES, exclusives, locationKey, speciesId } from './version-exclusive
 describe('version-exclusives', () => {
   test("species ids follow PokéAPI's identifiers", () => {
     expect(
-      ['Nidoran♀', 'Nidoran♂', 'Mr. Mime', "Farfetch'd", 'Mime Jr.', 'Flabébé'].map(speciesId)
-    ).toEqual(['nidoran-f', 'nidoran-m', 'mr-mime', 'farfetchd', 'mime-jr', 'flabebe']);
+      [
+        'Nidoran♀',
+        'Nidoran♂',
+        'Mr. Mime',
+        "Farfetch'd",
+        'Mime Jr.',
+        'Flabébé',
+        'Vulpix (Alolan)',
+        "Farfetch'd (Galarian)",
+      ].map(speciesId)
+    ).toEqual([
+      'nidoran-f',
+      'nidoran-m',
+      'mr-mime',
+      'farfetchd',
+      'mime-jr',
+      'flabebe',
+      'vulpix-alola',
+      'farfetchd-galar',
+    ]);
   });
 
   test('location names match across spellings', () => {
