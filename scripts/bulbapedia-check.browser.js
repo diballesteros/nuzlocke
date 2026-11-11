@@ -41,7 +41,12 @@ const PLACES = {
   'thrify megamart': 'thrifty megamart',
 };
 
-const norm = (s) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/['’]/g, '');
+const norm = (s) =>
+  s
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/['\u2019]/g, '');
 const idOf = (version) => norm(version).replace(/ /g, '');
 const strings = (body) =>
   [...body.matchAll(/'((?:[^'\\]|\\.)*)'|"([^"]*)"/g)].map((m) =>
