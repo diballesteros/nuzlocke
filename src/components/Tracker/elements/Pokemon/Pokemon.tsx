@@ -5,11 +5,11 @@ import { TriangleAlert } from 'lucide-react';
 import { useShallow } from 'zustand/shallow';
 import { PkmImage, PokemonSelector } from 'common';
 import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
-import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
 import { inVersion } from 'constants/versions';
 import useExclusives from 'hooks/useExclusives';
+import useFilters from 'hooks/useFilters';
 import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import { HoverPopover } from '@/components/ui/popover';
@@ -54,6 +54,7 @@ const Pokemon = React.memo(function Pokemon({
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const version = games[selectedGame?.value]?.version;
   const exclusives = useExclusives(!!version);
+  const filters = useFilters();
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
 
@@ -125,7 +126,7 @@ const Pokemon = React.memo(function Pokemon({
     return encounter?.filterKey && !showAll
       ? POKEMON.reduce((filtered, poke) => {
           if (
-            (FILTERS[encounter?.filterKey]?.includes(poke.text) &&
+            (filters?.[encounter?.filterKey]?.includes(poke.text) &&
               inVersion(exclusives, encounter.filterKey, poke.text, version)) ||
             encounter.pokemon === poke.value
           ) {
@@ -134,7 +135,7 @@ const Pokemon = React.memo(function Pokemon({
           return filtered;
         }, [])
       : false;
-  }, [encounter, exclusives, showAll, version]);
+  }, [encounter, exclusives, filters, showAll, version]);
 
   const onChange = (pokemonId: number) => {
     changePokemon(encounter.id, pokemonId);
