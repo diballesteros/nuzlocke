@@ -12,3 +12,4 @@ export { default as RangeSelector } from './RangeSelector/RangeSelector';
 export { default as ResetEncounters } from './ResetEncounters/ResetEncounters';
 export { default as ScrollList } from './ScrollList/ScrollList';
 export { default as Swap } from './Swap/Swap';
+export { default as Version } from './Version/Version';

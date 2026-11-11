@@ -48,5 +48,16 @@
   "nature": "Naturaleza",
   "raise": "Subir {{name}}",
   "stat": "Estadística",
-  "move_slot": "Movimiento {{n}}"
+  "move_slot": "Movimiento {{n}}",
+  "version": "Versión",
+  "all_versions": "Todas las versiones",
+  "version_red": "Rojo",
+  "version_blue": "Azul",
+  "version_yellow": "Amarillo",
+  "version_ruby": "Rubí",
+  "version_sapphire": "Zafiro",
+  "version_emerald": "Esmeralda",
+  "version_diamond": "Diamante",
+  "version_pearl": "Perla",
+  "version_platinum": "Platino"
 }

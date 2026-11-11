@@ -48,5 +48,16 @@
   "nature": "Nature",
   "raise": "Raise {{name}}",
   "stat": "Stat",
-  "move_slot": "Move {{n}}"
+  "move_slot": "Move {{n}}",
+  "version": "Version",
+  "all_versions": "All versions",
+  "version_red": "Red",
+  "version_blue": "Blue",
+  "version_yellow": "Yellow",
+  "version_ruby": "Ruby",
+  "version_sapphire": "Sapphire",
+  "version_emerald": "Emerald",
+  "version_diamond": "Diamond",
+  "version_pearl": "Pearl",
+  "version_platinum": "Platinum"
 }

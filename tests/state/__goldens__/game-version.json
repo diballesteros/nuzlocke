@@ -1,0 +1,15 @@
+[
+  {
+    "path": "$.state.games.1.version",
+    "after": "yellow"
+  },
+  {
+    "path": "$.state.selectedGame",
+    "before": null,
+    "after": {
+      "value": "3",
+      "text": "Ruby, Sapphire and Emerald",
+      "key": "3"
+    }
+  }
+]

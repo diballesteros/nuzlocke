@@ -8,6 +8,7 @@ import { getGenderIcon } from 'components/PokeInfo/PokeInfo';
 import FILTERS from 'constants/filters';
 import POKEMON, { POKEMAP } from 'constants/pokemon';
 import type { TEncounter, TPokemon } from 'constants/types';
+import { inVersion } from 'constants/versions';
 import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import { HoverPopover } from '@/components/ui/popover';
@@ -50,6 +51,7 @@ const Pokemon = React.memo(function Pokemon({
   const showAllTooltip = useStore(useCallback((state) => state.showAllTooltip, []));
   const suggestions = useStore(useShallow(selectSuggestion));
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
+  const version = games[selectedGame?.value]?.version;
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
 
@@ -115,11 +117,14 @@ const Pokemon = React.memo(function Pokemon({
     return getAlertText(encounter?.pokemon);
   }, [encounter?.pokemon, getAlertText]);
 
+  // The location's table, less what the run's version doesn't have (constants/versions). The
+  // encounter's own Pokémon always stays, as before
   const filter = useMemo(() => {
     return encounter?.filterKey && !showAll
       ? POKEMON.reduce((filtered, poke) => {
           if (
-            FILTERS[encounter?.filterKey]?.includes(poke.text) ||
+            (FILTERS[encounter?.filterKey]?.includes(poke.text) &&
+              inVersion(encounter.filterKey, poke.text, version)) ||
             encounter.pokemon === poke.value
           ) {
             filtered.push(poke.value);
@@ -127,7 +132,7 @@ const Pokemon = React.memo(function Pokemon({
           return filtered;
         }, [])
       : false;
-  }, [encounter, showAll]);
+  }, [encounter, showAll, version]);
 
   const onChange = (pokemonId: number) => {
     changePokemon(encounter.id, pokemonId);

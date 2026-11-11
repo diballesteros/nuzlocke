@@ -159,6 +159,8 @@ Large static data files drive the app; most bug fixes and content updates are ed
 
 Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep e2e tests passing.
 
+**Version-exclusive encounters:** `src/constants/exclusives.ts` tags the Pokémon in Red/Blue/Yellow, Ruby/Sapphire/Emerald and Diamond/Pearl/Platinum tables that appear only in some versions; an untagged one appears in all. It's generated, so don't edit it by hand: download PokéAPI's CSVs at the commit in `scripts/version-exclusives.mjs` and run `node scripts/version-exclusives.mjs <dir>` (`--report` lists version-limited Pokémon the tables lack). Rerun it after editing those games' tables in `filters.ts`, and put tags PokéAPI can't give (starters) in its `HAND`. PokéAPI lists in-game trades as encounters; the script skips them, because the app's tables don't list trades. The script imports the `.ts` data files directly (Node 24 strips types). Bulbapedia answers automated fetches with 403, so cross-checks there are by hand.
+
 ### UI
 
 - `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.

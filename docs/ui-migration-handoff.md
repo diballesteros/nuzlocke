@@ -211,6 +211,7 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
   - the Ultra Sun/Ultra Moon starters are listed under Iki Town instead of Route 1 (#791, #461);
   - encounter gaps: the Valley Windworks honey tree (#803), Olivine fishing (#818), Exeggcute on HGSS Route 35 (#805) and Farthest Hollow (#771).
 - **Version-exclusive encounters:** Yellow, Emerald and Platinum keep one game each; tag their version-exclusive encounters and filter by the chosen version. No new game keys, no persist migration.
+  - **In review (2026-11-11).** The user approved the plan: a Version menu on the tracker toolbar of games `'1'`, `'3'` and `'5'`, stored as the optional `games[key].version` (absent = every version, so no persist bump). The tags in `src/constants/exclusives.ts` come from PokéAPI via `scripts/version-exclusives.mjs` (trades left out, starters tagged by hand), and the 10 wild Yellow-, Emerald- and Platinum-only Pokémon the tables lacked were added. Left for later: the other paired games (Gold/Silver/Crystal, FireRed/LeafGreen and on), custom games made from these templates, and the 43 other version-limited Pokémon the tables lack (mostly Red/Blue, Diamond- or Pearl-only) (`--report` lists them).
 - **Saves:** call `navigator.storage.persist()` at startup (five data-loss reports).
 - **Report form:** a Netlify honeypot field and a required description, against the form's spam (about 20% of reports).
 - **Localisation:** nature names in de and es, not Pokémon names (#518).

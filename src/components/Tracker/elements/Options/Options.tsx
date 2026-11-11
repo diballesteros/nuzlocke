@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import { useNavigate } from 'react-router';
 import { Wrench } from 'lucide-react';
 import { Filter, Share } from 'components';
-import { AddEncounter, ResetEncounters } from 'components/Tracker/elements';
+import { AddEncounter, ResetEncounters, Version } from 'components/Tracker/elements';
 import { POKEMAP } from 'constants/pokemon';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
@@ -51,6 +51,7 @@ const Options = React.memo(function Options() {
           }}
         />
       </div>
+      <Version />
       <div className="flex shrink-0 gap-(--spacing-2) max-sm:[display:none]">
         <Share
           disabled={!selectedGame}
