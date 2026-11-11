@@ -310,7 +310,7 @@ const EXCLUSIVES: TExclusives = {
     'Seaking': ['red', 'blue'],
     'Ditto': ['red', 'blue'],
   },
-  'rby-47': { 'Machop': ['red', 'blue'], 'Marowak': ['red', 'blue'] },
+  'rby-47': { 'Machop': ['red', 'blue'], 'Marowak': ['red', 'blue'], 'Venomoth': ['red', 'blue'] },
   'rby-48': {
     'Arbok': ['red'],
     'Raichu': ['red', 'blue'],
@@ -327,6 +327,9 @@ const EXCLUSIVES: TExclusives = {
     'Seadra': ['red', 'blue'],
     'Rhyhorn': ['yellow'],
     'Lickitung': ['yellow'],
+    'Marowak': ['red', 'blue'],
+    'Electrode': ['red', 'blue'],
+    'Wigglytuff': ['red', 'blue'],
   },
   'gsc-2': {
     'Spearow': ['gold', 'silver'],
@@ -1204,6 +1207,7 @@ const EXCLUSIVES: TExclusives = {
     'Kirlia': ['diamond', 'pearl'],
   },
   'dpp-12': { 'Geodude': ['diamond', 'pearl'] },
+  'dpp-14': { 'Silcoon': ['diamond'], 'Cascoon': ['pearl'] },
   'dpp-15': {
     'Elekid': ['diamond', 'pearl'],
     'Wingull': ['diamond', 'pearl'],
@@ -1226,6 +1230,8 @@ const EXCLUSIVES: TExclusives = {
     'Dustox': ['platinum'],
     'Kricketot': ['platinum'],
     'Budew': ['platinum'],
+    'Skiploom': ['diamond'],
+    'Slowpoke': ['pearl', 'platinum'],
   },
   'dpp-17': {
     'Caterpie': ['platinum'],
@@ -1250,6 +1256,8 @@ const EXCLUSIVES: TExclusives = {
     'Kricketot': ['diamond', 'pearl'],
     'Stunky': ['diamond'],
     'Bronzor': ['diamond', 'pearl'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-21': { 'Onix': ['platinum'] },
   'dpp-22': {
@@ -1257,6 +1265,8 @@ const EXCLUSIVES: TExclusives = {
     'Gligar': ['diamond', 'pearl'],
     'Stantler': ['pearl', 'platinum'],
     'Larvitar': ['diamond'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-23': { 'Nosepass': ['platinum'], 'Absol': ['platinum'] },
   'dpp-24': {
@@ -1271,6 +1281,8 @@ const EXCLUSIVES: TExclusives = {
     'Barboach': ['diamond', 'pearl'],
     'Whiscash': ['diamond', 'pearl'],
     'Budew': ['platinum'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-26': { 'Happiny': ['diamond', 'pearl'] },
   'dpp-27': {
@@ -1284,6 +1296,8 @@ const EXCLUSIVES: TExclusives = {
     'Starly': ['diamond', 'pearl'],
     'Bonsly': ['pearl'],
     'Mime Jr.': ['diamond'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-30': { 'Murkrow': ['diamond'], 'Misdreavus': ['pearl'], 'Duskull': ['platinum'] },
   'dpp-31': {
@@ -1314,6 +1328,8 @@ const EXCLUSIVES: TExclusives = {
     'Mightyena': ['diamond'],
     'Kricketune': ['diamond', 'pearl'],
     'Stunky': ['diamond'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-35': {
     'Geodude': ['diamond', 'pearl'],
@@ -1327,6 +1343,8 @@ const EXCLUSIVES: TExclusives = {
     'Floatzel': ['diamond', 'pearl'],
     'Gastrodon': ['platinum'],
     'Chatot': ['platinum'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-37': {
     'Pelipper': ['diamond', 'pearl'],
@@ -1344,6 +1362,8 @@ const EXCLUSIVES: TExclusives = {
     'Budew': ['diamond', 'pearl'],
     'Roselia': ['diamond', 'pearl'],
     'Kecleon': ['platinum'],
+    'Golduck': ['diamond', 'pearl'],
+    'Staravia': ['diamond', 'pearl'],
   },
   'dpp-38': {
     'Marill': ['platinum'],
@@ -1364,6 +1384,8 @@ const EXCLUSIVES: TExclusives = {
     'Shellos': ['platinum'],
     'Gastrodon': ['platinum'],
     'Croagunk': ['platinum'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-67': { 'Ditto': ['platinum'], 'Porygon': ['diamond', 'pearl'] },
   'dpp-39': {
@@ -1374,6 +1396,10 @@ const EXCLUSIVES: TExclusives = {
     'Bonsly': ['pearl'],
     'Mime Jr.': ['diamond'],
     'Swablu': ['platinum'],
+    'Kecleon': ['diamond'],
+    'Bagon': ['pearl', 'platinum'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-40': {
     'Goldeen': ['platinum'],
@@ -1388,6 +1414,11 @@ const EXCLUSIVES: TExclusives = {
     'Luxio': ['diamond', 'pearl'],
     'Pachirisu': ['diamond', 'pearl'],
     'Pelipper': ['diamond', 'pearl'],
+    'Aron': ['diamond', 'platinum'],
+    'Hoppip': ['pearl'],
+    'Skiploom': ['pearl'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-42': { 'Clamperl': ['diamond', 'pearl'] },
   'dpp-43': { 'Lanturn': ['diamond', 'pearl'] },
@@ -1399,6 +1430,8 @@ const EXCLUSIVES: TExclusives = {
     'Gastrodon': ['diamond', 'pearl'],
     'Stunky': ['diamond'],
     'Skuntank': ['diamond'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-45': {
     'Mr. Mime': ['diamond', 'platinum'],
@@ -1407,6 +1440,8 @@ const EXCLUSIVES: TExclusives = {
     'Pelipper': ['diamond', 'pearl'],
     'Glameow': ['pearl'],
     'Chatot': ['platinum'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-46': {
     'Wingull': ['diamond', 'pearl'],
@@ -1425,6 +1460,8 @@ const EXCLUSIVES: TExclusives = {
     'Ponyta': ['diamond', 'pearl'],
     'Bronzor': ['platinum'],
     'Swablu': ['diamond', 'pearl'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-50': {
     'Machoke': ['diamond', 'pearl'],
@@ -1448,6 +1485,7 @@ const EXCLUSIVES: TExclusives = {
     'Swinub': ['platinum'],
     'Meditite': ['diamond', 'pearl'],
     'Medicham': ['diamond', 'pearl'],
+    'Teddiursa': ['diamond', 'pearl'],
   },
   'dpp-53': {
     'Noctowl': ['diamond', 'pearl'],
@@ -1467,6 +1505,7 @@ const EXCLUSIVES: TExclusives = {
     'Graveler': ['platinum'],
     'Dusclops': ['platinum'],
     'Golbat': ['platinum'],
+    'Chimecho': ['diamond', 'pearl'],
   },
   'dpp-57': {
     'Magnemite': ['platinum'],
@@ -1478,6 +1517,8 @@ const EXCLUSIVES: TExclusives = {
     'Glameow': ['pearl'],
     'Purugly': ['pearl'],
     'Sharpedo': ['diamond', 'pearl'],
+    'Silcoon': ['diamond'],
+    'Cascoon': ['pearl'],
   },
   'dpp-58': { 'Tentacool': ['platinum'], 'Wingull': ['platinum'], 'Mantyke': ['diamond', 'pearl'] },
   'dpp-60': { 'Wingull': ['platinum'] },

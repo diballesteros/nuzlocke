@@ -469,6 +469,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Onix',
     'Marowak',
     'Moltres',
+    'Venomoth',
   ],
   'rby-48': [
     'Arbok',
@@ -495,6 +496,9 @@ const FILTERS: { [key in string]: string[] } = {
     'Mewtwo',
     'Rhyhorn',
     'Lickitung',
+    'Marowak',
+    'Electrode',
+    'Wigglytuff',
   ],
   'rby-49': [],
   'gsc-0': ['Cyndaquil', 'Chikorita', 'Totodile'],
@@ -2515,7 +2519,17 @@ const FILTERS: { [key in string]: string[] } = {
     'Barboach',
     'Whiscash',
   ],
-  'dpp-14': ['Wurmple', 'Combee', 'Aipom', 'Burmy', 'Cherubi', 'Heracross', 'Munchlax'],
+  'dpp-14': [
+    'Wurmple',
+    'Combee',
+    'Aipom',
+    'Burmy',
+    'Cherubi',
+    'Heracross',
+    'Munchlax',
+    'Silcoon',
+    'Cascoon',
+  ],
   'dpp-15': [
     'Tentacool',
     'Tentacruel',
@@ -2581,6 +2595,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Combee',
     'Cherubi',
     'Munchlax',
+    'Skiploom',
+    'Slowpoke',
   ],
   'dpp-17': [
     'Caterpie',
@@ -2620,6 +2636,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Kricketune',
     'Stunky',
     'Bronzor',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-21': [
     'Sandshrew',
@@ -2648,6 +2666,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Stantler',
     'Larvitar',
     'Kricketot',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-23': [
     'Clefairy',
@@ -2700,6 +2720,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Bidoof',
     'Bibarel',
     'Budew',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-26': ['Eevee', 'Happiny'],
   'dpp-27': [
@@ -2726,6 +2748,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Bonsly',
     'Mime Jr.',
     'Spiritomb',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-29': ['Unown'],
   'dpp-30': ['Zubat', 'Gastly', 'Murkrow', 'Misdreavus', 'Duskull', 'Golbat'],
@@ -2777,6 +2801,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Spoink',
     'Kricketune',
     'Stunky',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-34': ['Geodude', 'Hippopotas'],
   'dpp-35': [
@@ -2807,6 +2833,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Shellos',
     'Gastrodon',
     'Chatot',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-37': [
     'Tentacool',
@@ -2846,6 +2874,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Croagunk',
     'Carnivine',
     'Kecleon',
+    'Golduck',
+    'Staravia',
   ],
   'dpp-38': [
     'Psyduck',
@@ -2880,6 +2910,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Shellos',
     'Gastrodon',
     'Croagunk',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-39': [
     'Geodude',
@@ -2916,6 +2948,10 @@ const FILTERS: { [key in string]: string[] } = {
     'Cherubi',
     'Heracross',
     'Munchlax',
+    'Kecleon',
+    'Bagon',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-40': [
     'Psyduck',
@@ -2950,6 +2986,11 @@ const FILTERS: { [key in string]: string[] } = {
     'Gastrodon',
     'Shellos',
     'Pelipper',
+    'Aron',
+    'Hoppip',
+    'Skiploom',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-42': [
     'Tentacool',
@@ -2995,6 +3036,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Skuntank',
     'Finneon',
     'Lumineon',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-45': [
     'Tentacool',
@@ -3013,6 +3056,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Chatot',
     'Finneon',
     'Lumineon',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-46': [
     'Tentacool',
@@ -3077,6 +3122,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Graveler',
     'Noctowl',
     'Swablu',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-50': [
     'Zubat',
@@ -3117,6 +3164,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Medicham',
     'Snorunt',
     'Snover',
+    'Teddiursa',
   ],
   'dpp-53': [
     'Psyduck',
@@ -3162,6 +3210,7 @@ const FILTERS: { [key in string]: string[] } = {
     'Graveler',
     'Dusclops',
     'Golbat',
+    'Chimecho',
   ],
   'dpp-57': [
     'Magnemite',
@@ -3184,6 +3233,8 @@ const FILTERS: { [key in string]: string[] } = {
     'Octillery',
     'Sharpedo',
     'Skitty',
+    'Silcoon',
+    'Cascoon',
   ],
   'dpp-58': [
     'Tentacool',
