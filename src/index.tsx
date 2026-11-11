@@ -4,6 +4,7 @@ import './styles/globals.css';
 import './index.css';
 import { BrowserRouter } from 'react-router-dom';
 import ErrorBoundary from 'error/ErrorBoundary';
+import { Analytics } from '@/lib/analytics';
 import { ROOT_ERROR_HANDLERS, SENTRY_OPTIONS } from '@/lib/sentry';
 import { registerServiceWorker } from '@/lib/serviceWorker';
 import { requestPersistentStorage } from '@/lib/storage';
@@ -23,6 +24,7 @@ registerServiceWorker();
 root.render(
   <>
     <BrowserRouter>
+      <Analytics />
       <Sentry.ErrorBoundary fallback={<ErrorBoundary />} showDialog>
         <App />
       </Sentry.ErrorBoundary>
