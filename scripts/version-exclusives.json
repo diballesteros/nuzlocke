@@ -15,8 +15,13 @@
       "Pikachu": ["yellow"],
       "Staryu": ["yellow"]
     },
-    "rby-3": { "Tentacool": ["red", "blue"] },
-    "rby-4": { "Mankey": ["yellow"], "Poliwhirl": ["yellow"] },
+    "rby-3": {
+      "Tentacool": ["red", "blue"]
+    },
+    "rby-4": {
+      "Mankey": ["yellow"],
+      "Poliwhirl": ["yellow"]
+    },
     "rby-5": {
       "Caterpie": ["blue"],
       "Weedle": ["red"],
@@ -37,8 +42,14 @@
       "Jigglypuff": ["red", "blue"],
       "Mankey": ["yellow"]
     },
-    "rby-9": { "Ekans": ["red"], "Sandshrew": ["blue", "yellow"], "Mankey": ["yellow"] },
-    "rby-10": { "Sandshrew": ["yellow"] },
+    "rby-9": {
+      "Ekans": ["red"],
+      "Sandshrew": ["blue", "yellow"],
+      "Mankey": ["yellow"]
+    },
+    "rby-10": {
+      "Sandshrew": ["yellow"]
+    },
     "rby-11": {
       "Bulbasaur": ["yellow"],
       "Psyduck": ["red", "blue"],
@@ -82,7 +93,11 @@
       "Meowth": ["blue"],
       "Mankey": ["red"],
       "Abra": ["yellow"],
-      "Bellsprout": ["blue"]
+      "Bellsprout": ["blue"],
+      "Nidoran♀": ["red", "blue"],
+      "Nidoran♂": ["red", "blue"],
+      "Machoke": ["yellow"],
+      "Machamp": ["yellow"]
     },
     "rby-15": {
       "Pidgeotto": ["yellow"],
@@ -117,7 +132,9 @@
       "Tentacool": ["yellow"],
       "Shellder": ["red", "blue"],
       "Krabby": ["red", "blue"],
-      "Horsea": ["yellow"]
+      "Horsea": ["yellow"],
+      "Nidorina": ["red", "blue"],
+      "Dugtrio": ["yellow"]
     },
     "rby-20": {
       "Raticate": ["yellow"],
@@ -197,7 +214,9 @@
       "Pinsir": ["blue", "yellow"],
       "Dratini": ["red", "blue"]
     },
-    "rby-31": { "Fearow": ["yellow"] },
+    "rby-31": {
+      "Fearow": ["yellow"]
+    },
     "rby-32": {
       "Raticate": ["red", "blue"],
       "Spearow": ["red", "blue"],
@@ -206,8 +225,18 @@
       "Shellder": ["yellow"],
       "Krabby": ["red", "blue"]
     },
-    "rby-33": { "Rattata": ["yellow"], "Shellder": ["yellow"], "Krabby": ["red", "blue"] },
-    "rby-34": { "Krabby": ["red", "blue"], "Seaking": ["red", "blue"], "Gyarados": ["yellow"] },
+    "rby-33": {
+      "Rattata": ["yellow"],
+      "Shellder": ["yellow"],
+      "Krabby": ["red", "blue"],
+      "Parasect": ["yellow"],
+      "Lickitung": ["red", "blue"]
+    },
+    "rby-34": {
+      "Krabby": ["red", "blue"],
+      "Seaking": ["red", "blue"],
+      "Gyarados": ["yellow"]
+    },
     "rby-35": {
       "Venonat": ["red", "blue"],
       "Venomoth": ["red", "blue"],
@@ -262,8 +291,16 @@
       "Muk": ["yellow"],
       "Electabuzz": ["red"]
     },
-    "rby-40": { "Tentacruel": ["yellow"], "Shellder": ["red", "blue"], "Horsea": ["red", "blue"] },
-    "rby-41": { "Tentacruel": ["yellow"], "Shellder": ["red", "blue"], "Horsea": ["red", "blue"] },
+    "rby-40": {
+      "Tentacruel": ["yellow"],
+      "Shellder": ["red", "blue"],
+      "Horsea": ["red", "blue"]
+    },
+    "rby-41": {
+      "Tentacruel": ["yellow"],
+      "Shellder": ["red", "blue"],
+      "Horsea": ["red", "blue"]
+    },
     "rby-42": {
       "Psyduck": ["red", "blue"],
       "Golduck": ["red", "blue"],
@@ -274,7 +311,17 @@
       "Horsea": ["red", "blue"],
       "Seadra": ["red"]
     },
-    "rby-43": { "Tentacool": ["yellow"], "Shellder": ["red", "blue"], "Horsea": ["red", "blue"] },
+    "rby-43": {
+      "Tentacool": ["yellow"],
+      "Shellder": ["red", "blue"],
+      "Horsea": ["red", "blue"],
+      "Seel": ["red", "blue"],
+      "Dewgong": ["yellow"],
+      "Muk": ["yellow"],
+      "Electrode": ["red", "blue"],
+      "Rhydon": ["yellow"],
+      "Tangela": ["red", "blue"]
+    },
     "rby-44": {
       "Rattata": ["yellow"],
       "Raticate": ["yellow"],
@@ -309,7 +356,11 @@
       "Seaking": ["red", "blue"],
       "Ditto": ["red", "blue"]
     },
-    "rby-47": { "Machop": ["red", "blue"], "Marowak": ["red", "blue"] },
+    "rby-47": {
+      "Machop": ["red", "blue"],
+      "Marowak": ["red", "blue"],
+      "Venomoth": ["red", "blue"]
+    },
     "rby-48": {
       "Arbok": ["red"],
       "Raichu": ["red", "blue"],
@@ -323,7 +374,12 @@
       "Dodrio": ["red", "blue"],
       "Hypno": ["red", "blue"],
       "Kingler": ["red", "blue"],
-      "Seadra": ["red", "blue"]
+      "Seadra": ["red", "blue"],
+      "Wigglytuff": ["red", "blue"],
+      "Electrode": ["red", "blue"],
+      "Marowak": ["red", "blue"],
+      "Lickitung": ["yellow"],
+      "Rhyhorn": ["yellow"]
     },
     "gsc-2": {
       "Spearow": ["gold", "silver"],
@@ -335,7 +391,10 @@
       "Pineco": ["crystal"],
       "Heracross": ["gold", "silver"]
     },
-    "gsc-3": { "Jigglypuff": ["gold", "silver"], "Phanpy": ["crystal"] },
+    "gsc-3": {
+      "Jigglypuff": ["gold", "silver"],
+      "Phanpy": ["crystal"]
+    },
     "gsc-5": {
       "Caterpie": ["gold", "crystal"],
       "Metapod": ["gold"],
@@ -369,7 +428,10 @@
       "Pineco": ["crystal"],
       "Heracross": ["gold", "silver"]
     },
-    "gsc-7": { "Teddiursa": ["crystal"], "Ursaring": ["crystal"] },
+    "gsc-7": {
+      "Teddiursa": ["crystal"],
+      "Ursaring": ["crystal"]
+    },
     "gsc-10": {
       "Pidgey": ["crystal"],
       "Spearow": ["gold", "silver"],
@@ -382,8 +444,13 @@
       "Pineco": ["crystal"],
       "Heracross": ["gold", "silver"]
     },
-    "gsc-12": { "Sandshrew": ["gold", "crystal"] },
-    "gsc-13": { "Ekans": ["silver", "crystal"], "Geodude": ["crystal"] },
+    "gsc-12": {
+      "Sandshrew": ["gold", "crystal"]
+    },
+    "gsc-13": {
+      "Ekans": ["silver", "crystal"],
+      "Geodude": ["crystal"]
+    },
     "gsc-14": {
       "Caterpie": ["gold"],
       "Metapod": ["gold"],
@@ -410,7 +477,8 @@
       "Venonat": ["crystal"],
       "Exeggcute": ["gold", "silver"],
       "Hoothoot": ["crystal"],
-      "Noctowl": ["crystal"]
+      "Noctowl": ["crystal"],
+      "Celebi": ["crystal"]
     },
     "gsc-17": {
       "Caterpie": ["gold"],
@@ -482,10 +550,16 @@
       "Noctowl": ["crystal"],
       "Ledyba": ["silver", "crystal"],
       "Spinarak": ["gold", "crystal"],
-      "Ariados": ["crystal"]
+      "Ariados": ["crystal"],
+      "Ledian": ["crystal"]
     },
-    "gsc-24": { "Weezing": ["crystal"], "Magmar": ["gold", "silver"] },
-    "gsc-25": { "Suicune": ["crystal"] },
+    "gsc-24": {
+      "Weezing": ["crystal"],
+      "Magmar": ["gold", "silver"]
+    },
+    "gsc-25": {
+      "Suicune": ["crystal"]
+    },
     "gsc-26": {
       "Caterpie": ["gold"],
       "Metapod": ["gold"],
@@ -519,7 +593,9 @@
       "Ledyba": ["crystal"],
       "Spinarak": ["crystal"]
     },
-    "gsc-30": { "Mantine": ["gold", "crystal"] },
+    "gsc-30": {
+      "Mantine": ["gold", "crystal"]
+    },
     "gsc-33": {
       "Rattata": ["crystal"],
       "Raticate": ["crystal"],
@@ -558,8 +634,13 @@
       "Venonat": ["crystal"],
       "Hoothoot": ["crystal"]
     },
-    "gsc-38": { "Remoraid": ["gold", "silver"] },
-    "gsc-39": { "Sneasel": ["crystal"], "Delibird": ["silver", "crystal"] },
+    "gsc-38": {
+      "Remoraid": ["gold", "silver"]
+    },
+    "gsc-39": {
+      "Sneasel": ["crystal"],
+      "Delibird": ["silver", "crystal"]
+    },
     "gsc-42": {
       "Gligar": ["gold", "crystal"],
       "Teddiursa": ["gold"],
@@ -592,7 +673,8 @@
       "Arbok": ["silver", "crystal"],
       "Sandslash": ["gold", "crystal"],
       "Hoothoot": ["crystal"],
-      "Noctowl": ["crystal"]
+      "Noctowl": ["crystal"],
+      "Dodrio": ["gold"]
     },
     "gsc-45": {
       "Sandslash": ["crystal"],
@@ -648,7 +730,10 @@
       "Marowak": ["crystal"],
       "Quagsire": ["gold", "silver"]
     },
-    "gsc-54": { "Haunter": ["crystal"] },
+    "gsc-54": {
+      "Haunter": ["crystal"],
+      "Golbat": ["crystal"]
+    },
     "gsc-55": {
       "Zubat": ["crystal"],
       "Venonat": ["crystal"],
@@ -657,7 +742,13 @@
       "Primeape": ["gold"],
       "Marowak": ["crystal"]
     },
-    "gsc-56": { "Magikarp": ["gold", "silver"] },
+    "gsc-56": {
+      "Magikarp": ["gold", "silver"],
+      "Krabby": ["gold", "silver"],
+      "Kingler": ["gold", "silver"],
+      "Staryu": ["gold", "silver"],
+      "Corsola": ["gold", "silver"]
+    },
     "gsc-57": {
       "Caterpie": ["crystal"],
       "Metapod": ["crystal"],
@@ -676,9 +767,18 @@
       "Hoothoot": ["crystal"],
       "Noctowl": ["crystal"]
     },
-    "gsc-64": { "Venonat": ["crystal"], "Venomoth": ["crystal"] },
-    "gsc-65": { "Venonat": ["crystal"], "Venomoth": ["crystal"] },
-    "gsc-66": { "Venonat": ["crystal"], "Venomoth": ["crystal"] },
+    "gsc-64": {
+      "Venonat": ["crystal"],
+      "Venomoth": ["crystal"]
+    },
+    "gsc-65": {
+      "Venonat": ["crystal"],
+      "Venomoth": ["crystal"]
+    },
+    "gsc-66": {
+      "Venonat": ["crystal"],
+      "Venomoth": ["crystal"]
+    },
     "gsc-68": {
       "Pidgeotto": ["crystal"],
       "Raticate": ["crystal"],
@@ -698,17 +798,28 @@
       "Spinarak": ["gold", "crystal"],
       "Ariados": ["gold", "crystal"]
     },
-    "gsc-71": { "Rapidash": ["gold", "silver"] },
+    "gsc-71": {
+      "Rapidash": ["gold", "silver"]
+    },
     "gsc-73": {
       "Raticate": ["crystal"],
       "Ekans": ["silver", "crystal"],
       "Arbok": ["silver", "crystal"],
       "Clefairy": ["crystal"],
-      "Jigglypuff": ["gold", "silver"]
+      "Jigglypuff": ["gold", "silver"],
+      "Sandshrew": ["crystal"]
     },
-    "gsc-74": { "Sandshrew": ["gold", "crystal"], "Sandslash": ["gold"] },
-    "gsc-76": { "Raticate": ["crystal"] },
-    "gsc-78": { "Rattata": ["crystal"], "Raticate": ["crystal"] },
+    "gsc-74": {
+      "Sandshrew": ["gold", "crystal"],
+      "Sandslash": ["gold"]
+    },
+    "gsc-76": {
+      "Raticate": ["crystal"]
+    },
+    "gsc-78": {
+      "Rattata": ["crystal"],
+      "Raticate": ["crystal"]
+    },
     "gsc-83": {
       "Arbok": ["crystal"],
       "Golbat": ["crystal"],
@@ -727,25 +838,63 @@
       "Donphan": ["silver"],
       "Pupitar": ["crystal"]
     },
-    "rse-1": { "Chikorita": ["emerald"], "Cyndaquil": ["emerald"], "Totodile": ["emerald"] },
-    "rse-3": { "Lotad": ["sapphire", "emerald"] },
-    "rse-6": { "Marill": ["emerald"], "Poochyena": ["emerald"], "Zigzagoon": ["ruby", "sapphire"] },
-    "rse-7": { "Poochyena": ["emerald"], "Zigzagoon": ["ruby", "sapphire"] },
-    "rse-8": { "Makuhita": ["ruby", "sapphire"] },
-    "rse-10": { "Abra": ["emerald"], "Poochyena": ["emerald"], "Zigzagoon": ["ruby", "sapphire"] },
-    "rse-14": { "Sableye": ["sapphire", "emerald"], "Mawile": ["ruby"] },
-    "rse-17": { "Poochyena": ["emerald"], "Zigzagoon": ["ruby", "sapphire"] },
-    "rse-18": { "Zubat": ["emerald"] },
+    "rse-1": {
+      "Chikorita": ["emerald"],
+      "Cyndaquil": ["emerald"],
+      "Totodile": ["emerald"]
+    },
+    "rse-3": {
+      "Lotad": ["sapphire", "emerald"]
+    },
+    "rse-6": {
+      "Marill": ["emerald"],
+      "Poochyena": ["emerald"],
+      "Zigzagoon": ["ruby", "sapphire"]
+    },
+    "rse-7": {
+      "Poochyena": ["emerald"],
+      "Zigzagoon": ["ruby", "sapphire"]
+    },
+    "rse-8": {
+      "Makuhita": ["ruby", "sapphire"]
+    },
+    "rse-10": {
+      "Abra": ["emerald"],
+      "Poochyena": ["emerald"],
+      "Zigzagoon": ["ruby", "sapphire"]
+    },
+    "rse-14": {
+      "Sableye": ["sapphire", "emerald"],
+      "Mawile": ["ruby"]
+    },
+    "rse-17": {
+      "Poochyena": ["emerald"],
+      "Zigzagoon": ["ruby", "sapphire"]
+    },
+    "rse-18": {
+      "Zubat": ["emerald"]
+    },
     "rse-20": {
       "Poochyena": ["emerald"],
       "Zigzagoon": ["ruby", "sapphire"],
       "Seedot": ["sapphire", "emerald"],
       "Roselia": ["ruby", "sapphire"]
     },
-    "rse-21": { "Surskit": ["ruby", "sapphire"] },
-    "rse-22": { "Sandshrew": ["emerald"], "Trapinch": ["emerald"] },
-    "rse-23": { "Machop": ["ruby", "sapphire"], "Marill": ["emerald"] },
-    "rse-25": { "Sandshrew": ["ruby", "sapphire"], "Slugma": ["emerald"] },
+    "rse-21": {
+      "Surskit": ["ruby", "sapphire"]
+    },
+    "rse-22": {
+      "Sandshrew": ["emerald"],
+      "Trapinch": ["emerald"]
+    },
+    "rse-23": {
+      "Machop": ["ruby", "sapphire"],
+      "Marill": ["emerald"]
+    },
+    "rse-25": {
+      "Sandshrew": ["ruby", "sapphire"],
+      "Slugma": ["emerald"]
+    },
     "rse-26": {
       "Lotad": ["sapphire", "emerald"],
       "Lombre": ["sapphire", "emerald"],
@@ -753,9 +902,18 @@
       "Zangoose": ["ruby"],
       "Seviper": ["sapphire", "emerald"]
     },
-    "rse-27": { "Ditto": ["emerald"], "Whismur": ["emerald"], "Loudred": ["emerald"] },
-    "rse-28": { "Lunatone": ["sapphire"], "Solrock": ["ruby", "emerald"] },
-    "rse-33": { "Skitty": ["ruby", "sapphire"] },
+    "rse-27": {
+      "Ditto": ["emerald"],
+      "Whismur": ["emerald"],
+      "Loudred": ["emerald"]
+    },
+    "rse-28": {
+      "Lunatone": ["sapphire"],
+      "Solrock": ["ruby", "emerald"]
+    },
+    "rse-33": {
+      "Skitty": ["ruby", "sapphire"]
+    },
     "rse-34": {
       "Poochyena": ["emerald"],
       "Mightyena": ["emerald"],
@@ -788,9 +946,13 @@
       "Octillery": ["emerald"],
       "Houndour": ["emerald"],
       "Stantler": ["emerald"],
-      "Miltank": ["emerald"]
+      "Miltank": ["emerald"],
+      "Pineco": ["emerald"],
+      "Teddiursa": ["emerald"]
     },
-    "rse-39": { "Meditite": ["ruby", "sapphire"] },
+    "rse-39": {
+      "Meditite": ["ruby", "sapphire"]
+    },
     "rse-40": {
       "Poochyena": ["emerald"],
       "Mightyena": ["emerald"],
@@ -805,7 +967,9 @@
       "Electrode": ["ruby"],
       "Torkoal": ["emerald"]
     },
-    "rse-69": { "Electrode": ["sapphire", "emerald"] },
+    "rse-69": {
+      "Electrode": ["sapphire", "emerald"]
+    },
     "rse-52": {
       "Sableye": ["sapphire", "emerald"],
       "Mawile": ["ruby"],
@@ -832,15 +996,24 @@
       "Seadra": ["firered"],
       "Staryu": ["leafgreen"]
     },
-    "frlg-3": { "Psyduck": ["firered"], "Slowpoke": ["leafgreen"] },
-    "frlg-4": { "Psyduck": ["firered"], "Slowpoke": ["leafgreen"] },
+    "frlg-3": {
+      "Psyduck": ["firered"],
+      "Slowpoke": ["leafgreen"]
+    },
+    "frlg-4": {
+      "Psyduck": ["firered"],
+      "Slowpoke": ["leafgreen"]
+    },
     "frlg-9": {
       "Ekans": ["firered"],
       "Sandshrew": ["leafgreen"],
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"]
     },
-    "frlg-11": { "Psyduck": ["firered"], "Slowpoke": ["leafgreen"] },
+    "frlg-11": {
+      "Psyduck": ["firered"],
+      "Slowpoke": ["leafgreen"]
+    },
     "frlg-12": {
       "Oddish": ["firered"],
       "Psyduck": ["firered"],
@@ -853,7 +1026,12 @@
       "Bellsprout": ["leafgreen"],
       "Slowpoke": ["leafgreen"]
     },
-    "frlg-14": { "Oddish": ["firered"], "Bellsprout": ["leafgreen"] },
+    "frlg-14": {
+      "Oddish": ["firered"],
+      "Bellsprout": ["leafgreen"],
+      "Nidoran♀": ["firered"],
+      "Nidoran♂": ["leafgreen"]
+    },
     "frlg-15": {
       "Oddish": ["firered"],
       "Psyduck": ["firered"],
@@ -870,9 +1048,14 @@
       "Ekans": ["firered"],
       "Sandshrew": ["leafgreen"],
       "Psyduck": ["firered"],
-      "Slowpoke": ["leafgreen"]
+      "Slowpoke": ["leafgreen"],
+      "Nidorina": ["firered"],
+      "Nidorino": ["leafgreen"]
     },
-    "frlg-20": { "Ekans": ["firered"], "Sandshrew": ["leafgreen"] },
+    "frlg-20": {
+      "Ekans": ["firered"],
+      "Sandshrew": ["leafgreen"]
+    },
     "frlg-21": {
       "Ekans": ["firered"],
       "Sandshrew": ["leafgreen"],
@@ -905,7 +1088,10 @@
       "Scyther": ["firered"],
       "Pinsir": ["leafgreen"]
     },
-    "frlg-34": { "Psyduck": ["firered"], "Slowpoke": ["leafgreen"] },
+    "frlg-34": {
+      "Psyduck": ["firered"],
+      "Slowpoke": ["leafgreen"]
+    },
     "frlg-35": {
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"],
@@ -932,7 +1118,9 @@
       "Weepinbell": ["leafgreen"],
       "Slowpoke": ["leafgreen"]
     },
-    "frlg-39": { "Electabuzz": ["firered"] },
+    "frlg-39": {
+      "Electabuzz": ["firered"]
+    },
     "frlg-40": {
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"],
@@ -997,7 +1185,9 @@
       "Horsea": ["firered"],
       "Seadra": ["firered"]
     },
-    "frlg-49": { "Magmar": ["leafgreen"] },
+    "frlg-49": {
+      "Magmar": ["leafgreen"]
+    },
     "frlg-50": {
       "Oddish": ["firered"],
       "Gloom": ["firered"],
@@ -1038,7 +1228,10 @@
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"]
     },
-    "frlg-56": { "Arbok": ["firered"], "Sandslash": ["leafgreen"] },
+    "frlg-56": {
+      "Arbok": ["firered"],
+      "Sandslash": ["leafgreen"]
+    },
     "frlg-57": {
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"],
@@ -1099,7 +1292,10 @@
       "Qwilfish": ["firered"],
       "Remoraid": ["leafgreen"]
     },
-    "frlg-63": { "Murkrow": ["firered"], "Misdreavus": ["leafgreen"] },
+    "frlg-63": {
+      "Murkrow": ["firered"],
+      "Misdreavus": ["leafgreen"]
+    },
     "frlg-64": {
       "Oddish": ["firered"],
       "Gloom": ["firered"],
@@ -1151,8 +1347,13 @@
       "Remoraid": ["leafgreen"],
       "Mantine": ["leafgreen"]
     },
-    "frlg-71": { "Psyduck": ["firered"], "Slowpoke": ["leafgreen"] },
-    "frlg-72": { "Skarmory": ["firered"] },
+    "frlg-71": {
+      "Psyduck": ["firered"],
+      "Slowpoke": ["leafgreen"]
+    },
+    "frlg-72": {
+      "Skarmory": ["firered"]
+    },
     "frlg-73": {
       "Psyduck": ["firered"],
       "Slowpoke": ["leafgreen"],
@@ -1184,14 +1385,22 @@
       "Staravia": ["diamond", "pearl"],
       "Bibarel": ["diamond", "pearl"]
     },
-    "dpp-7": { "Ralts": ["diamond", "pearl"], "Kirlia": ["diamond", "pearl"] },
-    "dpp-66": { "Cranidos": ["diamond", "platinum"], "Shieldon": ["pearl", "platinum"] },
+    "dpp-7": {
+      "Ralts": ["diamond", "pearl"],
+      "Kirlia": ["diamond", "pearl"]
+    },
+    "dpp-66": {
+      "Cranidos": ["diamond", "platinum"],
+      "Shieldon": ["pearl", "platinum"]
+    },
     "dpp-11": {
       "Wurmple": ["platinum"],
       "Ralts": ["diamond", "pearl"],
       "Kirlia": ["diamond", "pearl"]
     },
-    "dpp-12": { "Geodude": ["diamond", "pearl"] },
+    "dpp-12": {
+      "Geodude": ["diamond", "pearl"]
+    },
     "dpp-15": {
       "Elekid": ["diamond", "pearl"],
       "Silcoon": ["diamond"],
@@ -1213,7 +1422,9 @@
       "Pelipper": ["diamond", "pearl"],
       "Kricketot": ["platinum"],
       "Budew": ["platinum"],
-      "Gastrodon": ["platinum"]
+      "Gastrodon": ["platinum"],
+      "Slowpoke": ["pearl", "platinum"],
+      "Skiploom": ["diamond"]
     },
     "dpp-17": {
       "Caterpie": ["platinum"],
@@ -1229,24 +1440,38 @@
       "Bidoof": ["platinum"],
       "Kricketot": ["platinum"]
     },
-    "dpp-18": { "Togepi": ["platinum"] },
-    "dpp-19": { "Haunter": ["diamond", "pearl"] },
+    "dpp-18": {
+      "Togepi": ["platinum"]
+    },
+    "dpp-19": {
+      "Haunter": ["diamond", "pearl"]
+    },
     "dpp-20": {
       "Machop": ["platinum"],
       "Larvitar": ["platinum"],
       "Nosepass": ["diamond", "pearl"],
       "Kricketot": ["diamond", "pearl"],
       "Stunky": ["diamond"],
-      "Bronzor": ["diamond", "pearl"]
+      "Bronzor": ["diamond", "pearl"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
-    "dpp-21": { "Onix": ["platinum"] },
+    "dpp-21": {
+      "Onix": ["platinum"]
+    },
     "dpp-22": {
       "Ponyta": ["platinum"],
       "Gligar": ["diamond", "pearl"],
       "Stantler": ["pearl", "platinum"],
-      "Larvitar": ["diamond"]
+      "Larvitar": ["diamond"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
-    "dpp-23": { "Nosepass": ["platinum"], "Absol": ["platinum"] },
+    "dpp-23": {
+      "Nosepass": ["platinum"],
+      "Absol": ["platinum"],
+      "Regice": ["platinum"]
+    },
     "dpp-24": {
       "Machop": ["diamond", "pearl"],
       "Goldeen": ["platinum"],
@@ -1258,9 +1483,13 @@
       "Roselia": ["platinum"],
       "Barboach": ["diamond", "pearl"],
       "Whiscash": ["diamond", "pearl"],
-      "Budew": ["platinum"]
+      "Budew": ["platinum"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
-    "dpp-26": { "Happiny": ["diamond", "pearl"] },
+    "dpp-26": {
+      "Happiny": ["diamond", "pearl"]
+    },
     "dpp-27": {
       "Gastly": ["diamond", "pearl"],
       "Tauros": ["diamond", "pearl"],
@@ -1271,9 +1500,15 @@
       "Duskull": ["platinum"],
       "Starly": ["diamond", "pearl"],
       "Bonsly": ["pearl"],
-      "Mime Jr.": ["diamond"]
+      "Mime Jr.": ["diamond"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
-    "dpp-30": { "Murkrow": ["diamond"], "Misdreavus": ["pearl"], "Duskull": ["platinum"] },
+    "dpp-30": {
+      "Murkrow": ["diamond"],
+      "Misdreavus": ["pearl"],
+      "Duskull": ["platinum"]
+    },
     "dpp-31": {
       "Geodude": ["diamond", "pearl"],
       "Ponyta": ["diamond", "pearl"],
@@ -1288,7 +1523,9 @@
       "Staravia": ["platinum"],
       "Kricketune": ["diamond", "pearl"]
     },
-    "dpp-32": { "Porygon": ["platinum"] },
+    "dpp-32": {
+      "Porygon": ["platinum"]
+    },
     "dpp-33": {
       "Zubat": ["platinum"],
       "Ponyta": ["diamond", "pearl"],
@@ -1301,7 +1538,9 @@
       "Poochyena": ["platinum"],
       "Mightyena": ["diamond"],
       "Kricketune": ["diamond", "pearl"],
-      "Stunky": ["diamond"]
+      "Stunky": ["diamond"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-35": {
       "Geodude": ["diamond", "pearl"],
@@ -1314,7 +1553,9 @@
       "Absol": ["diamond", "pearl"],
       "Floatzel": ["diamond", "pearl"],
       "Gastrodon": ["platinum"],
-      "Chatot": ["platinum"]
+      "Chatot": ["platinum"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-37": {
       "Pelipper": ["diamond", "pearl"],
@@ -1330,7 +1571,10 @@
       "Tropius": ["platinum"],
       "Starly": ["diamond", "pearl"],
       "Bidoof": ["diamond", "pearl"],
-      "Budew": ["diamond", "pearl"]
+      "Budew": ["diamond", "pearl"],
+      "Golduck": ["diamond", "pearl"],
+      "Kecleon": ["platinum"],
+      "Staravia": ["diamond", "pearl"]
     },
     "dpp-38": {
       "Tentacool": ["platinum"],
@@ -1350,9 +1594,14 @@
       "Buizel": ["platinum"],
       "Shellos": ["platinum"],
       "Gastrodon": ["platinum"],
-      "Croagunk": ["platinum"]
+      "Croagunk": ["platinum"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
-    "dpp-67": { "Ditto": ["platinum"], "Porygon": ["diamond", "pearl"] },
+    "dpp-67": {
+      "Ditto": ["platinum"],
+      "Porygon": ["diamond", "pearl"]
+    },
     "dpp-39": {
       "Scyther": ["platinum"],
       "Roselia": ["platinum"],
@@ -1360,7 +1609,11 @@
       "Staravia": ["platinum"],
       "Kricketune": ["diamond", "pearl"],
       "Bonsly": ["pearl"],
-      "Mime Jr.": ["diamond"]
+      "Mime Jr.": ["diamond"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"],
+      "Kecleon": ["diamond"],
+      "Bagon": ["pearl", "platinum"]
     },
     "dpp-40": {
       "Goldeen": ["platinum"],
@@ -1374,10 +1627,19 @@
       "Pelipper": ["diamond", "pearl"],
       "Shinx": ["diamond", "pearl"],
       "Luxio": ["diamond", "pearl"],
-      "Pachirisu": ["diamond", "pearl"]
+      "Pachirisu": ["diamond", "pearl"],
+      "Hoppip": ["pearl"],
+      "Skiploom": ["pearl"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"],
+      "Aron": ["diamond", "platinum"]
     },
-    "dpp-42": { "Clamperl": ["diamond", "pearl"] },
-    "dpp-43": { "Lanturn": ["diamond", "pearl"] },
+    "dpp-42": {
+      "Clamperl": ["diamond", "pearl"]
+    },
+    "dpp-43": {
+      "Lanturn": ["diamond", "pearl"]
+    },
     "dpp-44": {
       "Sudowoodo": ["pearl", "platinum"],
       "Girafarig": ["platinum"],
@@ -1385,7 +1647,9 @@
       "Shellos": ["diamond", "pearl"],
       "Gastrodon": ["diamond", "pearl"],
       "Stunky": ["diamond"],
-      "Skuntank": ["diamond"]
+      "Skuntank": ["diamond"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-45": {
       "Mr. Mime": ["diamond", "platinum"],
@@ -1393,7 +1657,9 @@
       "Wingull": ["diamond", "pearl"],
       "Pelipper": ["diamond", "pearl"],
       "Glameow": ["pearl"],
-      "Chatot": ["platinum"]
+      "Chatot": ["platinum"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-46": {
       "Wingull": ["diamond", "pearl"],
@@ -1412,7 +1678,9 @@
       "Ponyta": ["diamond", "pearl"],
       "Teddiursa": ["diamond", "pearl"],
       "Swablu": ["diamond", "pearl"],
-      "Bronzor": ["platinum"]
+      "Bronzor": ["platinum"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-50": {
       "Machoke": ["diamond", "pearl"],
@@ -1435,7 +1703,8 @@
       "Ursaring": ["platinum"],
       "Swinub": ["platinum"],
       "Meditite": ["diamond", "pearl"],
-      "Medicham": ["diamond", "pearl"]
+      "Medicham": ["diamond", "pearl"],
+      "Teddiursa": ["diamond", "pearl"]
     },
     "dpp-53": {
       "Noctowl": ["diamond", "pearl"],
@@ -1447,9 +1716,21 @@
       "Chingling": ["diamond", "pearl"],
       "Snover": ["platinum"]
     },
-    "dpp-65": { "Dialga": ["diamond", "platinum"], "Palkia": ["pearl", "platinum"] },
-    "dpp-55": { "Giratina": ["platinum"] },
-    "dpp-56": { "Noctowl": ["diamond", "pearl"], "Chingling": ["platinum"] },
+    "dpp-65": {
+      "Dialga": ["diamond", "platinum"],
+      "Palkia": ["pearl", "platinum"]
+    },
+    "dpp-55": {
+      "Giratina": ["platinum"]
+    },
+    "dpp-56": {
+      "Noctowl": ["diamond", "pearl"],
+      "Chingling": ["platinum"],
+      "Golbat": ["platinum"],
+      "Graveler": ["platinum"],
+      "Dusclops": ["platinum"],
+      "Chimecho": ["diamond", "pearl"]
+    },
     "dpp-57": {
       "Magnemite": ["platinum"],
       "Magneton": ["platinum"],
@@ -1459,14 +1740,18 @@
       "Luxio": ["platinum"],
       "Gastrodon": ["diamond", "pearl"],
       "Glameow": ["pearl"],
-      "Purugly": ["pearl"]
+      "Purugly": ["pearl"],
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
     },
     "dpp-58": {
       "Tentacool": ["platinum"],
       "Wingull": ["platinum"],
       "Mantyke": ["diamond", "pearl"]
     },
-    "dpp-60": { "Wingull": ["platinum"] },
+    "dpp-60": {
+      "Wingull": ["platinum"]
+    },
     "dpp-61": {
       "Kadabra": ["diamond", "pearl"],
       "Machoke": ["diamond", "pearl"],
@@ -1475,9 +1760,13 @@
       "Rhydon": ["platinum"],
       "Azumarill": ["platinum"],
       "Medicham": ["diamond", "pearl"],
-      "Gabite": ["platinum"]
+      "Gabite": ["platinum"],
+      "Dewgong": ["platinum"]
     },
-    "hgss-4": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
+    "hgss-4": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
     "hgss-5": {
       "Caterpie": ["heartgold"],
       "Metapod": ["heartgold"],
@@ -1494,9 +1783,15 @@
       "Ledyba": ["soulsilver"],
       "Spinarak": ["heartgold"]
     },
-    "hgss-10": { "Ekans": ["soulsilver"] },
-    "hgss-12": { "Sandshrew": ["heartgold"] },
-    "hgss-13": { "Ekans": ["soulsilver"] },
+    "hgss-10": {
+      "Ekans": ["soulsilver"]
+    },
+    "hgss-12": {
+      "Sandshrew": ["heartgold"]
+    },
+    "hgss-13": {
+      "Ekans": ["soulsilver"]
+    },
     "hgss-16": {
       "Caterpie": ["heartgold"],
       "Metapod": ["heartgold"],
@@ -1505,20 +1800,49 @@
       "Kakuna": ["soulsilver"],
       "Beedrill": ["soulsilver"]
     },
-    "hgss-17": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
-    "hgss-19": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
-    "hgss-20": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
-    "hgss-21": { "Vulpix": ["soulsilver"], "Growlithe": ["heartgold"] },
+    "hgss-17": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-19": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-20": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-21": {
+      "Vulpix": ["soulsilver"],
+      "Growlithe": ["heartgold"],
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
     "hgss-22": {
       "Vulpix": ["soulsilver"],
       "Growlithe": ["heartgold"],
       "Ledyba": ["soulsilver"],
       "Spinarak": ["heartgold"]
     },
-    "hgss-23": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
-    "hgss-26": { "Rattata": ["heartgold"], "Meowth": ["soulsilver"] },
-    "hgss-27": { "Rattata": ["heartgold"], "Meowth": ["soulsilver"] },
-    "hgss-30": { "Mantine": ["heartgold"] },
+    "hgss-23": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-26": {
+      "Rattata": ["heartgold"],
+      "Meowth": ["soulsilver"],
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-27": {
+      "Rattata": ["heartgold"],
+      "Meowth": ["soulsilver"],
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-30": {
+      "Mantine": ["heartgold"]
+    },
     "hgss-86": {
       "Metapod": ["heartgold"],
       "Butterfree": ["heartgold"],
@@ -1533,15 +1857,25 @@
       "Ledyba": ["soulsilver"],
       "Spinarak": ["heartgold"]
     },
-    "hgss-33": { "Mankey": ["heartgold"] },
-    "hgss-39": { "Delibird": ["soulsilver"] },
+    "hgss-33": {
+      "Mankey": ["heartgold"]
+    },
+    "hgss-39": {
+      "Delibird": ["soulsilver"]
+    },
     "hgss-42": {
       "Gligar": ["heartgold"],
       "Teddiursa": ["soulsilver"],
       "Skarmory": ["soulsilver"],
       "Phanpy": ["heartgold"]
     },
-    "hgss-43": { "Arbok": ["soulsilver"], "Sandslash": ["heartgold"], "Dodrio": ["soulsilver"] },
+    "hgss-43": {
+      "Arbok": ["soulsilver"],
+      "Sandslash": ["heartgold"],
+      "Dodrio": ["soulsilver"],
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
     "hgss-89": {
       "Arbok": ["soulsilver"],
       "Sandslash": ["heartgold"],
@@ -1549,19 +1883,41 @@
       "Ledyba": ["soulsilver"],
       "Spinarak": ["heartgold"]
     },
-    "hgss-45": { "Ursaring": ["soulsilver"], "Donphan": ["heartgold"] },
-    "hgss-48": { "Meowth": ["soulsilver"] },
-    "hgss-50": { "Meowth": ["soulsilver"] },
+    "hgss-45": {
+      "Ursaring": ["soulsilver"],
+      "Donphan": ["heartgold"]
+    },
+    "hgss-48": {
+      "Meowth": ["soulsilver"]
+    },
+    "hgss-50": {
+      "Meowth": ["soulsilver"]
+    },
     "hgss-51": {
       "Vulpix": ["soulsilver"],
       "Meowth": ["soulsilver"],
       "Persian": ["soulsilver"],
       "Growlithe": ["heartgold"]
     },
-    "hgss-52": { "Vulpix": ["soulsilver"], "Meowth": ["soulsilver"], "Growlithe": ["heartgold"] },
-    "hgss-55": { "Mankey": ["heartgold"], "Primeape": ["heartgold"] },
-    "hgss-59": { "Ekans": ["soulsilver"], "Arbok": ["soulsilver"] },
-    "hgss-63": { "Ledyba": ["soulsilver"], "Spinarak": ["heartgold"] },
+    "hgss-52": {
+      "Vulpix": ["soulsilver"],
+      "Meowth": ["soulsilver"],
+      "Growlithe": ["heartgold"]
+    },
+    "hgss-55": {
+      "Mankey": ["heartgold"],
+      "Primeape": ["heartgold"],
+      "Sableye": ["heartgold"],
+      "Mawile": ["soulsilver"]
+    },
+    "hgss-59": {
+      "Ekans": ["soulsilver"],
+      "Arbok": ["soulsilver"]
+    },
+    "hgss-63": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
     "hgss-70": {
       "Caterpie": ["heartgold"],
       "Metapod": ["heartgold"],
@@ -1574,39 +1930,92 @@
       "Spinarak": ["heartgold"],
       "Ariados": ["heartgold"]
     },
-    "hgss-71": { "Latias": ["soulsilver"], "Latios": ["heartgold"] },
-    "hgss-73": { "Ekans": ["soulsilver"], "Arbok": ["soulsilver"] },
-    "hgss-74": { "Sandshrew": ["heartgold"], "Sandslash": ["heartgold"] },
-    "hgss-83": { "Ursaring": ["soulsilver"], "Donphan": ["heartgold"] },
-    "hgss-84": { "Ursaring": ["soulsilver"], "Phanpy": ["heartgold"], "Donphan": ["heartgold"] },
-    "bw-7": { "Illumise": ["white"] },
-    "bw-9": { "Cottonee": ["white"] },
+    "hgss-71": {
+      "Latias": ["soulsilver"],
+      "Latios": ["heartgold"],
+      "Omanyte": ["heartgold"],
+      "Kabuto": ["soulsilver"],
+      "Lileep": ["soulsilver"],
+      "Anorith": ["heartgold"]
+    },
+    "hgss-73": {
+      "Ekans": ["soulsilver"],
+      "Arbok": ["soulsilver"],
+      "Gulpin": ["soulsilver"],
+      "Baltoy": ["heartgold"]
+    },
+    "hgss-74": {
+      "Sandshrew": ["heartgold"],
+      "Sandslash": ["heartgold"]
+    },
+    "hgss-83": {
+      "Ursaring": ["soulsilver"],
+      "Donphan": ["heartgold"]
+    },
+    "hgss-84": {
+      "Ursaring": ["soulsilver"],
+      "Phanpy": ["heartgold"],
+      "Donphan": ["heartgold"],
+      "Teddiursa": ["soulsilver"]
+    },
+    "bw-7": {
+      "Illumise": ["white"]
+    },
+    "bw-9": {
+      "Cottonee": ["white"]
+    },
     "bw-10": {
       "Cottonee": ["black"],
       "Whimsicott": ["black"],
       "Petilil": ["white"],
       "Lilligant": ["white"]
     },
-    "bw-12": { "Huntail": ["black"], "Gorebyss": ["white"] },
-    "bw-37": { "Gothita": ["black"], "Solosis": ["white"] },
+    "bw-12": {
+      "Huntail": ["black"],
+      "Gorebyss": ["white"]
+    },
+    "bw-37": {
+      "Gothita": ["black"],
+      "Solosis": ["white"]
+    },
     "bw-38": {
       "Cottonee": ["black"],
       "Whimsicott": ["black"],
       "Petilil": ["white"],
       "Lilligant": ["white"]
     },
-    "bw-16": { "Gothita": ["black"], "Solosis": ["white"] },
-    "bw-30": { "Reshiram": ["black"], "Zekrom": ["white"] },
+    "bw-16": {
+      "Gothita": ["black"],
+      "Solosis": ["white"]
+    },
+    "bw-30": {
+      "Reshiram": ["black"],
+      "Zekrom": ["white"]
+    },
     "bw-33": {
       "Gothorita": ["black"],
       "Gothitelle": ["black"],
       "Duosion": ["white"],
-      "Reuniclus": ["white"]
+      "Reuniclus": ["white"],
+      "Houndour": ["black"],
+      "Poochyena": ["white"]
     },
-    "bw-35": { "Rufflet": ["white"], "Vullaby": ["black"] },
-    "bw-36": { "Rufflet": ["white"], "Vullaby": ["black"] },
-    "bw2-3": { "Dratini": ["white2"], "Gible": ["black2"] },
-    "bw2-7": { "Elekid": ["white2"], "Magby": ["black2"] },
+    "bw-35": {
+      "Rufflet": ["white"],
+      "Vullaby": ["black"]
+    },
+    "bw-36": {
+      "Rufflet": ["white"],
+      "Vullaby": ["black"]
+    },
+    "bw2-3": {
+      "Dratini": ["white2"],
+      "Gible": ["black2"]
+    },
+    "bw2-7": {
+      "Elekid": ["white2"],
+      "Magby": ["black2"]
+    },
     "bw2-8": {
       "Skitty": ["white2"],
       "Delcatty": ["white2"],
@@ -1626,14 +2035,20 @@
       "Braviary": ["white2"],
       "Mandibuzz": ["black2"]
     },
-    "bw2-14": { "Gothita": ["black2"], "Solosis": ["white2"] },
+    "bw2-14": {
+      "Gothita": ["black2"],
+      "Solosis": ["white2"]
+    },
     "bw2-15": {
       "Cottonee": ["black2"],
       "Whimsicott": ["black2"],
       "Petilil": ["white2"],
       "Lilligant": ["white2"]
     },
-    "bw2-16": { "Gothita": ["black2"], "Solosis": ["white2"] },
+    "bw2-16": {
+      "Gothita": ["black2"],
+      "Solosis": ["white2"]
+    },
     "bw2-26": {
       "Numel": ["white2"],
       "Camerupt": ["white2"],
@@ -1652,23 +2067,38 @@
       "Petilil": ["white2"],
       "Lilligant": ["white2"]
     },
-    "bw2-31": { "Pinsir": ["white2"], "Heracross": ["black2"] },
+    "bw2-31": {
+      "Pinsir": ["white2"],
+      "Heracross": ["black2"]
+    },
     "bw2-34": {
       "Gothorita": ["black2"],
       "Gothitelle": ["black2"],
       "Duosion": ["white2"],
       "Reuniclus": ["white2"]
     },
-    "bw2-40": { "Rufflet": ["white2"], "Vullaby": ["black2"] },
+    "bw2-40": {
+      "Rufflet": ["white2"],
+      "Vullaby": ["black2"]
+    },
     "bw2-41": {
       "Cottonee": ["black2"],
       "Whimsicott": ["black2"],
       "Petilil": ["white2"],
       "Lilligant": ["white2"]
     },
-    "xy-2": { "Caterpie": ["y"], "Weedle": ["x"] },
-    "xy-3": { "Metapod": ["y"], "Kakuna": ["x"] },
-    "xy-11": { "Spritzee": ["y"], "Swirlix": ["x"] },
+    "xy-2": {
+      "Caterpie": ["y"],
+      "Weedle": ["x"]
+    },
+    "xy-3": {
+      "Metapod": ["y"],
+      "Kakuna": ["x"]
+    },
+    "xy-11": {
+      "Spritzee": ["y"],
+      "Swirlix": ["x"]
+    },
     "xy-12": {
       "Shellder": ["y"],
       "Cloyster": ["y"],
@@ -1697,14 +2127,42 @@
       "Clauncher": ["x"],
       "Clawitzer": ["x"]
     },
-    "xy-19": { "Houndour": ["x"], "Electrike": ["y"] },
-    "xy-21": { "Throh": ["y"], "Sawk": ["x"] },
-    "xy-24": { "Pinsir": ["x"], "Heracross": ["y"], "Huntail": ["x"], "Gorebyss": ["y"] },
-    "xy-33": { "Mightyena": ["x"], "Liepard": ["y"] },
-    "xy-37": { "Pupitar": ["y"], "Lairon": ["x"] },
-    "xy-45": { "Larvitar": ["y"], "Pupitar": ["y"], "Aron": ["x"], "Lairon": ["x"] },
-    "oras-3": { "Lotad": ["alphasapphire"], "Seedot": ["omegaruby"] },
-    "oras-14": { "Sableye": ["alphasapphire"], "Mawile": ["omegaruby"] },
+    "xy-19": {
+      "Houndour": ["x"],
+      "Electrike": ["y"]
+    },
+    "xy-21": {
+      "Throh": ["y"],
+      "Sawk": ["x"]
+    },
+    "xy-24": {
+      "Pinsir": ["x"],
+      "Heracross": ["y"],
+      "Huntail": ["x"],
+      "Gorebyss": ["y"]
+    },
+    "xy-33": {
+      "Mightyena": ["x"],
+      "Liepard": ["y"]
+    },
+    "xy-37": {
+      "Pupitar": ["y"],
+      "Lairon": ["x"]
+    },
+    "xy-45": {
+      "Larvitar": ["y"],
+      "Pupitar": ["y"],
+      "Aron": ["x"],
+      "Lairon": ["x"]
+    },
+    "oras-3": {
+      "Lotad": ["alphasapphire"],
+      "Seedot": ["omegaruby"]
+    },
+    "oras-14": {
+      "Sableye": ["alphasapphire"],
+      "Mawile": ["omegaruby"]
+    },
     "oras-26": {
       "Lotad": ["alphasapphire"],
       "Lombre": ["alphasapphire"],
@@ -1713,45 +2171,133 @@
       "Zangoose": ["omegaruby"],
       "Seviper": ["alphasapphire"]
     },
-    "oras-28": { "Lunatone": ["alphasapphire"], "Solrock": ["omegaruby"] },
+    "oras-28": {
+      "Lunatone": ["alphasapphire"],
+      "Solrock": ["omegaruby"]
+    },
     "oras-52": {
       "Sableye": ["alphasapphire"],
       "Mawile": ["omegaruby"],
       "Kyogre": ["alphasapphire"],
       "Groudon": ["omegaruby"]
     },
-    "oras-57": { "Sableye": ["alphasapphire"], "Mawile": ["omegaruby"] },
-    "oras-70": { "Lugia": ["alphasapphire"], "Ho-oh": ["omegaruby"] },
-    "oras-68": { "Sableye": ["alphasapphire"], "Mawile": ["omegaruby"] },
-    "sm-8": { "Rattata (Alolan)": ["moon"], "Yungoos": ["sun"], "Pheromosa": ["moon"] },
-    "sm-10": { "Rufflet": ["sun"], "Vullaby": ["moon"] },
-    "sm-11": { "Cottonee": ["sun"], "Petilil": ["moon"], "Buzzwole": ["sun"] },
-    "sm-25": { "Cranidos": ["sun"], "Shieldon": ["moon"], "Tirtouga": ["sun"], "Archen": ["moon"] },
-    "sm-26": { "Oranguru": ["moon"], "Passimian": ["sun"] },
-    "sm-35": { "Cottonee": ["sun"], "Petilil": ["moon"] },
-    "sm-40": { "Turtonator": ["sun"] },
-    "sm-42": { "Sandshrew (Alolan)": ["moon"], "Vulpix (Alolan)": ["sun"] },
-    "sm-47": { "Cottonee": ["sun"], "Petilil": ["moon"] },
-    "sm-55": { "Solgaleo": ["sun"], "Lunala": ["moon"] },
-    "sm-56": { "Sandshrew (Alolan)": ["moon"], "Vulpix (Alolan)": ["sun"], "Drampa": ["moon"] },
-    "usum-8": { "Rattata (Alolan)": ["ultramoon"], "Yungoos": ["ultrasun"] },
-    "usum-10": { "Rufflet": ["ultrasun"], "Vullaby": ["ultramoon"] },
-    "usum-11": { "Cottonee": ["ultrasun"], "Petilil": ["ultramoon"] },
-    "usum-26": { "Oranguru": ["ultramoon"], "Passimian": ["ultrasun"] },
-    "usum-35": { "Cottonee": ["ultrasun"], "Petilil": ["ultramoon"] },
-    "usum-38": { "Houndoom": ["ultrasun"], "Manectric": ["ultramoon"] },
-    "usum-39": { "Turtonator": ["ultrasun"] },
-    "usum-42": { "Sandshrew (Alolan)": ["ultramoon"], "Vulpix (Alolan)": ["ultrasun"] },
-    "usum-44": { "Sandygast": ["ultramoon"] },
-    "usum-53": { "Baltoy": ["ultramoon"], "Golett": ["ultrasun"] },
-    "usum-47": { "Cottonee": ["ultrasun"], "Petilil": ["ultramoon"] },
+    "oras-57": {
+      "Sableye": ["alphasapphire"],
+      "Mawile": ["omegaruby"]
+    },
+    "oras-70": {
+      "Lugia": ["alphasapphire"],
+      "Ho-oh": ["omegaruby"]
+    },
+    "oras-68": {
+      "Sableye": ["alphasapphire"],
+      "Mawile": ["omegaruby"]
+    },
+    "sm-8": {
+      "Rattata (Alolan)": ["moon"],
+      "Yungoos": ["sun"],
+      "Pheromosa": ["moon"]
+    },
+    "sm-10": {
+      "Rufflet": ["sun"],
+      "Vullaby": ["moon"]
+    },
+    "sm-11": {
+      "Cottonee": ["sun"],
+      "Petilil": ["moon"],
+      "Buzzwole": ["sun"]
+    },
+    "sm-25": {
+      "Cranidos": ["sun"],
+      "Shieldon": ["moon"],
+      "Tirtouga": ["sun"],
+      "Archen": ["moon"]
+    },
+    "sm-26": {
+      "Oranguru": ["moon"],
+      "Passimian": ["sun"]
+    },
+    "sm-35": {
+      "Cottonee": ["sun"],
+      "Petilil": ["moon"],
+      "Celesteela": ["moon"],
+      "Kartana": ["sun"]
+    },
+    "sm-40": {
+      "Turtonator": ["sun"]
+    },
+    "sm-42": {
+      "Sandshrew (Alolan)": ["moon"],
+      "Vulpix (Alolan)": ["sun"]
+    },
+    "sm-47": {
+      "Cottonee": ["sun"],
+      "Petilil": ["moon"]
+    },
+    "sm-55": {
+      "Solgaleo": ["sun"],
+      "Lunala": ["moon"]
+    },
+    "sm-56": {
+      "Sandshrew (Alolan)": ["moon"],
+      "Vulpix (Alolan)": ["sun"],
+      "Drampa": ["moon"]
+    },
+    "usum-8": {
+      "Rattata (Alolan)": ["ultramoon"],
+      "Yungoos": ["ultrasun"]
+    },
+    "usum-10": {
+      "Rufflet": ["ultrasun"],
+      "Vullaby": ["ultramoon"]
+    },
+    "usum-11": {
+      "Cottonee": ["ultrasun"],
+      "Petilil": ["ultramoon"]
+    },
+    "usum-26": {
+      "Oranguru": ["ultramoon"],
+      "Passimian": ["ultrasun"]
+    },
+    "usum-35": {
+      "Cottonee": ["ultrasun"],
+      "Petilil": ["ultramoon"]
+    },
+    "usum-38": {
+      "Houndoom": ["ultrasun"],
+      "Manectric": ["ultramoon"]
+    },
+    "usum-39": {
+      "Turtonator": ["ultrasun"]
+    },
+    "usum-42": {
+      "Sandshrew (Alolan)": ["ultramoon"],
+      "Vulpix (Alolan)": ["ultrasun"]
+    },
+    "usum-44": {
+      "Sandygast": ["ultramoon"]
+    },
+    "usum-53": {
+      "Baltoy": ["ultramoon"],
+      "Golett": ["ultrasun"]
+    },
+    "usum-47": {
+      "Cottonee": ["ultrasun"],
+      "Petilil": ["ultramoon"]
+    },
     "usum-57": {
       "Sandshrew (Alolan)": ["ultramoon"],
       "Vulpix (Alolan)": ["ultrasun"],
       "Drampa": ["ultramoon"]
     },
-    "usum-58": { "Solgaleo": ["ultrasun"], "Lunala": ["ultramoon"] },
-    "swsh-4": { "Lotad": ["shield"], "Seedot": ["sword"] },
+    "usum-58": {
+      "Solgaleo": ["ultrasun"],
+      "Lunala": ["ultramoon"]
+    },
+    "swsh-4": {
+      "Lotad": ["shield"],
+      "Seedot": ["sword"]
+    },
     "swsh-5": {
       "Vulpix": ["sword"],
       "Growlithe": ["shield"],
@@ -1774,23 +2320,38 @@
       "Lotad": ["shield"],
       "Seedot": ["sword"]
     },
-    "swsh-8": { "Vulpix": ["sword"], "Growlithe": ["shield"] },
-    "swsh-9": { "Vulpix": ["sword"], "Growlithe": ["shield"] },
+    "swsh-8": {
+      "Vulpix": ["sword"],
+      "Growlithe": ["shield"]
+    },
+    "swsh-9": {
+      "Vulpix": ["sword"],
+      "Growlithe": ["shield"]
+    },
     "swsh-10": {
       "Vulpix": ["sword"],
       "Growlithe": ["shield"],
       "Lombre": ["shield"],
       "Nuzleaf": ["sword"]
     },
-    "swsh-11": { "Vulpix": ["sword"], "Growlithe": ["shield"] },
+    "swsh-11": {
+      "Vulpix": ["sword"],
+      "Growlithe": ["shield"]
+    },
     "swsh-12": {
       "Vulpix": ["sword"],
       "Growlithe": ["shield"],
       "Lombre": ["shield"],
       "Nuzleaf": ["sword"]
     },
-    "swsh-36": { "Vulpix": ["sword"], "Growlithe": ["shield"] },
-    "swsh-14": { "Vulpix": ["sword"], "Growlithe": ["shield"] },
+    "swsh-36": {
+      "Vulpix": ["sword"],
+      "Growlithe": ["shield"]
+    },
+    "swsh-14": {
+      "Vulpix": ["sword"],
+      "Growlithe": ["shield"]
+    },
     "swsh-17": {
       "Farfetch'd (Galarian)": ["sword"],
       "Lombre": ["shield"],
@@ -1798,7 +2359,10 @@
       "Spritzee": ["shield"],
       "Swirlix": ["sword"]
     },
-    "swsh-19": { "Croagunk": ["shield"], "Scraggy": ["sword"] },
+    "swsh-19": {
+      "Croagunk": ["shield"],
+      "Scraggy": ["sword"]
+    },
     "swsh-21": {
       "Croagunk": ["shield"],
       "Throh": ["shield"],
@@ -1806,7 +2370,11 @@
       "Scraggy": ["sword"],
       "Salandit": ["shield"]
     },
-    "swsh-23": { "Throh": ["shield"], "Sawk": ["sword"], "Salandit": ["shield"] },
+    "swsh-23": {
+      "Throh": ["shield"],
+      "Sawk": ["sword"],
+      "Salandit": ["shield"]
+    },
     "swsh-24": {
       "Mawile": ["sword"],
       "Croagunk": ["shield"],
@@ -1844,7 +2412,10 @@
       "Mandibuzz": ["shield"],
       "Kommo-o": ["sword"]
     },
-    "swsh-27": { "Vulpix": ["shield"], "Growlithe": ["sword"] },
+    "swsh-27": {
+      "Vulpix": ["shield"],
+      "Growlithe": ["sword"]
+    },
     "swsh-28": {
       "Lombre": ["shield"],
       "Nuzleaf": ["sword"],
@@ -1855,7 +2426,8 @@
       "Gothita": ["sword"],
       "Solosis": ["shield"],
       "Karrablast": ["sword"],
-      "Shelmet": ["shield"]
+      "Shelmet": ["shield"],
+      "Gothorita": ["sword"]
     },
     "swsh-29": {
       "Farfetch'd (Galarian)": ["sword"],
@@ -1863,7 +2435,9 @@
       "Throh": ["shield"],
       "Sawk": ["sword"],
       "Spritzee": ["shield"],
-      "Swirlix": ["sword"]
+      "Swirlix": ["sword"],
+      "Sableye": ["shield"],
+      "Scraggy": ["sword"]
     },
     "swsh-30": {
       "Ninetales": ["sword"],
@@ -1901,9 +2475,21 @@
       "Rufflet": ["sword"],
       "Vullaby": ["shield"]
     },
-    "swsh-37": { "Darumaka (Galarian)": ["sword"], "Stonjourner": ["sword"], "Eiscue": ["shield"] },
-    "bdsp-69": { "Cranidos": ["brilliantdiamond"], "Shieldon": ["shiningpearl"] },
-    "bdsp-16": { "Slowpoke": ["shiningpearl"], "Skiploom": ["brilliantdiamond"] },
+    "swsh-37": {
+      "Darumaka (Galarian)": ["sword"],
+      "Stonjourner": ["sword"],
+      "Eiscue": ["shield"]
+    },
+    "bdsp-69": {
+      "Cranidos": ["brilliantdiamond"],
+      "Shieldon": ["shiningpearl"]
+    },
+    "bdsp-16": {
+      "Slowpoke": ["shiningpearl"],
+      "Skiploom": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
     "bdsp-17": {
       "Murkrow": ["brilliantdiamond"],
       "Misdreavus": ["shiningpearl"],
@@ -1925,19 +2511,67 @@
       "Glameow": ["shiningpearl"],
       "Purugly": ["shiningpearl"],
       "Stunky": ["brilliantdiamond"],
-      "Skuntank": ["brilliantdiamond"]
+      "Skuntank": ["brilliantdiamond"],
+      "Caterpie": ["brilliantdiamond"],
+      "Weedle": ["shiningpearl"],
+      "Ekans": ["brilliantdiamond"],
+      "Sandshrew": ["shiningpearl"],
+      "Sandslash": ["shiningpearl"],
+      "Vulpix": ["shiningpearl"],
+      "Growlithe": ["brilliantdiamond"],
+      "Slowpoke": ["shiningpearl"],
+      "Seel": ["brilliantdiamond"],
+      "Dewgong": ["brilliantdiamond"],
+      "Larvitar": ["brilliantdiamond"],
+      "Pupitar": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"],
+      "Lotad": ["shiningpearl"],
+      "Lombre": ["shiningpearl"],
+      "Seedot": ["brilliantdiamond"],
+      "Nuzleaf": ["brilliantdiamond"],
+      "Sableye": ["shiningpearl"],
+      "Mawile": ["brilliantdiamond"],
+      "Zangoose": ["brilliantdiamond"],
+      "Seviper": ["shiningpearl"],
+      "Lunatone": ["shiningpearl"],
+      "Solrock": ["brilliantdiamond"],
+      "Kecleon": ["brilliantdiamond"],
+      "Spheal": ["shiningpearl"],
+      "Sealeo": ["shiningpearl"],
+      "Bagon": ["shiningpearl"],
+      "Shelgon": ["shiningpearl"]
     },
-    "bdsp-20": { "Stunky": ["brilliantdiamond"] },
-    "bdsp-22": { "Stantler": ["shiningpearl"], "Larvitar": ["brilliantdiamond"] },
-    "bdsp-24": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
+    "bdsp-20": {
+      "Stunky": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-22": {
+      "Stantler": ["shiningpearl"],
+      "Larvitar": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-24": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
     "bdsp-27": {
       "Silcoon": ["brilliantdiamond"],
       "Cascoon": ["shiningpearl"],
       "Bonsly": ["shiningpearl"],
       "Mime Jr.": ["brilliantdiamond"]
     },
-    "bdsp-30": { "Murkrow": ["brilliantdiamond"], "Misdreavus": ["shiningpearl"] },
-    "bdsp-31": { "Houndoom": ["shiningpearl"], "Mightyena": ["brilliantdiamond"] },
+    "bdsp-30": {
+      "Murkrow": ["brilliantdiamond"],
+      "Misdreavus": ["shiningpearl"]
+    },
+    "bdsp-31": {
+      "Houndoom": ["shiningpearl"],
+      "Mightyena": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
     "bdsp-33": {
       "Sudowoodo": ["shiningpearl"],
       "Houndoom": ["shiningpearl"],
@@ -1946,23 +2580,225 @@
       "Cascoon": ["shiningpearl"],
       "Stunky": ["brilliantdiamond"]
     },
-    "bdsp-38": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
-    "bdsp-39": { "Bonsly": ["shiningpearl"], "Mime Jr.": ["brilliantdiamond"] },
-    "bdsp-41": { "Hoppip": ["shiningpearl"], "Skiploom": ["shiningpearl"] },
+    "bdsp-38": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-39": {
+      "Bonsly": ["shiningpearl"],
+      "Mime Jr.": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"],
+      "Kecleon": ["brilliantdiamond"],
+      "Bagon": ["shiningpearl"]
+    },
+    "bdsp-41": {
+      "Hoppip": ["shiningpearl"],
+      "Skiploom": ["shiningpearl"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"],
+      "Aron": ["brilliantdiamond"]
+    },
     "bdsp-44": {
       "Sudowoodo": ["shiningpearl"],
       "Stunky": ["brilliantdiamond"],
-      "Skuntank": ["brilliantdiamond"]
+      "Skuntank": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
     },
-    "bdsp-45": { "Mr. Mime": ["brilliantdiamond"], "Glameow": ["shiningpearl"] },
-    "bdsp-49": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
-    "bdsp-68": { "Dialga": ["brilliantdiamond"], "Palkia": ["shiningpearl"] },
+    "bdsp-45": {
+      "Mr. Mime": ["brilliantdiamond"],
+      "Glameow": ["shiningpearl"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-49": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-68": {
+      "Dialga": ["brilliantdiamond"],
+      "Palkia": ["shiningpearl"]
+    },
     "bdsp-57": {
       "Mr. Mime": ["brilliantdiamond"],
       "Silcoon": ["brilliantdiamond"],
       "Cascoon": ["shiningpearl"],
       "Glameow": ["shiningpearl"],
       "Purugly": ["shiningpearl"]
+    },
+    "gsc-40": {
+      "Dodrio": ["crystal"],
+      "Rhydon": ["gold", "silver"]
+    },
+    "gsc-59": {
+      "Raticate": ["crystal"],
+      "Ekans": ["silver", "crystal"],
+      "Arbok": ["silver", "crystal"],
+      "Sandshrew": ["crystal"],
+      "Clefairy": ["crystal"],
+      "Jigglypuff": ["gold", "silver"]
+    },
+    "rse-58": {
+      "Horsea": ["emerald"],
+      "Corsola": ["ruby", "sapphire"]
+    },
+    "dpp-9": {
+      "Cranidos": ["diamond", "platinum"],
+      "Shieldon": ["pearl", "platinum"]
+    },
+    "dpp-14": {
+      "Silcoon": ["diamond"],
+      "Cascoon": ["pearl"]
+    },
+    "dpp-47": {
+      "Registeel": ["platinum"]
+    },
+    "hgss-1": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-2": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-88": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-62": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-64": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-65": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-66": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-67": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-75": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-76": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-77": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-78": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "hgss-82": {
+      "Ledyba": ["soulsilver"],
+      "Spinarak": ["heartgold"]
+    },
+    "bw-20": {
+      "Plusle": ["black"],
+      "Minun": ["white"]
+    },
+    "bw2-4": {
+      "Mr. Mime": ["white2"],
+      "Sudowoodo": ["black2"]
+    },
+    "bw2-43": {
+      "Butterfree": ["white2"],
+      "Beedrill": ["black2"],
+      "Glameow": ["white2"],
+      "Stunky": ["black2"]
+    },
+    "bw2-19": {
+      "Plusle": ["black2"],
+      "Minun": ["white2"]
+    },
+    "bw2-38": {
+      "Ledian": ["white2"],
+      "Ariados": ["black2"]
+    },
+    "oras-8": {
+      "Omanyte": ["alphasapphire"],
+      "Kabuto": ["omegaruby"],
+      "Cranidos": ["alphasapphire"],
+      "Shieldon": ["omegaruby"],
+      "Tirtouga": ["alphasapphire"],
+      "Archen": ["omegaruby"]
+    },
+    "oras-13": {
+      "Skrelp": ["omegaruby"],
+      "Clauncher": ["alphasapphire"]
+    },
+    "oras-15": {
+      "Skrelp": ["omegaruby"],
+      "Clauncher": ["alphasapphire"]
+    },
+    "oras-23": {
+      "Throh": ["omegaruby"],
+      "Sawk": ["alphasapphire"]
+    },
+    "oras-60": {
+      "Skrelp": ["omegaruby"],
+      "Clauncher": ["alphasapphire"]
+    },
+    "oras-61": {
+      "Skrelp": ["omegaruby"],
+      "Clauncher": ["alphasapphire"]
+    },
+    "oras-62": {
+      "Lugia": ["alphasapphire"],
+      "Ho-oh": ["omegaruby"]
+    },
+    "oras-71": {
+      "Dialga": ["alphasapphire"],
+      "Palkia": ["omegaruby"],
+      "Tornadus": ["omegaruby"],
+      "Thundurus": ["alphasapphire"]
+    },
+    "oras-63": {
+      "Skrelp": ["omegaruby"],
+      "Clauncher": ["alphasapphire"]
+    },
+    "sm-48": {
+      "Kartana": ["sun"]
+    },
+    "swsh-13": {
+      "Croagunk": ["shield"],
+      "Throh": ["shield"],
+      "Sawk": ["sword"],
+      "Scraggy": ["sword"],
+      "Salandit": ["shield"]
+    },
+    "swsh-15": {
+      "Croagunk": ["shield"],
+      "Scraggy": ["sword"]
+    },
+    "bdsp-9": {
+      "Cranidos": ["brilliantdiamond"],
+      "Shieldon": ["shiningpearl"]
+    },
+    "bdsp-14": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-15": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-36": {
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
     }
   },
   "unplaced": [
@@ -2373,26 +3209,6 @@
     ["bdsp-61", "Gabite"]
   ],
   "missing": [
-    ["rby-14", "Nidoran♀", ["red", "blue"]],
-    ["rby-14", "Nidoran♂", ["red", "blue"]],
-    ["rby-14", "Machoke", ["yellow"]],
-    ["rby-14", "Machamp", ["yellow"]],
-    ["rby-18", "Nidorina", ["red", "blue"]],
-    ["rby-18", "Dugtrio", ["yellow"]],
-    ["rby-33", "Parasect", ["yellow"]],
-    ["rby-33", "Lickitung", ["red", "blue"]],
-    ["rby-43", "Seel", ["red", "blue"]],
-    ["rby-43", "Dewgong", ["yellow"]],
-    ["rby-43", "Muk", ["yellow"]],
-    ["rby-43", "Electrode", ["red", "blue"]],
-    ["rby-43", "Rhydon", ["yellow"]],
-    ["rby-43", "Tangela", ["red", "blue"]],
-    ["rby-47", "Venomoth", ["red", "blue"]],
-    ["rby-48", "Wigglytuff", ["red", "blue"]],
-    ["rby-48", "Electrode", ["red", "blue"]],
-    ["rby-48", "Marowak", ["red", "blue"]],
-    ["rby-48", "Lickitung", ["yellow"]],
-    ["rby-48", "Rhyhorn", ["yellow"]],
     ["rby-48", "Rhydon", ["red", "blue", "yellow"]],
     ["rby-48", "Chansey", ["red", "blue", "yellow"]],
     ["gsc-8", "Onix", ["gold", "silver", "crystal"]],
@@ -2405,44 +3221,25 @@
     ["gsc-12", "Staryu", ["gold", "silver", "crystal"]],
     ["gsc-12", "Lapras", ["gold", "silver", "crystal"]],
     ["gsc-12", "Corsola", ["gold", "silver", "crystal"]],
-    ["gsc-16", "Celebi", ["crystal"]],
-    ["gsc-22", "Ledian", ["crystal"]],
     ["gsc-34", "Machoke", ["gold", "silver", "crystal"]],
     ["gsc-40", "Golbat", ["gold", "silver", "crystal"]],
-    ["gsc-40", "Dodrio", ["crystal"]],
-    ["gsc-40", "Rhydon", ["gold", "silver"]],
-    ["gsc-85", "Dodrio", ["gold"]],
     ["gsc-85", "Pineco", ["gold", "silver", "crystal"]],
-    ["gsc-54", "Golbat", ["crystal"]],
     ["gsc-54", "Onix", ["gold", "silver", "crystal"]],
     ["gsc-54", "Kangaskhan", ["gold", "silver", "crystal"]],
-    ["gsc-56", "Krabby", ["gold", "silver"]],
-    ["gsc-56", "Kingler", ["gold", "silver"]],
-    ["gsc-56", "Staryu", ["gold", "silver"]],
-    ["gsc-56", "Corsola", ["gold", "silver"]],
     ["gsc-59", "Rattata", ["gold", "silver", "crystal"]],
-    ["gsc-59", "Raticate", ["crystal"]],
     ["gsc-59", "Spearow", ["gold", "silver", "crystal"]],
-    ["gsc-59", "Ekans", ["silver", "crystal"]],
-    ["gsc-59", "Arbok", ["silver", "crystal"]],
-    ["gsc-59", "Sandshrew", ["crystal"]],
-    ["gsc-59", "Clefairy", ["crystal"]],
-    ["gsc-59", "Jigglypuff", ["gold", "silver"]],
     ["gsc-59", "Zubat", ["gold", "silver", "crystal"]],
     ["gsc-60", "Fearow", ["gold", "silver", "crystal"]],
     ["gsc-60", "Grimer", ["gold", "silver", "crystal"]],
     ["gsc-60", "Muk", ["gold", "silver", "crystal"]],
     ["gsc-60", "Murkrow", ["gold", "silver", "crystal"]],
     ["gsc-65", "Aerodactyl", ["gold", "silver", "crystal"]],
-    ["gsc-73", "Sandshrew", ["crystal"]],
     ["gsc-84", "Poliwag", ["gold", "silver", "crystal"]],
     ["gsc-84", "Graveler", ["gold", "silver", "crystal"]],
     ["gsc-84", "Ponyta", ["gold", "silver", "crystal"]],
     ["gsc-84", "Onix", ["gold", "silver", "crystal"]],
     ["rse-28", "Golbat", ["ruby", "sapphire", "emerald"]],
     ["rse-36", "Magikarp", ["ruby", "sapphire", "emerald"]],
-    ["rse-36", "Pineco", ["emerald"]],
-    ["rse-36", "Teddiursa", ["emerald"]],
     ["rse-44", "Beldum", ["ruby", "sapphire", "emerald"]],
     ["rse-46", "Snorunt", ["ruby", "sapphire", "emerald"]],
     ["rse-47", "Wingull", ["ruby", "sapphire", "emerald"]],
@@ -2452,12 +3249,6 @@
     ["rse-48", "Wingull", ["ruby", "sapphire", "emerald"]],
     ["rse-48", "Pelipper", ["ruby", "sapphire", "emerald"]],
     ["rse-48", "Luvdisc", ["ruby", "sapphire", "emerald"]],
-    ["rse-58", "Horsea", ["emerald"]],
-    ["rse-58", "Corsola", ["ruby", "sapphire"]],
-    ["frlg-14", "Nidoran♀", ["firered"]],
-    ["frlg-14", "Nidoran♂", ["leafgreen"]],
-    ["frlg-18", "Nidorina", ["firered"]],
-    ["frlg-18", "Nidorino", ["leafgreen"]],
     ["frlg-22", "Graveler", ["firered", "leafgreen"]],
     ["frlg-33", "Lickitung", ["firered", "leafgreen"]],
     ["frlg-43", "Seel", ["firered", "leafgreen"]],
@@ -2475,13 +3266,7 @@
     ["dpp-9", "Aerodactyl", ["diamond", "pearl", "platinum"]],
     ["dpp-9", "Lileep", ["diamond", "pearl", "platinum"]],
     ["dpp-9", "Anorith", ["diamond", "pearl", "platinum"]],
-    ["dpp-9", "Cranidos", ["diamond", "platinum"]],
-    ["dpp-9", "Shieldon", ["pearl", "platinum"]],
     ["dpp-11", "Sunkern", ["diamond", "pearl", "platinum"]],
-    ["dpp-14", "Silcoon", ["diamond"]],
-    ["dpp-14", "Cascoon", ["pearl"]],
-    ["dpp-16", "Slowpoke", ["pearl", "platinum"]],
-    ["dpp-16", "Skiploom", ["diamond"]],
     ["dpp-16", "Lotad", ["diamond", "pearl", "platinum"]],
     ["dpp-17", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-17", "Heracross", ["diamond", "pearl", "platinum"]],
@@ -2492,8 +3277,6 @@
     ["dpp-20", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-20", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-20", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-20", "Silcoon", ["diamond"]],
-    ["dpp-20", "Cascoon", ["pearl"]],
     ["dpp-20", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-20", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-20", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2501,20 +3284,15 @@
     ["dpp-22", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-22", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-22", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-22", "Silcoon", ["diamond"]],
-    ["dpp-22", "Cascoon", ["pearl"]],
     ["dpp-22", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-22", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-22", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-22", "Munchlax", ["diamond", "pearl", "platinum"]],
     ["dpp-23", "Loudred", ["diamond", "pearl", "platinum"]],
     ["dpp-23", "Chimecho", ["diamond", "pearl", "platinum"]],
-    ["dpp-23", "Regice", ["platinum"]],
     ["dpp-24", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-24", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-24", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-24", "Silcoon", ["diamond"]],
-    ["dpp-24", "Cascoon", ["pearl"]],
     ["dpp-24", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-24", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-24", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2522,8 +3300,6 @@
     ["dpp-27", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-27", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-27", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-27", "Silcoon", ["diamond"]],
-    ["dpp-27", "Cascoon", ["pearl"]],
     ["dpp-27", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-27", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-27", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2531,8 +3307,6 @@
     ["dpp-33", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-33", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-33", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-33", "Silcoon", ["diamond"]],
-    ["dpp-33", "Cascoon", ["pearl"]],
     ["dpp-33", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-33", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-33", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2540,48 +3314,32 @@
     ["dpp-36", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-36", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-36", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-36", "Silcoon", ["diamond"]],
-    ["dpp-36", "Cascoon", ["pearl"]],
     ["dpp-36", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-36", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-36", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-36", "Munchlax", ["diamond", "pearl", "platinum"]],
     ["dpp-62", "Paras", ["diamond", "pearl", "platinum"]],
-    ["dpp-62", "Golduck", ["diamond", "pearl"]],
     ["dpp-62", "Exeggcute", ["diamond", "pearl", "platinum"]],
     ["dpp-62", "Kangaskhan", ["diamond", "pearl", "platinum"]],
     ["dpp-62", "Shroomish", ["diamond", "pearl", "platinum"]],
     ["dpp-62", "Gulpin", ["diamond", "pearl", "platinum"]],
-    ["dpp-62", "Kecleon", ["platinum"]],
-    ["dpp-62", "Staravia", ["diamond", "pearl"]],
     ["dpp-62", "Drapion", ["diamond", "pearl", "platinum"]],
     ["dpp-62", "Toxicroak", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-38", "Silcoon", ["diamond"]],
-    ["dpp-38", "Cascoon", ["pearl"]],
     ["dpp-38", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-38", "Munchlax", ["diamond", "pearl", "platinum"]],
-    ["dpp-39", "Silcoon", ["diamond"]],
-    ["dpp-39", "Cascoon", ["pearl"]],
     ["dpp-39", "Zangoose", ["diamond", "pearl", "platinum"]],
     ["dpp-39", "Seviper", ["diamond", "pearl", "platinum"]],
-    ["dpp-39", "Kecleon", ["diamond"]],
-    ["dpp-39", "Bagon", ["pearl", "platinum"]],
     ["dpp-41", "Tentacool", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Tentacruel", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Shellder", ["diamond", "pearl", "platinum"]],
-    ["dpp-41", "Hoppip", ["pearl"]],
-    ["dpp-41", "Skiploom", ["pearl"]],
     ["dpp-41", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-41", "Silcoon", ["diamond"]],
-    ["dpp-41", "Cascoon", ["pearl"]],
-    ["dpp-41", "Aron", ["diamond", "platinum"]],
     ["dpp-41", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-41", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2591,8 +3349,6 @@
     ["dpp-44", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-44", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-44", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-44", "Silcoon", ["diamond"]],
-    ["dpp-44", "Cascoon", ["pearl"]],
     ["dpp-44", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-44", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-44", "Cherubi", ["diamond", "pearl", "platinum"]],
@@ -2600,50 +3356,33 @@
     ["dpp-45", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-45", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-45", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-45", "Silcoon", ["diamond"]],
-    ["dpp-45", "Cascoon", ["pearl"]],
     ["dpp-45", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-45", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-45", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-45", "Munchlax", ["diamond", "pearl", "platinum"]],
     ["dpp-47", "Zubat", ["diamond", "pearl", "platinum"]],
     ["dpp-47", "Golbat", ["diamond", "pearl", "platinum"]],
-    ["dpp-47", "Registeel", ["platinum"]],
     ["dpp-49", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-49", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-49", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-49", "Silcoon", ["diamond"]],
-    ["dpp-49", "Cascoon", ["pearl"]],
     ["dpp-49", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-49", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-49", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-49", "Munchlax", ["diamond", "pearl", "platinum"]],
-    ["dpp-52", "Teddiursa", ["diamond", "pearl"]],
-    ["dpp-56", "Golbat", ["platinum"]],
-    ["dpp-56", "Graveler", ["platinum"]],
-    ["dpp-56", "Dusclops", ["platinum"]],
-    ["dpp-56", "Chimecho", ["diamond", "pearl"]],
     ["dpp-56", "Staravia", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Flaaffy", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Aipom", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Heracross", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Wurmple", ["diamond", "pearl", "platinum"]],
-    ["dpp-57", "Silcoon", ["diamond"]],
-    ["dpp-57", "Cascoon", ["pearl"]],
     ["dpp-57", "Burmy", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Combee", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Cherubi", ["diamond", "pearl", "platinum"]],
     ["dpp-57", "Munchlax", ["diamond", "pearl", "platinum"]],
-    ["dpp-61", "Dewgong", ["platinum"]],
     ["dpp-61", "Lapras", ["diamond", "pearl", "platinum"]],
     ["hgss-1", "Exeggcute", ["heartgold", "soulsilver"]],
     ["hgss-1", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-1", "Ledyba", ["soulsilver"]],
-    ["hgss-1", "Spinarak", ["heartgold"]],
     ["hgss-1", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-2", "Exeggcute", ["heartgold", "soulsilver"]],
-    ["hgss-2", "Ledyba", ["soulsilver"]],
-    ["hgss-2", "Spinarak", ["heartgold"]],
     ["hgss-2", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-2", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-2", "Minun", ["heartgold", "soulsilver"]],
@@ -2719,8 +3458,6 @@
     ["hgss-20", "Combee", ["heartgold", "soulsilver"]],
     ["hgss-20", "Cherubi", ["heartgold", "soulsilver"]],
     ["hgss-21", "Exeggcute", ["heartgold", "soulsilver"]],
-    ["hgss-21", "Ledyba", ["soulsilver"]],
-    ["hgss-21", "Spinarak", ["heartgold"]],
     ["hgss-21", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-21", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-21", "Minun", ["heartgold", "soulsilver"]],
@@ -2741,8 +3478,6 @@
     ["hgss-25", "Chatot", ["heartgold", "soulsilver"]],
     ["hgss-26", "Exeggcute", ["heartgold", "soulsilver"]],
     ["hgss-26", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-26", "Ledyba", ["soulsilver"]],
-    ["hgss-26", "Spinarak", ["heartgold"]],
     ["hgss-26", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-26", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-26", "Minun", ["heartgold", "soulsilver"]],
@@ -2750,8 +3485,6 @@
     ["hgss-26", "Burmy", ["heartgold", "soulsilver"]],
     ["hgss-27", "Exeggcute", ["heartgold", "soulsilver"]],
     ["hgss-27", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-27", "Ledyba", ["soulsilver"]],
-    ["hgss-27", "Spinarak", ["heartgold"]],
     ["hgss-27", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-27", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-27", "Minun", ["heartgold", "soulsilver"]],
@@ -2787,8 +3520,6 @@
     ["hgss-88", "Gyarados", ["heartgold", "soulsilver"]],
     ["hgss-88", "Ditto", ["heartgold", "soulsilver"]],
     ["hgss-88", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-88", "Ledyba", ["soulsilver"]],
-    ["hgss-88", "Spinarak", ["heartgold"]],
     ["hgss-88", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-88", "Lombre", ["heartgold", "soulsilver"]],
     ["hgss-88", "Illumise", ["heartgold", "soulsilver"]],
@@ -2830,8 +3561,6 @@
     ["hgss-42", "Buizel", ["heartgold", "soulsilver"]],
     ["hgss-43", "Exeggcute", ["heartgold", "soulsilver"]],
     ["hgss-43", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-43", "Ledyba", ["soulsilver"]],
-    ["hgss-43", "Spinarak", ["heartgold"]],
     ["hgss-43", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-43", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-43", "Whismur", ["heartgold", "soulsilver"]],
@@ -2890,8 +3619,6 @@
     ["hgss-54", "Bronzor", ["heartgold", "soulsilver"]],
     ["hgss-55", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-55", "Whismur", ["heartgold", "soulsilver"]],
-    ["hgss-55", "Sableye", ["heartgold"]],
-    ["hgss-55", "Mawile", ["soulsilver"]],
     ["hgss-55", "Bidoof", ["heartgold", "soulsilver"]],
     ["hgss-56", "Hoothoot", ["heartgold", "soulsilver"]],
     ["hgss-56", "Pineco", ["heartgold", "soulsilver"]],
@@ -2930,32 +3657,24 @@
     ["hgss-61", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-62", "Tangela", ["heartgold", "soulsilver"]],
     ["hgss-62", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-62", "Ledyba", ["soulsilver"]],
-    ["hgss-62", "Spinarak", ["heartgold"]],
     ["hgss-62", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-62", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-62", "Minun", ["heartgold", "soulsilver"]],
     ["hgss-62", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-64", "Tangela", ["heartgold", "soulsilver"]],
     ["hgss-64", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-64", "Ledyba", ["soulsilver"]],
-    ["hgss-64", "Spinarak", ["heartgold"]],
     ["hgss-64", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-64", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-64", "Minun", ["heartgold", "soulsilver"]],
     ["hgss-64", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-65", "Tangela", ["heartgold", "soulsilver"]],
     ["hgss-65", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-65", "Ledyba", ["soulsilver"]],
-    ["hgss-65", "Spinarak", ["heartgold"]],
     ["hgss-65", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-65", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-65", "Minun", ["heartgold", "soulsilver"]],
     ["hgss-65", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-66", "Tangela", ["heartgold", "soulsilver"]],
     ["hgss-66", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-66", "Ledyba", ["soulsilver"]],
-    ["hgss-66", "Spinarak", ["heartgold"]],
     ["hgss-66", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-66", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-66", "Whismur", ["heartgold", "soulsilver"]],
@@ -2963,8 +3682,6 @@
     ["hgss-66", "Buizel", ["heartgold", "soulsilver"]],
     ["hgss-67", "Tangela", ["heartgold", "soulsilver"]],
     ["hgss-67", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-67", "Ledyba", ["soulsilver"]],
-    ["hgss-67", "Spinarak", ["heartgold"]],
     ["hgss-67", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-67", "Relicanth", ["heartgold", "soulsilver"]],
     ["hgss-68", "Spearow", ["heartgold", "soulsilver"]],
@@ -2983,30 +3700,20 @@
     ["hgss-70", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-70", "Minun", ["heartgold", "soulsilver"]],
     ["hgss-70", "Shinx", ["heartgold", "soulsilver"]],
-    ["hgss-71", "Omanyte", ["heartgold"]],
-    ["hgss-71", "Kabuto", ["soulsilver"]],
     ["hgss-71", "Aerodactyl", ["heartgold", "soulsilver"]],
-    ["hgss-71", "Lileep", ["soulsilver"]],
-    ["hgss-71", "Anorith", ["heartgold"]],
     ["hgss-73", "Hoothoot", ["heartgold", "soulsilver"]],
     ["hgss-73", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-73", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-73", "Plusle", ["heartgold", "soulsilver"]],
     ["hgss-73", "Minun", ["heartgold", "soulsilver"]],
-    ["hgss-73", "Gulpin", ["soulsilver"]],
-    ["hgss-73", "Baltoy", ["heartgold"]],
     ["hgss-73", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-74", "Makuhita", ["heartgold", "soulsilver"]],
     ["hgss-74", "Absol", ["heartgold", "soulsilver"]],
     ["hgss-74", "Chingling", ["heartgold", "soulsilver"]],
     ["hgss-74", "Bronzor", ["heartgold", "soulsilver"]],
     ["hgss-75", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-75", "Ledyba", ["soulsilver"]],
-    ["hgss-75", "Spinarak", ["heartgold"]],
     ["hgss-75", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-75", "Wurmple", ["heartgold", "soulsilver"]],
-    ["hgss-76", "Ledyba", ["soulsilver"]],
-    ["hgss-76", "Spinarak", ["heartgold"]],
     ["hgss-76", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-76", "Poochyena", ["heartgold", "soulsilver"]],
     ["hgss-76", "Wurmple", ["heartgold", "soulsilver"]],
@@ -3014,13 +3721,9 @@
     ["hgss-76", "Minun", ["heartgold", "soulsilver"]],
     ["hgss-76", "Shinx", ["heartgold", "soulsilver"]],
     ["hgss-77", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-77", "Ledyba", ["soulsilver"]],
-    ["hgss-77", "Spinarak", ["heartgold"]],
     ["hgss-77", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-77", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-78", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-78", "Ledyba", ["soulsilver"]],
-    ["hgss-78", "Spinarak", ["heartgold"]],
     ["hgss-78", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-78", "Wurmple", ["heartgold", "soulsilver"]],
     ["hgss-78", "Whismur", ["heartgold", "soulsilver"]],
@@ -3028,8 +3731,6 @@
     ["hgss-78", "Buizel", ["heartgold", "soulsilver"]],
     ["hgss-81", "Clamperl", ["heartgold", "soulsilver"]],
     ["hgss-82", "Hoothoot", ["heartgold", "soulsilver"]],
-    ["hgss-82", "Ledyba", ["soulsilver"]],
-    ["hgss-82", "Spinarak", ["heartgold"]],
     ["hgss-82", "Pineco", ["heartgold", "soulsilver"]],
     ["hgss-82", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-82", "Wurmple", ["heartgold", "soulsilver"]],
@@ -3050,7 +3751,6 @@
     ["hgss-84", "Gyarados", ["heartgold", "soulsilver"]],
     ["hgss-84", "Natu", ["heartgold", "soulsilver"]],
     ["hgss-84", "Heracross", ["heartgold", "soulsilver"]],
-    ["hgss-84", "Teddiursa", ["soulsilver"]],
     ["hgss-84", "Linoone", ["heartgold", "soulsilver"]],
     ["hgss-84", "Whismur", ["heartgold", "soulsilver"]],
     ["hgss-84", "Makuhita", ["heartgold", "soulsilver"]],
@@ -3068,19 +3768,13 @@
     ["bw-12", "Hippopotas", ["black", "white"]],
     ["bw-37", "Pineco", ["black", "white"]],
     ["bw-16", "Smeargle", ["black", "white"]],
-    ["bw-20", "Plusle", ["black"]],
-    ["bw-20", "Minun", ["white"]],
     ["bw-24", "Sentret", ["black", "white"]],
     ["bw-27", "Exeggcute", ["black", "white"]],
     ["bw-27", "Larvesta", ["black", "white"]],
     ["bw-30", "Dragonite", ["black", "white"]],
     ["bw-31", "Croagunk", ["black", "white"]],
-    ["bw-33", "Houndour", ["black"]],
-    ["bw-33", "Poochyena", ["white"]],
     ["bw-35", "Tyrogue", ["black", "white"]],
     ["bw-36", "Poliwrath", ["black", "white"]],
-    ["bw2-4", "Mr. Mime", ["white2"]],
-    ["bw2-4", "Sudowoodo", ["black2"]],
     ["bw2-5", "Herdier", ["black2", "white2"]],
     ["bw2-10", "Poliwag", ["black2", "white2"]],
     ["bw2-10", "Poliwrath", ["black2", "white2"]],
@@ -3090,8 +3784,6 @@
     ["bw2-14", "Pineco", ["black2", "white2"]],
     ["bw2-16", "Natu", ["black2", "white2"]],
     ["bw2-16", "Foongus", ["black2", "white2"]],
-    ["bw2-43", "Butterfree", ["white2"]],
-    ["bw2-43", "Beedrill", ["black2"]],
     ["bw2-43", "Nidoran♀", ["black2", "white2"]],
     ["bw2-43", "Nidoran♂", ["black2", "white2"]],
     ["bw2-43", "Clefairy", ["black2", "white2"]],
@@ -3123,8 +3815,6 @@
     ["bw2-43", "Bibarel", ["black2", "white2"]],
     ["bw2-43", "Combee", ["black2", "white2"]],
     ["bw2-43", "Pachirisu", ["black2", "white2"]],
-    ["bw2-43", "Glameow", ["white2"]],
-    ["bw2-43", "Stunky", ["black2"]],
     ["bw2-43", "Bronzor", ["black2", "white2"]],
     ["bw2-43", "Chatot", ["black2", "white2"]],
     ["bw2-43", "Herdier", ["black2", "white2"]],
@@ -3133,8 +3823,6 @@
     ["bw2-43", "Amoonguss", ["black2", "white2"]],
     ["bw2-43", "Mienfoo", ["black2", "white2"]],
     ["bw2-19", "Nosepass", ["black2", "white2"]],
-    ["bw2-19", "Plusle", ["black2"]],
-    ["bw2-19", "Minun", ["white2"]],
     ["bw2-19", "Woobat", ["black2", "white2"]],
     ["bw2-24", "Furret", ["black2", "white2"]],
     ["bw2-24", "Gigalith", ["black2", "white2"]],
@@ -3151,8 +3839,6 @@
     ["bw2-34", "Swalot", ["black2", "white2"]],
     ["bw2-34", "Bouffalant", ["black2", "white2"]],
     ["bw2-35", "Crustle", ["black2", "white2"]],
-    ["bw2-38", "Ledian", ["white2"]],
-    ["bw2-38", "Ariados", ["black2"]],
     ["bw2-38", "Terrakion", ["black2", "white2"]],
     ["bw2-39", "Seel", ["black2", "white2"]],
     ["bw2-39", "Vanilluxe", ["black2", "white2"]],
@@ -3198,13 +3884,7 @@
     ["oras-7", "Paras", ["omegaruby", "alphasapphire"]],
     ["oras-7", "Cottonee", ["omegaruby", "alphasapphire"]],
     ["oras-7", "Phantump", ["omegaruby", "alphasapphire"]],
-    ["oras-8", "Omanyte", ["alphasapphire"]],
-    ["oras-8", "Kabuto", ["omegaruby"]],
     ["oras-8", "Aerodactyl", ["omegaruby", "alphasapphire"]],
-    ["oras-8", "Cranidos", ["alphasapphire"]],
-    ["oras-8", "Shieldon", ["omegaruby"]],
-    ["oras-8", "Tirtouga", ["alphasapphire"]],
-    ["oras-8", "Archen", ["omegaruby"]],
     ["oras-9", "Clefairy", ["omegaruby", "alphasapphire"]],
     ["oras-9", "Graveler", ["omegaruby", "alphasapphire"]],
     ["oras-9", "Misdreavus", ["omegaruby", "alphasapphire"]],
@@ -3221,15 +3901,11 @@
     ["oras-12", "Zebstrika", ["omegaruby", "alphasapphire"]],
     ["oras-13", "Krabby", ["omegaruby", "alphasapphire"]],
     ["oras-13", "Frillish", ["omegaruby", "alphasapphire"]],
-    ["oras-13", "Skrelp", ["omegaruby"]],
-    ["oras-13", "Clauncher", ["alphasapphire"]],
     ["oras-14", "Timburr", ["omegaruby", "alphasapphire"]],
     ["oras-14", "Axew", ["omegaruby", "alphasapphire"]],
     ["oras-15", "Krabby", ["omegaruby", "alphasapphire"]],
     ["oras-15", "Unown", ["omegaruby", "alphasapphire"]],
     ["oras-15", "Frillish", ["omegaruby", "alphasapphire"]],
-    ["oras-15", "Skrelp", ["omegaruby"]],
-    ["oras-15", "Clauncher", ["alphasapphire"]],
     ["oras-17", "Shellos", ["omegaruby", "alphasapphire"]],
     ["oras-17", "Chatot", ["omegaruby", "alphasapphire"]],
     ["oras-17", "Trubbish", ["omegaruby", "alphasapphire"]],
@@ -3248,8 +3924,6 @@
     ["oras-21", "Larvesta", ["omegaruby", "alphasapphire"]],
     ["oras-23", "Ponyta", ["omegaruby", "alphasapphire"]],
     ["oras-23", "Tyrogue", ["omegaruby", "alphasapphire"]],
-    ["oras-23", "Throh", ["omegaruby"]],
-    ["oras-23", "Sawk", ["alphasapphire"]],
     ["oras-24", "Diglett", ["omegaruby", "alphasapphire"]],
     ["oras-24", "Tyrogue", ["omegaruby", "alphasapphire"]],
     ["oras-24", "Roggenrola", ["omegaruby", "alphasapphire"]],
@@ -3406,30 +4080,18 @@
     ["oras-60", "Forretress", ["omegaruby", "alphasapphire"]],
     ["oras-60", "Happiny", ["omegaruby", "alphasapphire"]],
     ["oras-60", "Frillish", ["omegaruby", "alphasapphire"]],
-    ["oras-60", "Skrelp", ["omegaruby"]],
-    ["oras-60", "Clauncher", ["alphasapphire"]],
     ["oras-61", "Krabby", ["omegaruby", "alphasapphire"]],
     ["oras-61", "Frillish", ["omegaruby", "alphasapphire"]],
-    ["oras-61", "Skrelp", ["omegaruby"]],
-    ["oras-61", "Clauncher", ["alphasapphire"]],
-    ["oras-62", "Lugia", ["alphasapphire"]],
-    ["oras-62", "Ho-oh", ["omegaruby"]],
     ["oras-62", "Wingull", ["omegaruby", "alphasapphire"]],
     ["oras-62", "Pelipper", ["omegaruby", "alphasapphire"]],
     ["oras-62", "Wailmer", ["omegaruby", "alphasapphire"]],
     ["oras-62", "Spiritomb", ["omegaruby", "alphasapphire"]],
-    ["oras-71", "Dialga", ["alphasapphire"]],
-    ["oras-71", "Palkia", ["omegaruby"]],
     ["oras-71", "Giratina", ["omegaruby", "alphasapphire"]],
-    ["oras-71", "Tornadus", ["omegaruby"]],
-    ["oras-71", "Thundurus", ["alphasapphire"]],
     ["oras-71", "Landorus", ["omegaruby", "alphasapphire"]],
     ["oras-63", "Krabby", ["omegaruby", "alphasapphire"]],
     ["oras-63", "Sunkern", ["omegaruby", "alphasapphire"]],
     ["oras-63", "Audino", ["omegaruby", "alphasapphire"]],
     ["oras-63", "Frillish", ["omegaruby", "alphasapphire"]],
-    ["oras-63", "Skrelp", ["omegaruby"]],
-    ["oras-63", "Clauncher", ["alphasapphire"]],
     ["oras-64", "Tentacruel", ["omegaruby", "alphasapphire"]],
     ["oras-64", "Seadra", ["omegaruby", "alphasapphire"]],
     ["oras-64", "Ditto", ["omegaruby", "alphasapphire"]],
@@ -3491,8 +4153,6 @@
     ["sm-31", "Raticate", ["sun", "moon"]],
     ["sm-34", "Raticate", ["sun", "moon"]],
     ["sm-34", "Happiny", ["sun", "moon"]],
-    ["sm-35", "Celesteela", ["moon"]],
-    ["sm-35", "Kartana", ["sun"]],
     ["sm-37", "Raticate", ["sun", "moon"]],
     ["sm-42", "Raticate", ["sun", "moon"]],
     ["sm-42", "Golem (Alolan)", ["sun", "moon"]],
@@ -3500,7 +4160,6 @@
     ["sm-44", "Porygon", ["sun", "moon"]],
     ["sm-46", "Raticate", ["sun", "moon"]],
     ["sm-48", "Raticate", ["sun", "moon"]],
-    ["sm-48", "Kartana", ["sun"]],
     ["sm-50", "Raticate", ["sun", "moon"]],
     ["sm-50", "Magikarp", ["sun", "moon"]],
     ["sm-50", "Gyarados", ["sun", "moon"]],
@@ -3593,15 +4252,11 @@
     ["swsh-13", "Munchlax", ["sword", "shield"]],
     ["swsh-13", "Skorupi", ["sword", "shield"]],
     ["swsh-13", "Drapion", ["sword", "shield"]],
-    ["swsh-13", "Croagunk", ["shield"]],
     ["swsh-13", "Mantyke", ["sword", "shield"]],
     ["swsh-13", "Purrloin", ["sword", "shield"]],
     ["swsh-13", "Roggenrola", ["sword", "shield"]],
     ["swsh-13", "Conkeldurr", ["sword", "shield"]],
-    ["swsh-13", "Throh", ["shield"]],
-    ["swsh-13", "Sawk", ["sword"]],
     ["swsh-13", "Basculin", ["sword", "shield"]],
-    ["swsh-13", "Scraggy", ["sword"]],
     ["swsh-13", "Sigilyph", ["sword", "shield"]],
     ["swsh-13", "Vanillite", ["sword", "shield"]],
     ["swsh-13", "Karrablast", ["sword", "shield"]],
@@ -3614,7 +4269,6 @@
     ["swsh-13", "Binacle", ["sword", "shield"]],
     ["swsh-13", "Mareanie", ["sword", "shield"]],
     ["swsh-13", "Dewpider", ["sword", "shield"]],
-    ["swsh-13", "Salandit", ["shield"]],
     ["swsh-13", "Wimpod", ["sword", "shield"]],
     ["swsh-13", "Greedent", ["sword", "shield"]],
     ["swsh-13", "Rookidee", ["sword", "shield"]],
@@ -3638,8 +4292,6 @@
     ["swsh-15", "Corphish", ["sword", "shield"]],
     ["swsh-15", "Shellos", ["sword", "shield"]],
     ["swsh-15", "Gastrodon", ["sword", "shield"]],
-    ["swsh-15", "Croagunk", ["shield"]],
-    ["swsh-15", "Scraggy", ["sword"]],
     ["swsh-15", "Stunfisk (Galarian)", ["sword", "shield"]],
     ["swsh-15", "Binacle", ["sword", "shield"]],
     ["swsh-15", "Noibat", ["sword", "shield"]],
@@ -3657,13 +4309,9 @@
     ["swsh-27", "Copperajah", ["sword", "shield"]],
     ["swsh-28", "Rhyhorn", ["sword", "shield"]],
     ["swsh-28", "Boldore", ["sword", "shield"]],
-    ["swsh-28", "Gothorita", ["sword"]],
-    ["swsh-29", "Sableye", ["shield"]],
     ["swsh-29", "Electrike", ["sword", "shield"]],
     ["swsh-29", "Duskull", ["sword", "shield"]],
-    ["swsh-29", "Scraggy", ["sword"]],
     ["swsh-30", "Purrloin", ["sword", "shield"]],
-    ["swsh-30", "Hatterene", ["sword", "shield"]],
     ["swsh-31", "Yamask (Galarian)", ["sword", "shield"]],
     ["swsh-37", "Sneasel", ["sword", "shield"]],
     ["swsh-37", "Duraludon", ["sword", "shield"]],
@@ -3672,33 +4320,19 @@
     ["bdsp-9", "Aerodactyl", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-9", "Lileep", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-9", "Anorith", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-9", "Cranidos", ["brilliantdiamond"]],
-    ["bdsp-9", "Shieldon", ["shiningpearl"]],
     ["bdsp-11", "Sunkern", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-70", "Shellder", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-14", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-14", "Cascoon", ["shiningpearl"]],
-    ["bdsp-15", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-15", "Cascoon", ["shiningpearl"]],
     ["bdsp-16", "Psyduck", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-16", "Golduck", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-16", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-16", "Cascoon", ["shiningpearl"]],
     ["bdsp-63", "Bulbasaur", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Charmander", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Squirtle", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Caterpie", ["brilliantdiamond"]],
-    ["bdsp-63", "Weedle", ["shiningpearl"]],
     ["bdsp-63", "Rattata", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Raticate", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Ekans", ["brilliantdiamond"]],
-    ["bdsp-63", "Sandshrew", ["shiningpearl"]],
-    ["bdsp-63", "Sandslash", ["shiningpearl"]],
     ["bdsp-63", "Nidoran♀", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Nidorina", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Nidoran♂", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Nidorino", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Vulpix", ["shiningpearl"]],
     ["bdsp-63", "Oddish", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Gloom", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Paras", ["brilliantdiamond", "shiningpearl"]],
@@ -3706,16 +4340,12 @@
     ["bdsp-63", "Venomoth", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Mankey", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Primeape", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Growlithe", ["brilliantdiamond"]],
     ["bdsp-63", "Poliwag", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Poliwhirl", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Bellsprout", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Weepinbell", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Slowpoke", ["shiningpearl"]],
     ["bdsp-63", "Farfetch'd", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Doduo", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Seel", ["brilliantdiamond"]],
-    ["bdsp-63", "Dewgong", ["brilliantdiamond"]],
     ["bdsp-63", "Grimer", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Shellder", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Drowzee", ["brilliantdiamond", "shiningpearl"]],
@@ -3757,25 +4387,16 @@
     ["bdsp-63", "Phanpy", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Tyrogue", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Miltank", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Larvitar", ["brilliantdiamond"]],
-    ["bdsp-63", "Pupitar", ["brilliantdiamond"]],
     ["bdsp-63", "Treecko", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Torchic", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Mudkip", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Poochyena", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Mightyena", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Zigzagoon", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Cascoon", ["shiningpearl"]],
-    ["bdsp-63", "Lotad", ["shiningpearl"]],
-    ["bdsp-63", "Lombre", ["shiningpearl"]],
-    ["bdsp-63", "Seedot", ["brilliantdiamond"]],
-    ["bdsp-63", "Nuzleaf", ["brilliantdiamond"]],
     ["bdsp-63", "Kirlia", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Surskit", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Nincada", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Skitty", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Sableye", ["shiningpearl"]],
-    ["bdsp-63", "Mawile", ["brilliantdiamond"]],
     ["bdsp-63", "Aron", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Lairon", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Volbeat", ["brilliantdiamond", "shiningpearl"]],
@@ -3788,38 +4409,21 @@
     ["bdsp-63", "Vibrava", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Cacnea", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Cacturne", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Zangoose", ["brilliantdiamond"]],
-    ["bdsp-63", "Seviper", ["shiningpearl"]],
-    ["bdsp-63", "Lunatone", ["shiningpearl"]],
-    ["bdsp-63", "Solrock", ["brilliantdiamond"]],
     ["bdsp-63", "Corphish", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Crawdaunt", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Baltoy", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Kecleon", ["brilliantdiamond"]],
     ["bdsp-63", "Banette", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Dusclops", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Tropius", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Spheal", ["shiningpearl"]],
-    ["bdsp-63", "Sealeo", ["shiningpearl"]],
     ["bdsp-63", "Walrein", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Clamperl", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-63", "Bagon", ["shiningpearl"]],
-    ["bdsp-63", "Shelgon", ["shiningpearl"]],
     ["bdsp-63", "Beldum", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Turtwig", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Chimchar", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Piplup", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-63", "Tangrowth", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-20", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-20", "Cascoon", ["shiningpearl"]],
-    ["bdsp-22", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-22", "Cascoon", ["shiningpearl"]],
     ["bdsp-23", "Loudred", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-23", "Chimecho", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-31", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-31", "Cascoon", ["shiningpearl"]],
-    ["bdsp-36", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-36", "Cascoon", ["shiningpearl"]],
     ["bdsp-62", "Paras", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-62", "Golduck", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-62", "Exeggcute", ["brilliantdiamond", "shiningpearl"]],
@@ -3833,21 +4437,10 @@
     ["bdsp-39", "Golduck", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-39", "Magikarp", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-39", "Gyarados", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-39", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-39", "Cascoon", ["shiningpearl"]],
     ["bdsp-39", "Meditite", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-39", "Barboach", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-39", "Whiscash", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-39", "Kecleon", ["brilliantdiamond"]],
-    ["bdsp-39", "Bagon", ["shiningpearl"]],
     ["bdsp-39", "Bibarel", ["brilliantdiamond", "shiningpearl"]],
-    ["bdsp-41", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-41", "Cascoon", ["shiningpearl"]],
-    ["bdsp-41", "Aron", ["brilliantdiamond"]],
-    ["bdsp-44", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-44", "Cascoon", ["shiningpearl"]],
-    ["bdsp-45", "Silcoon", ["brilliantdiamond"]],
-    ["bdsp-45", "Cascoon", ["shiningpearl"]],
     ["bdsp-50", "Glalie", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-51", "Glalie", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-52", "Glalie", ["brilliantdiamond", "shiningpearl"]],
@@ -3855,5 +4448,249 @@
     ["bdsp-57", "Pelipper", ["brilliantdiamond", "shiningpearl"]],
     ["bdsp-61", "Lapras", ["brilliantdiamond", "shiningpearl"]]
   ],
-  "unknown": [["swsh-30", "Hatterne"]]
+  "unknown": [],
+  "added": [
+    ["rby-14", "Nidoran♀"],
+    ["rby-14", "Nidoran♂"],
+    ["rby-14", "Machoke"],
+    ["rby-14", "Machamp"],
+    ["rby-18", "Nidorina"],
+    ["rby-18", "Dugtrio"],
+    ["rby-33", "Parasect"],
+    ["rby-33", "Lickitung"],
+    ["rby-43", "Seel"],
+    ["rby-43", "Dewgong"],
+    ["rby-43", "Muk"],
+    ["rby-43", "Electrode"],
+    ["rby-43", "Rhydon"],
+    ["rby-43", "Tangela"],
+    ["rby-47", "Venomoth"],
+    ["rby-48", "Wigglytuff"],
+    ["rby-48", "Electrode"],
+    ["rby-48", "Marowak"],
+    ["rby-48", "Lickitung"],
+    ["rby-48", "Rhyhorn"],
+    ["gsc-16", "Celebi"],
+    ["gsc-22", "Ledian"],
+    ["gsc-40", "Dodrio"],
+    ["gsc-40", "Rhydon"],
+    ["gsc-85", "Dodrio"],
+    ["gsc-54", "Golbat"],
+    ["gsc-56", "Krabby"],
+    ["gsc-56", "Kingler"],
+    ["gsc-56", "Staryu"],
+    ["gsc-56", "Corsola"],
+    ["gsc-59", "Raticate"],
+    ["gsc-59", "Ekans"],
+    ["gsc-59", "Arbok"],
+    ["gsc-59", "Sandshrew"],
+    ["gsc-59", "Clefairy"],
+    ["gsc-59", "Jigglypuff"],
+    ["gsc-73", "Sandshrew"],
+    ["rse-36", "Pineco"],
+    ["rse-36", "Teddiursa"],
+    ["rse-58", "Horsea"],
+    ["rse-58", "Corsola"],
+    ["frlg-14", "Nidoran♀"],
+    ["frlg-14", "Nidoran♂"],
+    ["frlg-18", "Nidorina"],
+    ["frlg-18", "Nidorino"],
+    ["dpp-9", "Cranidos"],
+    ["dpp-9", "Shieldon"],
+    ["dpp-14", "Silcoon"],
+    ["dpp-14", "Cascoon"],
+    ["dpp-16", "Slowpoke"],
+    ["dpp-16", "Skiploom"],
+    ["dpp-20", "Silcoon"],
+    ["dpp-20", "Cascoon"],
+    ["dpp-22", "Silcoon"],
+    ["dpp-22", "Cascoon"],
+    ["dpp-23", "Regice"],
+    ["dpp-24", "Silcoon"],
+    ["dpp-24", "Cascoon"],
+    ["dpp-27", "Silcoon"],
+    ["dpp-27", "Cascoon"],
+    ["dpp-33", "Silcoon"],
+    ["dpp-33", "Cascoon"],
+    ["dpp-36", "Silcoon"],
+    ["dpp-36", "Cascoon"],
+    ["dpp-62", "Golduck"],
+    ["dpp-62", "Kecleon"],
+    ["dpp-62", "Staravia"],
+    ["dpp-38", "Silcoon"],
+    ["dpp-38", "Cascoon"],
+    ["dpp-39", "Silcoon"],
+    ["dpp-39", "Cascoon"],
+    ["dpp-39", "Kecleon"],
+    ["dpp-39", "Bagon"],
+    ["dpp-41", "Hoppip"],
+    ["dpp-41", "Skiploom"],
+    ["dpp-41", "Silcoon"],
+    ["dpp-41", "Cascoon"],
+    ["dpp-41", "Aron"],
+    ["dpp-44", "Silcoon"],
+    ["dpp-44", "Cascoon"],
+    ["dpp-45", "Silcoon"],
+    ["dpp-45", "Cascoon"],
+    ["dpp-47", "Registeel"],
+    ["dpp-49", "Silcoon"],
+    ["dpp-49", "Cascoon"],
+    ["dpp-52", "Teddiursa"],
+    ["dpp-56", "Golbat"],
+    ["dpp-56", "Graveler"],
+    ["dpp-56", "Dusclops"],
+    ["dpp-56", "Chimecho"],
+    ["dpp-57", "Silcoon"],
+    ["dpp-57", "Cascoon"],
+    ["dpp-61", "Dewgong"],
+    ["hgss-1", "Ledyba"],
+    ["hgss-1", "Spinarak"],
+    ["hgss-2", "Ledyba"],
+    ["hgss-2", "Spinarak"],
+    ["hgss-21", "Ledyba"],
+    ["hgss-21", "Spinarak"],
+    ["hgss-26", "Ledyba"],
+    ["hgss-26", "Spinarak"],
+    ["hgss-27", "Ledyba"],
+    ["hgss-27", "Spinarak"],
+    ["hgss-88", "Ledyba"],
+    ["hgss-88", "Spinarak"],
+    ["hgss-43", "Ledyba"],
+    ["hgss-43", "Spinarak"],
+    ["hgss-55", "Sableye"],
+    ["hgss-55", "Mawile"],
+    ["hgss-62", "Ledyba"],
+    ["hgss-62", "Spinarak"],
+    ["hgss-64", "Ledyba"],
+    ["hgss-64", "Spinarak"],
+    ["hgss-65", "Ledyba"],
+    ["hgss-65", "Spinarak"],
+    ["hgss-66", "Ledyba"],
+    ["hgss-66", "Spinarak"],
+    ["hgss-67", "Ledyba"],
+    ["hgss-67", "Spinarak"],
+    ["hgss-71", "Omanyte"],
+    ["hgss-71", "Kabuto"],
+    ["hgss-71", "Lileep"],
+    ["hgss-71", "Anorith"],
+    ["hgss-73", "Gulpin"],
+    ["hgss-73", "Baltoy"],
+    ["hgss-75", "Ledyba"],
+    ["hgss-75", "Spinarak"],
+    ["hgss-76", "Ledyba"],
+    ["hgss-76", "Spinarak"],
+    ["hgss-77", "Ledyba"],
+    ["hgss-77", "Spinarak"],
+    ["hgss-78", "Ledyba"],
+    ["hgss-78", "Spinarak"],
+    ["hgss-82", "Ledyba"],
+    ["hgss-82", "Spinarak"],
+    ["hgss-84", "Teddiursa"],
+    ["bw-20", "Plusle"],
+    ["bw-20", "Minun"],
+    ["bw-33", "Houndour"],
+    ["bw-33", "Poochyena"],
+    ["bw2-4", "Mr. Mime"],
+    ["bw2-4", "Sudowoodo"],
+    ["bw2-43", "Butterfree"],
+    ["bw2-43", "Beedrill"],
+    ["bw2-43", "Glameow"],
+    ["bw2-43", "Stunky"],
+    ["bw2-19", "Plusle"],
+    ["bw2-19", "Minun"],
+    ["bw2-38", "Ledian"],
+    ["bw2-38", "Ariados"],
+    ["oras-8", "Omanyte"],
+    ["oras-8", "Kabuto"],
+    ["oras-8", "Cranidos"],
+    ["oras-8", "Shieldon"],
+    ["oras-8", "Tirtouga"],
+    ["oras-8", "Archen"],
+    ["oras-13", "Skrelp"],
+    ["oras-13", "Clauncher"],
+    ["oras-15", "Skrelp"],
+    ["oras-15", "Clauncher"],
+    ["oras-23", "Throh"],
+    ["oras-23", "Sawk"],
+    ["oras-60", "Skrelp"],
+    ["oras-60", "Clauncher"],
+    ["oras-61", "Skrelp"],
+    ["oras-61", "Clauncher"],
+    ["oras-62", "Lugia"],
+    ["oras-62", "Ho-oh"],
+    ["oras-71", "Dialga"],
+    ["oras-71", "Palkia"],
+    ["oras-71", "Tornadus"],
+    ["oras-71", "Thundurus"],
+    ["oras-63", "Skrelp"],
+    ["oras-63", "Clauncher"],
+    ["sm-35", "Celesteela"],
+    ["sm-35", "Kartana"],
+    ["sm-48", "Kartana"],
+    ["swsh-13", "Croagunk"],
+    ["swsh-13", "Throh"],
+    ["swsh-13", "Sawk"],
+    ["swsh-13", "Scraggy"],
+    ["swsh-13", "Salandit"],
+    ["swsh-15", "Croagunk"],
+    ["swsh-15", "Scraggy"],
+    ["swsh-28", "Gothorita"],
+    ["swsh-29", "Sableye"],
+    ["swsh-29", "Scraggy"],
+    ["bdsp-9", "Cranidos"],
+    ["bdsp-9", "Shieldon"],
+    ["bdsp-14", "Silcoon"],
+    ["bdsp-14", "Cascoon"],
+    ["bdsp-15", "Silcoon"],
+    ["bdsp-15", "Cascoon"],
+    ["bdsp-16", "Silcoon"],
+    ["bdsp-16", "Cascoon"],
+    ["bdsp-63", "Caterpie"],
+    ["bdsp-63", "Weedle"],
+    ["bdsp-63", "Ekans"],
+    ["bdsp-63", "Sandshrew"],
+    ["bdsp-63", "Sandslash"],
+    ["bdsp-63", "Vulpix"],
+    ["bdsp-63", "Growlithe"],
+    ["bdsp-63", "Slowpoke"],
+    ["bdsp-63", "Seel"],
+    ["bdsp-63", "Dewgong"],
+    ["bdsp-63", "Larvitar"],
+    ["bdsp-63", "Pupitar"],
+    ["bdsp-63", "Cascoon"],
+    ["bdsp-63", "Lotad"],
+    ["bdsp-63", "Lombre"],
+    ["bdsp-63", "Seedot"],
+    ["bdsp-63", "Nuzleaf"],
+    ["bdsp-63", "Sableye"],
+    ["bdsp-63", "Mawile"],
+    ["bdsp-63", "Zangoose"],
+    ["bdsp-63", "Seviper"],
+    ["bdsp-63", "Lunatone"],
+    ["bdsp-63", "Solrock"],
+    ["bdsp-63", "Kecleon"],
+    ["bdsp-63", "Spheal"],
+    ["bdsp-63", "Sealeo"],
+    ["bdsp-63", "Bagon"],
+    ["bdsp-63", "Shelgon"],
+    ["bdsp-20", "Silcoon"],
+    ["bdsp-20", "Cascoon"],
+    ["bdsp-22", "Silcoon"],
+    ["bdsp-22", "Cascoon"],
+    ["bdsp-31", "Silcoon"],
+    ["bdsp-31", "Cascoon"],
+    ["bdsp-36", "Silcoon"],
+    ["bdsp-36", "Cascoon"],
+    ["bdsp-39", "Silcoon"],
+    ["bdsp-39", "Cascoon"],
+    ["bdsp-39", "Kecleon"],
+    ["bdsp-39", "Bagon"],
+    ["bdsp-41", "Silcoon"],
+    ["bdsp-41", "Cascoon"],
+    ["bdsp-41", "Aron"],
+    ["bdsp-44", "Silcoon"],
+    ["bdsp-44", "Cascoon"],
+    ["bdsp-45", "Silcoon"],
+    ["bdsp-45", "Cascoon"]
+  ]
 }

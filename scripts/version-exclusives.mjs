@@ -4,8 +4,10 @@
 //
 //   node scripts/version-exclusives.mjs
 //
-// Only the tags go into the app. The result's `unplaced`, `missing` and `unknown` lists are
-// questions about the encounter tables, which this never changes.
+// Only the tags go into the app; this never changes the encounter tables. Of the result's lists,
+// `missing` entries found in some versions only belong in their tables (add them in filters.ts
+// and rerun the browser script); `unplaced` entries stay untagged, and `unknown` names are
+// questions for the user. See CLAUDE.md.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
