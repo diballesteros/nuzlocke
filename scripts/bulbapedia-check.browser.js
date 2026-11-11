@@ -2,16 +2,21 @@
 // truth where it and PokéAPI disagree. Bulbapedia refuses requests from scripts, so this runs in a
 // browser tab on https://bulbapedia.bulbagarden.net (the DevTools console, or Claude in Chrome's
 // JavaScript tool): it reads the app's tables from GitHub at REF, fetches each Pokémon's raw page
-// (about 720, three at a time), and compares the versions whose Availability lines place the
+// (about 760, three at a time), and compares the versions whose Availability lines place the
 // Pokémon at the location with the tags in exclusives.ts. It ends with `bulbapediaCheck.overrides`,
 // the JSON for scripts/bulbapedia-overrides.json: every entry where Bulbapedia gives an answer that
-// differs. Review the rows before committing them (`bulbapediaCheck.rows`); an entry Bulbapedia
-// doesn't place keeps PokéAPI's answer.
+// differs. Review the rows before committing them (`bulbapediaCheck.rows`).
 //
-// Matching: route templates become "Route N", "Routes 3, 4 and 46" each route, time-of-day marks
-// are dropped; segments (split on <br>) that start with Trade, Evolve, Event, Breed or a gift are
-// skipped; a regional form ("Vulpix (Alolan)") only matches segments marked with that form, and a
-// plain name only unmarked ones. Japanese-only and Expansion Pass lines are ignored.
+// An entry Bulbapedia doesn't place keeps PokéAPI's answer. `absent` lists those at a location
+// where it places other Pokémon: candidates for removal from filters.ts, once the location's own
+// page doesn't list them either and they aren't a gift or prize listed under another place
+// (Mudkip under Route 101). `places` lists locations it places nothing at, our own names.
+//
+// Matching: route templates become "Route N", {{OBP|place|…}} its place, "Routes 3, 4 and 46"
+// each route, time-of-day marks are dropped; segments (split on <br>) that start with Trade,
+// Evolve, Event or Breed are skipped (gifts count, as the tables list them); a regional form
+// ("Vulpix (Alolan)") only matches segments marked with that form, and a plain name only unmarked
+// ones. Japanese-only and Expansion Pass lines are ignored.
 /* global fetch, setTimeout, console */
 /* eslint-disable no-console */
 
@@ -31,6 +36,7 @@ const GAMES = {
   11: ['S_M', ['Sun', 'Moon']],
   12: ['US_UM', ['Ultra Sun', 'Ultra Moon']],
   13: ['SW_SH', ['Sword', 'Shield']],
+  13.1: ['BD_SP', ['Brilliant Diamond', 'Shining Pearl']],
 };
 // Our names Bulbapedia spells differently (page titles and places)
 const PAGES = { 'Ho-oh': 'Ho-Oh' };
@@ -39,6 +45,7 @@ const PLACES = {
   'fuschia city': 'fuchsia city',
   'the great marsh': 'great marsh',
   'thrify megamart': 'thrifty megamart',
+  'team magma hideout': 'magma hideout',
 };
 
 const norm = (s) =>
@@ -58,6 +65,8 @@ const expand = (area) => {
     .replace(/\{\{sup\/[^{}]*\}\}/gi, ' ')
     .replace(/\{\{rtn?\|(\d+)\|[^}]*\}\}/gi, ' Route $1 ')
     .replace(/\{\{safari\|[^}]*\}\}/gi, ' Safari Zone ')
+    // These name the place first, then a disambiguation or tooltip: {{OBP|Four Island|town}}
+    .replace(/\{\{(?:OBP|gdis|tt)\|([^{}|]*)\|[^{}]*\}\}/gi, ' $1 ')
     .replace(/\[\[([^\]|]*)\|([^\]]*)\]\]/g, ' $2 ')
     .replace(/\[\[([^\]]*)\]\]/g, ' $1 ');
   for (let i = 0; i < 6; i++)
@@ -87,9 +96,7 @@ const parse = (lines) =>
         .slice(i + 6)
         .replace(/\}\}\s*$/, '')
         .split(/<br\s*\/?>/i)
-        .filter(
-          (seg) => !/^\s*(\[\[|\{\{p\|)?\s*(Trade|Evolve|Event|Breed|Receive|Gift)/i.test(seg)
-        )
+        .filter((seg) => !/^\s*(\[\[|\{\{p\|)?\s*(Trade|Evolve|Event|Breed)/i.test(seg))
         .map((seg) => ({
           form: /Alolan Form/i.test(seg) ? 'Alolan' : /Galarian Form/i.test(seg) ? 'Galarian' : '',
           text: norm(expand(seg)),
@@ -167,6 +174,7 @@ async function bulbapediaCheck() {
     }
     const bulbapedia = e.versions.filter((v) => found.has(v)).map(idOf);
     const current = e.tag ?? e.versions.map(idOf);
+    e.placed = bulbapedia.length > 0;
     if (!bulbapedia.length) unplaced++;
     else if (bulbapedia.join() === current.join()) same++;
     else {
@@ -174,7 +182,17 @@ async function bulbapediaCheck() {
       (overrides[e.key] ??= {})[e.name] = bulbapedia;
     }
   }
-  const result = { same, unplaced, differ: rows.length, missing, rows, overrides };
+  // What Bulbapedia doesn't place: at a location where it places other Pokémon, the entry is
+  // absent there (`absent`); a location where it places nothing is a name it spells differently
+  // (`places`), to add to PLACES
+  const placed = new Set(entries.filter((e) => e.placed).map((e) => e.key));
+  const absent = entries
+    .filter((e) => !e.placed && placed.has(e.key))
+    .map((e) => `${e.key} ${e.location}: ${e.name}`);
+  const places = [
+    ...new Set(entries.filter((e) => !placed.has(e.key)).map((e) => `${e.key} ${e.location}`)),
+  ];
+  const result = { same, unplaced, differ: rows.length, missing, rows, overrides, absent, places };
   globalThis.bulbapediaCheck = result;
   console.log(`${same} agree, ${unplaced} not placed by Bulbapedia, ${rows.length} differ`);
   return result;

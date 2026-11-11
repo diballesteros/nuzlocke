@@ -1,5 +1,6 @@
 // Generates src/constants/exclusives.ts: which Pokémon in a combined game's encounter tables
-// (Red/Blue/Yellow, Ruby/Sapphire/Emerald, Diamond/Pearl/Platinum) appear only in some versions.
+// (Red/Blue/Yellow, Ruby/Sapphire/Emerald, Diamond/Pearl/Platinum and the other paired games)
+// appear only in some versions.
 //
 // Source: PokéAPI's encounter CSVs (one row per version, location area and slot), at the commit in
 // POKEAPI_COMMIT. Download them first, then run:
@@ -41,7 +42,9 @@ export const GAMES = {
   '11': { file: 'S_M', versions: { 27: 'sun', 28: 'moon' } },
   '12': { file: 'US_UM', versions: { 29: 'ultrasun', 30: 'ultramoon' } },
   '13': { file: 'SW_SH', versions: { 33: 'sword', 34: 'shield' } },
-  // Brilliant Diamond and Shining Pearl: PokéAPI has no encounters for them yet
+  // PokéAPI has no encounters for Brilliant Diamond and Shining Pearl yet, so their tags come from
+  // Bulbapedia alone (bulbapedia-overrides.json)
+  '13.1': { file: 'BD_SP', versions: { 37: 'brilliantdiamond', 38: 'shiningpearl' } },
 };
 
 // Our location name → PokéAPI's English location name, per game, where they differ beyond what

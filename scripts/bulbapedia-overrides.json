@@ -11,7 +11,12 @@
     "gsc-84": { "Quagsire": ["gold", "silver"] },
     "rse-8": { "Makuhita": ["ruby", "sapphire"] },
     "rse-33": { "Skitty": ["ruby", "sapphire"] },
-    "rse-41": { "Electrode": ["ruby"] },
+    "rse-41": {
+      "Electrode": ["ruby"],
+      "Geodude": ["emerald"],
+      "Graveler": ["emerald"],
+      "Torkoal": ["emerald"]
+    },
     "dpp-66": { "Cranidos": ["diamond", "platinum"], "Shieldon": ["pearl", "platinum"] },
     "dpp-49": { "Teddiursa": ["diamond", "pearl"] },
     "hgss-71": { "Latias": ["soulsilver"], "Latios": ["heartgold"] },
@@ -58,6 +63,68 @@
     },
     "swsh-19": { "Binacle": ["sword", "shield"] },
     "swsh-26": { "Duskull": ["sword", "shield"] },
-    "swsh-27": { "Trapinch": ["sword", "shield"], "Axew": ["sword", "shield"] }
+    "swsh-27": { "Trapinch": ["sword", "shield"], "Axew": ["sword", "shield"] },
+    "bdsp-69": { "Cranidos": ["brilliantdiamond"], "Shieldon": ["shiningpearl"] },
+    "bdsp-16": { "Skiploom": ["brilliantdiamond"], "Slowpoke": ["shiningpearl"] },
+    "bdsp-17": {
+      "Murkrow": ["brilliantdiamond"],
+      "Misdreavus": ["shiningpearl"],
+      "Silcoon": ["brilliantdiamond"],
+      "Beautifly": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"],
+      "Dustox": ["shiningpearl"]
+    },
+    "bdsp-63": {
+      "Murkrow": ["brilliantdiamond"],
+      "Stunky": ["brilliantdiamond"],
+      "Skuntank": ["brilliantdiamond"],
+      "Purugly": ["shiningpearl"],
+      "Glameow": ["shiningpearl"],
+      "Silcoon": ["brilliantdiamond"],
+      "Scyther": ["brilliantdiamond"],
+      "Pinsir": ["shiningpearl"],
+      "Gligar": ["brilliantdiamond"],
+      "Teddiursa": ["shiningpearl"],
+      "Magby": ["shiningpearl"],
+      "Misdreavus": ["shiningpearl"],
+      "Elekid": ["brilliantdiamond"]
+    },
+    "bdsp-20": { "Stunky": ["brilliantdiamond"] },
+    "bdsp-22": { "Stantler": ["shiningpearl"], "Larvitar": ["brilliantdiamond"] },
+    "bdsp-24": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
+    "bdsp-27": {
+      "Bonsly": ["shiningpearl"],
+      "Mime Jr.": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-30": { "Murkrow": ["brilliantdiamond"], "Misdreavus": ["shiningpearl"] },
+    "bdsp-31": { "Houndoom": ["shiningpearl"], "Mightyena": ["brilliantdiamond"] },
+    "bdsp-33": {
+      "Sudowoodo": ["shiningpearl"],
+      "Houndoom": ["shiningpearl"],
+      "Mightyena": ["brilliantdiamond"],
+      "Stunky": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    },
+    "bdsp-38": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
+    "bdsp-39": { "Bonsly": ["shiningpearl"], "Mime Jr.": ["brilliantdiamond"] },
+    "bdsp-41": { "Hoppip": ["shiningpearl"], "Skiploom": ["shiningpearl"] },
+    "bdsp-44": {
+      "Sudowoodo": ["shiningpearl"],
+      "Stunky": ["brilliantdiamond"],
+      "Skuntank": ["brilliantdiamond"]
+    },
+    "bdsp-45": { "Mr. Mime": ["brilliantdiamond"], "Glameow": ["shiningpearl"] },
+    "bdsp-49": { "Silcoon": ["brilliantdiamond"], "Cascoon": ["shiningpearl"] },
+    "bdsp-68": { "Dialga": ["brilliantdiamond"], "Palkia": ["shiningpearl"] },
+    "bdsp-57": {
+      "Glameow": ["shiningpearl"],
+      "Purugly": ["shiningpearl"],
+      "Mr. Mime": ["brilliantdiamond"],
+      "Silcoon": ["brilliantdiamond"],
+      "Cascoon": ["shiningpearl"]
+    }
   }
 }

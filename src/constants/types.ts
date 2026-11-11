@@ -164,7 +164,9 @@ export type TVersion =
   | 'ultrasun'
   | 'ultramoon'
   | 'sword'
-  | 'shield';
+  | 'shield'
+  | 'brilliantdiamond'
+  | 'shiningpearl';
 
 export type TGame = {
   value: string;

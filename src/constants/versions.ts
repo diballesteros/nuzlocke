@@ -1,8 +1,8 @@
 import type { TVersion } from 'constants/types';
 
 // The versions a game entry covers. A run can pick one (stored as its game's `version`), and the
-// Pokémon selector then offers only what that version's encounter tables hold. Brilliant Diamond and
-// Shining Pearl aren't here: PokéAPI, where the tags come from, has no encounters for them yet
+// Pokémon selector then offers only what that version's encounter tables hold. Custom games never
+// have one, even when made from one of these games: their tables are the player's own
 export const GAME_VERSIONS: { [gameKey: string]: TVersion[] } = {
   '1': ['red', 'blue', 'yellow'],
   '2': ['gold', 'silver', 'crystal'],
@@ -17,6 +17,7 @@ export const GAME_VERSIONS: { [gameKey: string]: TVersion[] } = {
   '11': ['sun', 'moon'],
   '12': ['ultrasun', 'ultramoon'],
   '13': ['sword', 'shield'],
+  '13.1': ['brilliantdiamond', 'shiningpearl'],
 };
 
 // constants/exclusives' shape. The table is its own chunk (hooks/useExclusives loads it once a run

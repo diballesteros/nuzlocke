@@ -78,6 +78,7 @@ describe('version tags', () => {
         "rse-22 sapphire",
         "rse-27 ruby",
         "rse-27 sapphire",
+        "rse-41 sapphire",
         "rse-69 ruby",
         "dpp-32 diamond",
         "dpp-32 pearl",
