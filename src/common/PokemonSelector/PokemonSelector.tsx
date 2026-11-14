@@ -5,7 +5,7 @@ import { Lightbulb, Star, X } from 'lucide-react';
 import SelectorRow, { SELECTOR_TAG } from 'common/SelectorRow/SelectorRow';
 import { Filter } from 'components';
 import POKEMON from 'constants/pokemon';
-import type { Type } from 'constants/types';
+import type { TMethod, Type } from 'constants/types';
 import useFilter from 'hooks/useFilter';
 import useRemtoPx from 'hooks/useRemToPx';
 import useStore from 'store';
@@ -28,6 +28,9 @@ interface PokemonSelectorProps {
   filter?: number[] | false;
   handlePokemon: (pokemonId: number) => void;
   limitGen?: number;
+  // How the location's Pokémon are met when it isn't in the wild (the tracker's rows, from
+  // constants/methods), shown as a label on each of them
+  methods?: { [pokemon: string]: TMethod[] };
   suggestions?: Type[] | false;
   tooltip?: boolean;
 }
@@ -39,6 +42,7 @@ function PokemonSelector({
   filter = false,
   handlePokemon,
   limitGen,
+  methods,
   suggestions,
   tooltip = false,
 }: PokemonSelectorProps): React.JSX.Element {
@@ -93,6 +97,13 @@ function PokemonSelector({
       <SelectorRow
         ariaAttributes={ariaAttributes}
         dupe={dupe}
+        method={
+          methods?.[pokemon.text] && (
+            <span className={METHOD_TAG} data-testid={`method-${pokemon.text}`}>
+              {methods[pokemon.text].map((method) => t(`methods.${method}`)).join(' · ')}
+            </span>
+          )
+        }
         name={pokemon.text}
         onClick={() => handleClick(pokemon.value)}
         pokemon={pokemon}
@@ -184,5 +195,9 @@ function PokemonSelector({
     </>
   );
 }
+
+// The method label, in the middle of the row between the name and the types
+const METHOD_TAG =
+  'rounded-[4px] border border-solid border-contrast-border bg-background px-(--spacing-2) py-(--spacing-0) text-center text-(length:--font-size-4) font-bold text-foreground uppercase';
 
 export default PokemonSelector;

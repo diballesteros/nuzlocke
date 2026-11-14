@@ -1,4 +1,4 @@
-import type { TVersion } from 'constants/types';
+import type { TMethod, TVersion } from 'constants/types';
 
 // The versions a game entry covers. A run can pick one (stored as its game's `version`), and the
 // Pokémon selector then offers only what that version's encounter tables hold. Custom games never
@@ -35,3 +35,7 @@ export function inVersion(
   const versions = version && exclusives?.[filterKey]?.[pokemon];
   return !versions || versions.includes(version);
 }
+
+// constants/methods' shape: how a Pokémon in a location's encounter table is met there when it
+// isn't a plain wild encounter. Its own chunk too (hooks/useMethods), loaded by the tracker's rows
+export type TMethods = { [filterKey: string]: { [pokemon: string]: TMethod[] } };

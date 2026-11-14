@@ -134,6 +134,29 @@ export type TrackData = {
   version?: TVersion;
 };
 
+// How a Pokémon is met at a location when it isn't a plain wild encounter (constants/methods), as
+// Bulbapedia's location pages list it. Each has a label under `methods` in the common namespace
+export type TMethod =
+  | 'berry'
+  | 'curry'
+  | 'dualslot'
+  | 'gift'
+  | 'grotto'
+  | 'headbutt'
+  | 'hidden'
+  | 'honey'
+  | 'horde'
+  | 'islandscan'
+  | 'phenomenon'
+  | 'prize'
+  | 'radar'
+  | 'radio'
+  | 'rocksmash'
+  | 'sos'
+  | 'special'
+  | 'swarm'
+  | 'trade';
+
 export type TVersion =
   | 'red'
   | 'blue'

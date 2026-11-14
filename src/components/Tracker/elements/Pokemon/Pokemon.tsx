@@ -10,6 +10,7 @@ import type { TEncounter, TPokemon } from 'constants/types';
 import { inVersion } from 'constants/versions';
 import useExclusives from 'hooks/useExclusives';
 import useFilters from 'hooks/useFilters';
+import useMethods from 'hooks/useMethods';
 import { selectSuggestion, selectTotal } from 'selectors';
 import useStore from 'store';
 import { HoverPopover } from '@/components/ui/popover';
@@ -55,6 +56,7 @@ const Pokemon = React.memo(function Pokemon({
   const version = games[selectedGame?.value]?.version;
   const exclusives = useExclusives(!!version);
   const filters = useFilters();
+  const methods = useMethods();
   const rules = useStore(useCallback((state) => state.rules, []));
   const selectedRuleset = useStore(useCallback((state) => state.selectedRuleset, []));
 
@@ -162,6 +164,7 @@ const Pokemon = React.memo(function Pokemon({
         dupes={total?.map((c) => c.pokemon)}
         filter={filter}
         handlePokemon={onChange}
+        methods={filter ? methods?.[encounter.filterKey] : undefined}
         suggestions={filter && suggestions && suggestionsSettings && !showAll ? suggestions : false}
         tooltip={showAllTooltip}
       >
