@@ -87,5 +87,26 @@
     "Careful": "Sacht",
     "Quirky": "Kauzig"
   },
-  "delete_move": "{{move}} löschen"
+  "delete_move": "{{move}} löschen",
+  "methods": {
+    "special": "Spezial",
+    "gift": "Geschenk",
+    "trade": "Tausch",
+    "prize": "Gewinn",
+    "headbutt": "Kopfnuss",
+    "rocksmash": "Zertrümmerer",
+    "swarm": "Schwarm",
+    "radar": "Pokéradar",
+    "dualslot": "Dual-Slot",
+    "radio": "Radio",
+    "phenomenon": "Phänomen",
+    "grotto": "Versteckte Lichtung",
+    "horde": "Horde",
+    "hidden": "Versteckt",
+    "islandscan": "Insel-Scan",
+    "berry": "Beerenbaum",
+    "honey": "Honigbaum",
+    "sos": "SOS",
+    "curry": "Curry"
+  }
 }

@@ -30,6 +30,7 @@ import type {
   TRulesetDictionary,
   TStatus,
   TSummaryBasic,
+  TVersion,
   Type,
 } from 'constants/types';
 
@@ -573,6 +574,17 @@ const useStore = create<AppState>()(
           state.showAll = !state.showAll;
         });
       },
+      // Clearing the version (every version) deletes the field, so the save looks as it did before
+      setVersion: (version?: TVersion) =>
+        set((state) => {
+          const game = state.games[state.selectedGame?.value];
+          if (!game) return;
+          if (version) {
+            game.version = version;
+          } else {
+            delete game.version;
+          }
+        }),
       toggleShowAllTooltip: () => {
         set((state) => {
           state.showAllTooltip = false;

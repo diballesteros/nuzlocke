@@ -21,7 +21,7 @@ const KNOWN_ISSUES: {
   missingFilters: ['4: Rocket Hideout (frlg-30)', '12: Royal Avenue (usum-51)'],
   duplicateIds: ['10: id 69'],
   // Misspellings: these Pokémon are never matched for their location
-  unknownEncounterNames: ['swsh-30: Hatterne'],
+  unknownEncounterNames: [],
   localeKeys: [],
 };
 
