@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts       | Function in review      |
+| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts       | Done (#899, #927)       |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -222,7 +222,7 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
 
 ### Phase 7: automatic issue triage
 
-**Built, waiting on its merge and a first live run.** `.github/workflows/triage.yml` runs `scripts/triage/triage.mjs` on every new issue; `CLAUDE.md` says how it works. The user has set `DISCORD_WEBHOOK_URL`.
+**Live since 2026-11-16.** `.github/workflows/triage.yml` runs `scripts/triage/triage.mjs` on every new issue; `CLAUDE.md` says how it works. The user has set `DISCORD_WEBHOOK_URL`.
 
 - **No model review (the user's decision, 2026-11-04).** The original plan's Claude review of each issue and its approved fixes were dropped. Don't bring them back without asking.
 - **What runs:** one Discord alert per issue with its title, link and any spam signals. An empty description or two signals mark an issue as likely spam: it gets one comment and the `invalid` label, and nothing is closed.
@@ -235,11 +235,11 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
   Gen 9 and version-split requests are planned work: nothing looks at what a report asks for.
 
 - **Safety:** issue text comes from strangers. The job can read the code and write issues only, never pushes, and reads the issue from `GITHUB_EVENT_PATH`. Its title goes through `neutralize` before Discord shows it.
-- **Step 1, its own PR: built, in review.** `netlify/functions/submission-created.mjs` (logic in `scripts/triage/form.mjs`) replaces the Zapier zap: each Report form submission becomes a GitHub issue in the zap's format, created with the user's fine-grained token (`GITHUB_ISSUES_TOKEN` in Netlify), so `triage.yml` runs on it as before and sends the one Discord alert. Likely spam (the triage's `isLikelySpam`) never becomes an issue: it stays in Netlify's Forms tab and the function sends the only alert about it, so nothing alerts twice and `triage.mjs` needed no change. After the merge the user creates the token, sets the variables, deploys and turns the zap off in the same step.
+- **Step 1: live (#927, 2026-11-16).** `netlify/functions/submission-created.mjs` (logic in `scripts/triage/form.mjs`) replaces the Zapier zap: each Report form submission becomes a GitHub issue in the zap's format, created with the user's fine-grained token (`GITHUB_ISSUES_TOKEN` in Netlify), so `triage.yml` runs on it as before and sends the one Discord alert. Likely spam (the triage's `isLikelySpam`) never becomes an issue: it stays in Netlify's Forms tab and the function sends the only alert about it, so nothing alerts twice and `triage.mjs` needed no change. The user set `GITHUB_ISSUES_TOKEN` and `DISCORD_WEBHOOK_URL` in Netlify for Production only (All scopes, marked secret; Deploy Previews, branch deploys and local development stay empty, so a report sent from a preview opens no issue) and turned the Zapier zap off. The first live run, submission 719, became #931: the zap's format with the `netlify` label, then `triage.yml` ran on it and sent the one Discord alert. The function's log is under the site's Logs & metrics › Functions, one `Report form submission <n>: <status>` line per submission.
 
-#### Report form → GitHub issue (Zapier until step 1 is live)
+#### Report form → GitHub issue (Zapier until 2026-11-16)
 
-- **What exists:** the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
+- **What existed before step 1** (the zap is off now): the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
   1. Netlify › **New Form Submission** (an instant trigger).
   2. GitHub (app 1.1.0) › **Create Issue** on `diballesteros/nuzlocke`, mapping the submission's fields.
 - **Issue format** (the zap's configuration, and #815–#819):
