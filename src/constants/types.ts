@@ -138,6 +138,7 @@ export type TrackData = {
 // Bulbapedia's location pages list it. Each has a label under `methods` in the common namespace
 export type TMethod =
   | 'berry'
+  | 'contest'
   | 'curry'
   | 'dualslot'
   | 'gift'
@@ -147,6 +148,7 @@ export type TMethod =
   | 'honey'
   | 'horde'
   | 'islandscan'
+  | 'nationaldex'
   | 'phenomenon'
   | 'prize'
   | 'radar'

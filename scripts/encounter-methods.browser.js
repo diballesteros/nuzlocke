@@ -19,7 +19,8 @@
 // redirects, and the first page with catch rows wins. FIX holds the names Bulbapedia spells
 // otherwise. "Starter" locations are skipped. Each game's rows use their own templates (GAMES), whose
 // version columns say which versions a row is for. A row's method is its first column after them;
-// the `catch/div` heading above it adds headbutt trees, swarms, hordes, phenomena and the like.
+// the `catch/div` heading above it adds headbutt trees, swarms, hordes, phenomena and the like,
+// the Bug-Catching Contest ("Thursday Contest") and rows met only after the National Pokédex.
 // Honey trees (Diamond/Pearl/Platinum, Brilliant Diamond/Shining Pearl) come from the Honey Tree
 // page, Game Corner prizes from each city's "<City> Game Corner" page.
 /* global fetch, setTimeout, console */
@@ -81,7 +82,14 @@ async function page(title) {
   const response = await fetch(
     `/w/api.php?action=parse&format=json&prop=wikitext&redirects=1&page=${encodeURIComponent(title)}`
   );
-  const json = await response.json();
+  let json;
+  try {
+    json = await response.json();
+  } catch {
+    // Bulbapedia answers a burst of requests with an HTML error page: wait and ask again
+    await wait(3000);
+    return page(title);
+  }
   cache[title] = json.parse ? { title: json.parse.title, text: json.parse.wikitext['*'] } : null;
   await wait(120);
   return cache[title];
@@ -171,7 +179,10 @@ function classify({ method, div, rate }) {
   if (/hidden pok/.test(div.toLowerCase())) return 'hidden';
   if (/berry/.test(both)) return 'berry';
   if (/curry/.test(m)) return 'curry';
+  if (/contest/.test(div.toLowerCase())) return 'contest';
   if (/^(special|backlot|chase|pichu)$/.test(m) || /\bone\b/i.test(rate)) return 'special';
+  // Met in the wild, but only once the player has the National Pokédex
+  if (/national pok/.test(div.toLowerCase())) return 'nationaldex';
   return 'wild';
 }
 

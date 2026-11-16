@@ -19,4 +19,14 @@ test.describe('Methods', () => {
     await expect(page.locator('[data-testid^="method-"]')).toHaveCount(0);
     await text(page, 'Cancel').click();
   });
+
+  test('Pokémon added from Bulbapedia show in the selector with their label', async ({ page }) => {
+    await page.goto('/');
+    await selectGame(page, 'HeartGold and SoulSilver');
+
+    // hgss-1: Exeggcute, met only in headbutt trees, was added to the table on 2026-11-16
+    await byTestId(page, 'pokemon-1').click();
+    await expect(byTestId(page, 'method-Exeggcute')).toHaveText('Headbutt');
+    await text(page, 'Cancel').click();
+  });
 });
