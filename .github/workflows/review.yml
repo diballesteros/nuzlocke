@@ -43,9 +43,10 @@ jobs:
       - name: Change file
         if: always()
         run: node scripts/changes-check.mjs --base origin/${{ github.base_ref }} --markdown changes.md
-      - name: Migration ratchet
+      # Prints only when it fails, so its message is in this job's log, not the PR comment
+      - name: No new hard-coded hex colours
         if: always()
-        run: set -o pipefail; node scripts/migration-ratchet.mjs 2>&1 | tee ratchet.txt
+        run: node scripts/hex-colours.mjs
       - uses: actions/upload-artifact@v7
         if: always()
         with:
@@ -54,7 +55,6 @@ jobs:
             areas.json
             areas.md
             changes.md
-            ratchet.txt
 
   visual:
     needs: affected-areas
@@ -179,13 +179,8 @@ jobs:
             echo "|---|---|"
             echo "| Visual, ARIA and a11y baselines | ${{ needs.visual.result }} |"
             echo "| Persisted-store goldens | ${{ needs.state.result }} |"
-            echo "| Baseline guard and ratchet | ${{ needs.affected-areas.result }} |"
+            echo "| Baseline guard and hex colours | ${{ needs.affected-areas.result }} |"
             echo "| Bundle size | ${{ needs.bundle-size.result }} |"
-            echo
-            echo '**Migration ratchet**'
-            echo '```'
-            cat ratchet.txt 2>/dev/null || echo "not computed"
-            echo '```'
             echo
             cat bundle.md 2>/dev/null || true
           } > comment.md

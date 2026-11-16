@@ -25,7 +25,7 @@ Web app to track and record encounters in any Pokémon game. Including custom ga
 
 All Pokémon included up to generation 8.
 
-Built with ReactJS, Typescript, Vite, Zustand and Semantic UI.
+Built with ReactJS, Typescript, Vite, Zustand, Tailwind CSS and shadcn/ui.
 
 ### 🚀 Features
 
