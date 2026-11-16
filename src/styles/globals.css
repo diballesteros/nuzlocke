@@ -4,7 +4,7 @@
  *   declares it with a utility.
  * - Tailwind sits in cascade layers, and unlayered CSS (index.css, pokemon.css, item.css) still
  *   beats layered CSS, so a utility for a property those set needs `!`.
- * The ratchet in scripts/migration-ratchet.mjs leaves this file out of its hex count: tokens are
+ * scripts/hex-colours.mjs leaves this file out of its count of hard-coded colours: tokens are
  * where colours belong.
  */
 @layer theme, base, components, utilities;

@@ -29,6 +29,7 @@ export const createGitHub = ({ token, repository, fetchImpl = fetch }) => {
     labels: async () => (await request(`${repo}/labels?per_page=100`)).map((label) => label.name),
     addLabels: (number, labels) =>
       request(`${repo}/issues/${number}/labels`, { method: 'POST', body: { labels } }),
+    createIssue: (issue) => request(`${repo}/issues`, { method: 'POST', body: issue }),
   };
 };
 
