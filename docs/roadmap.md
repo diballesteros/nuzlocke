@@ -10,7 +10,7 @@ Last updated 2026-11-16.
 | ----- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------- |
 | V–5   | The UI migration: Semantic UI and Sass → Tailwind v4 and shadcn/ui, React 19, the redesign       | Done, released in 7.0.0 (#922); summary below                                   |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)     | Done except the PKHeX import, the IV `NaN` bug and the summary image's contrast |
-| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts     | Merged (#899, #927); the user sets up the token and turns the zap off           |
+| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts     | Live since 2026-11-16 (#899, #927)                                              |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop       | Sentry done (#891); analytics (#893) and the feedback widget (#929) open        |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages | Quick wins done (#873, #874, #896); metadata (#928) and data split (#930) open  |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                  | Not started                                                                     |
@@ -92,7 +92,6 @@ The user's answers to the questions in the [backlog review](https://claude.ai/ar
 ## Waiting on the user
 
 - `docs/agent-tasks.md` holds small tasks for a simpler agent. On the original machine it had uncommitted local edits that Claude didn't make. Check whether they need committing from there.
-- **Report form function (#927, merged):** create the fine-grained token (issues: write on this repository only) as `GITHUB_ISSUES_TOKEN` in Netlify, deploy, and turn the Zapier zap off in the same step, or every report arrives twice. Then check the function's log on the first real report.
 - **Analytics (#893):** the hosting choice. On Netlify's credit-based free plan, running out of credits pauses every site on the account.
 - **Sentry:** `SENTRY_AUTH_TOKEN` in Netlify's environment for the source map upload.
 - **Search Console:** submit `https://nuzlocke.netlify.app/sitemap.xml`, and again after pre-rendering or per-game pages change which URLs exist.
@@ -131,7 +130,7 @@ One small PR per fix, each from `master`.
 
 - **What runs:** one Discord alert per issue with its title, link and any spam signals. An empty description or two signals mark an issue as likely spam: it gets one comment and the `invalid` label, and nothing is closed. A form submission that is likely spam never becomes an issue; the function sends the only alert about it.
 - **Spam signals from the backlog review:** an empty description; Type, Device and OS all blank, which the form's UI can't send; injection strings in fields; the same text sent two or three times within minutes. Nothing looks at what a report asks for.
-- **Before the function goes live,** a Zapier zap in the user's account creates the issues in the same format (title `User Submitted Issue: # <number>`, `Field: value` lines, label `netlify`). It's edited only in Zapier's UI.
+- **Live since 2026-11-16.** The user set `GITHUB_ISSUES_TOKEN` and `DISCORD_WEBHOOK_URL` in Netlify for Production only (All scopes, marked secret; deploy previews, branch deploys and local development stay empty, so a report sent from a preview opens no issue) and turned off the Zapier zap that created these issues before, in the same format. The first live run, submission 719, became #931 and `triage.yml` sent its one Discord alert. The function's log is under the site's Logs & metrics › Functions, one `Report form submission <n>: <status>` line per submission.
 
 ### Phase 8: usage analytics and Sentry
 
