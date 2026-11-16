@@ -21,6 +21,10 @@ import { BUTTON_ICON, TrashIcon } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';
 
 interface MoveSelectorProps {
+  // The Builder's tile: the move's name, or the placeholder, in a <b> (its specs click the slot's
+  // <b>), and the slot and type in the button's name instead of hidden text (its specs pick a type
+  // in the move list by its text, which the hidden type would match first)
+  boldName?: boolean;
   currentMoveId: number;
   handleMove: (moveId: number) => void;
   hideGen?: boolean;
@@ -37,6 +41,7 @@ const TILE =
   'relative flex h-[2.857rem] min-w-0 cursor-pointer items-center gap-(--spacing-2) rounded-md border border-solid border-contrast-border bg-transparent py-0 pr-(--spacing-1) pl-(--spacing-1) text-foreground has-[>button:first-of-type:focus-visible]:outline-2 has-[>button:first-of-type:focus-visible]:outline-offset-2 has-[>button:first-of-type:focus-visible]:outline-row-ring hover:border-foreground';
 
 function MoveSelector({
+  boldName,
   currentMoveId,
   handleMove,
   hideGen,
@@ -51,6 +56,11 @@ function MoveSelector({
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const isSplit = !PHYS_SPEC_SPLIT.includes(selectedGame?.value);
   const currentMove = MOVEMAP.get(currentMoveId);
+  const Name = boldName ? 'b' : 'span';
+  const hidden = !boldName;
+  const tileName = boldName
+    ? `${slot ? `${slot}: ` : ''}${currentMove ? `${currentMove.name}, ${currentMove.type}` : t('select_move')}`
+    : undefined;
   const filteredMoves = MOVES.filter(
     (m) =>
       m.name.toUpperCase().includes(values.search) &&
@@ -95,18 +105,19 @@ function MoveSelector({
         style={currentMove ? { background: TYPE_COLOR[currentMove.type] } : undefined}
       />
       <button
+        aria-label={tileName}
         className="flex h-full min-w-0 flex-1 cursor-pointer items-center border-0 bg-transparent p-0 text-left text-(length:--font-size-2) leading-[1.4] outline-none"
         title={currentMove?.type}
         type="button"
       >
-        {slot && <span className="sr-only">{slot}: </span>}
+        {hidden && slot && <span className="sr-only">{slot}: </span>}
         {currentMove ? (
-          <span className="truncate font-bold">
+          <Name className="truncate font-bold">
             {currentMove.name}
-            <span className="sr-only">, {currentMove.type}</span>
-          </span>
+            {hidden && <span className="sr-only">, {currentMove.type}</span>}
+          </Name>
         ) : (
-          <span className="truncate text-row-muted">{t('select_move')}</span>
+          <Name className="truncate font-normal text-row-muted">{t('select_move')}</Name>
         )}
       </button>
       {currentMove && (

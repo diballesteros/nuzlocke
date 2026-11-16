@@ -370,7 +370,9 @@ function DetailDialog({
                 )}
               </span>
               {foundPokemon && <PokemonType pokemon={foundPokemon} />}
-              <span className="flex max-w-full items-center gap-(--spacing-2) text-(length:--font-size-1) text-row-muted">
+              {/* Dialogs set a line of 1, which would cut the truncated caption's glyphs. The
+                  margins take back the taller line, so the header keeps its height */}
+              <span className="-my-[0.2em] flex max-w-full items-center gap-(--spacing-2) text-(length:--font-size-1) leading-[1.4] text-row-muted">
                 {statusDot && (
                   <span
                     aria-hidden
@@ -606,7 +608,7 @@ function DetailDialog({
                 text={t('export_to_game')}
                 triggerClassName={cn(
                   FOOTER_BUTTON,
-                  'w-auto max-sm:w-full justify-between leading-[1.4]! text-left pr-(--spacing-2) whitespace-normal max-sm:h-auto max-sm:[&>[data-select-text]]:overflow-visible max-sm:[&>[data-select-text]]:whitespace-normal max-sm:[&>[data-select-text]]:[text-overflow:clip] max-sm:min-h-[2.857rem] max-sm:py-(--spacing-1)'
+                  'w-auto max-sm:w-full justify-between text-left pr-(--spacing-2) whitespace-normal max-sm:h-auto max-sm:[&>[data-select-text]]:overflow-visible max-sm:[&>[data-select-text]]:whitespace-normal max-sm:[&>[data-select-text]]:[text-overflow:clip] max-sm:min-h-[2.857rem] max-sm:py-(--spacing-1)'
                 )}
                 value={selectedGame?.value}
               />

@@ -2,8 +2,7 @@
   "account_deletion": "Kontolöschung",
   "accounts_discontinued": "Konten wurden eingestellt",
   "accounts_discontinued_details": "Nuzlocke Tracker bietet keine Konten und keine Cloud-Speicherung mehr an. Alle Kontodaten, einschließlich E-Mail-Adressen und gespeicherter Runs, wurden gelöscht. Deine Runs werden nur auf diesem Gerät gespeichert; nutze Exportieren, um eine Sicherung zu behalten.",
-  "back": "Zurück",
-  "calculator": "Taschenrechner",
+  "calculator": "Taschen\u00adrechner",
   "cancel": "Abbrechen",
   "clear": "Löschen",
   "no_results": "Keine Ergebnisse gefunden.",
@@ -57,6 +56,10 @@
   "move_list": "Attackenliste",
   "add_game": "Spiel hinzufügen",
   "menu": "Menü",
+  "game": "Spiel",
+  "menu_new_version": "Menü, neue Version",
+  "changelog_new_version": "Changelog, neue Version",
+  "delete_game": "Spiel löschen",
   "natures": {
     "Hardy": "Robust",
     "Lonely": "Solo",
@@ -84,5 +87,28 @@
     "Careful": "Sacht",
     "Quirky": "Kauzig"
   },
-  "delete_move": "{{move}} löschen"
+  "delete_move": "{{move}} löschen",
+  "methods": {
+    "special": "Spezial",
+    "gift": "Geschenk",
+    "trade": "Tausch",
+    "prize": "Gewinn",
+    "headbutt": "Kopfnuss",
+    "rocksmash": "Zertrümmerer",
+    "swarm": "Schwarm",
+    "radar": "Pokéradar",
+    "dualslot": "Dual-Slot",
+    "radio": "Radio",
+    "phenomenon": "Phänomen",
+    "grotto": "Versteckte Lichtung",
+    "horde": "Horde",
+    "hidden": "Versteckt",
+    "islandscan": "Insel-Scan",
+    "berry": "Beerenbaum",
+    "honey": "Honigbaum",
+    "sos": "SOS",
+    "curry": "Curry",
+    "contest": "Käferturnier",
+    "nationaldex": "Nationaler Pokédex"
+  }
 }

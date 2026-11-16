@@ -2,7 +2,6 @@
   "account_deletion": "Account Deletion",
   "accounts_discontinued": "Accounts have been discontinued",
   "accounts_discontinued_details": "Nuzlocke Tracker no longer offers accounts or cloud saves. All account data, including email addresses and saved runs, has been deleted. Your runs are stored only on this device; use Export to keep a backup.",
-  "back": "Back",
   "calculator": "Calculator",
   "cancel": "Cancel",
   "clear": "Clear",
@@ -57,6 +56,10 @@
   "move_list": "Move list",
   "add_game": "Add game",
   "menu": "Menu",
+  "game": "Game",
+  "menu_new_version": "Menu, new version",
+  "changelog_new_version": "Changelog, new version",
+  "delete_game": "Delete game",
   "natures": {
     "Hardy": "Hardy",
     "Lonely": "Lonely",
@@ -84,5 +87,28 @@
     "Careful": "Careful",
     "Quirky": "Quirky"
   },
-  "delete_move": "Delete {{move}}"
+  "delete_move": "Delete {{move}}",
+  "methods": {
+    "special": "Special",
+    "gift": "Gift",
+    "trade": "Trade",
+    "prize": "Prize",
+    "headbutt": "Headbutt",
+    "rocksmash": "Rock Smash",
+    "swarm": "Swarm",
+    "radar": "Poké Radar",
+    "dualslot": "Dual-slot",
+    "radio": "Radio",
+    "phenomenon": "Phenomenon",
+    "grotto": "Hidden Grotto",
+    "horde": "Horde",
+    "hidden": "Hidden",
+    "islandscan": "Island Scan",
+    "berry": "Berry tree",
+    "honey": "Honey tree",
+    "sos": "SOS",
+    "curry": "Curry",
+    "contest": "Bug-Catching Contest",
+    "nationaldex": "National Dex"
+  }
 }

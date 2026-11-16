@@ -2,7 +2,6 @@
   "account_deletion": "Eliminación de cuenta",
   "accounts_discontinued": "Las cuentas se han descontinuado",
   "accounts_discontinued_details": "Nuzlocke Tracker ya no ofrece cuentas ni guardado en la nube. Todos los datos de las cuentas, incluidos los correos electrónicos y las partidas guardadas, se han eliminado. Tus partidas se guardan solo en este dispositivo; usa Exportar para tener una copia de seguridad.",
-  "back": "Atrás",
   "calculator": "Calculadora",
   "cancel": "Cancelar",
   "clear": "Borrar",
@@ -57,6 +56,10 @@
   "move_list": "Lista de movimientos",
   "add_game": "Añadir juego",
   "menu": "Menú",
+  "game": "Juego",
+  "menu_new_version": "Menú, nueva versión",
+  "changelog_new_version": "Changelog, nueva versión",
+  "delete_game": "Eliminar juego",
   "natures": {
     "Hardy": "Fuerte",
     "Lonely": "Huraña",
@@ -84,5 +87,28 @@
     "Careful": "Cauta",
     "Quirky": "Rara"
   },
-  "delete_move": "Borrar {{move}}"
+  "delete_move": "Borrar {{move}}",
+  "methods": {
+    "special": "Especial",
+    "gift": "Regalo",
+    "trade": "Intercambio",
+    "prize": "Premio",
+    "headbutt": "Golpe Cabeza",
+    "rocksmash": "Golpe Roca",
+    "swarm": "Enjambre",
+    "radar": "Pokéradar",
+    "dualslot": "Doble ranura",
+    "radio": "Radio",
+    "phenomenon": "Fenómeno",
+    "grotto": "Claro Oculto",
+    "horde": "Horda",
+    "hidden": "Oculto",
+    "islandscan": "Escáner Isla",
+    "berry": "Árbol de bayas",
+    "honey": "Árbol de miel",
+    "sos": "SOS",
+    "curry": "Curry",
+    "contest": "Concurso de Captura de Bichos",
+    "nationaldex": "Pokédex Nacional"
+  }
 }

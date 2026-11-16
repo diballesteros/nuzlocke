@@ -97,9 +97,12 @@ export const selectGame = async (page: Page, game: string) => {
 };
 
 // Checkboxes, toggles and radios
-// Semantic's hidden <input>, or a Radix checkbox (a button with role="checkbox" and aria-checked)
+// Semantic's hidden <input>, a Radix checkbox (a button with role="checkbox" and aria-checked), or
+// a Radix switch that carries the test id itself (Settings' rows, 5w)
 export const checkbox = (page: Page, id: string) =>
-  byTestId(page, id).locator('input, [role="checkbox"]');
+  byTestId(page, id)
+    .locator('input, [role="checkbox"]')
+    .or(page.locator(`[role="switch"][data-testid="${id}"]`));
 
 // Clicks the label of a checkbox or radio, or a Radix switch itself (it carries the test id and has
 // no label of its own, like Semantic's `fitted toggle`)
@@ -119,11 +122,18 @@ export const expectChecked = (page: Page, id: string, checked: boolean) =>
   expect(checkbox(page, id)).toBeChecked({ checked });
 
 // Tab menus, numbered from 1 like the Cypress :nth-child selectors they replace. A string names the
-// Tabs variant (`secondary`, `tabular`)
+// Tabs variant (`secondary`, `tabular`); the redesign's `segmented` menus (Builder, 5t) replace
+// Semantic's secondary menus, so `secondary` finds them too. With both on one page, the first in
+// document order wins
+const TAB_VARIANTS = { secondary: ['secondary', 'segmented'], tabular: ['tabular'] };
 export const tabMenu = (page: Page, menu: 'secondary' | 'tabular' | Locator) =>
   typeof menu === 'string'
     ? page
-        .locator(`[data-slot="tabs-list"][data-variant="${menu}"]`)
+        .locator(
+          TAB_VARIANTS[menu]
+            .map((variant) => `[data-slot="tabs-list"][data-variant="${variant}"]`)
+            .join(', ')
+        )
         .first()
         .locator(':scope > [role="tab"]')
     : menu.locator('[role="tablist"]').first().locator(':scope > [role="tab"]');

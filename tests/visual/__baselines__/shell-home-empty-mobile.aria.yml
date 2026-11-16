@@ -1,7 +1,7 @@
 - banner:
-  - button "sidebar-button": "!"
-  - combobox "games": Choose a game
-  - button "addgame"
+  - button "Menu, new version"
+  - combobox "Game": Choose a game
+  - button "Add game"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
   - navigation:

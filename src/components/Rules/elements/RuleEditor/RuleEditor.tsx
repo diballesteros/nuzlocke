@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
 import type { TRule, TRuleContent } from 'constants/types';
+import { focusBack } from 'components/Tracker/elements/buttons';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,29 +12,36 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { BUTTON_ICON, PencilIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { MultiSelect } from '@/components/ui/multi-select';
 
 interface RuleEditorProps {
   content: TRuleContent;
   index: number;
+  onClose: () => void;
+  open: boolean;
+  // Where focus goes on close when what opened it is gone (the ⋮ menu's item). Otherwise Radix
+  // returns it to the element that had it (the row's pencil)
+  returnFocus?: HTMLElement | null;
   type: TRule;
 }
 
-function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Element {
+// The rule editor's dialog (5u). The page opens it from a row's pencil or its ⋮ menu, keyed per
+// opening, so its fields start from the rule each time
+function RuleEditor({
+  content,
+  index,
+  onClose,
+  open,
+  returnFocus,
+  type,
+}: RuleEditorProps): React.JSX.Element {
   const { t } = useTranslation('rules');
   const editRule = useStore(useCallback((state) => state.editRule, []));
-  const [open, setOpen] = useState(false);
   const [ruleText, setRuleText] = useState(content);
   const [level, setLevel] = useState(content);
   const [types, setTypes] = useState(content);
   const [gens, setGens] = useState<TRuleContent>(content);
-
-  const handleEditModal = () => {
-    setRuleText(content);
-    setOpen(true);
-  };
 
   const handleEditRule = () => {
     switch (type) {
@@ -50,7 +58,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Elemen
         editRule(ruleText, index);
         break;
     }
-    setOpen(false);
+    onClose();
   };
 
   const handleEditClose = () => {
@@ -58,7 +66,7 @@ function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Elemen
     setLevel(content);
     setTypes(content);
     setGens(content);
-    setOpen(false);
+    onClose();
   };
 
   const getInput = () => {
@@ -116,39 +124,31 @@ function RuleEditor({ content, index, type }: RuleEditorProps): React.JSX.Elemen
   };
 
   return (
-    <>
-      <Button
-        aria-label="edit rule"
-        data-testid={`edit-rule-${index}`}
-        onClick={handleEditModal}
-        size="compact-icon"
-        type="button"
-        variant="basic"
+    <Dialog
+      open={open}
+      onOpenChange={(next) => {
+        if (!next) handleEditClose();
+      }}
+    >
+      <DialogContent
+        onCloseAutoFocus={
+          returnFocus === undefined ? undefined : (e: Event) => focusBack(e, returnFocus)
+        }
       >
-        <PencilIcon className={BUTTON_ICON} />
-      </Button>
-      <Dialog
-        open={open}
-        onOpenChange={(next) => {
-          if (!next) handleEditClose();
-        }}
-      >
-        <DialogContent>
-          <DialogTitle className="sr-only">{t('rule_description')}</DialogTitle>
-          <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)">
-            {getInput()}
-          </DialogBody>
-          <DialogFooter>
-            <Button onClick={handleEditClose} variant="secondary">
-              {t('cancel', { ns: 'common' })}
-            </Button>
-            <Button onClick={handleEditRule} variant="primary">
-              {t('save', { ns: 'common' })}
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
-    </>
+        <DialogTitle className="sr-only">{t('rule_description')}</DialogTitle>
+        <DialogBody className="flex flex-col flex-nowrap gap-(--spacing-1)">
+          {getInput()}
+        </DialogBody>
+        <DialogFooter>
+          <Button onClick={handleEditClose} variant="secondary">
+            {t('cancel', { ns: 'common' })}
+          </Button>
+          <Button onClick={handleEditRule} variant="primary">
+            {t('save', { ns: 'common' })}
+          </Button>
+        </DialogFooter>
+      </DialogContent>
+    </Dialog>
   );
 }
 

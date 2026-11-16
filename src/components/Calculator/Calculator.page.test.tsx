@@ -48,7 +48,9 @@ describe('Calculator', () => {
   test('on a narrow screen, Enter or Space on a tab shows that side; other keys do not', () => {
     vi.stubGlobal('innerWidth', 500);
     const { container } = render(<Calculator />);
-    const [side1, side2] = Array.from(container.querySelectorAll<HTMLElement>('form > fieldset'));
+    const [side1, side2] = Array.from(
+      container.querySelectorAll<HTMLElement>('form > div > fieldset')
+    );
     expect([side1.style.display, side2.style.display]).toEqual(['flex', 'none']);
 
     fireEvent.keyDown(screen.getByTestId('pokemon2-tab'), { key: 'a' });

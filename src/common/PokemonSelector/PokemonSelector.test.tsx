@@ -35,3 +35,25 @@ describe('PokemonSelector trigger', () => {
     expect(await screen.findByRole('dialog')).toBeTruthy();
   });
 });
+
+// How each Pokémon is met (the tracker passes constants/methods for the row's location): a label on
+// the tagged ones only. Without i18n set up, the label shows its keys
+describe('PokemonSelector methods', () => {
+  test('labels the Pokémon met other than in the wild', async () => {
+    const user = userEvent.setup();
+    render(
+      <PokemonSelector
+        filter={[1, 4, 7]}
+        handlePokemon={() => {}}
+        methods={{ Bulbasaur: ['gift'], Squirtle: ['gift', 'trade'] }}
+      >
+        <span>Pick</span>
+      </PokemonSelector>
+    );
+    await user.click(screen.getByTestId('pokemon-selector'));
+    expect((await screen.findByTestId('method-Bulbasaur')).textContent).toBe('methods.gift');
+    expect(screen.getByTestId('method-Squirtle').textContent).toBe('methods.gift · methods.trade');
+    expect(screen.getByTestId('poke-Charmander')).toBeTruthy();
+    expect(screen.queryByTestId('method-Charmander')).toBeNull();
+  });
+});

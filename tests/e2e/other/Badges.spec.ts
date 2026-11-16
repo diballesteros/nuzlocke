@@ -4,6 +4,7 @@ import {
   clickOutside,
   helpIcon,
   modalField,
+  navigate,
   pickOption,
   selectGame,
   tab,
@@ -64,11 +65,11 @@ test.describe('Badges', () => {
     await helpIcon(page, 'badge-detail-0').click();
     await expect(text(page, 'Eldegoss')).toBeAttached();
     await expect(text(page, 'DYNAMAX')).toBeAttached();
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await selectGame(page, 'Ultra Sun and Ultra Moon');
     await helpIcon(page, 'badge-detail-0').click();
     await expect(text(page, 'TOTEM')).toBeAttached();
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await selectGame(page, 'HeartGold and SoulSilver');
     await byTestId(page, 'badges').evaluate((el) => (el.scrollLeft = el.scrollWidth));
     await helpIcon(page, 'badge-detail-8').click();

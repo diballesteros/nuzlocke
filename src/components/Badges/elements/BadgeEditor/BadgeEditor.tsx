@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { LEVEL_CAPS } from 'constants/badges';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
+import { ROW_ICON_CONTROL } from 'components/Tracker/elements/buttons';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -12,19 +13,20 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { FAB_ICON, FabButton } from '@/components/ui/fab-button';
-import { BUTTON_ICON, PencilIcon } from '@/components/ui/icons';
+import { PencilIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { Select } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
 
 const MULTIPLE_CAPS = ['1', '3', '5', '8'];
 
-// The header's icon buttons (add game, delete game, this pencil): Semantic's `icon` Button with no
-// background and the page's text colour. The pencil is hidden on small screens (HEADER_PENCIL)
-export const HEADER_BUTTON =
-  'bg-transparent text-foreground hover:bg-transparent hover:text-foreground focus-visible:bg-transparent focus-visible:text-foreground';
-
-export const HEADER_PENCIL = cn(HEADER_BUTTON, 'max-sm:[display:none]');
+// The header's icon buttons (5x: add game, delete game, this pencil): outlined like the tracker
+// row's controls, on the card colour and at the 34px of the game select beside them, at every
+// width. Each is named, with the same words as its tooltip
+export const HEADER_BUTTON = cn(
+  ROW_ICON_CONTROL,
+  'h-[2.429rem] w-[2.429rem] bg-card hover:bg-[color-mix(in_srgb,var(--color-foreground)_8%,var(--color-card))]'
+);
 
 interface BadgeEditorProps {
   icon?: boolean;
@@ -55,16 +57,16 @@ function BadgeEditor({ icon }: BadgeEditorProps): React.JSX.Element {
           <PencilIcon className={FAB_ICON} />
         </FabButton>
       ) : (
-        <Button
-          aria-label="editgame"
-          className={HEADER_PENCIL}
+        <button
+          aria-label={t('edit_level_caps')}
+          className={HEADER_BUTTON}
           data-testid="edit-badges"
           onClick={() => setOpen(true)}
-          size="icon"
-          variant="secondary"
+          title={t('edit_level_caps')}
+          type="button"
         >
-          <PencilIcon className={BUTTON_ICON} />
-        </Button>
+          <PencilIcon />
+        </button>
       )}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent>

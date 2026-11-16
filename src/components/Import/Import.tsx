@@ -180,7 +180,9 @@ function Import(): React.JSX.Element {
     <Page header={t('import')}>
       <RadioGroup
         aria-label={t('import')}
-        className="flex [box-sizing:unset]! flex-col flex-nowrap gap-(--spacing-4) overflow-auto text-foreground [&>p]:mb-0!"
+        // It scrolls (overflow: auto), so its first label's line (17px for a 15.75px font) would
+        // clip the glyphs' top: 2px of padding gives them room, and the margin takes it back
+        className="-my-[2px] flex [box-sizing:unset]! flex-col flex-nowrap gap-(--spacing-4) overflow-auto py-[2px] text-foreground [&>p]:mb-0!"
         onValueChange={(value) => setOption(value as 'all' | 'table')}
         value={option}
       >

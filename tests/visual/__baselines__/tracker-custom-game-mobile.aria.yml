@@ -1,8 +1,9 @@
 - banner:
-  - button "sidebar-button": "!"
-  - combobox "games": Emerald Kaizo
-  - button "addgame"
-  - button "deletegame"
+  - button "Menu, new version"
+  - combobox "Game": Emerald Kaizo
+  - button "Add game"
+  - button "Delete game"
+  - button "Edit level caps"
   - heading "Nuzlocke Tracker" [level=1]
 - main:
   - navigation:

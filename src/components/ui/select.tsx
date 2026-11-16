@@ -117,6 +117,8 @@ interface SelectProps {
   'data-testid'?: string;
   disabled?: boolean;
   icon?: React.ReactNode;
+  // The trigger's id, for a visible <label htmlFor> (Settings' language)
+  id?: string;
   // Drawn before the trigger's text (the row look's status dot and Nature's leaf)
   leading?: React.ReactNode;
   look?: SelectLook;
@@ -149,6 +151,7 @@ function Select({
   'data-testid': dataTestId,
   disabled = false,
   icon,
+  id,
   leading,
   look = 'field',
   menuClassName,
@@ -226,7 +229,12 @@ function Select({
             value={option.value}
           >
             {option.icon}
-            <SelectPrimitive.ItemText>{option.text}</SelectPrimitive.ItemText>
+            {/* ItemText also renders its children into the trigger. Browser translation swaps each text
+                node for <font> elements, and React could then no longer remove a bare text node there
+                when the value changed (removeChild threw); it removes this span instead */}
+            <SelectPrimitive.ItemText>
+              <span>{option.text}</span>
+            </SelectPrimitive.ItemText>
           </SelectPrimitive.Item>
         ))}
       </SelectPrimitive.Viewport>
@@ -236,6 +244,7 @@ function Select({
   const trigger = (
     <SelectPrimitive.Trigger
       aria-label={ariaLabel}
+      id={id}
       ref={triggerRef}
       className={cn(
         TRIGGER[look],
@@ -250,7 +259,10 @@ function Select({
       <span
         className={
           look === 'row'
-            ? 'min-w-0 flex-1 truncate'
+            ? // The span clips at its own box, so it has its own line, 1.4 high: the trigger's line
+              // of 1 (or one a caller passes) would cut off descenders (g, y, p). Centred in the
+              // trigger, the glyphs sit where a line of 1 puts them (tests/e2e/main/Descenders.spec.ts)
+              'min-w-0 flex-1 truncate leading-[1.4]'
             : ATTACHED(look) && look !== 'contrast'
               ? 'group-data-[state=open]:text-[rgba(0,0,0,0.8)]'
               : undefined

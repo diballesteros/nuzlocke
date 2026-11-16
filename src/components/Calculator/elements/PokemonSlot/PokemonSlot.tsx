@@ -1,26 +1,27 @@
 import { PkmImage } from 'common';
-import { PokemonType } from 'components';
-import { TYPE_COLOR } from 'constants/colors';
 import type { TPokemon } from 'constants/types';
+import { ChevronDownIcon } from '@/components/ui/icons';
 
 interface PokemonSlotProps {
   pokemon: TPokemon;
 }
 
+// The side's Pokémon (5s): the sprite on a tile tinted by its first type (`--t1`, set by the
+// card), then its name and a ▾. Phrasing content only: it sits inside the selector's button
+export const SPRITE_TILE =
+  'flex size-[4rem] shrink-0 items-center justify-center rounded-lg border border-solid border-[color-mix(in_srgb,var(--t1,transparent)_35%,transparent)] bg-[color-mix(in_srgb,var(--t1,transparent)_19%,transparent)] dark:bg-[color-mix(in_srgb,var(--t1,transparent)_10%,transparent)] max-sm:size-[3.429rem]';
+
 function PokemonSlot({ pokemon }: PokemonSlotProps): React.JSX.Element {
   return (
-    <div
-      className="flex cursor-pointer items-center justify-between rounded-[4px] px-(--spacing-2) py-(--spacing-3) [&>div:last-child]:flex-col [&>div:last-child]:flex-nowrap"
-      style={{ backgroundColor: `${TYPE_COLOR[pokemon?.type]}50` }}
-    >
-      <div className="flex flex-col flex-nowrap items-center">
-        <div className="flex h-[3.5rem] w-[4.5rem] items-center justify-center">
-          <PkmImage name={pokemon?.text} />
-        </div>
-        <span>{pokemon?.text}</span>
-      </div>
-      <PokemonType pokemon={pokemon} />
-    </div>
+    <>
+      <span className={SPRITE_TILE}>
+        <PkmImage name={pokemon?.text} />
+      </span>
+      <span className="flex min-w-0 items-center gap-(--spacing-1) text-(length:--font-size-4) font-bold">
+        <span className="truncate">{pokemon?.text}</span>
+        <ChevronDownIcon aria-hidden className="size-[1rem] shrink-0 text-row-muted" />
+      </span>
+    </>
   );
 }
 

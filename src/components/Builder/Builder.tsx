@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { PokemonSelector } from 'common';
 import { Member } from 'components';
@@ -21,6 +21,7 @@ function Builder(): React.JSX.Element {
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const addTeamMember = useStore(useCallback((state) => state.addTeamMember, []));
   const [tab, setTab] = useState('builder');
+  const coverageHint = useId();
   const noTeam = !team?.length;
   const handlePokemon = (id: number) => {
     addTeamMember(id);
@@ -35,25 +36,36 @@ function Builder(): React.JSX.Element {
 
   return (
     <Tabs
-      className="flex h-full w-full flex-col flex-nowrap"
-      // Semantic's disabled Coverage item ignored clicks; it isn't disabled for the browser, so
-      // the click lands and does nothing, as before
+      className="flex h-full w-full flex-col flex-nowrap gap-(--spacing-3) px-(--spacing-3) pt-(--spacing-3)"
+      // Coverage needs a team: without one it's aria-disabled (still focusable with the arrow keys,
+      // with a hint saying why) and choosing it does nothing
       onValueChange={(value) => {
         if (value !== 'coverage' || !noTeam) setTab(value);
       }}
       value={tab}
-      variant="secondary"
+      variant="segmented"
     >
       <TabsList>
         <TabsTrigger value="builder">Builder</TabsTrigger>
-        <TabsTrigger data-disabled={noTeam ? '' : undefined} value="coverage">
+        <TabsTrigger
+          aria-describedby={noTeam ? coverageHint : undefined}
+          aria-disabled={noTeam || undefined}
+          value="coverage"
+        >
           {t('coverage')}
         </TabsTrigger>
       </TabsList>
-      <TabsContent className="flex-1" value="builder">
+      {noTeam && (
+        <span className="sr-only" id={coverageHint}>
+          {t('coverage_needs_team')}
+        </span>
+      )}
+      <TabsContent className="min-h-0 flex-1" value="builder">
         <div className="relative flex h-full p-0">
           {team?.length > 0 ? (
-            <div className="flex flex-1 flex-col flex-nowrap overflow-auto">
+            // The list ends with room for the + button (4rem, --spacing-3 from the bottom) and
+            // 8px more, so the last card scrolls clear of it
+            <div className="flex flex-1 flex-col flex-nowrap gap-(--spacing-3) overflow-auto pb-[calc(4rem+var(--spacing-3)+var(--spacing-2))]">
               {team?.map((poke, i) => {
                 // A member's id is its species, and a team may hold a species more than once, so
                 // the key counts the earlier members of the same species
@@ -68,7 +80,7 @@ function Builder(): React.JSX.Element {
             <PokemonSelector handlePokemon={handlePokemon}>
               <Button
                 aria-label={t('add', { ns: 'common' })}
-                className="absolute right-(--spacing-2) bottom-(--spacing-3) size-[4rem] rounded-[10em] bg-badge p-[0.78571429em] text-white transition-all duration-500 hover:bg-badge hover:text-white"
+                className="absolute right-(--spacing-2) bottom-(--spacing-3) size-[4rem] rounded-[10em] bg-badge p-[0.78571429em] text-white shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-all duration-500 hover:bg-badge hover:text-white"
                 data-testid="builder-add"
                 disabled={team?.length === 6}
                 type="button"
@@ -82,7 +94,7 @@ function Builder(): React.JSX.Element {
           )}
         </div>
       </TabsContent>
-      <TabsContent className="flex-1" value="coverage">
+      <TabsContent className="min-h-0 flex-1" value="coverage">
         {team?.length > 0 ? (
           <Coverage />
         ) : (

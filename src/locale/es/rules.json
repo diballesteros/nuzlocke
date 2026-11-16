@@ -20,5 +20,13 @@
   "text": "Texto",
   "type": "Tipo",
   "move_down": "Bajar",
-  "move_up": "Subir"
+  "move_up": "Subir",
+  "delete_rule": "Eliminar la regla {{n}}",
+  "delete_ruleset": "Eliminar el conjunto de reglas",
+  "edit_rule": "Editar la regla {{n}}",
+  "move_rule_down": "Bajar la regla {{n}}",
+  "move_rule_up": "Subir la regla {{n}}",
+  "new_ruleset": "Nuevo conjunto de reglas",
+  "rule_options": "Opciones de la regla {{n}}",
+  "ruleset": "Reglas"
 }

@@ -30,7 +30,7 @@ test.describe('Options', () => {
     ]) {
       await toggle(page, id);
     }
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await selectGame(page, 'Sword and Shield');
     await byTestId(page, 'pokemon-0').click();
     await byTestId(page, 'poke-Bulbasaur').dispatchEvent('click');
@@ -55,7 +55,7 @@ test.describe('Options', () => {
     await expect(text(page, '!')).toBeAttached();
     await navigate(page, 'about');
     await expect(text(page, 'About')).toBeAttached();
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await navigate(page, 'changelog');
     await expect(text(page, 'Changelog')).toBeAttached();
     await expect(byTestId(page, 'changelog-list').getByRole('heading', { level: 3 })).toHaveCount(
@@ -65,7 +65,7 @@ test.describe('Options', () => {
     expect(
       await byTestId(page, 'changelog-list').getByRole('heading', { level: 3 }).count()
     ).toBeGreaterThan(3);
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await expect(text(page, '!')).toHaveCount(0);
   });
 
@@ -113,7 +113,7 @@ test.describe('Options', () => {
     await text(page, 'Cancel').click();
     await byTestId(page, 'search-options').click();
     await toggle(page, 'settings-suggestions');
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
     await expectSuggested(false);
   });
 

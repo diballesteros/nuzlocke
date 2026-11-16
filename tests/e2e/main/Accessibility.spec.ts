@@ -16,7 +16,7 @@ test.describe('Accessibility', () => {
     };
 
     await pressEnter('badge-detail-0');
-    await text(page, 'Back').click();
+    await navigate(page, 'tracker');
 
     await pressEnter('pokemon-selector');
     await text(page, 'Cancel').click();

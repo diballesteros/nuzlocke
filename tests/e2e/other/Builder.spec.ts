@@ -24,7 +24,11 @@ test.describe('Builder', () => {
   test('Build Team', async ({ page }) => {
     await navigate(page, 'builder');
     await expect(text(page, 'Please select a game')).toBeAttached();
-    await text(page, 'Coverage').click();
+    // Without a team Coverage is aria-disabled, which Playwright won't click unforced; a forced
+    // click skips its wait for the sidebar to slide out, so wait for that first
+    await expect(text(page, 'Coverage')).toHaveAttribute('aria-disabled', 'true');
+    await expect(page.locator('[data-slot="sheet-content"]')).toHaveCount(0);
+    await text(page, 'Coverage').click({ force: true });
     await selectGame(page, 'Sword and Shield');
     await tab(page, 'secondary', 1).click();
     await byTestId(page, 'builder-add').click();
@@ -80,7 +84,8 @@ test.describe('Builder', () => {
 
   test('Coverage', async ({ page }) => {
     await navigate(page, 'builder');
-    await text(page, 'Coverage').click();
+    await expect(page.locator('[data-slot="sheet-content"]')).toHaveCount(0);
+    await text(page, 'Coverage').click({ force: true });
     await importFile(page, 'Coverage.json');
     await navigate(page, 'builder');
     await tab(page, 'secondary', 2).click();

@@ -1,14 +1,21 @@
-import { useCallback, useId, useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DetailSelector, EncounterSelector, PokemonSelector } from 'common';
+import { PokemonType } from 'components';
 import { Help, PokemonSlot } from 'components/Calculator/elements';
+import { TYPE_COLOR } from 'constants/colors';
 import { DEFAULT_POKEMON_1, DEFAULT_POKEMON_2 } from 'constants/calculator';
 import DETAILS from 'constants/details';
 import { POKEMAP } from 'constants/pokemon';
 import type { PokemonDetail, TCalculatorForm, TEncounter } from 'constants/types';
 import useStore from 'store';
+import { ChevronDownIcon } from '@/components/ui/icons';
 import { Select } from '@/components/ui/select';
 import { Switch } from '@/components/ui/switch';
+
+// The Pokémon card's trigger: the sprite tile and name, filling the row up to the types
+const PICK =
+  'm-0 flex min-w-[min(100%,12.5rem)] flex-1 cursor-pointer items-center gap-(--spacing-3) rounded-lg border border-solid border-transparent bg-transparent p-[0.143rem] pr-(--spacing-2) text-left text-foreground outline-none hover:border-contrast-border hover:bg-foreground/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring';
 
 interface PokeControllerProps {
   encounters?: TEncounter[];
@@ -19,7 +26,6 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
   const { t } = useTranslation('calculator');
   const [showAll, setShowAll] = useState(true);
   const [selectedDetail, setSelectedDetail] = useState<number>(undefined);
-  const showLabel = useId();
   const selectedGame = useStore(useCallback((state) => state.selectedGame, []));
   const form = useStore(useCallback((state) => state.calcs[state?.selectedGame?.value]?.form, []));
   const update = useStore(useCallback((state) => state.updateDefaultValues, []));
@@ -110,58 +116,83 @@ function PokeController({ encounters, name }: PokeControllerProps): React.JSX.El
   const derivedShow = name === 'pokemon1' ? !showAll : showAll;
   const showGymDetails = name === 'pokemon2' && detailsToOptions?.length > 0;
 
+  const trigger = {
+    'aria-label': `${foundPokemon?.text ?? ''}, ${t('change_pokemon', { ns: 'tracker' })}`,
+    className: PICK,
+  };
+
   return (
     <div
-      className="col-span-full flex flex-col flex-nowrap items-center gap-(--spacing-2) text-foreground [&>div:first-child]:w-full [&>div:first-child]:flex-1"
+      className="col-span-full flex flex-col flex-nowrap gap-(--spacing-3) text-foreground"
       data-testid={`pokecontroller-${name}`}
     >
-      {derivedShow ? (
-        <PokemonSelector handlePokemon={handlePokemon} limitGen={form.calculatorGen}>
-          <PokemonSlot pokemon={foundPokemon} />
-        </PokemonSelector>
-      ) : name === 'pokemon1' ? (
-        <EncounterSelector
-          encounters={encounters}
-          handleEncounter={handleEncounter}
-          limitGen={form.calculatorGen}
-        >
-          <PokemonSlot pokemon={foundPokemon} />
-        </EncounterSelector>
-      ) : (
-        <DetailSelector
-          details={details[selectedDetail]?.content}
-          handleDetail={handleDetail}
-          limitGen={form.calculatorGen}
-        >
-          <PokemonSlot pokemon={foundPokemon} />
-        </DetailSelector>
-      )}
+      <div
+        className="flex min-w-0 flex-wrap items-center gap-(--spacing-2)"
+        style={{
+          ['--t1' as string]: foundPokemon ? TYPE_COLOR[foundPokemon.type] : undefined,
+        }}
+      >
+        {derivedShow ? (
+          <PokemonSelector
+            button={trigger}
+            handlePokemon={handlePokemon}
+            limitGen={form.calculatorGen}
+          >
+            <PokemonSlot pokemon={foundPokemon} />
+          </PokemonSelector>
+        ) : name === 'pokemon1' ? (
+          <EncounterSelector
+            button={trigger}
+            encounters={encounters}
+            handleEncounter={handleEncounter}
+            limitGen={form.calculatorGen}
+          >
+            <PokemonSlot pokemon={foundPokemon} />
+          </EncounterSelector>
+        ) : (
+          <DetailSelector
+            button={trigger}
+            details={details[selectedDetail]?.content}
+            handleDetail={handleDetail}
+            limitGen={form.calculatorGen}
+          >
+            <PokemonSlot pokemon={foundPokemon} />
+          </DetailSelector>
+        )}
+        {foundPokemon && (
+          <span className="ml-auto shrink-0 [&>div]:cursor-default">
+            <PokemonType pokemon={foundPokemon} />
+          </span>
+        )}
+      </div>
       {(showGymDetails || name === 'pokemon1') && (
-        <div className="flex w-full items-center gap-(--spacing-2) self-end text-foreground">
+        <div className="flex min-h-[2.286rem] w-full items-center gap-(--spacing-2) text-foreground">
           {showGymDetails && (
             <Select
-              aria-label="gym-filter"
-              caret="font"
-              className="mr-auto max-w-[70%] [&_[data-slot=select]]:text-black [&_[data-slot=select][data-placeholder]>span]:text-field-placeholder"
+              aria-label={t('select_gym')}
+              className="min-w-0 flex-1"
               clearable
               contained
               data-testid="gym-filter"
               disabled={derivedShow}
-              look="inline"
+              icon={<ChevronDownIcon aria-hidden className="size-[1rem] shrink-0" />}
+              look="row"
               onChange={(value) => setSelectedDetail(value === '' ? undefined : Number(value))}
               options={detailsToOptions}
               placeholder={t('select_gym')}
               value={selectedDetail === undefined ? '' : String(selectedDetail)}
             />
           )}
-          <Switch
-            aria-labelledby={showLabel}
-            checked={showAll}
-            className="ml-auto!"
-            data-testid={`show-all-${name}`}
-            onCheckedChange={setShowAll}
-          />
-          <span id={showLabel}>{name === 'pokemon1' ? t('show_my') : t('show_all')}</span>
+          <label className="flex shrink-0 cursor-pointer items-center gap-(--spacing-2) text-(length:--font-size-2) font-bold">
+            <Switch
+              checked={showAll}
+              className="bg-foreground/20 hover:bg-foreground/30 focus-visible:bg-foreground/30 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-row-ring"
+
+              data-testid={`show-all-${name}`}
+              onCheckedChange={setShowAll}
+            />
+            {name === 'pokemon1' ? t('show_my') : t('show_all')}
+          </label>
           {name === 'pokemon1' && <Help content={t('show_help')} />}
         </div>
       )}

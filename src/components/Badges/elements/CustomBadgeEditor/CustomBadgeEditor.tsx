@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { HEADER_PENCIL } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
+import { HEADER_BUTTON } from 'components/Badges/elements/BadgeEditor/BadgeEditor';
 import { MAX_GAME } from 'constants/constant';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
@@ -45,16 +45,16 @@ function CustomBadgeEditor({ icon }: CustomBadgeEditorProps): React.JSX.Element 
           <PencilIcon className={FAB_ICON} />
         </FabButton>
       ) : (
-        <Button
-          aria-label="editgame"
-          className={HEADER_PENCIL}
+        <button
+          aria-label={t('edit_level_caps')}
+          className={HEADER_BUTTON}
           data-testid="custom-edit-badges"
           onClick={() => setOpen(true)}
-          size="icon"
-          variant="secondary"
+          title={t('edit_level_caps')}
+          type="button"
         >
-          <PencilIcon className={BUTTON_ICON} />
-        </Button>
+          <PencilIcon />
+        </button>
       )}
       {/* No onClose before, so only its own button closes it */}
       <Dialog open={open} onOpenChange={setOpen}>

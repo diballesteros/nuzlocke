@@ -1,5 +1,7 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { HINT, ROW, TEXT, TITLE } from 'components/Settings/elements/rows';
+import { ROW_CONTROL } from 'components/Tracker/elements/buttons';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import {
@@ -9,11 +11,13 @@ import {
   DialogFooter,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { BUTTON_ICON, MinusIcon, PlusIcon } from '@/components/ui/icons';
+import { BUTTON_ICON, MinusIcon, PencilIcon, PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/lib/utils';
 
 function CustomStatuses(): React.JSX.Element {
   const { t } = useTranslation('settings');
+  const uid = useId();
   const [open, setOpen] = useState(false);
   const [text, setText] = useState('');
   const statuses = useStore(useCallback((state) => state.customStatuses, []));
@@ -27,17 +31,27 @@ function CustomStatuses(): React.JSX.Element {
 
   return (
     <>
-      {/* White on the primary blue is 3.94:1, short of AA's 4.5:1, so in light mode each state
-          takes the next darker shade (the hover blue is 4.67:1). Dark mode's outline already passes */}
-      <Button
-        aria-label="Edit custom statuses"
-        className="max-w-fit bg-primary-hover hover:bg-primary-focus focus-visible:bg-primary-active active:bg-primary-active"
-        data-testid="edit-custom-statuses"
-        onClick={() => setOpen(true)}
-        variant="blue"
-      >
-        {t('edit_custom_status')}
-      </Button>
+      {/* The Tracker card's last row (5w): the count as its hint and an outlined Edit, named in full
+          and described by the count */}
+      <div className={ROW}>
+        <span className={TEXT}>
+          <span className={TITLE}>{t('custom_statuses')}</span>
+          <span className={HINT} id={`${uid}-hint`}>
+            {t('custom_status_count', { count: statuses?.length ?? 0 })}
+          </span>
+        </span>
+        <button
+          aria-describedby={`${uid}-hint`}
+          aria-label={t('edit_custom_status')}
+          className={cn(ROW_CONTROL, 'h-[2.571rem] gap-(--spacing-2) bg-card px-(--spacing-3)')}
+          data-testid="edit-custom-statuses"
+          onClick={() => setOpen(true)}
+          type="button"
+        >
+          <PencilIcon aria-hidden />
+          <span>{t('edit')}</span>
+        </button>
+      </div>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent dismissible={false}>
           <DialogTitle className="sr-only">{t('edit_custom_status')}</DialogTitle>
@@ -46,7 +60,7 @@ function CustomStatuses(): React.JSX.Element {
               return (
                 <div
                   className="flex items-center gap-(--spacing-2) border-0 border-b border-solid border-foreground px-(--spacing-1) py-(--spacing-2) text-(length:--font-size-4)"
-                  key={`custom-status-${status}`}
+                  key={`custom-status-${status.value}`}
                 >
                   {status.text}
                   <Button

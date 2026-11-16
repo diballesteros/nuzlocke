@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { GENERATIONS, TYPE_COUNT } from 'constants/constant';
+import { TOOLBAR_BUTTON } from 'components/Tracker/elements/buttons';
 import useStore from 'store';
 import { Button } from '@/components/ui/button';
 import {
@@ -13,6 +14,7 @@ import {
 import { PlusIcon } from '@/components/ui/icons';
 import { Input } from '@/components/ui/input';
 import { MultiSelect } from '@/components/ui/multi-select';
+import { cn } from '@/lib/utils';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 function AddRule(): React.JSX.Element {
@@ -160,16 +162,16 @@ function AddRule(): React.JSX.Element {
 
   return (
     <>
-      <Button
+      <button
+        className={cn(TOOLBAR_BUTTON, 'bg-card')}
         data-testid="add-rule"
         disabled={!selectedRuleset}
         onClick={() => setOpen(true)}
         type="button"
-        variant="green"
       >
-        {t('add_rule')}
-        <PlusIcon className="-my-[0.08em] mr-[-0.03em] ml-[0.336em] size-[1.16em] -translate-y-[0.05em] align-[-0.15em] opacity-80" />
-      </Button>
+        <PlusIcon aria-hidden />
+        <span>{t('add_rule')}</span>
+      </button>
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent dismissible={false}>
           <DialogTitle className="sr-only">{t('add_rule')}</DialogTitle>

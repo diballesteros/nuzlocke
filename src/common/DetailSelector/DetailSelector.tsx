@@ -17,6 +17,9 @@ import {
 } from '@/components/ui/dialog';
 
 interface DetailSelectorProps {
+  // Opt-in (the Calculator): the trigger is a real <button> with these classes and name, in place of
+  // the click-only wrapper. Its children must be phrasing content, with no controls inside
+  button?: { 'aria-label'?: string; className?: string };
   children: React.ReactNode;
   details: PokemonDetail[];
   handleDetail: (encounter: PokemonDetail) => void;
@@ -24,6 +27,7 @@ interface DetailSelectorProps {
 }
 
 function DetailSelector({
+  button,
   children,
   details,
   handleDetail,
@@ -73,9 +77,20 @@ function DetailSelector({
 
   return (
     <>
-      <div onClick={() => setOpen(true)} role="presentation">
-        {children}
-      </div>
+      {button ? (
+        <button
+          aria-label={button['aria-label']}
+          className={button.className}
+          onClick={() => setOpen(true)}
+          type="button"
+        >
+          {children}
+        </button>
+      ) : (
+        <div onClick={() => setOpen(true)} role="presentation">
+          {children}
+        </div>
+      )}
       <Dialog open={open}>
         <DialogContent dismissible={false}>
           <DialogTitle className="sr-only">{t('select_pokemon')}</DialogTitle>

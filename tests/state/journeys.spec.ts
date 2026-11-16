@@ -98,6 +98,16 @@ test('game management', async ({ page }) => {
   await expectGolden(page, 'empty', 'game-management');
 });
 
+test('game version', async ({ page }) => {
+  await openWithSeed(page, 'empty');
+  await selectGame(page, 'Red, Blue and Yellow');
+  await pickOption(page, 'version', 'Yellow');
+  await selectGame(page, 'Ruby, Sapphire and Emerald');
+  await pickOption(page, 'version', 'Emerald');
+  await pickOption(page, 'version', 'All versions');
+  await expectGolden(page, 'empty', 'game-version');
+});
+
 test('badges and level caps', async ({ page }) => {
   await openWithSeed(page, 'game-selected');
   await page.locator('[title="Boulder Badge"]').click();

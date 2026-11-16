@@ -18,7 +18,7 @@ const COVERAGE_EXCLUDE = [
   'src/setupTests.ts',
   'src/vite-env.d.ts',
   'src/constants/locations/**',
-  'src/constants/{abilities,badges,changelog,changelog_2,details,filters,moves,nicknames,pokemon}.ts',
+  'src/constants/{abilities,badges,details,filters,moves,nicknames,pokemon}.ts',
 ];
 
 // Writes sitemap.xml into the build, dated by the commit being built (the build date without git)
@@ -58,9 +58,8 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      devOptions: {
-        enabled: true,
-      },
+      // src/lib/serviceWorker.ts registers the worker and handles a failed registration
+      injectRegister: false,
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
         // The share preview is for crawlers (index.html's og:image), not the offline app
