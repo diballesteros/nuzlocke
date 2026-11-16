@@ -137,7 +137,7 @@ One small PR per fix, each from `master`.
 It comes after the triage loop, so Sentry's reports can feed the loop, and before SEO, so SEO's effect can be measured.
 
 - **Analytics: an in-house counter**, in the style of Plausible, on Netlify's free resources, with nothing leaving Netlify.
-  - **8a, the collector (#893, open):** one `sendBeacon` per route change plus the selected game and first use of each feature (`src/lib/analytics.ts`); a function (`netlify/functions/event.ts`) that drops bots, Global Privacy Control, Do Not Track, other origins and non-production deploys, and rate-limits per visitor; a daily-salted visitor hash with no cookies or stored ids; Netlify Blobs with an hourly roll-up (events kept 90 days, summaries 400). No personal data, so no consent banner; the About page says what is collected.
+  - **8a, the collector (#893, open):** one `sendBeacon` per route change plus the selected game and first use of each feature (`src/lib/analytics.ts`); a function (`netlify/functions/event.ts`) that drops bots, Global Privacy Control, Do Not Track, other origins and non-production deploys, and rate-limits per visitor; a daily-salted visitor hash with no cookies or stored ids; Netlify Blobs with an hourly roll-up (events kept 90 days, summaries 400). No personal data, so no consent banner. The About page's note on what is collected is a follow-up.
   - **8b, the dashboard (not started):** a private stats page served by a second function and gated by a secret token in Netlify's environment (the site password is a paid feature), outside the app's router and the service worker's cache. Laid out like Plausible's:
     - a period picker (today, 7 days, 30 days, this month, 12 months, custom) with comparison to the previous period;
     - headline numbers: unique visitors, page views, views per visit, bounce rate and visit duration, each with its change;
@@ -145,7 +145,7 @@ It comes after the triage loop, so Sentry's reports can feed the loop, and befor
     - ranked lists with share bars: referrer hosts; top, entry and exit pages; countries; device class, browser and OS; games and features;
     - clicking any row filters the whole dashboard, and a live count shows visitors in the last 5 minutes.
 
-    A small Vite entry (`stats.html`) can build it with the app's Tailwind tokens, light and dark, and a light chart library such as uPlot. Filtering and bounce rate need event-level data, which 8a keeps for its retention window.
+    A small Vite entry (`stats.html`) can build it with the app's Tailwind tokens, light and dark, and a light chart library such as uPlot. Filtering and bounce rate need event-level data, which 8a keeps for its retention window: read `days/<date>` plus today's raw `events/<date>/` keys, and `summaries/<date>` beyond the 90 days. A period's visitors are a sum of daily uniques, because the salt rotates.
 
 - **Sentry:** `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel (#891; see `CLAUDE.md`). Sentry's user feedback widget, a second way to report problems, is #929 (open).
 - **Into the loop (not started):** a Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which exists), and the triage sends its Discord alert like any other issue. Sentry's own Discord integration is the fallback. The free Developer plan's error quota is the limit; rate-limit the alerts so a burst can't flood the issues.
