@@ -22,7 +22,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
 | 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts       | Alerts in review        |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
-| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
+| 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | In progress, see below  |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
 | 11    | Gen 9: the species first, then a Scarlet/Violet game mode                                          | Not started             |
 
@@ -312,7 +312,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
   - an Open Graph image;
   - JSON-LD for the app.
 - **After Phase 4:**
-  - per-route titles and descriptions with React 19's built-in metadata;
+  - per-route titles and descriptions with React 19's built-in metadata (in review: `RouteMeta`, see `CLAUDE.md`). Pre-rendering should render `RouteMeta`'s tags into each route's HTML in place of the `data-static-meta` ones, so crawlers without JavaScript get each page's own;
   - pre-rendering the public routes to static HTML;
   - splitting the large game-data files out of the main bundle, for load speed;
   - a Lighthouse budget in CI (done: `lighthouserc.cjs`, see `CLAUDE.md`).

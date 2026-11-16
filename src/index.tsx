@@ -7,6 +7,7 @@ import ErrorBoundary from 'error/ErrorBoundary';
 import { ROOT_ERROR_HANDLERS, SENTRY_OPTIONS } from '@/lib/sentry';
 import { registerServiceWorker } from '@/lib/serviceWorker';
 import { requestPersistentStorage } from '@/lib/storage';
+import { removeStaticMetadata } from 'routes/metadata';
 import 'assets/styles/pokemon.css';
 import 'assets/styles/item.css';
 import App from './App';
@@ -18,6 +19,7 @@ const container = document.getElementById('root');
 const root = createRoot(container, ROOT_ERROR_HANDLERS);
 
 requestPersistentStorage();
+removeStaticMetadata();
 registerServiceWorker();
 
 root.render(

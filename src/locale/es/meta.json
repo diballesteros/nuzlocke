@@ -1,0 +1,50 @@
+{
+  "about": {
+    "title": "Acerca de - Nuzlocke Tracker",
+    "description": "Acerca de Nuzlocke Tracker, una app gratuita para registrar tus partidas Nuzlocke de Pokémon: quién la hace, los créditos y cómo guarda tus partidas en tu navegador."
+  },
+  "badge": {
+    "title": "Detalles de la medalla - Nuzlocke Tracker",
+    "description": "El equipo, los niveles y los movimientos del líder de una medalla de tu partida Nuzlocke."
+  },
+  "builder": {
+    "title": "Creador de equipos - Nuzlocke Tracker",
+    "description": "Arma un equipo con los Pokémon que capturaste en tu partida Nuzlocke y revisa su cobertura de tipos y sus debilidades."
+  },
+  "calculator": {
+    "title": "Calculadora de daños - Nuzlocke Tracker",
+    "description": "Una calculadora de daños Pokémon para partidas Nuzlocke: rangos de daño y probabilidades de KO entre tus Pokémon y los del próximo entrenador, de la generación 1 a la 8."
+  },
+  "changelog": {
+    "title": "Novedades - Nuzlocke Tracker",
+    "description": "Qué hay de nuevo en Nuzlocke Tracker: las funciones, mejoras y correcciones de cada versión."
+  },
+  "delete": {
+    "title": "Cuentas descontinuadas - Nuzlocke Tracker",
+    "description": "Nuzlocke Tracker ya no tiene cuentas. Tus partidas se guardan en tu navegador."
+  },
+  "import": {
+    "title": "Importar una copia - Nuzlocke Tracker",
+    "description": "Carga una copia de seguridad de Nuzlocke Tracker para recuperar tus partidas."
+  },
+  "report": {
+    "title": "Reportar un problema - Nuzlocke Tracker",
+    "description": "Reporta un error o sugiere una mejora para Nuzlocke Tracker."
+  },
+  "rules": {
+    "title": "Reglas Nuzlocke - Nuzlocke Tracker",
+    "description": "Las reglas de tu partida Nuzlocke: las clásicas, Hardcore, Egglocke, Wonderlocke, Soul Link y más, o escribe las tuyas."
+  },
+  "settings": {
+    "title": "Ajustes - Nuzlocke Tracker",
+    "description": "Elige el idioma, el tema, los estados y cómo se ve el tracker."
+  },
+  "stats": {
+    "title": "Estadísticas de la partida - Nuzlocke Tracker",
+    "description": "Tu partida Nuzlocke en números: encuentros, equipo, Pokémon debilitados y en la caja, y una imagen resumen para compartir."
+  },
+  "tracker": {
+    "title": "Nuzlocke Tracker - Registra tus encuentros Pokémon",
+    "description": "La mejor app para registrar los encuentros y Pokémon de tus partidas Nuzlocke. Con límites de nivel, juegos personalizados, todas las rutas y Pokémon hasta la generación 8."
+  }
+}

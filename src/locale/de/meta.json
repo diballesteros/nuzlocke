@@ -1,0 +1,50 @@
+{
+  "about": {
+    "title": "Über - Nuzlocke Tracker",
+    "description": "Über Nuzlocke Tracker, eine kostenlose App für deine Pokémon-Nuzlocke-Runs: wer sie macht, die Credits und wie sie deine Runs in deinem Browser speichert."
+  },
+  "badge": {
+    "title": "Ordendetails - Nuzlocke Tracker",
+    "description": "Das Team, die Level und die Attacken des Arenaleiters zu einem Orden deines Nuzlocke-Runs."
+  },
+  "builder": {
+    "title": "Team-Builder - Nuzlocke Tracker",
+    "description": "Stelle aus den Pokémon, die du in deinem Nuzlocke-Run gefangen hast, ein Team zusammen und prüfe seine Typabdeckung und Schwächen."
+  },
+  "calculator": {
+    "title": "Schadensrechner - Nuzlocke Tracker",
+    "description": "Ein Pokémon-Schadensrechner für Nuzlocke-Runs: Schadensbereiche und K.O.-Chancen zwischen deinen Pokémon und denen des nächsten Trainers, für die Generationen 1 bis 8."
+  },
+  "changelog": {
+    "title": "Änderungen - Nuzlocke Tracker",
+    "description": "Was ist neu in Nuzlocke Tracker: die Funktionen, Verbesserungen und Fehlerbehebungen jeder Version."
+  },
+  "delete": {
+    "title": "Konten eingestellt - Nuzlocke Tracker",
+    "description": "Nuzlocke Tracker hat keine Konten mehr. Deine Runs werden in deinem Browser gespeichert."
+  },
+  "import": {
+    "title": "Sicherung importieren - Nuzlocke Tracker",
+    "description": "Lade eine Sicherungsdatei von Nuzlocke Tracker, um deine Runs wiederherzustellen."
+  },
+  "report": {
+    "title": "Problem melden - Nuzlocke Tracker",
+    "description": "Melde einen Fehler oder schlage eine Verbesserung für Nuzlocke Tracker vor."
+  },
+  "rules": {
+    "title": "Nuzlocke-Regeln - Nuzlocke Tracker",
+    "description": "Die Regeln für deinen Nuzlocke-Run: die klassischen Regeln, Hardcore, Egglocke, Wonderlocke, Soul Link und mehr, oder schreibe deine eigenen."
+  },
+  "settings": {
+    "title": "Einstellungen - Nuzlocke Tracker",
+    "description": "Wähle die Sprache, das Design, die Status und wie der Tracker aussieht."
+  },
+  "stats": {
+    "title": "Run-Statistiken - Nuzlocke Tracker",
+    "description": "Dein Nuzlocke-Run in Zahlen: Begegnungen, Team, besiegte und eingelagerte Pokémon und ein Übersichtsbild zum Teilen."
+  },
+  "tracker": {
+    "title": "Nuzlocke Tracker - Pokémon-Begegnungen festhalten",
+    "description": "Die beste Online-App, um die Begegnungen und Pokémon deiner Nuzlocke-Runs festzuhalten. Mit Levelgrenzen, eigenen Spielen, allen Routen und Pokémon bis Generation 8."
+  }
+}
