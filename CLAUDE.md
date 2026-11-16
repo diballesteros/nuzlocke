@@ -152,7 +152,7 @@ Large static data files drive the app; most bug fixes and content updates are ed
 - `constant.ts` — `GAMES` list, `INITIAL_STATE`, `GAME_KEY_DICTIONARY` (game key → encounter list), `GAME_GENERATION`, default rulesets.
 - `locations/*.ts` — per-game encounter location lists (`TEncounter[]`). Each location has a `filterKey` (e.g. `frlg-3`).
 - `filters.ts` — maps each `filterKey` to the Pokémon names available at that location (encounter tables).
-- `badges.ts` — gym/trial badges, `LEVEL_CAPS`, `GAME_CAP_DICTIONARY`, badge images.
+- `badges.ts` — gym/trial badges, `LEVEL_CAPS`, `GAME_CAP_DICTIONARY`. Their images are in `badgeImages.ts`: the store imports `badges.ts`, and the images are inlined as data URLs (each under Vite's 4 KB limit), about 100 KB gzipped that would otherwise load on every route.
 - `details.ts` — gym leader / Elite Four teams shown in badge details.
 - `pokemon.ts`, `moves.ts`, `abilities.ts`, `natures.ts`, `effectiveness.ts`, `types.ts` (all shared TS types live in `types.ts`).
 - Damage calculator uses `@smogon/calc` (`calculator.ts`, `hooks/useCalculate.ts`).
@@ -178,6 +178,13 @@ Changing `pokemon.ts` may require updating `tests/data/PokemonList.json` to keep
 - `src/styles/globals.css` holds the design tokens (light on `:root`, dark on `:root.dark`; `App.tsx` toggles the `dark` class from the store) and Tailwind with preflight. Utilities are generated from everything in `src` except tests. shadcn primitives go in `src/components/ui/` (`npx shadcn@4.22.1 add <name>`), added in the PR that first uses them.
 
 - `src/routes/AppRouter.tsx` — route table; each page is wrapped in a Sentry error boundary.
+- **Pages load in chunks of their own** (`src/routes/pages.ts`, on `routes/lazyPage.ts`), so each route loads only its page's code and data. `index.tsx` preloads the current route's page before the first render, and `lazyPage` gives React's `use()` a promise that already carries its `status`, so the first paint has the page in it, as before the split. Navigations are transitions (react-router's default), which keep the old page up while the next one loads; the `Suspense` fallback around `AppRouter` in `App.tsx` is `null` and isn't seen in practice. A new route goes in `ROUTE_PAGES` too (`pages.test.ts` checks it against `AppRouter`).
+- **What keeps a module out of the main chunk:**
+  - `package.json`'s `sideEffects` lists the only `src` modules that do something when imported (CSS, `index.tsx`, `i18n.ts`, `Version.tsx`'s `addResourceBundle`). Without it the `components` barrel, which many modules import, held every page in the main chunk. A new module with top-level side effects must be added there, or the bundler may drop it.
+  - Chunks are made of whole modules. If the shell (`App.tsx`, the header, the sidebar) imports one export from a module, the whole module and everything it imports load on every route. `selectExport` lives in its own file for that reason: in `selectors.ts` it brought the Pokémon and move tables into the main chunk.
+  - `@smogon/calc` is CommonJS, so it can't be tree-shaken: importing anything from its index brings the whole calculator (about 130 KB gzipped). Lists such as `ITEMS` and `ABILITIES` are imported from its data files (`@smogon/calc/dist/data/items`); `src/constants/smogon.test.ts` checks they're the package's own exports. Types are `import type`.
+  - To see what a route loads, build with `npx vite build --manifest` and follow each chunk's `imports` in `dist/.vite/manifest.json` from the page's module; the source maps say which module put bytes in a chunk.
+- **Testing a suspended render:** React retries a render suspended on `use()` in Vitest only when both the render and the promise's end happen inside an async `act()` (`lazyPage.test.tsx`). Otherwise the fallback stays up and `findBy…` times out, for React's own `use` too.
 - `src/components/<Name>/<Name>.tsx`, styled with Tailwind utilities, with page-specific subcomponents under `<Name>/elements/`. Top-level components are re-exported from `src/components/index.ts`.
 - `src/common/` — reusable selectors/widgets (Pokemon, item, encounter selectors, page wrapper, etc.).
 - Translations: `src/locale/{en,es,de}/<namespace>.json`, registered in `src/i18n.ts`. Any new user-facing string must be added to all three locales.

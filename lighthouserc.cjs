@@ -9,26 +9,31 @@ const PORT = process.env.LHCI_PORT ?? 4173;
 // from about 0.53 to about 0.61, so its floor sits below the slower one. Scores measured elsewhere
 // aren't comparable: simulated throttling still depends on the machine's speed and load.
 const MIN_SCORES = { performance: 0.48, 'best-practices': 1, seo: 1, accessibility: 1 };
-// Transfer sizes, as vite preview serves them (compressed), with about 15 KB of room for ordinary
-// small changes. Total moves by 12 KB between runs with what loads in time (/about: 743–755 KB).
-const MAX_BYTES = { script: 700_000, total: 770_000 };
-
-// Every route in src/routes/sitemap.ts's SITEMAP_ROUTES, with its known failures:
-// /rules: color-contrast (the blue Edit custom statuses button)
-// /about: color-contrast (the data storage link), image-size-responsive (the Amazon badge)
+// Every route in src/routes/sitemap.ts's SITEMAP_ROUTES, with its known failures and its byte
+// limits. The limits are transfer sizes as vite preview serves them (compressed): the median of a
+// local run of the route-split build (each page in its own chunk, src/routes/pages.ts) plus about
+// 15 KB of room for ordinary small changes, rounded up to 5 KB. Total moves by up to 12 KB between
+// runs with what loads in time. Before the split every route loaded the whole app (about 680 KB of
+// script) under one 700 KB limit. The tracker's script includes the encounter tables, methods and
+// version tags its rows load.
 const ROUTES = {
-  '/': {},
-  '/rules': { accessibility: 0.95 },
-  '/stats': {},
-  '/builder': {},
-  '/calculator': {},
-  '/changelog': {},
-  '/about': { accessibility: 0.96, 'best-practices': 0.96 },
+  '/': { bytes: { script: 525_000, total: 580_000 } },
+  // color-contrast (the blue Edit custom statuses button)
+  '/rules': { scores: { accessibility: 0.95 }, bytes: { script: 320_000, total: 380_000 } },
+  '/stats': { bytes: { script: 500_000, total: 560_000 } },
+  '/builder': { bytes: { script: 370_000, total: 425_000 } },
+  '/calculator': { bytes: { script: 515_000, total: 570_000 } },
+  '/changelog': { bytes: { script: 325_000, total: 380_000 } },
+  // color-contrast (the data storage link), image-size-responsive (the Amazon badge)
+  '/about': {
+    scores: { accessibility: 0.96, 'best-practices': 0.96 },
+    bytes: { script: 315_000, total: 390_000 },
+  },
 };
 
 const median = { aggregationMethod: 'median-run' };
 
-function assertions(overrides) {
+function assertions({ scores: overrides, bytes }) {
   const scores = { ...MIN_SCORES, ...overrides };
   return {
     ...Object.fromEntries(
@@ -38,7 +43,7 @@ function assertions(overrides) {
       ])
     ),
     ...Object.fromEntries(
-      Object.entries(MAX_BYTES).map(([resource, maxNumericValue]) => [
+      Object.entries(bytes).map(([resource, maxNumericValue]) => [
         `resource-summary:${resource}:size`,
         ['error', { ...median, maxNumericValue }],
       ])
@@ -61,9 +66,9 @@ module.exports = {
       },
     },
     assert: {
-      assertMatrix: Object.entries(ROUTES).map(([route, overrides]) => ({
+      assertMatrix: Object.entries(ROUTES).map(([route, limits]) => ({
         matchingUrlPattern: `:${PORT}${route}$`,
-        assertions: assertions(overrides),
+        assertions: assertions(limits),
       })),
     },
     upload: { target: 'filesystem', outputDir: 'verification/artifacts/lighthouse' },

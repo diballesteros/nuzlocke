@@ -314,7 +314,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 - **After Phase 4:**
   - per-route titles and descriptions with React 19's built-in metadata;
   - pre-rendering the public routes to static HTML;
-  - splitting the large game-data files out of the main bundle, for load speed;
+  - splitting the large game-data files out of the main bundle, for load speed (in review, PR number below). Every page is a chunk of its own, preloaded for the first paint, and the shell no longer carries `@smogon/calc`, the badge images, lodash, or the Pokémon and move tables: gzipped script per route went from about 665 KB to 297–507 KB, and `lighthouserc.cjs` now has byte limits per route. Splitting the location lists or encounter tables per game wasn't worth it (the store needs the locations at startup; together they are 12 KB gzipped). Left for later: loading `@smogon/calc` only when the calculator first runs (changes when results appear, so it needs the user's call);
   - a Lighthouse budget in CI (done: `lighthouserc.cjs`, see `CLAUDE.md`).
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
 - **The user submits the sitemap in Search Console:** `https://nuzlocke.netlify.app/sitemap.xml`, now that #873 is live, and again after pre-rendering or the per-game pages change which URLs exist. Search Console is the user's account, so an agent can only remind them.
