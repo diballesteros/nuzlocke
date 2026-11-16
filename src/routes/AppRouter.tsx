@@ -2,6 +2,7 @@ import * as Sentry from '@sentry/react';
 import { Route, Routes } from 'react-router';
 import {
   About,
+  BadgePage,
   Builder,
   Calculator,
   Changelog,
@@ -12,8 +13,7 @@ import {
   Rules,
   Settings,
   Tracker,
-} from 'components';
-import { BadgePage } from 'components/Badges/elements';
+} from 'routes/pages';
 import ErrorBoundary from 'error/ErrorBoundary';
 
 function AppRouter(): React.JSX.Element {

@@ -1,4 +1,5 @@
-import { GenerationNum, ITEMS } from '@smogon/calc';
+import type { GenerationNum } from '@smogon/calc';
+import { ITEMS } from '@smogon/calc/dist/data/items';
 import BADGES from 'constants/badges';
 import { DEFAULT_VALUES } from 'constants/calculator';
 import B_W from 'constants/locations/B_W';

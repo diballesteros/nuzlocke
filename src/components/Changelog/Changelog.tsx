@@ -15,8 +15,9 @@ function Changelog(): React.JSX.Element {
   // The notes load with this page, not with the app
   useEffect(() => {
     let active = true;
-    import('constants/releases.json').then(({ default: data }) => {
-      if (active) setReleases(data as TReleaseNotes);
+    // Nothing arrives when the chunk is stale and the page reloads (lib/staleChunks)
+    import('constants/releases.json').then((module) => {
+      if (active && module) setReleases(module.default as TReleaseNotes);
     });
     return () => {
       active = false;

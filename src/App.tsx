@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useId, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ChevronDown } from 'lucide-react';
 import { NavLink, useLocation, useNavigate } from 'react-router';
@@ -341,7 +341,12 @@ function App(): React.JSX.Element {
                 </NavLink>
               </nav>
               <div className="h-[calc(100dvh-var(--header-height)-var(--nav-top)-var(--nav-bottom))] min-w-0 bg-secondary py-(--spacing-3)">
-                <AppRouter />
+                {/* Pages load in chunks of their own (routes/pages.ts). The current one is in before
+                    the first render and navigations are transitions, which keep the old page up
+                    while the next loads, so this fallback isn't seen in practice */}
+                <Suspense fallback={null}>
+                  <AppRouter />
+                </Suspense>
               </div>
             </main>
           </div>
