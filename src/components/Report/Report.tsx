@@ -1,12 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { Page } from 'common';
 import { NATIVE_FIELD, NATIVE_TEXT_FIELD } from '@/components/ui/input';
+import QuickFeedback from './elements/QuickFeedback';
 
 function Report(): React.JSX.Element {
   const { t } = useTranslation('report');
 
   return (
     <Page header={t('report_a_bug')}>
+      <QuickFeedback />
       <form
         className="flex flex-col flex-nowrap gap-(--spacing-1) text-foreground"
         name="contact"

@@ -4,7 +4,7 @@ This is what an agent continuing the UI migration needs. Until now, it lived in 
 
 Read it together with `CLAUDE.md` (commands, harness, change protocol, CI debugging) and the `nuzlocke-ui` and `verify-nuzlocke` skills in `.claude/skills/`. Those stay the source of truth for how things work. This file covers where the migration stands, what the user decided, and how they want the work done.
 
-Last updated 2026-11-10 (Phase 5: 5a–5y merged; release 7.0.0 in review, #922).
+Last updated 2026-11-16 (Phase 8: Sentry's feedback form in review).
 
 ## Where it stands
 
@@ -293,7 +293,7 @@ It comes after the triage loop, so that Sentry's reports can feed the loop, and 
 - **Sentry:**
   - Done (`feat/sentry-react19`): `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel. Plugin and SDK name the same release, `REACT_APP_VERSION`. See `CLAUDE.md`.
   - The user sets `SENTRY_AUTH_TOKEN` in Netlify's environment for the source map upload.
-  - Waits for Phase 5, because it changes the UI: Sentry's user feedback widget as a second way to report problems.
+  - In review (`feat/sentry-feedback`): Sentry's user feedback form as a second way to report problems, from a Send quick feedback button on the Report page (the user's choice over Sentry's floating button, which would cover the tracker FAB and sit on the mobile tab bar). It asks for a message only: no name, email or screenshot. It loads on click, as its own chunk of about 18 KB gzipped. Feedback shows in Sentry's User Feedback view, not as an issue, so the alert rule below needs a feedback alert of its own.
 - **Into the loop:**
   - A Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which already exists).
   - The Phase 7 triage sends the Discord alert for it like any other issue. Sentry's own Discord integration is the fallback.
