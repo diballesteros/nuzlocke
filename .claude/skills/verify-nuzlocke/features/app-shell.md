@@ -46,9 +46,9 @@ Preconditions:
   puts focus back on the menu button.
 - The custom-game trash keeps the `aria-label="deletegame"` attribute that `CustomGame.spec.ts`
   selects by; its accessible name is "Delete game" (`aria-labelledby`).
-- The sidebar is a non-modal Radix dialog (`[data-slot="sheet-content"]`, role `dialog`), like
-  Semantic's: focus stays put, Escape does nothing, and a click outside closes it and still reaches
-  its target. A click on the game select (or its menu) leaves it open, as Semantic's did. It stays
+- The sidebar is a non-modal Radix dialog (`[data-slot="sheet-content"]`, role `dialog`): focus
+  stays put, Escape does nothing, and a click outside closes it and still reaches its target. A
+  click on the game select (or its menu) leaves it open. It stays
   in the page for its 500ms slide-out, so count dialogs without it.
 - The game select's menu is portalled (`game-select-options`); `CLI pick game-select …` finds it.
 - The dark-mode-on-first-visit check runs only when the stored `newVersion` differs from the app
