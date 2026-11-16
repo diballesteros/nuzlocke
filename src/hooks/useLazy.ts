@@ -15,7 +15,9 @@ export default function useLazy<T>(lazy: TLazy<T>, active = true): T | null {
   useEffect(() => {
     if (!active || data) return undefined;
     let current = true;
+    // A stale chunk resolves with nothing while the page reloads (lib/staleChunks): wait for it
     lazy.loading ??= lazy.load().then((module) => {
+      if (!module) return new Promise<T>(() => {});
       lazy.data = module.default;
       return module.default;
     });

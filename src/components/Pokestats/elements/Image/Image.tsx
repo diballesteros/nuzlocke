@@ -5,7 +5,7 @@ import { PkmImage } from 'common';
 import { Moves, PokeInfo } from 'components';
 import { Tip } from 'components/Pokestats/elements';
 import { RuleContent } from 'components/Rules/elements';
-import { BADGE_IMAGES } from 'constants/badges';
+import BADGE_IMAGES from 'constants/badgeImages';
 import { TYPE_COLOR } from 'constants/colors';
 import { TYPE_COUNT } from 'constants/constant';
 import { POKEMAP } from 'constants/pokemon';

@@ -7,8 +7,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 import istanbul from 'vite-plugin-istanbul';
 import svgr from 'vite-plugin-svgr';
 import { execFileSync } from 'child_process';
+import fs from 'fs';
 import path from 'path';
 import type { Plugin } from 'vite';
+import { preloadScript, readPages, routeChunks } from './scripts/route-preload.mjs';
 import { buildSitemap } from './src/routes/sitemap';
 
 // Tests and static data tables are left out of coverage. Shared by Playwright (istanbul) and Vitest
@@ -38,6 +40,23 @@ function sitemap(): Plugin {
   };
 }
 
+// Preloads the current route's page chunks from the built index.html (scripts/route-preload.mjs)
+function routePreload(): Plugin {
+  return {
+    name: 'route-preload',
+    apply: 'build',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html, { bundle }) {
+        if (!bundle) return html;
+        const pages = readPages(fs.readFileSync('src/routes/pages.ts', 'utf8'));
+        const script = preloadScript(routeChunks(bundle, pages));
+        return { html, tags: [{ tag: 'script', children: script, injectTo: 'head' }] };
+      },
+    },
+  };
+}
+
 // The version the app sends as its Sentry release (.env), so the plugin names the same release
 const { REACT_APP_VERSION } = loadEnv('', import.meta.dirname, 'REACT_APP_');
 
@@ -47,6 +66,7 @@ export default defineConfig({
     tailwindcss(),
     svgr(),
     sitemap(),
+    routePreload(),
     // Instruments src only when REACT_APP_COVERAGE=true (npm run dev:cov, the Playwright web server).
     // The plugin reads <envPrefix>COVERAGE, hence the REACT_APP_ prefix
     istanbul({

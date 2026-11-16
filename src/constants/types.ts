@@ -1,5 +1,5 @@
-import { GenerationNum } from '@smogon/calc';
-import { StatusName } from '@smogon/calc/dist/data/interface';
+import type { GenerationNum } from '@smogon/calc';
+import type { StatusName } from '@smogon/calc/dist/data/interface';
 
 export interface AppState {
   badges: TBadgeDictionary;

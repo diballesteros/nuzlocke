@@ -1,4 +1,4 @@
-import { ABILITIES } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc/dist/data/abilities';
 import { ChevronDown, Link2 } from 'lucide-react';
 import React, { useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';

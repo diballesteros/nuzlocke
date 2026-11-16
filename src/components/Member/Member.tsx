@@ -1,4 +1,4 @@
-import { ABILITIES } from '@smogon/calc';
+import { ABILITIES } from '@smogon/calc/dist/data/abilities';
 import { useCallback, useId, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ItemSelector, PkmImage } from 'common';

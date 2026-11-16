@@ -1,9 +1,17 @@
-import _ from 'lodash';
 import { FAIRY_GEN, GAME_GENERATION, getTypeCountParams, getTypeParams } from 'constants/constant';
 import EFFECTIVENESS from 'constants/effectiveness';
 import { MOVEMAP } from 'constants/moves';
 import { POKEMAP } from 'constants/pokemon';
 import type { AppState, TEncounter, Type } from 'constants/types';
+
+// The export lives apart so the sidebar's Export button doesn't bring this module's Pokémon and
+// move tables into the main chunk
+export { default as selectExport } from './selectExport';
+
+// lodash's difference: the values of a that aren't in b, in a's order, duplicates kept
+function difference<T>(a: T[], b: T[]): T[] {
+  return a.filter((value) => !b.includes(value));
+}
 
 export const selectTeam = (state: AppState): TEncounter[] => {
   return state?.games[state?.selectedGame?.value]?.encounters?.filter((enc) => {
@@ -22,13 +30,13 @@ export const selectSuggestion = (state: AppState): Type[] => {
   while (typeParams[0].length > 0 && team.length > i) {
     const foundPokemon = POKEMAP.get(team[i]?.pokemon);
     if (foundPokemon?.type && EFFECTIVENESS[typeParams[1]][foundPokemon.type]) {
-      typeParams[0] = _.difference(
+      typeParams[0] = difference(
         typeParams[0],
         EFFECTIVENESS[typeParams[1]][foundPokemon.type]['Super effective against']
       );
     }
     if (foundPokemon?.dualtype && EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]) {
-      typeParams[0] = _.difference(
+      typeParams[0] = difference(
         typeParams[0],
         EFFECTIVENESS[typeParams[1]][foundPokemon.dualtype]['Super effective against']
       );
@@ -183,42 +191,4 @@ export const selectItemGeneration = (state: AppState): boolean => {
   return GAME_GENERATION[state?.selectedGame?.value]
     ? GAME_GENERATION[state?.selectedGame?.value] > 1
     : true;
-};
-
-export const selectExport = (state: AppState): string => {
-  const {
-    badges,
-    customBadges,
-    customStatuses,
-    darkMode,
-    duplicates,
-    games,
-    gamesList,
-    missing,
-    nicknames,
-    rules,
-    selectedGame,
-    showAll,
-    suggestions,
-    team,
-    notes,
-  } = state;
-
-  return JSON.stringify({
-    badges,
-    customBadges,
-    customStatuses,
-    darkMode,
-    duplicates,
-    games,
-    gamesList,
-    missing,
-    nicknames,
-    rules,
-    selectedGame,
-    showAll,
-    suggestions,
-    team,
-    notes,
-  });
 };

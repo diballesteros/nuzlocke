@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { BADGE_IMAGES } from 'constants/badges';
+import BADGE_IMAGES from 'constants/badgeImages';
 import useStore from 'store';
 import { QuestionIcon } from '@/components/ui/icons';
 import { cn } from '@/lib/utils';

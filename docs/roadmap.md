@@ -153,7 +153,7 @@ It comes after the triage loop, so Sentry's reports can feed the loop, and befor
 ### Phase 9: SEO
 
 - **Done:** a build-time sitemap linked from `robots.txt` (#873), the Open Graph image and JSON-LD (#874), the Lighthouse budget in CI (#896).
-- **Open:** per-route titles, descriptions, canonical and share tags (#928); each page in its own chunk with the game data out of the main bundle (#930).
+- **Open:** per-route titles, descriptions, canonical and share tags (#928); each page in its own chunk with the game data out of the main bundle (#930): gzipped script per route goes from about 665 KB to 297–507 KB, the shell no longer carries `@smogon/calc`, the badge images, lodash or the Pokémon and move tables, and `lighthouserc.cjs` has byte limits per route. Splitting the location lists or encounter tables per game wasn't worth it (the store needs the locations at startup; together they are 12 KB gzipped). Left for later: loading `@smogon/calc` only when the calculator first runs, which changes when results appear, so it needs the user's call.
 - **Next:** pre-render the public routes to static HTML. The SPA fallback isn't forced, so a pre-rendered `dist/rules/index.html` is served ahead of it with no rule change; check that on a deploy preview. An unknown URL returns 200 with an empty page (a soft 404), because `AppRouter` has no catch-all route: add a not-found route and a real 404 response with the pre-rendering.
 - **Biggest lever:** indexable pages per game and route (such as an Emerald encounter list) built from the data in `src/constants/`.
 - **The user decides:** a custom domain instead of `nuzlocke.netlify.app`, and whether es and de get their own URLs (needed for `hreflang`).

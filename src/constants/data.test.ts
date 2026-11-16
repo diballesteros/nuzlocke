@@ -1,5 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import BADGE_IMAGES from 'constants/badgeImages';
 import BADGES, { GAME_CAP_DICTIONARY, LEVEL_CAPS } from 'constants/badges';
 import { GAME_KEY_DICTIONARY, GAMES } from 'constants/constant';
 import DETAILS from 'constants/details';
@@ -33,6 +34,14 @@ describe('Game data integrity', () => {
       ...(LEVEL_CAPS[key] ? [] : [`${key}: level caps`]),
     ]);
     expect(missing).toEqual([]);
+  });
+
+  test('every base game has an image for each badge', () => {
+    const mismatched = Object.keys(BADGES).filter(
+      (key) => BADGE_IMAGES[key]?.length !== BADGES[key].length
+    );
+    expect(mismatched).toEqual([]);
+    expect(Object.keys(BADGE_IMAGES).sort()).toEqual(Object.keys(BADGES).sort());
   });
 
   test('every level cap set exists in GAME_CAP_DICTIONARY', () => {

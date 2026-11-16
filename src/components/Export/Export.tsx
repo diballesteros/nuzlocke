@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { selectExport } from 'selectors';
+import selectExport from '@/selectExport';
 import useStore from 'store';
 import { DownloadIcon } from '@/components/ui/icons';
 import { SheetItem } from '@/components/ui/sheet';
