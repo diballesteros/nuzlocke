@@ -20,7 +20,7 @@ The goal: replace Semantic UI React and Sass with Tailwind v4 and shadcn/ui (Rad
 | 4     | React 19 and the packages it unblocks, one bump per commit                                         | Done (#875, #878, #879) |
 | 5     | UI improvements (contrast, a11y, navigation, tracker density, encounter reordering), one PR each   | In progress, see below  |
 | 6     | Fixes for user reports from the issue backlog review (bugs, game data, storage, Report form)       | In progress, see below  |
-| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts       | Alerts in review        |
+| 7     | Report form issues via a Netlify function, then triage: an Action flags spam, Discord alerts       | Function in review      |
 | 8     | Usage analytics on free resources, and modern Sentry reporting errors into the triage loop         | Not started             |
 | 9     | SEO: full sitemap, metadata per route, pre-rendering, structured data, indexable encounter pages   | Not started             |
 | 10    | Features users asked for, ranked by how many asked, one PR each                                    | Not started             |
@@ -234,9 +234,9 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
   Gen 9 and version-split requests are planned work: nothing looks at what a report asks for.
 
 - **Safety:** issue text comes from strangers. The job can read the code and write issues only, never pushes, and reads the issue from `GITHUB_EVENT_PATH`. Its title goes through `neutralize` before Discord shows it.
-- **Step 1, its own PR:** a Netlify `submission-created` function replaces the Zapier zap. It turns each Report form submission into a GitHub issue in the same format as today and can apply the spam signals before an issue exists. Details in "Report form → GitHub issue" below. If it sends its own Discord alert for form reports, make `triage.mjs` skip its alert for them (title `User Submitted Issue: # `), or form reports alert twice. The user sets up a fine-grained GitHub token (issues: write on this repository only) and the Discord webhook URL in Netlify's environment variables, and turns the Zapier zap off once the function is live.
+- **Step 1, its own PR: built, in review.** `netlify/functions/submission-created.mjs` (logic in `scripts/triage/form.mjs`) replaces the Zapier zap: each Report form submission becomes a GitHub issue in the zap's format, created with the user's fine-grained token (`GITHUB_ISSUES_TOKEN` in Netlify), so `triage.yml` runs on it as before and sends the one Discord alert. Likely spam (the triage's `isLikelySpam`) never becomes an issue: it stays in Netlify's Forms tab and the function sends the only alert about it, so nothing alerts twice and `triage.mjs` needed no change. After the merge the user creates the token, sets the variables, deploys and turns the zap off in the same step.
 
-#### Report form → GitHub issue (Zapier until step 1)
+#### Report form → GitHub issue (Zapier until step 1 is live)
 
 - **What exists:** the Report page (`src/components/Report/Report.tsx`) posts the Netlify form `contact`. Netlify detects that form at build time from the hidden copy in `index.html`. A **Zapier zap in the user's Zapier account** opens one GitHub issue per submission **under the user's GitHub account** (`diballesteros`). Nothing in this repository configures it; the zap is edited only in Zapier's UI. It has two steps:
   1. Netlify › **New Form Submission** (an instant trigger).
@@ -246,7 +246,7 @@ One small PR per fix, each from `master`. A fix that changes results or saved da
   - body: one `Field: value` line per form field, separated by blank lines, in the order `Type` (`Data Type`), `Device` (`Data Device`), `OS` (`Data Os`), `Browser` (`Data Browser`), `Selected Game` (`Data Selectedgame`), `Description` (`Data Description`). Empty fields stay as `Type: ` with nothing after them;
   - label `netlify`, set in the Create Issue step's Labels field (GitHub shows it added by the user's account about 2 seconds after the issue is created). No assignee.
 - **Spam:** submissions that pass Netlify's filter and the `bot-field` honeypot still become issues (#816 and #819 are sales pitches). Each one gets closed by hand.
-- **Phase 7, step 1:** replace the zap with a Netlify `submission-created` function (`netlify/functions/submission-created.ts`). Netlify runs it for every submission that passes its spam filter.
+- **Phase 7, step 1:** replace the zap with a Netlify `submission-created` function (built as `netlify/functions/submission-created.mjs`). Netlify runs it for every submission that passes its spam filter.
   - It calls the GitHub API with a fine-grained token (issues: write on this repository only), kept in Netlify's environment variables, never in the repo.
   - It can apply the spam signals above before an issue exists (drop or label), set labels, and send the first Discord alert. The code is versioned and unit-tested, and Zapier's free-plan task limits go away.
   - Keep the title, label and body format above, so the triage job and earlier issues read the same.

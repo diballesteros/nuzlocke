@@ -61,7 +61,7 @@ export default tseslint.config(
     ...reactHooksPlugin.configs.flat['recommended-latest'],
   },
   {
-    files: ['scripts/**/*.mjs', '*.config.{ts,mjs}'],
+    files: ['scripts/**/*.mjs', 'netlify/functions/**/*.mjs', '*.config.{ts,mjs}'],
     languageOptions: { globals: globals.node },
   },
   // Lighthouse CI only loads CommonJS config
