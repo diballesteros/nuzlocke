@@ -1,6 +1,6 @@
 ---
 name: verify-nuzlocke
-description: Drive the Nuzlocke Tracker web app (React/Vite PWA) like a user and capture proof. Use to verify any UI or behaviour change, reproduce a bug, check a page in light/dark or mobile/desktop, or get the persisted store after a journey. Covers launch, health check, seeds, the control CLI, the feature map, and the pins (state goldens, visual + ARIA baselines, e2e) that guard UI migrations.
+description: Drive the Nuzlocke Tracker web app (React/Vite PWA) like a user and capture proof. Use to verify any UI or behaviour change, reproduce a bug, check a page in light/dark or mobile/desktop, or get the persisted store after a journey. Covers launch, health check, seeds, the control CLI, the feature map, and the pins (state goldens, visual + ARIA baselines, e2e) that guard UI changes.
 ---
 
 # Verify the Nuzlocke Tracker
@@ -23,8 +23,7 @@ storage, so pick a seed next. Ports 3100/9333 never collide with Playwright test
 checkout's session may hold them: set `VERIFY_PORT` and `VERIFY_CDP_PORT` (every command reads them).
 
 In a worktree whose `node_modules` is a symlink to the main checkout, dev mode refuses files served
-from outside Vite's `server.fs.allow` (it used to 403 Semantic UI's icon fonts). If anything is
-missing there, use `launch --prod`.
+from outside Vite's `server.fs.allow`. If anything is missing there, use `launch --prod`.
 
 ## Doctor
 
@@ -118,17 +117,15 @@ feature. When you change a feature's behaviour or handles, update its file in th
 | Persisted-store goldens: must not change in a UI-only change | `tests/state/**`, `__goldens__/` | `npx playwright test --project=state`           |
 | Seeds load at the current store version                      | `src/verification.seeds.test.ts` | `npx vitest run src/verification.seeds.test.ts` |
 
-All UI-library-specific selectors live in `tests/e2e/helpers.ts`. When a widget moves to a new UI
-library, change the helper body and leave the specs alone.
+All UI-library-specific selectors live in `tests/e2e/helpers.ts`. When a widget's markup changes,
+change the helper body and leave the specs alone; changing an existing spec needs the user's OK.
 
 ## Gotchas
 
-- Cypress-style `force` clicks are ported as `dispatchEvent('click')` (Cypress dispatches to the
-  element; Playwright's `force` still clicks at coordinates and hits whatever covers it).
+- To click an element something covers, use `dispatchEvent('click')`: Playwright's `force` still
+  clicks at coordinates and hits whatever covers it.
 - Type with keystrokes (`typeInto`) where intermediate values matter: e.g. the ruleset-name input
   warns while the partial name matches an existing ruleset.
-- The first tracker row's nature menu opens upward under the badge strip, so its top options are
-  covered (a real UI bug, left until the redesign; helpers pick them with `{ covered: true }`).
 - Hovering a badge also clears its grayscale filter: move the pointer away before asserting.
 - Text uppercased by CSS (PokéStats card headings) is title case in the DOM.
 - Playwright's own Firefox build fails to start on the maintainer's Windows machine ("side-by-side
