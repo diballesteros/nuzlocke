@@ -1,6 +1,6 @@
 {
-  "checked": "2026-11-14",
-  "ref": "feat/version-exclusives-bulbapedia",
+  "checked": "2026-11-16",
+  "ref": "feat/encounter-gaps-bulbapedia",
   "tags": {
     "rby-1": {
       "Pikachu": ["special"]
@@ -145,6 +145,18 @@
       "Pineco": ["headbutt"],
       "Spearow": ["gift"]
     },
+    "gsc-20": {
+      "Caterpie": ["contest"],
+      "Metapod": ["contest"],
+      "Butterfree": ["contest"],
+      "Weedle": ["contest"],
+      "Kakuna": ["contest"],
+      "Beedrill": ["contest"],
+      "Paras": ["contest"],
+      "Scyther": ["contest"],
+      "Pinsir": ["contest"],
+      "Venonat": ["contest"]
+    },
     "gsc-21": {
       "Caterpie": ["headbutt"],
       "Metapod": ["headbutt"],
@@ -254,7 +266,8 @@
       "Beedrill": ["headbutt"],
       "Ekans": ["headbutt"],
       "Exeggcute": ["headbutt"],
-      "Hoothoot": ["headbutt"]
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "gsc-71": {
       "Rapidash": ["trade"],
@@ -294,6 +307,9 @@
       "Geodude": ["rocksmash"],
       "Shuckle": ["rocksmash"]
     },
+    "rse-44": {
+      "Beldum": ["gift"]
+    },
     "rse-58": {
       "Horsea": ["trade"],
       "Corsola": ["trade"]
@@ -314,6 +330,9 @@
     "frlg-18": {
       "Nidorina": ["trade"],
       "Nidorino": ["trade"]
+    },
+    "frlg-22": {
+      "Graveler": ["rocksmash"]
     },
     "frlg-28": {
       "Abra": ["prize"],
@@ -392,7 +411,8 @@
       "Lotad": ["dualslot"],
       "Seedot": ["dualslot"],
       "Ralts": ["radar"],
-      "Kirlia": ["radar"]
+      "Kirlia": ["radar"],
+      "Sunkern": ["radar"]
     },
     "dpp-15": {
       "Mareep": ["radar"],
@@ -418,7 +438,8 @@
       "Cherubi": ["honey"],
       "Munchlax": ["honey"],
       "Slowpoke": ["radar"],
-      "Skiploom": ["radar"]
+      "Skiploom": ["radar"],
+      "Lotad": ["dualslot"]
     },
     "dpp-17": {
       "Caterpie": ["dualslot"],
@@ -428,7 +449,13 @@
       "Pineco": ["dualslot"],
       "Seedot": ["dualslot"],
       "Slakoth": ["swarm"],
-      "Nincada": ["radar"]
+      "Nincada": ["radar"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"]
     },
     "dpp-18": {
       "Togepi": ["gift"]
@@ -439,7 +466,14 @@
       "Nosepass": ["swarm"],
       "Baltoy": ["radar"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"]
     },
     "dpp-21": {
       "Sandshrew": ["dualslot"]
@@ -450,11 +484,19 @@
       "Stantler": ["radar"],
       "Larvitar": ["radar"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"],
+      "Heracross": ["honey"]
     },
     "dpp-23": {
       "Lunatone": ["dualslot"],
-      "Solrock": ["dualslot"]
+      "Solrock": ["dualslot"],
+      "Loudred": ["radar"]
     },
     "dpp-24": {
       "Dunsparce": ["swarm"],
@@ -463,7 +505,14 @@
       "Zangoose": ["dualslot"],
       "Seviper": ["dualslot"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"]
     },
     "dpp-26": {
       "Eevee": ["gift"],
@@ -476,7 +525,14 @@
       "Miltank": ["radar"],
       "Kirlia": ["radar"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"]
     },
     "dpp-31": {
       "Drowzee": ["swarm"],
@@ -504,7 +560,14 @@
       "Mightyena": ["radar"],
       "Spoink": ["swarm"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"]
     },
     "dpp-35": {
       "Nidorina": ["radar"],
@@ -514,10 +577,26 @@
       "Swellow": ["radar"],
       "Absol": ["swarm"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"]
     },
     "dpp-62": {
-      "Arbok": ["dualslot"]
+      "Yanma": ["nationaldex"],
+      "Arbok": ["dualslot"],
+      "Kecleon": ["nationaldex"],
+      "Exeggcute": ["nationaldex"],
+      "Kangaskhan": ["nationaldex"],
+      "Paras": ["nationaldex"],
+      "Shroomish": ["nationaldex"],
+      "Gulpin": ["nationaldex"],
+      "Drapion": ["nationaldex"],
+      "Toxicroak": ["nationaldex"]
     },
     "dpp-38": {
       "Smeargle": ["radar"],
@@ -526,7 +605,14 @@
       "Lotad": ["dualslot"],
       "Lombre": ["dualslot"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"],
+      "Heracross": ["honey"]
     },
     "dpp-67": {
       "Clefairy": ["special"],
@@ -563,7 +649,9 @@
       "Silcoon": ["honey"],
       "Cascoon": ["honey"],
       "Kecleon": ["radar"],
-      "Bagon": ["radar"]
+      "Bagon": ["radar"],
+      "Zangoose": ["dualslot"],
+      "Seviper": ["dualslot"]
     },
     "dpp-41": {
       "Magnemite": ["swarm"],
@@ -571,20 +659,41 @@
       "Skiploom": ["radar"],
       "Silcoon": ["honey"],
       "Cascoon": ["honey"],
-      "Aron": ["radar"]
+      "Aron": ["radar"],
+      "Aipom": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"]
     },
     "dpp-44": {
       "Nidorina": ["radar"],
       "Nidorino": ["radar"],
       "Farfetch'd": ["swarm"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"],
+      "Heracross": ["honey"]
     },
     "dpp-45": {
       "Voltorb": ["swarm"],
       "Ditto": ["radar"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Aipom": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"]
     },
     "dpp-47": {
       "Sableye": ["dualslot"],
@@ -602,7 +711,14 @@
       "Tyrogue": ["radar"],
       "Swablu": ["radar"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"],
+      "Heracross": ["honey"]
     },
     "dpp-50": {
       "Ursaring": ["dualslot"],
@@ -639,18 +755,31 @@
     "dpp-57": {
       "Skitty": ["swarm"],
       "Silcoon": ["honey"],
-      "Cascoon": ["honey"]
+      "Cascoon": ["honey"],
+      "Flaaffy": ["radar"],
+      "Heracross": ["honey"],
+      "Wurmple": ["honey"],
+      "Burmy": ["honey"],
+      "Combee": ["honey"],
+      "Cherubi": ["honey"],
+      "Munchlax": ["honey"],
+      "Aipom": ["honey"]
     },
     "hgss-1": {
       "Chikorita": ["gift"],
       "Cyndaquil": ["gift"],
       "Totodile": ["gift"],
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Exeggcute": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Hoothoot": ["headbutt"]
     },
     "hgss-2": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Exeggcute": ["headbutt"]
     },
     "hgss-3": {
       "Aipom": ["headbutt"],
@@ -661,7 +790,12 @@
       "Hoothoot": ["headbutt"],
       "Pineco": ["headbutt"],
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Taillow": ["headbutt"]
+    },
+    "hgss-5": {
+      "Exeggcute": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-6": {
       "Exeggcute": ["headbutt"],
@@ -675,7 +809,8 @@
       "Mareep": ["gift"],
       "Onix": ["trade"],
       "Wooper": ["gift"],
-      "Slugma": ["gift"]
+      "Slugma": ["gift"],
+      "Whiscash": ["swarm"]
     },
     "hgss-10": {
       "Exeggcute": ["headbutt"],
@@ -706,7 +841,8 @@
       "Hoothoot": ["headbutt"],
       "Pineco": ["headbutt"],
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Ralts": ["swarm"]
     },
     "hgss-18": {
       "Eevee": ["gift"],
@@ -726,11 +862,29 @@
       "Exeggcute": ["headbutt"],
       "Pineco": ["headbutt"],
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Wurmple": ["contest"],
+      "Silcoon": ["contest"],
+      "Beautifly": ["contest"],
+      "Cascoon": ["contest"],
+      "Dustox": ["contest"],
+      "Nincada": ["contest"],
+      "Volbeat": ["contest"],
+      "Illumise": ["contest"],
+      "Combee": ["contest"],
+      "Cherubi": ["headbutt"],
+      "Kricketune": ["contest"],
+      "Kricketot": ["contest"]
     },
     "hgss-21": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Exeggcute": ["headbutt"]
+    },
+    "hgss-22": {
+      "Exeggcute": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-23": {
       "Exeggcute": ["headbutt"],
@@ -741,11 +895,18 @@
     },
     "hgss-26": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Exeggcute": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Burmy": ["headbutt"],
+      "Hoothoot": ["headbutt"]
     },
     "hgss-27": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Exeggcute": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-32": {
       "Shuckle": ["gift", "rocksmash"]
@@ -776,6 +937,11 @@
     "hgss-34": {
       "Tyrogue": ["gift"]
     },
+    "hgss-36": {
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Exeggcute": ["headbutt"]
+    },
     "hgss-37": {
       "Venonat": ["headbutt"],
       "Exeggcute": ["headbutt"],
@@ -787,9 +953,19 @@
       "Spearow": ["headbutt"],
       "Aipom": ["headbutt"]
     },
+    "hgss-42": {
+      "Spearow": ["headbutt"],
+      "Aipom": ["headbutt"],
+      "Heracross": ["headbutt"],
+      "Swablu": ["swarm"]
+    },
     "hgss-43": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Luvdisc": ["swarm"],
+      "Exeggcute": ["headbutt"],
+      "Hoothoot": ["headbutt"]
     },
     "hgss-89": {
       "Ledyba": ["headbutt"],
@@ -803,24 +979,64 @@
     },
     "hgss-47": {
       "Diglett": ["rocksmash"],
-      "Shuckle": ["rocksmash"]
+      "Shuckle": ["rocksmash"],
+      "Wingull": ["swarm"],
+      "Combee": ["headbutt"],
+      "Spearow": ["headbutt"],
+      "Heracross": ["headbutt"]
+    },
+    "hgss-48": {
+      "Hoothoot": ["headbutt"],
+      "Combee": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-50": {
+      "Combee": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"]
+    },
+    "hgss-51": {
+      "Heracross": ["headbutt"],
       "Combee": ["headbutt"]
+    },
+    "hgss-52": {
+      "Hoothoot": ["headbutt"],
+      "Combee": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-55": {
       "Buizel": ["radio"],
       "Sableye": ["swarm"],
       "Mawile": ["swarm"]
     },
+    "hgss-56": {
+      "Hoothoot": ["headbutt"],
+      "Combee": ["headbutt"],
+      "Pineco": ["headbutt"]
+    },
+    "hgss-58": {
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Combee": ["headbutt"],
+      "Slakoth": ["headbutt"],
+      "Buneary": ["swarm"]
+    },
     "hgss-59": {
       "Hoothoot": ["headbutt"],
       "Pineco": ["headbutt"],
       "Wurmple": ["headbutt"]
     },
+    "hgss-60": {
+      "Spearow": ["headbutt"],
+      "Heracross": ["headbutt"],
+      "Combee": ["headbutt"]
+    },
     "hgss-62": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Tangela": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"]
     },
     "hgss-63": {
       "Hoothoot": ["headbutt"],
@@ -831,19 +1047,41 @@
     },
     "hgss-64": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Tangela": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"]
     },
     "hgss-65": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Tangela": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"]
     },
     "hgss-66": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Tangela": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Hoothoot": ["headbutt"]
     },
     "hgss-67": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Tangela": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Relicanth": ["swarm"]
+    },
+    "hgss-68": {
+      "Spearow": ["headbutt"],
+      "Combee": ["headbutt"],
+      "Heracross": ["headbutt"]
+    },
+    "hgss-70": {
+      "Pineco": ["headbutt"],
+      "Wurmple": ["headbutt"]
     },
     "hgss-71": {
       "Xatu": ["trade"],
@@ -854,30 +1092,57 @@
     },
     "hgss-73": {
       "Gulpin": ["swarm"],
-      "Baltoy": ["swarm"]
+      "Baltoy": ["swarm"],
+      "Pineco": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Hoothoot": ["headbutt"]
     },
     "hgss-75": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-76": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Poochyena": ["swarm"]
     },
     "hgss-77": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"],
+      "Pineco": ["headbutt"]
     },
     "hgss-78": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Wurmple": ["headbutt"]
+    },
+    "hgss-81": {
+      "Clamperl": ["swarm"]
     },
     "hgss-82": {
       "Ledyba": ["headbutt"],
-      "Spinarak": ["headbutt"]
+      "Spinarak": ["headbutt"],
+      "Hoothoot": ["headbutt"],
+      "Pineco": ["headbutt"],
+      "Wurmple": ["headbutt"]
+    },
+    "hgss-83": {
+      "Natu": ["headbutt"],
+      "Aipom": ["headbutt"],
+      "Heracross": ["headbutt"]
     },
     "hgss-84": {
-      "Aipom": ["headbutt"]
+      "Aipom": ["headbutt"],
+      "Natu": ["headbutt"],
+      "Heracross": ["headbutt"]
     },
     "bw-1": {
       "Snivy": ["gift"],
@@ -886,10 +1151,12 @@
     },
     "bw-2": {
       "Milotic": ["phenomenon"],
-      "Audino": ["phenomenon"]
+      "Audino": ["phenomenon"],
+      "Farfetch'd": ["swarm"]
     },
     "bw-4": {
-      "Audino": ["phenomenon"]
+      "Audino": ["phenomenon"],
+      "Wynaut": ["swarm"]
     },
     "bw-5": {
       "Seaking": ["phenomenon"]
@@ -943,12 +1210,14 @@
       "Huntail": ["phenomenon"],
       "Gorebyss": ["phenomenon"],
       "Relicanth": ["phenomenon"],
-      "Alomomola": ["phenomenon"]
+      "Alomomola": ["phenomenon"],
+      "Hippopotas": ["swarm"]
     },
     "bw-37": {
       "Audino": ["phenomenon"],
       "Cinccino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Pineco": ["swarm"]
     },
     "bw-38": {
       "Pansage": ["phenomenon"],
@@ -963,7 +1232,8 @@
     "bw-16": {
       "Audino": ["phenomenon"],
       "Cinccino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Smeargle": ["swarm"]
     },
     "bw-17": {
       "Ducklett": ["phenomenon"]
@@ -994,7 +1264,8 @@
     },
     "bw-24": {
       "Audino": ["phenomenon"],
-      "Emolga": ["phenomenon", "trade"]
+      "Emolga": ["phenomenon", "trade"],
+      "Sentret": ["swarm"]
     },
     "bw-26": {
       "Seadra": ["phenomenon"],
@@ -1011,7 +1282,9 @@
       "Audino": ["phenomenon"],
       "Throh": ["phenomenon"],
       "Sawk": ["phenomenon"],
-      "Alomomola": ["phenomenon"]
+      "Alomomola": ["phenomenon"],
+      "Exeggcute": ["swarm"],
+      "Larvesta": ["gift"]
     },
     "bw-28": {
       "Drilbur": ["phenomenon"]
@@ -1022,11 +1295,13 @@
     },
     "bw-30": {
       "Audino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Dragonite": ["phenomenon"]
     },
     "bw-31": {
       "Whiscash": ["phenomenon"],
-      "Seismitoad": ["phenomenon"]
+      "Seismitoad": ["phenomenon"],
+      "Croagunk": ["swarm"]
     },
     "bw-32": {
       "Whiscash": ["phenomenon"],
@@ -1046,7 +1321,8 @@
       "Audino": ["phenomenon"],
       "Throh": ["phenomenon"],
       "Sawk": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Tyrogue": ["swarm"]
     },
     "bw-39": {
       "Audino": ["phenomenon"],
@@ -1087,7 +1363,8 @@
       "Azumarill": ["phenomenon"],
       "Politoed": ["phenomenon"],
       "Dunsparce": ["grotto", "phenomenon"],
-      "Audino": ["phenomenon"]
+      "Audino": ["phenomenon"],
+      "Herdier": ["grotto"]
     },
     "bw2-6": {
       "Kingler": ["phenomenon"],
@@ -1113,7 +1390,8 @@
     "bw2-10": {
       "Drilbur": ["phenomenon"],
       "Azumarill": ["phenomenon"],
-      "Poliwhirl": ["phenomenon"]
+      "Poliwhirl": ["phenomenon"],
+      "Poliwrath": ["phenomenon"]
     },
     "bw2-11": {
       "Huntail": ["phenomenon"],
@@ -1124,10 +1402,14 @@
       "Cottonee": ["trade"],
       "Petilil": ["trade"]
     },
+    "bw2-12": {
+      "Hippowdon": ["swarm"]
+    },
     "bw2-14": {
       "Audino": ["phenomenon"],
       "Cinccino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Pineco": ["swarm"]
     },
     "bw2-15": {
       "Poliwhirl": ["phenomenon"],
@@ -1149,7 +1431,9 @@
     "bw2-16": {
       "Audino": ["phenomenon"],
       "Cinccino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Natu": ["swarm"],
+      "Foongus": ["grotto"]
     },
     "bw2-43": {
       "Foongus": ["grotto"],
@@ -1172,7 +1456,45 @@
       "Butterfree": ["grotto"],
       "Beedrill": ["grotto"],
       "Glameow": ["grotto"],
-      "Stunky": ["grotto"]
+      "Stunky": ["grotto"],
+      "Nidoran♀": ["grotto"],
+      "Nidoran♂": ["grotto"],
+      "Clefairy": ["grotto"],
+      "Golduck": ["grotto"],
+      "Venonat": ["grotto"],
+      "Kingler": ["grotto"],
+      "Poliwhirl": ["grotto"],
+      "Ditto": ["grotto"],
+      "Dragonite": ["grotto"],
+      "Pinsir": ["grotto"],
+      "Murkrow": ["grotto"],
+      "Marill": ["grotto"],
+      "Gligar": ["grotto"],
+      "Heracross": ["grotto"],
+      "Granbull": ["grotto"],
+      "Corsola": ["grotto"],
+      "Lombre": ["grotto"],
+      "Pelipper": ["grotto"],
+      "Sneasel": ["grotto"],
+      "Breloom": ["grotto"],
+      "Hariyama": ["grotto"],
+      "Medicham": ["grotto"],
+      "Swablu": ["grotto"],
+      "Absol": ["grotto"],
+      "Manectric": ["grotto"],
+      "Metang": ["grotto"],
+      "Bagon": ["grotto"],
+      "Combee": ["grotto"],
+      "Bibarel": ["grotto"],
+      "Bronzor": ["grotto"],
+      "Chatot": ["grotto"],
+      "Herdier": ["grotto"],
+      "Pachirisu": ["grotto"],
+      "Leavanny": ["grotto"],
+      "Zebstrika": ["grotto"],
+      "Amoonguss": ["grotto"],
+      "Mienfoo": ["grotto"],
+      "Vulpix": ["grotto"]
     },
     "bw2-17": {
       "Ducklett": ["phenomenon"]
@@ -1190,7 +1512,9 @@
       "Leavanny": ["phenomenon"],
       "Emolga": ["phenomenon"],
       "Plusle": ["swarm"],
-      "Minun": ["swarm"]
+      "Minun": ["swarm"],
+      "Woobat": ["grotto"],
+      "Nosepass": ["grotto"]
     },
     "bw2-21": {
       "Drilbur": ["phenomenon"]
@@ -1203,7 +1527,8 @@
     },
     "bw2-24": {
       "Audino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Furret": ["swarm"]
     },
     "bw2-26": {
       "Audino": ["phenomenon"],
@@ -1228,12 +1553,18 @@
       "Starmie": ["phenomenon"],
       "Tangrowth": ["phenomenon"],
       "Audino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Swellow": ["swarm"],
+      "Spheal": ["grotto"],
+      "Drifloon": ["grotto"],
+      "Foongus": ["grotto"],
+      "Skorupi": ["grotto"]
     },
     "bw2-42": {
       "Audino": ["phenomenon"],
       "Emolga": ["phenomenon"],
-      "Seaking": ["phenomenon"]
+      "Seaking": ["phenomenon"],
+      "Floatzel": ["phenomenon"]
     },
     "bw2-44": {
       "Ninetales": ["phenomenon"],
@@ -1252,7 +1583,8 @@
       "Vespiquen": ["phenomenon"],
       "Audino": ["phenomenon"],
       "Leavanny": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Doduo": ["swarm"]
     },
     "bw2-32": {
       "Lapras": ["phenomenon"],
@@ -1268,14 +1600,16 @@
       "Floatzel": ["phenomenon"],
       "Gliscor": ["phenomenon"],
       "Audino": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Masquerain": ["swarm"]
     },
     "bw2-34": {
       "Audino": ["phenomenon"],
       "Cinccino": ["phenomenon"],
       "Gothitelle": ["phenomenon"],
       "Reuniclus": ["phenomenon"],
-      "Emolga": ["phenomenon"]
+      "Emolga": ["phenomenon"],
+      "Swalot": ["swarm"]
     },
     "bw2-35": {
       "Dewgong": ["phenomenon"],
@@ -1309,7 +1643,8 @@
       "Poliwrath": ["phenomenon"],
       "Mamoswine": ["phenomenon"],
       "Clefable": ["phenomenon"],
-      "Metagross": ["phenomenon"]
+      "Metagross": ["phenomenon"],
+      "Vanilluxe": ["phenomenon"]
     },
     "bw2-40": {
       "Poliwhirl": ["phenomenon"],
@@ -1488,7 +1823,16 @@
     "oras-2": {
       "Treecko": ["gift"],
       "Torchic": ["gift"],
-      "Mudkip": ["gift"]
+      "Mudkip": ["gift"],
+      "Totodile": ["gift"],
+      "Chikorita": ["gift"],
+      "Cyndaquil": ["gift"],
+      "Chimchar": ["gift"],
+      "Piplup": ["gift"],
+      "Snivy": ["gift"],
+      "Tepig": ["gift"],
+      "Oshawott": ["gift"],
+      "Turtwig": ["gift"]
     },
     "oras-8": {
       "Makuhita": ["trade"]
@@ -1554,12 +1898,16 @@
     "oras-40": {
       "Wingull": ["horde"]
     },
+    "oras-44": {
+      "Beldum": ["gift"]
+    },
     "oras-46": {
       "Zubat": ["horde"],
       "Graveler": ["rocksmash"]
     },
     "oras-49": {
-      "Zubat": ["horde"]
+      "Zubat": ["horde"],
+      "Graveler": ["rocksmash"]
     },
     "oras-52": {
       "Zubat": ["horde"]
@@ -1589,7 +1937,8 @@
       "Popplio": ["gift"]
     },
     "sm-5": {
-      "Klink": ["islandscan"]
+      "Klink": ["islandscan"],
+      "Magearna": ["gift"]
     },
     "sm-6": {
       "Makuhita": ["phenomenon"],
@@ -1718,7 +2067,8 @@
     "usum-5": {
       "Bewear": ["special"],
       "Hypno": ["special"],
-      "Scatterbug": ["islandscan"]
+      "Scatterbug": ["islandscan"],
+      "Magearna": ["gift"]
     },
     "usum-6": {
       "Crabrawler": ["berry"],
@@ -1844,7 +2194,8 @@
       "Shellos": ["trade"]
     },
     "usum-61": {
-      "Crabrawler": ["berry"]
+      "Crabrawler": ["berry"],
+      "Greninja": ["islandscan"]
     },
     "usum-55": {
       "Chesnaught": ["islandscan"]
@@ -1874,7 +2225,8 @@
       "Crustle": ["special"],
       "Pangoro": ["special"],
       "Haunter": ["special"],
-      "Mudsdale": ["special"]
+      "Mudsdale": ["special"],
+      "Dubwool": ["special"]
     },
     "swsh-6": {
       "Cherubi": ["berry"],
@@ -1936,7 +2288,8 @@
       "Lapras": ["special"],
       "Seaking": ["special"],
       "Whiscash": ["special"],
-      "Vanilluxe": ["special"]
+      "Vanilluxe": ["special"],
+      "Pelipper": ["special"]
     },
     "swsh-10": {
       "Galvantula": ["special"],
@@ -1979,13 +2332,17 @@
       "Bisharp": ["special"],
       "Musharna": ["special"],
       "Galvantula": ["special"],
-      "Vikavolt": ["special"]
+      "Vikavolt": ["special"],
+      "Dusclops": ["special"],
+      "Glalie": ["special"],
+      "Duraludon": ["special"]
     },
     "swsh-36": {
       "Cherubi": ["berry"],
       "Greedent": ["berry"],
       "Abomasnow": ["special"],
-      "Haxorus": ["special"]
+      "Haxorus": ["special"],
+      "Cramorant": ["special"]
     },
     "swsh-13": {
       "Skwovet": ["trade"]
@@ -2019,7 +2376,8 @@
       "Rhydon": ["special"],
       "Conkeldurr": ["special"],
       "Bisharp": ["special"],
-      "Corviknight": ["special"]
+      "Corviknight": ["special"],
+      "Wailmer": ["special"]
     },
     "swsh-24": {
       "Cherubi": ["berry"],
@@ -2044,7 +2402,9 @@
       "Weavile": ["special"],
       "Gallade": ["special"],
       "Beartic": ["special"],
-      "Musharna": ["special"]
+      "Musharna": ["special"],
+      "Pelipper": ["special"],
+      "Obstagoon": ["special"]
     },
     "swsh-25": {
       "Golurk": ["special"],
@@ -2055,7 +2415,8 @@
       "Tsareena": ["special"],
       "Rhydon": ["phenomenon"],
       "Unfezant": ["special"],
-      "Crustle": ["special"]
+      "Crustle": ["special"],
+      "Grimmsnarl": ["special"]
     },
     "swsh-26": {
       "Dusclops": ["special"],
@@ -2067,7 +2428,8 @@
       "Claydol": ["special"],
       "Tyranitar": ["special"],
       "Kommo-o": ["special"],
-      "Gastrodon": ["special"]
+      "Gastrodon": ["special"],
+      "Sandaconda": ["special"]
     },
     "swsh-27": {
       "Cherubi": ["berry"],
@@ -2078,7 +2440,8 @@
       "Abomasnow": ["special"],
       "Klang": ["special"],
       "Klinklang": ["special"],
-      "Gourgeist": ["special"]
+      "Gourgeist": ["special"],
+      "Copperajah": ["special"]
     },
     "swsh-28": {
       "Cherubi": ["berry"],
@@ -2183,7 +2546,8 @@
     },
     "bdsp-11": {
       "Ralts": ["radar"],
-      "Kirlia": ["radar"]
+      "Kirlia": ["radar"],
+      "Sunkern": ["radar"]
     },
     "bdsp-70": {
       "Jirachi": ["gift"],
@@ -2252,6 +2616,9 @@
       "Munchlax": ["honey"],
       "Silcoon": ["honey"],
       "Cascoon": ["honey"]
+    },
+    "bdsp-23": {
+      "Loudred": ["radar"]
     },
     "bdsp-24": {
       "Dunsparce": ["swarm"],
@@ -2329,6 +2696,16 @@
       "Silcoon": ["honey"],
       "Cascoon": ["honey"]
     },
+    "bdsp-62": {
+      "Yanma": ["nationaldex"],
+      "Toxicroak": ["nationaldex"],
+      "Paras": ["nationaldex"],
+      "Exeggcute": ["nationaldex"],
+      "Kangaskhan": ["nationaldex"],
+      "Shroomish": ["nationaldex"],
+      "Gulpin": ["nationaldex"],
+      "Drapion": ["nationaldex"]
+    },
     "bdsp-38": {
       "Smeargle": ["radar"],
       "Grimer": ["radar"],
@@ -2357,7 +2734,8 @@
       "Castform": ["special"],
       "Bonsly": ["special"],
       "Mime Jr.": ["special"],
-      "Happiny": ["special"]
+      "Happiny": ["special"],
+      "Jigglypuff": ["special"]
     },
     "bdsp-39": {
       "Tauros": ["radar"],
