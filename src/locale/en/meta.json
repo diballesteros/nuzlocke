@@ -1,0 +1,50 @@
+{
+  "about": {
+    "title": "About - Nuzlocke Tracker",
+    "description": "About Nuzlocke Tracker, a free app for recording Pokémon Nuzlocke runs: who makes it, the credits, and how it keeps your runs in your browser."
+  },
+  "badge": {
+    "title": "Badge details - Nuzlocke Tracker",
+    "description": "The leader's team, levels and moves for a badge in your Nuzlocke run."
+  },
+  "builder": {
+    "title": "Team Builder - Nuzlocke Tracker",
+    "description": "Build a team from the Pokémon you caught in your Nuzlocke run, then check its type coverage and weaknesses."
+  },
+  "calculator": {
+    "title": "Damage Calculator - Nuzlocke Tracker",
+    "description": "A Pokémon damage calculator for Nuzlocke runs: damage ranges and KO chances between your Pokémon and the next trainer's, for generations 1 to 8."
+  },
+  "changelog": {
+    "title": "Changelog - Nuzlocke Tracker",
+    "description": "What's new in Nuzlocke Tracker: every release's features, updates and fixes."
+  },
+  "delete": {
+    "title": "Accounts discontinued - Nuzlocke Tracker",
+    "description": "Nuzlocke Tracker no longer has accounts. Your runs are saved in your browser."
+  },
+  "import": {
+    "title": "Import a backup - Nuzlocke Tracker",
+    "description": "Load a Nuzlocke Tracker backup file to restore your runs."
+  },
+  "report": {
+    "title": "Report a problem - Nuzlocke Tracker",
+    "description": "Report a bug or suggest an improvement for Nuzlocke Tracker."
+  },
+  "rules": {
+    "title": "Nuzlocke Rules - Nuzlocke Tracker",
+    "description": "Nuzlocke rules for your run: the classic rules, Hardcore, Egglocke, Wonderlocke, Soul Link and more rulesets, or write your own."
+  },
+  "settings": {
+    "title": "Settings - Nuzlocke Tracker",
+    "description": "Choose the language, theme, statuses and how the tracker looks."
+  },
+  "stats": {
+    "title": "Run Stats - Nuzlocke Tracker",
+    "description": "Your Nuzlocke run in numbers: encounters, team, fainted and boxed Pokémon, and a summary image to share."
+  },
+  "tracker": {
+    "title": "Nuzlocke Tracker - Track pokemon encounters",
+    "description": "The best online app to track and record nuzlocke encounters and pokemon. Including level caps, custom games, all routes, and pokémon up to generation 8."
+  }
+}

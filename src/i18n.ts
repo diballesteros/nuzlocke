@@ -6,6 +6,7 @@ import BUILDER_DE from 'locale/de/builder.json';
 import CALCULATOR_DE from 'locale/de/calculator.json';
 import COMMON_DE from 'locale/de/common.json';
 import IMPORT_DE from 'locale/de/import.json';
+import META_DE from 'locale/de/meta.json';
 import REPORT_DE from 'locale/de/report.json';
 import RULES_DE from 'locale/de/rules.json';
 import SETTINGS_DE from 'locale/de/settings.json';
@@ -17,6 +18,7 @@ import BUILDER_EN from 'locale/en/builder.json';
 import CALCULATOR_EN from 'locale/en/calculator.json';
 import COMMON_EN from 'locale/en/common.json';
 import IMPORT_EN from 'locale/en/import.json';
+import META_EN from 'locale/en/meta.json';
 import REPORT_EN from 'locale/en/report.json';
 import RULES_EN from 'locale/en/rules.json';
 import SETTINGS_EN from 'locale/en/settings.json';
@@ -28,6 +30,7 @@ import BUILDER_ES from 'locale/es/builder.json';
 import CALCULATOR_ES from 'locale/es/calculator.json';
 import COMMON_ES from 'locale/es/common.json';
 import IMPORT_ES from 'locale/es/import.json';
+import META_ES from 'locale/es/meta.json';
 import REPORT_ES from 'locale/es/report.json';
 import RULES_ES from 'locale/es/rules.json';
 import SETTINGS_ES from 'locale/es/settings.json';
@@ -43,6 +46,7 @@ const resources = {
     calculator: CALCULATOR_DE,
     common: COMMON_DE,
     import: IMPORT_DE,
+    meta: META_DE,
     report: REPORT_DE,
     rules: RULES_DE,
     settings: SETTINGS_DE,
@@ -56,6 +60,7 @@ const resources = {
     calculator: CALCULATOR_EN,
     common: COMMON_EN,
     import: IMPORT_EN,
+    meta: META_EN,
     report: REPORT_EN,
     rules: RULES_EN,
     settings: SETTINGS_EN,
@@ -69,6 +74,7 @@ const resources = {
     calculator: CALCULATOR_ES,
     common: COMMON_ES,
     import: IMPORT_ES,
+    meta: META_ES,
     report: REPORT_ES,
     rules: RULES_ES,
     settings: SETTINGS_ES,
