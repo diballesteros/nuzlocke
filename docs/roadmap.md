@@ -147,7 +147,7 @@ It comes after the triage loop, so Sentry's reports can feed the loop, and befor
 
     A small Vite entry (`stats.html`) can build it with the app's Tailwind tokens, light and dark, and a light chart library such as uPlot. Filtering and bounce rate need event-level data, which 8a keeps for its retention window.
 
-- **Sentry:** `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel (#891; see `CLAUDE.md`). Sentry's user feedback widget, a second way to report problems, is #929 (open).
+- **Sentry:** `src/lib/sentry.ts` holds v11's defaults with personal data kept off, the root error handlers and the `/diag` tunnel (#891; see `CLAUDE.md`). In review (#929): Sentry's user feedback form as a second way to report problems, from a Send quick feedback button on the Report page (the user's choice over Sentry's floating button, which would cover the tracker FAB and sit on the mobile tab bar). It asks for a message only: no name, email or screenshot. It loads on click, as its own chunk of about 18 KB gzipped. Feedback shows in Sentry's User Feedback view, not as an issue, so the alert rule below needs a feedback alert of its own.
 - **Into the loop (not started):** a Sentry alert rule opens a GitHub issue for each new error (labelled `sentry`, which exists), and the triage sends its Discord alert like any other issue. Sentry's own Discord integration is the fallback. The free Developer plan's error quota is the limit; rate-limit the alerts so a burst can't flood the issues.
 
 ### Phase 9: SEO
