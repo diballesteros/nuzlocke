@@ -1,6 +1,6 @@
 # Description
 
-<!-- Please make sure to make the PR to a version branch. Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.  -->
+<!-- Please make the PR to `master` (see CONTRIBUTING.md), and add a change file in `.changes/` if players can notice the change. Please include a summary of the change and which issue is fixed. Please also include relevant motivation and context. List any dependencies that are required for this change.  -->
 
 Fixes # (issue)
 
