@@ -20,6 +20,9 @@ export to another game or the Builder).
 - `enc-scroll`: the scroll list jumps to any location or the last one filled, and can skip rows.
 - `enc-notes`: free-text notes per game.
 - `enc-alerts`: rule alerts on a row (DUPE, FORBIDDEN TYPE/GEN, OVERLEVELED, TEAM OVER 6).
+- `enc-version`: the Version menu (`version`) on every paired game but Brilliant Diamond/Shining
+  Pearl narrows each location's selector to that version (`games[key].version`; tags in
+  `src/constants/exclusives.ts`). The FireRed/LeafGreen and Sword/Shield seeds show it.
 
 ## How to get to it (user POV)
 

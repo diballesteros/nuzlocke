@@ -109,6 +109,7 @@ export interface AppState {
   setGens: (genId: number) => void;
   setLanguage: (language: TLanguage) => void;
   setTypes: (typeId: Type) => void;
+  setVersion: (version?: TVersion) => void;
   showTypeModal: (type: Type) => void;
   summary: TSummaryDictionary;
   toggleMissing: () => void;
@@ -128,7 +129,67 @@ export type Games = { [key: string]: TrackData };
 export type TrackData = {
   badge: number[];
   encounters: TEncounter[];
+  // The version a combined game's run is played on (constants/versions). Absent means every
+  // version: saves from before it existed load unchanged, so it needs no persist migration.
+  version?: TVersion;
 };
+
+// How a Pokémon is met at a location when it isn't a plain wild encounter (constants/methods), as
+// Bulbapedia's location pages list it. Each has a label under `methods` in the common namespace
+export type TMethod =
+  | 'berry'
+  | 'curry'
+  | 'dualslot'
+  | 'gift'
+  | 'grotto'
+  | 'headbutt'
+  | 'hidden'
+  | 'honey'
+  | 'horde'
+  | 'islandscan'
+  | 'phenomenon'
+  | 'prize'
+  | 'radar'
+  | 'radio'
+  | 'rocksmash'
+  | 'sos'
+  | 'special'
+  | 'swarm'
+  | 'trade';
+
+export type TVersion =
+  | 'red'
+  | 'blue'
+  | 'yellow'
+  | 'gold'
+  | 'silver'
+  | 'crystal'
+  | 'ruby'
+  | 'sapphire'
+  | 'emerald'
+  | 'firered'
+  | 'leafgreen'
+  | 'diamond'
+  | 'pearl'
+  | 'platinum'
+  | 'heartgold'
+  | 'soulsilver'
+  | 'black'
+  | 'white'
+  | 'black2'
+  | 'white2'
+  | 'x'
+  | 'y'
+  | 'omegaruby'
+  | 'alphasapphire'
+  | 'sun'
+  | 'moon'
+  | 'ultrasun'
+  | 'ultramoon'
+  | 'sword'
+  | 'shield'
+  | 'brilliantdiamond'
+  | 'shiningpearl';
 
 export type TGame = {
   value: string;

@@ -47,6 +47,7 @@
   - searchbox "search"
   - button "Help"
   - button "search-filter"
+  - combobox "Version": All versions
   - list:
     - listitem "Starter":
       - text: ""

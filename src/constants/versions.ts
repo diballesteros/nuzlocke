@@ -1,0 +1,41 @@
+import type { TMethod, TVersion } from 'constants/types';
+
+// The versions a game entry covers. A run can pick one (stored as its game's `version`), and the
+// Pokémon selector then offers only what that version's encounter tables hold. Custom games never
+// have one, even when made from one of these games: their tables are the player's own
+export const GAME_VERSIONS: { [gameKey: string]: TVersion[] } = {
+  '1': ['red', 'blue', 'yellow'],
+  '2': ['gold', 'silver', 'crystal'],
+  '3': ['ruby', 'sapphire', 'emerald'],
+  '4': ['firered', 'leafgreen'],
+  '5': ['diamond', 'pearl', 'platinum'],
+  '6': ['heartgold', 'soulsilver'],
+  '7': ['black', 'white'],
+  '8': ['black2', 'white2'],
+  '9': ['x', 'y'],
+  '10': ['omegaruby', 'alphasapphire'],
+  '11': ['sun', 'moon'],
+  '12': ['ultrasun', 'ultramoon'],
+  '13': ['sword', 'shield'],
+  '13.1': ['brilliantdiamond', 'shiningpearl'],
+};
+
+// constants/exclusives' shape. The table is its own chunk (hooks/useExclusives loads it once a run
+// has a version), so the main bundle stays inside the Lighthouse script budget
+export type TExclusives = { [filterKey: string]: { [pokemon: string]: TVersion[] } };
+
+// Whether a Pokémon in a location's encounter table appears in the chosen version. Without a
+// version (every save from before versions existed), or for a Pokémon that isn't tagged, it does.
+export function inVersion(
+  exclusives: TExclusives | null,
+  filterKey: string,
+  pokemon: string,
+  version?: TVersion
+): boolean {
+  const versions = version && exclusives?.[filterKey]?.[pokemon];
+  return !versions || versions.includes(version);
+}
+
+// constants/methods' shape: how a Pokémon in a location's encounter table is met there when it
+// isn't a plain wild encounter. Its own chunk too (hooks/useMethods), loaded by the tracker's rows
+export type TMethods = { [filterKey: string]: { [pokemon: string]: TMethod[] } };

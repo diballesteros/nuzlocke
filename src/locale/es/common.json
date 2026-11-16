@@ -87,5 +87,26 @@
     "Careful": "Cauta",
     "Quirky": "Rara"
   },
-  "delete_move": "Borrar {{move}}"
+  "delete_move": "Borrar {{move}}",
+  "methods": {
+    "special": "Especial",
+    "gift": "Regalo",
+    "trade": "Intercambio",
+    "prize": "Premio",
+    "headbutt": "Golpe Cabeza",
+    "rocksmash": "Golpe Roca",
+    "swarm": "Enjambre",
+    "radar": "Pokéradar",
+    "dualslot": "Doble ranura",
+    "radio": "Radio",
+    "phenomenon": "Fenómeno",
+    "grotto": "Claro Oculto",
+    "horde": "Horda",
+    "hidden": "Oculto",
+    "islandscan": "Escáner Isla",
+    "berry": "Árbol de bayas",
+    "honey": "Árbol de miel",
+    "sos": "SOS",
+    "curry": "Curry"
+  }
 }

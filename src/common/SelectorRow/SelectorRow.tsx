@@ -10,6 +10,8 @@ interface SelectorRowProps {
   ariaAttributes?: RowProps['ariaAttributes'];
   // A tag pinned to the row's top-left corner (suggested, dupe)
   tag?: React.ReactNode;
+  // A label in the middle of the row (how the Pokémon is met there)
+  method?: React.ReactNode;
   dupe?: boolean;
   name: string;
   onClick: () => void;
@@ -22,6 +24,7 @@ interface SelectorRowProps {
 function SelectorRow({
   ariaAttributes,
   tag,
+  method,
   dupe = false,
   name,
   onClick,
@@ -48,6 +51,7 @@ function SelectorRow({
           </div>
           <b>{name}</b>
         </div>
+        {method}
         <PokemonType pokemon={pokemon} />
       </div>
     </div>

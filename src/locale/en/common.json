@@ -87,5 +87,26 @@
     "Careful": "Careful",
     "Quirky": "Quirky"
   },
-  "delete_move": "Delete {{move}}"
+  "delete_move": "Delete {{move}}",
+  "methods": {
+    "special": "Special",
+    "gift": "Gift",
+    "trade": "Trade",
+    "prize": "Prize",
+    "headbutt": "Headbutt",
+    "rocksmash": "Rock Smash",
+    "swarm": "Swarm",
+    "radar": "Poké Radar",
+    "dualslot": "Dual-slot",
+    "radio": "Radio",
+    "phenomenon": "Phenomenon",
+    "grotto": "Hidden Grotto",
+    "horde": "Horde",
+    "hidden": "Hidden",
+    "islandscan": "Island Scan",
+    "berry": "Berry tree",
+    "honey": "Honey tree",
+    "sos": "SOS",
+    "curry": "Curry"
+  }
 }
